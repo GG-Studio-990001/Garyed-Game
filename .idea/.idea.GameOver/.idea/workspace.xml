@@ -5,20 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b92e3963-3ac6-4419-ae77-cd6c1cffc83d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Common/Presentation/DialogueUIPresenter.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Common/Presentation/DialogueUIPresenter.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Common/View/DialogueUIView.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Common/View/DialogueUIView.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Tests/Editor/DialogueUITests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Tests/Editor/DialogueUITests.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GameOver/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GameOver/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TopDownTest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TopDownTest.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/CH1/Main/TestInteraction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/CH1/Main/NpcInteraction.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/CH1/Main/TestInteraction.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/CH1/Main/NpcInteraction.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Common/Presentation/PresenterFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Common/Presentation/PresenterFactory.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Common/View/SettingsUIView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Common/View/SettingsUIView.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tests/Editor/SettingsUIPresenterTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tests/Editor/SettingsUITests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tests/Editor/SettingsUIPresenterTests.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tests/Editor/SettingsUITests.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/CH1/Main/PlayerFunction/TopDownInteraction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/CH1/Main/PlayerFunction/TopDownInteraction.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tests/Runtime/TopDownPlayerTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tests/Runtime/TopDownPlayerTests.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +17,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3b24cc7fa9794ed8ab04312c53e6dedd172c00/ca/b1f3e6bc/GameObject.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/scratches/Learning.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/CH1/Main/PlayerFunction/TopDownAnimation.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.7.0/InputSystem/Actions/InputAction.cs" root0="SKIP_HIGHLIGHTING" />
@@ -141,6 +130,8 @@
       <workItem from="1699807453433" duration="3703000" />
       <workItem from="1699813768016" duration="647000" />
       <workItem from="1699862966646" duration="5545000" />
+      <workItem from="1700410989330" duration="4839000" />
+      <workItem from="1700575152776" duration="3214000" />
     </task>
     <servers />
   </component>

@@ -1,20 +1,26 @@
-using NSubstitute;
 using NUnit.Framework;
 using Runtime.Common.Presentation;
 using Runtime.Common.View;
+using UnityEngine;
+using TMPro;
 
-namespace Tests.Editor
+namespace Tests.Runtime
 {
     [TestFixture]
     public class DialogueUITests
     {
+        private GameObject _gameObject;
         private DialogueUIView _view;
         private DialogueUIPresenter _presenter;
         
         [SetUp]
         public void SetUp()
         {
-            _view = Substitute.For<DialogueUIView>();
+            _gameObject = new GameObject("DialogueUI");
+            
+            _view = _gameObject.AddComponent<DialogueUIView>();
+            _view.dialogueText = new GameObject("DialogueText").AddComponent<TMPro.TextMeshProUGUI>();
+            
             _presenter = new DialogueUIPresenter(_view);
         }
         
@@ -22,7 +28,7 @@ namespace Tests.Editor
         public void WhenDialogueStartsViewIsUpdated()
         {
             _presenter.StartDialogue("Hello World!");
-            _view.Received(1).StartDialogue("Hello World!");
+            Assert.AreEqual("Hello World!", _view.GetDialogueText());
         }
     }
 }

@@ -1,15 +1,16 @@
-using NSubstitute;
 using NUnit.Framework;
 using Runtime.Common.Domain;
 using Runtime.Common.Presentation;
 using Runtime.Common.View;
 using UnityEngine;
+using UnityEngine.UI;
 
-namespace Tests.Editor
+namespace Tests.Runtime
 {
     [TestFixture]
     public class SettingsUITests
     {
+        private GameObject _gameObject;
         private SettingsUIView _view;
         private SettingsData _model;
         private SettingsUIPresenter _presenter;
@@ -17,7 +18,12 @@ namespace Tests.Editor
         [SetUp]
         public void SetUp()
         {
-            _view = Substitute.For<SettingsUIView>();
+            _gameObject = new GameObject("SettingsUI");
+            _view = _gameObject.AddComponent<SettingsUIView>();
+            
+            _view.musicVolumeSlider = new GameObject("MusicVolumeSlider").AddComponent<Slider>();
+            _view.sfxVolumeSlider = new GameObject("SfxVolumeSlider").AddComponent<Slider>();
+            
             _model = ScriptableObject.CreateInstance<SettingsData>();
             _presenter = new SettingsUIPresenter(_view, _model);
             
@@ -36,14 +42,14 @@ namespace Tests.Editor
         public void WhenMusicVolumeChangesViewIsUpdated()
         {
             _presenter.SetMusicVolume(0.75f);
-            _view.Received(1).SetViewMusicVolume(0.75f);
+            Assert.AreEqual(0.75f, _view.GetViewMusicVolume());
         }
         
         [Test]
         public void WhenSfxVolumeChangesViewIsUpdated()
         {
             _presenter.SetSfxVolume(0.3f);
-            _view.Received(1).SetViewSfxVolume(0.3f);
+            Assert.AreEqual(0.3f, _view.GetViewSfxVolume());
         }
         
         [Test]
@@ -60,12 +66,10 @@ namespace Tests.Editor
             Assert.AreEqual(0.3f, _model.SfxVolume);
         }
         
-        [Test]
-        public void WhenMusicVolumeChagesEqualModelAndPresenter()
+        [TearDown]
+        public void TearDown()
         {
-            _model.MusicVolume = 0.31f;
-            Assert.AreEqual(_presenter.SettingsData.MusicVolume, _model.MusicVolume);
+            Object.DestroyImmediate(_gameObject);
         }
-        
     }
 }

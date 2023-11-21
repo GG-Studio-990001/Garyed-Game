@@ -5,8 +5,8 @@ namespace Runtime.CH1.Main.PlayerFunction
 {
     public class TopDownInteraction
     {
-        private readonly int _interactionLayerMask;
         private readonly Transform _transform;
+        private readonly int _interactionLayerMask;
         private readonly float _interactionDistance;
         
         public TopDownInteraction(Transform transform, int interactionLayerMask, float interactionDistance = 1.0f)

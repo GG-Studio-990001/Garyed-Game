@@ -6,8 +6,8 @@ namespace Runtime.Common.View
 {
     public class SettingsUIView : MonoBehaviour
     {
-        [SerializeField] private Slider musicVolumeSlider;
-        [SerializeField] private Slider sfxVolumeSlider;
+        [field:SerializeField] public Slider musicVolumeSlider;
+        [field:SerializeField] public Slider sfxVolumeSlider;
         
         private SettingsUIPresenter _presenter;
         
@@ -19,14 +19,24 @@ namespace Runtime.Common.View
             sfxVolumeSlider.onValueChanged.AddListener(OnSliderSfxValueChanged);
         }
 
-        public virtual void SetViewMusicVolume(float volume)
+        public void SetViewMusicVolume(float volume)
         {
             musicVolumeSlider.value = volume;
         }
         
-        public virtual void SetViewSfxVolume(float volume)
+        public void SetViewSfxVolume(float volume)
         {
             sfxVolumeSlider.value = volume;
+        }
+        
+        public float GetViewMusicVolume()
+        {
+            return musicVolumeSlider.value;
+        }
+        
+        public float GetViewSfxVolume()
+        {
+            return sfxVolumeSlider.value;
         }
         
         private void OnSliderMusicValueChanged(float value)

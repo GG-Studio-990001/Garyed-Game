@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 namespace Runtime.CH1.Main
 {
+    [RequireComponent(typeof(Animator))]
     public class TopDownPlayer : MonoBehaviour
     {
         // TODO 이거 데이터로 빼야함
@@ -22,10 +23,6 @@ namespace Runtime.CH1.Main
         {
             _movement = new TopDownMovement(moveSpeed, transform);
             
-            if (GetComponent<Animator>() == null)
-            {
-                throw new NullReferenceException("Animator is null");
-            }
             _animation = new TopDownAnimation(GetComponent<Animator>(), animSpeed);
             
             _interaction = new TopDownInteraction(transform, LayerMask.GetMask(Interaction));
@@ -48,6 +45,7 @@ namespace Runtime.CH1.Main
         
         private void OnInteraction()
         {
+            Debug.Log("Interaction"+_movement.Direction);
             _interaction.Interact(_movement.Direction);
         }
     }
