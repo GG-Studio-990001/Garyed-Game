@@ -32,11 +32,11 @@ namespace Tests.Runtime
             _player = _playerObject.AddComponent<TopDownPlayer>();
             _player.transform.position = Vector3.zero;
             
-            yield return null;
-            
             _movement = new TopDownMovement(5.0f, _player.transform);
             _animation = new TopDownAnimation(_player.GetComponent<Animator>(), 0.5f);
             _interaction = new TopDownInteraction(_player.transform, LayerMask.GetMask("Object"), 1f);
+            
+            yield return new WaitForFixedUpdate();
         }
         
         [UnityTest]
@@ -46,7 +46,7 @@ namespace Tests.Runtime
             
             _movement.Move(movementInput);
             
-            yield return null;
+            yield return new WaitForFixedUpdate();
             
             Assert.AreNotEqual(Vector3.zero, _player.transform.position);
         }
@@ -59,7 +59,7 @@ namespace Tests.Runtime
             
             bool isMoving = animator.GetBool("IsMoving");
             
-            yield return null;
+            yield return new WaitForFixedUpdate();
             
             Assert.IsTrue(isMoving);
         }
@@ -74,36 +74,40 @@ namespace Tests.Runtime
             
             interactionObject.transform.position = new Vector3(1.0f, 0.0f, 0.0f);
             
-            yield return null;
+            yield return new WaitForFixedUpdate();
             
             Assert.IsTrue(_interaction.Interact(Vector2.right));
             
-            GameObject.DestroyImmediate(interactionObject);
+            Object.DestroyImmediate(interactionObject);
         }
         
-        // [UnityTest]
-        // public IEnumerator TestPlayerInteractionFail()
-        // {
-        //     GameObject interactionObject = new GameObject("InteractionTestObject2");
-        //     interactionObject.AddComponent<CircleCollider2D>();
-        //     interactionObject.AddComponent<NpcInteraction>();
-        //     interactionObject.layer = LayerMask.NameToLayer("Object");
-        //     
-        //     interactionObject.transform.position = new Vector3(1.0f, 0.0f, 0.0f);
-        //     
-        //     yield return null;
-        //     
-        //     Assert.IsFalse(_interaction.Interact(Vector2.left));
-        //     
-        //     GameObject.DestroyImmediate(interactionObject);
-        // }
+        [UnityTest]
+        public IEnumerator TestPlayerInteractionFail()
+        {
+            GameObject interactionObject = new GameObject("InteractionTestObject2");
+            interactionObject.AddComponent<CircleCollider2D>();
+            interactionObject.AddComponent<NpcInteraction>();
+            interactionObject.layer = LayerMask.NameToLayer("Object");
+            
+            interactionObject.transform.position = new Vector3(1.0f, 0.0f, 0.0f);
+            
+            yield return new WaitForFixedUpdate();
+            
+            Assert.IsFalse(_interaction.Interact(Vector2.left));
+            
+            Object.DestroyImmediate(interactionObject);
+        }
         
         [UnityTearDown]
         public IEnumerator TearDown()
         {
-            GameObject.Destroy(_playerObject);
+            Object.Destroy(_playerObject);
+
+            _interaction = null;
+            _movement = null;
+            _animation = null;
             
-            yield return null;
+            yield return new WaitForFixedUpdate();
         }
     }
 }
