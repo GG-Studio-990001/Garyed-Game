@@ -13,7 +13,7 @@ namespace Runtime.CH1.Main
 
         public bool Interact()
         {
-            dialogueRunner.StartDialogue(talkToNode);
+            dialogueRunner?.StartDialogue(talkToNode);
             
             return true;
         }
