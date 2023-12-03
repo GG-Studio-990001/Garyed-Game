@@ -40,17 +40,6 @@ namespace Runtime.CH1.Main.PlayerFunction
                     //Debug.LogError("Invalid PlayerState");
                     break;
             }
-            // // TODO 리터럴값 제거, 애니메이션 확장되는대로
-            // if (movementInput == Vector2.zero)
-            // {
-            //     _animator.SetBool(Moving, false);
-            //     return;
-            // }
-            //
-            // _animator.SetBool(Moving, true);
-            //
-            // _animator.SetFloat(Horizontal1, movementInput.x);
-            // _animator.SetFloat(Vertical1, movementInput.y);
         }
     }
 }
