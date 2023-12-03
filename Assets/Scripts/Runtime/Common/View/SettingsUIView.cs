@@ -9,24 +9,12 @@ namespace Runtime.Common.View
         [field:SerializeField] public Slider musicVolumeSlider;
         [field:SerializeField] public Slider sfxVolumeSlider;
         
+        
         private SettingsUIPresenter _presenter;
         
         private void Start()
         {
             _presenter = PresenterFactory.CreateSettingsUIPresenter(this);
-
-            musicVolumeSlider.onValueChanged.AddListener(OnSliderMusicValueChanged);
-            sfxVolumeSlider.onValueChanged.AddListener(OnSliderSfxValueChanged);
-        }
-
-        public void SetViewMusicVolume(float volume)
-        {
-            musicVolumeSlider.value = volume;
-        }
-        
-        public void SetViewSfxVolume(float volume)
-        {
-            sfxVolumeSlider.value = volume;
         }
         
         public float GetViewMusicVolume()
@@ -39,14 +27,14 @@ namespace Runtime.Common.View
             return sfxVolumeSlider.value;
         }
         
-        private void OnSliderMusicValueChanged(float value)
+        public void SetViewMusicVolume(float volume)
         {
-            _presenter.SetMusicVolume(value);
+            musicVolumeSlider.value = volume;
         }
         
-        private void OnSliderSfxValueChanged(float value)
+        public void SetViewSfxVolume(float volume)
         {
-            _presenter.SetSfxVolume(value);
+            sfxVolumeSlider.value = volume;
         }
     }
 }
