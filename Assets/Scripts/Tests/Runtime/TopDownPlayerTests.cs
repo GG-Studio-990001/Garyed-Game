@@ -1,6 +1,7 @@
 using NUnit.Framework;
 using Runtime.CH1.Main;
 using Runtime.CH1.Main.PlayerFunction;
+using Runtime.ETC;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.TestTools;
@@ -55,7 +56,7 @@ namespace Tests.Runtime
         public IEnumerator TestPlayerAnimation()
         {
             Animator animator = _playerObject.GetComponent<Animator>();
-            _animation.SetMovementAnimation(new Vector2(1f, 0f)); 
+            _animation.SetMovementAnimation(PlayerState.Move,new Vector2(1f, 0f)); 
             
             bool isMoving = animator.GetBool("IsMoving");
             

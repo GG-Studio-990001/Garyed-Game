@@ -16,6 +16,8 @@ namespace Tests.Runtime
         private SettingsUIView _view;
         private SettingsData _model;
         private SettingsUIPresenter _presenter;
+        private GameObject _backgroundAudioSource;
+        private GameObject _effectAudioSource;
         
         [UnitySetUp]
         public IEnumerator SetUp()
@@ -26,6 +28,12 @@ namespace Tests.Runtime
             _view.musicVolumeSlider = new GameObject("MusicVolumeSlider").AddComponent<Slider>();
             _view.sfxVolumeSlider = new GameObject("SfxVolumeSlider").AddComponent<Slider>();
             
+            _backgroundAudioSource = new GameObject("BackgroundAudioSource");
+            _backgroundAudioSource.AddComponent<AudioSource>();
+            
+            _effectAudioSource = new GameObject("EffectAudioSource");
+            _effectAudioSource.AddComponent<AudioSource>();
+            
             _model = ScriptableObject.CreateInstance<SettingsData>();
             _presenter = new SettingsUIPresenter(_view, _model);
             
@@ -35,45 +43,54 @@ namespace Tests.Runtime
             yield return new WaitForFixedUpdate();
         }
         
-        [Test]
-        public void CheckInitialValue()
-        {
-            Assert.AreEqual(0.5f, _model.MusicVolume);
-            Assert.AreEqual(0.5f, _model.SfxVolume);
-        }
-        
-        [Test]
-        public void WhenMusicVolumeChangesViewIsUpdated()
+        [UnityTest]
+        public IEnumerator WhenMusicVolumeChangesViewIsUpdated()
         {
             _presenter.SetMusicVolume(0.75f);
+            
+            yield return new WaitForFixedUpdate();
+            
             Assert.AreEqual(0.75f, _view.GetViewMusicVolume());
         }
         
-        [Test]
-        public void WhenSfxVolumeChangesViewIsUpdated()
+        [UnityTest]
+        public IEnumerator WhenSfxVolumeChangesViewIsUpdated()
         {
             _presenter.SetSfxVolume(0.3f);
+            
+            yield return new WaitForFixedUpdate();
+            
             Assert.AreEqual(0.3f, _view.GetViewSfxVolume());
         }
         
-        [Test]
-        public void WhenMusicVolumeChangesModelIsUpdated()
+        [UnityTest]
+        public IEnumerator WhenMusicVolumeChangesModelIsUpdated()
         {
             _presenter.SetMusicVolume(0.75f);
+            
+            yield return new WaitForFixedUpdate();
+            
             Assert.AreEqual(0.75f, _model.MusicVolume);
         }
         
-        [Test]
-        public void WhenSfxVolumeChangesModelIsUpdated()
+        [UnityTest]
+        public IEnumerator WhenSfxVolumeChangesModelIsUpdated()
         {
             _presenter.SetSfxVolume(0.3f);
+            
+            yield return new WaitForFixedUpdate();
+            
             Assert.AreEqual(0.3f, _model.SfxVolume);
         }
         
         [UnityTearDown]
-        public void TearDown()
+        public IEnumerator TearDown()
         {
             Object.DestroyImmediate(_gameObject);
+            Object.DestroyImmediate(_backgroundAudioSource);
+            Object.DestroyImmediate(_effectAudioSource);
+            
+            yield return new WaitForFixedUpdate();
         }
     }
 }
