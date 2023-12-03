@@ -16,11 +16,11 @@ namespace Runtime.CH1.Main
             _transform = transform;
         }
         
-        public void Move(Vector2 movementInput)
+        public Vector2 Move(Vector2 movementInput)
         {
             if (movementInput == Vector2.zero)
             {
-                return;
+                return Vector2.zero;
             }
             
             if (movementInput.magnitude > 1.0f)
@@ -33,6 +33,8 @@ namespace Runtime.CH1.Main
             _transform.Translate(movement);
             
             _previousMovementInput = movementInput;
+            
+            return movement;
         }
     }
 }

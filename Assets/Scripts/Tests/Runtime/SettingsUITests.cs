@@ -2,7 +2,9 @@ using NUnit.Framework;
 using Runtime.Common.Domain;
 using Runtime.Common.Presentation;
 using Runtime.Common.View;
+using System.Collections;
 using UnityEngine;
+using UnityEngine.TestTools;
 using UnityEngine.UI;
 
 namespace Tests.Runtime
@@ -15,8 +17,8 @@ namespace Tests.Runtime
         private SettingsData _model;
         private SettingsUIPresenter _presenter;
         
-        [SetUp]
-        public void SetUp()
+        [UnitySetUp]
+        public IEnumerator SetUp()
         {
             _gameObject = new GameObject("SettingsUI");
             _view = _gameObject.AddComponent<SettingsUIView>();
@@ -29,6 +31,8 @@ namespace Tests.Runtime
             
             _model.MusicVolume = 0.5f;
             _model.SfxVolume = 0.5f;
+            
+            yield return new WaitForFixedUpdate();
         }
         
         [Test]
@@ -66,7 +70,7 @@ namespace Tests.Runtime
             Assert.AreEqual(0.3f, _model.SfxVolume);
         }
         
-        [TearDown]
+        [UnityTearDown]
         public void TearDown()
         {
             Object.DestroyImmediate(_gameObject);
