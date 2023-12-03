@@ -16,6 +16,8 @@ namespace Tests.Runtime
         private SettingsUIView _view;
         private SettingsData _model;
         private SettingsUIPresenter _presenter;
+        private GameObject _backgroundAudioSource;
+        private GameObject _effectAudioSource;
         
         [UnitySetUp]
         public IEnumerator SetUp()
@@ -26,11 +28,11 @@ namespace Tests.Runtime
             _view.musicVolumeSlider = new GameObject("MusicVolumeSlider").AddComponent<Slider>();
             _view.sfxVolumeSlider = new GameObject("SfxVolumeSlider").AddComponent<Slider>();
             
-            GameObject backgroundAudioSource = new GameObject("BackgroundAudioSource");
-            backgroundAudioSource.AddComponent<AudioSource>();
+            _backgroundAudioSource = new GameObject("BackgroundAudioSource");
+            _backgroundAudioSource.AddComponent<AudioSource>();
             
-            GameObject effectAudioSource = new GameObject("EffectAudioSource");
-            effectAudioSource.AddComponent<AudioSource>();
+            _effectAudioSource = new GameObject("EffectAudioSource");
+            _effectAudioSource.AddComponent<AudioSource>();
             
             _model = ScriptableObject.CreateInstance<SettingsData>();
             _presenter = new SettingsUIPresenter(_view, _model);
@@ -85,6 +87,8 @@ namespace Tests.Runtime
         public IEnumerator TearDown()
         {
             Object.DestroyImmediate(_gameObject);
+            Object.DestroyImmediate(_backgroundAudioSource);
+            Object.DestroyImmediate(_effectAudioSource);
             
             yield return new WaitForFixedUpdate();
         }
