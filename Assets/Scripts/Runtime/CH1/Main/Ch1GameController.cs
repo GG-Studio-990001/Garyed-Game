@@ -2,9 +2,10 @@ using UnityEngine;
 
 namespace Runtime.CH1.Main
 {
-    public class Ch1GameController : MonoBehaviour
+    public class Ch1GameSystem : MonoBehaviour
     {
         [SerializeField] private GameObject gameSettingUI;
+        [SerializeField] private SoundSystem soundSystem;
         
         GameOverControls _gameOverControls;
 
@@ -28,6 +29,7 @@ namespace Runtime.CH1.Main
         private void Start()
         {
             SetAllUIActiveFalse();
+            soundSystem.PlayMusic("Start");
         }
         
         private void SetAllUIActiveFalse()

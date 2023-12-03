@@ -8,7 +8,7 @@ namespace Runtime.CH1.Main
         
         private readonly Transform _transform;
         private readonly float _moveSpeed = 5.0f;
-        private Vector2 _previousMovementInput;
+        private Vector2 _previousMovementInput = Vector2.zero;
         
         public TopDownMovement(float moveSpeed, Transform transform)
         {
@@ -16,12 +16,14 @@ namespace Runtime.CH1.Main
             _transform = transform;
         }
         
-        public void Move(Vector2 movementInput)
+        public bool Move(Vector2 movementInput)
         {
             if (movementInput == Vector2.zero)
             {
-                return;
+                return false;
             }
+            
+            _previousMovementInput = movementInput;
             
             if (movementInput.magnitude > 1.0f)
             {
@@ -32,7 +34,7 @@ namespace Runtime.CH1.Main
             
             _transform.Translate(movement);
             
-            _previousMovementInput = movementInput;
+            return true;
         }
     }
 }

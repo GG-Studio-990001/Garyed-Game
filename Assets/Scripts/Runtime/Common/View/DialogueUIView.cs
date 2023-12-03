@@ -1,5 +1,4 @@
 using Runtime.Common.Presentation;
-using System;
 using TMPro;
 using UnityEngine;
 
@@ -7,7 +6,7 @@ namespace Runtime.Common.View
 {
     public class DialogueUIView : MonoBehaviour
     {
-        [SerializeField] private TextMeshProUGUI dialogueText;
+        [field:SerializeField] public TextMeshProUGUI dialogueText;
         
         private DialogueUIPresenter _presenter;
 
@@ -16,9 +15,14 @@ namespace Runtime.Common.View
             _presenter = PresenterFactory.CreateDialogueUIPresenter(this);
         }
         
-        public virtual void StartDialogue(string text)
+        public void StartDialogue(string text)
         {
             dialogueText.text = text;
+        }
+        
+        public string GetDialogueText()
+        {
+            return dialogueText.text;
         }
         
         public DialogueUIPresenter GetPresenter()
