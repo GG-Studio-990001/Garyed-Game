@@ -1,8 +1,10 @@
 using NUnit.Framework;
 using Runtime.Common.Presentation;
 using Runtime.Common.View;
+using System.Collections;
 using UnityEngine;
 using TMPro;
+using UnityEngine.TestTools;
 
 namespace Tests.Runtime
 {
@@ -13,8 +15,8 @@ namespace Tests.Runtime
         private DialogueUIView _view;
         private DialogueUIPresenter _presenter;
         
-        [SetUp]
-        public void SetUp()
+        [UnitySetUp]
+        public IEnumerator SetUp()
         {
             _gameObject = new GameObject("DialogueUI");
             
@@ -22,13 +24,17 @@ namespace Tests.Runtime
             _view.dialogueText = new GameObject("DialogueText").AddComponent<TMPro.TextMeshProUGUI>();
             
             _presenter = new DialogueUIPresenter(_view);
+            
+            yield return new WaitForFixedUpdate();
         }
         
-        [Test]
-        public void WhenDialogueStartsViewIsUpdated()
+        [UnityTest]
+        public IEnumerator WhenDialogueStartsViewIsUpdated()
         {
             _presenter.StartDialogue("Hello World!");
             Assert.AreEqual("Hello World!", _view.GetDialogueText());
+            
+            yield return new WaitForFixedUpdate();
         }
     }
 }
