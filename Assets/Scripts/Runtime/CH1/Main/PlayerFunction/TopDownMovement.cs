@@ -16,11 +16,11 @@ namespace Runtime.CH1.Main
             _transform = transform;
         }
         
-        public void Move(Vector2 movementInput)
+        public bool Move(Vector2 movementInput)
         {
             if (movementInput == Vector2.zero)
             {
-                return;
+                return false;
             }
             
             _previousMovementInput = movementInput;
@@ -33,6 +33,8 @@ namespace Runtime.CH1.Main
             Vector2 movement = movementInput * (_moveSpeed * Time.deltaTime);
             
             _transform.Translate(movement);
+            
+            return true;
         }
     }
 }

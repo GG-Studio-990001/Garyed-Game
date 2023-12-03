@@ -5,7 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b92e3963-3ac6-4419-ae77-cd6c1cffc83d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Prototype_01.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Prototype_01.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/ETC.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/ETC/Const.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/ETC/Const.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/ETC/Enums.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/ETC/Enums.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GameOver/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GameOver/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/CH1/Main/PlayerFunction/TopDownAnimation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/CH1/Main/PlayerFunction/TopDownAnimation.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/CH1/Main/PlayerFunction/TopDownMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/CH1/Main/PlayerFunction/TopDownMovement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/CH1/Main/TopDownPlayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/CH1/Main/TopDownPlayer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tests/Runtime/SettingsUITests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tests/Runtime/SettingsUITests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tests/Runtime/TopDownPlayerTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tests/Runtime/TopDownPlayerTests.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +67,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "178-feat-sound-manager-1",
+    "git-widget-placeholder": "176-feat-msc01-charter",
     "ignore.virus.scanning.warn.message": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",

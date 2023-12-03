@@ -1,3 +1,4 @@
+using Runtime.ETC;
 using UnityEngine;
 
 namespace Runtime.CH1.Main.PlayerFunction
@@ -20,19 +21,36 @@ namespace Runtime.CH1.Main.PlayerFunction
             _animator.speed = _animationSpeed = animationSpeed;
         }
         
-        public void SetMovementAnimation(Vector2 movementInput)
+        public void SetMovementAnimation(PlayerState state, Vector2 movementInput)
         {
-            // TODO 리터럴값 제거, 애니메이션 확장되는대로
-            if (movementInput == Vector2.zero)
+            switch (state)
             {
-                _animator.SetBool(Moving, false);
-                return;
+                case PlayerState.Idle:
+                    _animator.SetBool(Moving, false);
+                    break;
+                case PlayerState.Move:
+                    _animator.SetBool(Moving, true);
+                    _animator.SetFloat(Horizontal1, movementInput.x);
+                    _animator.SetFloat(Vertical1, movementInput.y);
+                    break;
+                case PlayerState.Interact:
+                    // TODO 애니메이션 추가
+                    break;
+                default:
+                    //Debug.LogError("Invalid PlayerState");
+                    break;
             }
-            
-            _animator.SetBool(Moving, true);
-            
-            _animator.SetFloat(Horizontal1, movementInput.x);
-            _animator.SetFloat(Vertical1, movementInput.y);
+            // // TODO 리터럴값 제거, 애니메이션 확장되는대로
+            // if (movementInput == Vector2.zero)
+            // {
+            //     _animator.SetBool(Moving, false);
+            //     return;
+            // }
+            //
+            // _animator.SetBool(Moving, true);
+            //
+            // _animator.SetFloat(Horizontal1, movementInput.x);
+            // _animator.SetFloat(Vertical1, movementInput.y);
         }
     }
 }
