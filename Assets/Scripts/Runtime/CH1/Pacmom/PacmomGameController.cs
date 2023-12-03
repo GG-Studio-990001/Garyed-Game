@@ -5,6 +5,7 @@ namespace Runtime.CH1.Pacmom
     public class PacmomGameController : MonoBehaviour
     {
         public Rapley rapley;
+        public Pacmom pacmom;
         public Transform coins;
 
         public int rapleyScore { get; private set; }
@@ -26,6 +27,7 @@ namespace Runtime.CH1.Pacmom
             }
 
             rapley.ResetState();
+            pacmom.ResetState();
         }
 
         private void SetRapleyScore(int score)
@@ -49,8 +51,12 @@ namespace Runtime.CH1.Pacmom
 
             if (!HasRemainingCoins())
             {
+                Debug.Log("라플리 점수: " + rapleyScore);
+                Debug.Log("팩맘 점수: " + pacmomScore);
                 Debug.Log("Game Clear! 3초 뒤 재시작");
+
                 rapley.gameObject.SetActive(false);
+                pacmom.gameObject.SetActive(false);
                 Invoke("NewGame", 3f);
             }
         }
