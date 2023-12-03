@@ -191,6 +191,15 @@ public partial class @GameOverControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""DialogueInput"",
+                    ""type"": ""Button"",
+                    ""id"": ""93e0dfbc-0634-41f8-bec9-212c9c4cc0da"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -215,6 +224,17 @@ public partial class @GameOverControls: IInputActionCollection2, IDisposable
                     ""action"": ""GameSetting"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""16945959-4bf4-4dab-a1bf-9f801be100b7"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""DialogueInput"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -229,6 +249,7 @@ public partial class @GameOverControls: IInputActionCollection2, IDisposable
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Click = m_UI.FindAction("Click", throwIfNotFound: true);
         m_UI_GameSetting = m_UI.FindAction("GameSetting", throwIfNotFound: true);
+        m_UI_DialogueInput = m_UI.FindAction("DialogueInput", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -346,12 +367,14 @@ public partial class @GameOverControls: IInputActionCollection2, IDisposable
     private List<IUIActions> m_UIActionsCallbackInterfaces = new List<IUIActions>();
     private readonly InputAction m_UI_Click;
     private readonly InputAction m_UI_GameSetting;
+    private readonly InputAction m_UI_DialogueInput;
     public struct UIActions
     {
         private @GameOverControls m_Wrapper;
         public UIActions(@GameOverControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Click => m_Wrapper.m_UI_Click;
         public InputAction @GameSetting => m_Wrapper.m_UI_GameSetting;
+        public InputAction @DialogueInput => m_Wrapper.m_UI_DialogueInput;
         public InputActionMap Get() { return m_Wrapper.m_UI; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -367,6 +390,9 @@ public partial class @GameOverControls: IInputActionCollection2, IDisposable
             @GameSetting.started += instance.OnGameSetting;
             @GameSetting.performed += instance.OnGameSetting;
             @GameSetting.canceled += instance.OnGameSetting;
+            @DialogueInput.started += instance.OnDialogueInput;
+            @DialogueInput.performed += instance.OnDialogueInput;
+            @DialogueInput.canceled += instance.OnDialogueInput;
         }
 
         private void UnregisterCallbacks(IUIActions instance)
@@ -377,6 +403,9 @@ public partial class @GameOverControls: IInputActionCollection2, IDisposable
             @GameSetting.started -= instance.OnGameSetting;
             @GameSetting.performed -= instance.OnGameSetting;
             @GameSetting.canceled -= instance.OnGameSetting;
+            @DialogueInput.started -= instance.OnDialogueInput;
+            @DialogueInput.performed -= instance.OnDialogueInput;
+            @DialogueInput.canceled -= instance.OnDialogueInput;
         }
 
         public void RemoveCallbacks(IUIActions instance)
@@ -403,5 +432,6 @@ public partial class @GameOverControls: IInputActionCollection2, IDisposable
     {
         void OnClick(InputAction.CallbackContext context);
         void OnGameSetting(InputAction.CallbackContext context);
+        void OnDialogueInput(InputAction.CallbackContext context);
     }
 }
