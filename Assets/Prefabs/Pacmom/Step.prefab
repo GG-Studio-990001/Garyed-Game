@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2205186722494757233}
   - component: {fileID: 8313258210268013451}
-  - component: {fileID: 3872865225717542993}
+  - component: {fileID: 2664737208229425558}
   m_Layer: 10
-  m_Name: Node
+  m_Name: Step
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -78,7 +78,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 0.5}
   m_EdgeRadius: 0
---- !u!114 &3872865225717542993
+--- !u!114 &2664737208229425558
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -87,7 +87,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6564629138103243441}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0ebf0c7d21576744a6aed8a11437153, type: 3}
+  m_Script: {fileID: 11500000, guid: 50f8950838d9c44408d6cdedc10f5ef6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   obstacleLayer:

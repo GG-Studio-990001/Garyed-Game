@@ -14,6 +14,7 @@ namespace Runtime.CH1.Pacmom
 
         public float speed = 8f;
         public float speedMultiplier = 1f; // 팩맘의 청소기 습득 시 속도 변화를 위한 변수
+        public Vector2 initialDirection;
 
         public LayerMask obstacleLayer { get; private set; }
 
@@ -43,7 +44,7 @@ namespace Runtime.CH1.Pacmom
 
         public void ResetState()
         {
-            direction = new Vector2(1f, 0f); // initial direction 오른쪽
+            direction = initialDirection;
             nextDirection = Vector2.zero;
             transform.position = startingPosition;
         }

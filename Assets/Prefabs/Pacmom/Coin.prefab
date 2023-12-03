@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3496490647733580422}
   - component: {fileID: -3549695607205081855}
   m_Layer: 8
-  m_Name: Pellet
+  m_Name: Coin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
