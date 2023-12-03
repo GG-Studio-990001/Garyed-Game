@@ -1,5 +1,3 @@
-using Codice.CM.Common;
-using log4net.Util;
 using UnityEngine;
 
 namespace Runtime.CH1.Pacmom

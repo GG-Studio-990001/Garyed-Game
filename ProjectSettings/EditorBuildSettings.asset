@@ -5,12 +5,6 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Samples/Game.unity
-    guid: 92b4e2944c956974292a184e70309e83
-  - enabled: 0
-    path: Assets/Samples/DialogTest.unity
-    guid: 43062fe7d94556f4892346b847edb7e5
   - enabled: 1
     path: Assets/Scenes/TopDownTest.unity
     guid: b114ef1e23b4e3f448ba9f32c6b7a629
