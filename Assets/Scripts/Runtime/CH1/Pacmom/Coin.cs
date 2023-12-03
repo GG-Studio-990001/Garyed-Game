@@ -6,7 +6,7 @@ namespace Runtime.CH1.Pacmom
     {
         private void Eaten()
         {
-            FindObjectOfType<GameManager>().CoinEaten(this);
+            FindObjectOfType<PacmomGameController>().CoinEaten(this);
         }
 
         private void OnTriggerEnter2D(Collider2D collision)

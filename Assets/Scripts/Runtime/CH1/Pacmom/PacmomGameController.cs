@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Runtime.CH1.Pacmom
 {
-    public class GameManager : MonoBehaviour
+    public class PacmomGameController : MonoBehaviour
     {
         public Rapley rapley;
         public Transform coins;
