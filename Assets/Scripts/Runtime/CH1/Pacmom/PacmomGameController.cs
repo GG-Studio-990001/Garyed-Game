@@ -10,6 +10,7 @@ namespace Runtime.CH1.Pacmom
 
         public int rapleyScore { get; private set; }
         public int pacmomScore { get; private set; }
+        public int pacmomLives { get; private set; }
 
         private void Start()
         {
@@ -20,6 +21,7 @@ namespace Runtime.CH1.Pacmom
         {
             SetRapleyScore(0);
             SetPacmomScore(0);
+            SetPacmomLives(3);
 
             foreach (Transform coin in coins)
             {
@@ -40,6 +42,11 @@ namespace Runtime.CH1.Pacmom
             pacmomScore = score;
         }
 
+        private void SetPacmomLives(int lives)
+        {
+            pacmomLives = lives;
+        }
+
         public void CoinEaten(Coin coin, string who)
         {
             coin.gameObject.SetActive(false);
@@ -58,6 +65,28 @@ namespace Runtime.CH1.Pacmom
                 rapley.gameObject.SetActive(false);
                 pacmom.gameObject.SetActive(false);
                 Invoke("NewGame", 3f);
+            }
+        }
+
+        public void RapleyEaten()
+        {
+            
+        }
+
+        public void PacmomEaten()
+        {
+            // ToDO: 유령한테 죽을 때 처리
+
+            SetPacmomLives(pacmomLives - 1);
+
+            if (pacmomLives > 0)
+            {
+                Debug.Log("팩맘 목수뮤 -1");
+            }
+            else
+            {
+                Debug.Log("팩맘 죽음");
+                pacmom.gameObject.SetActive(false);
             }
         }
 
