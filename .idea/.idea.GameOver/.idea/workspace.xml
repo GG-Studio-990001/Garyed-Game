@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b92e3963-3ac6-4419-ae77-cd6c1cffc83d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GameOver/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GameOver/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/CH1/Pacmom/RapleyMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/CH1/Pacmom/RapleyMovement.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/ScriptableBuildPipeline.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ScriptableBuildPipeline.json" afterDir="false" />
     </list>
@@ -152,7 +153,7 @@
       <workItem from="1700575152776" duration="3214000" />
       <workItem from="1701485521552" duration="931000" />
       <workItem from="1701579392691" duration="317000" />
-      <workItem from="1701623084475" duration="7000" />
+      <workItem from="1701623083969" duration="133000" />
     </task>
     <servers />
   </component>
