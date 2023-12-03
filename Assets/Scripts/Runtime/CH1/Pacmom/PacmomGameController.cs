@@ -8,6 +8,7 @@ namespace Runtime.CH1.Pacmom
         public Transform coins;
 
         public int rapleyScore { get; private set; }
+        public int pacmomScore { get; private set; }
 
         private void Start()
         {
@@ -17,6 +18,7 @@ namespace Runtime.CH1.Pacmom
         private void NewGame()
         {
             SetRapleyScore(0);
+            SetPacmomScore(0);
 
             foreach (Transform coin in coins)
             {
@@ -31,10 +33,19 @@ namespace Runtime.CH1.Pacmom
             rapleyScore = score;
         }
 
-        public void CoinEaten(Coin coin)
+        private void SetPacmomScore(int score)
+        {
+            pacmomScore = score;
+        }
+
+        public void CoinEaten(Coin coin, string who)
         {
             coin.gameObject.SetActive(false);
-            SetRapleyScore(rapleyScore + 1);
+
+            if (who == "Rapley")
+                SetRapleyScore(rapleyScore + 1);
+            else if (who == "Pacmom")
+                SetPacmomScore(pacmomScore + 1);
 
             if (!HasRemainingCoins())
             {

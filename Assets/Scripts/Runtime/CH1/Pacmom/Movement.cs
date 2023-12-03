@@ -10,7 +10,7 @@ namespace Runtime.CH1.Pacmom
         public Rigidbody2D rigid;
         public Vector2 direction { get; private set; }
         public Vector2 nextDirection { get; private set; }
-        public Vector3 startingPosition { get; private set; }
+        public Vector3 startPosition { get; private set; }
 
         public float speed = 8f;
         public float speedMultiplier = 1f; // 팩맘의 청소기 습득 시 속도 변화를 위한 변수
@@ -21,7 +21,7 @@ namespace Runtime.CH1.Pacmom
         private void Awake()
         {
             rigid = GetComponent<Rigidbody2D>();
-            startingPosition = transform.position;
+            startPosition = transform.position;
             obstacleLayer = LayerMask.GetMask("Obstacle");
         }
 
@@ -46,7 +46,7 @@ namespace Runtime.CH1.Pacmom
         {
             direction = initialDirection;
             nextDirection = Vector2.zero;
-            transform.position = startingPosition;
+            transform.position = startPosition;
         }
 
         public void SetNextDirection(Vector2 direction)
