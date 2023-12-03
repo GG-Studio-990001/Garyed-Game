@@ -5,6 +5,13 @@ using UnityEngine.InputSystem;
 
 namespace Runtime.CH1.Main
 {
+    public enum PlayerState
+    {
+        Idle,
+        Move,
+        Interaction,
+    }
+    
     [RequireComponent(typeof(Animator))]
     public class TopDownPlayer : MonoBehaviour
     {
