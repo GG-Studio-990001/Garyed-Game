@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Runtime.CH1.Pacmom
 {
     [RequireComponent(typeof(Rigidbody2D))]
-    public class RapleyMovement : MonoBehaviour
+    public class Movement : MonoBehaviour
     {
         public Rigidbody2D rigid;
         public Vector2 direction { get; private set; }

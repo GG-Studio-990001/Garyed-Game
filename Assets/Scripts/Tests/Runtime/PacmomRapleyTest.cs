@@ -11,14 +11,14 @@ namespace Tests.Runtime
     {
         private GameObject player;
         private Rapley rapley;
-        private RapleyMovement rapleyMovement;
+        private Movement rapleyMovement;
 
         [UnitySetUp]
         public IEnumerator SetUp()
         {
             player = new GameObject("Player");
             rapley = player.AddComponent<Rapley>();
-            rapleyMovement = player.AddComponent<RapleyMovement>();
+            rapleyMovement = player.AddComponent<Movement>();
             rapley.movement = rapleyMovement;
 
             yield return new WaitForFixedUpdate();
@@ -35,7 +35,7 @@ namespace Tests.Runtime
 
             yield return new WaitForFixedUpdate();
 
-            Assert.AreNotEqual(Vector3.zero, player.GetComponent<RapleyMovement>().rigid.position);
+            Assert.AreNotEqual(Vector3.zero, player.GetComponent<Movement>().rigid.position);
         }
 
         [UnityTearDown]

@@ -5,7 +5,7 @@ namespace Runtime.CH1.Pacmom
 {
     public class Pacmom : MonoBehaviour
     {
-        public RapleyMovement movement;
+        public Movement movement;
 
         private void Start()
         {
@@ -32,8 +32,6 @@ namespace Runtime.CH1.Pacmom
 
             if (step != null)
             {
-                Debug.Log("밟");
-
                 int index = Random.Range(0, step.availableDirections.Count);
 
                 // 거꾸로 가기 방지
