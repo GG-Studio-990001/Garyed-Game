@@ -5,12 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b92e3963-3ac6-4419-ae77-cd6c1cffc83d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GameOver/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GameOver/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TopDownTest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TopDownTest.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/CH1/Main/Ch1GameController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/CH1/Main/Ch1GameController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/CH1/Main/TopDownPlayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/CH1/Main/TopDownPlayer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Common/Presentation/SettingsUIPresenter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Common/Presentation/SettingsUIPresenter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Common/View/SettingsUIView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Common/View/SettingsUIView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/CH1/Main/PlayerFunction/TopDownMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/CH1/Main/PlayerFunction/TopDownMovement.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,7 +22,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3b24cc7fa9794ed8ab04312c53e6dedd172c00/fc/b2e1b984/SetupCoroutine.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/scratches/Learning.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/CH1/Main/PlayerFunction/TopDownAnimation.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/SoundSystem.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Runtime/PlayerFollowCamera.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.7.0/InputSystem/Actions/InputAction.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.test-framework@1.1.33/UnityEditor.TestRunner/TestRunner/EditModeRunner.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.test-framework@1.1.33/UnityEngine.TestRunner/Assertions/LogScope/LogScope.cs" root0="FORCE_HIGHLIGHTING" />
@@ -62,7 +57,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "178-feat-sound-manager",
+    "git-widget-placeholder": "176-feat-msc01-charter",
     "ignore.virus.scanning.warn.message": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -153,6 +148,8 @@
       <workItem from="1699862966646" duration="5545000" />
       <workItem from="1700410989330" duration="4839000" />
       <workItem from="1700575152776" duration="3214000" />
+      <workItem from="1701485521552" duration="931000" />
+      <workItem from="1701579392691" duration="317000" />
     </task>
     <servers />
   </component>
