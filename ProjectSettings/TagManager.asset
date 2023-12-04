@@ -11,11 +11,11 @@ TagManager:
   - Player
   - Water
   - UI
-  - Pacman
+  - Pacmom
   - Ghost
   - Coin
   - Obstacle
-  - Node
+  - Step
   - Vacuum
   - 
   - 
