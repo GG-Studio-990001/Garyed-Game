@@ -8,6 +8,12 @@ namespace Runtime.CH1.Pacmom
     {
         public Movement movement;
 
+        private void Awake()
+        {
+            movement.canFlip = true;
+            movement.canUpDown = false;
+        }
+
         private void Start()
         {
             ResetState();

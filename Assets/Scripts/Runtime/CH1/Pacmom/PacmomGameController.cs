@@ -100,7 +100,6 @@ namespace Runtime.CH1.Pacmom
             // ToDO: 유령한테 죽을 때 처리
 
             SetPacmomLives(pacmomLives - 1);
-            pacmom.PacmomDead();
 
             if (pacmomLives > 0)
             {

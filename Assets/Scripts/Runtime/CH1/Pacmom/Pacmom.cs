@@ -14,6 +14,12 @@ namespace Runtime.CH1.Pacmom
         [SerializeField]
         private Sprite[] dieSpr;
 
+        private void Awake()
+        {
+            movement.canFlip = true;
+            movement.canUpDown = true;
+        }
+
         private void Start()
         {
             ResetState();
@@ -36,6 +42,7 @@ namespace Runtime.CH1.Pacmom
         public void VacuumMode(bool mode)
         {
             isVacuumMode = mode;
+            movement.canUpDown = !isVacuumMode;
 
             SpriteAnimation spriteAnim = gameObject.GetComponent<SpriteAnimation>();
             SpriteRenderer spriteRender = gameObject.GetComponent<SpriteRenderer>();
