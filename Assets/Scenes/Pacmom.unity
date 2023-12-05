@@ -3569,7 +3569,7 @@ MonoBehaviour:
   speedMultiplier: 1
   initialDirection: {x: -1, y: 0}
   canFlip: 1
-  canUpDown: 0
+  canRotate: 0
 --- !u!114 &133942952
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29787,6 +29787,7 @@ MonoBehaviour:
   rapley: {fileID: 133942950}
   pacmom: {fileID: 1861729285}
   coins: {fileID: 1942074557}
+  vacuums: {fileID: 1145695306}
   vacuumDuration: 10
 --- !u!1 &1828576067
 GameObject:
@@ -30013,7 +30014,7 @@ MonoBehaviour:
   speedMultiplier: 1
   initialDirection: {x: 1, y: 0}
   canFlip: 1
-  canUpDown: 0
+  canRotate: 0
 --- !u!58 &1861729281
 CircleCollider2D:
   m_ObjectHideFlags: 0

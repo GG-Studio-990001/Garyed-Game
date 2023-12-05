@@ -4,14 +4,16 @@ namespace Runtime.CH1.Pacmom
 {
     public class Coin : MonoBehaviour
     {
+        public PacmomGameController gameController;
+
         private void EatenByRapley()
         {
-            FindObjectOfType<PacmomGameController>().CoinEaten(this, "Rapley");
+            gameController.CoinEaten(this, "Rapley");
         }
 
         private void EatenByPacmom()
         {
-            FindObjectOfType<PacmomGameController>().CoinEaten(this, "Pacmom");
+            gameController.CoinEaten(this, "Pacmom");
         }
 
         private void OnTriggerEnter2D(Collider2D collision)

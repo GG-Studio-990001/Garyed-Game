@@ -8,6 +8,7 @@ namespace Runtime.CH1.Pacmom
         public Rapley rapley;
         public Pacmom pacmom;
         public Transform coins;
+        public Transform vacuums;
         [SerializeField]
         private float vacuumDuration = 10f;
 
@@ -28,7 +29,12 @@ namespace Runtime.CH1.Pacmom
 
             foreach (Transform coin in coins)
             {
-                coin.gameObject.SetActive(true);
+                coin.GetComponent<Coin>().gameController = this;
+            }
+
+            foreach (Transform vacuum in vacuums)
+            {
+                vacuum.GetComponent<Vacuum>().gameController = this;
             }
 
             rapley.ResetState();

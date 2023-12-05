@@ -22,14 +22,13 @@ namespace Tests.Runtime
         private GameObject coinParentObj;
         private Transform coins;
 
+        private GameObject vacuumObj;
+        private Vacuum vacuum;
+        private GameObject vacuumParentObj;
+        private Transform vacuums;
+
         private GameObject controllerObj;
         private PacmomGameController controller;
-
-        // 라플리 움직임
-        // 라플리 동전
-        // 팩맘 움직임
-        // 팩맘 동전
-        // 팩맘 라플리 충돌
 
         [UnitySetUp]
         public IEnumerator SetUp()
@@ -52,11 +51,18 @@ namespace Tests.Runtime
             coinObj.transform.parent = coinParentObj.transform;
             coin = coinObj.AddComponent<Coin>();
 
+            vacuumParentObj = new GameObject("VacuumParentObj");
+            vacuums = vacuumParentObj.gameObject.transform;
+            vacuumObj = new GameObject("VacuumObj");
+            vacuumObj.transform.parent = vacuumParentObj.transform;
+            vacuum = vacuumObj.AddComponent<Vacuum>();
+
             controllerObj = new GameObject("ControllerObj");
             controller = controllerObj.AddComponent<PacmomGameController>();
             controller.rapley = rapley;
-            controller.coins = coins;
             controller.pacmom = pacmom;
+            controller.coins = coins;
+            controller.vacuums = vacuums;
 
             yield return new WaitForFixedUpdate();
         }
@@ -68,6 +74,8 @@ namespace Tests.Runtime
             Object.DestroyImmediate(pacmomObj);
             Object.DestroyImmediate(coinObj);
             Object.DestroyImmediate(coinParentObj);
+            Object.DestroyImmediate(vacuumObj);
+            Object.DestroyImmediate(vacuumParentObj);
             Object.DestroyImmediate(controllerObj);
 
             yield return new WaitForFixedUpdate();
