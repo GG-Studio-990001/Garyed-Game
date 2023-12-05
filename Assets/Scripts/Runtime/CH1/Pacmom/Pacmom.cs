@@ -1,4 +1,4 @@
-using Runtime.CH1.Main;
+using Runtime.ETC;
 using System.Collections;
 using UnityEngine;
 
@@ -6,6 +6,7 @@ namespace Runtime.CH1.Pacmom
 {
     public class Pacmom : MonoBehaviour
     {
+        public PacmomGameController gameController;
         public Movement movement;
         public bool isVacuumMode = false;
 
@@ -108,15 +109,15 @@ namespace Runtime.CH1.Pacmom
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
-            if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
+            if (collision.gameObject.layer == LayerMask.NameToLayer(GlobalConst.PlayerStr))
             {
                 if (isVacuumMode)
                 {
-                    FindObjectOfType<PacmomGameController>().RapleyEaten();
+                    gameController.RapleyEaten();
                 }
                 else
                 {
-                    FindObjectOfType<PacmomGameController>().PacmomEaten();
+                    gameController.PacmomEaten();
                 }
             }
         }

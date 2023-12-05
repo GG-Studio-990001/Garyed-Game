@@ -1,3 +1,4 @@
+using Runtime.ETC;
 using UnityEngine;
 
 namespace Runtime.CH1.Pacmom
@@ -22,7 +23,7 @@ namespace Runtime.CH1.Pacmom
         {
             rigid = GetComponent<Rigidbody2D>();
             startPosition = transform.position;
-            obstacleLayer = LayerMask.GetMask("Obstacle");
+            obstacleLayer = LayerMask.GetMask(GlobalConst.ObstacleStr);
         }
 
         private void Update()

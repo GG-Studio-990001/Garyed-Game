@@ -1,3 +1,4 @@
+using Runtime.ETC;
 using UnityEngine;
 
 namespace Runtime.CH1.Pacmom
@@ -13,7 +14,7 @@ namespace Runtime.CH1.Pacmom
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (collision.gameObject.layer == LayerMask.NameToLayer("Pacmom"))
+            if (collision.gameObject.layer == LayerMask.NameToLayer(GlobalConst.PacmomStr))
             {
                 Eaten();
             }

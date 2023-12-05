@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using Runtime.CH1.Pacmom;
+using Runtime.ETC;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.TestTools;
@@ -44,6 +45,7 @@ namespace Tests.Runtime
             pacmom = pacmomObj.AddComponent<Pacmom>();
             pacmomMovement = pacmomObj.AddComponent<Movement>();
             pacmom.movement = pacmomMovement;
+            pacmom.gameController = controller;
 
             coinParentObj = new GameObject("CoinParentObj");
             coins = coinParentObj.gameObject.transform;
@@ -101,7 +103,7 @@ namespace Tests.Runtime
         {
             rapleyObj.AddComponent<CircleCollider2D>();
             rapleyObj.transform.position = Vector3.zero;
-            rapleyObj.layer = LayerMask.NameToLayer("Player");
+            rapleyObj.layer = LayerMask.NameToLayer(GlobalConst.PlayerStr);
 
             BoxCollider2D coinColl = coinObj.AddComponent<BoxCollider2D>();
             coinColl.isTrigger = true;
@@ -133,7 +135,7 @@ namespace Tests.Runtime
         {
             pacmomObj.AddComponent<CircleCollider2D>();
             pacmomObj.transform.position = Vector3.zero;
-            pacmomObj.layer = LayerMask.NameToLayer("Pacmom");
+            pacmomObj.layer = LayerMask.NameToLayer(GlobalConst.PacmomStr);
 
             BoxCollider2D coinColl = coinObj.AddComponent<BoxCollider2D>();
             coinColl.isTrigger = true;

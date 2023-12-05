@@ -30156,6 +30156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79ed6df6db7172144b2bc3c47f356ac3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameController: {fileID: 1761052961}
   movement: {fileID: 1861729279}
   isVacuumMode: 0
   vacuumSpr: {fileID: -1359193594, guid: 622b09821277ce54b8f6401cf405c699, type: 3}

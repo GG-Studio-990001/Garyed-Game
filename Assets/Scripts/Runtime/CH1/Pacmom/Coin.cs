@@ -1,3 +1,4 @@
+using Runtime.ETC;
 using UnityEngine;
 
 namespace Runtime.CH1.Pacmom
@@ -8,21 +9,21 @@ namespace Runtime.CH1.Pacmom
 
         private void EatenByRapley()
         {
-            gameController.CoinEaten(this, "Rapley");
+            gameController.CoinEaten(this, GlobalConst.PlayerStr);
         }
 
         private void EatenByPacmom()
         {
-            gameController.CoinEaten(this, "Pacmom");
+            gameController.CoinEaten(this, GlobalConst.PacmomStr);
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
+            if (collision.gameObject.layer == LayerMask.NameToLayer(GlobalConst.PlayerStr))
             {
                 EatenByRapley();
             }
-            else if (collision.gameObject.layer == LayerMask.NameToLayer("Pacmom"))
+            else if (collision.gameObject.layer == LayerMask.NameToLayer(GlobalConst.PacmomStr))
             {
                 EatenByPacmom();
             }

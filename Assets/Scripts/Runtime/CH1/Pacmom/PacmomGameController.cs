@@ -1,3 +1,4 @@
+using Runtime.ETC;
 using System.Collections;
 using UnityEngine;
 
@@ -77,9 +78,9 @@ namespace Runtime.CH1.Pacmom
         {
             coin.gameObject.SetActive(false);
 
-            if (who == "Rapley")
+            if (who == GlobalConst.PlayerStr)
                 SetRapleyScore(rapleyScore + 1);
-            else if (who == "Pacmom")
+            else if (who == GlobalConst.PacmomStr)
                 SetPacmomScore(pacmomScore + 1);
 
             if (!HasRemainingCoins())
