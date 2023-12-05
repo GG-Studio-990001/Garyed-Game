@@ -41,6 +41,8 @@ namespace Runtime.CH1.Pacmom
 
         public void VacuumMode(bool mode)
         {
+            SetRotateToZero();
+
             isVacuumMode = mode;
             movement.canUpDown = !isVacuumMode;
 
@@ -66,6 +68,8 @@ namespace Runtime.CH1.Pacmom
 
         private IEnumerator DeadAnim()
         {
+            SetRotateToZero();
+
             SpriteRenderer spriteRender = gameObject.GetComponent<SpriteRenderer>();
             SpriteAnimation spriteAnim = gameObject.GetComponent<SpriteAnimation>();
             spriteAnim.enabled = false;
@@ -78,6 +82,11 @@ namespace Runtime.CH1.Pacmom
                 spriteRender.sprite = dieSpr[i];
                 yield return new WaitForSeconds(0.3f);
             }
+        }
+
+        private void SetRotateToZero()
+        {
+            transform.rotation = Quaternion.Euler(Vector3.zero);
         }
 
         private void OnTriggerEnter2D(Collider2D other)
