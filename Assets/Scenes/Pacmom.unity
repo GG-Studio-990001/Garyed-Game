@@ -30120,6 +30120,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movement: {fileID: 1861729279}
+  isVacuumMode: 0
+  vacuumSpr: {fileID: -1359193594, guid: 622b09821277ce54b8f6401cf405c699, type: 3}
+  dieSpr:
+  - {fileID: 2140623536, guid: 622b09821277ce54b8f6401cf405c699, type: 3}
+  - {fileID: -146159971, guid: 622b09821277ce54b8f6401cf405c699, type: 3}
+  - {fileID: -307251568, guid: 622b09821277ce54b8f6401cf405c699, type: 3}
+  - {fileID: 1734855869, guid: 622b09821277ce54b8f6401cf405c699, type: 3}
+  - {fileID: 1325422031, guid: 622b09821277ce54b8f6401cf405c699, type: 3}
 --- !u!114 &1861729286
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33086,11 +33094,7 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: cc87043f8e6a8ab4081182a65944abe5, type: 2}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  m_TileSpriteArray:
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  m_TileSpriteArray: []
   m_TileMatrixArray:
   - m_RefCount: 285
     m_Data:
@@ -33113,8 +33117,6 @@ Tilemap:
   m_TileColorArray:
   - m_RefCount: 285
     m_Data: {r: 1, g: 1, b: 1, a: 1}
-  - m_RefCount: 0
-    m_Data: {r: NaN, g: NaN, b: NaN, a: NaN}
   m_TileObjectToInstantiateArray:
   - m_RefCount: 285
     m_Data: {fileID: 4278329159390637904, guid: 31c8707df8e230f4c911a68a0959d762, type: 3}

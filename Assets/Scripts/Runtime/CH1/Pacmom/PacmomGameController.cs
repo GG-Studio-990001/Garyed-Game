@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 namespace Runtime.CH1.Pacmom
@@ -7,6 +8,8 @@ namespace Runtime.CH1.Pacmom
         public Rapley rapley;
         public Pacmom pacmom;
         public Transform coins;
+        [SerializeField]
+        private float vacuumDuration = 10f;
 
         public int rapleyScore { get; private set; }
         public int pacmomScore { get; private set; }
@@ -47,6 +50,23 @@ namespace Runtime.CH1.Pacmom
             pacmomLives = lives;
         }
 
+        public void UseVacuum(Vacuum vacuum)
+        {
+            vacuum.gameObject.SetActive(false);
+
+            StopAllCoroutines();
+            StartCoroutine("VacuumTime");
+        }
+
+        private IEnumerator VacuumTime()
+        {
+            pacmom.VacuumMode(true);
+
+            yield return new WaitForSeconds(vacuumDuration);
+
+            pacmom.VacuumMode(false);
+        }
+
         public void CoinEaten(Coin coin, string who)
         {
             coin.gameObject.SetActive(false);
@@ -70,7 +90,9 @@ namespace Runtime.CH1.Pacmom
 
         public void RapleyEaten()
         {
-            
+            Debug.Log("라플리 먹힘");
+
+            rapley.transform.position = new Vector3(0, 0, rapley.transform.position.z);
         }
 
         public void PacmomEaten()
@@ -78,6 +100,7 @@ namespace Runtime.CH1.Pacmom
             // ToDO: 유령한테 죽을 때 처리
 
             SetPacmomLives(pacmomLives - 1);
+            pacmom.PacmomDead();
 
             if (pacmomLives > 0)
             {
@@ -86,7 +109,8 @@ namespace Runtime.CH1.Pacmom
             else
             {
                 Debug.Log("팩맘 죽음");
-                pacmom.gameObject.SetActive(false);
+
+                pacmom.PacmomDead();
             }
         }
 

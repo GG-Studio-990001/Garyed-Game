@@ -1,4 +1,5 @@
 using Runtime.CH1.Main;
+using System.Collections;
 using UnityEngine;
 
 namespace Runtime.CH1.Pacmom
@@ -6,6 +7,12 @@ namespace Runtime.CH1.Pacmom
     public class Pacmom : MonoBehaviour
     {
         public Movement movement;
+        public bool isVacuumMode = false;
+
+        [SerializeField]
+        private Sprite vacuumSpr;
+        [SerializeField]
+        private Sprite[] dieSpr;
 
         private void Start()
         {
@@ -24,6 +31,46 @@ namespace Runtime.CH1.Pacmom
         private void FixedUpdate()
         {
             movement.Move();
+        }
+
+        public void VacuumMode(bool mode)
+        {
+            isVacuumMode = mode;
+
+            SpriteAnimation spriteAnim = gameObject.GetComponent<SpriteAnimation>();
+            SpriteRenderer spriteRender = gameObject.GetComponent<SpriteRenderer>();
+
+            if (isVacuumMode)
+            {
+                spriteAnim.enabled = false;
+                spriteRender.sprite = vacuumSpr;
+            }
+            else
+            {
+                spriteAnim.enabled = true;
+                spriteAnim.RestartAnim();
+            }
+        }
+
+        public void PacmomDead()
+        {
+            StartCoroutine("DeadAnim");
+        }
+
+        private IEnumerator DeadAnim()
+        {
+            SpriteRenderer spriteRender = gameObject.GetComponent<SpriteRenderer>();
+            SpriteAnimation spriteAnim = gameObject.GetComponent<SpriteAnimation>();
+            spriteAnim.enabled = false;
+
+            movement.speed = 0;
+            movement.enabled = false;
+
+            for (int i=0; i<dieSpr.Length; i++)
+            {
+                spriteRender.sprite = dieSpr[i];
+                yield return new WaitForSeconds(0.3f);
+            }
         }
 
         private void OnTriggerEnter2D(Collider2D other)
@@ -51,7 +98,14 @@ namespace Runtime.CH1.Pacmom
         {
             if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
             {
-                FindObjectOfType<PacmomGameController>().PacmomEaten();
+                if (isVacuumMode)
+                {
+                    FindObjectOfType<PacmomGameController>().RapleyEaten();
+                }
+                else
+                {
+                    FindObjectOfType<PacmomGameController>().PacmomEaten();
+                }
             }
         }
     }

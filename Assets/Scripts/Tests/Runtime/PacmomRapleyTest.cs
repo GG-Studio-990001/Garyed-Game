@@ -78,7 +78,7 @@ namespace Tests.Runtime
             rapleyMovement.rigid = rapleyObj.GetComponent<Rigidbody2D>();
 
             rapleyMovement.rigid.position = Vector3.zero;
-            rapleyMovement.SetDirection(new Vector2(-1, 0));
+            rapleyMovement.SetNextDirection(new Vector2(-1, 0));
             rapleyMovement.Move();
 
             yield return new WaitForFixedUpdate();
@@ -110,7 +110,7 @@ namespace Tests.Runtime
             pacmomMovement.rigid = rapleyObj.GetComponent<Rigidbody2D>();
 
             pacmomMovement.rigid.position = Vector3.zero;
-            pacmomMovement.SetDirection(new Vector2(1, 0));
+            pacmomMovement.SetNextDirection(new Vector2(1, 0));
             pacmomMovement.Move();
 
             yield return new WaitForFixedUpdate();
