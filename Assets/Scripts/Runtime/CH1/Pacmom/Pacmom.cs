@@ -14,14 +14,10 @@ namespace Runtime.CH1.Pacmom
         [SerializeField]
         private Sprite[] dieSpr;
 
-        private void Awake()
+        private void Start()
         {
             movement.canFlip = true;
             movement.canRotate = true;
-        }
-
-        private void Start()
-        {
             ResetState();
         }
 

@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Runtime.CH1.Pacmom
 {
-    [RequireComponent(typeof(Rigidbody2D))]
+    [RequireComponent(typeof(Rigidbody2D)), RequireComponent(typeof(SpriteRenderer))]
     public class Movement : MonoBehaviour
     {
         public Rigidbody2D rigid;

@@ -35,11 +35,13 @@ namespace Tests.Runtime
         public IEnumerator SetUp()
         {
             rapleyObj = new GameObject("RapleyObj");
+            rapleyObj.AddComponent<SpriteRenderer>();
             rapley = rapleyObj.AddComponent<Rapley>();
             rapleyMovement = rapleyObj.AddComponent<Movement>();
             rapley.movement = rapleyMovement;
 
             pacmomObj = new GameObject("PacmomObj");
+            pacmomObj.AddComponent<SpriteRenderer>();
             pacmom = pacmomObj.AddComponent<Pacmom>();
             pacmomMovement = pacmomObj.AddComponent<Movement>();
             pacmom.movement = pacmomMovement;
