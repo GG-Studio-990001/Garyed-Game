@@ -11,7 +11,7 @@ namespace Runtime.CH1.Pacmom
         private void Awake()
         {
             movement.canFlip = true;
-            movement.canUpDown = false;
+            movement.canRotate = false;
         }
 
         private void Start()

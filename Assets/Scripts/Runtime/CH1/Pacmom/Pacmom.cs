@@ -17,7 +17,7 @@ namespace Runtime.CH1.Pacmom
         private void Awake()
         {
             movement.canFlip = true;
-            movement.canUpDown = true;
+            movement.canRotate = true;
         }
 
         private void Start()
@@ -44,7 +44,7 @@ namespace Runtime.CH1.Pacmom
             SetRotateToZero();
 
             isVacuumMode = mode;
-            movement.canUpDown = !isVacuumMode;
+            movement.canRotate = !isVacuumMode;
 
             SpriteAnimation spriteAnim = gameObject.GetComponent<SpriteAnimation>();
             SpriteRenderer spriteRender = gameObject.GetComponent<SpriteRenderer>();

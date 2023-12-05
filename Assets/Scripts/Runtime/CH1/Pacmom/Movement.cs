@@ -16,7 +16,7 @@ namespace Runtime.CH1.Pacmom
 
         public LayerMask obstacleLayer { get; private set; }
         public bool canFlip;
-        public bool canUpDown;
+        public bool canRotate;
 
         private void Awake()
         {
@@ -60,27 +60,25 @@ namespace Runtime.CH1.Pacmom
             {
                 SpriteRenderer spriteRender = GetComponent<SpriteRenderer>();
 
-                if (canUpDown)
+                if (canRotate)
                 {
-                    if (direction == Vector2.up)
-                        transform.rotation = Quaternion.Euler(0, 0, (spriteRender.flipX ? -90 : 90));
-                    else if (direction == Vector2.down)
-                        transform.rotation = Quaternion.Euler(0, 0, (spriteRender.flipX ? 90 : -90));
-                    else
-                        transform.rotation = Quaternion.Euler(Vector3.zero);
+                    float zValue = 0f;
+
+                    if (direction.x == 0)
+                    {
+                        zValue = 90 * direction.y * (spriteRender.flipX ? -1 : 1);
+                    }
+
+                    transform.rotation = Quaternion.Euler(0, 0, zValue);
                 }
 
                 this.direction = direction;
                 nextDirection = Vector2.zero;
 
-                if (canFlip)
+                if (canFlip && direction.y == 0)
                 {
-                    if (this.direction == Vector2.right)
-                        spriteRender.flipX = false;
-                    else if (this.direction == Vector2.left)
-                        spriteRender.flipX = true;
+                    spriteRender.flipX = (direction.x == 1 ? false : true);
                 }
-                
             }
         }
 
