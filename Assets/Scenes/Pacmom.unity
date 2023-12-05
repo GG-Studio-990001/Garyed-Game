@@ -260,6 +260,7 @@ GameObject:
   - component: {fileID: 133942949}
   - component: {fileID: 133942950}
   - component: {fileID: 133942951}
+  - component: {fileID: 133942952}
   m_Layer: 3
   m_Name: Rapley
   m_TagString: Untagged
@@ -370,12 +371,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 249071657, guid: c6e588afc8914874b88468fe815b17f4, type: 3}
+  m_Sprite: {fileID: -1760056461, guid: abc5b67e952ea014895fb7af1c448980, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.875, y: 1.875}
+  m_Size: {x: 2, y: 2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -455,6 +456,21 @@ MonoBehaviour:
   speed: 8
   speedMultiplier: 1
   initialDirection: {x: -1, y: 0}
+--- !u!114 &133942952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 133942943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d75d2edf2406674883af2eddd1322c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: -1760056461, guid: abc5b67e952ea014895fb7af1c448980, type: 3}
+  - {fileID: -1623894580, guid: abc5b67e952ea014895fb7af1c448980, type: 3}
 --- !u!1 &224553660
 GameObject:
   m_ObjectHideFlags: 0
@@ -9548,12 +9564,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -595886503, guid: f50cf08cc2d296e40bcd64ec19a05d00, type: 3}
+  m_Sprite: {fileID: -146159971, guid: 622b09821277ce54b8f6401cf405c699, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.875, y: 1.875}
+  m_Size: {x: 2, y: 2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -9600,10 +9616,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprites:
-  - {fileID: -545447547, guid: f50cf08cc2d296e40bcd64ec19a05d00, type: 3}
-  - {fileID: -595886503, guid: f50cf08cc2d296e40bcd64ec19a05d00, type: 3}
-  - {fileID: -428394548, guid: f50cf08cc2d296e40bcd64ec19a05d00, type: 3}
-  - {fileID: -595886503, guid: f50cf08cc2d296e40bcd64ec19a05d00, type: 3}
+  - {fileID: -146159971, guid: 622b09821277ce54b8f6401cf405c699, type: 3}
+  - {fileID: 2140623536, guid: 622b09821277ce54b8f6401cf405c699, type: 3}
+  - {fileID: -146159971, guid: 622b09821277ce54b8f6401cf405c699, type: 3}
+  - {fileID: -307251568, guid: 622b09821277ce54b8f6401cf405c699, type: 3}
 --- !u!1 &1942074556
 GameObject:
   m_ObjectHideFlags: 0
