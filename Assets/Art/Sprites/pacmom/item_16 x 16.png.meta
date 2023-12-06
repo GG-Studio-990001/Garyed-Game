@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c6e588afc8914874b88468fe815b17f4
+guid: 45bbaf2a68043494fbb235b4b67100f7
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 8
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: rapley_16px_0
+      name: item_16 x 16_0
       rect:
         serializedVersion: 2
         x: 0
@@ -124,17 +124,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c788c25de9944254ba000ad957d32418
-      internalID: 1003796216
+      spriteID: 0a904850b2ec845428e2246c782ef03f
+      internalID: 1726364206
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: rapley_16px_1
+      name: item_16 x 16_1
       rect:
         serializedVersion: 2
-        x: 21
+        x: 16
         y: 0
         width: 16
         height: 16
@@ -145,8 +145,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0ae9ec8ab648c5b4a9f011bc877d41b6
-      internalID: 249071657
+      spriteID: 0fea8464e8f78514a9ef928baddf271e
+      internalID: -1297379370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: item_16 x 16_2
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81d9d879d0044af4e8000cffd88e5623
+      internalID: 226035902
       vertices: []
       indices: 
       edges: []
@@ -154,7 +175,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: e6aa655a59b834546a155b77de62c89e
+    spriteID: b69f4e9f558cf5048844daafd002d671
     internalID: 0
     vertices: []
     indices: 
@@ -162,8 +183,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      rapley_16px_0: 1003796216
-      rapley_16px_1: 249071657
+      item_16 x 16_0: 1726364206
+      item_16 x 16_1: -1297379370
+      item_16 x 16_2: 226035902
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,26 +1,29 @@
+using Runtime.ETC;
 using UnityEngine;
 
 namespace Runtime.CH1.Pacmom
 {
     public class Coin : MonoBehaviour
     {
+        public PacmomGameController gameController;
+
         private void EatenByRapley()
         {
-            FindObjectOfType<PacmomGameController>().CoinEaten(this, "Rapley");
+            gameController.CoinEaten(this, GlobalConst.PlayerStr);
         }
 
         private void EatenByPacmom()
         {
-            FindObjectOfType<PacmomGameController>().CoinEaten(this, "Pacmom");
+            gameController.CoinEaten(this, GlobalConst.PacmomStr);
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
+            if (collision.gameObject.layer == LayerMask.NameToLayer(GlobalConst.PlayerStr))
             {
                 EatenByRapley();
             }
-            else if (collision.gameObject.layer == LayerMask.NameToLayer("Pacmom"))
+            else if (collision.gameObject.layer == LayerMask.NameToLayer(GlobalConst.PacmomStr))
             {
                 EatenByPacmom();
             }

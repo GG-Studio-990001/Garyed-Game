@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using Runtime.CH1.Pacmom;
+using Runtime.ETC;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.TestTools;
@@ -22,27 +23,29 @@ namespace Tests.Runtime
         private GameObject coinParentObj;
         private Transform coins;
 
+        private GameObject vacuumObj;
+        private Vacuum vacuum;
+        private GameObject vacuumParentObj;
+        private Transform vacuums;
+
         private GameObject controllerObj;
         private PacmomGameController controller;
-
-        // 라플리 움직임
-        // 라플리 동전
-        // 팩맘 움직임
-        // 팩맘 동전
-        // 팩맘 라플리 충돌
 
         [UnitySetUp]
         public IEnumerator SetUp()
         {
             rapleyObj = new GameObject("RapleyObj");
+            rapleyObj.AddComponent<SpriteRenderer>();
             rapley = rapleyObj.AddComponent<Rapley>();
             rapleyMovement = rapleyObj.AddComponent<Movement>();
             rapley.movement = rapleyMovement;
 
             pacmomObj = new GameObject("PacmomObj");
+            pacmomObj.AddComponent<SpriteRenderer>();
             pacmom = pacmomObj.AddComponent<Pacmom>();
             pacmomMovement = pacmomObj.AddComponent<Movement>();
             pacmom.movement = pacmomMovement;
+            pacmom.gameController = controller;
 
             coinParentObj = new GameObject("CoinParentObj");
             coins = coinParentObj.gameObject.transform;
@@ -50,11 +53,18 @@ namespace Tests.Runtime
             coinObj.transform.parent = coinParentObj.transform;
             coin = coinObj.AddComponent<Coin>();
 
+            vacuumParentObj = new GameObject("VacuumParentObj");
+            vacuums = vacuumParentObj.gameObject.transform;
+            vacuumObj = new GameObject("VacuumObj");
+            vacuumObj.transform.parent = vacuumParentObj.transform;
+            vacuum = vacuumObj.AddComponent<Vacuum>();
+
             controllerObj = new GameObject("ControllerObj");
             controller = controllerObj.AddComponent<PacmomGameController>();
             controller.rapley = rapley;
-            controller.coins = coins;
             controller.pacmom = pacmom;
+            controller.coins = coins;
+            controller.vacuums = vacuums;
 
             yield return new WaitForFixedUpdate();
         }
@@ -66,6 +76,8 @@ namespace Tests.Runtime
             Object.DestroyImmediate(pacmomObj);
             Object.DestroyImmediate(coinObj);
             Object.DestroyImmediate(coinParentObj);
+            Object.DestroyImmediate(vacuumObj);
+            Object.DestroyImmediate(vacuumParentObj);
             Object.DestroyImmediate(controllerObj);
 
             yield return new WaitForFixedUpdate();
@@ -78,7 +90,7 @@ namespace Tests.Runtime
             rapleyMovement.rigid = rapleyObj.GetComponent<Rigidbody2D>();
 
             rapleyMovement.rigid.position = Vector3.zero;
-            rapleyMovement.SetDirection(new Vector2(-1, 0));
+            rapleyMovement.SetNextDirection(new Vector2(-1, 0));
             rapleyMovement.Move();
 
             yield return new WaitForFixedUpdate();
@@ -91,7 +103,7 @@ namespace Tests.Runtime
         {
             rapleyObj.AddComponent<CircleCollider2D>();
             rapleyObj.transform.position = Vector3.zero;
-            rapleyObj.layer = LayerMask.NameToLayer("Player");
+            rapleyObj.layer = LayerMask.NameToLayer(GlobalConst.PlayerStr);
 
             BoxCollider2D coinColl = coinObj.AddComponent<BoxCollider2D>();
             coinColl.isTrigger = true;
@@ -110,7 +122,7 @@ namespace Tests.Runtime
             pacmomMovement.rigid = rapleyObj.GetComponent<Rigidbody2D>();
 
             pacmomMovement.rigid.position = Vector3.zero;
-            pacmomMovement.SetDirection(new Vector2(1, 0));
+            pacmomMovement.SetNextDirection(new Vector2(1, 0));
             pacmomMovement.Move();
 
             yield return new WaitForFixedUpdate();
@@ -123,7 +135,7 @@ namespace Tests.Runtime
         {
             pacmomObj.AddComponent<CircleCollider2D>();
             pacmomObj.transform.position = Vector3.zero;
-            pacmomObj.layer = LayerMask.NameToLayer("Pacmom");
+            pacmomObj.layer = LayerMask.NameToLayer(GlobalConst.PacmomStr);
 
             BoxCollider2D coinColl = coinObj.AddComponent<BoxCollider2D>();
             coinColl.isTrigger = true;

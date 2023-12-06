@@ -1,10 +1,9 @@
-using Codice.CM.Common;
-using log4net.Util;
+using Runtime.ETC;
 using UnityEngine;
 
 namespace Runtime.CH1.Pacmom
 {
-    [RequireComponent(typeof(Rigidbody2D))]
+    [RequireComponent(typeof(Rigidbody2D)), RequireComponent(typeof(SpriteRenderer))]
     public class Movement : MonoBehaviour
     {
         public Rigidbody2D rigid;
@@ -13,16 +12,18 @@ namespace Runtime.CH1.Pacmom
         public Vector3 startPosition { get; private set; }
 
         public float speed = 8f;
-        public float speedMultiplier = 1f; // 팩맘의 청소기 습득 시 속도 변화를 위한 변수
+        public float speedMultiplier = 1f; // 팩맘의 청소기 습득 시 속도 변화
         public Vector2 initialDirection;
 
         public LayerMask obstacleLayer { get; private set; }
+        public bool canFlip;
+        public bool canRotate;
 
         private void Awake()
         {
             rigid = GetComponent<Rigidbody2D>();
             startPosition = transform.position;
-            obstacleLayer = LayerMask.GetMask("Obstacle");
+            obstacleLayer = LayerMask.GetMask(GlobalConst.ObstacleStr);
         }
 
         private void Update()
@@ -54,12 +55,31 @@ namespace Runtime.CH1.Pacmom
             nextDirection = direction;
         }
 
-        public void SetDirection(Vector2 direction)
+        private void SetDirection(Vector2 direction)
         {
             if (!CheckRoadBlocked(direction))
             {
+                SpriteRenderer spriteRender = GetComponent<SpriteRenderer>();
+
+                if (canRotate)
+                {
+                    float zValue = 0f;
+
+                    if (direction.x == 0)
+                    {
+                        zValue = 90 * direction.y * (spriteRender.flipX ? -1 : 1);
+                    }
+
+                    transform.rotation = Quaternion.Euler(0, 0, zValue);
+                }
+
                 this.direction = direction;
                 nextDirection = Vector2.zero;
+
+                if (canFlip && direction.y == 0)
+                {
+                    spriteRender.flipX = (direction.x == 1 ? false : true);
+                }
             }
         }
 

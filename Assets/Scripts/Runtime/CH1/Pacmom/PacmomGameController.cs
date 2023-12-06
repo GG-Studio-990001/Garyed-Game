@@ -1,3 +1,5 @@
+using Runtime.ETC;
+using System.Collections;
 using UnityEngine;
 
 namespace Runtime.CH1.Pacmom
@@ -7,6 +9,9 @@ namespace Runtime.CH1.Pacmom
         public Rapley rapley;
         public Pacmom pacmom;
         public Transform coins;
+        public Transform vacuums;
+        [SerializeField]
+        private float vacuumDuration = 10f;
 
         public int rapleyScore { get; private set; }
         public int pacmomScore { get; private set; }
@@ -25,7 +30,12 @@ namespace Runtime.CH1.Pacmom
 
             foreach (Transform coin in coins)
             {
-                coin.gameObject.SetActive(true);
+                coin.GetComponent<Coin>().gameController = this;
+            }
+
+            foreach (Transform vacuum in vacuums)
+            {
+                vacuum.GetComponent<Vacuum>().gameController = this;
             }
 
             rapley.ResetState();
@@ -47,13 +57,30 @@ namespace Runtime.CH1.Pacmom
             pacmomLives = lives;
         }
 
+        public void UseVacuum(Vacuum vacuum)
+        {
+            vacuum.gameObject.SetActive(false);
+
+            StopAllCoroutines();
+            StartCoroutine("VacuumTime");
+        }
+
+        private IEnumerator VacuumTime()
+        {
+            pacmom.VacuumMode(true);
+
+            yield return new WaitForSeconds(vacuumDuration);
+
+            pacmom.VacuumMode(false);
+        }
+
         public void CoinEaten(Coin coin, string who)
         {
             coin.gameObject.SetActive(false);
 
-            if (who == "Rapley")
+            if (who == GlobalConst.PlayerStr)
                 SetRapleyScore(rapleyScore + 1);
-            else if (who == "Pacmom")
+            else if (who == GlobalConst.PacmomStr)
                 SetPacmomScore(pacmomScore + 1);
 
             if (!HasRemainingCoins())
@@ -70,7 +97,9 @@ namespace Runtime.CH1.Pacmom
 
         public void RapleyEaten()
         {
-            
+            Debug.Log("라플리 먹힘");
+
+            rapley.transform.position = new Vector3(0, 0, rapley.transform.position.z);
         }
 
         public void PacmomEaten()
@@ -86,7 +115,8 @@ namespace Runtime.CH1.Pacmom
             else
             {
                 Debug.Log("팩맘 죽음");
-                pacmom.gameObject.SetActive(false);
+
+                pacmom.PacmomDead();
             }
         }
 

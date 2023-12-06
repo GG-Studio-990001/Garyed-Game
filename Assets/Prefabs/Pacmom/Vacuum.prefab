@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 1975607684056135043}
   - component: {fileID: 7585935288715989924}
   - component: {fileID: 3496490647733580422}
-  - component: {fileID: -3549695607205081855}
-  m_Layer: 8
-  m_Name: Coin
+  - component: {fileID: -7212575454570324484}
+  m_Layer: 11
+  m_Name: Vacuum
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1297379370, guid: 45bbaf2a68043494fbb235b4b67100f7, type: 3}
+  m_Sprite: {fileID: 226035902, guid: 45bbaf2a68043494fbb235b4b67100f7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -129,9 +129,9 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.25, y: 0.25}
+  m_Size: {x: 0.8, y: 1}
   m_EdgeRadius: 0
---- !u!114 &-3549695607205081855
+--- !u!114 &-7212575454570324484
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -140,6 +140,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4278329159390637904}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7d0faa61c3a60c44be3a051128b558f, type: 3}
+  m_Script: {fileID: 11500000, guid: a93811c71786da745bfda4c38d9b7132, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  duration: 10

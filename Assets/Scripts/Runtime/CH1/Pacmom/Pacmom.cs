@@ -1,14 +1,24 @@
-using Runtime.CH1.Main;
+using Runtime.ETC;
+using System.Collections;
 using UnityEngine;
 
 namespace Runtime.CH1.Pacmom
 {
     public class Pacmom : MonoBehaviour
     {
+        public PacmomGameController gameController;
         public Movement movement;
+        public bool isVacuumMode = false;
+
+        [SerializeField]
+        private Sprite vacuumSpr;
+        [SerializeField]
+        private Sprite[] dieSpr;
 
         private void Start()
         {
+            movement.canFlip = true;
+            movement.canRotate = true;
             ResetState();
         }
 
@@ -24,6 +34,56 @@ namespace Runtime.CH1.Pacmom
         private void FixedUpdate()
         {
             movement.Move();
+        }
+
+        public void VacuumMode(bool mode)
+        {
+            SetRotateToZero();
+
+            isVacuumMode = mode;
+            movement.canRotate = !isVacuumMode;
+
+            SpriteAnimation spriteAnim = gameObject.GetComponent<SpriteAnimation>();
+            SpriteRenderer spriteRender = gameObject.GetComponent<SpriteRenderer>();
+
+            if (isVacuumMode)
+            {
+                spriteAnim.enabled = false;
+                spriteRender.sprite = vacuumSpr;
+            }
+            else
+            {
+                spriteAnim.enabled = true;
+                spriteAnim.RestartAnim();
+            }
+        }
+
+        public void PacmomDead()
+        {
+            StartCoroutine("DeadAnim");
+        }
+
+        private IEnumerator DeadAnim()
+        {
+            SetRotateToZero();
+
+            SpriteRenderer spriteRender = gameObject.GetComponent<SpriteRenderer>();
+            SpriteAnimation spriteAnim = gameObject.GetComponent<SpriteAnimation>();
+            spriteAnim.enabled = false;
+
+            movement.speed = 0;
+            movement.enabled = false;
+
+            for (int i=0; i<dieSpr.Length; i++)
+            {
+                spriteRender.sprite = dieSpr[i];
+                yield return new WaitForSeconds(0.3f);
+            }
+        }
+
+        private void SetRotateToZero()
+        {
+            transform.rotation = Quaternion.Euler(Vector3.zero);
         }
 
         private void OnTriggerEnter2D(Collider2D other)
@@ -49,9 +109,16 @@ namespace Runtime.CH1.Pacmom
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
-            if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
+            if (collision.gameObject.layer == LayerMask.NameToLayer(GlobalConst.PlayerStr))
             {
-                FindObjectOfType<PacmomGameController>().PacmomEaten();
+                if (isVacuumMode)
+                {
+                    gameController.RapleyEaten();
+                }
+                else
+                {
+                    gameController.PacmomEaten();
+                }
             }
         }
     }
