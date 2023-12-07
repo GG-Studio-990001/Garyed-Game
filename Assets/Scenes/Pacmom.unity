@@ -30162,6 +30162,10 @@ MonoBehaviour:
   - {fileID: -307251568, guid: 622b09821277ce54b8f6401cf405c699, type: 3}
   - {fileID: 1734855869, guid: 622b09821277ce54b8f6401cf405c699, type: 3}
   - {fileID: 1325422031, guid: 622b09821277ce54b8f6401cf405c699, type: 3}
+  enemys:
+  - {fileID: 133942948}
+  - {fileID: 1687305289}
+  - {fileID: 649511876}
 --- !u!114 &1861729286
 MonoBehaviour:
   m_ObjectHideFlags: 0
