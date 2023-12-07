@@ -3485,7 +3485,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: -1760056461, guid: abc5b67e952ea014895fb7af1c448980, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 2, y: 2}
@@ -3568,8 +3568,6 @@ MonoBehaviour:
   speed: 8
   speedMultiplier: 1
   initialDirection: {x: -1, y: 0}
-  canFlip: 1
-  canRotate: 0
 --- !u!114 &133942952
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30013,8 +30011,6 @@ MonoBehaviour:
   speed: 6
   speedMultiplier: 1
   initialDirection: {x: 1, y: 0}
-  canFlip: 1
-  canRotate: 0
 --- !u!58 &1861729281
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -33372,8 +33368,8 @@ MonoBehaviour:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 1761052960}
   - {fileID: 1118124721}
+  - {fileID: 1761052960}
   - {fileID: 301195151}
   - {fileID: 133942948}
   - {fileID: 1861729284}

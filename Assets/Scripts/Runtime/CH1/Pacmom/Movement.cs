@@ -1,3 +1,4 @@
+using Runtime.CH1.Main;
 using Runtime.ETC;
 using UnityEngine;
 
@@ -6,6 +7,8 @@ namespace Runtime.CH1.Pacmom
     [RequireComponent(typeof(Rigidbody2D)), RequireComponent(typeof(SpriteRenderer))]
     public class Movement : MonoBehaviour
     {
+        public SpriteRotation spriteRotation { get; private set; }
+
         public Rigidbody2D rigid;
         public Vector2 direction { get; private set; }
         public Vector2 nextDirection { get; private set; }
@@ -16,11 +19,11 @@ namespace Runtime.CH1.Pacmom
         public Vector2 initialDirection;
 
         public LayerMask obstacleLayer { get; private set; }
-        public bool canFlip;
-        public bool canRotate;
 
         private void Awake()
         {
+            spriteRotation = new SpriteRotation(GetComponent<SpriteRenderer>());
+
             rigid = GetComponent<Rigidbody2D>();
             startPosition = transform.position;
             obstacleLayer = LayerMask.GetMask(GlobalConst.ObstacleStr);
@@ -59,27 +62,13 @@ namespace Runtime.CH1.Pacmom
         {
             if (!CheckRoadBlocked(direction))
             {
-                SpriteRenderer spriteRender = GetComponent<SpriteRenderer>();
-
-                if (canRotate)
-                {
-                    float zValue = 0f;
-
-                    if (direction.x == 0)
-                    {
-                        zValue = 90 * direction.y * (spriteRender.flipX ? -1 : 1);
-                    }
-
-                    transform.rotation = Quaternion.Euler(0, 0, zValue);
-                }
+                float zValue = spriteRotation.RotationZValue(direction);
+                transform.rotation = Quaternion.Euler(0, 0, zValue);
 
                 this.direction = direction;
                 nextDirection = Vector2.zero;
 
-                if (canFlip && direction.y == 0)
-                {
-                    spriteRender.flipX = (direction.x == 1 ? false : true);
-                }
+                spriteRotation.FlipSprite(direction);
             }
         }
 

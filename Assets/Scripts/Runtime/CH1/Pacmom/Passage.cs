@@ -4,7 +4,8 @@ namespace Runtime.CH1.Pacmom
 {
     public class Passage : MonoBehaviour
     {
-        public Transform connection;
+        [SerializeField]
+        private Transform connection;
 
         private void OnTriggerEnter2D(Collider2D other)
         {

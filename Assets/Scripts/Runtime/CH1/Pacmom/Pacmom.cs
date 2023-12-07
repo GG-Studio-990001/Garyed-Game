@@ -4,21 +4,32 @@ using UnityEngine;
 
 namespace Runtime.CH1.Pacmom
 {
+    [RequireComponent(typeof(SpriteRenderer))]
     public class Pacmom : MonoBehaviour
     {
         public PacmomGameController gameController;
         public Movement movement;
         public bool isVacuumMode = false;
 
+        private SpriteAnimation spriteAnim;
+        private SpriteRenderer spriteRenderer;
+
         [SerializeField]
         private Sprite vacuumSpr;
         [SerializeField]
         private Sprite[] dieSpr;
 
+        private void Awake()
+        {
+            spriteAnim = GetComponent<SpriteAnimation>();
+            spriteRenderer = GetComponent<SpriteRenderer>();
+        }
+
         private void Start()
         {
-            movement.canFlip = true;
-            movement.canRotate = true;
+            movement.spriteRotation.canRotate = true;
+            movement.spriteRotation.canFlip = true;
+
             ResetState();
         }
 
@@ -41,15 +52,12 @@ namespace Runtime.CH1.Pacmom
             SetRotateToZero();
 
             isVacuumMode = mode;
-            movement.canRotate = !isVacuumMode;
-
-            SpriteAnimation spriteAnim = gameObject.GetComponent<SpriteAnimation>();
-            SpriteRenderer spriteRender = gameObject.GetComponent<SpriteRenderer>();
+            movement.spriteRotation.canRotate = !isVacuumMode;
 
             if (isVacuumMode)
             {
                 spriteAnim.enabled = false;
-                spriteRender.sprite = vacuumSpr;
+                spriteRenderer.sprite = vacuumSpr;
             }
             else
             {
@@ -67,8 +75,6 @@ namespace Runtime.CH1.Pacmom
         {
             SetRotateToZero();
 
-            SpriteRenderer spriteRender = gameObject.GetComponent<SpriteRenderer>();
-            SpriteAnimation spriteAnim = gameObject.GetComponent<SpriteAnimation>();
             spriteAnim.enabled = false;
 
             movement.speed = 0;
@@ -76,7 +82,7 @@ namespace Runtime.CH1.Pacmom
 
             for (int i=0; i<dieSpr.Length; i++)
             {
-                spriteRender.sprite = dieSpr[i];
+                spriteRenderer.sprite = dieSpr[i];
                 yield return new WaitForSeconds(0.3f);
             }
         }
