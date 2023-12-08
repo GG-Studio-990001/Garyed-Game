@@ -16,23 +16,30 @@ namespace Tests.Runtime
         private SettingsUIView _view;
         private SettingsData _model;
         private SettingsUIPresenter _presenter;
+        
         private GameObject _backgroundAudioSource;
         private GameObject _effectAudioSource;
+        
+        private Slider _musicVolumeSlider;
+        private Slider _sfxVolumeSlider;
         
         [UnitySetUp]
         public IEnumerator SetUp()
         {
-            _gameObject = new GameObject("SettingsUI");
-            _view = _gameObject.AddComponent<SettingsUIView>();
-            
-            _view.musicVolumeSlider = new GameObject("MusicVolumeSlider").AddComponent<Slider>();
-            _view.sfxVolumeSlider = new GameObject("SfxVolumeSlider").AddComponent<Slider>();
-            
             _backgroundAudioSource = new GameObject("BackgroundAudioSource");
             _backgroundAudioSource.AddComponent<AudioSource>();
             
             _effectAudioSource = new GameObject("EffectAudioSource");
             _effectAudioSource.AddComponent<AudioSource>();
+            
+            _gameObject = new GameObject("SettingsUI");
+            _view = _gameObject.AddComponent<SettingsUIView>();
+
+            _musicVolumeSlider = new GameObject("MusicVolumeSlider").AddComponent<Slider>();
+            _view.SetMusicSlider(_musicVolumeSlider);
+            
+            _sfxVolumeSlider = new GameObject("SfxVolumeSlider").AddComponent<Slider>();
+            _view.SetSfxSlider(_sfxVolumeSlider);
             
             _model = ScriptableObject.CreateInstance<SettingsData>();
             _presenter = new SettingsUIPresenter(_view, _model);
@@ -46,27 +53,27 @@ namespace Tests.Runtime
         [UnityTest]
         public IEnumerator WhenMusicVolumeChangesViewIsUpdated()
         {
-            _presenter.SetMusicVolume(0.75f);
+            _musicVolumeSlider.value = 0.75f;
             
             yield return new WaitForFixedUpdate();
             
-            Assert.AreEqual(0.75f, _view.GetViewMusicVolume());
+            Assert.AreEqual(0.75f, _musicVolumeSlider.value);
         }
         
         [UnityTest]
         public IEnumerator WhenSfxVolumeChangesViewIsUpdated()
         {
-            _presenter.SetSfxVolume(0.3f);
+            _sfxVolumeSlider.value = 0.3f;
             
             yield return new WaitForFixedUpdate();
             
-            Assert.AreEqual(0.3f, _view.GetViewSfxVolume());
+            Assert.AreEqual(0.3f, _sfxVolumeSlider.value);
         }
         
         [UnityTest]
         public IEnumerator WhenMusicVolumeChangesModelIsUpdated()
         {
-            _presenter.SetMusicVolume(0.75f);
+            _musicVolumeSlider.value = 0.75f;
             
             yield return new WaitForFixedUpdate();
             
@@ -76,7 +83,7 @@ namespace Tests.Runtime
         [UnityTest]
         public IEnumerator WhenSfxVolumeChangesModelIsUpdated()
         {
-            _presenter.SetSfxVolume(0.3f);
+            _musicVolumeSlider.value = 0.3f;
             
             yield return new WaitForFixedUpdate();
             
