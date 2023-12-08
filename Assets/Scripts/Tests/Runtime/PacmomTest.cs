@@ -100,7 +100,7 @@ namespace Tests.Runtime
 
             yield return new WaitForFixedUpdate();
 
-            Assert.IsTrue(rapleyObj.GetComponent<Movement>().rigid.position.x < 0);
+            Assert.IsTrue(rapleyMovement.rigid.position.x < 0);
         }
 
         [UnityTest]
@@ -118,6 +118,17 @@ namespace Tests.Runtime
 
             Assert.IsFalse(coinObj.activeSelf);
         }
+
+        [UnityTest]
+        public IEnumerator RapleyFlipSprite()
+        {
+            rapleyMovement.SetNextDirection(new Vector2(1, 0));
+            rapleyMovement.Move();
+
+            yield return new WaitForFixedUpdate();
+
+            Assert.IsFalse(rapleyObj.GetComponent<SpriteRenderer>().flipX);
+        }
         #endregion
 
         #region Pacmom Functions
@@ -132,7 +143,7 @@ namespace Tests.Runtime
 
             yield return new WaitForFixedUpdate();
 
-            Assert.IsTrue(pacmomObj.GetComponent<Movement>().rigid.position.x > 0);
+            Assert.IsTrue(pacmomMovement.rigid.position.x > 0);
         }
 
         [UnityTest]
@@ -149,6 +160,17 @@ namespace Tests.Runtime
             yield return new WaitForFixedUpdate();
 
             Assert.IsFalse(coinObj.activeSelf);
+        }
+
+        [UnityTest]
+        public IEnumerator PacmomFlipSprite()
+        {
+            pacmomMovement.SetNextDirection(new Vector2(-1, 0));
+            pacmomMovement.Move();
+
+            yield return new WaitForFixedUpdate();
+
+            Assert.IsTrue(pacmomObj.GetComponent<SpriteRenderer>().flipX);
         }
         #endregion
 
