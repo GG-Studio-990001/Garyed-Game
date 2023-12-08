@@ -12,17 +12,20 @@ namespace Runtime.Common.Presentation
         private readonly AudioSource _effectAudioSource;
         
         public SettingsData SettingsData => _settingsData;
+        
+        private readonly string _backgroundAudioSourceName = "BackgroundAudioSource";
+        private readonly string _effectAudioSourceName = "EffectAudioSource";
 
         public SettingsUIPresenter(SettingsUIView settingsUIView, SettingsData settingsData)
         {
             _settingsUIView = settingsUIView;
             _settingsData = settingsData;
             
-            _settingsUIView.musicVolumeSlider.onValueChanged.AddListener(OnSliderMusicValueChanged);
-            _settingsUIView.sfxVolumeSlider.onValueChanged.AddListener(OnSliderSfxValueChanged);
+            _settingsUIView.OnMusicSliderValueChanged(SetMusicVolume);
+            _settingsUIView.OnSfxSliderValueChanged(SetSfxVolume);
             
-            _backgroundAudioSource = GameObject.Find("BackgroundAudioSource").GetComponent<AudioSource>();
-            _effectAudioSource = GameObject.Find("EffectAudioSource").GetComponent<AudioSource>();
+            _backgroundAudioSource = GameObject.Find(_backgroundAudioSourceName).GetComponent<AudioSource>();
+            _effectAudioSource = GameObject.Find(_effectAudioSourceName).GetComponent<AudioSource>();
             
             if (_backgroundAudioSource == null)
             {
@@ -36,19 +39,11 @@ namespace Runtime.Common.Presentation
             
             SetMusicVolume(_settingsData.MusicVolume);
             SetSfxVolume(_settingsData.SfxVolume);
+            
+            _settingsUIView.OnExitButtonClicked(OnExitButtonClicked);
         }
         
-        private void OnSliderMusicValueChanged(float value)
-        {
-            SetMusicVolume(value);
-        }
-        
-        private void OnSliderSfxValueChanged(float value)
-        {
-            SetSfxVolume(value);
-        }
-        
-        public void SetMusicVolume(float volume)
+        private void SetMusicVolume(float volume)
         {
             _settingsData.MusicVolume = volume;
             _settingsUIView.SetViewMusicVolume(_settingsData.MusicVolume);
@@ -56,12 +51,20 @@ namespace Runtime.Common.Presentation
             _backgroundAudioSource.volume = _settingsData.MusicVolume;
         }
         
-        public void SetSfxVolume(float volume)
+        private void SetSfxVolume(float volume)
         {
             _settingsData.SfxVolume = volume;
             _settingsUIView.SetViewSfxVolume(_settingsData.SfxVolume);
             
             _effectAudioSource.volume = _settingsData.SfxVolume;
+        }
+        
+        private void OnExitButtonClicked()
+        {
+            #if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+            #endif
+            Application.Quit();
         }
     }
 }

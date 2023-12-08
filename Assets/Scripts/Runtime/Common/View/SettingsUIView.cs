@@ -1,14 +1,16 @@
 using Runtime.Common.Presentation;
+using System;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 namespace Runtime.Common.View
 {
     public class SettingsUIView : MonoBehaviour
     {
-        [field:SerializeField] public Slider musicVolumeSlider;
-        [field:SerializeField] public Slider sfxVolumeSlider;
-        
+        [field:SerializeField] private Slider musicVolumeSlider;
+        [field:SerializeField] private Slider sfxVolumeSlider;
+        [field:SerializeField] private Button exitButton;
         
         private SettingsUIPresenter _presenter;
         
@@ -17,14 +19,34 @@ namespace Runtime.Common.View
             _presenter = PresenterFactory.CreateSettingsUIPresenter(this);
         }
         
-        public float GetViewMusicVolume()
+        public void SetMusicSlider(Slider slider)
         {
-            return musicVolumeSlider.value;
+            musicVolumeSlider = slider;
         }
         
-        public float GetViewSfxVolume()
+        public void SetSfxSlider(Slider slider)
         {
-            return sfxVolumeSlider.value;
+            sfxVolumeSlider = slider;
+        }
+        
+        public void OnMusicSliderValueChanged(UnityAction<float> onValueChanged)
+        {
+            musicVolumeSlider.onValueChanged.AddListener(onValueChanged);
+        }
+        
+        public void OnSfxSliderValueChanged(UnityAction<float> onValueChanged)
+        {
+            sfxVolumeSlider.onValueChanged.AddListener(onValueChanged);
+        }
+        
+        public void SetExitButton(Button button)
+        {
+            exitButton = button;
+        }
+        
+        public void OnExitButtonClicked(UnityAction onClick)
+        {
+            exitButton.onClick.AddListener(onClick);
         }
         
         public void SetViewMusicVolume(float volume)
