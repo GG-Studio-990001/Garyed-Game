@@ -8,8 +8,9 @@ using UnityEngine.TestTools;
 namespace Tests.Runtime
 {
     [TestFixture]
-    public class PacmomRapleyTest
+    public class PacmomTest
     {
+        #region 선언
         private GameObject rapleyObj;
         private Rapley rapley;
         private Movement rapleyMovement;
@@ -30,7 +31,9 @@ namespace Tests.Runtime
 
         private GameObject controllerObj;
         private PacmomGameController controller;
+        #endregion
 
+        #region SetUp & TearDown
         [UnitySetUp]
         public IEnumerator SetUp()
         {
@@ -45,7 +48,6 @@ namespace Tests.Runtime
             pacmom = pacmomObj.AddComponent<Pacmom>();
             pacmomMovement = pacmomObj.AddComponent<Movement>();
             pacmom.movement = pacmomMovement;
-            pacmom.gameController = controller;
 
             coinParentObj = new GameObject("CoinParentObj");
             coins = coinParentObj.gameObject.transform;
@@ -66,6 +68,8 @@ namespace Tests.Runtime
             controller.coins = coins;
             controller.vacuums = vacuums;
 
+            pacmom.gameController = controller;
+
             yield return new WaitForFixedUpdate();
         }
 
@@ -82,10 +86,11 @@ namespace Tests.Runtime
 
             yield return new WaitForFixedUpdate();
         }
+        #endregion
 
-        #region Rapley Test
+        #region Rapley Functions
         [UnityTest]
-        public IEnumerator TestRapleyMovement()
+        public IEnumerator RapleyMovement()
         {
             rapleyMovement.rigid = rapleyObj.GetComponent<Rigidbody2D>();
 
@@ -99,7 +104,7 @@ namespace Tests.Runtime
         }
 
         [UnityTest]
-        public IEnumerator TestRapleyEatCoin()
+        public IEnumerator RapleyEatCoin()
         {
             rapleyObj.AddComponent<CircleCollider2D>();
             rapleyObj.transform.position = Vector3.zero;
@@ -115,9 +120,9 @@ namespace Tests.Runtime
         }
         #endregion
 
-        #region Pacmom Test
+        #region Pacmom Functions
         [UnityTest]
-        public IEnumerator TestPacmomMovement()
+        public IEnumerator PacmomMovement()
         {
             pacmomMovement.rigid = rapleyObj.GetComponent<Rigidbody2D>();
 
@@ -131,7 +136,7 @@ namespace Tests.Runtime
         }
 
         [UnityTest]
-        public IEnumerator TestPacmomEatCoin()
+        public IEnumerator PacmomEatCoin()
         {
             pacmomObj.AddComponent<CircleCollider2D>();
             pacmomObj.transform.position = Vector3.zero;
@@ -144,6 +149,45 @@ namespace Tests.Runtime
             yield return new WaitForFixedUpdate();
 
             Assert.IsFalse(coinObj.activeSelf);
+        }
+        #endregion
+
+        #region Collision
+        [UnityTest]
+        public IEnumerator PacmomRapleyCollision_1()
+        {
+            int pacmomLife = controller.pacmomLives;
+
+            rapleyObj.AddComponent<CircleCollider2D>();
+            rapleyObj.transform.position = Vector3.zero;
+            rapleyObj.layer = LayerMask.NameToLayer(GlobalConst.PlayerStr);
+            
+            pacmomObj.AddComponent<CircleCollider2D>();
+            pacmomObj.transform.position = Vector3.zero;
+            pacmomObj.layer = LayerMask.NameToLayer(GlobalConst.PacmomStr);
+
+            yield return new WaitForFixedUpdate();
+
+            Assert.AreEqual(pacmomLife - 1, controller.pacmomLives);
+        }
+
+        [UnityTest]
+        public IEnumerator PacmomRapleyCollision_2()
+        {
+            int pacmomLife = controller.pacmomLives;
+
+            rapleyObj.AddComponent<CircleCollider2D>();
+            rapleyObj.transform.position = Vector3.zero;
+            rapleyObj.layer = LayerMask.NameToLayer(GlobalConst.PlayerStr);
+
+            pacmomObj.AddComponent<CircleCollider2D>();
+            pacmomObj.transform.position = Vector3.zero;
+            pacmomObj.layer = LayerMask.NameToLayer(GlobalConst.PacmomStr);
+            pacmom.isVacuumMode = true;
+
+            yield return new WaitForFixedUpdate();
+
+            Assert.AreEqual(pacmomLife, controller.pacmomLives);
         }
         #endregion
     }

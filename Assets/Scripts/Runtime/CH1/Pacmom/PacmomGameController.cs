@@ -28,6 +28,8 @@ namespace Runtime.CH1.Pacmom
             SetPacmomScore(0);
             SetPacmomLives(3);
 
+            pacmom.gameController = this;
+
             foreach (Transform coin in coins)
             {
                 coin.GetComponent<Coin>().gameController = this;
