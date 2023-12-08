@@ -19,8 +19,7 @@ namespace Runtime.CH1.Pacmom
         [SerializeField]
         private Sprite[] dieSpr;
 
-        [SerializeField]
-        private Transform[] enemys;
+        public Transform[] enemys = new Transform[1];
 
         private void Awake()
         {
@@ -32,6 +31,8 @@ namespace Runtime.CH1.Pacmom
         {
             movement.spriteRotation.canRotate = true;
             movement.spriteRotation.canFlip = true;
+
+            enemys[0] = gameController.rapley.gameObject.transform;
 
             ResetState();
         }
@@ -109,15 +110,15 @@ namespace Runtime.CH1.Pacmom
                 // TO DO: 적 여러마리일 때 가장 가까운 적을 기준으로 구현 (먼지유령 추가 후)
                 float distance = (enemy.position - transform.position).sqrMagnitude;
 
-                if (distance < 30f)
+                if (distance <= 36f)
                 {
                     if (!isVacuumMode)
                     {
-                        RunAwayFromEnemy(enemy, step);
+                        direction = RunAwayFromEnemy(enemy, step);
                     }
                     else
                     {
-                        ChaseEnemy(enemy, step);
+                        direction = ChaseEnemy(enemy, step);
                     }
                 }
             }

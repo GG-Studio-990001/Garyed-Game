@@ -12,10 +12,12 @@ namespace Tests.Runtime
     {
         #region 선언
         private GameObject rapleyObj;
+        private SpriteRenderer rapleySpr;
         private Rapley rapley;
         private Movement rapleyMovement;
 
         private GameObject pacmomObj;
+        private SpriteRenderer pacmomSpr;
         private Pacmom pacmom;
         private Movement pacmomMovement;
 
@@ -31,6 +33,9 @@ namespace Tests.Runtime
 
         private GameObject controllerObj;
         private PacmomGameController controller;
+
+        private GameObject stepObj;
+        private Step step;
         #endregion
 
         #region SetUp & TearDown
@@ -38,13 +43,13 @@ namespace Tests.Runtime
         public IEnumerator SetUp()
         {
             rapleyObj = new GameObject("RapleyObj");
-            rapleyObj.AddComponent<SpriteRenderer>();
+            rapleySpr = rapleyObj.AddComponent<SpriteRenderer>();
             rapley = rapleyObj.AddComponent<Rapley>();
             rapleyMovement = rapleyObj.AddComponent<Movement>();
             rapley.movement = rapleyMovement;
 
             pacmomObj = new GameObject("PacmomObj");
-            pacmomObj.AddComponent<SpriteRenderer>();
+            pacmomSpr = pacmomObj.AddComponent<SpriteRenderer>();
             pacmom = pacmomObj.AddComponent<Pacmom>();
             pacmomMovement = pacmomObj.AddComponent<Movement>();
             pacmom.movement = pacmomMovement;
@@ -70,6 +75,9 @@ namespace Tests.Runtime
 
             pacmom.gameController = controller;
 
+            stepObj = new GameObject("StepObj");
+            step = stepObj.AddComponent<Step>();
+
             yield return new WaitForFixedUpdate();
         }
 
@@ -83,6 +91,7 @@ namespace Tests.Runtime
             Object.DestroyImmediate(vacuumObj);
             Object.DestroyImmediate(vacuumParentObj);
             Object.DestroyImmediate(controllerObj);
+            Object.DestroyImmediate(stepObj);
 
             yield return new WaitForFixedUpdate();
         }
@@ -96,7 +105,6 @@ namespace Tests.Runtime
 
             rapleyMovement.rigid.position = Vector3.zero;
             rapleyMovement.SetNextDirection(new Vector2(-1, 0));
-            rapleyMovement.Move();
 
             yield return new WaitForFixedUpdate();
 
@@ -123,11 +131,10 @@ namespace Tests.Runtime
         public IEnumerator RapleyFlipSprite()
         {
             rapleyMovement.SetNextDirection(new Vector2(1, 0));
-            rapleyMovement.Move();
 
             yield return new WaitForFixedUpdate();
 
-            Assert.IsFalse(rapleyObj.GetComponent<SpriteRenderer>().flipX);
+            Assert.IsFalse(rapleySpr.flipX);
         }
         #endregion
 
@@ -139,7 +146,6 @@ namespace Tests.Runtime
 
             pacmomMovement.rigid.position = Vector3.zero;
             pacmomMovement.SetNextDirection(new Vector2(1, 0));
-            pacmomMovement.Move();
 
             yield return new WaitForFixedUpdate();
 
@@ -166,11 +172,63 @@ namespace Tests.Runtime
         public IEnumerator PacmomFlipSprite()
         {
             pacmomMovement.SetNextDirection(new Vector2(-1, 0));
-            pacmomMovement.Move();
 
             yield return new WaitForFixedUpdate();
 
-            Assert.IsTrue(pacmomObj.GetComponent<SpriteRenderer>().flipX);
+            Assert.IsTrue(pacmomSpr.flipX);
+        }
+
+        [UnityTest]
+        public IEnumerator PacmomRotate()
+        {
+            pacmomMovement.SetNextDirection(new Vector2(0, 1));
+
+            yield return new WaitForFixedUpdate();
+
+            Assert.AreNotEqual(pacmomObj.transform.rotation.z, 0);
+        }
+
+        [UnityTest]
+        public IEnumerator PacmomChaseRapley()
+        {
+            rapleyObj.transform.position = new Vector3(-5, 0, 0);
+            rapleyObj.layer = LayerMask.NameToLayer(GlobalConst.PlayerStr);
+
+            stepObj.AddComponent<BoxCollider2D>();
+            stepObj.GetComponent<BoxCollider2D>().isTrigger = true;
+            stepObj.transform.position = Vector3.zero;
+            stepObj.layer = LayerMask.NameToLayer(GlobalConst.StepStr);
+
+            pacmom.isVacuumMode = true;
+            pacmomMovement.rigid = rapleyObj.GetComponent<Rigidbody2D>();
+            pacmomMovement.rigid.position = Vector3.zero;
+            pacmomObj.AddComponent<CircleCollider2D>();
+            pacmomObj.layer = LayerMask.NameToLayer(GlobalConst.PacmomStr);
+
+            yield return new WaitForFixedUpdate();
+
+            Assert.IsTrue(pacmomMovement.nextDirection.x < 0);
+        }
+
+        [UnityTest]
+        public IEnumerator PacmomEscapeRapley()
+        {
+            rapleyObj.transform.position = new Vector3(-5, 0, 0);
+            rapleyObj.layer = LayerMask.NameToLayer(GlobalConst.PlayerStr);
+
+            stepObj.AddComponent<BoxCollider2D>();
+            stepObj.GetComponent<BoxCollider2D>().isTrigger = true;
+            stepObj.transform.position = Vector3.zero;
+            stepObj.layer = LayerMask.NameToLayer(GlobalConst.StepStr);
+
+            pacmomMovement.rigid = rapleyObj.GetComponent<Rigidbody2D>();
+            pacmomMovement.rigid.position = Vector3.zero;
+            pacmomObj.AddComponent<CircleCollider2D>();
+            pacmomObj.layer = LayerMask.NameToLayer(GlobalConst.PacmomStr);
+
+            yield return new WaitForFixedUpdate();
+
+            Assert.IsTrue(pacmomMovement.nextDirection.x > 0);
         }
         #endregion
 
