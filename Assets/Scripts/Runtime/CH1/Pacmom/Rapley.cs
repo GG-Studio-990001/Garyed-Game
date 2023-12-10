@@ -13,13 +13,13 @@ namespace Runtime.CH1.Pacmom
             movement.spriteRotation.canRotate = false;
             movement.spriteRotation.canFlip = true;
 
-            spriteControl.GetNormalSprite(true);
-
             ResetState();
         }
 
         public void ResetState()
         {
+            spriteControl.GetNormalSprite();
+
             if (gameObject.activeInHierarchy == false)
             {
                 gameObject.SetActive(true);

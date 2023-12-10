@@ -21,13 +21,13 @@ namespace Runtime.CH1.Pacmom
 
             enemys[0] = gameController.rapley.gameObject.transform;
 
-            spriteControl.Normal();
-
             ResetState();
         }
 
         public void ResetState()
         {
+            spriteControl.GetNormalSprite();
+
             if (gameObject.activeInHierarchy == false)
             {
                 gameObject.SetActive(true);
@@ -49,17 +49,17 @@ namespace Runtime.CH1.Pacmom
 
             if (isVacuumMode)
             {
-                spriteControl.Vacuum();
+                spriteControl.GetVacuumSprite();
             }
             else
             {
-                spriteControl.Normal();
+                spriteControl.GetNormalSprite();
             }
         }
 
         public void VacuumModeAlmostOver()
         {
-            spriteControl.VaccumBlink();
+            spriteControl.SetVaccumSpriteBlink();
         }
 
         public void PacmomDead()
@@ -69,7 +69,7 @@ namespace Runtime.CH1.Pacmom
             movement.speed = 0;
             movement.enabled = false;
 
-            spriteControl.Die();
+            spriteControl.GetDieSprite();
         }
 
         private void SetRotateToZero()

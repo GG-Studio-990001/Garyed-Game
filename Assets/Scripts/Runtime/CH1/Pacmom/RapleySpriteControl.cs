@@ -6,29 +6,44 @@ namespace Runtime.CH1.Pacmom
     {
         [SerializeField]
         private SpriteAnimation spriteAnim;
+
         [SerializeField]
         private Sprite[] normalSprites;
         [SerializeField]
         private Sprite[] frightenedSprites;
 
-        public void GetNormalSprite(bool isNormal)
+        public void Awake()
         {
-            Sprite[] newSprites;
+            spriteAnim = new SpriteAnimation(GetComponent<SpriteRenderer>());
+        }
 
-            if (isNormal)
-            {
-                newSprites = normalSprites;
-            }
-            else
-            {
-                newSprites = frightenedSprites;
-            }
+        private void Start()
+        {
+            InvokeRepeating("SpriteAnimation", spriteAnim.animTime, spriteAnim.animTime);
+        }
 
-            spriteAnim.sprites = new Sprite[newSprites.Length];
+        private void SpriteAnimation()
+        {
+            spriteAnim.NextSprite();
+        }
+
+        public void GetNormalSprite()
+        {
+            spriteAnim.sprites = new Sprite[normalSprites.Length];
 
             for (int i = 0; i < spriteAnim.sprites.Length; i++)
             {
-                spriteAnim.sprites[i] = newSprites[i];
+                spriteAnim.sprites[i] = normalSprites[i];
+            }
+        }
+
+        public void GetFrightendSprite()
+        {
+            spriteAnim.sprites = new Sprite[frightenedSprites.Length];
+
+            for (int i = 0; i < spriteAnim.sprites.Length; i++)
+            {
+                spriteAnim.sprites[i] = frightenedSprites[i];
             }
         }
     }

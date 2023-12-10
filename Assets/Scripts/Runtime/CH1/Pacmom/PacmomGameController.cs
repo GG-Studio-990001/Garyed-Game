@@ -13,6 +13,8 @@ namespace Runtime.CH1.Pacmom
         public Transform vacuums;
         [SerializeField]
         private float vacuumDuration = 10f;
+        [SerializeField]
+        private float vacuumEndDuration = 3f;
 
         public int rapleyScore { get; private set; }
         public int pacmomScore { get; private set; }
@@ -73,13 +75,13 @@ namespace Runtime.CH1.Pacmom
         private IEnumerator VacuumTime()
         {
             pacmom.VacuumMode(true);
-            rapley.spriteControl.GetNormalSprite(false);
-            Invoke("VaccumBlink", vacuumDuration - 3.0f);
+            rapley.spriteControl.GetFrightendSprite();
+            Invoke("VaccumBlink", vacuumDuration - vacuumEndDuration);
 
             yield return new WaitForSeconds(vacuumDuration);
 
             pacmom.VacuumMode(false);
-            rapley.spriteControl.GetNormalSprite(true);
+            rapley.spriteControl.GetNormalSprite();
         }
 
         private void VaccumBlink()

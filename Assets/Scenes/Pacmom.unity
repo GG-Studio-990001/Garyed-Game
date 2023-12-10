@@ -3372,7 +3372,6 @@ GameObject:
   - component: {fileID: 133942949}
   - component: {fileID: 133942950}
   - component: {fileID: 133942951}
-  - component: {fileID: 133942952}
   - component: {fileID: 133942953}
   m_Layer: 3
   m_Name: Rapley
@@ -3570,20 +3569,6 @@ MonoBehaviour:
   speed: 8
   speedMultiplier: 1
   initialDirection: {x: -1, y: 0}
---- !u!114 &133942952
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 133942943}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d75d2edf2406674883af2eddd1322c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sprites: []
-  isLoop: 1
 --- !u!114 &133942953
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3596,7 +3581,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84f712ef1c24ebb4c886ad6c6c8e6495, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteAnim: {fileID: 133942952}
+  movement: {fileID: 133942951}
   normalSprites:
   - {fileID: 450318381, guid: 4b3ad5b28d851894882af12eee6bebc9, type: 3}
   - {fileID: 990485532, guid: 4b3ad5b28d851894882af12eee6bebc9, type: 3}
@@ -5416,7 +5401,6 @@ GameObject:
   m_Component:
   - component: {fileID: 737711919}
   - component: {fileID: 737711921}
-  - component: {fileID: 737711922}
   m_Layer: 7
   m_Name: Body
   m_TagString: Untagged
@@ -5491,22 +5475,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &737711922
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 737711918}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d75d2edf2406674883af2eddd1322c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sprites:
-  - {fileID: 1274729582, guid: 2dcacda833e1447468ebd966bf84a50d, type: 3}
-  - {fileID: 1825385506, guid: 2dcacda833e1447468ebd966bf84a50d, type: 3}
-  isLoop: 1
 --- !u!1 &821184582
 GameObject:
   m_ObjectHideFlags: 0
@@ -30012,7 +29980,6 @@ GameObject:
   - component: {fileID: 1861729281}
   - component: {fileID: 1861729285}
   - component: {fileID: 1861729279}
-  - component: {fileID: 1861729286}
   - component: {fileID: 1861729287}
   m_Layer: 6
   m_Name: Pacmom
@@ -30184,20 +30151,6 @@ MonoBehaviour:
   isVacuumMode: 0
   enemys:
   - {fileID: 0}
---- !u!114 &1861729286
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1861729278}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d75d2edf2406674883af2eddd1322c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sprites: []
-  isLoop: 1
 --- !u!114 &1861729287
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30210,7 +30163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7d3538a8753d6c4cbfcd4369ef23092, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteAnim: {fileID: 1861729286}
+  movement: {fileID: 1861729279}
   vacuumSprite: {fileID: -1359193594, guid: 622b09821277ce54b8f6401cf405c699, type: 3}
   normalSprite: {fileID: -307251568, guid: 622b09821277ce54b8f6401cf405c699, type: 3}
   normalSprites:
@@ -33318,7 +33271,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2084939223}
   - component: {fileID: 2084939225}
-  - component: {fileID: 2084939226}
   m_Layer: 7
   m_Name: Body
   m_TagString: Untagged
@@ -33393,22 +33345,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2084939226
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2084939222}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d75d2edf2406674883af2eddd1322c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sprites:
-  - {fileID: 337474123, guid: 2dcacda833e1447468ebd966bf84a50d, type: 3}
-  - {fileID: -683690550, guid: 2dcacda833e1447468ebd966bf84a50d, type: 3}
-  isLoop: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

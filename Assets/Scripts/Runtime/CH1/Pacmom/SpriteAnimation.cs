@@ -2,31 +2,26 @@ using UnityEngine;
 
 namespace Runtime.CH1.Pacmom
 {
-    [RequireComponent(typeof(SpriteRenderer))]
-    public class SpriteAnimation : MonoBehaviour
+    public class SpriteAnimation
     {
-        private SpriteRenderer spriteRenderer;
+        private readonly SpriteRenderer spriteRenderer;
         public Sprite[] sprites;
-        private float animTime = 0.25f;
+        public float animTime { get; private set; }
         private int animFrame = -1;
         public bool isLoop = true;
 
-        private void Awake()
+        public SpriteAnimation(SpriteRenderer spriteRenderer)
         {
-            spriteRenderer = GetComponent<SpriteRenderer>();
+            this.spriteRenderer = spriteRenderer;
+            animTime = 0.25f;
         }
 
-        private void Start()
-        {
-            InvokeRepeating("NextSprite", animTime, animTime);
-        }
-
-        private void NextSprite()
+        public void NextSprite()
         {
             if (!isLoop && animFrame == sprites.Length - 1)
                 return;
 
-            if (sprites.Length != 0 && spriteRenderer.enabled)
+            if (sprites.Length != 0)
             {
                 spriteRenderer.sprite = sprites[++animFrame % sprites.Length];
             }
