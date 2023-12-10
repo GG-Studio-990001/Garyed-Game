@@ -45,6 +45,7 @@ namespace Runtime.CH1.Pacmom
         {
             spriteAnim.sprites = new Sprite[1];
             spriteAnim.sprites[0] = vacuumSprite;
+            spriteAnim.RestartAnim();
         }
 
         public void SetVaccumSpriteBlink()
@@ -52,7 +53,7 @@ namespace Runtime.CH1.Pacmom
             spriteAnim.sprites = new Sprite[2];
             spriteAnim.sprites[0] = vacuumSprite;
             spriteAnim.sprites[1] = normalSprite;
-            //spriteAnim.RestartAnim();
+            spriteAnim.RestartAnim();
         }
 
         public void GetDieSprite()
@@ -63,7 +64,7 @@ namespace Runtime.CH1.Pacmom
                 spriteAnim.sprites[i] = dieSprites[i];
             }
             spriteAnim.isLoop = false;
-            //spriteAnim.RestartAnim();
+            spriteAnim.RestartAnim();
         }
     }
 }

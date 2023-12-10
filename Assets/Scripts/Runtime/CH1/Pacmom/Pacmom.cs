@@ -66,10 +66,6 @@ namespace Runtime.CH1.Pacmom
         public void PacmomDead()
         {
             SetRotateToZero();
-
-            movement.speed = 0;
-            movement.enabled = false;
-
             spriteControl.GetDieSprite();
         }
 

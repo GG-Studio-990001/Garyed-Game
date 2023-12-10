@@ -19,11 +19,14 @@ namespace Runtime.CH1.Pacmom
         public void NextSprite()
         {
             if (!isLoop && animFrame == sprites.Length - 1)
+            {
                 return;
+            }
 
             if (sprites.Length != 0)
             {
-                spriteRenderer.sprite = sprites[++animFrame % sprites.Length];
+                animFrame = ++animFrame % sprites.Length;
+                spriteRenderer.sprite = sprites[animFrame];
             }
         }
 

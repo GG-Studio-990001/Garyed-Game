@@ -56,6 +56,12 @@ namespace Runtime.CH1.Pacmom
             transform.position = startPosition;
         }
 
+        public void Stop()
+        {
+            speed = 0f;
+            enabled = false;
+        }
+
         public void SetNextDirection(Vector2 direction)
         {
             nextDirection = direction;
