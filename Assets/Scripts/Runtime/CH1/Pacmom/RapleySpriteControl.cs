@@ -26,7 +26,7 @@ namespace Runtime.CH1.Pacmom
 
             spriteAnim.sprites = new Sprite[newSprites.Length];
 
-            for (int i = 0; i < newSprites.Length; i++)
+            for (int i = 0; i < spriteAnim.sprites.Length; i++)
             {
                 spriteAnim.sprites[i] = newSprites[i];
             }

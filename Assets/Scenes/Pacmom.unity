@@ -3583,6 +3583,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprites: []
+  isLoop: 1
 --- !u!114 &133942953
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5505,6 +5506,7 @@ MonoBehaviour:
   sprites:
   - {fileID: 1274729582, guid: 2dcacda833e1447468ebd966bf84a50d, type: 3}
   - {fileID: 1825385506, guid: 2dcacda833e1447468ebd966bf84a50d, type: 3}
+  isLoop: 1
 --- !u!1 &821184582
 GameObject:
   m_ObjectHideFlags: 0
@@ -30011,6 +30013,7 @@ GameObject:
   - component: {fileID: 1861729285}
   - component: {fileID: 1861729279}
   - component: {fileID: 1861729286}
+  - component: {fileID: 1861729287}
   m_Layer: 6
   m_Name: Pacmom
   m_TagString: Untagged
@@ -30177,19 +30180,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameController: {fileID: 1761052961}
   movement: {fileID: 1861729279}
+  spriteControl: {fileID: 1861729287}
   isVacuumMode: 0
-  vacuumSprite: {fileID: -1359193594, guid: 622b09821277ce54b8f6401cf405c699, type: 3}
-  normalSprite: {fileID: -307251568, guid: 622b09821277ce54b8f6401cf405c699, type: 3}
-  normalSprites:
-  - {fileID: -146159971, guid: 622b09821277ce54b8f6401cf405c699, type: 3}
-  - {fileID: 2140623536, guid: 622b09821277ce54b8f6401cf405c699, type: 3}
-  - {fileID: -146159971, guid: 622b09821277ce54b8f6401cf405c699, type: 3}
-  - {fileID: -307251568, guid: 622b09821277ce54b8f6401cf405c699, type: 3}
-  dieSprites:
-  - {fileID: -146159971, guid: 622b09821277ce54b8f6401cf405c699, type: 3}
-  - {fileID: -307251568, guid: 622b09821277ce54b8f6401cf405c699, type: 3}
-  - {fileID: 1734855869, guid: 622b09821277ce54b8f6401cf405c699, type: 3}
-  - {fileID: 1325422031, guid: 622b09821277ce54b8f6401cf405c699, type: 3}
   enemys:
   - {fileID: 0}
 --- !u!114 &1861729286
@@ -30205,6 +30197,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprites: []
+  isLoop: 1
+--- !u!114 &1861729287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1861729278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7d3538a8753d6c4cbfcd4369ef23092, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteAnim: {fileID: 1861729286}
+  vacuumSprite: {fileID: -1359193594, guid: 622b09821277ce54b8f6401cf405c699, type: 3}
+  normalSprite: {fileID: -307251568, guid: 622b09821277ce54b8f6401cf405c699, type: 3}
+  normalSprites:
+  - {fileID: -146159971, guid: 622b09821277ce54b8f6401cf405c699, type: 3}
+  - {fileID: 2140623536, guid: 622b09821277ce54b8f6401cf405c699, type: 3}
+  - {fileID: -146159971, guid: 622b09821277ce54b8f6401cf405c699, type: 3}
+  - {fileID: -307251568, guid: 622b09821277ce54b8f6401cf405c699, type: 3}
+  dieSprites:
+  - {fileID: -146159971, guid: 622b09821277ce54b8f6401cf405c699, type: 3}
+  - {fileID: -307251568, guid: 622b09821277ce54b8f6401cf405c699, type: 3}
+  - {fileID: 1734855869, guid: 622b09821277ce54b8f6401cf405c699, type: 3}
+  - {fileID: 1325422031, guid: 622b09821277ce54b8f6401cf405c699, type: 3}
 --- !u!1 &1942074556
 GameObject:
   m_ObjectHideFlags: 0
@@ -33390,6 +33408,7 @@ MonoBehaviour:
   sprites:
   - {fileID: 337474123, guid: 2dcacda833e1447468ebd966bf84a50d, type: 3}
   - {fileID: -683690550, guid: 2dcacda833e1447468ebd966bf84a50d, type: 3}
+  isLoop: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

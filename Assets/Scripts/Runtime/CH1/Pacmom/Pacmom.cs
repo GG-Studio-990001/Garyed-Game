@@ -9,27 +9,10 @@ namespace Runtime.CH1.Pacmom
     {
         public PacmomGameController gameController;
         public Movement movement;
+        public PacmomSpriteControl spriteControl;
         public bool isVacuumMode = false;
 
-        private SpriteAnimation spriteAnim;
-        private SpriteRenderer spriteRenderer;
-
-        [SerializeField]
-        private Sprite vacuumSprite;
-        [SerializeField]
-        private Sprite normalSprite;
-        [SerializeField]
-        private Sprite[] normalSprites;
-        [SerializeField]
-        private Sprite[] dieSprites;
-
         public Transform[] enemys = new Transform[1];
-
-        private void Awake()
-        {
-            spriteAnim = GetComponent<SpriteAnimation>();
-            spriteRenderer = GetComponent<SpriteRenderer>();
-        }
 
         private void Start()
         {
@@ -38,7 +21,7 @@ namespace Runtime.CH1.Pacmom
 
             enemys[0] = gameController.rapley.gameObject.transform;
 
-            GetNormalSprite();
+            spriteControl.Normal();
 
             ResetState();
         }
@@ -66,52 +49,27 @@ namespace Runtime.CH1.Pacmom
 
             if (isVacuumMode)
             {
-                spriteAnim.sprites = new Sprite[1];
-                spriteAnim.sprites[0] = vacuumSprite;
+                spriteControl.Vacuum();
             }
             else
             {
-                GetNormalSprite();
-                spriteAnim.RestartAnim();
-            }
-        }
-
-        private void GetNormalSprite()
-        {
-            spriteAnim.sprites = new Sprite[normalSprites.Length];
-            for (int i = 0; i < spriteAnim.sprites.Length; i++)
-            {
-                spriteAnim.sprites[i] = normalSprites[i];
+                spriteControl.Normal();
             }
         }
 
         public void VacuumModeAlmostOver()
         {
-            spriteAnim.sprites = new Sprite[2];
-            spriteAnim.sprites[0] = vacuumSprite;
-            spriteAnim.sprites[1] = normalSprite;
-            spriteAnim.RestartAnim();
+            spriteControl.VaccumBlink();
         }
 
         public void PacmomDead()
         {
-            StartCoroutine("DeadAnim");
-        }
-
-        private IEnumerator DeadAnim()
-        {
             SetRotateToZero();
-
-            spriteAnim.enabled = false;
 
             movement.speed = 0;
             movement.enabled = false;
 
-            for (int i=0; i<dieSprites.Length; i++)
-            {
-                spriteRenderer.sprite = dieSprites[i];
-                yield return new WaitForSeconds(0.3f);
-            }
+            spriteControl.Die();
         }
 
         private void SetRotateToZero()
