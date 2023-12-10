@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: abc5b67e952ea014895fb7af1c448980
+guid: 04118de92fb6d7546bd8019475774ff4
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 10
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: rapley_16 x 16_0
+      name: item_16 x 16_02_0
       rect:
         serializedVersion: 2
         x: 0
@@ -124,14 +124,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fa66525f3682ba241be99dd27591e28c
-      internalID: 2006469674
+      spriteID: 1b6dbb59231e0db4c99c3ef4c4eba22e
+      internalID: 1227491423
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: rapley_16 x 16_1
+      name: item_16 x 16_02_1
       rect:
         serializedVersion: 2
         x: 16
@@ -145,14 +145,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0845877c261da4741a3111e9ce2c5448
-      internalID: -1760056461
+      spriteID: 30c276dfa95eef348860a351031dca79
+      internalID: -1215320467
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: rapley_16 x 16_2
+      name: item_16 x 16_02_2
       rect:
         serializedVersion: 2
         x: 32
@@ -166,29 +166,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ee3e776ce7e9df74593b274e167e2e09
-      internalID: -1785018920
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: rapley_16 x 16_3
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 57ecfac3c089a994faca083a23f4f846
-      internalID: -1623894580
+      spriteID: c4f98b1caad5bca4dbce541f6fec1031
+      internalID: -1031890927
       vertices: []
       indices: 
       edges: []
@@ -196,7 +175,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 64360f33a393e564bb5f1645fccb93e7
+    spriteID: b54ca4a397df38e45ab465d63bea1085
     internalID: 0
     vertices: []
     indices: 
@@ -204,10 +183,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      rapley_16 x 16_0: 2006469674
-      rapley_16 x 16_1: -1760056461
-      rapley_16 x 16_2: -1785018920
-      rapley_16 x 16_3: -1623894580
+      item_16 x 16_02_0: 1227491423
+      item_16 x 16_02_1: -1215320467
+      item_16 x 16_02_2: -1031890927
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

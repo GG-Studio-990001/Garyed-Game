@@ -1,3 +1,4 @@
+using Runtime.ETC;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -5,11 +6,13 @@ namespace Runtime.CH1.Pacmom
 {
     public class Step : MonoBehaviour
     {
-        public LayerMask obstacleLayer;
+        public LayerMask obstacleLayer { get; private set; }
         public List<Vector2> availableDirections { get; private set; }
 
         private void Start()
         {
+            obstacleLayer = LayerMask.GetMask(GlobalConst.ObstacleStr);
+
             this.availableDirections = new List<Vector2>();
 
             CheckAvailableDirection(Vector2.up);

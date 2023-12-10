@@ -1,3 +1,4 @@
+using DG.Tweening.Core.Easing;
 using Runtime.ETC;
 using System.Collections;
 using UnityEngine;
@@ -6,40 +7,60 @@ namespace Runtime.CH1.Pacmom
 {
     public class PacmomGameController : MonoBehaviour
     {
-        public Rapley rapley;
-        public Pacmom pacmom;
-        public Transform coins;
-        public Transform vacuums;
+
         [SerializeField]
+        private Rapley rapley;
+        private RapleySpriteControl rapleySprite;
+        [SerializeField]
+        private Pacmom pacmom;
+        private PacmomSpriteControl pacmomSprite;
+        [SerializeField]
+        private Transform coins;
+        [SerializeField]
+        private Transform vacuums;
         private float vacuumDuration = 10f;
+        private float vacuumEndDuration = 3f;
 
         public int rapleyScore { get; private set; }
         public int pacmomScore { get; private set; }
         public int pacmomLives { get; private set; }
 
-        private void Start()
+        private void Awake()
         {
-            NewGame();
+            rapleySprite = rapley.gameObject.GetComponent<RapleySpriteControl>();
+            pacmomSprite = pacmom.gameObject.GetComponent<PacmomSpriteControl>();
         }
 
-        private void NewGame()
+        private void Start()
+        {
+            StartGame();
+        }
+
+        private void StartGame()
         {
             SetRapleyScore(0);
             SetPacmomScore(0);
             SetPacmomLives(3);
 
+            pacmom.gameController = this;
+
             foreach (Transform coin in coins)
             {
+                coin.gameObject.SetActive(true);
                 coin.GetComponent<Coin>().gameController = this;
             }
 
             foreach (Transform vacuum in vacuums)
             {
+                vacuum.gameObject.SetActive(true);
                 vacuum.GetComponent<Vacuum>().gameController = this;
             }
 
             rapley.ResetState();
+            rapleySprite.GetNormalSprite();
+
             pacmom.ResetState();
+            pacmomSprite.GetNormalSprite();
         }
 
         private void SetRapleyScore(int score)
@@ -68,10 +89,18 @@ namespace Runtime.CH1.Pacmom
         private IEnumerator VacuumTime()
         {
             pacmom.VacuumMode(true);
+            rapleySprite.GetFrightendSprite();
+            Invoke("VaccumBlink", vacuumDuration - vacuumEndDuration);
 
             yield return new WaitForSeconds(vacuumDuration);
 
             pacmom.VacuumMode(false);
+            rapleySprite.GetNormalSprite();
+        }
+
+        private void VaccumBlink()
+        {
+            pacmom.VacuumModeAlmostOver();
         }
 
         public void CoinEaten(Coin coin, string who)
@@ -85,13 +114,7 @@ namespace Runtime.CH1.Pacmom
 
             if (!HasRemainingCoins())
             {
-                Debug.Log("라플리 점수: " + rapleyScore);
-                Debug.Log("팩맘 점수: " + pacmomScore);
-                Debug.Log("Game Clear! 3초 뒤 재시작");
-
-                rapley.gameObject.SetActive(false);
-                pacmom.gameObject.SetActive(false);
-                Invoke("NewGame", 3f);
+                GameOver();
             }
         }
 
@@ -99,6 +122,7 @@ namespace Runtime.CH1.Pacmom
         {
             Debug.Log("라플리 먹힘");
 
+            TakeHalfCoins(false);
             rapley.transform.position = new Vector3(0, 0, rapley.transform.position.z);
         }
 
@@ -107,17 +131,82 @@ namespace Runtime.CH1.Pacmom
             // ToDO: 유령한테 죽을 때 처리
 
             SetPacmomLives(pacmomLives - 1);
+            TakeHalfCoins(true);
 
             if (pacmomLives > 0)
             {
                 Debug.Log("팩맘 목수뮤 -1");
+                ResetStates();
             }
             else
             {
                 Debug.Log("팩맘 죽음");
-
-                pacmom.PacmomDead();
+                GameOver();
             }
+        }
+
+        private void TakeHalfCoins(bool isRapleyTake)
+        {
+            if (isRapleyTake)
+            {
+                int score = pacmomScore / 2;
+                SetRapleyScore(rapleyScore + score);
+                SetPacmomScore(pacmomScore - score);
+            }
+            else
+            {
+                int score = rapleyScore / 2;
+                SetPacmomScore(pacmomScore + score);
+                SetRapleyScore(rapleyScore - score);
+            }
+        }
+
+        private void ResetStates()
+        {
+            rapley.movement.ResetState();
+            pacmom.movement.ResetState();
+        }
+
+        private void GameOver()
+        {
+            Debug.Log("Game Over");
+
+            rapley.movement.Stop();
+            pacmom.movement.Stop();
+
+            if (pacmomLives == 0)
+                pacmom.PacmomDead();
+
+            if (HasRemainingCoins())
+            {
+                Debug.Log("라플리 점수: " + rapleyScore);
+                Debug.Log("팩맘 점수: " + pacmomScore);
+
+                StartCoroutine(GetRemaningCoins());
+            }
+            else
+            {
+                Debug.Log("최종 라플리 점수: " + rapleyScore);
+                Debug.Log("최종 팩맘 점수: " + pacmomScore);
+            }
+        }
+
+        private IEnumerator GetRemaningCoins()
+        {
+            Debug.Log("최종 점수 계산 중");
+
+            foreach (Transform coin in coins)
+            {
+                if (coin.gameObject.activeSelf)
+                {
+                    SetRapleyScore(rapleyScore + 1);
+                    coin.gameObject.SetActive(false);
+                    yield return new WaitForSeconds(0.05f);
+                }
+            }
+
+            Debug.Log("최종 라플리 점수: " + rapleyScore);
+            Debug.Log("최종 팩맘 점수: " + pacmomScore);
         }
 
         private bool HasRemainingCoins()
