@@ -3553,7 +3553,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movement: {fileID: 133942951}
-  spriteChange: {fileID: 0}
+  spriteControl: {fileID: 133942953}
 --- !u!114 &133942951
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3582,11 +3582,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d75d2edf2406674883af2eddd1322c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprites:
-  - {fileID: 450318381, guid: 4b3ad5b28d851894882af12eee6bebc9, type: 3}
-  - {fileID: 990485532, guid: 4b3ad5b28d851894882af12eee6bebc9, type: 3}
-  - {fileID: 450318381, guid: 4b3ad5b28d851894882af12eee6bebc9, type: 3}
-  - {fileID: -1004244573, guid: 4b3ad5b28d851894882af12eee6bebc9, type: 3}
+  sprites: []
 --- !u!114 &133942953
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3599,7 +3595,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84f712ef1c24ebb4c886ad6c6c8e6495, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteAnimation: {fileID: 133942952}
+  spriteAnim: {fileID: 133942952}
   normalSprites:
   - {fileID: 450318381, guid: 4b3ad5b28d851894882af12eee6bebc9, type: 3}
   - {fileID: 990485532, guid: 4b3ad5b28d851894882af12eee6bebc9, type: 3}
@@ -30182,14 +30178,20 @@ MonoBehaviour:
   gameController: {fileID: 1761052961}
   movement: {fileID: 1861729279}
   isVacuumMode: 0
-  vacuumSpr: {fileID: -1359193594, guid: 622b09821277ce54b8f6401cf405c699, type: 3}
-  dieSpr:
+  vacuumSprite: {fileID: -1359193594, guid: 622b09821277ce54b8f6401cf405c699, type: 3}
+  normalSprite: {fileID: -307251568, guid: 622b09821277ce54b8f6401cf405c699, type: 3}
+  normalSprites:
+  - {fileID: -146159971, guid: 622b09821277ce54b8f6401cf405c699, type: 3}
   - {fileID: 2140623536, guid: 622b09821277ce54b8f6401cf405c699, type: 3}
+  - {fileID: -146159971, guid: 622b09821277ce54b8f6401cf405c699, type: 3}
+  - {fileID: -307251568, guid: 622b09821277ce54b8f6401cf405c699, type: 3}
+  dieSprites:
   - {fileID: -146159971, guid: 622b09821277ce54b8f6401cf405c699, type: 3}
   - {fileID: -307251568, guid: 622b09821277ce54b8f6401cf405c699, type: 3}
   - {fileID: 1734855869, guid: 622b09821277ce54b8f6401cf405c699, type: 3}
   - {fileID: 1325422031, guid: 622b09821277ce54b8f6401cf405c699, type: 3}
-  enemys: []
+  enemys:
+  - {fileID: 0}
 --- !u!114 &1861729286
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30202,11 +30204,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d75d2edf2406674883af2eddd1322c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprites:
-  - {fileID: -146159971, guid: 622b09821277ce54b8f6401cf405c699, type: 3}
-  - {fileID: 2140623536, guid: 622b09821277ce54b8f6401cf405c699, type: 3}
-  - {fileID: -146159971, guid: 622b09821277ce54b8f6401cf405c699, type: 3}
-  - {fileID: -307251568, guid: 622b09821277ce54b8f6401cf405c699, type: 3}
+  sprites: []
 --- !u!1 &1942074556
 GameObject:
   m_ObjectHideFlags: 0

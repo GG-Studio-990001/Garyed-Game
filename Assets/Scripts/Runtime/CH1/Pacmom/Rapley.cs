@@ -6,12 +6,14 @@ namespace Runtime.CH1.Pacmom
     public class Rapley : MonoBehaviour
     {
         public Movement movement;
-        public RapleySpriteChange spriteChange;
+        public RapleySpriteControl spriteControl;
 
         private void Start()
         {
             movement.spriteRotation.canRotate = false;
             movement.spriteRotation.canFlip = true;
+
+            spriteControl.GetNormalSprite(true);
 
             ResetState();
         }

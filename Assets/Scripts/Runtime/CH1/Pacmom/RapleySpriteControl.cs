@@ -2,33 +2,33 @@ using UnityEngine;
 
 namespace Runtime.CH1.Pacmom
 {
-    public class RapleySpriteChange : MonoBehaviour
+    public class RapleySpriteControl : MonoBehaviour
     {
         [SerializeField]
-        private SpriteAnimation spriteAnimation;
+        private SpriteAnimation spriteAnim;
         [SerializeField]
         private Sprite[] normalSprites;
         [SerializeField]
         private Sprite[] frightenedSprites;
 
-        public void GetFrightendSprite(bool isFrightend)
+        public void GetNormalSprite(bool isNormal)
         {
             Sprite[] newSprites;
 
-            if (isFrightend)
-            {
-                newSprites = frightenedSprites;
-            }
-            else
+            if (isNormal)
             {
                 newSprites = normalSprites;
             }
+            else
+            {
+                newSprites = frightenedSprites;
+            }
 
-            spriteAnimation.sprites = new Sprite[newSprites.Length];
+            spriteAnim.sprites = new Sprite[newSprites.Length];
 
             for (int i = 0; i < newSprites.Length; i++)
             {
-                spriteAnimation.sprites[i] = newSprites[i];
+                spriteAnim.sprites[i] = newSprites[i];
             }
         }
     }

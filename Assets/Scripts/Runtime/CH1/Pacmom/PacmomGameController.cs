@@ -1,3 +1,4 @@
+using DG.Tweening.Core.Easing;
 using Runtime.ETC;
 using System.Collections;
 using UnityEngine;
@@ -72,12 +73,18 @@ namespace Runtime.CH1.Pacmom
         private IEnumerator VacuumTime()
         {
             pacmom.VacuumMode(true);
-            rapley.GetComponent<RapleySpriteChange>().GetFrightendSprite(true);
+            rapley.spriteControl.GetNormalSprite(false);
+            Invoke("VaccumBlink", vacuumDuration - 3.0f);
 
             yield return new WaitForSeconds(vacuumDuration);
 
             pacmom.VacuumMode(false);
-            rapley.GetComponent<RapleySpriteChange>().GetFrightendSprite(false);
+            rapley.spriteControl.GetNormalSprite(true);
+        }
+
+        private void VaccumBlink()
+        {
+            pacmom.VacuumModeAlmostOver();
         }
 
         public void CoinEaten(Coin coin, string who)

@@ -22,7 +22,7 @@ namespace Runtime.CH1.Pacmom
 
         private void NextSprite()
         {
-            if (spriteRenderer.enabled && this.enabled)
+            if (sprites.Length != 0 && spriteRenderer.enabled)
             {
                 spriteRenderer.sprite = sprites[++animFrame % sprites.Length];
             }

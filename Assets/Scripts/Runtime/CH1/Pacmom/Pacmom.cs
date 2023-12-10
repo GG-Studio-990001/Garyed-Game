@@ -15,9 +15,13 @@ namespace Runtime.CH1.Pacmom
         private SpriteRenderer spriteRenderer;
 
         [SerializeField]
-        private Sprite vacuumSpr;
+        private Sprite vacuumSprite;
         [SerializeField]
-        private Sprite[] dieSpr;
+        private Sprite normalSprite;
+        [SerializeField]
+        private Sprite[] normalSprites;
+        [SerializeField]
+        private Sprite[] dieSprites;
 
         public Transform[] enemys = new Transform[1];
 
@@ -33,6 +37,8 @@ namespace Runtime.CH1.Pacmom
             movement.spriteRotation.canFlip = true;
 
             enemys[0] = gameController.rapley.gameObject.transform;
+
+            GetNormalSprite();
 
             ResetState();
         }
@@ -60,14 +66,31 @@ namespace Runtime.CH1.Pacmom
 
             if (isVacuumMode)
             {
-                spriteAnim.enabled = false;
-                spriteRenderer.sprite = vacuumSpr;
+                spriteAnim.sprites = new Sprite[1];
+                spriteAnim.sprites[0] = vacuumSprite;
             }
             else
             {
-                spriteAnim.enabled = true;
+                GetNormalSprite();
                 spriteAnim.RestartAnim();
             }
+        }
+
+        private void GetNormalSprite()
+        {
+            spriteAnim.sprites = new Sprite[normalSprites.Length];
+            for (int i = 0; i < spriteAnim.sprites.Length; i++)
+            {
+                spriteAnim.sprites[i] = normalSprites[i];
+            }
+        }
+
+        public void VacuumModeAlmostOver()
+        {
+            spriteAnim.sprites = new Sprite[2];
+            spriteAnim.sprites[0] = vacuumSprite;
+            spriteAnim.sprites[1] = normalSprite;
+            spriteAnim.RestartAnim();
         }
 
         public void PacmomDead()
@@ -84,9 +107,9 @@ namespace Runtime.CH1.Pacmom
             movement.speed = 0;
             movement.enabled = false;
 
-            for (int i=0; i<dieSpr.Length; i++)
+            for (int i=0; i<dieSprites.Length; i++)
             {
-                spriteRenderer.sprite = dieSpr[i];
+                spriteRenderer.sprite = dieSprites[i];
                 yield return new WaitForSeconds(0.3f);
             }
         }
