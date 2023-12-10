@@ -29774,8 +29774,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rapley: {fileID: 133942950}
-  rapleySprite: {fileID: 0}
+  rapleySprite: {fileID: 133942953}
   pacmom: {fileID: 1861729285}
+  pacmomSprite: {fileID: 0}
   coins: {fileID: 1942074557}
   vacuums: {fileID: 1145695306}
   vacuumDuration: 10

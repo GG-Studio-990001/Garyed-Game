@@ -7,19 +7,29 @@ namespace Runtime.CH1.Pacmom
 {
     public class PacmomGameController : MonoBehaviour
     {
-        public Rapley rapley;
-        public RapleySpriteControl rapleySprite;
-        public Pacmom pacmom;
-        public Transform coins;
-        public Transform vacuums;
+
         [SerializeField]
+        private Rapley rapley;
+        private RapleySpriteControl rapleySprite;
+        [SerializeField]
+        private Pacmom pacmom;
+        private PacmomSpriteControl pacmomSprite;
+        [SerializeField]
+        private Transform coins;
+        [SerializeField]
+        private Transform vacuums;
         private float vacuumDuration = 10f;
-        [SerializeField]
         private float vacuumEndDuration = 3f;
 
         public int rapleyScore { get; private set; }
         public int pacmomScore { get; private set; }
         public int pacmomLives { get; private set; }
+
+        private void Awake()
+        {
+            rapleySprite = rapley.gameObject.GetComponent<RapleySpriteControl>();
+            pacmomSprite = pacmom.gameObject.GetComponent<PacmomSpriteControl>();
+        }
 
         private void Start()
         {
@@ -50,6 +60,7 @@ namespace Runtime.CH1.Pacmom
             rapleySprite.GetNormalSprite();
 
             pacmom.ResetState();
+            pacmomSprite.GetNormalSprite();
         }
 
         private void SetRapleyScore(int score)

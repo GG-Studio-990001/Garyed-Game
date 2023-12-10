@@ -69,10 +69,10 @@ namespace Tests.Runtime.PacmomGameTest
 
             controllerObj = new GameObject("ControllerObj");
             controller = controllerObj.AddComponent<PacmomGameController>();
-            controller.rapley = rapley;
-            controller.pacmom = pacmom;
-            controller.coins = coins;
-            controller.vacuums = vacuums;
+            // controller.rapley = rapley;
+            // controller.pacmom = pacmom;
+            // controller.coins = coins;
+            // controller.vacuums = vacuums;
 
             pacmom.gameController = controller;
 
@@ -97,97 +97,6 @@ namespace Tests.Runtime.PacmomGameTest
             yield return new WaitForFixedUpdate();
         }
         #endregion
-
-        #region Rapley Functions
-        // [UnityTest]
-        public IEnumerator RapleyMovement()
-        {
-            rapleyMovement.rigid = rapleyObj.GetComponent<Rigidbody2D>();
-
-            rapleyMovement.rigid.position = Vector3.zero;
-            rapleyMovement.SetNextDirection(new Vector2(-1, 0));
-
-            yield return new WaitForFixedUpdate();
-
-            Assert.IsTrue(rapleyMovement.rigid.position.x < 0);
-        }
-
-        // [UnityTest]
-        public IEnumerator RapleyEatCoin()
-        {
-            rapleyObj.AddComponent<CircleCollider2D>();
-            rapleyObj.transform.position = Vector3.zero;
-            rapleyObj.layer = LayerMask.NameToLayer(GlobalConst.PlayerStr);
-
-            BoxCollider2D coinColl = coinObj.AddComponent<BoxCollider2D>();
-            coinColl.isTrigger = true;
-            coinObj.transform.position = Vector3.zero;
-
-            yield return new WaitForFixedUpdate();
-
-            Assert.IsFalse(coinObj.activeSelf);
-        }
-
-        // [UnityTest]
-        public IEnumerator RapleyFlipSprite()
-        {
-            rapleyMovement.SetNextDirection(new Vector2(1, 0));
-
-            yield return new WaitForFixedUpdate();
-
-            Assert.IsFalse(rapleySpr.flipX);
-        }
-        #endregion
-
-        #region Pacmom Functions
-        // [UnityTest]
-        public IEnumerator PacmomMovement()
-        {
-            pacmomMovement.rigid = pacmomObj.GetComponent<Rigidbody2D>();
-
-            pacmomMovement.rigid.position = Vector3.zero;
-            pacmomMovement.SetNextDirection(new Vector2(1, 0));
-
-            yield return new WaitForFixedUpdate();
-
-            Assert.IsTrue(pacmomMovement.rigid.position.x > 0);
-        }
-
-        // [UnityTest]
-        public IEnumerator PacmomEatCoin()
-        {
-            pacmomObj.AddComponent<CircleCollider2D>();
-            pacmomObj.transform.position = Vector3.zero;
-            pacmomObj.layer = LayerMask.NameToLayer(GlobalConst.PacmomStr);
-
-            BoxCollider2D coinColl = coinObj.AddComponent<BoxCollider2D>();
-            coinColl.isTrigger = true;
-            coinObj.transform.position = Vector3.zero;
-
-            yield return new WaitForFixedUpdate();
-
-            Assert.IsFalse(coinObj.activeSelf);
-        }
-
-        // [UnityTest]
-        public IEnumerator PacmomFlipSprite()
-        {
-            pacmomMovement.SetNextDirection(new Vector2(-1, 0));
-
-            yield return new WaitForFixedUpdate();
-
-            Assert.IsTrue(pacmomSpr.flipX);
-        }
-
-        // [UnityTest]
-        public IEnumerator PacmomRotate()
-        {
-            pacmomMovement.SetNextDirection(new Vector2(0, 1));
-
-            yield return new WaitForFixedUpdate();
-
-            Assert.AreNotEqual(pacmomObj.transform.rotation.z, 0);
-        }
 
         // [UnityTest]
         public IEnumerator PacmomChaseRapley()
@@ -231,7 +140,6 @@ namespace Tests.Runtime.PacmomGameTest
 
             Assert.IsTrue(pacmomMovement.nextDirection.x > 0);
         }
-        #endregion
 
         #region Collision
         // [UnityTest]
@@ -242,7 +150,7 @@ namespace Tests.Runtime.PacmomGameTest
             rapleyObj.AddComponent<CircleCollider2D>();
             rapleyObj.transform.position = Vector3.zero;
             rapleyObj.layer = LayerMask.NameToLayer(GlobalConst.PlayerStr);
-            
+
             pacmomObj.AddComponent<CircleCollider2D>();
             pacmomObj.transform.position = Vector3.zero;
             pacmomObj.layer = LayerMask.NameToLayer(GlobalConst.PacmomStr);

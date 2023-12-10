@@ -29,7 +29,6 @@ namespace Runtime.CH1.Pacmom
                 gameObject.SetActive(true);
             }
 
-            spriteControl.GetNormalSprite();
             SetRotateToZero();
             movement.ResetState();
         }
