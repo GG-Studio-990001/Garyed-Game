@@ -6,7 +6,6 @@ namespace Runtime.CH1.Pacmom
     public class Rapley : MonoBehaviour
     {
         public Movement movement;
-        public RapleySpriteControl spriteControl;
 
         private void Start()
         {
@@ -23,7 +22,6 @@ namespace Runtime.CH1.Pacmom
                 gameObject.SetActive(true);
             }
 
-            spriteControl.GetNormalSprite();
             movement.ResetState();
         }
 

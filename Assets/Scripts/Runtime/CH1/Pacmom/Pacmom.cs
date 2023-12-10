@@ -19,8 +19,6 @@ namespace Runtime.CH1.Pacmom
             movement.spriteRotation.canRotate = true;
             movement.spriteRotation.canFlip = true;
 
-            enemys[0] = gameController.rapley.gameObject.transform;
-
             ResetState();
         }
 

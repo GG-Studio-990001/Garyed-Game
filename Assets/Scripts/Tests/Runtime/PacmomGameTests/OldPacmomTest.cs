@@ -5,10 +5,10 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.TestTools;
 
-namespace Tests.Runtime
+namespace Tests.Runtime.PacmomGameTest
 {
     [TestFixture]
-    public class PacmomTest
+    public class OldPacmomTest
     {
         #region 선언
         private GameObject rapleyObj;
@@ -40,7 +40,7 @@ namespace Tests.Runtime
         #endregion
 
         #region SetUp & TearDown
-        [UnitySetUp]
+        // [UnitySetUp]
         public IEnumerator SetUp()
         {
             rapleyObj = new GameObject("RapleyObj");
@@ -82,7 +82,7 @@ namespace Tests.Runtime
             yield return new WaitForFixedUpdate();
         }
 
-        [UnityTearDown]
+        // [UnityTearDown]
         public IEnumerator TearDown()
         {
             Object.DestroyImmediate(rapleyObj);
@@ -99,7 +99,7 @@ namespace Tests.Runtime
         #endregion
 
         #region Rapley Functions
-        [UnityTest]
+        // [UnityTest]
         public IEnumerator RapleyMovement()
         {
             rapleyMovement.rigid = rapleyObj.GetComponent<Rigidbody2D>();
@@ -112,7 +112,7 @@ namespace Tests.Runtime
             Assert.IsTrue(rapleyMovement.rigid.position.x < 0);
         }
 
-        [UnityTest]
+        // [UnityTest]
         public IEnumerator RapleyEatCoin()
         {
             rapleyObj.AddComponent<CircleCollider2D>();
@@ -128,7 +128,7 @@ namespace Tests.Runtime
             Assert.IsFalse(coinObj.activeSelf);
         }
 
-        [UnityTest]
+        // [UnityTest]
         public IEnumerator RapleyFlipSprite()
         {
             rapleyMovement.SetNextDirection(new Vector2(1, 0));
@@ -140,10 +140,10 @@ namespace Tests.Runtime
         #endregion
 
         #region Pacmom Functions
-        [UnityTest]
+        // [UnityTest]
         public IEnumerator PacmomMovement()
         {
-            pacmomMovement.rigid = rapleyObj.GetComponent<Rigidbody2D>();
+            pacmomMovement.rigid = pacmomObj.GetComponent<Rigidbody2D>();
 
             pacmomMovement.rigid.position = Vector3.zero;
             pacmomMovement.SetNextDirection(new Vector2(1, 0));
@@ -153,7 +153,7 @@ namespace Tests.Runtime
             Assert.IsTrue(pacmomMovement.rigid.position.x > 0);
         }
 
-        [UnityTest]
+        // [UnityTest]
         public IEnumerator PacmomEatCoin()
         {
             pacmomObj.AddComponent<CircleCollider2D>();
@@ -169,7 +169,7 @@ namespace Tests.Runtime
             Assert.IsFalse(coinObj.activeSelf);
         }
 
-        [UnityTest]
+        // [UnityTest]
         public IEnumerator PacmomFlipSprite()
         {
             pacmomMovement.SetNextDirection(new Vector2(-1, 0));
@@ -179,7 +179,7 @@ namespace Tests.Runtime
             Assert.IsTrue(pacmomSpr.flipX);
         }
 
-        [UnityTest]
+        // [UnityTest]
         public IEnumerator PacmomRotate()
         {
             pacmomMovement.SetNextDirection(new Vector2(0, 1));
@@ -189,7 +189,7 @@ namespace Tests.Runtime
             Assert.AreNotEqual(pacmomObj.transform.rotation.z, 0);
         }
 
-        [UnityTest]
+        // [UnityTest]
         public IEnumerator PacmomChaseRapley()
         {
             rapleyObj.transform.position = new Vector3(-5, 0, 0);
@@ -211,7 +211,7 @@ namespace Tests.Runtime
             Assert.IsTrue(pacmomMovement.nextDirection.x < 0);
         }
 
-        [UnityTest]
+        // [UnityTest]
         public IEnumerator PacmomEscapeRapley()
         {
             rapleyObj.transform.position = new Vector3(-5, 0, 0);
@@ -234,7 +234,7 @@ namespace Tests.Runtime
         #endregion
 
         #region Collision
-        [UnityTest]
+        // [UnityTest]
         public IEnumerator PacmomRapleyCollision_1()
         {
             int pacmomLife = controller.pacmomLives;
@@ -252,7 +252,7 @@ namespace Tests.Runtime
             Assert.AreEqual(pacmomLife - 1, controller.pacmomLives);
         }
 
-        [UnityTest]
+        // [UnityTest]
         public IEnumerator PacmomRapleyCollision_2()
         {
             int pacmomLife = controller.pacmomLives;

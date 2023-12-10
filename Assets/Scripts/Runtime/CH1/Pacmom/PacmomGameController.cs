@@ -8,6 +8,7 @@ namespace Runtime.CH1.Pacmom
     public class PacmomGameController : MonoBehaviour
     {
         public Rapley rapley;
+        public RapleySpriteControl rapleySprite;
         public Pacmom pacmom;
         public Transform coins;
         public Transform vacuums;
@@ -46,6 +47,8 @@ namespace Runtime.CH1.Pacmom
             }
 
             rapley.ResetState();
+            rapleySprite.GetNormalSprite();
+
             pacmom.ResetState();
         }
 
@@ -75,13 +78,13 @@ namespace Runtime.CH1.Pacmom
         private IEnumerator VacuumTime()
         {
             pacmom.VacuumMode(true);
-            rapley.spriteControl.GetFrightendSprite();
+            rapleySprite.GetFrightendSprite();
             Invoke("VaccumBlink", vacuumDuration - vacuumEndDuration);
 
             yield return new WaitForSeconds(vacuumDuration);
 
             pacmom.VacuumMode(false);
-            rapley.spriteControl.GetNormalSprite();
+            rapleySprite.GetNormalSprite();
         }
 
         private void VaccumBlink()

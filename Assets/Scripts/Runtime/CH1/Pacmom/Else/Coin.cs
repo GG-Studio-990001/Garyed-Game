@@ -9,22 +9,24 @@ namespace Runtime.CH1.Pacmom
 
         private void EatenByRapley()
         {
-            gameController.CoinEaten(this, GlobalConst.PlayerStr);
+            gameController?.CoinEaten(this, GlobalConst.PlayerStr);
         }
 
         private void EatenByPacmom()
         {
-            gameController.CoinEaten(this, GlobalConst.PacmomStr);
+            gameController?.CoinEaten(this, GlobalConst.PacmomStr);
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
             if (collision.gameObject.layer == LayerMask.NameToLayer(GlobalConst.PlayerStr))
             {
+                gameObject.SetActive(false);
                 EatenByRapley();
             }
             else if (collision.gameObject.layer == LayerMask.NameToLayer(GlobalConst.PacmomStr))
             {
+                gameObject.SetActive(false);
                 EatenByPacmom();
             }
 
