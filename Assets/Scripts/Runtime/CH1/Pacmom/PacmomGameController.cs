@@ -126,6 +126,7 @@ namespace Runtime.CH1.Pacmom
             if (pacmomLives > 0)
             {
                 Debug.Log("팩맘 목수뮤 -1");
+                ResetStates();
             }
             else
             {
@@ -133,6 +134,12 @@ namespace Runtime.CH1.Pacmom
 
                 pacmom.PacmomDead();
             }
+        }
+
+        private void ResetStates()
+        {
+            rapley.movement.ResetState();
+            pacmom.movement.ResetState();
         }
 
         private bool HasRemainingCoins()

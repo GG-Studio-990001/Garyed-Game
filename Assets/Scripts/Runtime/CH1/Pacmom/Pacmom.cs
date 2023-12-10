@@ -26,12 +26,13 @@ namespace Runtime.CH1.Pacmom
 
         public void ResetState()
         {
-            spriteControl.GetNormalSprite();
-
             if (gameObject.activeInHierarchy == false)
             {
                 gameObject.SetActive(true);
             }
+
+            spriteControl.GetNormalSprite();
+            SetRotateToZero();
             movement.ResetState();
         }
 

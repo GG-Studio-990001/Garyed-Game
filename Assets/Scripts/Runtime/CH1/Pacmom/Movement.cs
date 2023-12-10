@@ -49,6 +49,9 @@ namespace Runtime.CH1.Pacmom
         public void ResetState()
         {
             direction = initialDirection;
+            if (spriteRotation.canFlip)
+                spriteRotation.FlipSprite(direction);
+
             nextDirection = Vector2.zero;
             transform.position = startPosition;
         }

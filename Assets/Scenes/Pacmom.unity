@@ -3581,7 +3581,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84f712ef1c24ebb4c886ad6c6c8e6495, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movement: {fileID: 133942951}
   normalSprites:
   - {fileID: 450318381, guid: 4b3ad5b28d851894882af12eee6bebc9, type: 3}
   - {fileID: 990485532, guid: 4b3ad5b28d851894882af12eee6bebc9, type: 3}
@@ -4336,7 +4335,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 1000000
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 0
@@ -23026,7 +23025,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 1000000
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 0
@@ -29780,6 +29779,7 @@ MonoBehaviour:
   coins: {fileID: 1942074557}
   vacuums: {fileID: 1145695306}
   vacuumDuration: 10
+  vacuumEndDuration: 3
 --- !u!1 &1828576067
 GameObject:
   m_ObjectHideFlags: 0
@@ -30051,7 +30051,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 1000000
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 0
@@ -30163,7 +30163,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7d3538a8753d6c4cbfcd4369ef23092, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movement: {fileID: 1861729279}
   vacuumSprite: {fileID: -1359193594, guid: 622b09821277ce54b8f6401cf405c699, type: 3}
   normalSprite: {fileID: -307251568, guid: 622b09821277ce54b8f6401cf405c699, type: 3}
   normalSprites:
