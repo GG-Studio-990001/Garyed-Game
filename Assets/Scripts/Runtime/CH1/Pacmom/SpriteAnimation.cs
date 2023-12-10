@@ -6,8 +6,7 @@ namespace Runtime.CH1.Pacmom
     public class SpriteAnimation : MonoBehaviour
     {
         private SpriteRenderer spriteRenderer;
-        [SerializeField]
-        private Sprite[] sprites;
+        public Sprite[] sprites;
         private float animTime = 0.25f;
         private int animFrame = -1;
 

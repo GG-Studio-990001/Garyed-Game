@@ -3373,6 +3373,7 @@ GameObject:
   - component: {fileID: 133942950}
   - component: {fileID: 133942951}
   - component: {fileID: 133942952}
+  - component: {fileID: 133942953}
   m_Layer: 3
   m_Name: Rapley
   m_TagString: Untagged
@@ -3552,6 +3553,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movement: {fileID: 133942951}
+  spriteChange: {fileID: 0}
 --- !u!114 &133942951
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3585,6 +3587,29 @@ MonoBehaviour:
   - {fileID: 990485532, guid: 4b3ad5b28d851894882af12eee6bebc9, type: 3}
   - {fileID: 450318381, guid: 4b3ad5b28d851894882af12eee6bebc9, type: 3}
   - {fileID: -1004244573, guid: 4b3ad5b28d851894882af12eee6bebc9, type: 3}
+--- !u!114 &133942953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 133942943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84f712ef1c24ebb4c886ad6c6c8e6495, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteAnimation: {fileID: 133942952}
+  normalSprites:
+  - {fileID: 450318381, guid: 4b3ad5b28d851894882af12eee6bebc9, type: 3}
+  - {fileID: 990485532, guid: 4b3ad5b28d851894882af12eee6bebc9, type: 3}
+  - {fileID: 450318381, guid: 4b3ad5b28d851894882af12eee6bebc9, type: 3}
+  - {fileID: -1004244573, guid: 4b3ad5b28d851894882af12eee6bebc9, type: 3}
+  frightenedSprites:
+  - {fileID: -178373209, guid: 4b3ad5b28d851894882af12eee6bebc9, type: 3}
+  - {fileID: 1675205349, guid: 4b3ad5b28d851894882af12eee6bebc9, type: 3}
+  - {fileID: 1415540315, guid: 4b3ad5b28d851894882af12eee6bebc9, type: 3}
+  - {fileID: -1964150484, guid: 4b3ad5b28d851894882af12eee6bebc9, type: 3}
 --- !u!1 &224553660
 GameObject:
   m_ObjectHideFlags: 0
@@ -25773,7 +25798,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 1
-      m_TileSpriteIndex: 28
+      m_TileSpriteIndex: 31
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -29506,14 +29531,14 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 1
-    m_Data: {fileID: 46929238, guid: 21824bd1e8e8d7345bfcf9d3dff90c6d, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 1
     m_Data: {fileID: -746755152, guid: 21824bd1e8e8d7345bfcf9d3dff90c6d, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: -399103550, guid: 21824bd1e8e8d7345bfcf9d3dff90c6d, type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 46929238, guid: 21824bd1e8e8d7345bfcf9d3dff90c6d, type: 3}
   - m_RefCount: 4
     m_Data: {fileID: -2135327034, guid: 21824bd1e8e8d7345bfcf9d3dff90c6d, type: 3}
   - m_RefCount: 1

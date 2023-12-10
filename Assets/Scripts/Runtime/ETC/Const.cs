@@ -8,7 +8,6 @@ namespace Runtime.ETC
         public const string PlayerStr = "Player";
         public const string PacmomStr = "Pacmom";
         public const string ObstacleStr = "Obstacle";
-        public const string StepStr = "Step";
         #endregion
     }
 }

@@ -32,11 +32,13 @@ namespace Runtime.CH1.Pacmom
 
             foreach (Transform coin in coins)
             {
+                coin.gameObject.SetActive(true);
                 coin.GetComponent<Coin>().gameController = this;
             }
 
             foreach (Transform vacuum in vacuums)
             {
+                vacuum.gameObject.SetActive(true);
                 vacuum.GetComponent<Vacuum>().gameController = this;
             }
 
@@ -70,10 +72,12 @@ namespace Runtime.CH1.Pacmom
         private IEnumerator VacuumTime()
         {
             pacmom.VacuumMode(true);
+            rapley.GetComponent<RapleySpriteChange>().GetFrightendSprite(true);
 
             yield return new WaitForSeconds(vacuumDuration);
 
             pacmom.VacuumMode(false);
+            rapley.GetComponent<RapleySpriteChange>().GetFrightendSprite(false);
         }
 
         public void CoinEaten(Coin coin, string who)

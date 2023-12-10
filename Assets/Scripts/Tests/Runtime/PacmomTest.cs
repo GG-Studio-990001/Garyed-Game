@@ -36,6 +36,7 @@ namespace Tests.Runtime
 
         private GameObject stepObj;
         private Step step;
+        private string stepStr = "Step";
         #endregion
 
         #region SetUp & TearDown
@@ -197,7 +198,7 @@ namespace Tests.Runtime
             stepObj.AddComponent<BoxCollider2D>();
             stepObj.GetComponent<BoxCollider2D>().isTrigger = true;
             stepObj.transform.position = Vector3.zero;
-            stepObj.layer = LayerMask.NameToLayer(GlobalConst.StepStr);
+            stepObj.layer = LayerMask.NameToLayer(stepStr);
 
             pacmom.isVacuumMode = true;
             pacmomMovement.rigid = rapleyObj.GetComponent<Rigidbody2D>();
@@ -219,7 +220,7 @@ namespace Tests.Runtime
             stepObj.AddComponent<BoxCollider2D>();
             stepObj.GetComponent<BoxCollider2D>().isTrigger = true;
             stepObj.transform.position = Vector3.zero;
-            stepObj.layer = LayerMask.NameToLayer(GlobalConst.StepStr);
+            stepObj.layer = LayerMask.NameToLayer(stepStr);
 
             pacmomMovement.rigid = rapleyObj.GetComponent<Rigidbody2D>();
             pacmomMovement.rigid.position = Vector3.zero;

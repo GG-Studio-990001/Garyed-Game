@@ -6,6 +6,7 @@ namespace Runtime.CH1.Pacmom
     public class Rapley : MonoBehaviour
     {
         public Movement movement;
+        public RapleySpriteChange spriteChange;
 
         private void Start()
         {
