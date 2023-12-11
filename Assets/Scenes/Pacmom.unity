@@ -13775,6 +13775,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7cb8f41a7f7b4448a0bf91eb97e356a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &155197200 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7344224181382952703, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
+  m_PrefabInstance: {fileID: 1935626986}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &301195149
 GameObject:
   m_ObjectHideFlags: 0
@@ -13842,6 +13847,14 @@ PrefabInstance:
       propertyPath: initialDirection.y
       value: -1
       objectReference: {fileID: 0}
+    - target: {fileID: 5395930438513632476, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
+      propertyPath: enemys.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5395930438513632476, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
+      propertyPath: enemys.Array.data[0]
+      value: 
+      objectReference: {fileID: 1861729284}
     - target: {fileID: 5555307432301182834, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
       propertyPath: m_Name
       value: Dust_A
@@ -52027,6 +52040,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7cb8f41a7f7b4448a0bf91eb97e356a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &1412902989 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7344224181382952703, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
+  m_PrefabInstance: {fileID: 345737601}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1608794724
 GameObject:
   m_ObjectHideFlags: 0
@@ -58676,6 +58694,7 @@ GameObject:
   - component: {fileID: 1861729281}
   - component: {fileID: 1861729285}
   - component: {fileID: 1861729279}
+  - component: {fileID: 1861729288}
   - component: {fileID: 1861729287}
   m_Layer: 6
   m_Name: Pacmom
@@ -58846,8 +58865,6 @@ MonoBehaviour:
   movement: {fileID: 1861729279}
   spriteControl: {fileID: 1861729287}
   isVacuumMode: 0
-  enemys:
-  - {fileID: 133942948}
 --- !u!114 &1861729287
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58872,6 +58889,24 @@ MonoBehaviour:
   - {fileID: -31350341, guid: 624604c3a324b01478b135343c65f064, type: 3}
   - {fileID: -722194990, guid: 624604c3a324b01478b135343c65f064, type: 3}
   - {fileID: -1681543061, guid: 624604c3a324b01478b135343c65f064, type: 3}
+--- !u!114 &1861729288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1861729278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e686847b23f620448c1c7bc0afef7fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movement: {fileID: 1861729279}
+  enemys:
+  - {fileID: 133942948}
+  - {fileID: 1412902989}
+  - {fileID: 155197200}
+  isStronger: 0
 --- !u!1001 &1935626986
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -58888,6 +58923,14 @@ PrefabInstance:
       propertyPath: initialDirection.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5395930438513632476, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
+      propertyPath: enemys.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5395930438513632476, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
+      propertyPath: enemys.Array.data[0]
+      value: 
+      objectReference: {fileID: 1861729284}
     - target: {fileID: 5555307432301182834, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
       propertyPath: m_Name
       value: Dust_B

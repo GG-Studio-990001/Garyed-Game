@@ -97,6 +97,7 @@ GameObject:
   - component: {fileID: 7483849224658728701}
   - component: {fileID: 8159136489922289943}
   - component: {fileID: 3850771062246149949}
+  - component: {fileID: 5395930438513632476}
   m_Layer: 7
   m_Name: Dust
   m_TagString: Untagged
@@ -215,6 +216,19 @@ MonoBehaviour:
   speedMultiplier: 1
   initialDirection: {x: 0, y: 0}
   isRotationNeeded: 0
+--- !u!114 &5395930438513632476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5555307432301182834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e686847b23f620448c1c7bc0afef7fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movement: {fileID: 3850771062246149949}
 --- !u!1 &8942196247262051131
 GameObject:
   m_ObjectHideFlags: 0
