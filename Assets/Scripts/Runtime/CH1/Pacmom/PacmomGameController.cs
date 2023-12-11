@@ -15,6 +15,8 @@ namespace Runtime.CH1.Pacmom
         private Pacmom pacmom;
         private PacmomSpriteControl pacmomSprite;
         [SerializeField]
+        private DustSpriteControl[] dustSprite;
+        [SerializeField]
         private Transform coins;
         [SerializeField]
         private Transform vacuums;
@@ -61,6 +63,9 @@ namespace Runtime.CH1.Pacmom
 
             pacmom.ResetState();
             pacmomSprite.GetNormalSprite();
+
+            for (int i=0; i<dustSprite.Length; i++)
+                dustSprite[i].GetNormalSprite();
         }
 
         private void SetRapleyScore(int score)
@@ -90,12 +95,16 @@ namespace Runtime.CH1.Pacmom
         {
             pacmom.VacuumMode(true);
             rapleySprite.GetFrightendSprite();
+            for (int i = 0; i < dustSprite.Length; i++)
+                dustSprite[i].GetFrightendSprite();
             Invoke("VaccumBlink", vacuumDuration - vacuumEndDuration);
 
             yield return new WaitForSeconds(vacuumDuration);
 
             pacmom.VacuumMode(false);
             rapleySprite.GetNormalSprite();
+            for (int i = 0; i < dustSprite.Length; i++)
+                dustSprite[i].GetNormalSprite();
         }
 
         private void VaccumBlink()
