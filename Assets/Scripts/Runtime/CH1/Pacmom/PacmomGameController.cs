@@ -10,12 +10,12 @@ namespace Runtime.CH1.Pacmom
 
         [SerializeField]
         private Rapley rapley;
-        private RapleySpriteControl rapleySprite;
+        private SpriteController rapleySprite;
         [SerializeField]
         private Pacmom pacmom;
-        private PacmomSpriteControl pacmomSprite;
+        private PacmomSpriteController pacmomSprite;
         [SerializeField]
-        private DustSpriteControl[] dustSprite;
+        private DustSpriteController[] dustSprite;
         [SerializeField]
         private Transform coins;
         [SerializeField]
@@ -29,8 +29,8 @@ namespace Runtime.CH1.Pacmom
 
         private void Awake()
         {
-            rapleySprite = rapley.gameObject.GetComponent<RapleySpriteControl>();
-            pacmomSprite = pacmom.gameObject.GetComponent<PacmomSpriteControl>();
+            rapleySprite = rapley.gameObject.GetComponent<SpriteController>();
+            pacmomSprite = pacmom.gameObject.GetComponent<PacmomSpriteController>();
         }
 
         private void Start()
@@ -94,9 +94,9 @@ namespace Runtime.CH1.Pacmom
         private IEnumerator VacuumTime()
         {
             pacmom.VacuumMode(true);
-            rapleySprite.GetFrightendSprite();
+            rapleySprite.GetVacuumModeSprite();
             for (int i = 0; i < dustSprite.Length; i++)
-                dustSprite[i].GetFrightendSprite();
+                dustSprite[i].GetVacuumModeSprite();
             Invoke("VaccumBlink", vacuumDuration - vacuumEndDuration);
 
             yield return new WaitForSeconds(vacuumDuration);

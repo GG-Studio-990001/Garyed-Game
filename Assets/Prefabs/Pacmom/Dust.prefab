@@ -296,10 +296,10 @@ MonoBehaviour:
   normalSprites:
   - {fileID: -182289765, guid: e48202bc45cce2146932707e0ee993a9, type: 3}
   - {fileID: -350171849, guid: e48202bc45cce2146932707e0ee993a9, type: 3}
-  frightenedSprites:
+  vacuumModeSprites:
   - {fileID: 423321701, guid: e48202bc45cce2146932707e0ee993a9, type: 3}
   - {fileID: 813358491, guid: e48202bc45cce2146932707e0ee993a9, type: 3}
-  eyes: {fileID: 0}
+  eyes: {fileID: 1027210859562754976}
 --- !u!1 &8974470889113537919
 GameObject:
   m_ObjectHideFlags: 0

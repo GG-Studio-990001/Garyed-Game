@@ -2,15 +2,14 @@ using UnityEngine;
 
 namespace Runtime.CH1.Pacmom
 {
-    public class RapleySpriteControl : MonoBehaviour
+    public class SpriteController : MonoBehaviour
     {
         [SerializeField]
-        private SpriteAnimation spriteAnim;
-
+        protected SpriteAnimation spriteAnim;
         [SerializeField]
-        private Sprite[] normalSprites;
+        protected Sprite[] normalSprites;
         [SerializeField]
-        private Sprite[] frightenedSprites;
+        protected Sprite[] vacuumModeSprites;
 
         public void Awake()
         {
@@ -27,7 +26,7 @@ namespace Runtime.CH1.Pacmom
             spriteAnim.NextSprite();
         }
 
-        public void GetNormalSprite()
+        public virtual void GetNormalSprite()
         {
             spriteAnim.sprites = new Sprite[normalSprites.Length];
 
@@ -35,16 +34,18 @@ namespace Runtime.CH1.Pacmom
             {
                 spriteAnim.sprites[i] = normalSprites[i];
             }
+            spriteAnim.RestartAnim();
         }
 
-        public void GetFrightendSprite()
+        public virtual void GetVacuumModeSprite()
         {
-            spriteAnim.sprites = new Sprite[frightenedSprites.Length];
+            spriteAnim.sprites = new Sprite[vacuumModeSprites.Length];
 
             for (int i = 0; i < spriteAnim.sprites.Length; i++)
             {
-                spriteAnim.sprites[i] = frightenedSprites[i];
+                spriteAnim.sprites[i] = vacuumModeSprites[i];
             }
+            spriteAnim.RestartAnim();
         }
     }
 }

@@ -9,7 +9,7 @@ namespace Runtime.CH1.Pacmom
     {
         public PacmomGameController gameController;
         public Movement movement;
-        public PacmomSpriteControl spriteControl;
+        public PacmomSpriteController spriteControl;
         public bool isVacuumMode = false;
 
         public Transform[] enemys = new Transform[1];
@@ -47,7 +47,7 @@ namespace Runtime.CH1.Pacmom
 
             if (isVacuumMode)
             {
-                spriteControl.GetVacuumSprite();
+                spriteControl.GetVacuumModeSprite();
             }
             else
             {
@@ -57,7 +57,7 @@ namespace Runtime.CH1.Pacmom
 
         public void VacuumModeAlmostOver()
         {
-            spriteControl.SetVaccumSpriteBlink();
+            spriteControl.GetVaccumBlinkSprite();
         }
 
         public void PacmomDead()
