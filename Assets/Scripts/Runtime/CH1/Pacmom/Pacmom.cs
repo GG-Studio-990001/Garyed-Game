@@ -4,7 +4,6 @@ using UnityEngine;
 
 namespace Runtime.CH1.Pacmom
 {
-    [RequireComponent(typeof(SpriteRenderer))]
     public class Pacmom : MonoBehaviour
     {
         public PacmomGameController gameController;
@@ -24,11 +23,6 @@ namespace Runtime.CH1.Pacmom
 
         public void ResetState()
         {
-            if (gameObject.activeInHierarchy == false)
-            {
-                gameObject.SetActive(true);
-            }
-
             SetRotateToZero();
             movement.ResetState();
         }

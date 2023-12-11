@@ -17,11 +17,6 @@ namespace Runtime.CH1.Pacmom
 
         public void ResetState()
         {
-            if (gameObject.activeInHierarchy == false)
-            {
-                gameObject.SetActive(true);
-            }
-
             movement.ResetState();
         }
 

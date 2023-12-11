@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Runtime.CH1.Pacmom
 {
-    [RequireComponent(typeof(Rigidbody2D)), RequireComponent(typeof(SpriteRenderer))]
+    [RequireComponent(typeof(Rigidbody2D))]
     public class Movement : MonoBehaviour
     {
         public SpriteRotation spriteRotation { get; private set; }
@@ -14,15 +14,18 @@ namespace Runtime.CH1.Pacmom
         public Vector2 nextDirection { get; private set; }
         public Vector3 startPosition { get; private set; }
 
-        public float speed = 8f;
+        [SerializeField]
+        private float speed = 8f;
         public float speedMultiplier = 1f; // 팩맘의 청소기 습득 시 속도 변화
         public Vector2 initialDirection;
 
         public LayerMask obstacleLayer { get; private set; }
+        public bool isRotationNeeded = true;
 
         private void Awake()
         {
-            spriteRotation = new SpriteRotation(GetComponent<SpriteRenderer>());
+            if (isRotationNeeded)
+                spriteRotation = new SpriteRotation(GetComponent<SpriteRenderer>());
 
             rigid = GetComponent<Rigidbody2D>();
             startPosition = transform.position;
@@ -49,7 +52,7 @@ namespace Runtime.CH1.Pacmom
         public void ResetState()
         {
             direction = initialDirection;
-            if (spriteRotation.canFlip)
+            if (isRotationNeeded && spriteRotation.canFlip)
                 spriteRotation.FlipSprite(direction);
 
             nextDirection = Vector2.zero;
@@ -71,13 +74,17 @@ namespace Runtime.CH1.Pacmom
         {
             if (!CheckRoadBlocked(direction))
             {
-                float zValue = spriteRotation.RotationZValue(direction);
-                transform.rotation = Quaternion.Euler(0, 0, zValue);
-
+                if (isRotationNeeded)
+                {
+                    float zValue = spriteRotation.RotationZValue(direction);
+                    transform.rotation = Quaternion.Euler(0, 0, zValue);
+                }
+                
                 this.direction = direction;
                 nextDirection = Vector2.zero;
 
-                spriteRotation.FlipSprite(direction);
+                if (isRotationNeeded)
+                    spriteRotation.FlipSprite(direction);
             }
         }
 

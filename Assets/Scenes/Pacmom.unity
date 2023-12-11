@@ -13707,6 +13707,7 @@ MonoBehaviour:
   speed: 8
   speedMultiplier: 1
   initialDirection: {x: -1, y: 0}
+  isRotationNeeded: 1
 --- !u!114 &133942954
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13763,6 +13764,17 @@ Transform:
   - {fileID: 103217163}
   m_Father: {fileID: 1608794725}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &155197197 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8159136489922289943, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
+  m_PrefabInstance: {fileID: 1935626986}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7cb8f41a7f7b4448a0bf91eb97e356a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &301195149
 GameObject:
   m_ObjectHideFlags: 0
@@ -13826,13 +13838,17 @@ PrefabInstance:
       propertyPath: normalSprites.Array.size
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3850771062246149949, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
+      propertyPath: initialDirection.y
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 5555307432301182834, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
       propertyPath: m_Name
       value: Dust_A
       objectReference: {fileID: 0}
     - target: {fileID: 7344224181382952703, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2
+      value: -4.5
       objectReference: {fileID: 0}
     - target: {fileID: 7344224181382952703, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
       propertyPath: m_LocalPosition.y
@@ -13870,7 +13886,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1762769768052832417, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
     m_RemovedGameObjects:
     - {fileID: 9074200449494484364, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
     - {fileID: 8974470889113537919, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
@@ -20694,7 +20711,7 @@ TilemapRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 696614760}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -51999,6 +52016,17 @@ Transform:
   - {fileID: 61187477}
   m_Father: {fileID: 1608794725}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1412902986 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8159136489922289943, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
+  m_PrefabInstance: {fileID: 345737601}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7cb8f41a7f7b4448a0bf91eb97e356a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1608794724
 GameObject:
   m_ObjectHideFlags: 0
@@ -58626,7 +58654,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rapley: {fileID: 133942950}
   pacmom: {fileID: 1861729285}
-  dustSprite:
+  dusts:
+  - {fileID: 1412902986}
+  - {fileID: 155197197}
+  dustSprites:
   - {fileID: 371696537}
   - {fileID: 980161648}
   coins: {fileID: 1942074557}
@@ -58669,6 +58700,7 @@ MonoBehaviour:
   speed: 6
   speedMultiplier: 1
   initialDirection: {x: 1, y: 0}
+  isRotationNeeded: 1
 --- !u!58 &1861729281
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -58852,13 +58884,17 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -554062099, guid: e48202bc45cce2146932707e0ee993a9, type: 3}
+    - target: {fileID: 3850771062246149949, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
+      propertyPath: initialDirection.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5555307432301182834, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
       propertyPath: m_Name
       value: Dust_B
       objectReference: {fileID: 0}
     - target: {fileID: 7344224181382952703, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 7344224181382952703, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
       propertyPath: m_LocalPosition.y

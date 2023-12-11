@@ -15,7 +15,9 @@ namespace Runtime.CH1.Pacmom
         private Pacmom pacmom;
         private PacmomSpriteController pacmomSprite;
         [SerializeField]
-        private DustSpriteController[] dustSprite;
+        private Dust[] dusts;
+        [SerializeField]
+        private DustSpriteController[] dustSprites;
         [SerializeField]
         private Transform coins;
         [SerializeField]
@@ -64,8 +66,11 @@ namespace Runtime.CH1.Pacmom
             pacmom.ResetState();
             pacmomSprite.GetNormalSprite();
 
-            for (int i=0; i<dustSprite.Length; i++)
-                dustSprite[i].GetNormalSprite();
+            for (int i=0; i<dustSprites.Length; i++)
+            {
+                dusts[i].ResetState();
+                dustSprites[i].GetNormalSprite();
+            }
         }
 
         private void SetRapleyScore(int score)
@@ -94,22 +99,35 @@ namespace Runtime.CH1.Pacmom
         private IEnumerator VacuumTime()
         {
             pacmom.VacuumMode(true);
-            rapleySprite.GetVacuumModeSprite();
-            for (int i = 0; i < dustSprite.Length; i++)
-                dustSprite[i].GetVacuumModeSprite();
-            Invoke("VaccumBlink", vacuumDuration - vacuumEndDuration);
+            pacmom.movement.speedMultiplier = 1.2f;
 
-            yield return new WaitForSeconds(vacuumDuration);
+            rapleySprite.GetVacuumModeSprite();
+            rapley.movement.speedMultiplier = 0.7f;
+
+            for (int i = 0; i < dustSprites.Length; i++)
+            {
+                dustSprites[i].GetVacuumModeSprite();
+                dusts[i].movement.speedMultiplier = 0.7f;
+            }
+
+            yield return new WaitForSeconds(vacuumDuration - vacuumEndDuration);
+
+            pacmom.VacuumModeAlmostOver();
+
+            yield return new WaitForSeconds(vacuumEndDuration);
 
             pacmom.VacuumMode(false);
-            rapleySprite.GetNormalSprite();
-            for (int i = 0; i < dustSprite.Length; i++)
-                dustSprite[i].GetNormalSprite();
-        }
+            pacmom.movement.speedMultiplier = 1f;
 
-        private void VaccumBlink()
-        {
-            pacmom.VacuumModeAlmostOver();
+            rapleySprite.GetNormalSprite();
+            rapley.movement.speedMultiplier = 1f;
+
+            for (int i = 0; i < dustSprites.Length; i++)
+            {
+                dustSprites[i].GetNormalSprite();
+                dusts[i].movement.speedMultiplier = 1f;
+            }
+
         }
 
         public void CoinEaten(Coin coin, string who)
