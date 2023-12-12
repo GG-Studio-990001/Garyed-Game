@@ -20,6 +20,7 @@ namespace Runtime.CH1.Pacmom
 
         protected void Set()
         {
+            // Awake에서 상속 필수
             rigid = GetComponent<Rigidbody2D>();
             startPosition = transform.position;
             obstacleLayer = LayerMask.GetMask(GlobalConst.ObstacleStr);

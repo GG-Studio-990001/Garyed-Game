@@ -13906,6 +13906,26 @@ PrefabInstance:
       propertyPath: initialDirection.y
       value: -1
       objectReference: {fileID: 0}
+    - target: {fileID: 8324175502395817452, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
+      propertyPath: EyeSprites.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8324175502395817452, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
+      propertyPath: EyeSprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 1438590464, guid: e48202bc45cce2146932707e0ee993a9, type: 3}
+    - target: {fileID: 8324175502395817452, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
+      propertyPath: EyeSprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 112017311, guid: e48202bc45cce2146932707e0ee993a9, type: 3}
+    - target: {fileID: 8324175502395817452, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
+      propertyPath: EyeSprites.Array.data[2]
+      value: 
+      objectReference: {fileID: 92227687, guid: e48202bc45cce2146932707e0ee993a9, type: 3}
+    - target: {fileID: 8324175502395817452, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
+      propertyPath: EyeSprites.Array.data[3]
+      value: 
+      objectReference: {fileID: -1150924220, guid: e48202bc45cce2146932707e0ee993a9, type: 3}
     m_RemovedComponents:
     - {fileID: 1762769768052832417, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
     m_RemovedGameObjects:
@@ -58994,6 +59014,26 @@ PrefabInstance:
       propertyPath: initialDirection.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8324175502395817452, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
+      propertyPath: EyeSprites.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8324175502395817452, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
+      propertyPath: EyeSprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 1438590464, guid: e48202bc45cce2146932707e0ee993a9, type: 3}
+    - target: {fileID: 8324175502395817452, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
+      propertyPath: EyeSprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 112017311, guid: e48202bc45cce2146932707e0ee993a9, type: 3}
+    - target: {fileID: 8324175502395817452, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
+      propertyPath: EyeSprites.Array.data[2]
+      value: 
+      objectReference: {fileID: 92227687, guid: e48202bc45cce2146932707e0ee993a9, type: 3}
+    - target: {fileID: 8324175502395817452, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
+      propertyPath: EyeSprites.Array.data[3]
+      value: 
+      objectReference: {fileID: -1150924220, guid: e48202bc45cce2146932707e0ee993a9, type: 3}
     - target: {fileID: 8702271369505587194, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
       propertyPath: normalSprites.Array.data[0]
       value: 
@@ -59021,7 +59061,7 @@ PrefabInstance:
     - target: {fileID: 9128906991448013983, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -1150924220, guid: e48202bc45cce2146932707e0ee993a9, type: 3}
+      objectReference: {fileID: 1438590464, guid: e48202bc45cce2146932707e0ee993a9, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 9074200449494484364, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
