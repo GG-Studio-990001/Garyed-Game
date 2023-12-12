@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 4929594504206174789}
   - component: {fileID: 7483849224658728701}
   - component: {fileID: 8159136489922289943}
-  - component: {fileID: 3850771062246149949}
+  - component: {fileID: 8324175502395817452}
   - component: {fileID: 5395930438513632476}
   m_Layer: 7
   m_Name: Dust
@@ -198,8 +198,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7cb8f41a7f7b4448a0bf91eb97e356a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movement: {fileID: 3850771062246149949}
---- !u!114 &3850771062246149949
+  gameController: {fileID: 0}
+  movement: {fileID: 8324175502395817452}
+--- !u!114 &8324175502395817452
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -208,14 +209,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 5555307432301182834}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80ad3441a3dad4f4f9193ef2711ef6dc, type: 3}
+  m_Script: {fileID: 11500000, guid: 5e52d0147f893494c8c45433a156e479, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   rigid: {fileID: 0}
   speed: 5
   speedMultiplier: 1
   initialDirection: {x: 0, y: 0}
-  isRotationNeeded: 0
 --- !u!114 &5395930438513632476
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -228,7 +228,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e686847b23f620448c1c7bc0afef7fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movement: {fileID: 3850771062246149949}
+  movement: {fileID: 8324175502395817452}
+  enemys: []
+  isStronger: 1
 --- !u!1 &8942196247262051131
 GameObject:
   m_ObjectHideFlags: 0

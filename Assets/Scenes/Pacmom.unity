@@ -13510,7 +13510,7 @@ GameObject:
   - component: {fileID: 133942945}
   - component: {fileID: 133942949}
   - component: {fileID: 133942950}
-  - component: {fileID: 133942951}
+  - component: {fileID: 133942955}
   - component: {fileID: 133942954}
   m_Layer: 3
   m_Name: Rapley
@@ -13690,24 +13690,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8cebdb99bd9ab640978dc1c068af78d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movement: {fileID: 133942951}
---- !u!114 &133942951
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 133942943}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80ad3441a3dad4f4f9193ef2711ef6dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rigid: {fileID: 133942946}
-  speed: 8
-  speedMultiplier: 1
-  initialDirection: {x: -1, y: 0}
-  isRotationNeeded: 1
+  movement: {fileID: 133942955}
 --- !u!114 &133942954
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13730,6 +13713,22 @@ MonoBehaviour:
   - {fileID: 1849880115, guid: f6eb4ce53aa2d7f4bba33e89f5c696f3, type: 3}
   - {fileID: -1453775011, guid: f6eb4ce53aa2d7f4bba33e89f5c696f3, type: 3}
   - {fileID: 2043577889, guid: f6eb4ce53aa2d7f4bba33e89f5c696f3, type: 3}
+--- !u!114 &133942955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 133942943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bba9badf88412aa4fb2a67e5461e47a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rigid: {fileID: 133942946}
+  speed: 8
+  speedMultiplier: 1
+  initialDirection: {x: -1, y: 0}
 --- !u!1 &149884834
 GameObject:
   m_ObjectHideFlags: 0
@@ -13902,6 +13901,10 @@ PrefabInstance:
     - target: {fileID: 7344224181382952703, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8324175502395817452, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
+      propertyPath: initialDirection.y
+      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1762769768052832417, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
@@ -58702,7 +58705,7 @@ GameObject:
   - component: {fileID: 1861729282}
   - component: {fileID: 1861729281}
   - component: {fileID: 1861729285}
-  - component: {fileID: 1861729279}
+  - component: {fileID: 1861729289}
   - component: {fileID: 1861729288}
   - component: {fileID: 1861729287}
   m_Layer: 6
@@ -58712,23 +58715,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1861729279
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1861729278}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80ad3441a3dad4f4f9193ef2711ef6dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rigid: {fileID: 1861729282}
-  speed: 6
-  speedMultiplier: 1
-  initialDirection: {x: 1, y: 0}
-  isRotationNeeded: 1
 --- !u!58 &1861729281
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -58871,7 +58857,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameController: {fileID: 1761052961}
-  movement: {fileID: 1861729279}
+  movement: {fileID: 1861729289}
   spriteControl: {fileID: 1861729287}
   isVacuumMode: 0
 --- !u!114 &1861729287
@@ -58910,12 +58896,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e686847b23f620448c1c7bc0afef7fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movement: {fileID: 1861729279}
+  movement: {fileID: 1861729289}
   enemys:
   - {fileID: 133942948}
   - {fileID: 1412902989}
   - {fileID: 155197200}
   isStronger: 0
+--- !u!114 &1861729289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1861729278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bba9badf88412aa4fb2a67e5461e47a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rigid: {fileID: 1861729282}
+  speed: 6
+  speedMultiplier: 1
+  initialDirection: {x: 1, y: 0}
 --- !u!1001 &1935626986
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -58987,6 +58989,10 @@ PrefabInstance:
     - target: {fileID: 7344224181382952703, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8324175502395817452, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
+      propertyPath: initialDirection.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8702271369505587194, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
       propertyPath: normalSprites.Array.data[0]

@@ -14,12 +14,12 @@ namespace Tests.Runtime.PacmomGameTest
         private GameObject rapleyObj;
         private SpriteRenderer rapleySpr;
         private Rapley rapley;
-        private Movement rapleyMovement;
+        private MovementAndRotation rapleyMovement;
 
         private GameObject pacmomObj;
         private SpriteRenderer pacmomSpr;
         private Pacmom pacmom;
-        private Movement pacmomMovement;
+        private MovementAndRotation pacmomMovement;
 
         private GameObject coinObj;
         private Coin coin;
@@ -46,13 +46,13 @@ namespace Tests.Runtime.PacmomGameTest
             rapleyObj = new GameObject("RapleyObj");
             rapleySpr = rapleyObj.AddComponent<SpriteRenderer>();
             rapley = rapleyObj.AddComponent<Rapley>();
-            rapleyMovement = rapleyObj.AddComponent<Movement>();
+            rapleyMovement = rapleyObj.AddComponent<MovementAndRotation>();
             rapley.movement = rapleyMovement;
 
             pacmomObj = new GameObject("PacmomObj");
             pacmomSpr = pacmomObj.AddComponent<SpriteRenderer>();
             pacmom = pacmomObj.AddComponent<Pacmom>();
-            pacmomMovement = pacmomObj.AddComponent<Movement>();
+            pacmomMovement = pacmomObj.AddComponent<MovementAndRotation>();
             pacmom.movement = pacmomMovement;
 
             coinParentObj = new GameObject("CoinParentObj");

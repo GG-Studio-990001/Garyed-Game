@@ -7,7 +7,7 @@ namespace Runtime.CH1.Pacmom
     public class Pacmom : MonoBehaviour
     {
         public PacmomGameController gameController;
-        public Movement movement;
+        public MovementAndRotation movement;
         public PacmomSpriteController spriteControl;
         public bool isVacuumMode = false;
 

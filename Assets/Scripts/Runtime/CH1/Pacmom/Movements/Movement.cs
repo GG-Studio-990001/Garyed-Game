@@ -1,4 +1,3 @@
-using Runtime.CH1.Main;
 using Runtime.ETC;
 using UnityEngine;
 
@@ -7,8 +6,6 @@ namespace Runtime.CH1.Pacmom
     [RequireComponent(typeof(Rigidbody2D))]
     public class Movement : MonoBehaviour
     {
-        public SpriteRotation spriteRotation { get; private set; }
-
         public Rigidbody2D rigid;
         public Vector2 direction { get; private set; }
         public Vector2 nextDirection { get; private set; }
@@ -20,13 +17,9 @@ namespace Runtime.CH1.Pacmom
         public Vector2 initialDirection;
 
         public LayerMask obstacleLayer { get; private set; }
-        public bool isRotationNeeded = true;
 
-        private void Awake()
+        protected void Set()
         {
-            if (isRotationNeeded)
-                spriteRotation = new SpriteRotation(GetComponent<SpriteRenderer>());
-
             rigid = GetComponent<Rigidbody2D>();
             startPosition = transform.position;
             obstacleLayer = LayerMask.GetMask(GlobalConst.ObstacleStr);
@@ -49,11 +42,9 @@ namespace Runtime.CH1.Pacmom
             rigid.MovePosition(position + translation);
         }
 
-        public void ResetState()
+        public virtual void ResetState()
         {
             direction = initialDirection;
-            if (isRotationNeeded && spriteRotation.canFlip)
-                spriteRotation.FlipSprite(direction);
 
             nextDirection = Vector2.zero;
             transform.position = startPosition;
@@ -70,21 +61,12 @@ namespace Runtime.CH1.Pacmom
             nextDirection = direction;
         }
 
-        private void SetDirection(Vector2 direction)
+        protected virtual void SetDirection(Vector2 direction)
         {
             if (!CheckRoadBlocked(direction))
             {
-                if (isRotationNeeded)
-                {
-                    float zValue = spriteRotation.RotationZValue(direction);
-                    transform.rotation = Quaternion.Euler(0, 0, zValue);
-                }
-                
                 this.direction = direction;
                 nextDirection = Vector2.zero;
-
-                if (isRotationNeeded)
-                    spriteRotation.FlipSprite(direction);
             }
         }
 

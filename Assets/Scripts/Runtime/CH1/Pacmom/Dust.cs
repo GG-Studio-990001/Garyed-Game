@@ -10,7 +10,6 @@ namespace Runtime.CH1.Pacmom
 
         private void Start()
         {
-            movement.isRotationNeeded = false;
             ResetState();
         }
 
