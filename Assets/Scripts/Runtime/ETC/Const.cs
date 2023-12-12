@@ -7,6 +7,7 @@ namespace Runtime.ETC
         #region pacmom
         public const string PlayerStr = "Player";
         public const string PacmomStr = "Pacmom";
+        public const string DustStr = "Dust";
         public const string ObstacleStr = "Obstacle";
         #endregion
     }

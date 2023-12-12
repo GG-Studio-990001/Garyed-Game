@@ -73,7 +73,7 @@ namespace Runtime.CH1.Pacmom
                 }
                 else
                 {
-                    gameController.PacmomEaten();
+                    gameController.PacmomEaten(GlobalConst.PlayerStr);
                 }
             }
         }
