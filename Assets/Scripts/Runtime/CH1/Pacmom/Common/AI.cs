@@ -4,8 +4,7 @@ namespace Runtime.CH1.Pacmom
 {
     public class AI : MonoBehaviour
     {
-        [SerializeField]
-        private Movement movement;
+        public Movement movement;
         public Transform[] enemys;
         public bool isStronger = true;
 

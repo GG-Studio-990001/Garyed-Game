@@ -18,7 +18,7 @@ namespace Runtime.CH1.Pacmom
         {
             base.SetDirection(direction);
 
-            if (!CheckRoadBlocked(direction))
+            if (!CheckRoadBlocked(direction) && eyeSprite != null)
             {
                 GetEyeSprites(direction);
             }
