@@ -20,22 +20,27 @@ namespace Runtime.CH1.Pacmom
 
             if (!CheckRoadBlocked(direction))
             {
-                if (direction == Vector2.up)
-                {
-                    eyeSprite.sprite = EyeSprites[0];
-                }
-                else if (direction == Vector2.down)
-                {
-                    eyeSprite.sprite = EyeSprites[1];
-                }
-                else if (direction == Vector2.right)
-                {
-                    eyeSprite.sprite = EyeSprites[2];
-                }
-                else if (direction == Vector2.left)
-                {
-                    eyeSprite.sprite = EyeSprites[3];
-                }
+                GetEyeSprites(direction);
+            }
+        }
+
+        public void GetEyeSprites(Vector2 direction)
+        {
+            if (direction == Vector2.up)
+            {
+                eyeSprite.sprite = EyeSprites[0];
+            }
+            else if (direction == Vector2.down)
+            {
+                eyeSprite.sprite = EyeSprites[1];
+            }
+            else if (direction == Vector2.right)
+            {
+                eyeSprite.sprite = EyeSprites[2];
+            }
+            else if (direction == Vector2.left)
+            {
+                eyeSprite.sprite = EyeSprites[3];
             }
         }
     }

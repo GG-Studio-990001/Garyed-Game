@@ -6,7 +6,7 @@ namespace Runtime.CH1.Pacmom
     public class Dust : MonoBehaviour
     {
         public PacmomGameController gameController;
-        public Movement movement;
+        public MovementAndEyes movement;
 
         private void Start()
         {

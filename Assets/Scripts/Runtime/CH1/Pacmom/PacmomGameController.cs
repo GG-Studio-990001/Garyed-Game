@@ -7,35 +7,58 @@ namespace Runtime.CH1.Pacmom
 {
     public class PacmomGameController : MonoBehaviour
     {
-
+        #region 선언
+        [Header("Rapley")]
         [SerializeField]
         private Rapley rapley;
         private SpriteController rapleySprite;
+
+        [Header("Pacmom")]
         [SerializeField]
         private Pacmom pacmom;
         private PacmomSpriteController pacmomSprite;
+        private AI pacmomAI;
+
+        [Header("Dusts")]
         [SerializeField]
         private Dust[] dusts;
-        [SerializeField]
-        private DustSpriteController[] dustSprites;
+        private DustSpriteController[] dustSprites = new DustSpriteController[GlobalConst.DustCnt];
+        private AI[] dustAIs = new AI[GlobalConst.DustCnt];
+        private Room[] dustRooms = new Room[GlobalConst.DustCnt];
+
+        [Header("Else")]
         [SerializeField]
         private Transform coins;
         [SerializeField]
         private Transform vacuums;
-        private float vacuumDuration = 10f;
-        private float vacuumEndDuration = 3f;
-
+        [SerializeField]
+        private GameObject Door;
+        [SerializeField]
+        private int inRoom = 2;
+        private readonly float vacuumDuration = 10f;
+        private readonly float vacuumEndDuration = 3f;
+        
         public int rapleyScore { get; private set; }
         public int pacmomScore { get; private set; }
         public int pacmomLives { get; private set; }
+        #endregion
 
+        #region Set
         private void Awake()
         {
             rapleySprite = rapley.gameObject.GetComponent<SpriteController>();
+
             pacmomSprite = pacmom.gameObject.GetComponent<PacmomSpriteController>();
+            pacmomAI = pacmom.gameObject.GetComponent<AI>();
+
+            for (int i = 0; i < dusts.Length; i++)
+            {
+                dustSprites[i] = dusts[i].gameObject.GetComponentInChildren<DustSpriteController>();
+                dustAIs[i] = dusts[i].gameObject.GetComponent<AI>();
+                dustRooms[i] = dusts[i].gameObject.GetComponent<Room>();
+            }
         }
 
-        #region Set
         private void SetRapleyScore(int score)
         {
             rapleyScore = score;
@@ -101,6 +124,8 @@ namespace Runtime.CH1.Pacmom
             {
                 dusts[i].ResetState();
                 dustSprites[i].GetNormalSprite();
+                dustRooms[i].ExitRoom(GlobalConst.DustCnt - inRoom);
+                inRoom--;
             }
         }
 
@@ -159,7 +184,7 @@ namespace Runtime.CH1.Pacmom
         {
             pacmom.VacuumMode(true);
             pacmom.movement.speedMultiplier = 1.2f;
-            pacmom.gameObject.GetComponent<AI>().isStronger = true;
+            pacmomAI.isStronger = true;
 
             rapleySprite.GetVacuumModeSprite();
             rapley.movement.speedMultiplier = 0.7f;
@@ -168,15 +193,16 @@ namespace Runtime.CH1.Pacmom
             {
                 dustSprites[i].GetVacuumModeSprite();
                 dusts[i].movement.speedMultiplier = 0.7f;
-                dusts[i].gameObject.GetComponent<AI>().isStronger = false;
+                dustAIs[i].isStronger = false;
             }
+            Door.SetActive(true);
         }
 
         private void VacuumModeOff()
         {
             pacmom.VacuumMode(false);
             pacmom.movement.speedMultiplier = 1f;
-            pacmom.gameObject.GetComponent<AI>().isStronger = false;
+            pacmomAI.isStronger = false;
 
             rapleySprite.GetNormalSprite();
             rapley.movement.speedMultiplier = 1f;
@@ -185,7 +211,17 @@ namespace Runtime.CH1.Pacmom
             {
                 dustSprites[i].GetNormalSprite();
                 dusts[i].movement.speedMultiplier = 1f;
-                dusts[i].gameObject.GetComponent<AI>().isStronger = true;
+                dustAIs[i].isStronger = true;
+            }
+
+            Door.SetActive(false);
+            for (int i = 0; i < dustSprites.Length; i++)
+            {
+                if (dustRooms[i].isInRoom)
+                {
+                    dustRooms[i].ExitRoom(GlobalConst.DustCnt - inRoom);
+                    inRoom--;
+                }
             }
         }
         #endregion
@@ -196,7 +232,8 @@ namespace Runtime.CH1.Pacmom
             Debug.Log("라플리 먹힘");
 
             TakeHalfCoins(false);
-            rapley.transform.position = new Vector3(0, 0, rapley.transform.position.z);
+            rapley.movement.ResetState();
+            inRoom++;
         }
 
         public void PacmomDustCollision(Dust dust)
@@ -214,7 +251,9 @@ namespace Runtime.CH1.Pacmom
         public void DustEaten(Dust dust)
         {
             Debug.Log("먼지유령 먹힘");
-            dust.transform.position = new Vector3(0, 0, rapley.transform.position.z);
+            dust.movement.ResetState();
+            dust.gameObject.GetComponent<Room>().isInRoom = true;
+            inRoom++;
         }
 
         public void PacmomEaten(string byWhom)

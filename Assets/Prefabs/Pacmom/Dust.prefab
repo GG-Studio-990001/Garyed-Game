@@ -98,6 +98,7 @@ GameObject:
   - component: {fileID: 8159136489922289943}
   - component: {fileID: 8324175502395817452}
   - component: {fileID: 5395930438513632476}
+  - component: {fileID: 5522138042445295253}
   m_Layer: 7
   m_Name: Dust
   m_TagString: Untagged
@@ -234,6 +235,22 @@ MonoBehaviour:
   movement: {fileID: 8324175502395817452}
   enemys: []
   isStronger: 1
+--- !u!114 &5522138042445295253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5555307432301182834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9db8ac1e0478be1409f0ffdc00e53044, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movement: {fileID: 8324175502395817452}
+  inside: {fileID: 0}
+  outside: {fileID: 0}
+  isInRoom: 0
 --- !u!1 &8942196247262051131
 GameObject:
   m_ObjectHideFlags: 0
