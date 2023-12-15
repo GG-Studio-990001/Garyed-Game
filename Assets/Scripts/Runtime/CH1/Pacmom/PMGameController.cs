@@ -8,6 +8,7 @@ namespace Runtime.CH1.Pacmom
     {
         #region 선언
         private PMSpriteController spriteController;
+        private PMUIController uiController;
 
         [Header("Rapley")]
         [SerializeField]
@@ -45,6 +46,7 @@ namespace Runtime.CH1.Pacmom
         private void Awake()
         {
             spriteController = GetComponent<PMSpriteController>();
+            uiController = GetComponent<PMUIController>();
 
             pacmomAI = pacmom.GetComponent<AI>();
 
@@ -58,11 +60,13 @@ namespace Runtime.CH1.Pacmom
         private void SetRapleyScore(int score)
         {
             rapleyScore = score;
+            uiController.ShowRapleyScore(score);
         }
 
         private void SetPacmomScore(int score)
         {
             pacmomScore = score;
+            uiController.ShowPacmomScore(score);
         }
 
         private void SetPacmomLives(int lives)
@@ -258,6 +262,7 @@ namespace Runtime.CH1.Pacmom
             }
 
             SetPacmomLives(pacmomLives - 1);
+            uiController.LosePacmomLife(pacmomLives);
 
             if (pacmomLives > 0)
             {
