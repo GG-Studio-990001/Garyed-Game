@@ -8,9 +8,11 @@ namespace Runtime.CH1.Pacmom
         [SerializeField]
         private GameObject[] pacmomLives = new GameObject[3];
         [SerializeField]
-        private TextMeshProUGUI pacmomScore;
+        private TextMeshProUGUI pacmomScoreTxt;
         [SerializeField]
-        private TextMeshProUGUI rapleyScore;
+        private TextMeshProUGUI rapleyScoreTxt;
+        [SerializeField]
+        private TextMeshProUGUI GameOverTxt;
 
         public void LosePacmomLife(int nowLives)
         {
@@ -19,12 +21,18 @@ namespace Runtime.CH1.Pacmom
 
         public void ShowPacmomScore(int score)
         {
-            pacmomScore.text = score.ToString();
+            pacmomScoreTxt.text = score.ToString();
         }
 
         public void ShowRapleyScore(int score)
         {
-            rapleyScore.text = "x" + score.ToString();
+            rapleyScoreTxt.text = "x" + score.ToString();
+        }
+
+        public void ShowGameOverUI(string winner)
+        {
+            GameOverTxt.gameObject.SetActive(true);
+            GameOverTxt.text += winner;
         }
     }
 }

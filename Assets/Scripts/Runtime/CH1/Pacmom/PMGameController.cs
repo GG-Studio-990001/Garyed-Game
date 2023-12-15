@@ -36,6 +36,7 @@ namespace Runtime.CH1.Pacmom
         private int inRoom = 2;
         private readonly float vacuumDuration = 10f;
         private readonly float vacuumEndDuration = 3f;
+        private bool isGameOver = false; // 아웃트로 구현 전 연출을 위한 임시 변수
         
         public int rapleyScore { get; private set; }
         public int pacmomScore { get; private set; }
@@ -71,6 +72,9 @@ namespace Runtime.CH1.Pacmom
 
         private void SetPacmomLives(int lives)
         {
+            if (lives <= 0)
+                return;
+
             pacmomLives = lives;
         }
         #endregion
@@ -131,7 +135,7 @@ namespace Runtime.CH1.Pacmom
 
         private void GameOver()
         {
-            Debug.Log("Game Over");
+            isGameOver = true;
 
             rapley.movement.Stop();
             pacmom.movement.Stop();
@@ -148,15 +152,25 @@ namespace Runtime.CH1.Pacmom
 
             if (HasRemainingCoins())
             {
-                Debug.Log("라플리 점수: " + rapleyScore);
-                Debug.Log("팩맘 점수: " + pacmomScore);
-
                 StartCoroutine(GetRemaningCoins());
             }
             else
             {
-                Debug.Log("최종 라플리 점수: " + rapleyScore);
-                Debug.Log("최종 팩맘 점수: " + pacmomScore);
+                ChooseAWinner();
+            }
+        }
+
+        private void ChooseAWinner()
+        {
+            if (rapleyScore > pacmomScore)
+            {
+                Debug.Log("라플리 승리");
+                uiController.ShowGameOverUI("Rapley");
+            }
+            else
+            {
+                Debug.Log("팩맘 승리");
+                uiController.ShowGameOverUI("Pacmom");
             }
         }
         #endregion
@@ -174,10 +188,14 @@ namespace Runtime.CH1.Pacmom
 
             yield return new WaitForSeconds(vacuumDuration - vacuumEndDuration);
 
+            if (isGameOver)
+                yield break;
             spriteController.SetPacmomBlinkSprirte();
 
             yield return new WaitForSeconds(vacuumEndDuration);
 
+            if (isGameOver)
+                yield break;
             VacuumModeOff();
         }
 
@@ -323,8 +341,6 @@ namespace Runtime.CH1.Pacmom
 
         private IEnumerator GetRemaningCoins()
         {
-            Debug.Log("최종 점수 계산 중");
-
             foreach (Transform coin in coins)
             {
                 if (coin.gameObject.activeSelf)
@@ -334,9 +350,7 @@ namespace Runtime.CH1.Pacmom
                     yield return new WaitForSeconds(0.03f);
                 }
             }
-
-            Debug.Log("최종 라플리 점수: " + rapleyScore);
-            Debug.Log("최종 팩맘 점수: " + pacmomScore);
+            ChooseAWinner();
         }
 
         private bool HasRemainingCoins()
