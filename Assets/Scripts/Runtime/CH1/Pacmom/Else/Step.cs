@@ -6,7 +6,7 @@ namespace Runtime.CH1.Pacmom
 {
     public class Step : MonoBehaviour
     {
-        public LayerMask obstacleLayer { get; private set; }
+        private LayerMask obstacleLayer;
         public List<Vector2> availableDirections { get; private set; }
 
         private void Start()

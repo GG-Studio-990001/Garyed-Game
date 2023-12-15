@@ -10,28 +10,39 @@ namespace Runtime.CH1.Pacmom
         public Vector2 direction { get; private set; }
         public Vector2 nextDirection { get; private set; }
         public Vector3 startPosition { get; private set; }
+        public bool canStop { get; private set; }
 
         [SerializeField]
         private float speed = 8f;
-        public float speedMultiplier = 1f; // 팩맘의 청소기 습득 시 속도 변화
-        public Vector2 initialDirection;
+        [SerializeField]
+        private float speedMultiplier = 1f;
+        [SerializeField]
+        private Vector2 initialDirection;
 
-        public LayerMask obstacleLayer { get; private set; }
+        private LayerMask obstacleLayer;
+
+        private void Update()
+        {
+            if (nextDirection != Vector2.zero || canStop)
+            {
+                SetDirection(nextDirection);
+            }
+        }
 
         protected void Set()
         {
             // Awake에서 상속 필수
             rigid = GetComponent<Rigidbody2D>();
             startPosition = transform.position;
+            canStop = false;
             obstacleLayer = LayerMask.GetMask(GlobalConst.ObstacleStr);
         }
 
-        private void Update()
+        public virtual void ResetState()
         {
-            if (nextDirection != Vector2.zero)
-            {
-                SetDirection(nextDirection);
-            }
+            transform.position = startPosition;
+            direction = initialDirection;
+            nextDirection = Vector2.zero;
         }
 
         public void Move()
@@ -43,20 +54,23 @@ namespace Runtime.CH1.Pacmom
             rigid.MovePosition(position + translation);
         }
 
-        public virtual void ResetState()
+        public void SetSpeedMultiplier(float multiplier)
         {
-            direction = initialDirection;
-
-            nextDirection = Vector2.zero;
-            transform.position = startPosition;
+            speedMultiplier = multiplier;
         }
 
         public void Stop()
         {
-            speed = 0f;
-            enabled = false;
+            SetNextDirection(Vector2.zero);
+            canStop = true;
         }
 
+        public void Resume()
+        {
+            canStop = false;
+        }
+
+        #region Direction
         public void SetNextDirection(Vector2 direction)
         {
             nextDirection = direction;
@@ -79,5 +93,6 @@ namespace Runtime.CH1.Pacmom
 
             return hit.collider != null;
         }
+        #endregion
     }
 }

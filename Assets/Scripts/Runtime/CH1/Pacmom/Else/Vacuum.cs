@@ -5,17 +5,18 @@ namespace Runtime.CH1.Pacmom
 {
     public class Vacuum : MonoBehaviour
     {
-        public PacmomGameController gameController;
+        public PMGameController gameController;
 
         private void Eaten()
         {
-            gameController.UseVacuum(this);
+            gameController?.UseVacuum();
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
             if (collision.gameObject.layer == LayerMask.NameToLayer(GlobalConst.PacmomStr))
             {
+                gameObject.SetActive(false);
                 Eaten();
             }
 

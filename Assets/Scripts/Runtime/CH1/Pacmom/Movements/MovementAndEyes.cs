@@ -18,7 +18,7 @@ namespace Runtime.CH1.Pacmom
         {
             base.SetDirection(direction);
 
-            if (!CheckRoadBlocked(direction) && eyeSprite != null)
+            if (!CheckRoadBlocked(direction))
             {
                 GetEyeSprites(direction);
             }
@@ -26,6 +26,9 @@ namespace Runtime.CH1.Pacmom
 
         public void GetEyeSprites(Vector2 direction)
         {
+            if (eyeSprite == null)
+                return;
+
             if (direction == Vector2.up)
             {
                 eyeSprite.sprite = EyeSprites[0];

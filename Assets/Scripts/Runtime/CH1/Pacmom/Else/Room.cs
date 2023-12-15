@@ -16,28 +16,25 @@ namespace Runtime.CH1.Pacmom
 
         public void ExitRoom(float afterTime)
         {
-            Invoke("DoExitTransition", afterTime);
+            StartCoroutine("ExitTransition", afterTime);
         }
 
-        private void DoExitTransition()
+        private IEnumerator ExitTransition(float afterTime)
         {
-            StopAllCoroutines();
-            StartCoroutine(ExitTransition());
-        }
+            Vector3 position = transform.position;
 
-        private IEnumerator ExitTransition()
-        {
+            movement.GetEyeSprites(new Vector2(position.x < 0 ? 1 : -1, 0));
             movement.rigid.isKinematic = true;
             movement.enabled = false;
 
-            Vector3 position = this.transform.position;
+            yield return new WaitForSeconds(afterTime);
 
             float duration = 0.5f;
             float elapsed = 0.0f;
 
             while (elapsed < duration)
             {
-                Vector3 newPosition = Vector3.Lerp(position, this.inside.position, elapsed / duration);
+                Vector3 newPosition = Vector3.Lerp(position, inside.position, elapsed / duration);
                 newPosition.z = position.z;
                 movement.rigid.position = newPosition;
                 elapsed += Time.deltaTime;
@@ -49,7 +46,7 @@ namespace Runtime.CH1.Pacmom
 
             while (elapsed < duration)
             {
-                Vector3 newPosition = Vector3.Lerp(this.inside.position, this.outside.position, elapsed / duration);
+                Vector3 newPosition = Vector3.Lerp(inside.position, outside.position, elapsed / duration);
                 newPosition.z = position.z;
                 movement.rigid.position = newPosition;
                 elapsed += Time.deltaTime;
@@ -60,6 +57,7 @@ namespace Runtime.CH1.Pacmom
             movement.rigid.isKinematic = false;
             movement.enabled = true;
 
+            movement.Resume();
             isInRoom = false;
         }
     }

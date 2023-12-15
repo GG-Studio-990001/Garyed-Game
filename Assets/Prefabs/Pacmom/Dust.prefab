@@ -201,6 +201,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameController: {fileID: 0}
   movement: {fileID: 8324175502395817452}
+  ai: {fileID: 5395930438513632476}
 --- !u!114 &8324175502395817452
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -208,7 +209,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5555307432301182834}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5e52d0147f893494c8c45433a156e479, type: 3}
   m_Name: 
@@ -234,7 +235,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movement: {fileID: 8324175502395817452}
   enemys: []
-  isStronger: 1
 --- !u!114 &5522138042445295253
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -250,7 +250,7 @@ MonoBehaviour:
   movement: {fileID: 8324175502395817452}
   inside: {fileID: 0}
   outside: {fileID: 0}
-  isInRoom: 0
+  isInRoom: 1
 --- !u!1 &8942196247262051131
 GameObject:
   m_ObjectHideFlags: 0

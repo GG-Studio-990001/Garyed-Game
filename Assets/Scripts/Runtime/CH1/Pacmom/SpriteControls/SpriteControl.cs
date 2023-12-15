@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Runtime.CH1.Pacmom
 {
-    public class SpriteController : MonoBehaviour
+    public class SpriteControl : MonoBehaviour
     {
         [SerializeField]
         protected SpriteAnimation spriteAnim;

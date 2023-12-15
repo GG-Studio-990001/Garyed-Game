@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Runtime.CH1.Pacmom
 {
-    public class PacmomSpriteController : SpriteController
+    public class PacmomSpriteControl : SpriteControl
     {
         [SerializeField]
         private Sprite[] dieSprites;

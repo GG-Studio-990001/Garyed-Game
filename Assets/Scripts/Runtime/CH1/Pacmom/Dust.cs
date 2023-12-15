@@ -5,8 +5,9 @@ namespace Runtime.CH1.Pacmom
 {
     public class Dust : MonoBehaviour
     {
-        public PacmomGameController gameController;
+        public PMGameController gameController;
         public MovementAndEyes movement;
+        public AI ai;
 
         private void Start()
         {
@@ -15,6 +16,7 @@ namespace Runtime.CH1.Pacmom
 
         public void ResetState()
         {
+            movement.GetEyeSprites(new Vector2(transform.position.x < 0 ? 1 : -1, 0));
             movement.ResetState();
         }
 
@@ -27,7 +29,10 @@ namespace Runtime.CH1.Pacmom
         {
             if (collision.gameObject.layer == LayerMask.NameToLayer(GlobalConst.PacmomStr))
             {
-                gameController?.PacmomDustCollision(this);
+                if (ai.isStronger)
+                    gameController?.PacmomEaten(GlobalConst.DustStr);
+                else
+                    gameController?.DustEaten(this);
             }
         }
     }

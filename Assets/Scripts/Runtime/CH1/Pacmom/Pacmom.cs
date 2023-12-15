@@ -6,10 +6,9 @@ namespace Runtime.CH1.Pacmom
 {
     public class Pacmom : MonoBehaviour
     {
-        public PacmomGameController gameController;
+        public PMGameController gameController;
         public MovementAndRotation movement;
-        public PacmomSpriteController spriteControl;
-        public bool isVacuumMode = false;
+        public AI ai;
 
         private void Start()
         {
@@ -30,35 +29,15 @@ namespace Runtime.CH1.Pacmom
             movement.Move();
         }
 
-        public void VacuumMode(bool mode)
+        public void VacuumMode(bool isVacuum)
         {
             SetRotateToZero();
 
-            isVacuumMode = mode;
-            movement.spriteRotation.canRotate = !isVacuumMode;
-
-            if (isVacuumMode)
-            {
-                spriteControl.GetVacuumModeSprite();
-            }
-            else
-            {
-                spriteControl.GetNormalSprite();
-            }
+            ai.SetStronger(isVacuum);
+            movement.spriteRotation.canRotate = !isVacuum;
         }
 
-        public void VacuumModeAlmostOver()
-        {
-            spriteControl.GetVaccumBlinkSprite();
-        }
-
-        public void PacmomDead()
-        {
-            SetRotateToZero();
-            spriteControl.GetDieSprite();
-        }
-
-        private void SetRotateToZero()
+        public void SetRotateToZero()
         {
             transform.rotation = Quaternion.Euler(Vector3.zero);
         }
@@ -67,14 +46,10 @@ namespace Runtime.CH1.Pacmom
         {
             if (collision.gameObject.layer == LayerMask.NameToLayer(GlobalConst.PlayerStr))
             {
-                if (isVacuumMode)
-                {
-                    gameController.RapleyEaten();
-                }
+                if (ai.isStronger)
+                    gameController?.RapleyEaten();
                 else
-                {
-                    gameController.PacmomEaten(GlobalConst.PlayerStr);
-                }
+                    gameController?.PacmomEaten(GlobalConst.PlayerStr);
             }
         }
     }

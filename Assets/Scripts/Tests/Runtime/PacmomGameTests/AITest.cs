@@ -24,7 +24,7 @@ namespace Tests.Runtime.PacmomGameTest
 
         private GameObject stepObj;
         private Step step;
-        private string stepStr = "Step";
+        private readonly string stepStr = "Step";
 
         [UnitySetUp]
         public IEnumerator SetUp()
@@ -75,7 +75,7 @@ namespace Tests.Runtime.PacmomGameTest
             pacmomMovement.rigid.position = Vector3.zero;
             pacmomObj.layer = LayerMask.NameToLayer(GlobalConst.PacmomStr);
 
-            pacmomAI.isStronger = true;
+            pacmomAI.SetStronger(true);
             pacmomAI.enemys = new Transform[1];
             pacmomAI.enemys[0] = dustObj.transform;
 
@@ -98,7 +98,7 @@ namespace Tests.Runtime.PacmomGameTest
             pacmomMovement.rigid.position = Vector3.zero;
             pacmomObj.layer = LayerMask.NameToLayer(GlobalConst.PacmomStr);
 
-            pacmomAI.isStronger = false;
+            pacmomAI.SetStronger(false);
             pacmomAI.enemys = new Transform[1];
             pacmomAI.enemys[0] = dustObj.transform;
 

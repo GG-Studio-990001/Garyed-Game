@@ -6,7 +6,12 @@ namespace Runtime.CH1.Pacmom
     {
         public Movement movement;
         public Transform[] enemys;
-        public bool isStronger = true;
+        public bool isStronger { get; private set; }
+
+        public void SetStronger(bool isStronger)
+        {
+            this.isStronger = isStronger;
+        }
 
         private void OnTriggerEnter2D(Collider2D other)
         {
@@ -34,32 +39,30 @@ namespace Runtime.CH1.Pacmom
             // 가장 가까운 적이 특정 거리 이내이면 도망가거나 쫓음
             if (closeEnemy != null && distance <= 36f)
             {
-                if (!isStronger)
-                {
-                    direction = RunAwayFromEnemy(closeEnemy, step);
-                }
-                else
-                {
+                if (isStronger)
                     direction = ChaseEnemy(closeEnemy, step);
-                }
+                else
+                    direction = RunAwayFromEnemy(closeEnemy, step);
             }
-
-            // 특정 거리 이내에 적이 없다면 랜덤 이동
-            if (direction == Vector2.zero)
-            {
-                int index = Random.Range(0, step.availableDirections.Count);
-
-                if (step.availableDirections[index] == -1 * movement.direction && step.availableDirections.Count > 1)
-                {
-                    index++;
-
-                    if (index >= step.availableDirections.Count)
-                        index = 0;
-                }
-                direction = step.availableDirections[index];
-            }
+            else
+                direction = GetRandomDirection(step);
 
             movement.SetNextDirection(direction);
+        }
+
+        private Vector2 GetRandomDirection(Step step)
+        {
+            int index = Random.Range(0, step.availableDirections.Count);
+
+            if (step.availableDirections[index] == -1 * movement.direction && step.availableDirections.Count > 1)
+            {
+                index++;
+
+                if (index >= step.availableDirections.Count)
+                    index = 0;
+            }
+
+            return step.availableDirections[index];
         }
 
         private Vector2 RunAwayFromEnemy(Transform enemy, Step step)
