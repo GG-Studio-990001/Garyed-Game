@@ -9,6 +9,8 @@ namespace Runtime.CH1.Pacmom
         #region 선언
         private PMSpriteController spriteController;
         private PMUIController uiController;
+        [SerializeField]
+        private Timer timer;
 
         [Header("Rapley")]
         [SerializeField]
@@ -72,7 +74,7 @@ namespace Runtime.CH1.Pacmom
 
         private void SetPacmomLives(int lives)
         {
-            if (lives <= 0)
+            if (lives < 0)
                 return;
 
             pacmomLives = lives;
@@ -87,6 +89,8 @@ namespace Runtime.CH1.Pacmom
 
         private void StartGame()
         {
+            timer.StartTimer();
+
             SetRapleyScore(0);
             SetPacmomScore(0);
             SetPacmomLives(3);
@@ -133,8 +137,9 @@ namespace Runtime.CH1.Pacmom
             DustExitRoom();
         }
 
-        private void GameOver()
+        public void GameOver()
         {
+            timer.StopTimer();
             isGameOver = true;
 
             rapley.movement.Stop();
