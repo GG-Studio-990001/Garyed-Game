@@ -11,6 +11,7 @@ namespace Runtime.CH1.Pacmom
 
         private void Start()
         {
+            ai?.SetStronger(true);
             ResetState();
         }
 
