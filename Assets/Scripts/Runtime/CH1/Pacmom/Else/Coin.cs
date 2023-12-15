@@ -9,27 +9,26 @@ namespace Runtime.CH1.Pacmom
 
         private void EatenByRapley()
         {
+            gameObject.SetActive(false);
             gameController?.CoinEaten(GlobalConst.PlayerStr);
         }
 
         private void EatenByPacmom()
         {
+            gameObject.SetActive(false);
             gameController?.CoinEaten(GlobalConst.PacmomStr);
         }
 
-        private void OnTriggerEnter2D(Collider2D collision)
+        private void OnTriggerEnter2D(Collider2D other)
         {
-            if (collision.gameObject.layer == LayerMask.NameToLayer(GlobalConst.PlayerStr))
+            if (other.gameObject.layer == LayerMask.NameToLayer(GlobalConst.PlayerStr))
             {
-                gameObject.SetActive(false);
                 EatenByRapley();
             }
-            else if (collision.gameObject.layer == LayerMask.NameToLayer(GlobalConst.PacmomStr))
+            else if (other.gameObject.layer == LayerMask.NameToLayer(GlobalConst.PacmomStr))
             {
-                gameObject.SetActive(false);
                 EatenByPacmom();
             }
-
         }
     }
 }

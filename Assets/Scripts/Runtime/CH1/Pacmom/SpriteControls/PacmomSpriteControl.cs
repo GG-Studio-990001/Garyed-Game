@@ -22,7 +22,7 @@ namespace Runtime.CH1.Pacmom
             {
                 spriteAnim.sprites[i] = dieSprites[i];
             }
-            spriteAnim.isLoop = false;
+            spriteAnim.SetLoop(false);
             spriteAnim.RestartAnim();
         }
     }

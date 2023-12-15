@@ -34,12 +34,12 @@ namespace Runtime.CH1.Pacmom
             }
         }
 
-        public void SetPacmomDieSprirte()
+        public void SetPacmomDieSprite()
         {
             pacmomSprite.GetDieSprite();
         }
 
-        public void SetPacmomBlinkSprirte()
+        public void SetPacmomBlinkSprite()
         {
             pacmomSprite.GetVaccumBlinkSprite();
         }

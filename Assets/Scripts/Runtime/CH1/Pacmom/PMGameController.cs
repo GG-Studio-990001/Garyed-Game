@@ -12,37 +12,37 @@ namespace Runtime.CH1.Pacmom
         [SerializeField]
         private Timer timer;
 
-        [Header("Rapley")]
+        [Header("=Character=")]
         [SerializeField]
         private Rapley rapley;
 
-        [Header("Pacmom")]
         [SerializeField]
         private Pacmom pacmom;
         private AI pacmomAI;
 
-        [Header("Dusts")]
         [SerializeField]
         private Dust[] dusts = new Dust[GlobalConst.DustCnt];
         private AI[] dustAIs = new AI[GlobalConst.DustCnt];
         private Room[] dustRooms = new Room[GlobalConst.DustCnt];
 
-        [Header("Else")]
+        [Header("=Else=")]
         [SerializeField]
         private Transform coins;
         [SerializeField]
         private Transform vacuums;
         [SerializeField]
         private GameObject Door;
+
+        [Header("=Variable=")]
         [SerializeField]
         private int inRoom = 2;
+        [SerializeField]
+        private bool isGameOver = false; // 아웃트로 구현 전 연출을 위한 임시 변수
+        private int rapleyScore;
+        private int pacmomScore;
+        private int pacmomLives;
         private readonly float vacuumDuration = 10f;
         private readonly float vacuumEndDuration = 3f;
-        private bool isGameOver = false; // 아웃트로 구현 전 연출을 위한 임시 변수
-        
-        public int rapleyScore { get; private set; }
-        public int pacmomScore { get; private set; }
-        public int pacmomLives { get; private set; }
         #endregion
 
         #region Set
@@ -89,7 +89,7 @@ namespace Runtime.CH1.Pacmom
 
         private void StartGame()
         {
-            timer.StartTimer();
+            timer.SetTimer(true);
 
             SetRapleyScore(0);
             SetPacmomScore(0);
@@ -130,7 +130,7 @@ namespace Runtime.CH1.Pacmom
             for (int i = 0; i < dusts.Length; i++)
             {
                 dusts[i].ResetState();
-                dustRooms[i].isInRoom = true;
+                dustRooms[i].SetInRoom(true);
             }
             inRoom = 2;
 
@@ -139,20 +139,14 @@ namespace Runtime.CH1.Pacmom
 
         public void GameOver()
         {
-            timer.StopTimer();
+            timer.SetTimer(false);
             isGameOver = true;
 
-            rapley.movement.Stop();
-            pacmom.movement.Stop();
+            rapley.movement.SetCanMove(false);
+            pacmom.movement.SetCanMove(false);
             for (int i = 0; i < dusts.Length; i++)
             {
-                dusts[i].movement.Stop();
-            }
-
-            if (pacmomLives == 0)
-            {
-                pacmom.SetRotateToZero();
-                spriteController.SetPacmomDieSprirte();
+                dusts[i].movement.SetCanMove(false);
             }
 
             if (HasRemainingCoins())
@@ -195,7 +189,7 @@ namespace Runtime.CH1.Pacmom
 
             if (isGameOver)
                 yield break;
-            spriteController.SetPacmomBlinkSprirte();
+            spriteController.SetPacmomBlinkSprite();
 
             yield return new WaitForSeconds(vacuumEndDuration);
 
@@ -267,9 +261,9 @@ namespace Runtime.CH1.Pacmom
         public void DustEaten(Dust dust)
         {
             Debug.Log("먼지유령 먹힘");
-            dust.movement.Stop();
+            dust.movement.SetCanMove(false);
             dust.ResetState();
-            dust.GetComponent<Room>().isInRoom = true;
+            dust.GetComponent<Room>().SetInRoom(true);
             inRoom++;
         }
 
@@ -293,6 +287,9 @@ namespace Runtime.CH1.Pacmom
             }
             else
             {
+                pacmom.SetRotateToZero();
+                spriteController.SetPacmomDieSprite();
+
                 GameOver();
             }
         }
@@ -336,7 +333,10 @@ namespace Runtime.CH1.Pacmom
 
             foreach (Transform coin in coins)
             {
-                if (score != 0 && !coin.gameObject.activeSelf)
+                if (score <= 0)
+                    break;
+
+                if (!coin.gameObject.activeSelf)
                 {
                     coin.gameObject.SetActive(true);
                     score--;

@@ -10,7 +10,7 @@ namespace Runtime.CH1.Pacmom
         public Vector2 direction { get; private set; }
         public Vector2 nextDirection { get; private set; }
         public Vector3 startPosition { get; private set; }
-        public bool canStop { get; private set; }
+        public bool canMove { get; private set; }
 
         [SerializeField]
         private float speed = 8f;
@@ -23,7 +23,7 @@ namespace Runtime.CH1.Pacmom
 
         private void Update()
         {
-            if (nextDirection != Vector2.zero || canStop)
+            if (nextDirection != Vector2.zero || !canMove)
             {
                 SetDirection(nextDirection);
             }
@@ -34,7 +34,7 @@ namespace Runtime.CH1.Pacmom
             // Awake에서 상속 필수
             rigid = GetComponent<Rigidbody2D>();
             startPosition = transform.position;
-            canStop = false;
+            canMove = true;
             obstacleLayer = LayerMask.GetMask(GlobalConst.ObstacleStr);
         }
 
@@ -54,20 +54,17 @@ namespace Runtime.CH1.Pacmom
             rigid.MovePosition(position + translation);
         }
 
-        public void SetSpeedMultiplier(float multiplier)
+        public void SetSpeedMultiplier(float speedMultiplier)
         {
-            speedMultiplier = multiplier;
+            this.speedMultiplier = speedMultiplier;
         }
 
-        public void Stop()
+        public void SetCanMove(bool canMove)
         {
-            SetNextDirection(Vector2.zero);
-            canStop = true;
-        }
+            this.canMove = canMove;
 
-        public void Resume()
-        {
-            canStop = false;
+            if (!this.canMove)
+                SetNextDirection(Vector2.zero);
         }
 
         #region Direction

@@ -17,7 +17,7 @@ namespace Runtime.CH1.Pacmom
 
         public void ResetState()
         {
-            movement.GetEyeSprites(new Vector2(transform.position.x < 0 ? 1 : -1, 0));
+            movement.GetEyeSpriteByPosition();
             movement.ResetState();
         }
 

@@ -9,17 +9,16 @@ namespace Runtime.CH1.Pacmom
 
         private void Eaten()
         {
+            gameObject.SetActive(false);
             gameController?.UseVacuum();
         }
 
-        private void OnTriggerEnter2D(Collider2D collision)
+        private void OnTriggerEnter2D(Collider2D other)
         {
-            if (collision.gameObject.layer == LayerMask.NameToLayer(GlobalConst.PacmomStr))
+            if (other.gameObject.layer == LayerMask.NameToLayer(GlobalConst.PacmomStr))
             {
-                gameObject.SetActive(false);
                 Eaten();
             }
-
         }
     }
 }

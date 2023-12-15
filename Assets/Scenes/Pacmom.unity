@@ -45633,8 +45633,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1090495806}
   - component: {fileID: 1090495808}
-  - component: {fileID: 1090495807}
   - component: {fileID: 1090495809}
+  - component: {fileID: 1090495807}
   m_Layer: 5
   m_Name: TimerTxt
   m_TagString: Untagged
@@ -53589,6 +53589,7 @@ MonoBehaviour:
   vacuums: {fileID: 1145695306}
   Door: {fileID: 1707595100}
   inRoom: 2
+  isGameOver: 0
 --- !u!114 &1761052962
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -12,8 +12,8 @@ namespace Runtime.CH1.Pacmom
 
         private void Start()
         {
-            movement.spriteRotation.canRotate = true;
-            movement.spriteRotation.canFlip = true;
+            movement.spriteRotation.SetCanRotate(true);
+            movement.spriteRotation.SetCanFlip(true);
             ai?.SetStronger(false);
 
             ResetState();
@@ -35,7 +35,7 @@ namespace Runtime.CH1.Pacmom
             SetRotateToZero();
 
             ai.SetStronger(isVacuum);
-            movement.spriteRotation.canRotate = !isVacuum;
+            movement.spriteRotation.SetCanRotate(!isVacuum);
         }
 
         public void SetRotateToZero()

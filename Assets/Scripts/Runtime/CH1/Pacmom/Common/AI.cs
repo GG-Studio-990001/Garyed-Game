@@ -45,12 +45,12 @@ namespace Runtime.CH1.Pacmom
                     direction = RunAwayFromEnemy(closeEnemy, step);
             }
             else
-                direction = GetRandomDirection(step);
+                direction = MoveRandomly(step);
 
             movement.SetNextDirection(direction);
         }
 
-        private Vector2 GetRandomDirection(Step step)
+        private Vector2 MoveRandomly(Step step)
         {
             int index = Random.Range(0, step.availableDirections.Count);
 
@@ -72,7 +72,7 @@ namespace Runtime.CH1.Pacmom
 
             foreach (Vector2 availableDirection in step.availableDirections)
             {
-                Vector3 newPosition = this.transform.position + new Vector3(availableDirection.x, availableDirection.y, 0.0f);
+                Vector3 newPosition = transform.position + new Vector3(availableDirection.x, availableDirection.y, 0f);
                 float newDistance = (enemy.position - newPosition).sqrMagnitude;
 
                 if (newDistance > maxDistance)
@@ -92,7 +92,7 @@ namespace Runtime.CH1.Pacmom
 
             foreach (Vector2 availableDirection in step.availableDirections)
             {
-                Vector3 newPosition = this.transform.position + new Vector3(availableDirection.x, availableDirection.y, 0.0f);
+                Vector3 newPosition = transform.position + new Vector3(availableDirection.x, availableDirection.y, 0f);
                 float newDistance = (enemy.position - newPosition).sqrMagnitude;
 
                 if (newDistance < minDistance)

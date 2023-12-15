@@ -9,8 +9,8 @@ namespace Runtime.CH1.Pacmom
 
         private void Start()
         {
-            movement.spriteRotation.canRotate = false;
-            movement.spriteRotation.canFlip = true;
+            movement.spriteRotation.SetCanRotate(false);
+            movement.spriteRotation.SetCanFlip(true);
 
             ResetState();
         }

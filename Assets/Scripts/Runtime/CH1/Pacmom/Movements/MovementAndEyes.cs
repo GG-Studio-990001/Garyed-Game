@@ -24,6 +24,11 @@ namespace Runtime.CH1.Pacmom
             }
         }
 
+        public void GetEyeSpriteByPosition()
+        {
+            GetEyeSprites(new Vector2(rigid.position.x < 0 ? 1 : -1, 0));
+        }
+
         public void GetEyeSprites(Vector2 direction)
         {
             if (eyeSprite == null)

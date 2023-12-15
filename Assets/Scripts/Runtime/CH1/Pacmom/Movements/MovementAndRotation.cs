@@ -27,7 +27,7 @@ namespace Runtime.CH1.Pacmom
 
             if (!CheckRoadBlocked(direction))
             {
-                float zValue = spriteRotation.RotationZValue(direction);
+                int zValue = spriteRotation.RotationZValue(direction);
                 transform.rotation = Quaternion.Euler(0, 0, zValue);
 
                 spriteRotation.FlipSprite(direction);

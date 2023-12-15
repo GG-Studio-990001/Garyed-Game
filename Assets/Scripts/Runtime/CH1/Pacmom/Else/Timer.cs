@@ -15,6 +15,11 @@ namespace Runtime.CH1.Pacmom
         private int sec;
         public bool isTimerRunning { get; private set; }
 
+        public void SetTimer(bool isTimerRunning)
+        {
+            this.isTimerRunning = isTimerRunning;
+        }
+
         void Update()
         {
             if (!isTimerRunning)
@@ -31,7 +36,11 @@ namespace Runtime.CH1.Pacmom
             sec = ((int)timelimit - min * 60) % 60;
 
             if (timelimit < 1f)
+            {
                 gameController?.GameOver();
+                if (gameController == null)
+                    SetTimer(false);
+            }
         }
 
         private void ShowTimer()
@@ -39,16 +48,6 @@ namespace Runtime.CH1.Pacmom
             string minStr = (min < 10 ? "0" : "") + min.ToString();
             string secStr = (sec < 10 ? "0" : "") + sec.ToString();
             timerTxt.text = minStr + ":" + secStr;
-        }
-
-        public void StartTimer()
-        {
-            isTimerRunning = true;
-        }
-
-        public void StopTimer()
-        {
-            isTimerRunning = false;
         }
     }
 }
