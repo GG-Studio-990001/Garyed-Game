@@ -5,16 +5,16 @@ namespace Runtime.CH1.Pacmom
 {
     public class Coin : MonoBehaviour
     {
-        public PacmomGameController gameController;
+        public PMGameController gameController;
 
         private void EatenByRapley()
         {
-            gameController?.CoinEaten(this, GlobalConst.PlayerStr);
+            gameController?.CoinEaten(GlobalConst.PlayerStr);
         }
 
         private void EatenByPacmom()
         {
-            gameController?.CoinEaten(this, GlobalConst.PacmomStr);
+            gameController?.CoinEaten(GlobalConst.PacmomStr);
         }
 
         private void OnTriggerEnter2D(Collider2D collision)

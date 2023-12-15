@@ -11,9 +11,9 @@ namespace Tests.Runtime.PacmomGameTest
     public class RapleyTest
     {
         private GameObject rapleyObj;
-        private SpriteRenderer rapleySpr;
         private Rapley rapley;
-        private Movement rapleyMovement;
+        private SpriteRenderer rapleySpr;
+        private MovementAndRotation rapleyMovement;
 
         private GameObject coinObj;
         private Coin coin;
@@ -22,9 +22,9 @@ namespace Tests.Runtime.PacmomGameTest
         public IEnumerator SetUp()
         {
             rapleyObj = new GameObject("RapleyObj");
-            rapleySpr = rapleyObj.AddComponent<SpriteRenderer>();
             rapley = rapleyObj.AddComponent<Rapley>();
-            rapleyMovement = rapleyObj.AddComponent<Movement>();
+            rapleySpr = rapleyObj.AddComponent<SpriteRenderer>();
+            rapleyMovement = rapleyObj.AddComponent<MovementAndRotation>();
             rapley.movement = rapleyMovement;
 
             coinObj = new GameObject("CoinObj");
