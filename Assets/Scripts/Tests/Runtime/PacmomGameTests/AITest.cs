@@ -106,44 +106,5 @@ namespace Tests.Runtime.PacmomGameTest
 
             Assert.IsTrue(pacmomMovement.nextDirection.x > 0);
         }
-
-        /*
-        [UnityTest]
-        public IEnumerator RapleyEatPacmom()
-        {
-            int pacmomLife = controller.pacmomLives;
-
-            rapleyObj.AddComponent<CircleCollider2D>();
-            rapleyObj.transform.position = Vector3.zero;
-            rapleyObj.layer = LayerMask.NameToLayer(GlobalConst.PlayerStr);
-
-            pacmomObj.AddComponent<CircleCollider2D>();
-            pacmomObj.transform.position = Vector3.zero;
-            pacmomObj.layer = LayerMask.NameToLayer(GlobalConst.PacmomStr);
-
-            yield return new WaitForFixedUpdate();
-
-            Assert.AreEqual(pacmomLife - 1, controller.pacmomLives);
-        }
-        
-        [UnityTest]
-        public IEnumerator PacmomRapleyCollision_2()
-        {
-            int pacmomLife = controller.pacmomLives;
-
-            rapleyObj.AddComponent<CircleCollider2D>();
-            rapleyObj.transform.position = Vector3.zero;
-            rapleyObj.layer = LayerMask.NameToLayer(GlobalConst.PlayerStr);
-
-            pacmomObj.AddComponent<CircleCollider2D>();
-            pacmomObj.transform.position = Vector3.zero;
-            pacmomObj.layer = LayerMask.NameToLayer(GlobalConst.PacmomStr);
-            pacmom.isVacuumMode = true;
-
-            yield return new WaitForFixedUpdate();
-
-            Assert.AreEqual(pacmomLife, controller.pacmomLives);
-        }
-        */
     }
 }
