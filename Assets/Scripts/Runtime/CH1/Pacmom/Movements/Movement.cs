@@ -6,7 +6,7 @@ namespace Runtime.CH1.Pacmom
     [RequireComponent(typeof(Rigidbody2D))]
     public class Movement : MonoBehaviour
     {
-        public Rigidbody2D rigid;
+        public Rigidbody2D rigid { get; private set; }
         public Vector2 direction { get; private set; }
         public Vector2 nextDirection { get; private set; }
         public Vector3 startPosition { get; private set; }
@@ -32,7 +32,7 @@ namespace Runtime.CH1.Pacmom
         protected void Set()
         {
             // Awake에서 상속 필수
-            rigid = GetComponent<Rigidbody2D>();
+            SetRigidBody(GetComponent<Rigidbody2D>());
             startPosition = transform.position;
             canMove = true;
             obstacleLayer = LayerMask.GetMask(GlobalConst.ObstacleStr);
@@ -54,6 +54,12 @@ namespace Runtime.CH1.Pacmom
             rigid.MovePosition(position + translation);
         }
 
+        #region Set
+        public void SetRigidBody(Rigidbody2D rigid)
+        {
+            this.rigid = rigid;
+        }
+
         public void SetSpeedMultiplier(float speedMultiplier)
         {
             this.speedMultiplier = speedMultiplier;
@@ -66,6 +72,7 @@ namespace Runtime.CH1.Pacmom
             if (!this.canMove)
                 SetNextDirection(Vector2.zero);
         }
+        #endregion
 
         #region Direction
         public void SetNextDirection(Vector2 direction)

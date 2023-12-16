@@ -45,7 +45,7 @@ namespace Tests.Runtime.PacmomGameTest
         [UnityTest]
         public IEnumerator PacmomMovement()
         {
-            pacmomMovement.rigid = pacmomObj.GetComponent<Rigidbody2D>();
+            pacmomMovement.SetRigidBody(pacmomObj.GetComponent<Rigidbody2D>());
 
             pacmomMovement.rigid.position = Vector3.zero;
             pacmomMovement.SetNextDirection(new Vector2(1, 0));

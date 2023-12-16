@@ -38,7 +38,7 @@ namespace Tests.Runtime.PacmomGameTest
         [UnityTest]
         public IEnumerator DustMovement()
         {
-            dustMovement.rigid = dustObj.GetComponent<Rigidbody2D>();
+            dustMovement.SetRigidBody(dustObj.GetComponent<Rigidbody2D>());
 
             dustMovement.rigid.position = Vector3.zero;
             dustMovement.SetNextDirection(new Vector2(1, 0));

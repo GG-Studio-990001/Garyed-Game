@@ -71,7 +71,7 @@ namespace Tests.Runtime.PacmomGameTest
             stepObj.layer = LayerMask.NameToLayer(stepStr);
 
             pacmomObj.AddComponent<CircleCollider2D>();
-            pacmomMovement.rigid = pacmomObj.GetComponent<Rigidbody2D>();
+            pacmomMovement.SetRigidBody(pacmomObj.GetComponent<Rigidbody2D>());
             pacmomMovement.rigid.position = Vector3.zero;
             pacmomObj.layer = LayerMask.NameToLayer(GlobalConst.PacmomStr);
 
@@ -94,7 +94,7 @@ namespace Tests.Runtime.PacmomGameTest
             stepObj.layer = LayerMask.NameToLayer(stepStr);
 
             pacmomObj.AddComponent<CircleCollider2D>();
-            pacmomMovement.rigid = pacmomObj.GetComponent<Rigidbody2D>();
+            pacmomMovement.SetRigidBody(pacmomObj.GetComponent<Rigidbody2D>());
             pacmomMovement.rigid.position = Vector3.zero;
             pacmomObj.layer = LayerMask.NameToLayer(GlobalConst.PacmomStr);
 
