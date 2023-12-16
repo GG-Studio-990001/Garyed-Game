@@ -18,6 +18,9 @@ namespace Tests.Runtime.PacmomGameTest
         private GameObject coinObj;
         private Coin coin;
 
+        private GameObject vacuumObj;
+        private Vacuum vacuum;
+
         [UnitySetUp]
         public IEnumerator SetUp()
         {
@@ -30,6 +33,9 @@ namespace Tests.Runtime.PacmomGameTest
             coinObj = new GameObject("CoinObj");
             coin = coinObj.AddComponent<Coin>();
 
+            vacuumObj = new GameObject("VacuumObj");
+            vacuum = vacuumObj.AddComponent<Vacuum>();
+
             yield return new WaitForFixedUpdate();
         }
 
@@ -38,6 +44,7 @@ namespace Tests.Runtime.PacmomGameTest
         {
             Object.DestroyImmediate(pacmomObj);
             Object.DestroyImmediate(coinObj);
+            Object.DestroyImmediate(vacuumObj);
 
             yield return new WaitForFixedUpdate();
         }
@@ -45,7 +52,7 @@ namespace Tests.Runtime.PacmomGameTest
         [UnityTest]
         public IEnumerator PacmomMovement()
         {
-            pacmomMovement.rigid = pacmomObj.GetComponent<Rigidbody2D>();
+            pacmomMovement.SetRigidBody(pacmomObj.GetComponent<Rigidbody2D>());
 
             pacmomMovement.rigid.position = Vector3.zero;
             pacmomMovement.SetNextDirection(new Vector2(1, 0));
@@ -82,13 +89,27 @@ namespace Tests.Runtime.PacmomGameTest
             pacmomObj.transform.position = Vector3.zero;
             pacmomObj.layer = LayerMask.NameToLayer(GlobalConst.PacmomStr);
 
-            BoxCollider2D coinColl = coinObj.AddComponent<BoxCollider2D>();
-            coinColl.isTrigger = true;
+            coinObj.AddComponent<BoxCollider2D>().isTrigger = true;
             coinObj.transform.position = Vector3.zero;
 
             yield return new WaitForFixedUpdate();
-
+        
             Assert.IsFalse(coinObj.activeSelf);
+        }
+
+        [UnityTest]
+        public IEnumerator PacmomEatVacuum()
+        {
+            pacmomObj.AddComponent<CircleCollider2D>();
+            pacmomObj.transform.position = Vector3.zero;
+            pacmomObj.layer = LayerMask.NameToLayer(GlobalConst.PacmomStr);
+
+            vacuumObj.AddComponent<BoxCollider2D>().isTrigger = true;
+            vacuumObj.transform.position = Vector3.zero;
+
+            yield return new WaitForFixedUpdate();
+
+            Assert.IsFalse(vacuumObj.activeSelf);
         }
     }
 }

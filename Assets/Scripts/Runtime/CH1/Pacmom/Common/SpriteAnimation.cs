@@ -5,15 +5,15 @@ namespace Runtime.CH1.Pacmom
     public class SpriteAnimation
     {
         private readonly SpriteRenderer spriteRenderer;
+
         public Sprite[] sprites;
-        public float animTime { get; private set; }
         private int animFrame = -1;
-        public bool isLoop = true;
+        public bool isLoop { get; private set; }
 
         public SpriteAnimation(SpriteRenderer spriteRenderer)
         {
             this.spriteRenderer = spriteRenderer;
-            animTime = 0.25f;
+            SetLoop(true);
         }
 
         public void NextSprite()
@@ -35,6 +35,11 @@ namespace Runtime.CH1.Pacmom
             animFrame = -1;
 
             NextSprite();
+        }
+
+        public void SetLoop(bool isLoop)
+        {
+            this.isLoop = isLoop;
         }
     }
 }

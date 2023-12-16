@@ -45,7 +45,7 @@ namespace Tests.Runtime.PacmomGameTest
         [UnityTest]
         public IEnumerator RapleyMovement()
         {
-            rapleyMovement.rigid = rapleyObj.GetComponent<Rigidbody2D>();
+            rapleyMovement.SetRigidBody(rapleyObj.GetComponent<Rigidbody2D>());
 
             rapleyMovement.rigid.position = Vector3.zero;
             rapleyMovement.SetNextDirection(new Vector2(-1, 0));

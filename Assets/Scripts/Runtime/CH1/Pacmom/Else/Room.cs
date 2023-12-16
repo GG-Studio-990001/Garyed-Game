@@ -12,7 +12,12 @@ namespace Runtime.CH1.Pacmom
         private Transform inside;
         [SerializeField]
         private Transform outside;
-        public bool isInRoom = true;
+        public bool isInRoom { get; private set; }
+
+        public void SetInRoom(bool isInRoom)
+        {
+            this.isInRoom = isInRoom;
+        }
 
         public void ExitRoom(float afterTime)
         {
@@ -23,7 +28,7 @@ namespace Runtime.CH1.Pacmom
         {
             Vector3 position = transform.position;
 
-            movement.GetEyeSprites(new Vector2(position.x < 0 ? 1 : -1, 0));
+            movement.GetEyeSpriteByPosition();
             movement.rigid.isKinematic = true;
             movement.enabled = false;
 
@@ -57,7 +62,7 @@ namespace Runtime.CH1.Pacmom
             movement.rigid.isKinematic = false;
             movement.enabled = true;
 
-            movement.Resume();
+            movement.SetCanMove(true);
             isInRoom = false;
         }
     }

@@ -13,7 +13,7 @@ namespace Runtime.CH1.Pacmom
         {
             obstacleLayer = LayerMask.GetMask(GlobalConst.ObstacleStr);
 
-            this.availableDirections = new List<Vector2>();
+            availableDirections = new List<Vector2>();
 
             CheckAvailableDirection(Vector2.up);
             CheckAvailableDirection(Vector2.down);
@@ -27,7 +27,7 @@ namespace Runtime.CH1.Pacmom
 
             if (hit.collider == null)
             {
-                this.availableDirections.Add(direction);
+                availableDirections.Add(direction);
             }
         }
     }
