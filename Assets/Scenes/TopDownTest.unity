@@ -648,7 +648,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 212840501}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
@@ -2361,6 +2361,36 @@ MonoBehaviour:
   musicVolumeSlider: {fileID: 635836752}
   sfxVolumeSlider: {fileID: 1873896446}
   exitButton: {fileID: 148265630}
+  onSettingUiEnable:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 326335556}
+        m_TargetAssemblyTypeName: Runtime.CH1.Main.Ch1GameSystem, Scripts
+        m_MethodName: OnGameSettingStart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onSettingUiDisable:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 326335556}
+        m_TargetAssemblyTypeName: Runtime.CH1.Main.Ch1GameSystem, Scripts
+        m_MethodName: OnGameSettingEnd
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1068851138
 GameObject:
   m_ObjectHideFlags: 0
@@ -6986,10 +7016,34 @@ MonoBehaviour:
       m_Calls: []
   onDialogueStart:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 326335556}
+        m_TargetAssemblyTypeName: Runtime.CH1.Main.Ch1GameSystem, Scripts
+        m_MethodName: OnDialogueStart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onDialogueComplete:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 326335556}
+        m_TargetAssemblyTypeName: Runtime.CH1.Main.Ch1GameSystem, Scripts
+        m_MethodName: OnDialogueEnd
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onCommand:
     m_PersistentCalls:
       m_Calls: []

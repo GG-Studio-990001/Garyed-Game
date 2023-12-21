@@ -11,6 +11,10 @@ namespace Runtime.Common.View
         [field:SerializeField] private Slider musicVolumeSlider;
         [field:SerializeField] private Slider sfxVolumeSlider;
         [field:SerializeField] private Button exitButton;
+
+        public UnityEvent onSettingUiEnable; 
+        public UnityEvent onSettingUiDisable;
+
         
         private SettingsUIPresenter _presenter;
         
@@ -18,7 +22,17 @@ namespace Runtime.Common.View
         {
             _presenter = PresenterFactory.CreateSettingsUIPresenter(this);
         }
+
+        private void OnEnable()
+        {
+            onSettingUiEnable?.Invoke();
+        }
         
+        private void OnDisable()
+        {
+            onSettingUiDisable?.Invoke();
+        }
+
         public void SetMusicSlider(Slider slider)
         {
             musicVolumeSlider = slider;

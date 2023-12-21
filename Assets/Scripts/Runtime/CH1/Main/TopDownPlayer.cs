@@ -18,12 +18,19 @@ namespace Runtime.CH1.Main
         private TopDownMovement _movement;
         private TopDownAnimation _animation;
         private TopDownInteraction _interaction;
+        private GameOverControls _gameOverControls;
 
-        private void Awake()
+        private void Start()
         {
             _movement = new TopDownMovement(moveSpeed, transform);
             _animation = new TopDownAnimation(GetComponent<Animator>(), animSpeed);
             _interaction = new TopDownInteraction(transform, LayerMask.GetMask(GlobalConst.Interaction));
+            _gameOverControls = Ch1GameSystem.Instance.GameOverControls;
+            
+            _gameOverControls.Player.Move.performed += OnMove;
+            _gameOverControls.Player.Move.started += OnMove;
+            _gameOverControls.Player.Move.canceled += OnMove;
+            _gameOverControls.Player.Interaction.performed += ctx => OnInteraction();
         }
         
         private void Update()
@@ -37,7 +44,7 @@ namespace Runtime.CH1.Main
             _state = isMove ? PlayerState.Move : PlayerState.Idle;
         }
 
-        private void OnMove(InputValue value) => _movementInput = value.Get<Vector2>();
+        private void OnMove(InputAction.CallbackContext context) => _movementInput = context.ReadValue<Vector2>();
 
         private void OnInteraction()
         {

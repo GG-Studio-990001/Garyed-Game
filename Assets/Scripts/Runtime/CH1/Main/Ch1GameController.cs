@@ -6,30 +6,56 @@ namespace Runtime.CH1.Main
     {
         [SerializeField] private GameObject gameSettingUI;
         [SerializeField] private SoundSystem soundSystem;
+
+        public GameOverControls GameOverControls { get; private set; }
+
+        #region Singleton
+
+        private static Ch1GameSystem _instance = null;
         
-        GameOverControls _gameOverControls;
+        public static Ch1GameSystem Instance
+        {
+            get
+            {
+                if (_instance == null)
+                {
+                    _instance = FindObjectOfType(typeof(Ch1GameSystem)) as Ch1GameSystem;
+                    if (_instance == null)
+                    {
+                        Debug.LogError("There's no active Ch1GameSystem object");
+                    }
+                }
+                return _instance;
+            }
+        }
 
         private void Awake()
         {
-            _gameOverControls = new GameOverControls();
+            if (Instance == null)
+            {
+                _instance = this;
+            }
+            else if (Instance != this)
+            {
+                Destroy(this.gameObject);
+            }
+
+            InitGame();
         }
+
+        #endregion
         
-        private void OnEnable()
+        private void InitGame()
         {
-            _gameOverControls.Enable();
+            GameOverControls = new GameOverControls();
             
-            _gameOverControls.UI.GameSetting.performed += ctx => OnGameSetting();
-        }
-        
-        private void OnDisable()
-        {
-            _gameOverControls.Disable();
-        }
-        
-        private void Start()
-        {
             SetAllUIActiveFalse();
+
             soundSystem.PlayMusic("Start");
+                
+            GameOverControls.Enable();
+            
+            GameOverControls.UI.GameSetting.performed += ctx => OnGameSetting();
         }
         
         private void SetAllUIActiveFalse()
@@ -40,6 +66,26 @@ namespace Runtime.CH1.Main
         private void OnGameSetting()
         {
             gameSettingUI.SetActive(gameSettingUI.activeSelf == false);
+        }
+        
+        public void OnDialogueStart()
+        {
+            GameOverControls.Player.Disable();
+        }
+        
+        public void OnDialogueEnd()
+        {
+            GameOverControls.Player.Enable();
+        }
+        
+        public void OnGameSettingStart()
+        {
+            GameOverControls.Player.Disable();
+        }
+        
+        public void OnGameSettingEnd()
+        {
+            GameOverControls.Player.Enable();
         }
     }
 }
