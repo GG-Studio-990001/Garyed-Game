@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: fe92948021f9d6149840e9d01c72a31f
+guid: 4dc35c9f55736b641bc1ef140ec33cc1
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: tilemap_03_0
+      name: "tilemap_01(\uC218\uC815)_0"
       rect:
         serializedVersion: 2
         x: 0
@@ -124,14 +124,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fda6ad36eac7c764a8c56baab7ac7603
-      internalID: -2056434996
+      spriteID: 58e1ccb1e4dab954f82f7c1883db5e40
+      internalID: 1370754916
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tilemap_03_1
+      name: "tilemap_01(\uC218\uC815)_1"
       rect:
         serializedVersion: 2
         x: 32
@@ -145,14 +145,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3296ed9318af29949972cc23a3f673be
-      internalID: 1245985297
+      spriteID: ac4d51f23f9a3fa48891ce7cc91cc9cb
+      internalID: -1958527123
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tilemap_03_2
+      name: "tilemap_01(\uC218\uC815)_2"
       rect:
         serializedVersion: 2
         x: 64
@@ -166,35 +166,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 88e3300c085542647a37c93e41efe56d
-      internalID: -1934669385
+      spriteID: 88bb5d55920754240ba9a5f46e7490ed
+      internalID: -236411457
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tilemap_03_3
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 32
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7f6f9b73c6d564c478f1fba521f8b00f
-      internalID: -122818018
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: tilemap_03_4
+      name: "tilemap_01(\uC218\uC815)_3"
       rect:
         serializedVersion: 2
         x: 0
@@ -208,14 +187,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2774f4b825e224f4383be3cb43ca3620
-      internalID: 1758077515
+      spriteID: d7108d911812ed54db681619e7c2ed74
+      internalID: 2146293503
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tilemap_03_5
+      name: "tilemap_01(\uC218\uC815)_4"
       rect:
         serializedVersion: 2
         x: 32
@@ -229,14 +208,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 163bdd310ef8b2c408c8c868798bf39c
-      internalID: -1754771710
+      spriteID: 9361025cecc780142a42826e2ecbae01
+      internalID: 749240651
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tilemap_03_6
+      name: "tilemap_01(\uC218\uC815)_5"
       rect:
         serializedVersion: 2
         x: 64
@@ -250,50 +229,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c1be330160b9fe8409b6823b99984e5c
-      internalID: -200310573
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: tilemap_03_7
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 21cd5edbc6902144681b7e17a5a96d51
-      internalID: -138360334
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: tilemap_03_8
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e0daa8802c4f8414fa24e04ef77b341a
-      internalID: -1751144400
+      spriteID: 6257f0d2799812b4585c574a112c1677
+      internalID: -1770658895
       vertices: []
       indices: 
       edges: []
@@ -301,7 +238,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 79a7470bd69e1cd48b1463769c79acfa
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -309,15 +246,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      tilemap_03_0: -2056434996
-      tilemap_03_1: 1245985297
-      tilemap_03_2: -1934669385
-      tilemap_03_3: -122818018
-      tilemap_03_4: 1758077515
-      tilemap_03_5: -1754771710
-      tilemap_03_6: -200310573
-      tilemap_03_7: -138360334
-      tilemap_03_8: -1751144400
+      "tilemap_01(\uC218\uC815)_0": 1370754916
+      "tilemap_01(\uC218\uC815)_1": -1958527123
+      "tilemap_01(\uC218\uC815)_2": -236411457
+      "tilemap_01(\uC218\uC815)_3": 2146293503
+      "tilemap_01(\uC218\uC815)_4": 749240651
+      "tilemap_01(\uC218\uC815)_5": -1770658895
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
