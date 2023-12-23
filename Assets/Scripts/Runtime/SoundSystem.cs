@@ -22,6 +22,11 @@ namespace Runtime
             backgroundAudioSource.clip = sound.clip;
             backgroundAudioSource.Play();
         }
+
+        public void StopMusic()
+        {
+            backgroundAudioSource.Stop();
+        }
     
         public void PlayEffect(string soundName)
         {

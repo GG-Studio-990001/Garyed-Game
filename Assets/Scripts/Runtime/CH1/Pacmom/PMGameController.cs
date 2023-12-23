@@ -9,6 +9,7 @@ namespace Runtime.CH1.Pacmom
         #region 선언
         private PMSpriteController spriteController;
         private PMUIController uiController;
+        public SoundSystem soundSystem;
         [SerializeField]
         private Timer timer;
 
@@ -147,6 +148,8 @@ namespace Runtime.CH1.Pacmom
 
         private void ChooseAWinner()
         {
+            soundSystem.PlayMusic("Outro");
+
             if (rapleyScore > pacmomScore)
             {
                 Debug.Log("라플리 승리");
@@ -163,7 +166,18 @@ namespace Runtime.CH1.Pacmom
         #region Vacuum Mode
         public void UseVacuum()
         {
-            StopCoroutine("VacuumTime");
+            if (!pacmom.ai.isStronger)
+            {
+                soundSystem.PlayMusic("StartVacuum");
+            }
+            else
+            {
+                StopCoroutine("VacuumTime");
+                soundSystem.StopMusic();
+
+                soundSystem.PlayMusic("ContinueVacuum");
+            }
+
             StartCoroutine("VacuumTime");
         }
 
@@ -267,12 +281,16 @@ namespace Runtime.CH1.Pacmom
         #region Eaten
         public void RapleyEaten()
         {
+            soundSystem.PlayEffect("PacmomEat");
+
             TakeHalfCoins(false);
             rapley.ResetState();
         }
 
         public void DustEaten(Dust dust)
         {
+            soundSystem.PlayEffect("PacmomEat");
+
             dust.movement.SetCanMove(false);
             dust.ResetState();
             dust.GetComponent<Room>().SetInRoom(true);
@@ -281,6 +299,8 @@ namespace Runtime.CH1.Pacmom
 
         public void PacmomEaten(string byWhom)
         {
+            soundSystem.PlayEffect("PacmomStun");
+
             Debug.Log("팩맘 먹힘");
 
             if (byWhom == GlobalConst.PlayerStr)
@@ -307,9 +327,17 @@ namespace Runtime.CH1.Pacmom
         public void CoinEaten(string byWhom)
         {
             if (byWhom == GlobalConst.PlayerStr)
+            {
+                soundSystem.PlayEffect("RapleyEatCoin");
+
                 SetRapleyScore(rapleyScore + 1);
+            }
             else if (byWhom == GlobalConst.PacmomStr)
+            {
+                soundSystem.PlayEffect("PacmomEatCoin");
+
                 SetPacmomScore(pacmomScore + 1);
+            }
 
             if (!HasRemainingCoins())
             {
@@ -337,6 +365,8 @@ namespace Runtime.CH1.Pacmom
 
         private void ReleaseHalfCoins()
         {
+            soundSystem.PlayEffect("DropCoin");
+
             int score = pacmomScore / 2;
             SetPacmomScore(pacmomScore - score);
             Debug.Log("팩맘 코인 " + score + "개 떨굼");
@@ -360,6 +390,8 @@ namespace Runtime.CH1.Pacmom
             {
                 if (coin.gameObject.activeSelf)
                 {
+                    soundSystem.PlayEffect("RapleyEatCoin");
+
                     SetRapleyScore(rapleyScore + 1);
                     coin.gameObject.SetActive(false);
                     yield return new WaitForSeconds(0.03f);
