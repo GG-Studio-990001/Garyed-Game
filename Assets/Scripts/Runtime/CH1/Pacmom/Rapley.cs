@@ -9,10 +9,14 @@ namespace Runtime.CH1.Pacmom
 
         private void Start()
         {
+            SetSpriteRotation();
+            ResetState();
+        }
+
+        private void SetSpriteRotation()
+        {
             movement.spriteRotation.SetCanRotate(false);
             movement.spriteRotation.SetCanFlip(true);
-
-            ResetState();
         }
 
         public void ResetState()

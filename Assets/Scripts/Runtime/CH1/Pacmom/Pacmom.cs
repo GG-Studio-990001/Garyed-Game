@@ -12,11 +12,21 @@ namespace Runtime.CH1.Pacmom
 
         private void Start()
         {
+            SetSpriteRotation();
+            SetAI();
+            ResetState();
+        }
+
+        private void SetAI()
+        {
+            ai?.SetStronger(false);
+            ai?.SetCoinMatter(true);
+        }
+
+        private void SetSpriteRotation()
+        {
             movement.spriteRotation.SetCanRotate(true);
             movement.spriteRotation.SetCanFlip(true);
-            ai?.SetStronger(false);
-
-            ResetState();
         }
 
         public void ResetState()

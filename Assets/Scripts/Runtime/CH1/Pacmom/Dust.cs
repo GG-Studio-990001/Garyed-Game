@@ -11,8 +11,14 @@ namespace Runtime.CH1.Pacmom
 
         private void Start()
         {
-            ai?.SetStronger(true);
+            SetAI();
             ResetState();
+        }
+
+        private void SetAI()
+        {
+            ai?.SetStronger(true);
+            ai?.SetCoinMatter(false);
         }
 
         public void ResetState()
