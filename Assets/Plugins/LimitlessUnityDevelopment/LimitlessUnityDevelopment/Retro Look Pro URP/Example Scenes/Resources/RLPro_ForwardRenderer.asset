@@ -1,0 +1,498 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8831274312944115175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c4b56c4489e7452c9b8a62543a66430, type: 3}
+  m_Name: NewAnalogTVNoiseRLPRO
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  Event: 550
+--- !u!114 &-8610169771881820640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4c7a478b66c94e77b1960cd0a1d5d71, type: 3}
+  m_Name: NewCRTAperture_RLPRO
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  Event: 550
+--- !u!114 &-7761615287273895451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 556568a008c5845c2b9aff7eeaa6e59a, type: 3}
+  m_Name: NewGlitch2
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  Event: 550
+--- !u!114 &-7708808069345086685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9caddd0a630dc4340a7a825f696ed5f9, type: 3}
+  m_Name: NewVHSEffectRLPRO
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  Event: 550
+--- !u!114 &-6518722500737638488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 086121500fc2a42c09847ca64876bd91, type: 3}
+  m_Name: NewCinematicBarsRLPRO
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  Event: 550
+--- !u!114 &-5754343508398054947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d52d4e1ac19514b08b776eb5dbdeaeae, type: 3}
+  m_Name: NewLowRes_RLPRO
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  Event: 550
+--- !u!114 &-5206707330099950599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83b4d77f969318643be69a2c0738f616, type: 3}
+  m_Name: NewPictureCorrectionRLPRO
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  Event: 550
+--- !u!114 &-5139761219937470570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75b66763eec44e84fbffb152b15a8738, type: 3}
+  m_Name: NewVHSScanlinesRLPRO
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  Event: 550
+--- !u!114 &-4806098297893527501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f989841c4a594e2e89a59ea3916bbbd, type: 3}
+  m_Name: NewNegative_RLPRO
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  Event: 550
+--- !u!114 &-4395581534613017848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f75c725b86c641cfb2fd4f9809eacc4, type: 3}
+  m_Name: NewBleedRLPRO
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  Event: 550
+--- !u!114 &-4096946745526597640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f675543667ec4449873191513095fa3, type: 3}
+  m_Name: NewGlitch20
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  Event: 550
+--- !u!114 &-2287313264067407789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7844df956262394994083ddeb428870, type: 3}
+  m_Name: NewUltimateVignette_RLPRO
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  Event: 550
+--- !u!114 &-1826926265453254681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c38fe044de5d4c940ac41c8465ae3531, type: 3}
+  m_Name: NewPulsatingVignette_RLPRO
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  Event: 550
+--- !u!114 &-1706204148045479411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d5f493bd0ee2420eb6634b618413815, type: 3}
+  m_Name: NewPhosphorRLPRO
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  Event: 550
+--- !u!114 &-892446075211235749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b62ef008f1254b2b9f6e4ddbf09cd04, type: 3}
+  m_Name: NewNoise_RLPRO
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  Event: 550
+--- !u!114 &-697842632902752774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d7bb6734e007491eaf87110789f5de0, type: 3}
+  m_Name: NewBottomNoiseRLPRO
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  Event: 550
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de640fe3d0db1804a85f9fc8f5cadab6, type: 3}
+  m_Name: RLPro_ForwardRenderer
+  m_EditorClassIdentifier: 
+  m_RendererFeatures:
+  - {fileID: -1706204148045479411}
+  - {fileID: -697842632902752774}
+  - {fileID: 5353328291426604929}
+  - {fileID: 922038972665852772}
+  - {fileID: -7708808069345086685}
+  - {fileID: -8831274312944115175}
+  - {fileID: -5139761219937470570}
+  - {fileID: -4395581534613017848}
+  - {fileID: -6518722500737638488}
+  - {fileID: -7761615287273895451}
+  - {fileID: 9162189656962431469}
+  - {fileID: 579821269912896965}
+  - {fileID: 4722516017749643764}
+  - {fileID: -8610169771881820640}
+  - {fileID: 2890657203317757751}
+  - {fileID: -5754343508398054947}
+  - {fileID: -4806098297893527501}
+  - {fileID: -892446075211235749}
+  - {fileID: 2082937763143249522}
+  - {fileID: 3490831454661612888}
+  - {fileID: -5206707330099950599}
+  - {fileID: -1826926265453254681}
+  - {fileID: 5487035203596870728}
+  - {fileID: -2287313264067407789}
+  - {fileID: 255376294241686046}
+  - {fileID: 7333515609490328650}
+  - {fileID: 8689732239288152039}
+  m_RendererFeatureMap: 0d8273015e5852e8fa45b59cd2c350f6811788c8b7d74a4a6473d07a8fbdcb0c23730569e7cf04951922ef6ecd02718596774cef66e6abb808eb1f10e2c1ffc2a8df2f5a6cd888a5e549ccde04344994edf9001cf3a2267fc5c55f7a5ff00b08f4510f144cbf8941208e2d0b3688828837d72d3b69ad1d28dde15b22117724b0336072d60f4f4dbd5bbed7e105659df3726e6615dc14e81c5895dd79b6ec7130f94bf803450fbeb7e7e7d3b43d74a5e64864743472dd254c5310397db4d441e01ed254f662478b034a0c749a97e1c565e7af07746e219878
+  postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
+  shaders:
+    blitPS: {fileID: 4800000, guid: c17132b1f77d20942aa75f8429c0f8bc, type: 3}
+    copyDepthPS: {fileID: 4800000, guid: d6dae50ee9e1bfa4db75f19f99355220, type: 3}
+    screenSpaceShadowPS: {fileID: 4800000, guid: 0f854b35a0cf61a429bd5dcfea30eddd,
+      type: 3}
+    samplingPS: {fileID: 4800000, guid: 04c410c9937594faa893a11dceb85f7e, type: 3}
+    fallbackErrorPS: {fileID: 4800000, guid: e6e9a19c3678ded42a3bc431ebef7dbd, type: 3}
+  m_OpaqueLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_TransparentLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_DefaultStencilState:
+    overrideStencilState: 0
+    stencilReference: 0
+    stencilCompareFunction: 8
+    passOperation: 0
+    failOperation: 0
+    zFailOperation: 0
+  m_ShadowTransparentReceive: 1
+--- !u!114 &255376294241686046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c0d5ef10a7e0d44793f6dc791b1bff1, type: 3}
+  m_Name: NewWarpRLPRO
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  Event: 550
+--- !u!114 &579821269912896965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2f6178ec3d0143deb3c009eb674c298, type: 3}
+  m_Name: NewGlitch3
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  Event: 550
+--- !u!114 &922038972665852772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a5aa0b62f42f444994ed38e7cc43aa9, type: 3}
+  m_Name: NewJitter_RLPRO
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  Event: 550
+--- !u!114 &1328884858817724809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4de6056f8db14695921a1672cfd7acc, type: 3}
+  m_Name: NewCustomTextureRLPRO
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  Event: 550
+--- !u!114 &2082937763143249522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9dfbf9b80cf647a3a5806dba5c025fb, type: 3}
+  m_Name: NewNTSCEncode_RLPRO
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  Event: 550
+--- !u!114 &2890657203317757751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 601d4ed4ece5c44128d543548a424bfd, type: 3}
+  m_Name: NewFisheye_RLPRO
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  Event: 550
+--- !u!114 &3490831454661612888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4011361878b5c4401a4b2998341a4dbc, type: 3}
+  m_Name: NewOldFilmRLPRO
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  Event: 550
+--- !u!114 &4503982477381661985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35168bedc30ee49e08ebf6292d096794, type: 3}
+  m_Name: NewGlitch1
+  m_EditorClassIdentifier: 
+  Event: 300
+--- !u!114 &4722516017749643764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b4aaab42e3f7614ca4c47faae323b21, type: 3}
+  m_Name: NewLimitlessVHSTapeRewind
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  Event: 550
+--- !u!114 &5353328291426604929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f4e1311cf36142b58028111072a48c4, type: 3}
+  m_Name: NewBottomStretchRLPRO
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  Event: 550
+--- !u!114 &5487035203596870728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77908a6207cd6654d8e9e2d41276e19b, type: 3}
+  m_Name: NewTVEffect_RLPRO
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  Event: 550
+--- !u!114 &7186993636421936126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72cb7e116a93d4ff0b78baa15ccecc05, type: 3}
+  m_Name: NewGlitch1
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  Event: 550
+--- !u!114 &7333515609490328650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a34f9733ef80345e782a33abcb47a1f7, type: 3}
+  m_Name: NewGlitch1
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  Event: 550
+--- !u!114 &8689732239288152039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4de6056f8db14695921a1672cfd7acc, type: 3}
+  m_Name: NewCustomTexture_RLPRO
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  Event: 550
+--- !u!114 &9162189656962431469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 679166022f5a14a1a8286a4babc39c9a, type: 3}
+  m_Name: NewColormapPaletteRLPRO
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  Event: 550
