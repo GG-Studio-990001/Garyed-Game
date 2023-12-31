@@ -13,20 +13,18 @@ MonoBehaviour:
   m_Name: PulsatingVignette
   m_EditorClassIdentifier: 
   active: 0
-  m_AdvancedMode: 0
   enable:
     m_OverrideState: 1
     m_Value: 1
   speed:
     m_OverrideState: 1
     m_Value: 1
-    min: 0.001
-    max: 50
   amount:
     m_OverrideState: 1
     m_Value: 1
-    min: 0.001
-    max: 50
+  GlobalPostProcessingSettings:
+    m_OverrideState: 0
+    m_Value: 0
 --- !u!114 &-8683568656942797887
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -40,38 +38,28 @@ MonoBehaviour:
   m_Name: VHSEffect
   m_EditorClassIdentifier: 
   active: 0
-  m_AdvancedMode: 0
   enable:
     m_OverrideState: 1
     m_Value: 1
   colorOffset:
     m_OverrideState: 1
     m_Value: 4
-    min: 0
-    max: 50
   colorOffsetAngle:
     m_OverrideState: 1
     m_Value: 1
-    min: -3
-    max: 3
   verticalOffsetFrequency:
     m_OverrideState: 1
     m_Value: 1
-    min: 0
-    max: 100
   verticalOffset:
     m_OverrideState: 1
     m_Value: 0.01
-    min: 0
-    max: 1
   offsetDistortion:
     m_OverrideState: 1
     m_Value: 0.008
-    min: 0
-    max: 0.5
   noiseTexture:
     m_OverrideState: 1
     m_Value: {fileID: 0}
+    dimension: 1
   blendMode:
     m_OverrideState: 1
     m_Value: 0
@@ -81,44 +69,36 @@ MonoBehaviour:
   _textureIntensity:
     m_OverrideState: 1
     m_Value: 1
-    min: 0
-    max: 1
   smoothCut:
     m_OverrideState: 1
     m_Value: 0
   iterations:
     m_OverrideState: 1
     m_Value: 5
-    min: 0
-    max: 30
   smoothSize:
     m_OverrideState: 1
     m_Value: 0.1
-    min: 0
-    max: 0.5
   deviation:
     m_OverrideState: 1
     m_Value: 0.1
-    min: 0
-    max: 0.5
   _textureCutOff:
     m_OverrideState: 1
     m_Value: 1
-    min: -1
-    max: 1
   stripes:
     m_OverrideState: 1
     m_Value: 0.01
-    min: 0.01
-    max: 0.5
   unscaledTime:
     m_OverrideState: 1
     m_Value: 0
   mask:
     m_OverrideState: 1
     m_Value: {fileID: 0}
+    dimension: 1
   maskChannel:
     m_OverrideState: 1
+    m_Value: 0
+  GlobalPostProcessingSettings:
+    m_OverrideState: 0
     m_Value: 0
 --- !u!114 &-8046504436477766873
 MonoBehaviour:
@@ -133,35 +113,30 @@ MonoBehaviour:
   m_Name: LimitlessGlitch2
   m_EditorClassIdentifier: 
   active: 0
-  m_AdvancedMode: 0
   enable:
     m_OverrideState: 1
     m_Value: 1
   speed:
     m_OverrideState: 1
     m_Value: 1
-    min: 0
-    max: 2
   intensity:
     m_OverrideState: 1
     m_Value: 0.1
-    min: 0
-    max: 1
   resolutionMultiplier:
     m_OverrideState: 1
     m_Value: 1
-    min: 1
-    max: 2
   stretchMultiplier:
     m_OverrideState: 1
     m_Value: 0.88
-    min: 0
-    max: 1
   mask:
     m_OverrideState: 1
     m_Value: {fileID: 0}
+    dimension: 1
   maskChannel:
     m_OverrideState: 1
+    m_Value: 0
+  GlobalPostProcessingSettings:
+    m_OverrideState: 0
     m_Value: 0
 --- !u!114 &-7893295128165547882
 MonoBehaviour:
@@ -175,41 +150,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b2db86121404754db890f4c8dfe81b2, type: 3}
   m_Name: Bloom
   m_EditorClassIdentifier: 
-  active: 1
-  m_AdvancedMode: 0
+  active: 0
+  skipIterations:
+    m_OverrideState: 0
+    m_Value: 1
   threshold:
     m_OverrideState: 1
     m_Value: 1
-    min: 0
   intensity:
     m_OverrideState: 1
     m_Value: 1
-    min: 0
   scatter:
     m_OverrideState: 0
     m_Value: 0.7
-    min: 0
-    max: 1
   clamp:
     m_OverrideState: 0
     m_Value: 65472
-    min: 0
   tint:
     m_OverrideState: 0
     m_Value: {r: 1, g: 1, b: 1, a: 1}
-    hdr: 0
-    showAlpha: 0
-    showEyeDropper: 1
   highQualityFiltering:
     m_OverrideState: 0
     m_Value: 0
+  downscale:
+    m_OverrideState: 0
+    m_Value: 0
+  maxIterations:
+    m_OverrideState: 0
+    m_Value: 6
   dirtTexture:
     m_OverrideState: 0
     m_Value: {fileID: 0}
+    dimension: 1
   dirtIntensity:
     m_OverrideState: 0
     m_Value: 0
-    min: 0
 --- !u!114 &-7316205431295742364
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -223,25 +198,24 @@ MonoBehaviour:
   m_Name: Phosphor
   m_EditorClassIdentifier: 
   active: 0
-  m_AdvancedMode: 0
   enable:
     m_OverrideState: 1
     m_Value: 1
   width:
     m_OverrideState: 1
     m_Value: 0.4
-    min: 0
-    max: 20
   fade:
     m_OverrideState: 1
     m_Value: 1
-    min: 0
-    max: 1
   mask:
     m_OverrideState: 1
     m_Value: {fileID: 0}
+    dimension: 1
   maskChannel:
     m_OverrideState: 1
+    m_Value: 0
+  GlobalPostProcessingSettings:
+    m_OverrideState: 0
     m_Value: 0
 --- !u!114 &-7199314744150007460
 MonoBehaviour:
@@ -256,7 +230,6 @@ MonoBehaviour:
   m_Name: LowRes
   m_EditorClassIdentifier: 
   active: 0
-  m_AdvancedMode: 0
   enable:
     m_OverrideState: 1
     m_Value: 1
@@ -266,8 +239,12 @@ MonoBehaviour:
   mask:
     m_OverrideState: 1
     m_Value: {fileID: 0}
+    dimension: 1
   maskChannel:
     m_OverrideState: 1
+    m_Value: 0
+  GlobalPostProcessingSettings:
+    m_OverrideState: 0
     m_Value: 0
 --- !u!114 &-7011558710299706105
 MonoBehaviour:
@@ -281,27 +258,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 899c54efeace73346a0a16faa3afe726, type: 3}
   m_Name: Vignette
   m_EditorClassIdentifier: 
-  active: 1
-  m_AdvancedMode: 0
+  active: 0
   color:
     m_OverrideState: 0
     m_Value: {r: 0, g: 0, b: 0, a: 1}
-    hdr: 0
-    showAlpha: 0
-    showEyeDropper: 1
   center:
     m_OverrideState: 0
     m_Value: {x: 0.5, y: 0.5}
   intensity:
     m_OverrideState: 1
     m_Value: 0.25
-    min: 0
-    max: 1
   smoothness:
     m_OverrideState: 1
     m_Value: 0.4
-    min: 0.01
-    max: 1
   rounded:
     m_OverrideState: 0
     m_Value: 0
@@ -318,40 +287,33 @@ MonoBehaviour:
   m_Name: OldFilm
   m_EditorClassIdentifier: 
   active: 0
-  m_AdvancedMode: 0
   enable:
     m_OverrideState: 1
     m_Value: 1
   fps:
     m_OverrideState: 1
     m_Value: 1
-    min: 0
-    max: 60
   contrast:
     m_OverrideState: 1
     m_Value: 1
-    min: 0
-    max: 5
   burn:
     m_OverrideState: 1
     m_Value: 0.88
-    min: -2
-    max: 4
   sceneCut:
     m_OverrideState: 1
     m_Value: 0.88
-    min: 0
-    max: 16
   fade:
     m_OverrideState: 1
     m_Value: 0.88
-    min: 0
-    max: 1
   mask:
     m_OverrideState: 1
     m_Value: {fileID: 0}
+    dimension: 1
   maskChannel:
     m_OverrideState: 1
+    m_Value: 0
+  GlobalPostProcessingSettings:
+    m_OverrideState: 0
     m_Value: 0
 --- !u!114 &-2977451181721922365
 MonoBehaviour:
@@ -366,35 +328,30 @@ MonoBehaviour:
   m_Name: Negative
   m_EditorClassIdentifier: 
   active: 0
-  m_AdvancedMode: 0
   enable:
     m_OverrideState: 1
     m_Value: 1
   luminosity:
     m_OverrideState: 1
     m_Value: 0
-    min: 0
-    max: 1.1
   vignette:
     m_OverrideState: 1
     m_Value: 1
-    min: 0
-    max: 1
   contrast:
     m_OverrideState: 1
     m_Value: 0.7
-    min: 0
-    max: 1
   negative:
     m_OverrideState: 1
     m_Value: 1
-    min: 0
-    max: 1
   mask:
     m_OverrideState: 1
     m_Value: {fileID: 0}
+    dimension: 1
   maskChannel:
     m_OverrideState: 1
+    m_Value: 0
+  GlobalPostProcessingSettings:
+    m_OverrideState: 0
     m_Value: 0
 --- !u!114 &-2777471686614613383
 MonoBehaviour:
@@ -409,35 +366,30 @@ MonoBehaviour:
   m_Name: LimitlessGlitch3
   m_EditorClassIdentifier: 
   active: 0
-  m_AdvancedMode: 0
   enable:
     m_OverrideState: 1
     m_Value: 1
   speed:
     m_OverrideState: 1
     m_Value: 14.3
-    min: 0
-    max: 50
   blockSize:
     m_OverrideState: 1
     m_Value: 117
-    min: 0
-    max: 505
   maxOffsetX:
     m_OverrideState: 1
     m_Value: 1
-    min: 0
-    max: 25
   maxOffsetY:
     m_OverrideState: 1
     m_Value: 1
-    min: 0
-    max: 25
   mask:
     m_OverrideState: 1
     m_Value: {fileID: 0}
+    dimension: 1
   maskChannel:
     m_OverrideState: 1
+    m_Value: 0
+  GlobalPostProcessingSettings:
+    m_OverrideState: 0
     m_Value: 0
 --- !u!114 &-1213734295457927384
 MonoBehaviour:
@@ -479,40 +431,30 @@ MonoBehaviour:
   m_Name: TVEffect
   m_EditorClassIdentifier: 
   active: 0
-  m_AdvancedMode: 0
   enable:
     m_OverrideState: 1
     m_Value: 1
   fade:
     m_OverrideState: 1
     m_Value: 1
-    min: 0
-    max: 1
   maskDark:
     m_OverrideState: 1
     m_Value: 1.46
-    min: 0
-    max: 2
   maskLight:
     m_OverrideState: 1
     m_Value: 1.02
-    min: 0
-    max: 2
   hardScan:
     m_OverrideState: 1
     m_Value: -5.3
-    min: -8
-    max: 16
   resScale:
     m_OverrideState: 1
     m_Value: 1.5
-    min: 1
-    max: 16
+  ScaleWithActualScreenSize:
+    m_OverrideState: 0
+    m_Value: 0
   hardPix:
     m_OverrideState: 1
     m_Value: -0.81
-    min: -3
-    max: 1
   warpMode:
     m_OverrideState: 1
     m_Value: 0
@@ -525,8 +467,12 @@ MonoBehaviour:
   mask:
     m_OverrideState: 1
     m_Value: {fileID: 0}
+    dimension: 1
   maskChannel:
     m_OverrideState: 1
+    m_Value: 0
+  GlobalPostProcessingSettings:
+    m_OverrideState: 0
     m_Value: 0
 --- !u!114 &-640289914831006252
 MonoBehaviour:
@@ -541,50 +487,39 @@ MonoBehaviour:
   m_Name: PictureCorrection
   m_EditorClassIdentifier: 
   active: 0
-  m_AdvancedMode: 0
   enable:
     m_OverrideState: 1
     m_Value: 1
   signalAdjustY:
     m_OverrideState: 1
     m_Value: -0.109
-    min: -0.25
-    max: 0.25
   signalAdjustI:
     m_OverrideState: 1
     m_Value: 0
-    min: -0.25
-    max: 0.25
   signalAdjustQ:
     m_OverrideState: 1
     m_Value: 0
-    min: -0.25
-    max: 0.25
   signalShiftY:
     m_OverrideState: 1
     m_Value: 1
-    min: -2
-    max: 2
   signalShiftI:
     m_OverrideState: 1
     m_Value: 1
-    min: -2
-    max: 2
   signalShiftQ:
     m_OverrideState: 1
     m_Value: 1
-    min: -2
-    max: 2
   gammaCorection:
     m_OverrideState: 1
     m_Value: 1
-    min: -0
-    max: 2
   mask:
     m_OverrideState: 1
     m_Value: {fileID: 0}
+    dimension: 1
   maskChannel:
     m_OverrideState: 1
+    m_Value: 0
+  GlobalPostProcessingSettings:
+    m_OverrideState: 0
     m_Value: 0
 --- !u!114 &11400000
 MonoBehaviour:
@@ -642,65 +577,48 @@ MonoBehaviour:
   m_Name: LimitlessGlitch1
   m_EditorClassIdentifier: 
   active: 0
-  m_AdvancedMode: 0
   enable:
     m_OverrideState: 1
     m_Value: 1
   x:
     m_OverrideState: 1
     m_Value: 127.1
-    min: -2
-    max: 200
   y:
     m_OverrideState: 1
     m_Value: 10002
-    min: -2
-    max: 10002
   z:
     m_OverrideState: 1
     m_Value: 200
-    min: -2
-    max: 200
   fade:
     m_OverrideState: 1
     m_Value: 1
-    min: 0
-    max: 1
   amount:
     m_OverrideState: 1
     m_Value: 1
-    min: 0
-    max: 2
   stretch:
     m_OverrideState: 1
     m_Value: 0.02
-    min: 0
-    max: 4
   speed:
     m_OverrideState: 1
     m_Value: 0.5
-    min: 0
-    max: 1
   rMultiplier:
     m_OverrideState: 1
     m_Value: 1
-    min: -1
-    max: 2
   gMultiplier:
     m_OverrideState: 1
     m_Value: 1
-    min: -1
-    max: 2
   bMultiplier:
     m_OverrideState: 1
     m_Value: 0
-    min: -1
-    max: 2
   mask:
     m_OverrideState: 1
     m_Value: {fileID: 0}
+    dimension: 1
   maskChannel:
     m_OverrideState: 1
+    m_Value: 0
+  GlobalPostProcessingSettings:
+    m_OverrideState: 0
     m_Value: 0
 --- !u!114 &849379129802519247
 MonoBehaviour:
@@ -714,11 +632,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97c23e3b12dc18c42a140437e53d3951, type: 3}
   m_Name: Tonemapping
   m_EditorClassIdentifier: 
-  active: 1
-  m_AdvancedMode: 0
+  active: 0
   mode:
     m_OverrideState: 1
     m_Value: 2
+  neutralHDRRangeReductionMode:
+    m_OverrideState: 0
+    m_Value: 2
+  acesPreset:
+    m_OverrideState: 0
+    m_Value: 3
+  hueShiftAmount:
+    m_OverrideState: 0
+    m_Value: 0
+  detectPaperWhite:
+    m_OverrideState: 0
+    m_Value: 0
+  paperWhite:
+    m_OverrideState: 0
+    m_Value: 300
+  detectBrightnessLimits:
+    m_OverrideState: 0
+    m_Value: 1
+  minNits:
+    m_OverrideState: 0
+    m_Value: 0.005
+  maxNits:
+    m_OverrideState: 0
+    m_Value: 1000
 --- !u!114 &1208112128858704601
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -732,7 +673,6 @@ MonoBehaviour:
   m_Name: Noise
   m_EditorClassIdentifier: 
   active: 0
-  m_AdvancedMode: 0
   enable:
     m_OverrideState: 1
     m_Value: 1
@@ -748,70 +688,54 @@ MonoBehaviour:
   GranularityAmount:
     m_OverrideState: 1
     m_Value: 0.5
-    min: 0
-    max: 0.5
   TapeNoise:
     m_OverrideState: 1
     m_Value: 0
   TapeNoiseSignalProcessing:
     m_OverrideState: 1
     m_Value: 1
-    min: 0
-    max: 15
   TapeNoiseFade:
     m_OverrideState: 1
     m_Value: 1
-    min: 0
-    max: 1.5
   TapeNoiseAmount:
     m_OverrideState: 1
     m_Value: 1
-    min: 0
-    max: 1.5
   tapeLinesAmount:
     m_OverrideState: 1
     m_Value: 0.8
-    min: 0
-    max: 1
   TapeNoiseSpeed:
     m_OverrideState: 1
     m_Value: 0.5
-    min: -1.5
-    max: 1.5
   LineNoise:
     m_OverrideState: 1
     m_Value: 0
   LineNoiseAmount:
     m_OverrideState: 1
     m_Value: 1
-    min: 0
-    max: 15
   LineNoiseSpeed:
     m_OverrideState: 1
     m_Value: 1
-    min: 0
-    max: 10
   SignalNoise:
     m_OverrideState: 1
     m_Value: 0
   SignalNoisePower:
     m_OverrideState: 1
     m_Value: 0.9
-    min: 0.5
-    max: 0.97
   SignalNoiseAmount:
     m_OverrideState: 1
     m_Value: 1
-    min: 0
-    max: 2
   mask:
     m_OverrideState: 1
     m_Value: {fileID: 0}
+    dimension: 1
   maskChannel:
     m_OverrideState: 1
     m_Value: 0
   unscaledTime:
     m_OverrideState: 1
+    m_Value: 0
+  GlobalPostProcessingSettings:
+    m_OverrideState: 0
     m_Value: 0
 --- !u!114 &2025733738757222379
 MonoBehaviour:
@@ -826,20 +750,18 @@ MonoBehaviour:
   m_Name: CinematicBars
   m_EditorClassIdentifier: 
   active: 0
-  m_AdvancedMode: 0
   enable:
     m_OverrideState: 1
     m_Value: 1
   amount:
     m_OverrideState: 1
-    m_Value: 0.141
-    min: 0.01
-    max: 0.51
+    m_Value: 0.01
   fade:
     m_OverrideState: 1
     m_Value: 1
-    min: 0
-    max: 1
+  GlobalPostProcessingSettings:
+    m_OverrideState: 0
+    m_Value: 0
 --- !u!114 &2207353258893622855
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -853,7 +775,6 @@ MonoBehaviour:
   m_Name: EdgeNoise
   m_EditorClassIdentifier: 
   active: 0
-  m_AdvancedMode: 0
   enable:
     m_OverrideState: 1
     m_Value: 1
@@ -872,19 +793,19 @@ MonoBehaviour:
   height:
     m_OverrideState: 1
     m_Value: 0.2
-    min: 0.01
-    max: 0.5
   tile:
     m_OverrideState: 1
     m_Value: {x: 1, y: 1}
   intencity:
     m_OverrideState: 1
     m_Value: 1.5
-    min: 0
-    max: 3
   noiseTexture:
     m_OverrideState: 1
     m_Value: {fileID: 0}
+    dimension: 1
+  GlobalPostProcessingSettings:
+    m_OverrideState: 0
+    m_Value: 0
 --- !u!114 &2325470989542712950
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -897,8 +818,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4388191585ea44bb892b7a3954c42607, type: 3}
   m_Name: Bleed
   m_EditorClassIdentifier: 
-  active: 0
-  m_AdvancedMode: 0
+  active: 1
   enable:
     m_OverrideState: 1
     m_Value: 1
@@ -907,15 +827,19 @@ MonoBehaviour:
     m_Value: 2
   bleedAmount:
     m_OverrideState: 1
-    m_Value: 3.3
+    m_Value: 1.8
   bleedDebug:
     m_OverrideState: 1
     m_Value: 0
   mask:
     m_OverrideState: 1
-    m_Value: {fileID: 0}
+    m_Value: {fileID: 2800000, guid: c171d861cb5bf75408826b8f346946bb, type: 3}
+    dimension: 1
   maskChannel:
     m_OverrideState: 1
+    m_Value: 0
+  GlobalPostProcessingSettings:
+    m_OverrideState: 0
     m_Value: 0
   bleedModeIndex: 0
 --- !u!114 &2828230656998502661
@@ -931,20 +855,18 @@ MonoBehaviour:
   m_Name: VHSTapeRewind
   m_EditorClassIdentifier: 
   active: 0
-  m_AdvancedMode: 0
   enable:
     m_OverrideState: 1
     m_Value: 1
   intencity:
     m_OverrideState: 1
-    m_Value: 0.17
-    min: 0
-    max: 5
+    m_Value: 2.66
   fade:
     m_OverrideState: 1
-    m_Value: 1
-    min: 0
-    max: 1
+    m_Value: 0.408
+  GlobalPostProcessingSettings:
+    m_OverrideState: 0
+    m_Value: 0
 --- !u!114 &3094509235977450614
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -957,30 +879,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 052aaf852ee28b0478400254d6c5386b, type: 3}
   m_Name: Warp
   m_EditorClassIdentifier: 
-  active: 0
-  m_AdvancedMode: 0
+  active: 1
   enable:
     m_OverrideState: 1
     m_Value: 1
   fade:
     m_OverrideState: 1
     m_Value: 1
-    min: 0
-    max: 1
   warpMode:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 1
   warp:
     m_OverrideState: 1
-    m_Value: {x: 0.03125, y: 0.04166}
+    m_Value: {x: 0.1, y: 0.1}
   scale:
     m_OverrideState: 1
     m_Value: 1
   mask:
     m_OverrideState: 1
     m_Value: {fileID: 0}
+    dimension: 1
   maskChannel:
     m_OverrideState: 1
+    m_Value: 0
+  GlobalPostProcessingSettings:
+    m_OverrideState: 0
     m_Value: 0
 --- !u!114 &3309385007517060824
 MonoBehaviour:
@@ -1022,7 +945,6 @@ MonoBehaviour:
   m_Name: AnalogTVNoise
   m_EditorClassIdentifier: 
   active: 0
-  m_AdvancedMode: 0
   enable:
     m_OverrideState: 1
     m_Value: 1
@@ -1035,44 +957,37 @@ MonoBehaviour:
   Fade:
     m_OverrideState: 1
     m_Value: 1
-    min: 0
-    max: 1
   barWidth:
     m_OverrideState: 1
     m_Value: 13.5
-    min: 0
-    max: 60
   tile:
     m_OverrideState: 1
     m_Value: {x: 1, y: 1}
   textureAngle:
     m_OverrideState: 1
     m_Value: 0
-    min: 0
-    max: 1
   edgeCutOff:
     m_OverrideState: 1
     m_Value: 61.9
-    min: 0
-    max: 100
   CutOff:
     m_OverrideState: 1
     m_Value: 0.5
-    min: -1
-    max: 1
   barSpeed:
     m_OverrideState: 1
     m_Value: 15.2
-    min: -60
-    max: 60
   texture:
     m_OverrideState: 1
     m_Value: {fileID: 2800000, guid: 89463daf9bb07dd4892e8c7c0ad6b3e6, type: 3}
+    dimension: 1
   mask:
     m_OverrideState: 1
     m_Value: {fileID: 0}
+    dimension: 1
   maskChannel:
     m_OverrideState: 1
+    m_Value: 0
+  GlobalPostProcessingSettings:
+    m_OverrideState: 0
     m_Value: 0
 --- !u!114 &3761358239779754692
 MonoBehaviour:
@@ -1087,7 +1002,6 @@ MonoBehaviour:
   m_Name: EdgeStretch
   m_EditorClassIdentifier: 
   active: 0
-  m_AdvancedMode: 0
   enable:
     m_OverrideState: 1
     m_Value: 1
@@ -1106,29 +1020,24 @@ MonoBehaviour:
   height:
     m_OverrideState: 1
     m_Value: 0.2
-    min: 0.01
-    max: 0.5
   distort:
     m_OverrideState: 1
     m_Value: 1
   frequency:
     m_OverrideState: 1
     m_Value: 0.2
-    min: 0.1
-    max: 100
   amplitude:
     m_OverrideState: 1
     m_Value: 0.2
-    min: 0
-    max: 0.5
   speed:
     m_OverrideState: 1
     m_Value: 0.2
-    min: 0
-    max: 50
   distortRandomly:
     m_OverrideState: 1
     m_Value: 1
+  GlobalPostProcessingSettings:
+    m_OverrideState: 0
+    m_Value: 0
 --- !u!114 &5115091096641811683
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -1169,21 +1078,22 @@ MonoBehaviour:
   m_Name: CustomTexture
   m_EditorClassIdentifier: 
   active: 0
-  m_AdvancedMode: 0
   enable:
     m_OverrideState: 1
     m_Value: 0
   texture:
     m_OverrideState: 1
     m_Value: {fileID: 0}
+    dimension: 1
   alpha:
     m_OverrideState: 1
     m_Value: 1
   fade:
     m_OverrideState: 1
     m_Value: 1
-    min: 0
-    max: 1
+  GlobalPostProcessingSettings:
+    m_OverrideState: 0
+    m_Value: 0
 --- !u!114 &5703169564082890296
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -1197,30 +1107,27 @@ MonoBehaviour:
   m_Name: NTSCEncode
   m_EditorClassIdentifier: 
   active: 0
-  m_AdvancedMode: 0
   enable:
     m_OverrideState: 1
     m_Value: 1
   blur:
     m_OverrideState: 1
     m_Value: 0.83
-    min: 0.01
-    max: 2
   brigtness:
     m_OverrideState: 1
     m_Value: 3
-    min: 1
-    max: 40
   lineSpeed:
     m_OverrideState: 1
     m_Value: 0.01
-    min: 0
-    max: 10
   mask:
     m_OverrideState: 1
     m_Value: {fileID: 0}
+    dimension: 1
   maskChannel:
     m_OverrideState: 1
+    m_Value: 0
+  GlobalPostProcessingSettings:
+    m_OverrideState: 0
     m_Value: 0
 --- !u!114 &5835623100843779029
 MonoBehaviour:
@@ -1235,7 +1142,6 @@ MonoBehaviour:
   m_Name: Fisheye
   m_EditorClassIdentifier: 
   active: 0
-  m_AdvancedMode: 0
   enable:
     m_OverrideState: 1
     m_Value: 1
@@ -1245,33 +1151,24 @@ MonoBehaviour:
   bend:
     m_OverrideState: 1
     m_Value: 1
-    min: 0
-    max: 50
   cutOffX:
     m_OverrideState: 1
     m_Value: 0.5
-    min: 0
-    max: 50
   cutOffY:
     m_OverrideState: 1
     m_Value: 0.5
-    min: 0
-    max: 50
   fadeX:
     m_OverrideState: 1
     m_Value: 1
-    min: 0
-    max: 50
   fadeY:
     m_OverrideState: 1
     m_Value: 1
-    min: 0
-    max: 50
   size:
     m_OverrideState: 1
     m_Value: 1
-    min: 0.001
-    max: 50
+  GlobalPostProcessingSettings:
+    m_OverrideState: 0
+    m_Value: 0
 --- !u!114 &5934432244867781257
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -1285,7 +1182,6 @@ MonoBehaviour:
   m_Name: Jitter
   m_EditorClassIdentifier: 
   active: 0
-  m_AdvancedMode: 0
   enable:
     m_OverrideState: 1
     m_Value: 1
@@ -1295,16 +1191,12 @@ MonoBehaviour:
   horizontalFreq:
     m_OverrideState: 1
     m_Value: 1
-    min: 0
-    max: 5
   twitchVertical:
     m_OverrideState: 1
     m_Value: 1
   verticalFreq:
     m_OverrideState: 1
     m_Value: 1
-    min: 0
-    max: 5
   stretch:
     m_OverrideState: 1
     m_Value: 0
@@ -1317,29 +1209,27 @@ MonoBehaviour:
   jitterHorizontalAmount:
     m_OverrideState: 1
     m_Value: 1
-    min: 0
-    max: 5
   jitterVertical:
     m_OverrideState: 1
     m_Value: 0
   jitterVerticalAmount:
     m_OverrideState: 1
     m_Value: 1
-    min: 0
-    max: 15
   jitterVerticalSpeed:
     m_OverrideState: 1
     m_Value: 1
-    min: 0
-    max: 15
   unscaledTime:
     m_OverrideState: 1
     m_Value: 0
   mask:
     m_OverrideState: 1
     m_Value: {fileID: 0}
+    dimension: 1
   maskChannel:
     m_OverrideState: 1
+    m_Value: 0
+  GlobalPostProcessingSettings:
+    m_OverrideState: 0
     m_Value: 0
 --- !u!114 &7439206159815011311
 MonoBehaviour:
@@ -1354,7 +1244,6 @@ MonoBehaviour:
   m_Name: ColormapPalette
   m_EditorClassIdentifier: 
   active: 0
-  m_AdvancedMode: 0
   enable:
     m_OverrideState: 1
     m_Value: 1
@@ -1364,13 +1253,9 @@ MonoBehaviour:
   opacity:
     m_OverrideState: 1
     m_Value: 1
-    min: 0
-    max: 1
   dither:
     m_OverrideState: 1
     m_Value: 1
-    min: 0
-    max: 1
   presetsList:
     m_OverrideState: 1
     m_Value: {fileID: 11400000, guid: dd7382c28c09da7428be888044bba323, type: 2}
@@ -1380,11 +1265,16 @@ MonoBehaviour:
   bluenoise:
     m_OverrideState: 1
     m_Value: {fileID: 0}
+    dimension: 1
   mask:
     m_OverrideState: 1
     m_Value: {fileID: 0}
+    dimension: 1
   maskChannel:
     m_OverrideState: 1
+    m_Value: 0
+  GlobalPostProcessingSettings:
+    m_OverrideState: 0
     m_Value: 0
 --- !u!114 &8071800964735744413
 MonoBehaviour:
@@ -1399,50 +1289,39 @@ MonoBehaviour:
   m_Name: CRTAperture
   m_EditorClassIdentifier: 
   active: 0
-  m_AdvancedMode: 0
   enable:
     m_OverrideState: 1
     m_Value: 1
   GlowHalation:
     m_OverrideState: 1
     m_Value: 4.27
-    min: 0
-    max: 5
   GlowDifusion:
     m_OverrideState: 1
     m_Value: 0.83
-    min: 0
-    max: 2
   MaskColors:
     m_OverrideState: 1
     m_Value: 0.57
-    min: 0
-    max: 5
   MaskStrength:
     m_OverrideState: 1
     m_Value: 0.318
-    min: 0
-    max: 1
   GammaInput:
     m_OverrideState: 1
     m_Value: 1.12
-    min: 0
-    max: 5
   GammaOutput:
     m_OverrideState: 1
     m_Value: 0.89
-    min: 0
-    max: 5
   Brightness:
     m_OverrideState: 1
     m_Value: 0.85
-    min: 0
-    max: 2.5
   mask:
     m_OverrideState: 1
     m_Value: {fileID: 0}
+    dimension: 1
   maskChannel:
     m_OverrideState: 1
+    m_Value: 0
+  GlobalPostProcessingSettings:
+    m_OverrideState: 0
     m_Value: 0
 --- !u!114 &8573861507801500872
 MonoBehaviour:
@@ -1483,16 +1362,12 @@ MonoBehaviour:
   m_Name: VHSScanlines
   m_EditorClassIdentifier: 
   active: 0
-  m_AdvancedMode: 0
   enable:
     m_OverrideState: 1
     m_Value: 1
   scanLinesColor:
     m_OverrideState: 1
     m_Value: {r: 0, g: 0, b: 0, a: 0}
-    hdr: 0
-    showAlpha: 1
-    showEyeDropper: 1
   scanLines:
     m_OverrideState: 1
     m_Value: 1.5
@@ -1502,16 +1377,12 @@ MonoBehaviour:
   fade:
     m_OverrideState: 1
     m_Value: 1
-    min: 0
-    max: 1
   horizontal:
     m_OverrideState: 1
     m_Value: 1
   distortion:
     m_OverrideState: 1
     m_Value: 0.2
-    min: 0
-    max: 0.5
   distortion1:
     m_OverrideState: 1
     m_Value: 0
@@ -1524,8 +1395,12 @@ MonoBehaviour:
   mask:
     m_OverrideState: 1
     m_Value: {fileID: 0}
+    dimension: 1
   maskChannel:
     m_OverrideState: 1
+    m_Value: 0
+  GlobalPostProcessingSettings:
+    m_OverrideState: 0
     m_Value: 0
 --- !u!114 &9109080537626990042
 MonoBehaviour:
@@ -1540,7 +1415,6 @@ MonoBehaviour:
   m_Name: UltimateVignette
   m_EditorClassIdentifier: 
   active: 0
-  m_AdvancedMode: 0
   enable:
     m_OverrideState: 1
     m_Value: 1
@@ -1552,32 +1426,22 @@ MonoBehaviour:
     m_Value: {x: 0.5, y: 0.5}
   vignetteAmount:
     m_OverrideState: 1
-    m_Value: 50
-    min: 0
-    max: 100
+    m_Value: 0
   vignetteFineTune:
     m_OverrideState: 1
     m_Value: -10
-    min: -100
-    max: -10
   edgeSoftness:
     m_OverrideState: 1
     m_Value: 1.5
-    min: 0
-    max: 100
   edgeBlend:
     m_OverrideState: 1
     m_Value: 0
-    min: 0
-    max: 200
   innerColorAlpha:
     m_OverrideState: 1
     m_Value: 0
-    min: 0
-    max: 200
   innerColor:
     m_OverrideState: 1
     m_Value: {r: 0, g: 0, b: 0, a: 0}
-    hdr: 0
-    showAlpha: 1
-    showEyeDropper: 1
+  GlobalPostProcessingSettings:
+    m_OverrideState: 0
+    m_Value: 0
