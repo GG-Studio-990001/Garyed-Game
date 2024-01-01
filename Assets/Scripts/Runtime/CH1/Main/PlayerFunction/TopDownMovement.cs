@@ -1,8 +1,9 @@
+using Runtime.Interface;
 using UnityEngine;
 
 namespace Runtime.CH1.Main
 {
-    public class TopDownMovement
+    public class TopDownMovement : IMovement
     {
         public Vector2 Direction => _previousMovementInput;
         

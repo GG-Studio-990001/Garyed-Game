@@ -56,7 +56,7 @@ namespace Tests.Runtime
         public IEnumerator TestPlayerAnimation()
         {
             Animator animator = _playerObject.GetComponent<Animator>();
-            _animation.SetMovementAnimation(PlayerState.Move,new Vector2(1f, 0f)); 
+            _animation.SetAnimation(nameof(PlayerState.Move),new Vector2(1f, 0f)); 
             
             bool isMoving = animator.GetBool("IsMoving");
             

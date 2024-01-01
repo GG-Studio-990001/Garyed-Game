@@ -1,9 +1,11 @@
 using Runtime.ETC;
+using Runtime.Interface;
+using System;
 using UnityEngine;
 
 namespace Runtime.CH1.Main.PlayerFunction
 {
-    public class TopDownAnimation
+    public class TopDownAnimation : IAnimation
     {
         private readonly Animator _animator;
         private readonly float _animationSpeed;
@@ -20,25 +22,25 @@ namespace Runtime.CH1.Main.PlayerFunction
             _animator = animator;
             _animator.speed = _animationSpeed = animationSpeed;
         }
-        
-        public void SetMovementAnimation(PlayerState state, Vector2 movementInput)
+
+        public void SetAnimation(string stateName, Vector2 direction = default)
         {
-            switch (state)
+            switch (stateName)
             {
-                case PlayerState.Idle:
+                case nameof(PlayerState.Idle):
                     _animator.SetBool(Moving, false);
                     break;
-                case PlayerState.Move:
+                case nameof(PlayerState.Move):
                     _animator.SetBool(Moving, true);
-                    _animator.SetFloat(Horizontal1, movementInput.x);
-                    _animator.SetFloat(Vertical1, movementInput.y);
+                    _animator.SetFloat(Horizontal1, direction.x);
+                    _animator.SetFloat(Vertical1, direction.y);
                     break;
-                case PlayerState.Interact:
+                case nameof(PlayerState.Interact):
                     // TODO 애니메이션 추가
                     break;
                 default:
                     //Debug.LogError("Invalid PlayerState");
-                    break;
+                    break;  
             }
         }
     }

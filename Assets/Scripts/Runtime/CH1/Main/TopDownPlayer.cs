@@ -1,5 +1,6 @@
 using Runtime.CH1.Main.PlayerFunction;
 using Runtime.ETC;
+using Runtime.Interface;
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -15,8 +16,8 @@ namespace Runtime.CH1.Main
         
         private PlayerState _state = PlayerState.Idle;
         private Vector2 _movementInput;
-        private TopDownMovement _movement;
-        private TopDownAnimation _animation;
+        private IMovement _movement;
+        private IAnimation _animation;
         private TopDownInteraction _interaction;
         private GameOverControls _gameOverControls;
 
@@ -35,7 +36,7 @@ namespace Runtime.CH1.Main
         
         private void Update()
         {
-            _animation.SetMovementAnimation(_state, _movementInput);
+            _animation.SetAnimation(_state.ToString(), _movementInput);
         }
 
         private void FixedUpdate()
