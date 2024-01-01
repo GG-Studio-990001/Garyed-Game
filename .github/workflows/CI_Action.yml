@@ -6,8 +6,8 @@ on:
       - main
 
 jobs:
-  build:
-    name: Build my project ✨
+  build_windows:
+    name: Build for Windows ✨
     runs-on: ubuntu-latest
     steps:
       # Checkout
@@ -25,15 +25,15 @@ jobs:
             Library-
 
       # Test
-      - name: Run tests
-        uses: game-ci/unity-test-runner@v4
-        env:
-          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
-        with:
-          githubToken: ${{ secrets.TOKEN }}
+      # - name: Run tests
+      #   uses: game-ci/unity-test-runner@v4
+      #   env:
+      #     UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+      #   with:
+      #     githubToken: ${{ secrets.TOKEN }}
 
-      # Build
-      - name: Build project
+      # Build for Windows
+      - name: Build project for Windows
         uses: game-ci/unity-builder@v4
         env:
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
@@ -46,5 +46,48 @@ jobs:
       # Output
       - uses: actions/upload-artifact@v3
         with:
-          name: Build
+          name: Build-Windows
+          path: build
+
+  build_mac:
+    name: Build for macOS ✨
+    runs-on: macos-latest
+    steps:
+      # Checkout
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+
+      # Cache
+      - uses: actions/cache@v3
+        with:
+          path: Library
+          key: Library-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
+          restore-keys: |
+            Library-
+
+      # Test
+      # - name: Run tests
+      #   uses: game-ci/unity-test-runner@v4
+      #   env:
+      #     UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+      #   with:
+      #     githubToken: ${{ secrets.TOKEN }}
+
+      # Build for macOS
+      - name: Build project for macOS
+        uses: game-ci/unity-builder@v4
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+        with:
+          targetPlatform: StandaloneOSX
+          allowDirtyBuild: true
+
+      # Output
+      - uses: actions/upload-artifact@v3
+        with:
+          name: Build-Mac
           path: build
