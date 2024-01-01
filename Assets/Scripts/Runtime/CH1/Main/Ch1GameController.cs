@@ -12,6 +12,8 @@ namespace Runtime.CH1.Main
 
         public GameOverControls GameOverControls { get; private set; }
 
+        private bool _isDialogue = false;
+        
         private void Awake()
         {
             InitGame();
@@ -55,11 +57,13 @@ namespace Runtime.CH1.Main
 
         public void OnDialogueStart()
         {
+            _isDialogue = true;
             GameOverControls.Player.Disable();
         }
         
         public void OnDialogueEnd()
         {
+            _isDialogue = false;
             GameOverControls.Player.Enable();
         }
         
@@ -70,6 +74,9 @@ namespace Runtime.CH1.Main
         
         public void OnGameSettingEnd()
         {
+            if (_isDialogue)
+                return;
+            
             GameOverControls.Player.Enable();
         }
 
