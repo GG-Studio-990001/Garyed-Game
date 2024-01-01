@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2081702033146873813}
   - component: {fileID: 4527797774585538573}
   - component: {fileID: 3574937375222415443}
+  - component: {fileID: 3382217473518206888}
   m_Layer: 15
   m_Name: NPC
   m_TagString: Untagged
@@ -76,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: -1582754681
   m_SortingLayer: 2
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: 25a26771a705fab46bc051f2efb1228f, type: 3}
+  m_Sprite: {fileID: 2040666970, guid: 5a808da22bb365349a60e4a2dc8cc14a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -148,3 +149,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   talkToNode: NPC1
   dialogueRunner: {fileID: 0}
+--- !u!95 &3382217473518206888
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5951096901849008547}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
