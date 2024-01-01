@@ -4,7 +4,9 @@ using Runtime.CH1.Main.PlayerFunction;
 using Runtime.ETC;
 using Runtime.Interface;
 using System.Collections;
+using UnityEditor.Animations;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 using UnityEngine.TestTools;
 
 namespace Tests.Runtime
@@ -24,8 +26,7 @@ namespace Tests.Runtime
             _playerObject = new GameObject("Player");
             Animator animator = _playerObject.AddComponent<Animator>();
             
-            // TODO 에섯 변경되는대로 수정
-            animator.runtimeAnimatorController = Resources.Load("Sample/Player") as RuntimeAnimatorController;
+            animator.runtimeAnimatorController = Addressables.LoadAssetAsync<AnimatorController>("Assets/Art/Animation/CH1/Rapley/Player.controller").WaitForCompletion();
             if (animator.runtimeAnimatorController == null)
             {
                 Debug.LogError("Animator Controller is null");

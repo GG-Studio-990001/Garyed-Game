@@ -22,7 +22,7 @@ namespace Runtime.CH1.Main.PlayerFunction
             _animator.speed = _animationSpeed = animationSpeed;
         }
 
-        public void SetAnimation(string stateName, Vector2 direction = default)
+        public bool SetAnimation(string stateName, Vector2 direction = default)
         {
             switch (stateName)
             {
@@ -39,8 +39,11 @@ namespace Runtime.CH1.Main.PlayerFunction
                     break;
                 default:
                     //Debug.LogError("Invalid PlayerState");
+                    return false;
                     break;  
             }
+
+            return true;
         }
     }
 }
