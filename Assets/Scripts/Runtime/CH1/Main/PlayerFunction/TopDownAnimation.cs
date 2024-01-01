@@ -38,11 +38,9 @@ namespace Runtime.CH1.Main.PlayerFunction
                     // TODO 애니메이션 추가
                     break;
                 default:
-                    //Debug.LogError("Invalid PlayerState");
+                    Debug.LogError("Invalid PlayerState");
                     return false;
-                    break;  
             }
-
             return true;
         }
     }
