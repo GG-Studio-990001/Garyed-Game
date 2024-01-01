@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b92e3963-3ac6-4419-ae77-cd6c1cffc83d" name="Changes" comment="" />
+    <list default="true" id="b92e3963-3ac6-4419-ae77-cd6c1cffc83d" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/PlayerFollowCamera.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/PlayerFollowCamera.cs.meta" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -152,7 +155,7 @@
       <workItem from="1701623083969" duration="133000" />
       <workItem from="1701972802133" duration="1807000" />
       <workItem from="1702295898460" duration="153000" />
-      <workItem from="1704095948827" duration="6764000" />
+      <workItem from="1704095948827" duration="7114000" />
     </task>
     <servers />
   </component>
