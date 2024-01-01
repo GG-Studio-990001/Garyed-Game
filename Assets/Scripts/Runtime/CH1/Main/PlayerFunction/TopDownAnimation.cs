@@ -1,6 +1,5 @@
 using Runtime.ETC;
 using Runtime.Interface;
-using System;
 using UnityEngine;
 
 namespace Runtime.CH1.Main.PlayerFunction

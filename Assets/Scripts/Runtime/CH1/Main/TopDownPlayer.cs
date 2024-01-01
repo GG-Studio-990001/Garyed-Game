@@ -14,11 +14,13 @@ namespace Runtime.CH1.Main
         [SerializeField] private float moveSpeed = 5.0f;
         [SerializeField] private float animSpeed = 0.5f;
         
-        private PlayerState _state = PlayerState.Idle;
-        private Vector2 _movementInput;
         private IMovement _movement;
         private IAnimation _animation;
-        private TopDownInteraction _interaction;
+        private IInteraction _interaction;
+        
+        private PlayerState _state = PlayerState.Idle;
+        private Vector2 _movementInput;
+        
         private GameOverControls _gameOverControls;
 
         private void Start()
@@ -44,13 +46,13 @@ namespace Runtime.CH1.Main
             bool isMove = _movement.Move(_movementInput);
             _state = isMove ? PlayerState.Move : PlayerState.Idle;
         }
-
-        private void OnMove(InputAction.CallbackContext context) => _movementInput = context.ReadValue<Vector2>();
-
+        
         private void OnInteraction()
         {
             bool isInteract = _interaction.Interact(_movement.Direction);
             _state = isInteract ? PlayerState.Interact : PlayerState.Idle;
         }
+        
+        private void OnMove(InputAction.CallbackContext context) => _movementInput = context.ReadValue<Vector2>();
     }
 }

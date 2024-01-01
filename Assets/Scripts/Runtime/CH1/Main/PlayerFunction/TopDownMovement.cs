@@ -1,7 +1,7 @@
 using Runtime.Interface;
 using UnityEngine;
 
-namespace Runtime.CH1.Main
+namespace Runtime.CH1.Main.PlayerFunction
 {
     public class TopDownMovement : IMovement
     {
