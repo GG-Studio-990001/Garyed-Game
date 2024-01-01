@@ -2,60 +2,33 @@ using UnityEngine;
 
 namespace Runtime.CH1.Main
 {
-    public class Ch1GameSystem : MonoBehaviour
+    public class Ch1GameController : MonoBehaviour
     {
+        [Header("Player")]
+        [SerializeField] private TopDownPlayer topDownPlayer; // Inspector에서 Player를 넣어줘야함 or Find로 찾아서 넣어줘야함
+        [Header("System")]
         [SerializeField] private GameObject gameSettingUI;
         [SerializeField] private SoundSystem soundSystem;
 
         public GameOverControls GameOverControls { get; private set; }
 
-        #region Singleton
-
-        private static Ch1GameSystem _instance = null;
+        private bool _isDialogue = false;
         
-        public static Ch1GameSystem Instance
-        {
-            get
-            {
-                if (_instance == null)
-                {
-                    _instance = FindObjectOfType(typeof(Ch1GameSystem)) as Ch1GameSystem;
-                    if (_instance == null)
-                    {
-                        Debug.LogError("There's no active Ch1GameSystem object");
-                    }
-                }
-                return _instance;
-            }
-        }
-
         private void Awake()
         {
-            if (Instance == null)
-            {
-                _instance = this;
-            }
-            else if (Instance != this)
-            {
-                Destroy(this.gameObject);
-            }
-
             InitGame();
         }
-
-        #endregion
         
         private void InitGame()
         {
             GameOverControls = new GameOverControls();
             
             SetAllUIActiveFalse();
-
-            soundSystem.PlayMusic("Start");
-                
-            GameOverControls.Enable();
+            SetMusic("Start");
+            SetKeyBinding();
             
-            GameOverControls.UI.GameSetting.performed += ctx => OnGameSetting();
+            // DI
+            topDownPlayer.Ch1GameSystem = this;
         }
         
         private void SetAllUIActiveFalse()
@@ -63,18 +36,34 @@ namespace Runtime.CH1.Main
             gameSettingUI.SetActive(false);
         }
         
+        private void SetMusic(string soundName)
+        {
+            soundSystem.StopMusic();
+            soundSystem.PlayMusic(soundName);
+        }
+        
+        private void SetKeyBinding()
+        {
+            GameOverControls.Enable();
+            GameOverControls.UI.GameSetting.performed += ctx => OnGameSetting();
+        }
+        
         private void OnGameSetting()
         {
             gameSettingUI.SetActive(gameSettingUI.activeSelf == false);
         }
         
+        #region Unity Event
+
         public void OnDialogueStart()
         {
+            _isDialogue = true;
             GameOverControls.Player.Disable();
         }
         
         public void OnDialogueEnd()
         {
+            _isDialogue = false;
             GameOverControls.Player.Enable();
         }
         
@@ -85,7 +74,12 @@ namespace Runtime.CH1.Main
         
         public void OnGameSettingEnd()
         {
+            if (_isDialogue)
+                return;
+            
             GameOverControls.Player.Enable();
         }
+
+        #endregion
     }
 }

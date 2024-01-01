@@ -1,9 +1,10 @@
 using Runtime.CH1.Main.Interface;
+using Runtime.Interface;
 using UnityEngine;
 
 namespace Runtime.CH1.Main.PlayerFunction
 {
-    public class TopDownInteraction
+    public class TopDownInteraction : IInteraction
     {
         private readonly Transform _transform;
         private readonly int _interactionLayerMask;
