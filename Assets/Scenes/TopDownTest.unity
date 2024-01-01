@@ -2359,9 +2359,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4325e03f18749c4bb4f8ca608506893, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicVolumeSlider: {fileID: 635836752}
-  sfxVolumeSlider: {fileID: 1873896446}
-  exitButton: {fileID: 148265630}
+  <MusicVolumeSlider>k__BackingField: {fileID: 635836752}
+  <SfxVolumeSlider>k__BackingField: {fileID: 1873896446}
+  <ExitButton>k__BackingField: {fileID: 148265630}
   onSettingUiEnable:
     m_PersistentCalls:
       m_Calls:
