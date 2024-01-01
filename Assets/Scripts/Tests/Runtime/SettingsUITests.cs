@@ -22,6 +22,7 @@ namespace Tests.Runtime
         
         private Slider _musicVolumeSlider;
         private Slider _sfxVolumeSlider;
+        private Button _exitButton;
         
         [UnitySetUp]
         public IEnumerator SetUp()
@@ -36,10 +37,13 @@ namespace Tests.Runtime
             _view = _gameObject.AddComponent<SettingsUIView>();
 
             _musicVolumeSlider = new GameObject("MusicVolumeSlider").AddComponent<Slider>();
-            _view.SetMusicSlider(_musicVolumeSlider);
+            _view.MusicVolumeSlider = _musicVolumeSlider;
             
             _sfxVolumeSlider = new GameObject("SfxVolumeSlider").AddComponent<Slider>();
-            _view.SetSfxSlider(_sfxVolumeSlider);
+            _view.SfxVolumeSlider = _sfxVolumeSlider;
+            
+            _exitButton = new GameObject("ExitButton").AddComponent<Button>();
+            _view.ExitButton = _exitButton;
             
             _model = ScriptableObject.CreateInstance<SettingsData>();
             _presenter = new SettingsUIPresenter(_view, _model);
@@ -83,7 +87,7 @@ namespace Tests.Runtime
         [UnityTest]
         public IEnumerator WhenSfxVolumeChangesModelIsUpdated()
         {
-            _musicVolumeSlider.value = 0.3f;
+            _sfxVolumeSlider.value = 0.3f;
             
             yield return new WaitForFixedUpdate();
             
@@ -96,6 +100,10 @@ namespace Tests.Runtime
             Object.DestroyImmediate(_gameObject);
             Object.DestroyImmediate(_backgroundAudioSource);
             Object.DestroyImmediate(_effectAudioSource);
+            Object.DestroyImmediate(_model);
+            Object.DestroyImmediate(_musicVolumeSlider);
+            Object.DestroyImmediate(_sfxVolumeSlider);
+            Object.DestroyImmediate(_exitButton);
             
             yield return new WaitForFixedUpdate();
         }

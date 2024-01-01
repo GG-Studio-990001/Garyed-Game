@@ -21,8 +21,8 @@ namespace Runtime.Common.Presentation
             _settingsUIView = settingsUIView;
             _settingsData = settingsData;
             
-            _settingsUIView.OnMusicSliderValueChanged(SetMusicVolume);
-            _settingsUIView.OnSfxSliderValueChanged(SetSfxVolume);
+            _settingsUIView.MusicVolumeSlider.onValueChanged.AddListener(SetMusicVolume);
+            _settingsUIView.SfxVolumeSlider.onValueChanged.AddListener(SetSfxVolume);
             
             _backgroundAudioSource = GameObject.Find(_backgroundAudioSourceName).GetComponent<AudioSource>();
             _effectAudioSource = GameObject.Find(_effectAudioSourceName).GetComponent<AudioSource>();
@@ -40,13 +40,13 @@ namespace Runtime.Common.Presentation
             SetMusicVolume(_settingsData.MusicVolume);
             SetSfxVolume(_settingsData.SfxVolume);
             
-            _settingsUIView.OnExitButtonClicked(OnExitButtonClicked);
+            _settingsUIView.ExitButton.onClick.AddListener(OnExitButtonClicked);
         }
         
         private void SetMusicVolume(float volume)
         {
             _settingsData.MusicVolume = volume;
-            _settingsUIView.SetViewMusicVolume(_settingsData.MusicVolume);
+            _settingsUIView.MusicVolumeSlider.value = _settingsData.MusicVolume;
             
             _backgroundAudioSource.volume = _settingsData.MusicVolume;
         }
@@ -54,7 +54,7 @@ namespace Runtime.Common.Presentation
         private void SetSfxVolume(float volume)
         {
             _settingsData.SfxVolume = volume;
-            _settingsUIView.SetViewSfxVolume(_settingsData.SfxVolume);
+            _settingsUIView.SfxVolumeSlider.value = _settingsData.SfxVolume;
             
             _effectAudioSource.volume = _settingsData.SfxVolume;
         }

@@ -1003,6 +1003,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cabcfa5afb24b5ebc2fa597483a7647, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  topDownPlayer: {fileID: 212840502}
   gameSettingUI: {fileID: 968282207}
   soundSystem: {fileID: 406612488}
 --- !u!1 &338986452
@@ -2315,9 +2316,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4325e03f18749c4bb4f8ca608506893, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicVolumeSlider: {fileID: 635836752}
-  sfxVolumeSlider: {fileID: 1873896446}
-  exitButton: {fileID: 148265630}
+  <MusicVolumeSlider>k__BackingField: {fileID: 635836752}
+  <SfxVolumeSlider>k__BackingField: {fileID: 1873896446}
+  <ExitButton>k__BackingField: {fileID: 148265630}
   onSettingUiEnable:
     m_PersistentCalls:
       m_Calls:
@@ -7758,7 +7759,7 @@ SceneRoots:
   - {fileID: 342591944}
   - {fileID: 1311836792}
   - {fileID: 1267319288}
-  - {fileID: 338986455}
   - {fileID: 326335555}
+  - {fileID: 338986455}
   - {fileID: 3183266952127558731}
   - {fileID: 8220485020268374112}
