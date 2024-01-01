@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b92e3963-3ac6-4419-ae77-cd6c1cffc83d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GameOver/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GameOver/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TopDownTest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TopDownTest.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Common/Presentation/SettingsUIPresenter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Common/Presentation/SettingsUIPresenter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/Common/View/SettingsUIView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/Common/View/SettingsUIView.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tests/Runtime/SettingsUITests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tests/Runtime/SettingsUITests.cs" afterDir="false" />
-    </list>
+    <list default="true" id="b92e3963-3ac6-4419-ae77-cd6c1cffc83d" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -62,7 +56,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "Refactor-MainSystem",
+    "git-widget-placeholder": "174-all-feat-camera",
     "ignore.virus.scanning.warn.message": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -158,7 +152,7 @@
       <workItem from="1701623083969" duration="133000" />
       <workItem from="1701972802133" duration="1807000" />
       <workItem from="1702295898460" duration="153000" />
-      <workItem from="1704095948827" duration="5984000" />
+      <workItem from="1704095948827" duration="6764000" />
     </task>
     <servers />
   </component>
