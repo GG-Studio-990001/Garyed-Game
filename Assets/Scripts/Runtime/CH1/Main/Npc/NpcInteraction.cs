@@ -1,6 +1,4 @@
 using Runtime.CH1.Main.Interface;
-using Runtime.Common.Presentation;
-using System;
 using UnityEngine;
 using Yarn.Unity;
 
