@@ -2,6 +2,7 @@ using NUnit.Framework;
 using Runtime.CH1.Main;
 using Runtime.CH1.Main.PlayerFunction;
 using Runtime.ETC;
+using Runtime.Interface;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.TestTools;
@@ -13,9 +14,9 @@ namespace Tests.Runtime
     {
         private GameObject _playerObject;
         private TopDownPlayer _player;
-        private TopDownMovement _movement;
-        private TopDownAnimation _animation;
-        private TopDownInteraction _interaction;
+        private IMovement _movement;
+        private IAnimation _animation;
+        private IInteraction _interaction;
         
         [UnitySetUp]
         public IEnumerator Setup()
