@@ -1,0 +1,109 @@
+Retro Look Pro v2.9.4 Manual. 
+
+
+THANK YOU
+
+Thank you for purchasing Retro Look Pro - you've made my day! Take your time to play with it, but
+please take a moment, when you're ready to return to store and add a short Review or rating on
+the product page - taking just a couple of minutes to help with this will be greatly appreciated!
+Your review will help others make informed decisions and help to support me in the development! "https://assetstore.unity.com/packages/slug/133193"
+
+///
+[Intro]
+
+Retro Look Pro is a Post-processing effect. It emulates screen bleeding , artefacts , noise , interlacing, shake, glitches and other effects.
+It is the best and complete solution for retro like games and apps, 80's/90's/Retro/VHS/Glitch/TV look, security cameras.
+///
+
+
+///
+
+[SRP support]
+
+Built-In: full support of Built-In Render Pipeline.
+
+URP: Native support via Render feature.
+
+HDRP: full support of High definition Render Pipeline from 7.1.1 version. Unity Editor version should be 2019.3+
+
+///
+[Setup effects]
+
+1. Open your renderer and click "add Render Feature".
+2. Add all Retro Look Pro effects you need. 
+3. In your scene add Volume component to any gameobject you want. In volume component create new volume profile or use existing one. Click "override" and select needed effect.
+
+[SETUP EFFECTS TO USE EXAMPLE SCENES]
+1. Open your Universal Render Pipline Asset
+2. Select in "Renderer list" field "RLPro_ForwardRenderer".
+
+Color Palette IMPORTANT NOTE : To use presets please open "\Assets\LimitlessUnityDevelopment\RetroLookPro\Resources\ColormapPresets.unitypackage" and import it. Then fill RetroLookProColorPaletePresetsList\presetslist with all presets from "\Assets\LimitlessUnityDevelopment\RetroLookPro\Resources\Colormap Presets".
+///
+
+[Tape Rewind Example Scene]
+
+This scene show how you can combine and manipulate efffects to achive needed look. Bleed, Analog TV Noise and TV effects combined with new VHS Tape Rewind effect.
+In Retro Look Pro Camera GameObject you can find "CameraExampleAutoController" script. It will move camera back and forward. On back camera movement it enables effects.
+///
+
+[Retro Look Pro Example Scene UI]
+
+In this example scene you will see how to use Retro Look Pro for UI elements or any other separate layers.
+How it works:
+
+0. Make sure that you added "Custom Texture_RLPRO" Render feature to your Renderer.
+1. Create Canvas with needed UI elements on layer UI.
+2. Create Render Texture.
+3. Create separate camera on layer UI to render image to Render Texture.
+4. Create post process volume to apply needed effects to UI elements.
+5. Create main post process volume.
+6. In Volume click "Add Override" RetroLookPro/CustomTexture.
+7. Insert previously created Render Texture in "Texture" field.
+8. All done! Now you can see your UI elements with effects rendered separately from other elements in scene.
+
+NOTICE: Look at Retro Look Pro render features order in your Renderer. If you want separate layer to be rendered on top of other layers, make sure that "Custom Texture_RLPRO" Render feature is in the bottom of the list.
+///
+
+[Clean project]
+
+If you want keep your project assets clean and reduce package size, you have following options:
+
+1. Open RetroLookProColorPaletePresetsList.asset ("\Assets\LimitlessUnityDevelopment\Resources") and remove unnecessary items from the list. Then remove unneeded colormap presets from  "\Assets\LimitlessUnityDevelopment\Resources\Colormap Presets".
+2. Resources folder (Assets\LimitlessUnityDevelopment\Resources) remove unneeded Noise Textures.
+3. readme folder and asset can be removed.
+4. ThirdPartyAssets folder can be removed.
+5. Example Scenes folder can be removed.
+
+///
+
+
+[Manipulating effects variables  of Retro look pro]
+
+https://docs.unity3d.com/Packages/com.unity.postprocessing@3.1/manual/Manipulating-the-Stack.html
+
+Online API and Manipulating effects script examples - https://limitless-development.xyz/documentation
+
+Also you can find Effects Manipulation script in Retro Look Pro URP folder
+
+///
+
+[Contact]
+
+If you want to leave a feedback or ask for new feature, use Asset related forum thread.
+https://forum.unity.com/threads/released-retro-look.583285/
+
+If you run into any issues or have questions, please do not hesitate to reach out ! I will do my best to respond as soon as I can.
+
+Contact email: limitlessunitydevelopment@gmail.com
+
+Please keep in mind that I’m in the UTC+5 timezone and usually reserve weekends for personal time.
+///
+
+Credits: 
+
+used Asset:
+Noise textures :
+https://www.deviantart.com/hxwlett/art/01-TEXTURES-PACK-VHS-601861083
+https://www.deviantart.com/xpegasvs/art/Pack-VHS-Vol-01-520737993
+https://www.deviantart.com/natieditions00/art/-VHS-TEXTURES-5--543052599
+Shader Calibration Scene - https://assetstore.unity.com/packages/essentials/tutorial-projects/shader-calibration-scene-25422
