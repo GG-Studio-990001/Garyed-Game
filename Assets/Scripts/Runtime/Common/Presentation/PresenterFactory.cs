@@ -12,10 +12,5 @@ namespace Runtime.Common.Presentation
             return new SettingsUIPresenter(view, Addressables.LoadAssetAsync<SettingsData>("SettingsData").WaitForCompletion());
             //return new SettingsUIPresenter(view, Resources.Load<SettingsData>("SettingsData"));
         }
-        
-        public static DialogueUIPresenter CreateDialogueUIPresenter(DialogueUIView view)
-        {
-            return new DialogueUIPresenter(view);
-        }
     }
 }
