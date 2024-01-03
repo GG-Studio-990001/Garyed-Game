@@ -19,6 +19,7 @@ namespace Runtime.Common.Presentation
         private readonly string _effectAudioSourceName = "EffectAudioSource";
         
         private IProvider<ControlsData> ControlsDataProvider => DataProviderManager.Instance.ControlsDataProvider;
+        private IProvider<SettingsData> SettingsDataProvider => DataProviderManager.Instance.SettingsDataProvider;
 
         public SettingsUIPresenter(SettingsUIView settingsUIView, SettingsData settingsData)
         {
@@ -71,7 +72,7 @@ namespace Runtime.Common.Presentation
         
         private void OnGameExitButtonClicked()
         {
-            DataProviderManager.Instance.SettingsDataProvider.Set(_settingsData);
+            SettingsDataProvider.Set(_settingsData);
             
             #if UNITY_EDITOR
             UnityEditor.EditorApplication.isPlaying = false;
@@ -81,13 +82,22 @@ namespace Runtime.Common.Presentation
         
         private void OnExitButtonClicked()
         {
-            DataProviderManager.Instance.SettingsDataProvider.Set(_settingsData);
+            SettingsDataProvider.Set(_settingsData);
             
             _settingsUIView.gameObject.SetActive(false);
         }
 
         private void GameSettingOn()
         {
+            if (!_settingsUIView.gameObject.activeSelf)
+            {
+                ControlsDataProvider.Get().RestrictPlayerInput();
+            }
+            else
+            {
+                ControlsDataProvider.Get().ReleasePlayerInput();
+            }
+
             _settingsUIView.gameObject.SetActive(!_settingsUIView.gameObject.activeSelf);
         }
     }
