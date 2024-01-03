@@ -1,3 +1,4 @@
+using Runtime.CH1.Main.Player;
 using Runtime.InGameSystem;
 using UnityEngine;
 
@@ -5,36 +6,21 @@ namespace Runtime.CH1.Main
 {
     public class Ch1GameController : MonoBehaviour
     {
-        [Header("Player")]
-        [SerializeField] private TopDownPlayer topDownPlayer; // Inspector에서 Player를 넣어줘야함 or Find로 찾아서 넣어줘야함
         [Header("System")]
-        [SerializeField] private GameObject gameSettingUI;
         [SerializeField] private SoundSystem soundSystem;
 
         public GameOverControls GameOverControls { get; private set; }
-
-        private bool _isDialogue = false;
         
-        private void Awake()
+        private void Start()
         {
             InitGame();
         }
         
         private void InitGame()
         {
-            GameOverControls = new GameOverControls();
+            //GameOverControls = DataProviderManager.Instance.ControlsDataProvider.Get().gameOverControls;
             
-            SetAllUIActiveFalse();
             SetMusic("Start");
-            SetKeyBinding();
-            
-            // DI
-            topDownPlayer.Ch1GameSystem = this;
-        }
-        
-        private void SetAllUIActiveFalse()
-        {
-            gameSettingUI.SetActive(false);
         }
         
         private void SetMusic(string soundName)
@@ -43,41 +29,15 @@ namespace Runtime.CH1.Main
             soundSystem.PlayMusic(soundName);
         }
         
-        private void SetKeyBinding()
-        {
-            GameOverControls.Enable();
-            GameOverControls.UI.GameSetting.performed += ctx => OnGameSetting();
-        }
-        
-        private void OnGameSetting()
-        {
-            gameSettingUI.SetActive(gameSettingUI.activeSelf == false);
-        }
-        
         #region Unity Event
 
         public void OnDialogueStart()
         {
-            _isDialogue = true;
             GameOverControls.Player.Disable();
         }
         
         public void OnDialogueEnd()
         {
-            _isDialogue = false;
-            GameOverControls.Player.Enable();
-        }
-        
-        public void OnGameSettingStart()
-        {
-            GameOverControls.Player.Disable();
-        }
-        
-        public void OnGameSettingEnd()
-        {
-            if (_isDialogue)
-                return;
-            
             GameOverControls.Player.Enable();
         }
 

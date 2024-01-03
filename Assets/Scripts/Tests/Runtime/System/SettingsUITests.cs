@@ -1,14 +1,14 @@
 using NUnit.Framework;
 using Runtime.Common.Presentation;
 using Runtime.Common.View;
-using Runtime.Data;
 using Runtime.Data.Original;
+using Runtime.InGameSystem;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.TestTools;
 using UnityEngine.UI;
 
-namespace Tests.Runtime
+namespace Tests.Runtime.System
 {
     [TestFixture]
     public class SettingsUITests
@@ -23,11 +23,14 @@ namespace Tests.Runtime
         
         private Slider _musicVolumeSlider;
         private Slider _sfxVolumeSlider;
+        private Button _gameExitButton;
         private Button _exitButton;
         
         [UnitySetUp]
         public IEnumerator SetUp()
         {
+            DataProviderManager dataProviderManager = new GameObject("DataProviderManager").AddComponent<DataProviderManager>();
+            
             _backgroundAudioSource = new GameObject("BackgroundAudioSource");
             _backgroundAudioSource.AddComponent<AudioSource>();
             
@@ -42,6 +45,9 @@ namespace Tests.Runtime
             
             _sfxVolumeSlider = new GameObject("SfxVolumeSlider").AddComponent<Slider>();
             _view.SfxVolumeSlider = _sfxVolumeSlider;
+            
+            _gameExitButton = new GameObject("GameExitButton").AddComponent<Button>();
+            _view.GameExitButton = _gameExitButton;
             
             _exitButton = new GameObject("ExitButton").AddComponent<Button>();
             _view.ExitButton = _exitButton;
@@ -105,6 +111,7 @@ namespace Tests.Runtime
             Object.DestroyImmediate(_musicVolumeSlider);
             Object.DestroyImmediate(_sfxVolumeSlider);
             Object.DestroyImmediate(_exitButton);
+            Object.DestroyImmediate(_gameExitButton);
             
             yield return new WaitForFixedUpdate();
         }

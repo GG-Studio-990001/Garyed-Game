@@ -1,11 +1,13 @@
 using Runtime.CH1.Main.PlayerFunction;
+using Runtime.Data.Original;
 using Runtime.ETC;
+using Runtime.InGameSystem;
 using Runtime.Interface;
-using System;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 using UnityEngine.InputSystem;
 
-namespace Runtime.CH1.Main
+namespace Runtime.CH1.Main.Player
 {
     [RequireComponent(typeof(Animator))]
     public class TopDownPlayer : MonoBehaviour
@@ -14,14 +16,13 @@ namespace Runtime.CH1.Main
         [SerializeField] private float moveSpeed = 5.0f;
         [SerializeField] private float animSpeed = 0.5f;
         
-        public Ch1GameController Ch1GameSystem { get; set; }
-        
         private IMovement _movement;
         private IAnimation _animation;
         private IInteraction _interaction;
         
         private PlayerState _state = PlayerState.Idle;
         private Vector2 _movementInput;
+        private IProvider<ControlsData> ControlsDataProvider => DataProviderManager.Instance.ControlsDataProvider;
 
         private void Start()
         {
@@ -34,15 +35,13 @@ namespace Runtime.CH1.Main
         
         private void PlayerKeyBinding()
         {
-            if (Ch1GameSystem == null)
-                return;
+            GameOverControls gameControls = ControlsDataProvider.Get().GameOverControls;
             
-            Ch1GameSystem.GameOverControls.Player.Enable();
-            
-            Ch1GameSystem.GameOverControls.Player.Move.performed += OnMove;
-            Ch1GameSystem.GameOverControls.Player.Move.started += OnMove;
-            Ch1GameSystem.GameOverControls.Player.Move.canceled += OnMove;
-            Ch1GameSystem.GameOverControls.Player.Interaction.performed += ctx => OnInteraction();
+            gameControls.Player.Enable();
+            gameControls.Player.Move.performed += OnMove;
+            gameControls.Player.Move.started += OnMove;
+            gameControls.Player.Move.canceled += OnMove;
+            gameControls.Player.Interaction.performed += ctx => OnInteraction();
         }
         
         private void Update()

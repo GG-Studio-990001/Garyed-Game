@@ -33,7 +33,7 @@ namespace Runtime.InGameSystem
         {
             PlayerDataProvider = new PlayerDataProvider(Addressables.LoadAssetAsync<PlayerData>("PlayerData").WaitForCompletion());
             SettingsDataProvider = new SettingsDataProvider(Addressables.LoadAssetAsync<SettingsData>("SettingsData").WaitForCompletion());
-            ControlsDataProvider = new ControlsDataProvider(Addressables.LoadAssetAsync<ControlsData>("ControlsData").WaitForCompletion());
+            ControlsDataProvider = new ControlsDataProvider(new ControlsData());
         }
     }
 }
