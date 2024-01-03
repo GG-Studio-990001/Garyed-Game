@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Runtime
+namespace Runtime.InGameSystem
 {
     public class SceneSystem : MonoBehaviour
     {

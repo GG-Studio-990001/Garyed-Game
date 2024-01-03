@@ -1,7 +1,7 @@
-using Runtime.Common.Domain;
+using Runtime.Data;
 using UnityEngine;
 
-namespace Runtime
+namespace Runtime.InGameSystem
 {
     public class SoundSystem : MonoBehaviour
     {

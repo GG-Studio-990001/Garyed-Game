@@ -1,7 +1,7 @@
 using NUnit.Framework;
-using Runtime.Common.Domain;
 using Runtime.Common.Presentation;
 using Runtime.Common.View;
+using Runtime.Data;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.TestTools;

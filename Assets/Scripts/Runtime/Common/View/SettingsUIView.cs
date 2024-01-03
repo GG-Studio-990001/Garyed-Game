@@ -1,5 +1,4 @@
 using Runtime.Common.Presentation;
-using System;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;

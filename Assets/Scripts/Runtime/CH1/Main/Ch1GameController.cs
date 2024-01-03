@@ -1,3 +1,4 @@
+using Runtime.InGameSystem;
 using UnityEngine;
 
 namespace Runtime.CH1.Main

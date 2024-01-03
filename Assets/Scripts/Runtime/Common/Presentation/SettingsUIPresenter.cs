@@ -1,5 +1,5 @@
-using Runtime.Common.Domain;
 using Runtime.Common.View;
+using Runtime.Data;
 using UnityEngine;
 
 namespace Runtime.Common.Presentation

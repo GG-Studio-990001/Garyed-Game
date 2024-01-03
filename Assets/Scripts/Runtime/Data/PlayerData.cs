@@ -1,6 +1,7 @@
+using Runtime.Interface;
 using UnityEngine;
 
-namespace Runtime.Common.Domain
+namespace Runtime.Data
 {
     [CreateAssetMenu(fileName = "PlayerData", menuName = "ScriptableObject/PlayerData", order = 0)]
     public class PlayerData : ScriptableObject
