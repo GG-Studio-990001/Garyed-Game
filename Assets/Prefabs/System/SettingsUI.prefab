@@ -281,7 +281,7 @@ GameObject:
   - component: {fileID: 7935165789956596432}
   - component: {fileID: 4907336530905385218}
   m_Layer: 5
-  m_Name: ExitButton
+  m_Name: GameExitButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -817,7 +817,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &652171028164206020
 RectTransform:
   m_ObjectHideFlags: 0
@@ -857,13 +857,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <MusicVolumeSlider>k__BackingField: {fileID: 7301977969559263996}
   <SfxVolumeSlider>k__BackingField: {fileID: 8317770977542563447}
-  <ExitButton>k__BackingField: {fileID: 4907336530905385218}
-  onSettingUiEnable:
-    m_PersistentCalls:
-      m_Calls: []
-  onSettingUiDisable:
-    m_PersistentCalls:
-      m_Calls: []
+  <ExitButton>k__BackingField: {fileID: 8420087710677771070}
+  <GameExitButton>k__BackingField: {fileID: 4907336530905385218}
 --- !u!1 &3968874412553258224
 GameObject:
   m_ObjectHideFlags: 0
@@ -1063,7 +1058,7 @@ GameObject:
   - component: {fileID: 5959207548659298441}
   - component: {fileID: 8420087710677771070}
   m_Layer: 5
-  m_Name: Button
+  m_Name: ExitButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1216,7 +1211,7 @@ RectTransform:
   m_Father: {fileID: 3579340340748709820}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1381,7 +1376,7 @@ RectTransform:
   m_Father: {fileID: 4195157200369300162}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1492,7 +1487,7 @@ RectTransform:
   m_Father: {fileID: 9133578310842258234}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1567,7 +1562,7 @@ RectTransform:
   m_Father: {fileID: 6089414472316364846}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}

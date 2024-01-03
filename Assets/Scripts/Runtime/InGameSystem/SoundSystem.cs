@@ -1,4 +1,5 @@
 using Runtime.Data;
+using Runtime.Data.Original;
 using UnityEngine;
 
 namespace Runtime.InGameSystem

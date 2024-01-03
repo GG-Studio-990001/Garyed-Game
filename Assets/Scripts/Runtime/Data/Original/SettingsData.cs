@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Runtime.Data
+namespace Runtime.Data.Original
 {
     [CreateAssetMenu(fileName = "SettingsData", menuName = "ScriptableObject/SettingsData", order = 0)]
     public class SettingsData : ScriptableObject

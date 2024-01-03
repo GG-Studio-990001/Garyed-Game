@@ -1,5 +1,7 @@
 using Runtime.Common.View;
 using Runtime.Data;
+using Runtime.Data.Original;
+using Runtime.InGameSystem;
 using UnityEngine;
 
 namespace Runtime.Common.Presentation
@@ -40,6 +42,7 @@ namespace Runtime.Common.Presentation
             SetMusicVolume(_settingsData.MusicVolume);
             SetSfxVolume(_settingsData.SfxVolume);
             
+            _settingsUIView.GameExitButton.onClick.AddListener(OnGameExitButtonClicked);
             _settingsUIView.ExitButton.onClick.AddListener(OnExitButtonClicked);
         }
         
@@ -59,12 +62,21 @@ namespace Runtime.Common.Presentation
             _effectAudioSource.volume = _settingsData.SfxVolume;
         }
         
-        private void OnExitButtonClicked()
+        private void OnGameExitButtonClicked()
         {
+            DataProviderManager.Instance.SettingsDataProvider.Set(_settingsData);
+            
             #if UNITY_EDITOR
             UnityEditor.EditorApplication.isPlaying = false;
             #endif
             Application.Quit();
+        }
+        
+        private void OnExitButtonClicked()
+        {
+            DataProviderManager.Instance.SettingsDataProvider.Set(_settingsData);
+            
+            _settingsUIView.gameObject.SetActive(false);
         }
     }
 }

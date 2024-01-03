@@ -1,7 +1,8 @@
+using Runtime.Data.Original;
 using Runtime.Interface;
 using UnityEngine;
 
-namespace Runtime.Data
+namespace Runtime.Data.Provider
 {
     public class PlayerDataProvider : IProvider<PlayerData>
     {

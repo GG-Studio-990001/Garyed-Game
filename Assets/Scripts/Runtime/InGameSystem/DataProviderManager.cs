@@ -1,4 +1,6 @@
 using Runtime.Data;
+using Runtime.Data.Original;
+using Runtime.Data.Provider;
 using Runtime.Interface;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -10,6 +12,7 @@ namespace Runtime.InGameSystem
         public static DataProviderManager Instance { get; private set; }
         public IProvider<PlayerData> PlayerDataProvider { get; private set; }
         public IProvider<SettingsData> SettingsDataProvider { get; private set; }
+        public IProvider<ControlsData> ControlsDataProvider { get; private set; }
         
         private void Awake()
         {
@@ -28,8 +31,9 @@ namespace Runtime.InGameSystem
         
         private void Init()
         {
-            PlayerDataProvider = Addressables.LoadAssetAsync<PlayerDataProvider>("PlayerData").WaitForCompletion();
-            SettingsDataProvider = Addressables.LoadAssetAsync<SettingsDataProvider>("SettingsData").WaitForCompletion();
+            PlayerDataProvider = new PlayerDataProvider(Addressables.LoadAssetAsync<PlayerData>("PlayerData").WaitForCompletion());
+            SettingsDataProvider = new SettingsDataProvider(Addressables.LoadAssetAsync<SettingsData>("SettingsData").WaitForCompletion());
+            ControlsDataProvider = new ControlsDataProvider(Addressables.LoadAssetAsync<ControlsData>("ControlsData").WaitForCompletion());
         }
     }
 }

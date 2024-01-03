@@ -1,6 +1,6 @@
 using System;
 
-namespace Runtime.Data
+namespace Runtime.Data.Original
 {
     [Serializable]
     public class Quarter : ICloneable
