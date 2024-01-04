@@ -8,8 +8,6 @@ namespace Runtime.CH1.Main
     {
         [Header("System")]
         [SerializeField] private SoundSystem soundSystem;
-
-        public GameOverControls GameOverControls { get; private set; }
         
         private void Start()
         {
@@ -18,8 +16,6 @@ namespace Runtime.CH1.Main
         
         private void InitGame()
         {
-            //GameOverControls = DataProviderManager.Instance.ControlsDataProvider.Get().gameOverControls;
-            
             SetMusic("Start");
         }
         
@@ -28,19 +24,15 @@ namespace Runtime.CH1.Main
             soundSystem.StopMusic();
             soundSystem.PlayMusic(soundName);
         }
-        
-        #region Unity Event
 
-        public void OnDialogueStart()
+        public void RestrictPlayerInput()
         {
-            GameOverControls.Player.Disable();
+            DataProviderManager.Instance.ControlsDataProvider.Get().RestrictPlayerInput();
         }
         
-        public void OnDialogueEnd()
+        public void ReleasePlayerInput()
         {
-            GameOverControls.Player.Enable();
+            DataProviderManager.Instance.ControlsDataProvider.Get().ReleasePlayerInput();
         }
-
-        #endregion
     }
 }
