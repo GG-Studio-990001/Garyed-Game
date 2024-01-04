@@ -12,3 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f7dadc1cd0141428bdb3ceb13d88fb0, type: 3}
   m_Name: PlayerData
   m_EditorClassIdentifier: 
+  quarter:
+    chapter: 1
+    major: 3
+    minor: 2
+  position: {x: 0, y: 0, z: 0}
