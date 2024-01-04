@@ -10,20 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
-  m_Name: Default Local Group
+  m_Name: DataSource
   m_EditorClassIdentifier: 
-  m_GroupName: Default Local Group
+  m_GroupName: DataSource
   m_Data:
     m_SerializedData: []
-  m_GUID: cafeba31574c11542a823273f29d0eb3
+  m_GUID: 04917d30845957145a8fac1a94416fc8
   m_SerializeEntries:
-  - m_GUID: aed180822f191594c9fcaf321266bb66
-    m_Address: Assets/Art/Animation/CH1/Rapley/Player.controller
+  - m_GUID: 65f51bcfff75f8a43833ebe90cdf0fa9
+    m_Address: SettingsData
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: c2f6f0fdc61c64147a21e4577f52d1cf
-    m_Address: Assets/Timeline/CutScene.playable
+  - m_GUID: 65d91fdbadf9436458d8efbe1f8995fe
+    m_Address: PlayerData
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -31,5 +31,5 @@ MonoBehaviour:
   m_Settings: {fileID: 11400000, guid: 2e2cd1ffb4f408040b3e2fa4dfca47c4, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: 5ba7b84c4cf4d80458a84181a828d881, type: 2}
-    - {fileID: 11400000, guid: 127490f8a2258d046871b4baa07eb770, type: 2}
+    - {fileID: 11400000, guid: 278de93ecaca5e44292fa29bdb6c6fe5, type: 2}
+    - {fileID: 11400000, guid: b375cfb55c492a445bf2ddce7c89e7c4, type: 2}

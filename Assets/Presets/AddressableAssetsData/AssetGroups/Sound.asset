@@ -10,20 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
-  m_Name: Default Local Group
+  m_Name: Sound
   m_EditorClassIdentifier: 
-  m_GroupName: Default Local Group
+  m_GroupName: Sound
   m_Data:
     m_SerializedData: []
-  m_GUID: cafeba31574c11542a823273f29d0eb3
+  m_GUID: 4dc756b2c4eed4749a3f1faea5601ae7
   m_SerializeEntries:
-  - m_GUID: aed180822f191594c9fcaf321266bb66
-    m_Address: Assets/Art/Animation/CH1/Rapley/Player.controller
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: c2f6f0fdc61c64147a21e4577f52d1cf
-    m_Address: Assets/Timeline/CutScene.playable
+  - m_GUID: 76511d28adef65d419c2589c5cdb91fd
+    m_Address: BGM_Mamago
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -31,5 +26,5 @@ MonoBehaviour:
   m_Settings: {fileID: 11400000, guid: 2e2cd1ffb4f408040b3e2fa4dfca47c4, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: 5ba7b84c4cf4d80458a84181a828d881, type: 2}
-    - {fileID: 11400000, guid: 127490f8a2258d046871b4baa07eb770, type: 2}
+    - {fileID: 11400000, guid: defcf03f807fb3443857e447e262b646, type: 2}
+    - {fileID: 11400000, guid: 272b277fc6833b24fbd2f4d7df087fc5, type: 2}
