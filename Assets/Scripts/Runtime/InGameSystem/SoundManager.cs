@@ -19,8 +19,8 @@ namespace Runtime.InGameSystem
                 Instance = this;
                 DontDestroyOnLoad(this);
 
-                InitializeSounds("Sound");
-                PlaySound("BGM_Mamago");
+                //InitializeSounds("Sound");
+                //PlaySound("BGM_Mamago");
                 return;
             }
             

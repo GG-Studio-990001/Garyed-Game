@@ -982,7 +982,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3622474548766780851, guid: 09b515699e7aefb49b16b8aaecee371a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4678149153798548677, guid: 09b515699e7aefb49b16b8aaecee371a, type: 3}
       propertyPath: effectSounds.Array.size
@@ -995,7 +995,7 @@ PrefabInstance:
     - target: {fileID: 4678149153798548677, guid: 09b515699e7aefb49b16b8aaecee371a, type: 3}
       propertyPath: backgroundSounds.Array.data[0].clip
       value: 
-      objectReference: {fileID: 8300000, guid: 76511d28adef65d419c2589c5cdb91fd, type: 3}
+      objectReference: {fileID: 8300000, guid: 45006fb27bc5eec40944c91ab7ade775, type: 3}
     - target: {fileID: 4678149153798548677, guid: 09b515699e7aefb49b16b8aaecee371a, type: 3}
       propertyPath: backgroundSounds.Array.data[0].name
       value: Start

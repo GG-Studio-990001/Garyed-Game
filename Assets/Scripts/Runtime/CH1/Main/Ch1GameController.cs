@@ -32,6 +32,9 @@ namespace Runtime.CH1.Main
             _playerDataProvider = DataProviderManager.Instance.PlayerDataProvider;
             
             InitGame();
+                
+            var data = _playerDataProvider.Get();
+            NextStage(data.quarter.stage, data.position);
             
             //Test
             Cursor.SetCursor(cursorTexture, Vector2.zero, CursorMode.Auto);
@@ -51,7 +54,7 @@ namespace Runtime.CH1.Main
         
         // TODO 메서드 정리
         // 이 메서드가 시작되면 Fade시작해서 종료되면 Fade 종료
-        public void NextStage(int stageNumber)
+        public void NextStage(int stageNumber, Vector2 playerPosition)
         {
             if (_currentStage != null)
                 _currentStage.SetActive(false);
@@ -65,7 +68,8 @@ namespace Runtime.CH1.Main
             stageComponent.SetMapSetting();
 
             var data = _playerDataProvider.Get();
-            player.transform.position = data.position;
+            player.transform.position = playerPosition;
+            data.position = playerPosition;
             data.quarter.stage = stageNumber;
             
             _playerDataProvider.Set(data);
