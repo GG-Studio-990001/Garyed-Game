@@ -22,6 +22,9 @@ namespace Runtime.CH1.Main
         [Header("Camera")]
         [SerializeField] private CinemachineConfiner2D cinemachineConfiner2D;
         
+        [Header("Cursor")]
+        [SerializeField] private Texture2D cursorTexture;
+        
         private IProvider<PlayerData> _playerDataProvider;
         
         private void Start()
@@ -29,6 +32,9 @@ namespace Runtime.CH1.Main
             _playerDataProvider = DataProviderManager.Instance.PlayerDataProvider;
             
             InitGame();
+            
+            //Test
+            Cursor.SetCursor(cursorTexture, Vector2.zero, CursorMode.Auto);
         }
         
         private void InitGame()
