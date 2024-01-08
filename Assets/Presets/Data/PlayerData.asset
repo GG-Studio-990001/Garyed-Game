@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PlayerData
   m_EditorClassIdentifier: 
   quarter:
-    chapter: 1
-    major: 3
-    minor: 2
+    chapter: 0
+    stage: 0
+    minor: 0
   position: {x: 0, y: 0, z: 0}

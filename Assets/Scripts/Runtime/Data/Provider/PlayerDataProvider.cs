@@ -25,7 +25,7 @@ namespace Runtime.Data.Provider
         public void Set(PlayerData value)
         {
             _playerData.quarter.chapter = value.quarter.chapter;
-            _playerData.quarter.major = value.quarter.major;
+            _playerData.quarter.stage = value.quarter.stage;
             _playerData.quarter.minor = value.quarter.minor;
             _playerData.position = value.position;
         }

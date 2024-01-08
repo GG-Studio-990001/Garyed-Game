@@ -6,7 +6,7 @@ namespace Runtime.Data.Original
     public class Quarter : ICloneable
     {
         public int chapter;
-        public int major;
+        public int stage;
         public int minor;
 
         public object Clone()
@@ -14,7 +14,7 @@ namespace Runtime.Data.Original
             return new Quarter
             {
                 chapter = chapter,
-                major = major,
+                stage = stage,
                 minor = minor
             };
         }

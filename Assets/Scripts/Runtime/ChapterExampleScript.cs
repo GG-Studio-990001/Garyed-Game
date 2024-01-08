@@ -18,6 +18,6 @@ public class ChapterExampleScript : MonoBehaviour
         IProvider<PlayerData> playerDataProvider = DataProviderManager.Instance.PlayerDataProvider;
         PlayerData playerData = playerDataProvider.Get();
         
-        _textMeshProUGUI.text = $"Chapter: {playerData.quarter.chapter} - {playerData.quarter.major} - {playerData.quarter.minor}";
+        _textMeshProUGUI.text = $"Chapter: {playerData.quarter.chapter} - {playerData.quarter.stage} - {playerData.quarter.minor}";
     }
 }
