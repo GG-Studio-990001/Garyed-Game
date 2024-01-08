@@ -1,7 +1,5 @@
-using Runtime.Common.Domain;
 using Runtime.Common.View;
-using UnityEngine;
-using UnityEngine.AddressableAssets;
+using Runtime.InGameSystem;
 
 namespace Runtime.Common.Presentation
 {
@@ -9,13 +7,8 @@ namespace Runtime.Common.Presentation
     {
         public static SettingsUIPresenter CreateSettingsUIPresenter(SettingsUIView view)
         {
-            return new SettingsUIPresenter(view, Addressables.LoadAssetAsync<SettingsData>("SettingsData").WaitForCompletion());
+            return new SettingsUIPresenter(view, DataProviderManager.Instance.SettingsDataProvider.Get());
             //return new SettingsUIPresenter(view, Resources.Load<SettingsData>("SettingsData"));
-        }
-        
-        public static DialogueUIPresenter CreateDialogueUIPresenter(DialogueUIView view)
-        {
-            return new DialogueUIPresenter(view);
         }
     }
 }
