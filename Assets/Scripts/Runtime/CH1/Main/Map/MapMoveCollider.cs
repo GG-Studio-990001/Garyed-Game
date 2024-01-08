@@ -5,6 +5,7 @@ namespace Runtime.CH1.Main.Map
     public class MapMoveCollider : MonoBehaviour
     {
         [SerializeField] private int stageNumber;
+        [SerializeField] private Vector2 movePosition;
         public Ch1GameController Ch1GameController { get; set; }
     
         private void OnTriggerEnter2D(Collider2D other)

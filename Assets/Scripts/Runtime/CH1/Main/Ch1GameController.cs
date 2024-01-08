@@ -16,7 +16,8 @@ namespace Runtime.CH1.Main
         
         [Header("Player")]
         [SerializeField] private GameObject player;
-        [SerializeField] private GameObject stage;
+        [SerializeField] private GameObject[] stage;
+        private GameObject _currentStage;
         
         [Header("Camera")]
         [SerializeField] private CinemachineConfiner2D cinemachineConfiner2D;
@@ -45,18 +46,13 @@ namespace Runtime.CH1.Main
         
         // TODO 메서드 정리
         // 이 메서드가 시작되면 Fade시작해서 종료되면 Fade 종료
-        public async void NextStage(int stageNumber)
+        public void NextStage(int stageNumber)
         {
-            if (stage != null)
-            {
-                Destroy(stage);
-            }
+            if (_currentStage != null)
+                _currentStage.SetActive(false);
+            _currentStage = stage[stageNumber - 1];
 
-            var stagePrefab = await Addressables.LoadAssetAsync<GameObject>($"Stage_{stageNumber}").Task;
-
-            stage = Instantiate(stagePrefab, transform);
-
-            var stageComponent = stage.GetComponent<Stage>();
+            var stageComponent = _currentStage.GetComponent<Stage>();
             
             stageComponent.Ch1GameController = this;
             stageComponent.CinemachineConfiner2D = cinemachineConfiner2D;
@@ -68,6 +64,8 @@ namespace Runtime.CH1.Main
             data.quarter.stage = stageNumber;
             
             _playerDataProvider.Set(data);
+            
+            _currentStage.SetActive(true);
         }
         
         public void RestrictPlayerInput()
