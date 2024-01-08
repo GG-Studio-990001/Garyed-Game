@@ -5,8 +5,7 @@ namespace Runtime.CH1.Pacmom
 {
     public class Timer : MonoBehaviour
     {
-        [SerializeField]
-        private PMGameController gameController;
+        public PMGameController gameController;
         [SerializeField]
         private TextMeshProUGUI timerTxt;
         [SerializeField]

@@ -8,6 +8,7 @@ namespace Runtime.CH1.Pacmom
     {
         #region 선언
         private PMSpriteController spriteController;
+        [SerializeField]
         private PMUIController uiController;
         public SoundSystem soundSystem;
         [SerializeField]
@@ -56,7 +57,6 @@ namespace Runtime.CH1.Pacmom
         private void AssignComponent()
         {
             spriteController = GetComponent<PMSpriteController>();
-            uiController = GetComponent<PMUIController>();
 
             pacmomAI = pacmom.GetComponent<AI>();
 
@@ -69,6 +69,7 @@ namespace Runtime.CH1.Pacmom
 
         private void AssignController()
         {
+            timer.gameController = this;
             pacmom.gameController = this;
 
             for (int i = 0; i < dusts.Length; i++)
