@@ -29,7 +29,6 @@ namespace Runtime.CH1.Main
             _playerDataProvider = DataProviderManager.Instance.PlayerDataProvider;
             
             InitGame();
-            NextStage(1);
         }
         
         private void InitGame()
