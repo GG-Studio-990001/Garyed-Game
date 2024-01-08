@@ -16,14 +16,14 @@ namespace Runtime.CH1.Main
         
         private void InitGame()
         {
-            //SetMusic("Start");
+            SetMusic("Start");
             //SoundManager.Instance.PlaySound("Start");
         }
         
         private void SetMusic(string soundName)
         {
-            // soundSystem.StopMusic();
-            // soundSystem.PlayMusic(soundName);
+            soundSystem.StopMusic();
+            soundSystem.PlayMusic(soundName);
         }
 
         public void RestrictPlayerInput()

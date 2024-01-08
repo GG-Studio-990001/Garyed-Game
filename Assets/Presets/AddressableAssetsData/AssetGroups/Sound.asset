@@ -16,12 +16,7 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: 4dc756b2c4eed4749a3f1faea5601ae7
-  m_SerializeEntries:
-  - m_GUID: 76511d28adef65d419c2589c5cdb91fd
-    m_Address: BGM_Mamago
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
+  m_SerializeEntries: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 2e2cd1ffb4f408040b3e2fa4dfca47c4, type: 2}
   m_SchemaSet:

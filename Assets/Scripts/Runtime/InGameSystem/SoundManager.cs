@@ -19,47 +19,20 @@ namespace Runtime.InGameSystem
                 Instance = this;
                 DontDestroyOnLoad(this);
 
-                //InitializeSounds("Sound");
+                InitializeSounds("Sound");
+                PlaySound("BGM_Mamago");
                 return;
             }
             
             Destroy(gameObject);
         }
-
-        private async void Start()
-        {
-            Debug.Log("Start");
-            // Addressable 리소스의 위치 정보 비동기 로딩
-            AsyncOperationHandle<IList<IResourceLocation>> operationHandle = Addressables.LoadResourceLocationsAsync("Sound");
-
-            // 비동기 작업 완료 대기
-            await operationHandle.Task;
-            Debug.Log("Wait");
-
-            // 위치 정보 획득
-            IList<IResourceLocation> locations = operationHandle.Result;
-
-            // 위치 정보를 사용하여 다양한 작업 수행
-            foreach (var location in locations)
-            {
-                // 위치 정보를 이용한 작업 수행
-                Debug.Log("Resource Location: " + location.PrimaryKey);
-            }
-
-            // 핸들 해제
-            Addressables.Release(operationHandle);
-            
-            Debug.Log("End");
-        }
-
+        
         private void InitializeSounds(string groupName)
         {
-            Debug.Log("??");
             Addressables.LoadResourceLocationsAsync(groupName).Completed += handle =>
             {
                 if (handle.Status == AsyncOperationStatus.Succeeded)
                 {
-                    Debug.Log("??>");
                     foreach (var location in handle.Result)
                     {
                         if (location.ResourceType == typeof(AudioClip))

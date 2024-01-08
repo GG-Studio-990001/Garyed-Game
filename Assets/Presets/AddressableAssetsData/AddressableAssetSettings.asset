@@ -15,7 +15,7 @@ MonoBehaviour:
   m_DefaultGroup: cafeba31574c11542a823273f29d0eb3
   m_currentHash:
     serializedVersion: 2
-    Hash: d55e6e96dd7fd86df6d0538314d10d3b
+    Hash: 00000000000000000000000000000000
   m_OptimizeCatalogSize: 0
   m_BuildRemoteCatalog: 0
   m_BundleLocalCatalog: 0
@@ -96,6 +96,8 @@ MonoBehaviour:
     - Locale
     - Locale-en
     - Locale-ko
+    - Data
+    - Sound
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: c95f85551d668f34b94e5f116a35d2fd, type: 2}

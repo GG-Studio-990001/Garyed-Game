@@ -20,12 +20,14 @@ MonoBehaviour:
   - m_GUID: 65f51bcfff75f8a43833ebe90cdf0fa9
     m_Address: SettingsData
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Data
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 65d91fdbadf9436458d8efbe1f8995fe
     m_Address: PlayerData
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Data
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 2e2cd1ffb4f408040b3e2fa4dfca47c4, type: 2}
