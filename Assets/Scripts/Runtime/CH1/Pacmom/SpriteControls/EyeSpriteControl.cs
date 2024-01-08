@@ -2,23 +2,18 @@ using UnityEngine;
 
 namespace Runtime.CH1.Pacmom
 {
-    public class DustSpriteControl : SpriteControl
+    public class EyeSpriteControl : SpriteControl
     {
-        [SerializeField]
-        private GameObject eyes;
-
         public override void GetNormalSprite()
         {
+            spriteAnim.SetLoop(false);
             base.GetNormalSprite();
-
-            eyes.SetActive(true);
         }
 
         public override void GetVacuumModeSprite()
         {
+            spriteAnim.SetLoop(true);
             base.GetVacuumModeSprite();
-
-            eyes.SetActive(false);
         }
     }
 }

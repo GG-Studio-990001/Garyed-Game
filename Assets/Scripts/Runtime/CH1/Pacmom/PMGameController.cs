@@ -245,7 +245,10 @@ namespace Runtime.CH1.Pacmom
             pacmom.VacuumMode(isVacuumMode);
             pacmomAI.SetStronger(isVacuumMode);
             for (int i = 0; i < dusts.Length; i++)
+            {
                 dustAIs[i].SetStronger(!isVacuumMode);
+                dusts[i].movement.SetEyeNormal(!isVacuumMode);
+            }
 
             Door.SetActive(isVacuumMode);
         }
