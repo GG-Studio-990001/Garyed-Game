@@ -28,7 +28,7 @@ namespace Runtime.CH1.Main
             _playerDataProvider = DataProviderManager.Instance.PlayerDataProvider;
             
             InitGame();
-            NextStage();
+            NextStage(1);
         }
         
         private void InitGame()
@@ -45,18 +45,14 @@ namespace Runtime.CH1.Main
         
         // TODO 메서드 정리
         // 이 메서드가 시작되면 Fade시작해서 종료되면 Fade 종료
-        public async void NextStage()
+        public async void NextStage(int stageNumber)
         {
-            var data = _playerDataProvider.Get();
-            
-            data.quarter.stage++;
-
             if (stage != null)
             {
                 Destroy(stage);
             }
 
-            var stagePrefab = await Addressables.LoadAssetAsync<GameObject>($"Stage_{data.quarter.stage}").Task;
+            var stagePrefab = await Addressables.LoadAssetAsync<GameObject>($"Stage_{stageNumber}").Task;
 
             stage = Instantiate(stagePrefab, transform);
 
@@ -67,9 +63,11 @@ namespace Runtime.CH1.Main
             
             stageComponent.SetMapSetting();
 
+            var data = _playerDataProvider.Get();
             player.transform.position = data.position;
+            data.quarter.stage = stageNumber;
             
-            //_playerDataProvider.Set(data);
+            _playerDataProvider.Set(data);
         }
         
         public void RestrictPlayerInput()
