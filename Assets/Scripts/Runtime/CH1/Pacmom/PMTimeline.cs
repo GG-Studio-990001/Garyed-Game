@@ -20,6 +20,7 @@ namespace Runtime.CH1.Pacmom
         {
             UI.SetActive(false);
             Door.SetActive(true);
+            Sparkle.SetActive(true);
             ControlEnable(false);
         }
 
