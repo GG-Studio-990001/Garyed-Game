@@ -13,6 +13,8 @@ namespace Runtime.CH1.Pacmom
         private GameObject UI;
         [SerializeField]
         private GameObject Door;
+        [SerializeField]
+        private GameObject Sparkle;
 
         public void OpeningStart()
         {
@@ -25,6 +27,7 @@ namespace Runtime.CH1.Pacmom
         {
             UI.SetActive(true);
             Door.SetActive(false);
+            Sparkle.SetActive(false);
             ControlEnable(true);
             Controller.StartGame();
         }
