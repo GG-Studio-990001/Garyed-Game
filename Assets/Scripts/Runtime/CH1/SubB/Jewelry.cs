@@ -36,7 +36,10 @@ namespace Runtime.CH1.SubB
                 {
                     _pushTime = 0f;
                     
-                    Vector2 direction = (transform.position - other.transform.position).normalized;
+                    Vector2 playerDetectionPos = new Vector2(other.transform.position.x, other.transform.position.y + other.collider.offset.y);
+
+                    Vector2 direction = (transform.position - (Vector3)playerDetectionPos);
+                    
                     direction.x = Mathf.Abs(direction.x) > Mathf.Abs(direction.y) ? Mathf.Sign(direction.x) : 0f;
                     direction.y = Mathf.Abs(direction.y) > Mathf.Abs(direction.x) ? Mathf.Sign(direction.y) : 0f;
 
