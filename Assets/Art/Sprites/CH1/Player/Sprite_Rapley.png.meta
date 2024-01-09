@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a1f2d4761b066714a9047b3fb658c2f5
+guid: 74650fea7b820ba4db521d23b0d574f2
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,7 +123,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Sprite_Rapley_0
+      name: Sprite_Rapley__0
       rect:
         serializedVersion: 2
         x: 0
@@ -137,14 +137,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d13d715e0f95fe145aab239d6563ebbe
-      internalID: 116738886
+      spriteID: 08606abb4b9a40c41a4c8b712e540d73
+      internalID: 219223331
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Rapley_1
+      name: Sprite_Rapley__1
       rect:
         serializedVersion: 2
         x: 29
@@ -158,14 +158,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d0e4fbdb33251cd4db382554bdb8845e
-      internalID: -875154824
+      spriteID: a04505afc3f456c418237fc08c92d426
+      internalID: -101354061
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Rapley_2
+      name: Sprite_Rapley__2
       rect:
         serializedVersion: 2
         x: 58
@@ -179,14 +179,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9dae7948116ea9149bdfff7346a54e74
-      internalID: 282065149
+      spriteID: 0fe87a1703c84934b8f77eaca087971e
+      internalID: 15191173
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Rapley_3
+      name: Sprite_Rapley__3
       rect:
         serializedVersion: 2
         x: 87
@@ -200,14 +200,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1d4aa6923f2f87245b18f75f9c8154f6
-      internalID: 206847502
+      spriteID: e2e1cd3321c407d4199a2eee62ac68aa
+      internalID: 658897927
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Rapley_4
+      name: Sprite_Rapley__4
       rect:
         serializedVersion: 2
         x: 0
@@ -221,14 +221,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a5d1c6aaf4bab4b439ad94bdaf30fb43
-      internalID: -1749660712
+      spriteID: 86fad6bc8b64dbd49a4aa7d1261a4e6f
+      internalID: -1474892249
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Rapley_5
+      name: Sprite_Rapley__5
       rect:
         serializedVersion: 2
         x: 29
@@ -242,14 +242,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0235b59ec2d182f4cb85fe5f8567a809
-      internalID: 1826690168
+      spriteID: f95b6bf45429b54469d527164b785aac
+      internalID: 1040784156
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Rapley_6
+      name: Sprite_Rapley__6
       rect:
         serializedVersion: 2
         x: 58
@@ -263,14 +263,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b46f935103c060e45bfa84dc49dadc91
-      internalID: -1364492262
+      spriteID: 57f4061449666704eb2856330c561cc8
+      internalID: -55689133
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Rapley_7
+      name: Sprite_Rapley__7
       rect:
         serializedVersion: 2
         x: 87
@@ -284,14 +284,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1ae1f8cdccacd4f44b3c6e0841e8b3cc
-      internalID: -1622439279
+      spriteID: 896b529ef8c61cf4b899f81148b3799d
+      internalID: -1345972412
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Rapley_8
+      name: Sprite_Rapley__8
       rect:
         serializedVersion: 2
         x: 0
@@ -305,14 +305,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 508aaeadd522b25418d54638e0397cac
-      internalID: 1053685511
+      spriteID: f293fa20d0871144ba5eaf51aecc2db4
+      internalID: 473591027
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Rapley_9
+      name: Sprite_Rapley__9
       rect:
         serializedVersion: 2
         x: 29
@@ -326,14 +326,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 99f4ab2bc3b5a654e947780dac17fbd4
-      internalID: -1219718987
+      spriteID: 178a2b35f4339a646b88995341155f26
+      internalID: 1287941464
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Rapley_10
+      name: Sprite_Rapley__10
       rect:
         serializedVersion: 2
         x: 58
@@ -347,14 +347,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 82533c5be7efb8d44bf60842a9a1e501
-      internalID: 1235756120
+      spriteID: 5c9af400cb3b1a14c9f5ad262fb50595
+      internalID: -528118733
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Rapley_11
+      name: Sprite_Rapley__11
       rect:
         serializedVersion: 2
         x: 87
@@ -368,14 +368,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6d0275e797006924a99e0c560d70aaaa
-      internalID: -1991095875
+      spriteID: 4acce055bba08e64aacfcc8a17974c1b
+      internalID: 1658260100
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Rapley_12
+      name: Sprite_Rapley__12
       rect:
         serializedVersion: 2
         x: 0
@@ -389,14 +389,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 411b2f45d305d534ebea1a7d2836a181
-      internalID: -1016347107
+      spriteID: 59877744860241947ae61220a3bcb298
+      internalID: 336767008
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Rapley_13
+      name: Sprite_Rapley__13
       rect:
         serializedVersion: 2
         x: 29
@@ -410,14 +410,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 75b0f3c5c9b17bb4db16eb93aa535bd4
-      internalID: -1104010476
+      spriteID: 385d5c6549d44794ab04da2de4e85238
+      internalID: -216858233
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Rapley_14
+      name: Sprite_Rapley__14
       rect:
         serializedVersion: 2
         x: 58
@@ -431,14 +431,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5d3a29257544b7a41a443c4e9cdcb43b
-      internalID: 907064682
+      spriteID: 5e6e0630f69c0d64f98c3f461d8e6e69
+      internalID: 491065860
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Rapley_15
+      name: Sprite_Rapley__15
       rect:
         serializedVersion: 2
         x: 87
@@ -452,14 +452,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ace16e73b2271c8438a0b40051a3d5e9
-      internalID: -2031572917
+      spriteID: 28cb187760cd6cd46b4fc1fb785ebc87
+      internalID: -1100673003
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Rapley_16
+      name: Sprite_Rapley__16
       rect:
         serializedVersion: 2
         x: 0
@@ -473,14 +473,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ac65ebb0ec8dc0943a3a787ebd6e9318
-      internalID: 1279360488
+      spriteID: 6e0195a040f24a54b80d46d20e07df8d
+      internalID: 1900121461
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Rapley_17
+      name: Sprite_Rapley__17
       rect:
         serializedVersion: 2
         x: 29
@@ -494,14 +494,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8ed1590f43b28834b88bba69bf3a5002
-      internalID: -887237408
+      spriteID: 5f0ac65f3a0babf4cb9ad6e157e81846
+      internalID: -1275015701
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Rapley_18
+      name: Sprite_Rapley__18
       rect:
         serializedVersion: 2
         x: 58
@@ -515,14 +515,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2c2d1033c33aeda488800d17b8d5e091
-      internalID: -1818775963
+      spriteID: 3e1db4858d247194f828bea159a3ae63
+      internalID: 1856241209
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Rapley_19
+      name: Sprite_Rapley__19
       rect:
         serializedVersion: 2
         x: 87
@@ -536,8 +536,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 37be0f5431fdc9c4a8471a1b275ebacb
-      internalID: 842067348
+      spriteID: 41dd606f566d36b44827963417ee96a3
+      internalID: 2100322596
       vertices: []
       indices: 
       edges: []
@@ -545,7 +545,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 0c164413a0ee5714cbded266d213b3ad
+    spriteID: d64de5c1b520552499456aca57f797fa
     internalID: 0
     vertices: []
     indices: 
@@ -553,26 +553,26 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Sprite_Rapley_0: 116738886
-      Sprite_Rapley_1: -875154824
-      Sprite_Rapley_10: 1235756120
-      Sprite_Rapley_11: -1991095875
-      Sprite_Rapley_12: -1016347107
-      Sprite_Rapley_13: -1104010476
-      Sprite_Rapley_14: 907064682
-      Sprite_Rapley_15: -2031572917
-      Sprite_Rapley_16: 1279360488
-      Sprite_Rapley_17: -887237408
-      Sprite_Rapley_18: -1818775963
-      Sprite_Rapley_19: 842067348
-      Sprite_Rapley_2: 282065149
-      Sprite_Rapley_3: 206847502
-      Sprite_Rapley_4: -1749660712
-      Sprite_Rapley_5: 1826690168
-      Sprite_Rapley_6: -1364492262
-      Sprite_Rapley_7: -1622439279
-      Sprite_Rapley_8: 1053685511
-      Sprite_Rapley_9: -1219718987
+      Sprite_Rapley__0: 219223331
+      Sprite_Rapley__1: -101354061
+      Sprite_Rapley__10: -528118733
+      Sprite_Rapley__11: 1658260100
+      Sprite_Rapley__12: 336767008
+      Sprite_Rapley__13: -216858233
+      Sprite_Rapley__14: 491065860
+      Sprite_Rapley__15: -1100673003
+      Sprite_Rapley__16: 1900121461
+      Sprite_Rapley__17: -1275015701
+      Sprite_Rapley__18: 1856241209
+      Sprite_Rapley__19: 2100322596
+      Sprite_Rapley__2: 15191173
+      Sprite_Rapley__3: 658897927
+      Sprite_Rapley__4: -1474892249
+      Sprite_Rapley__5: 1040784156
+      Sprite_Rapley__6: -55689133
+      Sprite_Rapley__7: -1345972412
+      Sprite_Rapley__8: 473591027
+      Sprite_Rapley__9: 1287941464
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
