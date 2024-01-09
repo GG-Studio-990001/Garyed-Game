@@ -1,6 +1,5 @@
 using Runtime.ETC;
 using Runtime.Interface;
-using System;
 using UnityEngine;
 
 namespace Runtime.CH1.SubB
@@ -11,7 +10,7 @@ namespace Runtime.CH1.SubB
         [SerializeField] private Transform spriteTransform;
         [SerializeField] private float moveTime = 1.0f;
 
-        public ThreeMatchPuzzleController ThreeMatchPuzzleController { get; set; }
+        public ThreeMatchPuzzleController Controller { get; set; }
         private Vector3 _firstPosition;
         private IMovement _movement;
         private float _pushTime;
@@ -41,7 +40,7 @@ namespace Runtime.CH1.SubB
                     direction.x = Mathf.Abs(direction.x) > Mathf.Abs(direction.y) ? Mathf.Sign(direction.x) : 0f;
                     direction.y = Mathf.Abs(direction.y) > Mathf.Abs(direction.x) ? Mathf.Sign(direction.y) : 0f;
 
-                    if (ThreeMatchPuzzleController.ValidateMovement(this, direction))
+                    if (Controller.ValidateMovement(this, direction))
                     {
                         _movement.Move(direction);
                         Invoke(nameof(CallCheckMatching), moveTime);
@@ -49,22 +48,22 @@ namespace Runtime.CH1.SubB
                 }
             }
         }
-
-        private void OnCollisionExit2D(Collision2D other) => _pushTime = 0f;
         
         public void ResetPosition()
         {
             transform.position = _firstPosition;
         }
         
-        private void CallCheckMatching()
-        {
-            ThreeMatchPuzzleController.CheckMatching();
-        }
-        
         public void DestroyJewelry()
         {
             Destroy(gameObject);
         }
+        
+        private void CallCheckMatching()
+        {
+            Controller.CheckMatching();
+        }
+
+        private void OnCollisionExit2D(Collision2D other) => _pushTime = 0f;
     }
 }

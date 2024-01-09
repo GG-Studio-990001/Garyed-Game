@@ -11,7 +11,7 @@ namespace Runtime.CH1.SubB
         private readonly Transform _transform;
         private readonly Transform _spriteTransform;
         private readonly float _moveSpeed;
-        private bool _isMoving = false;
+        private bool _isMoving;
         private Vector2 _previousMovementInput = Vector2.zero;
         
         public JewelryMovement(Transform transform, Transform spriteTransform, float moveSpeed)

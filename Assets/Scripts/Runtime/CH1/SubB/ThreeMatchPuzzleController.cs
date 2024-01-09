@@ -1,5 +1,4 @@
 using Runtime.ETC;
-using System;
 using System.Linq;
 using UnityEngine;
 
@@ -22,7 +21,7 @@ namespace Runtime.CH1.SubB
         {
             foreach (var jewelry in jewelries)
             {
-                jewelry.ThreeMatchPuzzleController = this;
+                jewelry.Controller = this;
             }
         }
         
