@@ -9,7 +9,7 @@ using UnityEngine.TestTools;
 namespace Tests.Runtime.System
 {
     [TestFixture]
-    public class StageControllerTest
+    public class StageControllerTests
     {
         [UnityTest]
         public IEnumerator TestStageSwitch()
@@ -40,6 +40,11 @@ namespace Tests.Runtime.System
             yield return new WaitForEndOfFrame();
             
             Assert.AreEqual(stage2, stageController.CurrentStage);
+            
+            GameObject.DestroyImmediate(stageControllerObj);
+            GameObject.DestroyImmediate(stage1Obj);
+            GameObject.DestroyImmediate(stage1Ob2);
+            GameObject.DestroyImmediate(player);
         }
         
         [UnityTest]
@@ -59,6 +64,9 @@ namespace Tests.Runtime.System
             yield return new WaitForEndOfFrame();
             
             Assert.AreEqual(stageController, stage1.StageController);
+            
+            GameObject.DestroyImmediate(stageControllerObj);
+            GameObject.DestroyImmediate(stage1Obj);
         }
     }
 }
