@@ -1,46 +1,45 @@
 using Runtime.CH1.Main.Controller;
+using Runtime.Interface;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.Serialization;
 
 namespace Runtime.CH1.Main.Map
 {
-    public class Stage : MonoBehaviour
+    public class Stage : MonoBehaviour, IStage
     {
-        [Header("Stage Info")]
-        [SerializeField] private GameObject stageObject;
-        [field: SerializeField] public int StageNumber { get; set; }
+        [field:SerializeField] public GameObject StageObject { get; set; }
         
+        [field: SerializeField] public int StageNumber { get; set; }
+        public IStageController StageController { get; set; }
+
         [Header("Stage Extension")]
         [SerializeField] private PolygonCollider2D confiner2D;
         public UnityEvent onStageEnable;
-         
-        public StageController StageController { get; private set; }
-
-        public void Init(StageController stageController)
+        
+        public void SetSetting()
         {
-            StageController = stageController;
-        }
-
-        public void SetMapSetting()
-        {
-            StageController.Confiner2D.m_BoundingShape2D = confiner2D;
+            var stageController = (StageController as StageController);
+            
+            if (stageController.Confiner2D == null)
+                return;
+            
+            stageController.Confiner2D.m_BoundingShape2D = confiner2D;
         }
         
         public bool IsActivate()
         {
-            return stageObject.activeSelf;
+            return StageObject.activeSelf;
         }
         
-        public void StageEnable()
+        public void Enable()
         {
-            stageObject.SetActive(true);
+            StageObject.SetActive(true);
             onStageEnable?.Invoke();
         }
         
-        public void StageDisable()
+        public void Disable()
         {
-            stageObject.SetActive(false);
+            StageObject.SetActive(false);
         }
     }
 }
