@@ -1,5 +1,7 @@
 using Runtime.CH1.Main.Controller;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 namespace Runtime.CH1.Main.Map
 {
@@ -11,7 +13,8 @@ namespace Runtime.CH1.Main.Map
         
         [Header("Stage Extension")]
         [SerializeField] private PolygonCollider2D confiner2D;
-        
+        public UnityEvent onStageEnable;
+         
         public StageController StageController { get; private set; }
 
         public void Init(StageController stageController)
@@ -32,6 +35,7 @@ namespace Runtime.CH1.Main.Map
         public void StageEnable()
         {
             stageObject.SetActive(true);
+            onStageEnable?.Invoke();
         }
         
         public void StageDisable()

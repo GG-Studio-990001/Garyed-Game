@@ -1410,6 +1410,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d61b18444317944a99ee38e37220ff8, type: 3}
+--- !u!114 &2743521362885590362 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5954384011416827094, guid: a4fa811cdc3960346896b628a8bbe022, type: 3}
+  m_PrefabInstance: {fileID: 4981053743895912313}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eeabaef0dbde8774c9c171e0a6c35e93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2753718019634529845
 GameObject:
   m_ObjectHideFlags: 0
@@ -1950,6 +1961,38 @@ PrefabInstance:
     - target: {fileID: 1825662071834068799, guid: a4fa811cdc3960346896b628a8bbe022, type: 3}
       propertyPath: m_Name
       value: Stage [2]
+      objectReference: {fileID: 0}
+    - target: {fileID: 3531386728025199524, guid: a4fa811cdc3960346896b628a8bbe022, type: 3}
+      propertyPath: onStageEnable.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3531386728025199524, guid: a4fa811cdc3960346896b628a8bbe022, type: 3}
+      propertyPath: onStageEnable.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3531386728025199524, guid: a4fa811cdc3960346896b628a8bbe022, type: 3}
+      propertyPath: onStageEnable.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2743521362885590362}
+    - target: {fileID: 3531386728025199524, guid: a4fa811cdc3960346896b628a8bbe022, type: 3}
+      propertyPath: onStageEnable.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3531386728025199524, guid: a4fa811cdc3960346896b628a8bbe022, type: 3}
+      propertyPath: onStageEnable.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PuzzleReset
+      objectReference: {fileID: 0}
+    - target: {fileID: 3531386728025199524, guid: a4fa811cdc3960346896b628a8bbe022, type: 3}
+      propertyPath: onStageEnable.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Runtime.CH1.SubB.ThreeMatchPuzzleController, Scripts
+      objectReference: {fileID: 0}
+    - target: {fileID: 3531386728025199524, guid: a4fa811cdc3960346896b628a8bbe022, type: 3}
+      propertyPath: onStageEnable.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3610823345873123190, guid: a4fa811cdc3960346896b628a8bbe022, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2894,6 +2937,10 @@ PrefabInstance:
     - target: {fileID: 885117958501877593, guid: fabd929830e0d48429c6e047af57dd53, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4462915879690929843, guid: fabd929830e0d48429c6e047af57dd53, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5840771039378051981, guid: fabd929830e0d48429c6e047af57dd53, type: 3}
       propertyPath: m_Name

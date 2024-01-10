@@ -24,18 +24,8 @@ namespace Runtime.CH1.SubB
                 jewelry.Controller = this;
             }
         }
-        
-        private void OnEnable()
-        {
-            if (IsClear)
-            {
-                return;
-            }
-            
-            PuzzleReset();
-        }
 
-        private void PuzzleReset()
+        public void PuzzleReset()
         {
             foreach (var jewelry in jewelries)
             {
