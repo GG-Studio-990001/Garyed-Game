@@ -11,6 +11,7 @@ namespace Runtime.CH1.SubB
         [SerializeField] private float moveTime = 1.0f;
 
         public ThreeMatchPuzzleController Controller { get; set; }
+        
         private Vector3 _firstPosition;
         private IMovement _movement;
         private float _pushTime;
@@ -52,21 +53,10 @@ namespace Runtime.CH1.SubB
             }
         }
         
-        public void ResetPosition()
-        {
-            transform.position = _firstPosition;
-        }
-        
-        public void DestroyJewelry()
-        {
-            Destroy(gameObject);
-        }
-        
-        private void CallCheckMatching()
-        {
-            Controller.CheckMatching();
-        }
-
         private void OnCollisionExit2D(Collision2D other) => _pushTime = 0f;
+        
+        public void ResetPosition() => transform.position = _firstPosition;
+        public void DestroyJewelry() => Destroy(gameObject);
+        private void CallCheckMatching() => Controller.CheckMatching();
     }
 }
