@@ -1,11 +1,9 @@
 using Cinemachine;
 using Runtime.CH1.Main.Map;
-using Runtime.CH1.Main.Player;
 using Runtime.Data.Original;
 using Runtime.InGameSystem;
 using Runtime.Interface;
 using UnityEngine;
-using UnityEngine.AddressableAssets;
 
 namespace Runtime.CH1.Main
 {
@@ -75,16 +73,6 @@ namespace Runtime.CH1.Main
             _playerDataProvider.Set(data);
             
             _currentStage.SetActive(true);
-        }
-        
-        public void RestrictPlayerInput()
-        {
-            DataProviderManager.Instance.ControlsDataProvider.Get().RestrictPlayerInput();
-        }
-        
-        public void ReleasePlayerInput()
-        {
-            DataProviderManager.Instance.ControlsDataProvider.Get().ReleasePlayerInput();
         }
     }
 }

@@ -1,4 +1,6 @@
+using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Runtime.InGameSystem
 {
@@ -6,15 +8,8 @@ namespace Runtime.InGameSystem
     {
         public void LoadScene(string sceneName)
         {
-            UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
-        }
-
-        public void OnExitButtonClicked()
-        {
-            #if UNITY_EDITOR
-            UnityEditor.EditorApplication.isPlaying = false;
-            #endif
-            Application.Quit();
+            DataProviderManager.Instance.ControlsDataProvider.Get().ResetControls();
+            SceneManager.LoadScene(sceneName);
         }
     }
 }

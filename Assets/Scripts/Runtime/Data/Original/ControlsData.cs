@@ -5,14 +5,25 @@ namespace Runtime.Data.Original
 {
     public class ControlsData
     {
-        public GameOverControls GameOverControls { get; set; }
+        public GameOverControls GameOverControls { get; private set; }
+        
+        private int _uiStack = 0;
         
         public ControlsData()
         {
-            GameOverControls = new GameOverControls();
+            ResetControls();
         }
         
-        private int _uiStack = 0;
+        public void ResetControls()
+        {
+            if (GameOverControls != null)
+            {
+                GameOverControls.Disable();
+            }
+            GameOverControls = new GameOverControls();
+            
+            _uiStack = 0;
+        }
 
         public void RestrictPlayerInput()
         {
@@ -22,7 +33,13 @@ namespace Runtime.Data.Original
         
         public void ReleasePlayerInput()
         {
+            if (_uiStack <= 0)
+            {
+                return;
+            }
+            
             _uiStack--;
+            
             if (_uiStack > 0)
             {
                 return;
