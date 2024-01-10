@@ -297,7 +297,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 466455b48b10c9d40ae3b559976e06dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stageObject: {fileID: 3610823345873123190}
+  <StageObject>k__BackingField: {fileID: 3610823345873123190}
   <StageNumber>k__BackingField: 2
   confiner2D: {fileID: 1424756799786137292}
   onStageEnable:
@@ -1315,7 +1315,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eeabaef0dbde8774c9c171e0a6c35e93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jewelries:
+  <Jewelries>k__BackingField:
   - {fileID: 3463304193438538188}
   - {fileID: 3661627650397550461}
   - {fileID: 2359969895712971451}
@@ -1332,6 +1332,7 @@ MonoBehaviour:
   - {fileID: 8305674909683105159}
   - {fileID: 6762743953234610953}
   - {fileID: 3024469120688952402}
+  - {fileID: 2446269788281123094}
 --- !u!1001 &591194870019368115
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1874,6 +1875,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c5bfbfdda043544c8b5760082353980, type: 3}
+--- !u!114 &2446269788281123094 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4045490627118366079, guid: 3c5bfbfdda043544c8b5760082353980, type: 3}
+  m_PrefabInstance: {fileID: 1861848272848276585}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edee8ee8128311e4b8cc821374502cd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &6532442723429366200 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4859800885399418321, guid: 3c5bfbfdda043544c8b5760082353980, type: 3}

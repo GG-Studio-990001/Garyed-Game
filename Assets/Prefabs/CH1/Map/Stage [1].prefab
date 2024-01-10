@@ -713,7 +713,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6138575075136299047
 Transform:
   m_ObjectHideFlags: 0
@@ -1014,9 +1014,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 466455b48b10c9d40ae3b559976e06dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stageObject: {fileID: 4462915879690929843}
+  <StageObject>k__BackingField: {fileID: 4462915879690929843}
   <StageNumber>k__BackingField: 1
   confiner2D: {fileID: 5861718188814841676}
+  onStageEnable:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &5879380393498289339
 GameObject:
   m_ObjectHideFlags: 0
