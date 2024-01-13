@@ -1,39 +1,49 @@
+using Cinemachine;
+using Runtime.CH1.Main.Map;
+using Runtime.CH1.Main.Player;
+using Runtime.Data.Original;
+using Runtime.InGameSystem;
+using Runtime.Interface;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 
 namespace Runtime.CH1.Main
 {
     public class Ch1GameController : MonoBehaviour
     {
-        [Header("Player")]
-        [SerializeField] private TopDownPlayer topDownPlayer; // Inspector에서 Player를 넣어줘야함 or Find로 찾아서 넣어줘야함
         [Header("System")]
-        [SerializeField] private GameObject gameSettingUI;
         [SerializeField] private SoundSystem soundSystem;
-
-        public GameOverControls GameOverControls { get; private set; }
-
-        private bool _isDialogue = false;
         
-        private void Awake()
+        [Header("Player")]
+        [SerializeField] private GameObject player;
+        [SerializeField] private GameObject[] stage;
+        private GameObject _currentStage;
+        
+        [Header("Camera")]
+        [SerializeField] private CinemachineConfiner2D cinemachineConfiner2D;
+        
+        [Header("Cursor")]
+        [SerializeField] private Texture2D cursorTexture;
+        
+        private IProvider<PlayerData> _playerDataProvider;
+        
+        private void Start()
         {
+            _playerDataProvider = DataProviderManager.Instance.PlayerDataProvider;
+            
             InitGame();
+                
+            var data = _playerDataProvider.Get();
+            NextStage(data.quarter.stage, data.position);
+            
+            //Test
+            Cursor.SetCursor(cursorTexture, Vector2.zero, CursorMode.Auto);
         }
         
         private void InitGame()
         {
-            GameOverControls = new GameOverControls();
-            
-            SetAllUIActiveFalse();
             SetMusic("Start");
-            SetKeyBinding();
-            
-            // DI
-            topDownPlayer.Ch1GameSystem = this;
-        }
-        
-        private void SetAllUIActiveFalse()
-        {
-            gameSettingUI.SetActive(false);
+            //SoundManager.Instance.PlaySound("Start");
         }
         
         private void SetMusic(string soundName)
@@ -42,44 +52,39 @@ namespace Runtime.CH1.Main
             soundSystem.PlayMusic(soundName);
         }
         
-        private void SetKeyBinding()
+        // TODO 메서드 정리
+        // 이 메서드가 시작되면 Fade시작해서 종료되면 Fade 종료
+        public void NextStage(int stageNumber, Vector2 playerPosition)
         {
-            GameOverControls.Enable();
-            GameOverControls.UI.GameSetting.performed += ctx => OnGameSetting();
-        }
-        
-        private void OnGameSetting()
-        {
-            gameSettingUI.SetActive(gameSettingUI.activeSelf == false);
-        }
-        
-        #region Unity Event
+            if (_currentStage != null)
+                _currentStage.SetActive(false);
+            _currentStage = stage[stageNumber - 1];
 
-        public void OnDialogueStart()
-        {
-            _isDialogue = true;
-            GameOverControls.Player.Disable();
-        }
-        
-        public void OnDialogueEnd()
-        {
-            _isDialogue = false;
-            GameOverControls.Player.Enable();
-        }
-        
-        public void OnGameSettingStart()
-        {
-            GameOverControls.Player.Disable();
-        }
-        
-        public void OnGameSettingEnd()
-        {
-            if (_isDialogue)
-                return;
+            var stageComponent = _currentStage.GetComponent<Stage>();
             
-            GameOverControls.Player.Enable();
-        }
+            stageComponent.Ch1GameController = this;
+            stageComponent.CinemachineConfiner2D = cinemachineConfiner2D;
+            
+            stageComponent.SetMapSetting();
 
-        #endregion
+            var data = _playerDataProvider.Get();
+            player.transform.position = playerPosition;
+            data.position = playerPosition;
+            data.quarter.stage = stageNumber;
+            
+            _playerDataProvider.Set(data);
+            
+            _currentStage.SetActive(true);
+        }
+        
+        public void RestrictPlayerInput()
+        {
+            DataProviderManager.Instance.ControlsDataProvider.Get().RestrictPlayerInput();
+        }
+        
+        public void ReleasePlayerInput()
+        {
+            DataProviderManager.Instance.ControlsDataProvider.Get().ReleasePlayerInput();
+        }
     }
 }

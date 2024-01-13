@@ -17,11 +17,6 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: cafeba31574c11542a823273f29d0eb3
   m_SerializeEntries:
-  - m_GUID: 65f51bcfff75f8a43833ebe90cdf0fa9
-    m_Address: SettingsData
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: aed180822f191594c9fcaf321266bb66
     m_Address: Assets/Art/Animation/CH1/Rapley/Player.controller
     m_ReadOnly: 0
@@ -29,6 +24,16 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c2f6f0fdc61c64147a21e4577f52d1cf
     m_Address: Assets/Timeline/CutScene.playable
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0fe2d15bfcf54bc45b838116897d75e9
+    m_Address: Stage_1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3910138be38ec2945b703ceec70e7a9e
+    m_Address: Stage_2
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

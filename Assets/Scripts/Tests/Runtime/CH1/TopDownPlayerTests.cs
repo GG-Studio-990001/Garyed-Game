@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using Runtime.CH1.Main;
+using Runtime.CH1.Main.Player;
 using Runtime.CH1.Main.PlayerFunction;
 using Runtime.ETC;
 using Runtime.Interface;

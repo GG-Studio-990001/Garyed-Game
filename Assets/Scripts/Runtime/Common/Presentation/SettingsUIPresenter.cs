@@ -1,5 +1,7 @@
-using Runtime.Common.Domain;
 using Runtime.Common.View;
+using Runtime.Data.Original;
+using Runtime.InGameSystem;
+using Runtime.Interface;
 using UnityEngine;
 
 namespace Runtime.Common.Presentation
@@ -15,6 +17,9 @@ namespace Runtime.Common.Presentation
         
         private readonly string _backgroundAudioSourceName = "BackgroundAudioSource";
         private readonly string _effectAudioSourceName = "EffectAudioSource";
+        
+        private IProvider<ControlsData> ControlsDataProvider => DataProviderManager.Instance.ControlsDataProvider;
+        private IProvider<SettingsData> SettingsDataProvider => DataProviderManager.Instance.SettingsDataProvider;
 
         public SettingsUIPresenter(SettingsUIView settingsUIView, SettingsData settingsData)
         {
@@ -40,7 +45,13 @@ namespace Runtime.Common.Presentation
             SetMusicVolume(_settingsData.MusicVolume);
             SetSfxVolume(_settingsData.SfxVolume);
             
+            _settingsUIView.GameExitButton.onClick.AddListener(OnGameExitButtonClicked);
             _settingsUIView.ExitButton.onClick.AddListener(OnExitButtonClicked);
+            
+            ControlsDataProvider.Get().GameOverControls.UI.Enable();
+            ControlsDataProvider.Get().GameOverControls.UI.GameSetting.performed += ctx => GameSettingOn();
+            
+            GameSettingOn();
         }
         
         private void SetMusicVolume(float volume)
@@ -59,12 +70,35 @@ namespace Runtime.Common.Presentation
             _effectAudioSource.volume = _settingsData.SfxVolume;
         }
         
-        private void OnExitButtonClicked()
+        private void OnGameExitButtonClicked()
         {
+            SettingsDataProvider.Set(_settingsData);
+            
             #if UNITY_EDITOR
             UnityEditor.EditorApplication.isPlaying = false;
             #endif
             Application.Quit();
+        }
+        
+        private void OnExitButtonClicked()
+        {
+            SettingsDataProvider.Set(_settingsData);
+            
+            _settingsUIView.gameObject.SetActive(false);
+        }
+
+        private void GameSettingOn()
+        {
+            if (!_settingsUIView.gameObject.activeSelf)
+            {
+                ControlsDataProvider.Get().RestrictPlayerInput();
+            }
+            else
+            {
+                ControlsDataProvider.Get().ReleasePlayerInput();
+            }
+
+            _settingsUIView.gameObject.SetActive(!_settingsUIView.gameObject.activeSelf);
         }
     }
 }
