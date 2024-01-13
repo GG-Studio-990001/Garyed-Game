@@ -6,4 +6,12 @@ namespace Runtime.ETC
         Move,
         Interact,
     }
+
+    public enum JewelryType
+    {
+        A,
+        B,
+        C,
+        None
+    }
 }
