@@ -108,10 +108,10 @@ namespace Tests.Runtime.System
             Object.DestroyImmediate(_backgroundAudioSource);
             Object.DestroyImmediate(_effectAudioSource);
             Object.DestroyImmediate(_model);
-            Object.DestroyImmediate(_musicVolumeSlider);
-            Object.DestroyImmediate(_sfxVolumeSlider);
-            Object.DestroyImmediate(_exitButton);
-            Object.DestroyImmediate(_gameExitButton);
+            Object.DestroyImmediate(_musicVolumeSlider.gameObject);
+            Object.DestroyImmediate(_sfxVolumeSlider.gameObject);
+            Object.DestroyImmediate(_exitButton.gameObject);
+            Object.DestroyImmediate(_gameExitButton.gameObject);
             
             yield return new WaitForFixedUpdate();
         }

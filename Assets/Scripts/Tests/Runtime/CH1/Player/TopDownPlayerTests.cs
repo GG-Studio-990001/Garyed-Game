@@ -3,6 +3,7 @@ using Runtime.CH1.Main;
 using Runtime.CH1.Main.Player;
 using Runtime.CH1.Main.PlayerFunction;
 using Runtime.ETC;
+using Runtime.InGameSystem;
 using Runtime.Interface;
 using System.Collections;
 using UnityEditor.Animations;
@@ -10,7 +11,7 @@ using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.TestTools;
 
-namespace Tests.Runtime
+namespace Tests.Runtime.CH1.Player
 {
     [TestFixture]
     public class TopDownPlayerTests
@@ -24,6 +25,8 @@ namespace Tests.Runtime
         [UnitySetUp]
         public IEnumerator Setup()
         {
+            DataProviderManager dataProviderManager = new GameObject("DataProviderManager").AddComponent<DataProviderManager>();
+            
             _playerObject = new GameObject("Player");
             Animator animator = _playerObject.AddComponent<Animator>();
             

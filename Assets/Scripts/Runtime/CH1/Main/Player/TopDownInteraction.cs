@@ -2,7 +2,7 @@ using Runtime.CH1.Main.Interface;
 using Runtime.Interface;
 using UnityEngine;
 
-namespace Runtime.CH1.Main.PlayerFunction
+namespace Runtime.CH1.Main.Player
 {
     public class TopDownInteraction : IInteraction
     {
@@ -23,7 +23,7 @@ namespace Runtime.CH1.Main.PlayerFunction
             
             if (hit.collider != null)
             {
-                hit.collider.GetComponent<IInteractive>()?.Interact();
+                hit.collider.GetComponent<IInteractive>()?.Interact(direction);
                 return true;
             }
             

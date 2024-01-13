@@ -50,8 +50,6 @@ namespace Runtime.Common.Presentation
             
             ControlsDataProvider.Get().GameOverControls.UI.Enable();
             ControlsDataProvider.Get().GameOverControls.UI.GameSetting.performed += ctx => GameSettingOn();
-            
-            GameSettingOn();
         }
         
         private void SetMusicVolume(float volume)
@@ -84,12 +82,14 @@ namespace Runtime.Common.Presentation
         {
             SettingsDataProvider.Set(_settingsData);
             
-            _settingsUIView.gameObject.SetActive(false);
+            _settingsUIView.SettingUIObject.SetActive(false);
+            
+            ControlsDataProvider.Get().ReleasePlayerInput();
         }
 
         private void GameSettingOn()
         {
-            if (!_settingsUIView.gameObject.activeSelf)
+            if (!_settingsUIView.SettingUIObject.activeSelf)
             {
                 ControlsDataProvider.Get().RestrictPlayerInput();
             }
@@ -98,7 +98,7 @@ namespace Runtime.Common.Presentation
                 ControlsDataProvider.Get().ReleasePlayerInput();
             }
 
-            _settingsUIView.gameObject.SetActive(!_settingsUIView.gameObject.activeSelf);
+            _settingsUIView.SettingUIObject.SetActive(!_settingsUIView.SettingUIObject.activeSelf);
         }
     }
 }

@@ -32,7 +32,10 @@ namespace Runtime.CH1.SubB
             
             Vector3 targetPosition = _transform.position + (Vector3)movementInput;
 
-            _spriteTransform.DOShakePosition(_moveSpeed, new Vector3(0.01f, 0.01f, 0.01f), 30, 90f, false, false);
+            if (_spriteTransform != null)
+            {
+                _spriteTransform.DOShakePosition(_moveSpeed, new Vector3(0.01f, 0.01f, 0.01f), 30, 90f, false, false);
+            }
             _transform.DOMove(targetPosition, _moveSpeed)
                 .SetEase(Ease.Linear)
                 .OnComplete(() => _isMoving = false)

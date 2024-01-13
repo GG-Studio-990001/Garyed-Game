@@ -6,6 +6,7 @@ namespace Runtime.Common.View
 {
     public class SettingsUIView : MonoBehaviour
     {
+        [field:SerializeField] public GameObject SettingUIObject { get; set; }
         [field:SerializeField] public Slider MusicVolumeSlider { get; set; }
         [field:SerializeField] public Slider SfxVolumeSlider { get; set; }
         [field:SerializeField] public Button ExitButton { get; set; }

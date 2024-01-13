@@ -9,6 +9,8 @@ using UnityEngine.InputSystem;
 namespace Runtime.CH1.Main.Player
 {
     [RequireComponent(typeof(Animator))]
+    [RequireComponent(typeof(Rigidbody2D))]
+    [RequireComponent(typeof(CircleCollider2D))]
     public class TopDownPlayer : MonoBehaviour
     {
         // TODO 이거 데이터로 빼야함

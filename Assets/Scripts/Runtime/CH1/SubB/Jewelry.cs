@@ -11,6 +11,7 @@ namespace Runtime.CH1.SubB
         [SerializeField] private float moveTime = 1.0f;
 
         public ThreeMatchPuzzleController Controller { get; set; }
+        
         private Vector3 _firstPosition;
         private IMovement _movement;
         private float _pushTime;
@@ -36,7 +37,10 @@ namespace Runtime.CH1.SubB
                 {
                     _pushTime = 0f;
                     
-                    Vector2 direction = (transform.position - other.transform.position).normalized;
+                    Vector2 playerDetectionPos = new Vector2(other.transform.position.x, other.transform.position.y + other.collider.offset.y);
+
+                    Vector2 direction = (transform.position - (Vector3)playerDetectionPos);
+                    
                     direction.x = Mathf.Abs(direction.x) > Mathf.Abs(direction.y) ? Mathf.Sign(direction.x) : 0f;
                     direction.y = Mathf.Abs(direction.y) > Mathf.Abs(direction.x) ? Mathf.Sign(direction.y) : 0f;
 
@@ -49,21 +53,10 @@ namespace Runtime.CH1.SubB
             }
         }
         
-        public void ResetPosition()
-        {
-            transform.position = _firstPosition;
-        }
-        
-        public void DestroyJewelry()
-        {
-            Destroy(gameObject);
-        }
-        
-        private void CallCheckMatching()
-        {
-            Controller.CheckMatching();
-        }
-
         private void OnCollisionExit2D(Collision2D other) => _pushTime = 0f;
+        
+        public void ResetPosition() => transform.position = _firstPosition;
+        public void DestroyJewelry() => Destroy(gameObject);
+        private void CallCheckMatching() => Controller.CheckMatching();
     }
 }

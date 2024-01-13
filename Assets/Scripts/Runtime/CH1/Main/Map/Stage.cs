@@ -1,32 +1,45 @@
-using Cinemachine;
-using System;
+using Runtime.CH1.Main.Controller;
+using Runtime.Interface;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Runtime.CH1.Main.Map
 {
-    public class Stage : MonoBehaviour
+    public class Stage : MonoBehaviour, IStage
     {
-        /*
-         * 현재 맵에서 설정해야 하는 정보
-         * 자신의 스테이지를 가지고 있어야 하고
-         * 맵의 카메라 confiner 정보를 가지고 있어야 한다.
-         */
-        [SerializeField] private MapMoveCollider mapMoveCollider;
-        [SerializeField] private PolygonCollider2D mapConfiner;
-        [field: SerializeField] public int StageNumber { get; private set; }
+        [field:SerializeField] public GameObject StageObject { get; set; }
         
-        public Ch1GameController Ch1GameController { get; set; } // 이후에 가능하다면 Game Controller 인터페이스로 분리
-        public CinemachineConfiner2D CinemachineConfiner2D { get; set; }
+        [field: SerializeField] public int StageNumber { get; set; }
+        public IStageController StageController { get; set; }
 
-        private void Start()
+        [Header("Stage Extension")]
+        [SerializeField] private PolygonCollider2D confiner2D;
+        public UnityEvent onStageEnable;
+        
+        public void SetSetting()
         {
+            var stageController = (StageController as StageController);
             
+            if (stageController.Confiner2D == null)
+                return;
+            
+            stageController.Confiner2D.m_BoundingShape2D = confiner2D;
         }
-
-        public void SetMapSetting()
+        
+        public bool IsActivate()
         {
-            mapMoveCollider.Ch1GameController = Ch1GameController;
-            CinemachineConfiner2D.m_BoundingShape2D = mapConfiner;
+            return StageObject.activeSelf;
+        }
+        
+        public void Enable()
+        {
+            StageObject.SetActive(true);
+            onStageEnable?.Invoke();
+        }
+        
+        public void Disable()
+        {
+            StageObject.SetActive(false);
         }
     }
 }
