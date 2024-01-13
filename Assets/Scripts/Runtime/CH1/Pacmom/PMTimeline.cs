@@ -18,7 +18,7 @@ namespace Runtime.CH1.Pacmom
         [SerializeField]
         private GameObject Sparkle;
         [SerializeField]
-        private GameObject[] dialouges;
+        private GameObject[] timeline = new GameObject[2];
 
         public void OpeningStart_1()
         {
@@ -32,13 +32,8 @@ namespace Runtime.CH1.Pacmom
         {
             Sparkle.SetActive(false);
             ControlEnable(true);
-            foreach (var d in dialouges)
-            {
-                d.SetActive(true);
-            }
         }
 
-        /*
         public void OpeningStart_2()
         {
             ControlEnable(false);
@@ -50,7 +45,12 @@ namespace Runtime.CH1.Pacmom
             Door.SetActive(false);
             ControlEnable(true);
             Controller.StartGame();
-        }*/
+
+            for (int i=0; i<timeline.Length; i++)
+            {
+                timeline[i].SetActive(false);
+            }
+        }
 
         private void ControlEnable(bool control)
         {
