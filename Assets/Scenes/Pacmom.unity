@@ -1683,8 +1683,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 33
+  m_fontSizeBase: 33
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -21670,7 +21670,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1267132489
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21686,7 +21686,7 @@ MonoBehaviour:
   m_IsGlobal: 1
   priority: 0
   blendDistance: 0
-  weight: 1
+  weight: 0.7
   sharedProfile: {fileID: 11400000, guid: 7b3f394af6a9ada46bc9a00bc4cc7333, type: 2}
 --- !u!4 &1267132490
 Transform:
@@ -27151,6 +27151,6 @@ SceneRoots:
   - {fileID: 301195151}
   - {fileID: 1868357292}
   - {fileID: 1865427656}
-  - {fileID: 1267132490}
   - {fileID: 650095488}
   - {fileID: 1493158443}
+  - {fileID: 1267132490}
