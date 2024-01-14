@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using Yarn.Unity;
 
 namespace Runtime.CH1.Pacmom
@@ -7,6 +8,8 @@ namespace Runtime.CH1.Pacmom
     public class OpeningDialogue : DialogueViewBase
     {
         private DialogueRunner runner;
+        [SerializeField]
+        private GameObject speechBubble;
         [SerializeField]
         private GameObject speechBubbleA;
         [SerializeField]
@@ -21,37 +24,67 @@ namespace Runtime.CH1.Pacmom
             runner = GetComponent<DialogueRunner>();
             runner.AddCommandHandler("DustASpeak", DustASpeak);
             runner.AddCommandHandler("DustBSpeak", DustBSpeak);
-            // runner.AddCommandHandler("RapleyQMark", RapleyQMark);
+            runner.AddCommandHandler("RapleySpeak", RapleySpeak);
             runner.AddCommandHandler("OpeningDialogueFin", OpeningDialogueFin);
         }
 
         public void DustASpeak()
         {
-            speechBubbleA.SetActive(true);
-            speechBubbleB.SetActive(false);
-
-            line.transform.localPosition = new Vector3(-474f, line.transform.localPosition.y, line.transform.localPosition.z);
+            ShowSpeechBubble(1);
+            SetXPos(-474f);
         }
 
         public void DustBSpeak()
         {
-            speechBubbleA.SetActive(false);
-            speechBubbleB.SetActive(true);
-
-            line.transform.localPosition = new Vector3(474f, line.transform.localPosition.y, line.transform.localPosition.z);
+            ShowSpeechBubble(2);
+            SetXPos(474f);
         }
 
-        public void RapleyQMark()
+        public void RapleySpeak()
         {
-            Debug.Log("?");
+            ShowSpeechBubble(3);
+            SetXPos(0);
         }
 
         public void OpeningDialogueFin()
         {
+            ShowSpeechBubble();
+            timeline_2.SetActive(true);
+        }
+
+        private void SetXPos(float xPos)
+        {
+            line.transform.localPosition = new Vector3(xPos, line.transform.localPosition.y, line.transform.localPosition.z);
+
+            if (xPos == 0)
+                SetFontSize(50);
+            else
+                SetFontSize(33);
+        }
+
+        private void SetFontSize(int size)
+        {
+            line.fontSize = size;
+        }
+
+        private void ShowSpeechBubble(int val = 0)
+        {
             speechBubbleA.SetActive(false);
             speechBubbleB.SetActive(false);
+            speechBubble.SetActive(false);
 
-            timeline_2.SetActive(true);
+            switch (val)
+            {
+                case 1: // dust A
+                    speechBubbleA.SetActive(true);
+                    break;
+                case 2: // dust B
+                    speechBubbleB.SetActive(true);
+                    break;
+                case 3: // rapley
+                    speechBubble.SetActive(true);
+                    break;
+            }
         }
     }
 }

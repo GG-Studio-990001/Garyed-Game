@@ -6,7 +6,8 @@ title: PMStart
 <<wait 1>>
 <<DustASpeak>>
 오 뭐지? 신입인가!
-// <<RapleyQMark>>
+<<RapleySpeak>>
+?
 <<DustBSpeak>>
 신입! 신입!
 <<DustASpeak>>
@@ -35,7 +36,7 @@ title: PMRetry
 
 ===
 
-title: RandomWord
+title: PMRandom
 // 자주 나오지 않으며, 구분없이 사용됨
 position: 163,31
 ---
@@ -57,14 +58,14 @@ position: 163,31
 <<endif>>
 ===
 
-title: VacuumMode
+title: PMVacuumMode
 ---
 // 팩맘이 청소기를 획득 후 바로 메시지 발생 (말풍선)
 먼지유령1: 다들 조심해!
 먼지유령2: 조심! 조심!
 ===
 
-title: GameClear
+title: PMGameClear
 ---
 // 코인 비교 분기 때 발생, 게임 종료 연출로 화면이 바뀌기전까지 보여줌
 먼지유령1: 다들 고생했다! 퇴근이다!
