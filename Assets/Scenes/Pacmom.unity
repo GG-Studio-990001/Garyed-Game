@@ -8648,6 +8648,8 @@ PlayableDirector:
     value: {fileID: 1306120549}
   - key: {fileID: -649901818919000469, guid: 2afa46a5bc665b146a1860fc08d2778d, type: 2}
     value: {fileID: 1727271993}
+  - key: {fileID: -6827823606421272998, guid: 2afa46a5bc665b146a1860fc08d2778d, type: 2}
+    value: {fileID: 1598279875}
   m_ExposedReferences:
     m_References: []
 --- !u!4 &650095488
@@ -21963,6 +21965,7 @@ MonoBehaviour:
     m_Signals:
     - {fileID: 11400000, guid: 40737ed8610c9fe41911d33ed93e5ec0, type: 2}
     - {fileID: 11400000, guid: 2e3895000eda3c9469cd619adb0ae3c9, type: 2}
+    - {fileID: 0}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
@@ -21992,6 +21995,8 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls: []
 --- !u!320 &1493158442
 PlayableDirector:
   m_ObjectHideFlags: 0
@@ -22011,6 +22016,8 @@ PlayableDirector:
     value: {fileID: 1118124725}
   - key: {fileID: -3569383824249290456, guid: 8b43b0d8b5b9c5c46be269254995f143, type: 2}
     value: {fileID: 728518057}
+  - key: {fileID: 6766635252821661521, guid: 8b43b0d8b5b9c5c46be269254995f143, type: 2}
+    value: {fileID: 1598279875}
   m_ExposedReferences:
     m_References: []
 --- !u!4 &1493158443
@@ -22072,7 +22079,7 @@ GameObject:
   - component: {fileID: 1575259377}
   - component: {fileID: 1575259376}
   m_Layer: 0
-  m_Name: OpeningManager
+  m_Name: TimelineManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -22092,7 +22099,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Rapley: {fileID: 133942949}
   Controller: {fileID: 1761052961}
-  UI: {fileID: 1598279875}
   Door: {fileID: 1707595100}
   Sparkle: {fileID: 1306120546}
   timeline:
@@ -22313,7 +22319,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1707595101
 Transform:
   m_ObjectHideFlags: 0
