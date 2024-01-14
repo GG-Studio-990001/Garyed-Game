@@ -6,16 +6,39 @@ namespace Runtime.CH1.Pacmom
     public class Dust : MonoBehaviour
     {
         public PMGameController gameController;
-        public MovementAndEyes movement;
-        public AI ai;
+        public MovementAndEyes movement { get; private set; }
+        public AI ai { get; private set; }
+
+        private void Awake()
+        {
+            if (GetComponent<MovementAndEyes>() != null)
+            {
+                movement = GetComponent<MovementAndEyes>();
+            }
+
+            if (GetComponent<AI>() != null)
+            {
+                ai = GetComponent<AI>();
+            }
+        }
 
         private void Start()
         {
-            SetAI();
+            SetAIValue();
             ResetState();
         }
 
-        private void SetAI()
+        public void SetMovement(MovementAndEyes movement)
+        {
+            this.movement = movement;
+        }
+
+        public void SetAI(AI ai)
+        {
+            this.ai = ai;
+        }
+
+        private void SetAIValue()
         {
             ai?.SetStronger(true);
             ai?.SetCoinMatter(false);
