@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace Runtime.CH1.Main.Map
 {
+    [RequireComponent(typeof(BoxCollider2D))]
     public class StageMover : MonoBehaviour
     {
         [SerializeField] private int moveStageNumber;
