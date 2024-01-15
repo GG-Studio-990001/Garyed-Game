@@ -5,12 +5,25 @@ namespace Runtime.CH1.Pacmom
 {
     public class Rapley : MonoBehaviour
     {
-        public MovementAndRotation movement;
+        public MovementAndRotation movement { get; private set; }
+
+        private void Awake()
+        {
+            if (GetComponent<MovementAndRotation>() != null)
+            {
+                movement = GetComponent<MovementAndRotation>();
+            }
+        }
 
         private void Start()
         {
             SetSpriteRotation();
             ResetState();
+        }
+
+        public void SetMovement(MovementAndRotation movement) // 테스트 코드용
+        {
+            this.movement = movement;
         }
 
         private void SetSpriteRotation()

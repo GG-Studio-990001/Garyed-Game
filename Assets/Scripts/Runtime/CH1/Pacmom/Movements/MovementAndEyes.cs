@@ -8,6 +8,13 @@ namespace Runtime.CH1.Pacmom
         private SpriteRenderer eyeSprite;
         [SerializeField]
         private Sprite[] EyeSprites;
+        [SerializeField]
+        private bool isNormalEye { get; set; }
+
+        public void SetEyeNormal(bool isNormalEye)
+        {
+            this.isNormalEye = isNormalEye;
+        }
 
         private void Awake()
         {
@@ -31,7 +38,7 @@ namespace Runtime.CH1.Pacmom
 
         public void GetEyeSprites(Vector2 direction)
         {
-            if (eyeSprite == null)
+            if (eyeSprite == null || !isNormalEye)
                 return;
 
             if (direction == Vector2.up)
