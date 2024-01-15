@@ -47,6 +47,9 @@ TagManager:
   - name: Player
     uniqueID: 2712212615
     locked: 0
+  - name: MapFront
+    uniqueID: 517879615
+    locked: 0
   - name: UI
     uniqueID: 1546151723
     locked: 0
