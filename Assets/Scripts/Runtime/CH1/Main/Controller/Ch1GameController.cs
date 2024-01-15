@@ -9,6 +9,7 @@ namespace Runtime.CH1.Main.Controller
         [Header("System")]
         [SerializeField] private SoundSystem soundSystem;
         [SerializeField] private StageController stageController;
+        [SerializeField] private FadeController fadeController;
         
         [Header("Player")]
         [SerializeField] private GameObject player;
@@ -21,7 +22,7 @@ namespace Runtime.CH1.Main.Controller
         
         private void Awake()
         {
-            stageController.Init(player, cinemachineConfiner2D);
+            stageController.Init(player, cinemachineConfiner2D, fadeController);
             
             //Test
             InitGame();

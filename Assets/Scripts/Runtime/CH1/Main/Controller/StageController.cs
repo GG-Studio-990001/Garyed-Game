@@ -1,5 +1,7 @@
 using Cinemachine;
+using Runtime.InGameSystem;
 using Runtime.Interface;
+using System.Collections;
 using UnityEngine;
 
 namespace Runtime.CH1.Main.Controller
@@ -8,13 +10,15 @@ namespace Runtime.CH1.Main.Controller
     {
         public IStage CurrentStage { get; set; }
         public CinemachineConfiner2D Confiner2D { get; private set; }
+        public FadeController FadeController { get; private set; }
         private IStage[] _stages;
         private GameObject _player;
         
-        public void Init(GameObject player, CinemachineConfiner2D confiner2D)
+        public void Init(GameObject player, CinemachineConfiner2D confiner2D, FadeController fadeController)
         {
             _player = player;
             Confiner2D = confiner2D;
+            FadeController = fadeController;
             
             _stages = GetComponentsInChildren<IStage>();
             
@@ -32,9 +36,45 @@ namespace Runtime.CH1.Main.Controller
                     CurrentStage.SetSetting();
                 }
             }
+            
+            FadeController.FadeIn(1);
         }
 
         public void SwitchStage(int moveStageNumber, Vector2 spawnPosition)
+        {
+            if (FadeController == null)
+            {
+                NotCoroutineSwitchStage(moveStageNumber, spawnPosition);
+            }
+            else
+            {
+                StartCoroutine(CoroutineSwitchStage(moveStageNumber, spawnPosition));
+            }
+        }
+        
+        // stageChanger 클래스로 변경
+        private IEnumerator CoroutineSwitchStage(int moveStageNumber, Vector2 spawnPosition)
+        {
+            FadeController.FadeOut(1);
+            
+            yield return new WaitForSeconds(1);
+            
+            if (CurrentStage != null)
+                CurrentStage.Disable();
+            
+            CurrentStage = _stages[moveStageNumber - 1];
+            
+            _player.transform.position = spawnPosition;
+            
+            CurrentStage.Enable();
+            CurrentStage.SetSetting();
+            
+            yield return new WaitForSeconds(0.5f);
+            
+            FadeController.FadeIn(1);
+        }
+        
+        private void NotCoroutineSwitchStage(int moveStageNumber, Vector2 spawnPosition)
         {
             if (CurrentStage != null)
                 CurrentStage.Disable();

@@ -31,13 +31,13 @@ namespace Tests.Runtime.System
             
             GameObject player = new GameObject("Player");
             
-            (stageController as StageController).Init(player, null);
+            (stageController as StageController).Init(player, null, null);
             
             stageController.CurrentStage = stage1;
             
             stageController.SwitchStage(2, Vector2.zero);
             
-            yield return new WaitForEndOfFrame();
+            yield return new WaitForFixedUpdate();
             
             Assert.AreEqual(stage2, stageController.CurrentStage);
             
@@ -59,9 +59,9 @@ namespace Tests.Runtime.System
             stage1.StageObject = stage1Obj;
             stage1Obj.transform.parent = stageControllerObj.transform;
             
-            (stageController as StageController).Init(null, null);
+            (stageController as StageController).Init(null, null, null);
             
-            yield return new WaitForEndOfFrame();
+            yield return new WaitForFixedUpdate();
             
             Assert.AreEqual(stageController, stage1.StageController);
             
