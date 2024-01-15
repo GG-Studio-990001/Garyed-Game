@@ -7,6 +7,7 @@ namespace Runtime.InGameSystem
     public class FadeController : MonoBehaviour
     {
         [SerializeField] private Image fadeImage;
+        [SerializeField] private float fadeDeltaTime = 0.01f;
     
         public void FadeIn(float duration)
         {
@@ -23,9 +24,9 @@ namespace Runtime.InGameSystem
             float time = 0;
             while (time < duration)
             {
-                time += Time.deltaTime;
+                time += fadeDeltaTime;
                 fadeImage.color = new Color(0, 0, 0, 1 - time / duration);
-                yield return null;
+                yield return new WaitForSeconds(fadeDeltaTime);
             }
         }
     
@@ -34,9 +35,9 @@ namespace Runtime.InGameSystem
             float time = 0;
             while (time < duration)
             {
-                time += Time.deltaTime;
+                time += fadeDeltaTime;
                 fadeImage.color = new Color(0, 0, 0, time / duration);
-                yield return null;
+                yield return new WaitForSeconds(fadeDeltaTime);
             }
         }
     }
