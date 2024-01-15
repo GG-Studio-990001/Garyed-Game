@@ -7,17 +7,40 @@ namespace Runtime.CH1.Pacmom
     public class Pacmom : MonoBehaviour
     {
         public PMGameController gameController;
-        public MovementAndRotation movement;
-        public AI ai;
+        public MovementAndRotation movement { get; private set; }
+        public AI ai { get; private set; }
+
+        private void Awake()
+        {
+            if (GetComponent<MovementAndRotation>() != null)
+            {
+                movement = GetComponent<MovementAndRotation>();
+            }
+
+            if (GetComponent<AI>() != null)
+            {
+                ai = GetComponent<AI>();
+            }
+        }
 
         private void Start()
         {
             SetSpriteRotation();
-            SetAI();
+            SetAIValue();
             ResetState();
         }
 
-        private void SetAI()
+        public void SetMovement(MovementAndRotation movement)
+        {
+            this.movement = movement;
+        }
+
+        public void SetAI(AI ai)
+        {
+            this.ai = ai;
+        }
+
+        private void SetAIValue()
         {
             ai?.SetStronger(false);
             ai?.SetCoinMatter(true);

@@ -10,16 +10,19 @@ namespace Runtime.CH1.Pacmom
         [SerializeField]
         private PacmomSpriteControl pacmomSprite;
         [SerializeField]
-        private DustSpriteControl[] dustSprites = new DustSpriteControl[GlobalConst.DustCnt];
+        private SpriteControl[] dustBodySprites = new SpriteControl[GlobalConst.DustCnt];
+        [SerializeField]
+        private EyeSpriteControl[] dustEyeSprites = new EyeSpriteControl[GlobalConst.DustCnt];
 
         public void SetNormalSprites()
         {
             rapleySprite.GetNormalSprite();
             pacmomSprite.GetNormalSprite();
 
-            for (int i = 0; i < dustSprites.Length; i++)
+            for (int i = 0; i < GlobalConst.DustCnt; i++)
             {
-                dustSprites[i].GetNormalSprite();
+                dustBodySprites[i].GetNormalSprite();
+                dustEyeSprites[i].GetNormalSprite();
             }
         }
 
@@ -28,9 +31,10 @@ namespace Runtime.CH1.Pacmom
             pacmomSprite.GetVacuumModeSprite();
             rapleySprite.GetVacuumModeSprite();
 
-            for (int i = 0; i < dustSprites.Length; i++)
+            for (int i = 0; i < GlobalConst.DustCnt; i++)
             {
-                dustSprites[i].GetVacuumModeSprite();
+                dustBodySprites[i].GetVacuumModeSprite();
+                dustEyeSprites[i].GetVacuumModeSprite();
             }
         }
 

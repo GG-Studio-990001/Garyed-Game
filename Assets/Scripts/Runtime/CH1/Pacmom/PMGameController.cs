@@ -9,6 +9,7 @@ namespace Runtime.CH1.Pacmom
     {
         #region 선언
         private PMSpriteController spriteController;
+        [SerializeField]
         private PMUIController uiController;
         public SoundSystem soundSystem;
         [SerializeField]
@@ -57,7 +58,6 @@ namespace Runtime.CH1.Pacmom
         private void AssignComponent()
         {
             spriteController = GetComponent<PMSpriteController>();
-            uiController = GetComponent<PMUIController>();
 
             pacmomAI = pacmom.GetComponent<AI>();
 
@@ -70,6 +70,7 @@ namespace Runtime.CH1.Pacmom
 
         private void AssignController()
         {
+            timer.gameController = this;
             pacmom.gameController = this;
 
             for (int i = 0; i < dusts.Length; i++)
@@ -114,17 +115,19 @@ namespace Runtime.CH1.Pacmom
         #region Start
         private void Start()
         {
-            StartGame();
+            spriteController.SetNormalSprites();
+            SetCharacterMove(false);
         }
 
-        private void StartGame()
+        public void StartGame()
         {
             SetRapleyScore(0);
             SetPacmomScore(0);
             SetPacmomLives(3);
 
             ResetStates();
-            
+            SetCharacterMove(true);
+
             timer.SetTimer(true);
         }
         #endregion
@@ -135,7 +138,7 @@ namespace Runtime.CH1.Pacmom
             timer.SetTimer(false);
             isGameOver = true;
 
-            SetCharacterStop();
+            SetCharacterMove(false);
 
             if (HasRemainingCoins())
             {
@@ -232,12 +235,12 @@ namespace Runtime.CH1.Pacmom
             DustExitRoom();
         }
 
-        private void SetCharacterStop()
+        private void SetCharacterMove(bool move)
         {
-            rapley.movement.SetCanMove(false);
-            pacmom.movement.SetCanMove(false);
+            rapley.movement.SetCanMove(move);
+            pacmom.movement.SetCanMove(move);
             for (int i = 0; i < dusts.Length; i++)
-                dusts[i].movement.SetCanMove(false);
+                dusts[i].movement.SetCanMove(move);
         }
 
         private void SetVacuumMode(bool isVacuumMode)
@@ -245,7 +248,10 @@ namespace Runtime.CH1.Pacmom
             pacmom.VacuumMode(isVacuumMode);
             pacmomAI.SetStronger(isVacuumMode);
             for (int i = 0; i < dusts.Length; i++)
+            {
                 dustAIs[i].SetStronger(!isVacuumMode);
+                dusts[i].movement.SetEyeNormal(!isVacuumMode);
+            }
 
             Door.SetActive(isVacuumMode);
         }
