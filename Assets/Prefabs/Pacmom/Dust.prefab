@@ -218,8 +218,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameController: {fileID: 0}
-  movement: {fileID: 8324175502395817452}
-  ai: {fileID: 5395930438513632476}
 --- !u!114 &8324175502395817452
 MonoBehaviour:
   m_ObjectHideFlags: 0
