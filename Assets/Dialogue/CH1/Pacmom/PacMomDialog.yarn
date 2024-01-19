@@ -61,8 +61,11 @@ position: 163,31
 title: PMVacuumMode
 ---
 // 팩맘이 청소기를 획득 후 바로 메시지 발생 (말풍선)
+<<DustATell>>
 먼지유령1: 다들 조심해!
+<<DustBTell>>
 먼지유령2: 조심! 조심!
+<<WarningEnd>>
 ===
 
 title: PMGameClear

@@ -14,6 +14,8 @@ namespace Runtime.CH1.Pacmom
         public SoundSystem soundSystem;
         [SerializeField]
         private Timer timer;
+        [SerializeField]
+        private InGameDialogue dialogue;
 
         [Header("=Character=")]
         [SerializeField]
@@ -205,6 +207,7 @@ namespace Runtime.CH1.Pacmom
             spriteController.SetVaccumModeSprites();
             SetVacuumSpeed();
             SetVacuumMode(true);
+            dialogue.VacuumDialogue();
         }
 
         private void VacuumModeOff()

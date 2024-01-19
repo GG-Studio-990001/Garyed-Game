@@ -8,6 +8,8 @@ namespace Runtime.CH1.Pacmom
     public class OpeningDialogue : DialogueViewBase
     {
         private DialogueRunner runner;
+        private readonly int dustA = 0, dustB = 1, rapley = 2;
+
         [SerializeField]
         private GameObject speechBubble;
         [SerializeField]
@@ -18,20 +20,14 @@ namespace Runtime.CH1.Pacmom
         private TextMeshProUGUI line;
         [SerializeField]
         private GameObject timeline_2;
-        private readonly int dustA = 0, dustB = 1, rapley = 2;
 
-        void Awake()
+        private void Awake()
         {
             runner = GetComponent<DialogueRunner>();
             runner.AddCommandHandler("DustASpeak", DustASpeak);
             runner.AddCommandHandler("DustBSpeak", DustBSpeak);
             runner.AddCommandHandler("RapleySpeak", RapleySpeak);
             runner.AddCommandHandler("OpeningDialogueFin", OpeningDialogueFin);
-        }
-
-        public void VacuumDialogue()
-        {
-            runner.StartDialogue("PMVacuumMode");
         }
 
         public override void RunLine(LocalizedLine dialogueLine, Action onDialogueLineFinished)
@@ -54,15 +50,15 @@ namespace Runtime.CH1.Pacmom
 
             if (text.Length <= 12)
             {
-                bubble.sizeDelta = new Vector2(speechBubbleA.sizeDelta.x, 200f);
+                bubble.sizeDelta = new Vector2(bubble.sizeDelta.x, 200f);
             }
-            else if (text.Length <= 30)
+            else if (text.Length <= 29)
             {
-                bubble.sizeDelta = new Vector2(speechBubbleA.sizeDelta.x, 250f);
+                bubble.sizeDelta = new Vector2(bubble.sizeDelta.x, 250f);
             }
             else
             {
-                bubble.sizeDelta = new Vector2(speechBubbleA.sizeDelta.x, 300f);
+                bubble.sizeDelta = new Vector2(bubble.sizeDelta.x, 300f);
             }
 
             if (speaker == 0)
