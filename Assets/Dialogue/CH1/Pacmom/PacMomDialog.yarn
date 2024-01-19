@@ -11,7 +11,7 @@ title: PMStart
 <<DustBSpeak>>
 먼지유령2: 신입! 신입!
 <<DustASpeak>>
-먼지유령1: 긴장하지 말고,<br>본사에서 배운 대로 할 거야
+먼지유령1: 긴장하지 말고,<br>본사에서 배운 대로<br>할 거야
 먼지유령1: 먼저, 저 문밖으로 나가서<br>팩맘의 동선을 살펴줘
 먼지유령1: 곧바로 우리도<br>뒤따라서 나가마
 <<DustBSpeak>>
@@ -44,17 +44,17 @@ position: 163,31
 <<set $RandomInt = dice(6)>>
 
 <<if $RandomInt is 1>>
-    먼지유령: 점심시간은 언제지?
+    먼지유령: (꼬르륵)
 <<elseif $RandomInt is 2>>>
-    먼지유령: 오늘도 무사히!!
+    먼지유령: 임무 완수!
 <<elseif $RandomInt is 3>>>
     먼지유령: 아 힘들어
 <<elseif $RandomInt is 4>>>
-    먼지유령: (마음 속 사직서를<br>꺼낼 순간인가)
+    먼지유령: 퇴사할까?
 <<elseif $RandomInt is 5>>>
-    먼지유령: 칼퇴하고 싶다
+    먼지유령: 도망칠까?
 <<else>>>
-    먼지유령: 조금만 쉴까?
+    먼지유령: 쉬는 시간은?
 <<endif>>
 ===
 

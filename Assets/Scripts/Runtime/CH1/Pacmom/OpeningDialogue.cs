@@ -18,6 +18,7 @@ namespace Runtime.CH1.Pacmom
         private TextMeshProUGUI line;
         [SerializeField]
         private GameObject timeline_2;
+        private readonly int dustA = 0, dustB = 1, rapley = 2;
 
         void Awake()
         {
@@ -38,16 +39,16 @@ namespace Runtime.CH1.Pacmom
             string speaker = dialogueLine.CharacterName;
 
             if (speaker == "먼지유령1")
-                ResizeSpeechBubble(1);
+                ResizeSpeechBubble(dustA);
             else if (speaker == "먼지유령2")
-                ResizeSpeechBubble(2);
+                ResizeSpeechBubble(dustB);
 
             onDialogueLineFinished();
         }
 
-        private void ResizeSpeechBubble(int num)
+        private void ResizeSpeechBubble(int speaker)
         {
-            RectTransform bubble = (num == 1 ? speechBubbleA : speechBubbleB);
+            RectTransform bubble = (speaker == 0 ? speechBubbleA : speechBubbleB);
 
             string text = line.text;
 
@@ -64,7 +65,7 @@ namespace Runtime.CH1.Pacmom
                 bubble.sizeDelta = new Vector2(speechBubbleA.sizeDelta.x, 300f);
             }
 
-            if (num == 1)
+            if (speaker == 0)
                 speechBubbleA.sizeDelta = bubble.sizeDelta;
             else
                 speechBubbleB.sizeDelta = bubble.sizeDelta;
@@ -72,20 +73,20 @@ namespace Runtime.CH1.Pacmom
 
         public void DustASpeak()
         {
-            ShowSpeechBubble(1);
-            SetXPos(-474f);
+            ShowSpeechBubble(dustA);
+            SetLinePos(dustA);
         }
 
         public void DustBSpeak()
         {
-            ShowSpeechBubble(2);
-            SetXPos(474f);
+            ShowSpeechBubble(dustB);
+            SetLinePos(dustB);
         }
 
         public void RapleySpeak()
         {
-            ShowSpeechBubble(3);
-            SetXPos(0);
+            ShowSpeechBubble(rapley);
+            SetLinePos(rapley);
         }
 
         public void OpeningDialogueFin()
@@ -94,36 +95,44 @@ namespace Runtime.CH1.Pacmom
             timeline_2.SetActive(true);
         }
 
-        private void SetXPos(float xPos)
+        private void SetLinePos(int speaker)
         {
-            line.transform.localPosition = new Vector3(xPos, line.transform.localPosition.y, line.transform.localPosition.z);
+            float xPos = -474, yPos = 201;
+            float fontSize = 33;
 
-            if (xPos == 0)
-                SetFontSize(50);
-            else
-                SetFontSize(33);
+            switch (speaker)
+            {
+                case 0: // dust A
+                    break;
+                case 1: // dust B
+                    xPos *= -1;
+                    break;
+                case 2: // rapley
+                    xPos = 0;
+                    yPos = 185;
+                    fontSize = 75;
+                    break;
+            }
+
+            line.transform.localPosition = new Vector3(xPos, yPos, line.transform.localPosition.z);
+            line.fontSize = fontSize;
         }
 
-        private void SetFontSize(int size)
-        {
-            line.fontSize = size;
-        }
-
-        private void ShowSpeechBubble(int val = 0)
+        private void ShowSpeechBubble(int speaker = -1)
         {
             speechBubbleA.gameObject.SetActive(false);
             speechBubbleB.gameObject.SetActive(false);
             speechBubble.SetActive(false);
 
-            switch (val)
+            switch (speaker)
             {
-                case 1: // dust A
+                case 0: // dust A
                     speechBubbleA.gameObject.SetActive(true);
                     break;
-                case 2: // dust B
+                case 1: // dust B
                     speechBubbleB.gameObject.SetActive(true);
                     break;
-                case 3: // rapley
+                case 2: // rapley
                     speechBubble.SetActive(true);
                     break;
             }

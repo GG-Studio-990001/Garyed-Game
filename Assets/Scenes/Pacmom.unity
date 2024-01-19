@@ -744,6 +744,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d812c3bd2dfc0640a398cc9fbf81af1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fadeController: {fileID: 0}
 --- !u!114 &155197197 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8159136489922289943, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
@@ -1753,8 +1754,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: a7a6f9ef415fefb46be78b90f4b37c23, type: 2}
-  m_sharedMaterial: {fileID: -4634033053685093305, guid: a7a6f9ef415fefb46be78b90f4b37c23, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2f2078110f6fc624cb20fd74302e20e7, type: 2}
+  m_sharedMaterial: {fileID: 8568535740212432099, guid: 2f2078110f6fc624cb20fd74302e20e7, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
