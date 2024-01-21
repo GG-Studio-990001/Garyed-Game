@@ -1,5 +1,6 @@
 using Cinemachine;
 using Runtime.CH1.Main.Player;
+using Runtime.Common.View;
 using Runtime.Data.Original;
 using Runtime.InGameSystem;
 using Runtime.Interface;
@@ -11,6 +12,7 @@ namespace Runtime.CH1.Main.Controller
     {
         [Header("System")]
         [SerializeField] private SoundSystem soundSystem;
+        [SerializeField] private SettingsUIView settingsUIView;
         [SerializeField] private StageController stageController;
         [SerializeField] private FadeController fadeController;
         
@@ -42,15 +44,21 @@ namespace Runtime.CH1.Main.Controller
             SetMusic("Start");
         }
         
+        // 바인딩 해제 생각 (지금은 씬 이동 시 초기화)
         private void KeyBinding()
         {
             GameOverControls gameControls = ControlsDataProvider.Get().GameOverControls;
             
+            // player
             gameControls.Player.Enable();
             gameControls.Player.Move.performed += player.OnMove;
             gameControls.Player.Move.started += player.OnMove;
             gameControls.Player.Move.canceled += player.OnMove;
             gameControls.Player.Interaction.performed += _ => player.OnInteraction();
+            
+            // ui
+            gameControls.UI.Enable();
+            gameControls.UI.GameSetting.performed += _ => settingsUIView.GameSettingToggle();
         }
         
         private void SetMusic(string soundName)

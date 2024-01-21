@@ -18,5 +18,10 @@ namespace Runtime.Common.View
         {
             _presenter = PresenterFactory.CreateSettingsUIPresenter(this);
         }
+        
+        public void GameSettingToggle()
+        {
+            _presenter.GameSettingToggle();
+        }
     }
 }
