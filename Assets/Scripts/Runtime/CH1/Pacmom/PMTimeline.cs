@@ -12,45 +12,27 @@ namespace Runtime.CH1.Pacmom
         [SerializeField]
         private PMGameController Controller;
         [SerializeField]
-        private GameObject Door;
+        private GameObject OpeningUI;
         [SerializeField]
-        private GameObject Sparkle;
-        [SerializeField]
-        private GameObject DirectingDialogue;
+        private GameObject[] dialogueRunner = new GameObject[2];
         [SerializeField]
         private GameObject[] timeline = new GameObject[2];
 
-        public void OpeningStart_1()
+        public void OpeningFinish()
         {
-            Door.SetActive(true);
-            Sparkle.SetActive(true);
-            ControlEnable(false);
-        }
+            OpeningUI.SetActive(false);
 
-        public void OpeningEnd_1()
-        {
-            Sparkle.SetActive(false);
-            ControlEnable(true);
-        }
-
-        public void OpeningStart_2()
-        {
-            ControlEnable(false);
-        }
-
-        public void OpeningEnd_2()
-        {
-            Door.SetActive(false);
-            ControlEnable(true);
-
-            // DirectingDialogue.SetActive(false);
             for (int i=0; i<timeline.Length; i++)
                 timeline[i].SetActive(false);
 
+            dialogueRunner[0].SetActive(false);
+            dialogueRunner[1].SetActive(true);
+
+            ControlEnable(true);
             Controller.StartGame();
         }
 
-        private void ControlEnable(bool control)
+        public void ControlEnable(bool control)
         {
             Rapley.enabled = control;
         }

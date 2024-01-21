@@ -771,7 +771,7 @@ GameObject:
   m_Component:
   - component: {fileID: 252038270}
   m_Layer: 5
-  m_Name: Opening
+  m_Name: OpeningUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8847,6 +8847,8 @@ PlayableDirector:
     value: {fileID: 1727271993}
   - key: {fileID: -6827823606421272998, guid: 2afa46a5bc665b146a1860fc08d2778d, type: 2}
     value: {fileID: 1994519405}
+  - key: {fileID: 8743940849400263565, guid: 2afa46a5bc665b146a1860fc08d2778d, type: 2}
+    value: {fileID: 1707595100}
   m_ExposedReferences:
     m_References: []
 --- !u!4 &650095488
@@ -8885,22 +8887,8 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1575259376}
           m_TargetAssemblyTypeName: Runtime.CH1.Pacmom.PMTimeline, Scripts
-          m_MethodName: OpeningStart_1
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 2
-    - m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1575259376}
-          m_TargetAssemblyTypeName: Runtime.CH1.Pacmom.PMTimeline, Scripts
-          m_MethodName: OpeningEnd_1
-          m_Mode: 1
+          m_MethodName: ControlEnable
+          m_Mode: 6
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -8908,6 +8896,20 @@ MonoBehaviour:
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1575259376}
+          m_TargetAssemblyTypeName: Runtime.CH1.Pacmom.PMTimeline, Scripts
+          m_MethodName: ControlEnable
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
           m_CallState: 2
 --- !u!1 &680145019
 GameObject:
@@ -20935,9 +20937,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dustAObj: {fileID: 972530197}
   bubbleA: {fileID: 1604375867}
+  textA: {fileID: 589625776}
   dustBObj: {fileID: 965024648}
   bubbleB: {fileID: 283098243}
-  textA: {fileID: 589625776}
   textB: {fileID: 1132766442}
 --- !u!1 &953717369
 GameObject:
@@ -22475,8 +22477,8 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1575259376}
           m_TargetAssemblyTypeName: Runtime.CH1.Pacmom.PMTimeline, Scripts
-          m_MethodName: OpeningStart_2
-          m_Mode: 1
+          m_MethodName: ControlEnable
+          m_Mode: 6
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -22489,7 +22491,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1575259376}
           m_TargetAssemblyTypeName: Runtime.CH1.Pacmom.PMTimeline, Scripts
-          m_MethodName: OpeningEnd_2
+          m_MethodName: OpeningFinish
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -22522,6 +22524,8 @@ PlayableDirector:
     value: {fileID: 728518057}
   - key: {fileID: 6766635252821661521, guid: 8b43b0d8b5b9c5c46be269254995f143, type: 2}
     value: {fileID: 1994519405}
+  - key: {fileID: 627870301524376494, guid: 8b43b0d8b5b9c5c46be269254995f143, type: 2}
+    value: {fileID: 1707595100}
   m_ExposedReferences:
     m_References: []
 --- !u!4 &1493158443
@@ -22603,9 +22607,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Rapley: {fileID: 133942949}
   Controller: {fileID: 1761052961}
-  Door: {fileID: 1707595100}
-  Sparkle: {fileID: 1306120546}
-  DirectingDialogue: {fileID: 1123989271}
+  OpeningUI: {fileID: 252038269}
+  dialogueRunner:
+  - {fileID: 372367287}
+  - {fileID: 945587683}
   timeline:
   - {fileID: 650095486}
   - {fileID: 1493158440}
@@ -27660,7 +27665,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1994519406}
   m_Layer: 5
-  m_Name: InGame
+  m_Name: InGameUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
