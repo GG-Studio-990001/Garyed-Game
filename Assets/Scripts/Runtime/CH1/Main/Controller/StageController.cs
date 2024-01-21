@@ -37,12 +37,13 @@ namespace Runtime.CH1.Main.Controller
                 }
             }
             
-            FadeController.FadeIn(1);
+            if (FadeController is not null)
+                FadeController.FadeIn(1);
         }
 
         public void SwitchStage(int moveStageNumber, Vector2 spawnPosition)
         {
-            if (FadeController == null)
+            if (FadeController is null)
             {
                 NotCoroutineSwitchStage(moveStageNumber, spawnPosition);
             }
@@ -76,9 +77,8 @@ namespace Runtime.CH1.Main.Controller
         
         private void NotCoroutineSwitchStage(int moveStageNumber, Vector2 spawnPosition)
         {
-            if (CurrentStage != null)
-                CurrentStage.Disable();
-            
+            CurrentStage?.Disable();
+
             CurrentStage = _stages[moveStageNumber - 1];
             
             _player.transform.position = spawnPosition;
