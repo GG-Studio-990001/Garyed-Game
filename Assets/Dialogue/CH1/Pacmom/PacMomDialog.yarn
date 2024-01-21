@@ -5,22 +5,22 @@ title: PMStart
 ---
 <<wait 1>>
 <<DustASpeak>>
-먼지유령1: 오 뭐지? 신입인가!
+DustA: 오 뭐지? 신입인가!
 <<RapleySpeak>>
-라플리: ?
+Player: ?
 <<DustBSpeak>>
-먼지유령2: 신입! 신입!
+DustB: 신입! 신입!
 <<DustASpeak>>
-먼지유령1: 긴장하지 말고,<br>본사에서 배운 대로<br>할 거야
-먼지유령1: 먼저, 저 문밖으로 나가서<br>팩맘의 동선을 살펴줘
-먼지유령1: 곧바로 우리도<br>뒤따라서 나가마
+DustA: 긴장하지 말고,<br>본사에서 배운 대로<br>할 거야
+DustA: 먼저, 저 문밖으로 나가서<br>팩맘의 동선을 살펴줘
+DustA: 곧바로 우리도<br>뒤따라서 나가마
 <<DustBSpeak>>
-먼지유령2: 팩맘을! 잡자!<br>동전을! 모으자!
+DustB: 팩맘을! 잡자!<br>동전을! 모으자!
 <<DustASpeak>>
-먼지유령1: 동전을 많이 모으면<br>본사에서 특별 보너스도<br>준다고 하니까
-먼지유령1: 파이팅이야 자네!
+DustA: 동전을 많이 모으면<br>본사에서 특별 보너스도<br>준다고 하니까
+DustA: 파이팅이야 자네!
 <<DustBSpeak>>
-먼지유령2: 파이팅! 파이팅!
+DustB: 파이팅! 파이팅!
 <<OpeningDialogueFin>>
 
 ===
@@ -28,11 +28,11 @@ title: PMStart
 title: PMRetry
 ---
 <<DustASpeak>>
-먼지유령1: 또 왔구나?
-먼지유령1: 바로 사직서 쓰고<br>가는 줄 알았어
-먼지유령1: 오늘도 파이팅 해 보자고!
+DustA: 또 왔구나?
+DustA: 바로 사직서 쓰고<br>가는 줄 알았어
+DustA: 오늘도 파이팅 해 보자고!
 <<DustBSpeak>>
-먼지유령2: 파이팅! 파이팅!
+DustB: 파이팅! 파이팅!
 
 ===
 
@@ -44,33 +44,35 @@ position: 163,31
 <<set $RandomInt = dice(6)>>
 
 <<if $RandomInt is 1>>
-    먼지유령: (꼬르륵)
-<<elseif $RandomInt is 2>>>
-    먼지유령: 임무 완수!
-<<elseif $RandomInt is 3>>>
-    먼지유령: 아 힘들어
-<<elseif $RandomInt is 4>>>
-    먼지유령: 퇴사할까?
-<<elseif $RandomInt is 5>>>
-    먼지유령: 도망칠까?
-<<else>>>
-    먼지유령: 쉬는 시간은?
+    Dust: (꼬르륵)
+<<elseif $RandomInt is 2>>
+    Dust: 임무 완수!
+<<elseif $RandomInt is 3>>
+    Dust: 아 힘들어
+<<elseif $RandomInt is 4>>
+    Dust: 퇴사할까?
+<<elseif $RandomInt is 5>>
+    Dust: 도망칠까?
+<<else>>
+    Dust: 쉬는 시간은?
 <<endif>>
+<<wait 3>>
+<<HideBubble>>
+
 ===
 
 title: PMVacuumMode
 ---
 // 팩맘이 청소기를 획득 후 바로 메시지 발생 (말풍선)
-<<WarningStart>>
-먼지유령1: 다들 조심해!
-먼지유령2: 조심! 조심!
+DustA: 다들 조심해!
+DustB: 조심! 조심!
 <<wait 3>>
-<<WarningEnd>>
+<<HideBubble>>
 ===
 
 title: PMGameClear
 ---
 // 코인 비교 분기 때 발생, 게임 종료 연출로 화면이 바뀌기전까지 보여줌
-먼지유령1: 다들 고생했다! 퇴근이다!
-먼지유령2: 퇴근! 퇴근!
+DustA: 다들 고생했다! 퇴근이다!
+DustB: 퇴근! 퇴근!
 ===

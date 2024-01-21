@@ -1,3 +1,4 @@
+using Runtime.ETC;
 using System;
 using TMPro;
 using UnityEngine;
@@ -34,9 +35,9 @@ namespace Runtime.CH1.Pacmom
         {
             string speaker = dialogueLine.CharacterName;
 
-            if (speaker == "먼지유령1")
+            if (speaker == GlobalConst.DustAStr)
                 ResizeSpeechBubble(dustA);
-            else if (speaker == "먼지유령2")
+            else
                 ResizeSpeechBubble(dustB);
 
             onDialogueLineFinished();

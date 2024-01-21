@@ -1,3 +1,4 @@
+using Runtime.ETC;
 using System;
 using TMPro;
 using UnityEngine;
@@ -10,32 +11,37 @@ namespace Runtime.CH1.Pacmom
         private DialogueRunner runner;
 
         [SerializeField]
-        private GameObject dustAObj;
+        private GameObject dustA;
         [SerializeField]
         private GameObject bubbleA;
         [SerializeField]
         private TextMeshProUGUI textA;
         [SerializeField]
-        private GameObject dustBObj;
+        private GameObject dustB;
         [SerializeField]
         private GameObject bubbleB;
         [SerializeField]
         private TextMeshProUGUI textB;
+        [SerializeField]
+        private float currentTime = 0f;
+        [SerializeField]
+        private float targetTime = 10f;
 
         private void Awake()
         {
             runner = GetComponent<DialogueRunner>();
-            runner.AddCommandHandler("WarningStart", WarningStart);
-            runner.AddCommandHandler("WarningEnd", WarningEnd);
+            runner.AddCommandHandler("HideBubble", HideBubble);
         }
 
         private void Update()
         {
+            CheckTime();
+
             if (bubbleA.activeInHierarchy)
-                SetBubble(dustAObj, bubbleA, textA);
+                SetBubble(dustA, bubbleA, textA);
 
             if (bubbleB.activeInHierarchy)
-                SetBubble(dustBObj, bubbleB, textB);
+                SetBubble(dustB, bubbleB, textB);
         }
 
         private void SetBubble(GameObject dust, GameObject bubble, TextMeshProUGUI text)
@@ -47,47 +53,76 @@ namespace Runtime.CH1.Pacmom
             dust.transform.position.y + 1.3f, dust.transform.position.z);
 
             bubble.transform.rotation = Quaternion.Euler(0f, yRotate, 0f);
-            text.transform.rotation = Quaternion.Euler(0f, yRotate * 2f, 0f); // 왜 이렇게해야되지..
+            text.transform.rotation = Quaternion.Euler(0f, yRotate * 2f, 0f); // 왜지..
         }
 
         public override void RunLine(LocalizedLine dialogueLine, Action onDialogueLineFinished)
         {
             string speaker = dialogueLine.CharacterName;
-            TextMeshProUGUI text = (speaker == "먼지유령1" ? textA : textB);
+
+            // 화자 미정일 때
+            if (speaker == GlobalConst.DustStr)
+            {
+                int rand = UnityEngine.Random.Range(0, 2);
+                speaker = (rand == 0 ? GlobalConst.DustAStr : GlobalConst.DustBStr);
+            }
+
+            TextMeshProUGUI text = (speaker == GlobalConst.DustAStr ? textA : textB);
 
             text.text = dialogueLine.TextWithoutCharacterName.Text;
 
-            if (speaker == "먼지유령1")
+            if (speaker == GlobalConst.DustAStr)
+            {
+                bubbleA.SetActive(true);
                 textA.text = text.text;
+            }
             else
+            {
+                bubbleB.SetActive(true);
                 textB.text = text.text;
-
+            }
+            
             onDialogueLineFinished();
         }
 
-        public void RandomDialogue()
+        public void HideBubble()
+        {
+            if (bubbleA.activeSelf)
+                bubbleA.SetActive(false);
+            if (bubbleB.activeSelf)
+                bubbleB.SetActive(false);
+        }
+
+        #region Random
+        private void CheckTime()
+        {
+            if (dustA.GetComponent<AI>().isStronger)
+                currentTime += Time.deltaTime;
+
+            if (targetTime < currentTime)
+                ShowRandom();
+        }
+
+        private void ShowRandom()
+        {
+            RandomDialogue();
+
+            currentTime = 0;
+            targetTime = UnityEngine.Random.Range(5f, 10f);
+        }
+
+        private void RandomDialogue()
         {
             runner.Stop();
             runner.StartDialogue("PMRandom");
         }
+        #endregion
 
-        #region Vaccum
+        #region Vacuum
         public void VacuumDialogue()
         {
             runner.Stop();
             runner.StartDialogue("PMVacuumMode");
-        }
-        
-        public void WarningStart()
-        {
-            bubbleA.SetActive(true);
-            bubbleB.SetActive(true);
-        }
-
-        public void WarningEnd()
-        {
-            bubbleA.SetActive(false);
-            bubbleB.SetActive(false);
         }
         #endregion
     }

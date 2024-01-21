@@ -815,7 +815,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &283098244
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1227,7 +1227,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &372367288
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2128,7 +2128,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC784\uBB34 \uC644\uC218!"
+  m_text: "\uC26C\uB294 \uC2DC\uAC04\uC740?"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a7a6f9ef415fefb46be78b90f4b37c23, type: 2}
   m_sharedMaterial: {fileID: -4634033053685093305, guid: a7a6f9ef415fefb46be78b90f4b37c23, type: 2}
@@ -2155,8 +2155,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
-  m_fontSizeBase: 18
+  m_fontSize: 17
+  m_fontSizeBase: 17
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -8821,7 +8821,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!320 &650095487
 PlayableDirector:
   m_ObjectHideFlags: 0
@@ -20871,7 +20871,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &945587685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20935,12 +20935,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b56f45846f8118b4d817fc9e42e0c02d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dustAObj: {fileID: 972530197}
+  dustA: {fileID: 972530197}
   bubbleA: {fileID: 1604375867}
   textA: {fileID: 589625776}
-  dustBObj: {fileID: 965024648}
+  dustB: {fileID: 965024648}
   bubbleB: {fileID: 283098243}
   textB: {fileID: 1132766442}
+  currentTime: 0
+  targetTime: 10
 --- !u!1 &953717369
 GameObject:
   m_ObjectHideFlags: 0
@@ -21550,8 +21552,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
-  m_fontSizeBase: 18
+  m_fontSize: 17
+  m_fontSizeBase: 17
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -22454,7 +22456,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1493158441
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22822,7 +22824,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1604375868
 RectTransform:
   m_ObjectHideFlags: 0
