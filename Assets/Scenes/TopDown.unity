@@ -244,7 +244,7 @@ MonoBehaviour:
   soundSystem: {fileID: 1531713231}
   stageController: {fileID: 1754088581}
   fadeController: {fileID: 1311836793}
-  player: {fileID: 1267461691}
+  player: {fileID: 1267461696}
   cinemachineConfiner2D: {fileID: 1429684706}
   cursorTexture: {fileID: 2800000, guid: eb08b7ccf73eb79439d8ba82f51f0ede, type: 3}
 --- !u!1 &338986452
@@ -723,11 +723,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1267461691 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2322268151887491608, guid: 636fca1bc1c114943a004cbada5c227f, type: 3}
+--- !u!114 &1267461696 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2753138371252244015, guid: 636fca1bc1c114943a004cbada5c227f, type: 3}
   m_PrefabInstance: {fileID: 712164682678826736}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5aa0ff439b839941b5741c08bb66124, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1311836788
 GameObject:
   m_ObjectHideFlags: 0
