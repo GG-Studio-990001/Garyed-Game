@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using Yarn.Unity;
@@ -13,20 +14,25 @@ namespace Runtime.CH1.Pacmom
         [SerializeField]
         private GameObject bubbleA;
         [SerializeField]
+        private TextMeshProUGUI textA;
+        [SerializeField]
         private GameObject dustBObj;
         [SerializeField]
         private GameObject bubbleB;
+        [SerializeField]
+        private TextMeshProUGUI textB;
 
         private void Awake()
         {
             runner = GetComponent<DialogueRunner>();
-            runner.AddCommandHandler("DustATell", DustATell);
-            runner.AddCommandHandler("DustBTell", DustBTell);
+            runner.AddCommandHandler("WarningStart", WarningStart);
             runner.AddCommandHandler("WarningEnd", WarningEnd);
         }
 
         private void Update()
         {
+            // TODO: 말풍선이 화면 밖으로 나가지 않도록 위치 조정
+
             if (bubbleA.activeInHierarchy)
             {
                 bubbleA.transform.position = new Vector3(dustAObj.transform.position.x - 2.3f,
@@ -38,6 +44,21 @@ namespace Runtime.CH1.Pacmom
                 bubbleB.transform.position = new Vector3(dustBObj.transform.position.x + 2.3f,
                 dustBObj.transform.position.y + 1.3f, dustBObj.transform.position.z);
             }
+        }
+
+        public override void RunLine(LocalizedLine dialogueLine, Action onDialogueLineFinished)
+        {
+            string speaker = dialogueLine.CharacterName;
+            TextMeshProUGUI text = (speaker == "먼지유령1" ? textA : textB);
+
+            text.text = dialogueLine.TextWithoutCharacterName.Text;
+
+            if (speaker == "먼지유령1")
+                textA.text = text.text;
+            else
+                textB.text = text.text;
+
+            onDialogueLineFinished();
         }
 
         public void RandomDialogue()
@@ -53,20 +74,15 @@ namespace Runtime.CH1.Pacmom
             runner.StartDialogue("PMVacuumMode");
         }
         
-
-        public void DustATell()
+        public void WarningStart()
         {
             bubbleA.SetActive(true);
-        }
-
-        public void DustBTell()
-        {
-            bubbleA.SetActive(false);
             bubbleB.SetActive(true);
         }
 
         public void WarningEnd()
         {
+            bubbleA.SetActive(false);
             bubbleB.SetActive(false);
         }
         #endregion
