@@ -31,19 +31,23 @@ namespace Runtime.CH1.Pacmom
 
         private void Update()
         {
-            // TODO: 말풍선이 화면 밖으로 나가지 않도록 위치 조정
-
             if (bubbleA.activeInHierarchy)
-            {
-                bubbleA.transform.position = new Vector3(dustAObj.transform.position.x - 2.3f,
-                dustAObj.transform.position.y + 1.3f, dustAObj.transform.position.z);
-            }
+                SetBubble(dustAObj, bubbleA, textA);
 
             if (bubbleB.activeInHierarchy)
-            {
-                bubbleB.transform.position = new Vector3(dustBObj.transform.position.x + 2.3f,
-                dustBObj.transform.position.y + 1.3f, dustBObj.transform.position.z);
-            }
+                SetBubble(dustBObj, bubbleB, textB);
+        }
+
+        private void SetBubble(GameObject dust, GameObject bubble, TextMeshProUGUI text)
+        {
+            float xPos = (dust.transform.position.x > 0 ? -2.3f : 2.3f);
+            float yRotate = (dust.transform.position.x > 0 ? 0f : -180f);
+
+            bubble.transform.position = new Vector3(dust.transform.position.x + xPos,
+            dust.transform.position.y + 1.3f, dust.transform.position.z);
+
+            bubble.transform.rotation = Quaternion.Euler(0f, yRotate, 0f);
+            text.transform.rotation = Quaternion.Euler(0f, yRotate * 2f, 0f); // 왜 이렇게해야되지..
         }
 
         public override void RunLine(LocalizedLine dialogueLine, Action onDialogueLineFinished)

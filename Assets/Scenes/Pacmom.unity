@@ -815,7 +815,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &283098244
 RectTransform:
   m_ObjectHideFlags: 0
@@ -823,14 +823,14 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 283098243}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1132766441}
   m_Father: {fileID: 740226142}
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 135.9, y: 46.9}
@@ -21491,13 +21491,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1132766440}
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: -0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 283098244}
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -2.769989, y: 5.5499954}
@@ -22176,7 +22176,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1267132489
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22471,7 +22471,6 @@ MonoBehaviour:
     m_Signals:
     - {fileID: 11400000, guid: 40737ed8610c9fe41911d33ed93e5ec0, type: 2}
     - {fileID: 11400000, guid: 2e3895000eda3c9469cd619adb0ae3c9, type: 2}
-    - {fileID: 0}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
@@ -22501,8 +22500,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-    - m_PersistentCalls:
-        m_Calls: []
 --- !u!320 &1493158442
 PlayableDirector:
   m_ObjectHideFlags: 0
@@ -22605,7 +22602,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0a1599129becef468d423c57a6b4643, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Rapley: {fileID: 133942949}
+  playerInput: {fileID: 133942949}
   Controller: {fileID: 1761052961}
   OpeningUI: {fileID: 252038269}
   dialogueRunner:
@@ -22825,7 +22822,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1604375868
 RectTransform:
   m_ObjectHideFlags: 0

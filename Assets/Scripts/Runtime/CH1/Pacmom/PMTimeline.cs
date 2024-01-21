@@ -1,14 +1,12 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using Yarn;
-using Yarn.Unity;
 
 namespace Runtime.CH1.Pacmom
 {
     public class PMTimeline : MonoBehaviour
     {
         [SerializeField]
-        private PlayerInput Rapley;
+        private PlayerInput playerInput;
         [SerializeField]
         private PMGameController Controller;
         [SerializeField]
@@ -34,7 +32,7 @@ namespace Runtime.CH1.Pacmom
 
         public void ControlEnable(bool control)
         {
-            Rapley.enabled = control;
+            playerInput.enabled = control;
         }
     }
 }
