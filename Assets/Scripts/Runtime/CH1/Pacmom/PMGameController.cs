@@ -141,6 +141,7 @@ namespace Runtime.CH1.Pacmom
             isGameOver = true;
 
             SetCharacterMove(false);
+            dialogue.GameOverDialogue();
 
             if (HasRemainingCoins())
             {

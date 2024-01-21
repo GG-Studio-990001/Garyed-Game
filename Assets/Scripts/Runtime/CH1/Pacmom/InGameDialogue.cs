@@ -10,22 +10,27 @@ namespace Runtime.CH1.Pacmom
     {
         private DialogueRunner runner;
 
+        [Header("=DustA=")]
         [SerializeField]
         private GameObject dustA;
         [SerializeField]
         private GameObject bubbleA;
         [SerializeField]
         private TextMeshProUGUI textA;
+        [Header("=DustB=")]
         [SerializeField]
         private GameObject dustB;
         [SerializeField]
         private GameObject bubbleB;
         [SerializeField]
         private TextMeshProUGUI textB;
+        [Header("=Else=")]
         [SerializeField]
         private float currentTime = 0f;
         [SerializeField]
         private float targetTime = 10f;
+        [SerializeField]
+        private bool isGameOver = false;
 
         private void Awake()
         {
@@ -93,10 +98,10 @@ namespace Runtime.CH1.Pacmom
                 bubbleB.SetActive(false);
         }
 
-        #region Random
+        #region Time
         private void CheckTime()
         {
-            if (dustA.GetComponent<AI>().isStronger)
+            if (!isGameOver && dustA.GetComponent<AI>().isStronger)
                 currentTime += Time.deltaTime;
 
             if (targetTime < currentTime)
@@ -110,19 +115,28 @@ namespace Runtime.CH1.Pacmom
             currentTime = 0;
             targetTime = UnityEngine.Random.Range(5f, 10f);
         }
+        #endregion
 
+        #region Start Dialogue
         private void RandomDialogue()
         {
             runner.Stop();
             runner.StartDialogue("PMRandom");
         }
-        #endregion
 
-        #region Vacuum
         public void VacuumDialogue()
         {
             runner.Stop();
             runner.StartDialogue("PMVacuumMode");
+
+            // TODO: 두 먼지유령 모두 방 안일 때 말풍선 겹치지 않도록
+        }
+
+        public void GameOverDialogue()
+        {
+            runner.Stop();
+            runner.StartDialogue("PMGameClear");
+            isGameOver = true;
         }
         #endregion
     }
