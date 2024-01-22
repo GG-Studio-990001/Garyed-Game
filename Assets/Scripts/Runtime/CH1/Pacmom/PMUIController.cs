@@ -31,6 +31,7 @@ namespace Runtime.CH1.Pacmom
 
         public void ShowGameOverUI(string winner)
         {
+            // 임시 기능이라 삭제 예정
             GameOverTxt.gameObject.SetActive(true);
             GameOverTxt.text += winner;
         }

@@ -37,6 +37,8 @@ namespace Runtime.CH1.Pacmom
         private Transform vacuums;
         [SerializeField]
         private GameObject Door;
+        [SerializeField]
+        private GameObject Timeline_3;
 
         [Header("=Variable=")]
         [SerializeField]
@@ -155,12 +157,10 @@ namespace Runtime.CH1.Pacmom
 
         private void ChooseAWinner()
         {
-            soundSystem.PlayMusic("Outro");
-
             if (rapleyScore > pacmomScore)
             {
                 Debug.Log("라플리 승리");
-                uiController.ShowGameOverUI("Rapley");
+                Timeline_3.SetActive(true);
             }
             else
             {

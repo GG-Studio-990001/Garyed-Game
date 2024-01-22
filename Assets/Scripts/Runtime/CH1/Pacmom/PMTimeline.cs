@@ -15,6 +15,8 @@ namespace Runtime.CH1.Pacmom
         private GameObject[] dialogueRunner = new GameObject[2];
         [SerializeField]
         private GameObject[] timeline = new GameObject[2];
+        [SerializeField]
+        private SpriteRenderer[] characters = new SpriteRenderer[2];
 
         public void OpeningFinish()
         {
@@ -28,6 +30,17 @@ namespace Runtime.CH1.Pacmom
 
             ControlEnable(true);
             Controller.StartGame();
+        }
+
+        public void FlipCharacters()
+        {
+            for (int i = 0; i < characters.Length; i++)
+                characters[i].flipX = false;
+        }
+
+        public void PacmomSizeUp()
+        {
+            characters[0].transform.localScale = new Vector3(80f, 80f, 80f);
         }
 
         public void ControlEnable(bool control)
