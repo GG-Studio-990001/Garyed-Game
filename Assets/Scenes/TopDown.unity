@@ -1669,6 +1669,10 @@ PrefabInstance:
       propertyPath: dialogueRunner
       value: 
       objectReference: {fileID: 3579681405331230280}
+    - target: {fileID: 4791408311256174579, guid: fabd929830e0d48429c6e047af57dd53, type: 3}
+      propertyPath: spawnPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4891566201043895221, guid: fabd929830e0d48429c6e047af57dd53, type: 3}
       propertyPath: dialogueRunner
       value: 

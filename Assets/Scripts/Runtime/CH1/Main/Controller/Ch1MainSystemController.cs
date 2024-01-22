@@ -5,6 +5,7 @@ using Runtime.Data.Original;
 using Runtime.InGameSystem;
 using Runtime.Interface;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Runtime.CH1.Main.Controller
 {
@@ -13,7 +14,7 @@ namespace Runtime.CH1.Main.Controller
         [Header("System")]
         [SerializeField] private SoundSystem soundSystem;
         [SerializeField] private SettingsUIView settingsUIView;
-        [SerializeField] private StageController stageController;
+        [FormerlySerializedAs("stageController")] [SerializeField] private Ch1StageController ch1StageController;
         [SerializeField] private FadeController fadeController;
         
         [Header("Player")]
@@ -26,6 +27,7 @@ namespace Runtime.CH1.Main.Controller
         [SerializeField] private Texture2D cursorTexture;
         
         private IProvider<ControlsData> ControlsDataProvider => DataProviderManager.Instance.ControlsDataProvider;
+        private GameOverControls GameOverControls => ControlsDataProvider.Get().GameOverControls;
         
         private void Awake()
         {
@@ -39,7 +41,9 @@ namespace Runtime.CH1.Main.Controller
         
         private void GameInit()
         {
-            stageController.Init(player.gameObject, cinemachineConfiner2D, fadeController);
+            fadeController.FadeDuration = 1;
+            
+            ch1StageController.Init(player.gameObject, cinemachineConfiner2D, fadeController, this);
             
             SetMusic("Start");
         }
@@ -47,24 +51,36 @@ namespace Runtime.CH1.Main.Controller
         // 바인딩 해제 생각 (지금은 씬 이동 시 초기화)
         private void KeyBinding()
         {
-            GameOverControls gameControls = ControlsDataProvider.Get().GameOverControls;
-            
             // player
-            gameControls.Player.Enable();
-            gameControls.Player.Move.performed += player.OnMove;
-            gameControls.Player.Move.started += player.OnMove;
-            gameControls.Player.Move.canceled += player.OnMove;
-            gameControls.Player.Interaction.performed += _ => player.OnInteraction();
+            GameOverControls.Player.Enable();
+            GameOverControls.Player.Move.performed += player.OnMove;
+            GameOverControls.Player.Move.started += player.OnMove;
+            GameOverControls.Player.Move.canceled += player.OnMove;
+            GameOverControls.Player.Interaction.performed += _ => player.OnInteraction();
             
             // ui
-            gameControls.UI.Enable();
-            gameControls.UI.GameSetting.performed += _ => settingsUIView.GameSettingToggle();
+            GameOverControls.UI.Enable();
+            GameOverControls.UI.GameSetting.performed += _ => settingsUIView.GameSettingToggle();
         }
         
         private void SetMusic(string soundName)
         {
             soundSystem.StopMusic();
             soundSystem.PlayMusic(soundName);
+        }
+        
+        public void PlayerInputLimit(bool isLimit)
+        {
+            if (isLimit)
+            {
+                GameOverControls.Player.Disable();
+                GameOverControls.UI.Disable();
+            }
+            else
+            {
+                GameOverControls.Player.Enable();
+                GameOverControls.UI.Enable();
+            }
         }
     }
 }
