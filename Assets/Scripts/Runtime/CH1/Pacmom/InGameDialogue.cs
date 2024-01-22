@@ -51,8 +51,19 @@ namespace Runtime.CH1.Pacmom
 
         private void SetBubble(GameObject dust, GameObject bubble, TextMeshProUGUI text)
         {
-            float xPos = (dust.transform.position.x > 0 ? -2.3f : 2.3f);
-            float yRotate = (dust.transform.position.x > 0 ? 0f : -180f);
+            float xPos = (dust == dustA ? -2.3f : 2.3f);
+            float yRotate = (dust == dustA ? 0f : -180f);
+
+            if (dust.transform.position.x > 12)
+            {
+                xPos = -2.3f;
+                yRotate = 0f;
+            }
+            else if (dust.transform.position.x < -12)
+            {
+                xPos = 2.3f;
+                yRotate = -180f;
+            }
 
             bubble.transform.position = new Vector3(dust.transform.position.x + xPos,
             dust.transform.position.y + 1.3f, dust.transform.position.z);
@@ -129,7 +140,7 @@ namespace Runtime.CH1.Pacmom
             runner.Stop();
             runner.StartDialogue("PMVacuumMode");
 
-            // TODO: 두 먼지유령 모두 방 안일 때 말풍선 겹치지 않도록
+            targetTime += 5f; // 청소기모드 직후 랜덤대사 출력 방지
         }
 
         public void GameOverDialogue()
