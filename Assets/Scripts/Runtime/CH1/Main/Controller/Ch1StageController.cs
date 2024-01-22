@@ -2,7 +2,6 @@ using Cinemachine;
 using Runtime.CH1.Main.Stage;
 using Runtime.InGameSystem;
 using Runtime.Interface;
-using System.Collections;
 using UnityEngine;
 
 namespace Runtime.CH1.Main.Controller
@@ -51,6 +50,9 @@ namespace Runtime.CH1.Main.Controller
         private void StagerChangerInit()
         {
             StageChanger = new Ch1StageChanger(_player, CurrentStage, _stages, _fadeController);
+            
+            if (_mainSystemController is null)
+                return;
             
             StageChanger.OnStageStart += () => _mainSystemController.PlayerInputLimit(true);
             StageChanger.OnStageEnd += () => _mainSystemController.PlayerInputLimit(false);

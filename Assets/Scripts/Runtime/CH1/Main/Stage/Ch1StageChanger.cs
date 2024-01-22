@@ -27,7 +27,8 @@ namespace Runtime.CH1.Main.Stage
         {
             OnStageStart?.Invoke();
             
-            await _fadeController.FadeOut();
+            if (_fadeController is not null)
+                await _fadeController.FadeOut();
             
             _currentStage?.Disable();
             
@@ -38,7 +39,8 @@ namespace Runtime.CH1.Main.Stage
             _currentStage.Enable();
             _currentStage.SetSetting();
             
-            await _fadeController.FadeIn();
+            if (_fadeController is not null)
+                await _fadeController.FadeIn();
             
             OnStageEnd?.Invoke();
         }
