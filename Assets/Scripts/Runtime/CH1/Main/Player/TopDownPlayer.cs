@@ -3,6 +3,7 @@ using Runtime.ETC;
 using Runtime.Interface;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Yarn.Unity;
 
 namespace Runtime.CH1.Main.Player
 {

@@ -1,6 +1,7 @@
 using Runtime.InGameSystem;
 using Runtime.Interface;
 using System;
+using System.Threading.Tasks;
 using UnityEngine;
 
 namespace Runtime.CH1.Main.Stage
@@ -23,7 +24,7 @@ namespace Runtime.CH1.Main.Stage
             _fadeController = fadeController;
         }
 
-        public async void SwitchStage(int moveStageNumber, Vector2 spawnPosition)
+        public async Task SwitchStage(int moveStageNumber, Vector2 spawnPosition)
         {
             OnStageStart?.Invoke();
             
@@ -43,6 +44,8 @@ namespace Runtime.CH1.Main.Stage
                 await _fadeController.FadeIn();
             
             OnStageEnd?.Invoke();
+
+            return;
         }
     }
 }

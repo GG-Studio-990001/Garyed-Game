@@ -29,8 +29,6 @@ namespace Tests.Runtime.System
         [UnitySetUp]
         public IEnumerator SetUp()
         {
-            DataProviderManager dataProviderManager = new GameObject("DataProviderManager").AddComponent<DataProviderManager>();
-            
             _backgroundAudioSource = new GameObject("BackgroundAudioSource");
             _backgroundAudioSource.AddComponent<AudioSource>();
             

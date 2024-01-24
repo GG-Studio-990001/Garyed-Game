@@ -1,7 +1,7 @@
 using Runtime.ETC;
 using UnityEngine;
 
-namespace Runtime.CH1.Main.Map
+namespace Runtime.CH1.Main.Stage
 {
     [RequireComponent(typeof(BoxCollider2D))]
     public class StageMover : MonoBehaviour
@@ -9,11 +9,11 @@ namespace Runtime.CH1.Main.Map
         [SerializeField] private int moveStageNumber;
         [SerializeField] private Vector2 spawnPosition;
 
-        private Stage.Stage _currentStage;
+        private Stage _currentStage;
         
         private void Awake()
         {
-            _currentStage = GetComponentInParent<Stage.Stage>();
+            _currentStage = GetComponentInParent<Stage>();
         }
     
         private void OnTriggerEnter2D(Collider2D other)

@@ -1,0 +1,13 @@
+title: StartNode
+color: red
+position: -62,-241
+---
+라플리: 하하이
+<<SetCamera>>
+정안이: [wave]hello[/wave]
+
+<<declare $mainer = 0>>
+<<set $mainer to add_numbers(1,1)>>
+
+One plus one is {$mainer}
+=== 
