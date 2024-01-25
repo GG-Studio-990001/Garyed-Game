@@ -283,7 +283,7 @@ namespace Runtime.CH1.Pacmom
             {
                 if (dustRooms[i].isInRoom)
                 {
-                    dustRooms[i].ExitRoom(GlobalConst.DustCnt - inRoom);
+                    dustRooms[i].ExitRoom((GlobalConst.DustCnt - inRoom + 1) * 5);
                     inRoom--;
                 }
             }
