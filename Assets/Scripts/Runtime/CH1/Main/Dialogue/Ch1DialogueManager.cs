@@ -1,7 +1,9 @@
 using Cinemachine;
 using Runtime.InGameSystem;
 using System;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Yarn.Unity;
 
 namespace Runtime.CH1.Main.Dialogue
@@ -10,24 +12,93 @@ namespace Runtime.CH1.Main.Dialogue
     {
         [SerializeField] private DialogueRunner _runner;
         
-        [Header("System")]
         [SerializeField] private SoundSystem _soundSystem;
+        [SerializeField] private FadeController _fadeController;
         [SerializeField] private CinemachineVirtualCamera _virtualCamera;
+        [SerializeField] private TimelineController _timelineController;
+        [SerializeField] private Image _backgroundImage;
+        
+        public List<Sprite> Sprites = new List<Sprite>();
 
         private void Awake()
         {
-            //_runner.AddCommandHandler("PlaySound", PlaySound);
+            _runner.AddCommandHandler<string>("PlayBackgroundSound", PlayBackgroundSound);
+            _runner.AddCommandHandler("StopBackgroundSound", _soundSystem.StopMusic);
             _runner.AddCommandHandler("SetCamera", SetCamera);
+            _runner.AddCommandHandler<bool>("SetBackgroundColor", SetBackgroundColor);
+            _runner.AddCommandHandler("FadeOut", _fadeController.StartFadeOut);
+            _runner.AddCommandHandler("FadeIn", _fadeController.StartFadeIn);
+            _runner.AddCommandHandler<int>("PlayTimeline", PlayTimeline);
+            _runner.AddCommandHandler<string>("ChangeScene", ChangeScene);
+            _runner.AddCommandHandler("NextCutScene", NextCutScene);
         }
         
-        private int PlaySound()
+        private void PlayBackgroundSound(string soundName)
         {
-            return 1;
+            _soundSystem.PlayMusic(soundName);
         }
-        
+
         private void SetCamera()
         {
             _virtualCamera.m_Lens.FieldOfView = 30;
+        }
+        
+        private void SetBackgroundColor(bool isBlack)
+        {
+            _fadeController.SetBackground(isBlack);
+        }
+        
+        public void StartDialogue()
+        {
+            _runner.StartDialogue($"CutScene{DataProviderManager.Instance.PlayerDataProvider.Get().quarter.minor}");
+        }
+
+        private void PlayTimeline(int minor)
+        {
+            _timelineController.PlayTimeline(minor);
+        }
+        
+        private void NextCutScene()
+        {
+            var data = DataProviderManager.Instance.PlayerDataProvider.Get();
+            data.quarter.minor++;
+            DataProviderManager.Instance.PlayerDataProvider.Set(data);
+            
+            _timelineController.PlayTimeline(data.quarter.minor);
+        }
+        
+        private void ChangeScene(string spriteName)
+        {
+            if (spriteName == "None")
+            {
+                _backgroundImage.color = Color.clear;
+                _backgroundImage.sprite = null;
+                return;
+            }
+            
+            _backgroundImage.color = Color.white;
+            
+            Sprite sprite = Fetch<Sprite>(spriteName);
+            if (sprite != null)
+            {
+                _backgroundImage.sprite = sprite;
+            }
+        }
+        
+        T Fetch<T>(string spriteName) where T : UnityEngine.Object
+        {
+            if (typeof(T) == typeof(Sprite))
+            {
+                foreach (var sprite in Sprites)
+                {
+                    if (sprite.name == spriteName)
+                    {
+                        return sprite as T;
+                    }
+                }
+            }
+
+            return null;
         }
     }
 }
