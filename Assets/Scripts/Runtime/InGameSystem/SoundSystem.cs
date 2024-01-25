@@ -40,6 +40,11 @@ namespace Runtime.InGameSystem
         
             effectAudioSource.PlayOneShot(sound.clip);
         }
+
+        public void StopSFX()
+        {
+            effectAudioSource.Stop();
+        }
     
         private Sound FindSound(Sound[] sounds, string soundName) => System.Array.Find(sounds, sound => sound.name == soundName);
     }

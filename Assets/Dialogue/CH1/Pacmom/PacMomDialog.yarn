@@ -3,7 +3,6 @@
 
 title: PMStart
 ---
-<<wait 1>>
 <<DustASpeak>>
 DustA: 오 뭐지? 신입인가!
 <<RapleySpeak>>
