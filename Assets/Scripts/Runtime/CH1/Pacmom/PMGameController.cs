@@ -304,7 +304,7 @@ namespace Runtime.CH1.Pacmom
             soundSystem.PlayEffect("PacmomEat");
 
             dust.movement.SetCanMove(false);
-            dust.ResetState();
+            dust.movement.ResetState();
             dust.GetComponent<Room>().SetInRoom(true);
             inRoom++;
         }
