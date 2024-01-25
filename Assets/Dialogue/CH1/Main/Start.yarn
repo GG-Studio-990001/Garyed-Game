@@ -6,6 +6,7 @@ position: -62,-241
 <<declare $mainer = 0>>
 <<set $mainer to GetMinor()>>
 
+// 해당 타임라인으로 (연출)
 <<PlayTimeline {$mainer}>>
 ===
 
@@ -40,6 +41,7 @@ R2-Mon: !@!$!$!@!@
 라플리 : !
 
 <<ChangeScene None>>
+<<FadeIn>>
 <<NextCutScene>>
 ===
 
