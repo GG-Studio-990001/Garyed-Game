@@ -11,8 +11,8 @@ namespace Runtime.CH1.Pacmom
         private TextMeshProUGUI pacmomScoreTxt;
         [SerializeField]
         private TextMeshProUGUI rapleyScoreTxt;
-        [SerializeField]
-        private TextMeshProUGUI GameOverTxt;
+        //[SerializeField]
+        //private TextMeshProUGUI GameOverTxt;
 
         public void LosePacmomLife(int nowLives)
         {
@@ -29,10 +29,11 @@ namespace Runtime.CH1.Pacmom
             rapleyScoreTxt.text = "x" + score.ToString();
         }
 
-        public void ShowGameOverUI(string winner)
+        /*public void ShowGameOverUI(string winner)
         {
+            // 임시 기능이라 삭제 예정
             GameOverTxt.gameObject.SetActive(true);
             GameOverTxt.text += winner;
-        }
+        }*/
     }
 }
