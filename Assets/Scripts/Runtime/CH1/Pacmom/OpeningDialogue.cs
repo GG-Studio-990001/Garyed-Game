@@ -12,6 +12,8 @@ namespace Runtime.CH1.Pacmom
         private readonly int dustA = 0, dustB = 1, rapley = 2;
 
         [SerializeField]
+        private PMEnding ending;
+        [SerializeField]
         private GameObject speechBubble;
         [SerializeField]
         private RectTransform speechBubbleA;
@@ -29,6 +31,14 @@ namespace Runtime.CH1.Pacmom
             runner.AddCommandHandler("DustBSpeak", DustBSpeak);
             runner.AddCommandHandler("RapleySpeak", RapleySpeak);
             runner.AddCommandHandler("OpeningDialogueFin", OpeningDialogueFin);
+        }
+
+        public void StartDialogue()
+        {
+            if (!ending.isGameClear)
+                runner.StartDialogue("PMStart");
+            else
+                runner.StartDialogue("PMRetry");
         }
 
         public override void RunLine(LocalizedLine dialogueLine, Action onDialogueLineFinished)

@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Runtime.CH1.Pacmom
@@ -36,6 +35,15 @@ namespace Runtime.CH1.Pacmom
             {
                 float minDistance = (enemy.position - transform.position).sqrMagnitude;
 
+                // 멀면 X
+                if (minDistance > 36f)
+                    continue;
+
+                // 방 안이면 X
+                if (-2.5f < enemy.localPosition.x && enemy.localPosition.x < 2.5f &&
+                    -1.5f < enemy.localPosition.y && enemy.localPosition.y < 0.5f)
+                    continue;
+
                 if (distance > minDistance)
                 {
                     distance = minDistance;
@@ -43,8 +51,7 @@ namespace Runtime.CH1.Pacmom
                 }
             }
 
-            // 가장 가까운 적이 특정 거리 이내이면 도망가거나 쫓음
-            if (closeEnemy != null && distance <= 36f)
+            if (closeEnemy != null)
             {
                 if (isStronger)
                     direction = ChaseEnemy(closeEnemy, step);

@@ -33,7 +33,7 @@ MonoBehaviour:
     m_OverrideState: 1
     m_Value: 0
   GlobalPostProcessingSettings:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 0
   bleedModeIndex: 0
 --- !u!114 &-6210844540213672365

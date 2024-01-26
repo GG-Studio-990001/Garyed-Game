@@ -8,9 +8,9 @@ namespace Runtime.CH1.Pacmom
         [SerializeField]
         private PlayerInput playerInput;
         [SerializeField]
-        private PMGameController Controller;
+        private PMGameController controller;
         [SerializeField]
-        private GameObject OpeningUI;
+        private GameObject openingUI;
         [SerializeField]
         private GameObject[] dialogueRunner = new GameObject[2];
         [SerializeField]
@@ -20,7 +20,7 @@ namespace Runtime.CH1.Pacmom
 
         public void OpeningFinish()
         {
-            OpeningUI.SetActive(false);
+            openingUI.SetActive(false);
 
             for (int i=0; i<timeline.Length; i++)
                 timeline[i].SetActive(false);
@@ -29,7 +29,7 @@ namespace Runtime.CH1.Pacmom
             dialogueRunner[1].SetActive(true);
 
             ControlEnable(true);
-            Controller.StartGame();
+            controller.StartGame();
         }
 
         public void FlipCharacters()

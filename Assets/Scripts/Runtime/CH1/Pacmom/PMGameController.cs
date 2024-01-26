@@ -16,6 +16,8 @@ namespace Runtime.CH1.Pacmom
         private Timer timer;
         [SerializeField]
         private InGameDialogue dialogue;
+        [SerializeField]
+        private PMEnding ending;
 
         [Header("=Character=")]
         [SerializeField]
@@ -37,14 +39,12 @@ namespace Runtime.CH1.Pacmom
         private Transform vacuums;
         [SerializeField]
         private GameObject Door;
-        [SerializeField]
-        private GameObject Timeline_3;
 
         [Header("=Variable=")]
         [SerializeField]
         private int inRoom = 2;
-        [SerializeField]
-        private bool isGameOver = false; // 아웃트로 구현 전 연출을 위한 임시 변수
+        [field: SerializeField]
+        public bool isGameOver { get; private set; } = false;
         private int rapleyScore;
         private int pacmomScore;
         private int pacmomLives;
@@ -143,29 +143,30 @@ namespace Runtime.CH1.Pacmom
             isGameOver = true;
 
             SetCharacterMove(false);
-            dialogue.GameOverDialogue();
 
             if (HasRemainingCoins())
             {
+                dialogue.GameOverDialogue();
                 StartCoroutine(GetRemaningCoins());
             }
             else
             {
-                ChooseAWinner();
+                Invoke("ChooseAWinner", 1.5f);
             }
         }
 
         private void ChooseAWinner()
         {
+            soundSystem.StopMusic();
+            soundSystem.StopSFX();
+
             if (rapleyScore > pacmomScore)
             {
-                Debug.Log("라플리 승리");
-                Timeline_3.SetActive(true);
+                ending.RapleyWin();
             }
             else
             {
-                Debug.Log("팩맘 승리");
-                uiController.ShowGameOverUI("Pacmom");
+                ending.PacmomWin();
             }
         }
         #endregion
@@ -303,7 +304,7 @@ namespace Runtime.CH1.Pacmom
             soundSystem.PlayEffect("PacmomEat");
 
             dust.movement.SetCanMove(false);
-            dust.ResetState();
+            dust.movement.ResetState();
             dust.GetComponent<Room>().SetInRoom(true);
             inRoom++;
         }
@@ -408,7 +409,7 @@ namespace Runtime.CH1.Pacmom
                     yield return new WaitForSeconds(0.03f);
                 }
             }
-            ChooseAWinner();
+            Invoke("ChooseAWinner", 1.5f);
         }
 
         private bool HasRemainingCoins()
