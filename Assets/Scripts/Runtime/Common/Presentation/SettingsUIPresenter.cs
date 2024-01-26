@@ -47,9 +47,6 @@ namespace Runtime.Common.Presentation
             
             _settingsUIView.GameExitButton.onClick.AddListener(OnGameExitButtonClicked);
             _settingsUIView.ExitButton.onClick.AddListener(OnExitButtonClicked);
-            
-            ControlsDataProvider.Get().GameOverControls.UI.Enable();
-            ControlsDataProvider.Get().GameOverControls.UI.GameSetting.performed += ctx => GameSettingOn();
         }
         
         private void SetMusicVolume(float volume)
@@ -87,7 +84,7 @@ namespace Runtime.Common.Presentation
             ControlsDataProvider.Get().ReleasePlayerInput();
         }
 
-        private void GameSettingOn()
+        public void GameSettingToggle()
         {
             if (!_settingsUIView.SettingUIObject.activeSelf)
             {
@@ -97,7 +94,7 @@ namespace Runtime.Common.Presentation
             {
                 ControlsDataProvider.Get().ReleasePlayerInput();
             }
-
+        
             _settingsUIView.SettingUIObject.SetActive(!_settingsUIView.SettingUIObject.activeSelf);
         }
     }

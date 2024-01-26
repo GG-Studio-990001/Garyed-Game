@@ -282,10 +282,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1723197269}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 1209420266}
+        m_TargetAssemblyTypeName: Runtime.Common.View.SettingsUIView, Scripts
+        m_MethodName: GameSettingToggle
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -976,6 +976,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09b515699e7aefb49b16b8aaecee371a, type: 3}
+--- !u!114 &1209420266 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 977441387082237809, guid: 0d61b18444317944a99ee38e37220ff8, type: 3}
+  m_PrefabInstance: {fileID: 1903406276}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4325e03f18749c4bb4f8ca608506893, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1346211998
 GameObject:
   m_ObjectHideFlags: 0
@@ -1605,11 +1616,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!1 &1723197269 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2439501320894941370, guid: 0d61b18444317944a99ee38e37220ff8, type: 3}
-  m_PrefabInstance: {fileID: 1903406276}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1782060222
 GameObject:
   m_ObjectHideFlags: 0
@@ -1643,6 +1649,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeImage: {fileID: 757205735}
+  fadeDeltaTime: 0.01
 --- !u!224 &1782060224
 RectTransform:
   m_ObjectHideFlags: 0

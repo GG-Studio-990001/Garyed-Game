@@ -8,7 +8,8 @@ namespace Runtime.CH1.SubB
     {
         [field:SerializeField] public JewelryType JewelryType { get; set; }
         [SerializeField] private Transform spriteTransform;
-        [SerializeField] private float moveTime = 1.0f;
+        [SerializeField] private float moveTime = 0.5f;
+        [SerializeField] private float pushLimitTime = 1.0f;
 
         public ThreeMatchPuzzleController Controller { get; set; }
         
@@ -33,7 +34,7 @@ namespace Runtime.CH1.SubB
             
             if (other.gameObject.CompareTag(GlobalConst.PlayerStr))
             {
-                if (_pushTime > 2f)
+                if (_pushTime > pushLimitTime)
                 {
                     _pushTime = 0f;
                     

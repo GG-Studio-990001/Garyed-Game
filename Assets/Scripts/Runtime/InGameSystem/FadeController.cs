@@ -1,4 +1,4 @@
-using System.Collections;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,36 +8,38 @@ namespace Runtime.InGameSystem
     {
         [SerializeField] private Image fadeImage;
         [SerializeField] private float fadeDeltaTime = 0.01f;
+
+        public float FadeDuration { get; set; } = 1f;
     
-        public void FadeIn(float duration)
+        public async Task FadeIn()
         {
-            StartCoroutine(FadeInCoroutine(duration));
+             await FadeInCoroutine(FadeDuration);
         }
     
-        public void FadeOut(float duration)
+        public async Task FadeOut()
         {
-            StartCoroutine(FadeOutCoroutine(duration));
+            await FadeOutCoroutine(FadeDuration);
         }
     
-        private IEnumerator FadeInCoroutine(float duration)
+        private async Task FadeInCoroutine(float duration)
         {
             float time = 0;
             while (time < duration)
             {
                 time += fadeDeltaTime;
                 fadeImage.color = new Color(0, 0, 0, 1 - time / duration);
-                yield return new WaitForSeconds(fadeDeltaTime);
+                await Task.Delay((int)(fadeDeltaTime * 1000));
             }
         }
     
-        private IEnumerator FadeOutCoroutine(float duration)
+        private async Task FadeOutCoroutine(float duration)
         {
             float time = 0;
             while (time < duration)
             {
                 time += fadeDeltaTime;
                 fadeImage.color = new Color(0, 0, 0, time / duration);
-                yield return new WaitForSeconds(fadeDeltaTime);
+                await Task.Delay((int)(fadeDeltaTime * 1000));
             }
         }
     }

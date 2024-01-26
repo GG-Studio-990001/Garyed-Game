@@ -3,7 +3,7 @@ using Runtime.Interface;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Runtime.CH1.Main.Map
+namespace Runtime.CH1.Main.Stage
 {
     public class Stage : MonoBehaviour, IStage
     {
@@ -18,9 +18,9 @@ namespace Runtime.CH1.Main.Map
         
         public void SetSetting()
         {
-            var stageController = (StageController as StageController);
+            var stageController = (StageController as Ch1StageController);
             
-            if (stageController.Confiner2D == null)
+            if (stageController.Confiner2D is null)
                 return;
             
             stageController.Confiner2D.m_BoundingShape2D = confiner2D;
