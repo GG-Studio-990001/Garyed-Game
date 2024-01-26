@@ -15,5 +15,5 @@ MonoBehaviour:
   quarter:
     chapter: 0
     stage: 1
-    minor: 0
+    minor: 4
   position: {x: 0, y: 0, z: 0}

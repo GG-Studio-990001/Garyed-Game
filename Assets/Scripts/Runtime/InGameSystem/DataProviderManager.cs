@@ -35,5 +35,16 @@ namespace Runtime.InGameSystem
             SettingsDataProvider = new SettingsDataProvider(Addressables.LoadAssetAsync<SettingsData>("SettingsData").WaitForCompletion());
             ControlsDataProvider = new ControlsDataProvider(new ControlsData());
         }
+        
+        // temp
+        public void SetInitData()
+        {
+            var data = PlayerDataProvider.Get();
+            data.quarter.chapter = 1;
+            data.quarter.stage = 1;
+            data.quarter.minor = 0;
+            
+            PlayerDataProvider.Set(data);
+        }
     }
 }
