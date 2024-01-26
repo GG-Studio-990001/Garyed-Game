@@ -28,9 +28,9 @@ public class PMEnding : MonoBehaviour
     {
         Time.timeScale = 0;
 
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSecondsRealtime(3f);
 
-        // Time.timeScale = 1f;
-        // sceneSystem.LoadScene("TopDown");
+        Time.timeScale = 1f;
+        sceneSystem.LoadSceneWithFade("Main");
     }
 }
