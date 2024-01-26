@@ -343,7 +343,7 @@ PrefabInstance:
     - target: {fileID: 4678149153798548677, guid: 09b515699e7aefb49b16b8aaecee371a, type: 3}
       propertyPath: backgroundSounds.Array.data[0].clip
       value: 
-      objectReference: {fileID: 8300000, guid: 6fe765f82a51b17488a94a4907e0890f, type: 3}
+      objectReference: {fileID: 8300000, guid: 3e5b4926c9554a1458a3abf6d84cb7d0, type: 3}
     - target: {fileID: 4678149153798548677, guid: 09b515699e7aefb49b16b8aaecee371a, type: 3}
       propertyPath: backgroundSounds.Array.data[0].name
       value: MainBGM
