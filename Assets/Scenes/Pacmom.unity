@@ -1187,6 +1187,8 @@ PlayableDirector:
     value: {fileID: 909347510}
   - key: {fileID: 3739352166427252639, guid: a69306f78b4c4e241b0883399e20c8d1, type: 2}
     value: {fileID: 2929860188779462519}
+  - key: {fileID: 3728731100151573041, guid: a69306f78b4c4e241b0883399e20c8d1, type: 2}
+    value: {fileID: 996060866}
   m_ExposedReferences:
     m_References: []
 --- !u!1 &252038269
@@ -9504,7 +9506,7 @@ TilemapRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 696614760}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -21221,7 +21223,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 999
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a7a6f9ef415fefb46be78b90f4b37c23, type: 2}
   m_sharedMaterial: {fileID: -4634033053685093305, guid: a7a6f9ef415fefb46be78b90f4b37c23, type: 2}
@@ -28631,7 +28633,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: x999
+  m_text: x0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a7a6f9ef415fefb46be78b90f4b37c23, type: 2}
   m_sharedMaterial: {fileID: -4634033053685093305, guid: a7a6f9ef415fefb46be78b90f4b37c23, type: 2}
