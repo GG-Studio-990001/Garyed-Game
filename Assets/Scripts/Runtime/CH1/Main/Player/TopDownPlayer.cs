@@ -3,6 +3,7 @@ using Runtime.ETC;
 using Runtime.Interface;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Yarn.Unity;
 
 namespace Runtime.CH1.Main.Player
 {
@@ -47,5 +48,6 @@ namespace Runtime.CH1.Main.Player
         }
         
         public void OnMove(InputAction.CallbackContext context) => _movementInput = context.ReadValue<Vector2>();
+        public void OnMove(Vector2 movementInput) => _movementInput = movementInput;
     }
 }

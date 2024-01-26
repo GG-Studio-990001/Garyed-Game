@@ -44,8 +44,6 @@ namespace Runtime.CH1.Main.Controller
             fadeController.FadeDuration = 1;
             
             ch1StageController.Init(player.gameObject, cinemachineConfiner2D, fadeController, this);
-            
-            SetMusic("Start");
         }
         
         // 바인딩 해제 생각 (지금은 씬 이동 시 초기화)

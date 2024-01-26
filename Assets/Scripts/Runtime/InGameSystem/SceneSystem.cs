@@ -28,7 +28,7 @@ namespace Runtime.InGameSystem
         
         private IEnumerator CoroutineLoadSceneWithFade(string sceneName)
         {
-            fadeController.FadeOut();
+            fadeController.StartFadeOut();
             
             yield return new WaitForSeconds(1);
             
