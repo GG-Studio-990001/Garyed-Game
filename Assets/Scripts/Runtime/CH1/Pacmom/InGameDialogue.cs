@@ -9,6 +9,8 @@ namespace Runtime.CH1.Pacmom
     public class InGameDialogue : DialogueViewBase
     {
         private DialogueRunner runner;
+        [SerializeField]
+        PMGameController controller;
 
         [Header("=DustA=")]
         [SerializeField]
@@ -29,8 +31,6 @@ namespace Runtime.CH1.Pacmom
         private float currentTime = 0f;
         [SerializeField]
         private float targetTime = 10f;
-        [SerializeField]
-        private bool isGameOver = false;
 
         private void Awake()
         {
@@ -112,7 +112,7 @@ namespace Runtime.CH1.Pacmom
         #region Time
         private void CheckTime()
         {
-            if (!isGameOver && dustA.GetComponent<AI>().isStronger)
+            if (!controller.isGameOver && dustA.GetComponent<AI>().isStronger)
                 currentTime += Time.deltaTime;
 
             if (targetTime < currentTime)
@@ -147,7 +147,6 @@ namespace Runtime.CH1.Pacmom
         {
             runner.Stop();
             runner.StartDialogue("PMGameClear");
-            isGameOver = true;
         }
         #endregion
     }

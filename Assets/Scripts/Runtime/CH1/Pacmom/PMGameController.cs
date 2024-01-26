@@ -43,8 +43,8 @@ namespace Runtime.CH1.Pacmom
         [Header("=Variable=")]
         [SerializeField]
         private int inRoom = 2;
-        [SerializeField]
-        private bool isGameOver = false;
+        [field: SerializeField]
+        public bool isGameOver { get; private set; } = false;
         private int rapleyScore;
         private int pacmomScore;
         private int pacmomLives;
@@ -151,7 +151,7 @@ namespace Runtime.CH1.Pacmom
             }
             else
             {
-                ChooseAWinner();
+                Invoke("ChooseAWinner", 1.5f);
             }
         }
 
@@ -409,7 +409,7 @@ namespace Runtime.CH1.Pacmom
                     yield return new WaitForSeconds(0.03f);
                 }
             }
-            ChooseAWinner();
+            Invoke("ChooseAWinner", 1.5f);
         }
 
         private bool HasRemainingCoins()

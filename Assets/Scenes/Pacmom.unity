@@ -21588,6 +21588,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b56f45846f8118b4d817fc9e42e0c02d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  controller: {fileID: 1761052961}
   dustA: {fileID: 972530197}
   bubbleA: {fileID: 1604375867}
   textA: {fileID: 589625776}
@@ -21596,7 +21597,6 @@ MonoBehaviour:
   textB: {fileID: 1132766442}
   currentTime: 0
   targetTime: 10
-  isGameOver: 0
 --- !u!1 &953717369
 GameObject:
   m_ObjectHideFlags: 0
@@ -24371,7 +24371,7 @@ MonoBehaviour:
   vacuums: {fileID: 1145695306}
   Door: {fileID: 1707595100}
   inRoom: 2
-  isGameOver: 0
+  <isGameOver>k__BackingField: 0
 --- !u!114 &1761052962
 MonoBehaviour:
   m_ObjectHideFlags: 0
