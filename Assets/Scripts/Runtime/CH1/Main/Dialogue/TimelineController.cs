@@ -20,6 +20,11 @@ namespace Runtime.CH1.Main.Dialogue
         
         public void PlayTimeline(int minor)
         {
+            if (_timelineAssets.Length <= minor)
+            {
+                Debug.LogError($"TimelineAsset with minor {minor} not found");
+                return;
+            }
             _playableDirector.playableAsset = _timelineAssets[minor];
             _playableDirector.Play();
         }
