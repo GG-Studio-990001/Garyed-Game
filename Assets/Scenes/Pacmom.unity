@@ -1152,7 +1152,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 2119691701}
           m_TargetAssemblyTypeName: Runtime.InGameSystem.SceneSystem, Scripts
-          m_MethodName: LoadSceneWithFade
+          m_MethodName: LoadScene
           m_Mode: 5
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -1187,10 +1187,6 @@ PlayableDirector:
     value: {fileID: 909347510}
   - key: {fileID: 3739352166427252639, guid: a69306f78b4c4e241b0883399e20c8d1, type: 2}
     value: {fileID: 2929860188779462519}
-  - key: {fileID: 3836182783533674534, guid: a69306f78b4c4e241b0883399e20c8d1, type: 2}
-    value: {fileID: 996060866}
-  - key: {fileID: -5801438241551142386, guid: a69306f78b4c4e241b0883399e20c8d1, type: 2}
-    value: {fileID: 138235743}
   m_ExposedReferences:
     m_References: []
 --- !u!1 &252038269
@@ -1440,7 +1436,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2119691701}
         m_TargetAssemblyTypeName: Runtime.InGameSystem.SceneSystem, Scripts
-        m_MethodName: LoadSceneWithFade
+        m_MethodName: LoadScene
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -23409,6 +23405,7 @@ GameObject:
   - component: {fileID: 1575259377}
   - component: {fileID: 1575259376}
   - component: {fileID: 1575259378}
+  - component: {fileID: 1575259379}
   m_Layer: 0
   m_Name: TimelineManager
   m_TagString: Untagged
@@ -23468,7 +23465,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneSystem: {fileID: 2119691701}
+  PMShader: {fileID: 1575259379}
   Timeline_3: {fileID: 250424353}
+--- !u!114 &1575259379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1575259375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4812dc66f40e3fc40919c71c28b01b4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volume: {fileID: 1267132489}
 --- !u!1 &1598279875
 GameObject:
   m_ObjectHideFlags: 0
