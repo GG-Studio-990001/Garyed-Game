@@ -1,56 +1,51 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using Yarn;
-using Yarn.Unity;
 
 namespace Runtime.CH1.Pacmom
 {
     public class PMTimeline : MonoBehaviour
     {
         [SerializeField]
-        private PlayerInput Rapley;
+        private PlayerInput playerInput;
         [SerializeField]
         private PMGameController Controller;
         [SerializeField]
-        private GameObject Door;
+        private GameObject OpeningUI;
         [SerializeField]
-        private GameObject Sparkle;
+        private GameObject[] dialogueRunner = new GameObject[2];
         [SerializeField]
         private GameObject[] timeline = new GameObject[2];
+        [SerializeField]
+        private SpriteRenderer[] characters = new SpriteRenderer[2];
 
-        public void OpeningStart_1()
+        public void OpeningFinish()
         {
-            Door.SetActive(true);
-            Sparkle.SetActive(true);
-            ControlEnable(false);
-        }
-
-        public void OpeningEnd_1()
-        {
-            Sparkle.SetActive(false);
-            ControlEnable(true);
-        }
-
-        public void OpeningStart_2()
-        {
-            ControlEnable(false);
-        }
-
-        public void OpeningEnd_2()
-        {
-            Door.SetActive(false);
-            ControlEnable(true);
-            Controller.StartGame();
+            OpeningUI.SetActive(false);
 
             for (int i=0; i<timeline.Length; i++)
-            {
                 timeline[i].SetActive(false);
-            }
+
+            dialogueRunner[0].SetActive(false);
+            dialogueRunner[1].SetActive(true);
+
+            ControlEnable(true);
+            Controller.StartGame();
         }
 
-        private void ControlEnable(bool control)
+        public void FlipCharacters()
         {
-            Rapley.enabled = control;
+            for (int i = 0; i < characters.Length; i++)
+                characters[i].flipX = false;
+        }
+
+        public void PacmomSizeUp()
+        {
+            characters[0].transform.localScale = new Vector3(80f, 80f, 80f);
+        }
+
+        public void ControlEnable(bool control)
+        {
+            playerInput.enabled = control;
         }
     }
 }
