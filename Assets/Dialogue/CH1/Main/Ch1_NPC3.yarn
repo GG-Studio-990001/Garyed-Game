@@ -1,7 +1,17 @@
-﻿title: NPC3manager
+﻿title: NPC3
 // 사건분기에 따라 여기서 분류 후 JUMP하는 게 바람직
 // 해당 NPC는 자동차 리소스 근처에서 배회하는 NPC
 ---
+<<set $mainer to GetMinor()>>
+
+<<if $mainer == 1>>
+    <<jump NPC3_1>>
+<<elseif $mainer == 2>>
+    <<jump NPC3_2>>
+// <<else>>
+//     <<jump NPC3Default>>
+
+<<endif>>
 ===
 
 title: NPC3_1

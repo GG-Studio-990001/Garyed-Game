@@ -43,6 +43,8 @@ namespace Runtime.CH1.Main.Stage
             _currentStage.Enable();
             _currentStage.SetSetting();
             
+            await Task.Delay(1000);
+            
             if (_fadeController is not null)
                 _fadeController.StartFadeIn();
 

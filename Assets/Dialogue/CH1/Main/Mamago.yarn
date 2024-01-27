@@ -1,9 +1,22 @@
-﻿title: 마마고manager
+﻿title: Mamago
 // 사건분기에 따라 여기서 분류 후 JUMP하는 게 바람직
 ---
+<<set $mainer to GetMinor()>>
+
+
+<<jump Mamago_1>>
+
+// <<if $mainer == 1>>
+    
+// <<elseif $mainer == 2>>
+//     <<jump Dallar2>>
+// <<elseif $mainer == 3>>
+//     <<jump Dallar3>>
+// <<else>>
+//     <<jump DallarDefault>>
 ===
 
-title: Mamago
+title: Mamago_1
 // 사건 분기 : 1.04.2
 // 설명 : 마마고 컴퍼니 초반 및 입장 연출 이후
 ---
@@ -11,7 +24,7 @@ title: Mamago
     마마고: 지금 전기가 끊겨 운영이 힘듭니다. #line:00e1831 
 ===
 
-title: 마마고2
+title: Mamago_2
 // 사건 분기 : 1.04.2
 // 설명 : 마마고 컴퍼니 발전 퍼즐 성공 및 연출 이후
 ---

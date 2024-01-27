@@ -23,9 +23,6 @@ namespace Runtime.CH1.Main.Controller
         [Header("Camera")]
         [SerializeField] private CinemachineConfiner2D cinemachineConfiner2D;
         
-        [Header("Cursor")]
-        [SerializeField] private Texture2D cursorTexture;
-        
         private IProvider<ControlsData> ControlsDataProvider => DataProviderManager.Instance.ControlsDataProvider;
         private GameOverControls GameOverControls => ControlsDataProvider.Get().GameOverControls;
         
@@ -36,7 +33,7 @@ namespace Runtime.CH1.Main.Controller
             KeyBinding();
             
             // test
-            Cursor.SetCursor(cursorTexture, Vector2.zero, CursorMode.Auto);
+            
         }
         
         private void GameInit()
