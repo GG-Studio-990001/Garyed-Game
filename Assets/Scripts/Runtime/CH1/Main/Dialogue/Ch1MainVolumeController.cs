@@ -11,11 +11,11 @@ namespace Runtime.CH1.Main.Dialogue
         
         public void SetCinematicBars(float value)
         {
-            Vignette vignette;
+            CinematicBars cinematicBars;
 
-            if (volume.profile.TryGet(out vignette))
+            if (volume.profile.TryGet(out cinematicBars))
             {
-                vignette.intensity.value = value;
+                cinematicBars.amount.value = value;
             }
         }
     }

@@ -2,6 +2,7 @@ using NUnit.Framework;
 using Runtime.CH1.SubB;
 using Runtime.ETC;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.TestTools;
 
@@ -12,7 +13,7 @@ namespace Tests.Runtime.CH1.Sub_B
     {
         private GameObject _controllerObject;
         private ThreeMatchPuzzleController _controller;
-        private Jewelry[] _jewelries;
+        private List<Jewelry> _jewelries;
         
         [UnitySetUp]
         public IEnumerator Setup()
@@ -20,9 +21,9 @@ namespace Tests.Runtime.CH1.Sub_B
             _controllerObject = new GameObject("Controller");
             _controller = _controllerObject.AddComponent<ThreeMatchPuzzleController>();
             
-            _jewelries = new Jewelry[3];
+            _jewelries = new List<Jewelry>();
             
-            for (int i = 0; i < _jewelries.Length; i++)
+            for (int i = 0; i < 3; i++)
             {
                 _jewelries[i] = new GameObject($"Jewelry{i}").AddComponent<Jewelry>();
                 _jewelries[i].transform.parent = _controller.transform;

@@ -57,7 +57,14 @@ namespace Runtime.CH1.SubB
         private void OnCollisionExit2D(Collision2D other) => _pushTime = 0f;
         
         public void ResetPosition() => transform.position = _firstPosition;
-        public void DestroyJewelry() => Destroy(gameObject);
+
+        public void DestroyJewelry()
+        {
+            JewelryType = JewelryType.None;
+            gameObject.transform.position = new Vector3(100, 100, 0);
+            gameObject.SetActive(false);
+        }
+
         private void CallCheckMatching() => Controller.CheckMatching();
     }
 }

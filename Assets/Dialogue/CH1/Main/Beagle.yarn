@@ -1,5 +1,17 @@
 ﻿title: Beagle
 ---
+<<set $mainer to GetMinor()>>
+
+<<if $mainer <= 3>>
+    <<jump Beagle1>>
+<<else>>
+    <<jump BeagleDefault>>
+
+<<endif>>
+===
+
+title: Beagle1
+---
     //<순간이동, 위치번호>>
     비글: 뭐야!!! 너!! 누구야!!!! #line:07fc790 
     //<순간이동, 위치번호>>\
@@ -25,4 +37,9 @@
     비글: 후훗.. #line:061d30c 
     //<순간이동, 위치번호>>
     비글: 그럼 잘가! #line:05f4257 
+===
+
+title: BeagleDefault
+---
+비글: 라플리 반가워!! 오랜만!
 ===

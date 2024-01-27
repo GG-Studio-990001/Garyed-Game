@@ -48,7 +48,7 @@ namespace Runtime.CH1.Main.Dialogue
             _fadeController.SetBackground(isBlack);
         }
         
-        public void StartDialogue()
+        public void NextDirectionDialogue()
         {
             _runner.StartDialogue($"CutScene{DataProviderManager.Instance.PlayerDataProvider.Get().quarter.minor}");
         }
@@ -99,6 +99,21 @@ namespace Runtime.CH1.Main.Dialogue
             }
 
             return null;
+        }
+        
+        public void SetDialogueData(string value)
+        {
+            var variableStorage = GameObject.FindObjectOfType<InMemoryVariableStorage>();
+
+            if (value == "ThreeMatchPuzzle")
+            {
+                //variableStorage.TryGetValue("$ThreeMatchPuzzle", out lvalue);
+                variableStorage.SetValue("$ThreeMatchPuzzle", true);
+            }
+            
+            // int minorValue;
+            // variableStorage.TryGetValue("$minor", out minorValue);
+            // variableStorage.SetValue("$minor", minorValue + 1);
         }
     }
 }
