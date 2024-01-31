@@ -30,7 +30,7 @@ namespace Runtime.CH1.Pacmom
         [SerializeField]
         private float currentTime = 0f;
         [SerializeField]
-        private float targetTime = 10f;
+        private float targetTime = 15f;
 
         private void Awake()
         {
@@ -124,7 +124,7 @@ namespace Runtime.CH1.Pacmom
             RandomDialogue();
 
             currentTime = 0;
-            targetTime = UnityEngine.Random.Range(5f, 10f);
+            targetTime = UnityEngine.Random.Range(15f, 20f);
         }
         #endregion
 

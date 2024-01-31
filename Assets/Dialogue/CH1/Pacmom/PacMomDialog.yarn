@@ -56,17 +56,17 @@ position: 163,31
 <<set $RandomInt = dice(6)>>
 
 <<if $RandomInt is 1>>
-    Dust: (꼬르륵)
+    Dust: 어딨지?
 <<elseif $RandomInt is 2>>
-    Dust: 임무 완수!
+    Dust: (하품)
 <<elseif $RandomInt is 3>>
-    Dust: 아 힘들어
+    Dust: (꼬르륵)
 <<elseif $RandomInt is 4>>
-    Dust: 퇴사할까?
+    Dust: 가만 안 둬!
 <<elseif $RandomInt is 5>>
-    Dust: 도망칠까?
+    Dust: 두고 봐!
 <<else>>
-    Dust: 쉬는 시간은?
+    Dust: 괴롭혀주마
 <<endif>>
 <<wait 3>>
 <<HideBubble>>
