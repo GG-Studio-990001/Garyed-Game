@@ -9,6 +9,9 @@ namespace Runtime.CH1.Pacmom
         public MovementAndEyes movement { get; private set; }
         public AI ai { get; private set; }
 
+        [field:SerializeField]
+        public int dustID { get; private set; }
+
         private void Awake()
         {
             if (GetComponent<MovementAndEyes>() != null)
@@ -61,7 +64,7 @@ namespace Runtime.CH1.Pacmom
             if (collision.gameObject.layer == LayerMask.NameToLayer(GlobalConst.PacmomStr))
             {
                 if (ai.isStronger)
-                    gameController?.PacmomEaten(GlobalConst.DustStr);
+                    gameController?.PacmomEaten(GlobalConst.DustStr, this.dustID);
                 else
                     gameController?.DustEaten(this);
             }

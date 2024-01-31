@@ -307,18 +307,25 @@ namespace Runtime.CH1.Pacmom
             dust.movement.ResetState();
             dust.GetComponent<Room>().SetInRoom(true);
             inRoom++;
+
+            dialogue.BeCaughtDialogue(dust.dustID);
         }
 
-        public void PacmomEaten(string byWhom)
+        public void PacmomEaten(string byWhom, int ID = 0)
         {
             soundSystem.PlayEffect("PacmomStun");
 
             Debug.Log("팩맘 먹힘");
 
             if (byWhom == GlobalConst.PlayerStr)
+            {
                 TakeHalfCoins(true);
+            }
             else if (byWhom == GlobalConst.DustStr)
+            {
                 ReleaseHalfCoins();
+                dialogue.CatchDialogue(ID);
+            }
 
             SetPacmomLives(pacmomLives - 1);
             uiController.LosePacmomLife(pacmomLives);

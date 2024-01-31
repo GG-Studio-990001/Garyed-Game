@@ -30,7 +30,6 @@ DustA: 아무튼 파이팅이야!
 <<DustBSpeak>>
 DustB: 이제 곧 시작한다!
 <<OpeningDialogueFin>>
-
 ===
 
 title: PMRetry
@@ -45,7 +44,6 @@ DustA: 한 번 더 파이팅이야!
 <<DustBSpeak>>
 DustB: 다시 시작이다!
 <<OpeningDialogueFin>>
-
 ===
 
 title: PMRandom
@@ -70,7 +68,6 @@ position: 163,31
 <<endif>>
 <<wait 3>>
 <<HideBubble>>
-
 ===
 
 title: PMVacuumMode
@@ -78,6 +75,46 @@ title: PMVacuumMode
 // 팩맘이 청소기를 획득 후 바로 메시지 발생 (말풍선)
 DustA: 청소기다!
 DustB: 도망쳐!
+<<wait 3>>
+<<HideBubble>>
+===
+
+title: PMCatch
+---
+<<declare $RandomInt2 = 0>>
+<<set $RandomInt = dice(4)>>
+
+<<if $RandomInt is 1>>
+    Dust: 잡았다!
+<<elseif $RandomInt is 2>>
+    Dust: 꼴 좋다!
+<<elseif $RandomInt is 3>>
+    Dust: 히히
+<<else>>
+    Dust: 팩맘 바보
+<<endif>>
+<<wait 3>>
+<<HideBubble>>
+===
+
+title: PMBeCaught
+---
+<<declare $RandomInt3 = 0>>
+<<set $RandomInt = dice(6)>>
+
+<<if $RandomInt is 1>>
+    Dust: 으악!
+<<elseif $RandomInt is 2>>
+    Dust: 짜증나
+<<elseif $RandomInt is 3>>
+    Dust: 이럴수가!
+<<elseif $RandomInt is 4>>
+    Dust: 으으
+<<elseif $RandomInt is 5>>
+    Dust: 이런..
+<<else>>
+    Dust: 힝
+<<endif>>
 <<wait 3>>
 <<HideBubble>>
 ===
