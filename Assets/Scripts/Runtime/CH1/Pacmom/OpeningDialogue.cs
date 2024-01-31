@@ -3,6 +3,7 @@ using System;
 using TMPro;
 using UnityEngine;
 using Yarn.Unity;
+using Runtime.InGameSystem;
 
 namespace Runtime.CH1.Pacmom
 {
@@ -11,6 +12,8 @@ namespace Runtime.CH1.Pacmom
         private DialogueRunner runner;
         private readonly int dustA = 0, dustB = 1, rapley = 2;
 
+        [SerializeField]
+        private SoundSystem soundSystem;
         [SerializeField]
         private PMEnding ending;
         [SerializeField]
@@ -45,10 +48,15 @@ namespace Runtime.CH1.Pacmom
         {
             string speaker = dialogueLine.CharacterName;
 
-            if (speaker == GlobalConst.DustAStr)
-                ResizeSpeechBubble(dustA);
-            else
-                ResizeSpeechBubble(dustB);
+            if (speaker == GlobalConst.DustAStr || speaker == GlobalConst.DustBStr)
+            {
+                soundSystem.PlayEffect("DustTalk");
+
+                if (speaker == GlobalConst.DustAStr)
+                    ResizeSpeechBubble(dustA);
+                else
+                    ResizeSpeechBubble(dustB);
+            }
 
             onDialogueLineFinished();
         }
