@@ -36,11 +36,15 @@ DustB: 이제 곧 시작한다!
 title: PMRetry
 ---
 <<DustASpeak>>
-DustA: 또 왔구나?
-DustA: 바로 사직서 쓰고<br>가는 줄 알았어
-DustA: 오늘도 파이팅 해 보자고!
+DustA: 역시 다시 왔구나!
+DustA: 아까는 정말 아까웠어
 <<DustBSpeak>>
-DustB: 파이팅! 파이팅!
+DustB: 이번엔 제대로<br>괴롭혀주마!
+<<DustASpeak>>
+DustA: 한 번 더 파이팅이야!
+<<DustBSpeak>>
+DustB: 다시 시작이다!
+<<OpeningDialogueFin>>
 
 ===
 
@@ -72,8 +76,8 @@ position: 163,31
 title: PMVacuumMode
 ---
 // 팩맘이 청소기를 획득 후 바로 메시지 발생 (말풍선)
-DustA: 다들 조심해!
-DustB: 조심! 조심!
+DustA: 으악 청소기!
+DustB: 도망쳐!
 <<wait 3>>
 <<HideBubble>>
 ===
@@ -81,6 +85,6 @@ DustB: 조심! 조심!
 title: PMGameClear
 ---
 // 코인 비교 분기 때 발생, 게임 종료 연출로 화면이 바뀌기전까지 보여줌
-DustA: 고생했다! // 임시로 짧게 수정
-DustB: 퇴근! 퇴근!
+DustA: 헉 끝났다!
+DustB: 이겼나?
 ===
