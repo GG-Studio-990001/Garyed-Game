@@ -1722,6 +1722,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 153d5efdc62c3c744815999e70d1e924, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundSystem: {fileID: 588262824}
   ending: {fileID: 1575259378}
   speechBubble: {fileID: 1826524975}
   speechBubbleA: {fileID: 470871492}
@@ -2477,12 +2478,14 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 13c5afa628b012b4fb0ce2a4c1c452e4, type: 3}
   - name: DropCoin
     clip: {fileID: 8300000, guid: 598b600381d97c4448a0c99a344d0cac, type: 3}
-  - name: DustMove
-    clip: {fileID: 8300000, guid: 77070bee67393704f8c3fdc7459741a8, type: 3}
   - name: GoMiniGame
     clip: {fileID: 8300000, guid: e36a4295f37a4b3469be7fd5a2a76fe4, type: 3}
   - name: ShowRapley
     clip: {fileID: 8300000, guid: a8856b2be57c6ca48a87a41fa964ea92, type: 3}
+  - name: DustMove
+    clip: {fileID: 8300000, guid: 77070bee67393704f8c3fdc7459741a8, type: 3}
+  - name: DustTalk
+    clip: {fileID: 8300000, guid: dbe9138bc9ce27542baa39a6cc2301c0, type: 3}
   backgroundAudioSource: {fileID: 909347510}
   effectAudioSource: {fileID: 1727271993}
 --- !u!4 &588262825

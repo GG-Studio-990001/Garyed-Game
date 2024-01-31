@@ -1,25 +1,34 @@
-// 기존 대화 UI가 없으므로 "라플리 : 불라불라"가 아닌 "블라블라" 이렇게 대화 텍스트만 이용됩니다.
-// 누가 말했는 지 편의를 위해 먼지유령1(회색), 먼지유령2(검정색) 구분합니다.
+// 말풍선이므로 화자를 제외한 텍스트 출력
+// DustA == 회색, DustB == 검정색
 
 title: PMStart
 ---
 <<DustASpeak>>
-DustA: 오 뭐지? 신입인가!
+DustA: 뭐야, 너 누구야!
 <<RapleySpeak>>
 Player: ?
 <<DustBSpeak>>
-DustB: 신입! 신입!
+DustB: 너도 우리 편이야?
+DustB: 같이 팩맘을 괴롭히자!
 <<DustASpeak>>
-DustA: 긴장하지 말고,<br>본사에서 배운 대로<br>할 거야
-DustA: 먼저, 저 문밖으로 나가서<br>팩맘의 동선을 살펴줘
-DustA: 곧바로 우리도<br>뒤따라서 나가마
+DustA: 흥, 우리에게<br>더러운 먼지들이라니
+DustA: 꼭 복수해 주겠어!
 <<DustBSpeak>>
-DustB: 팩맘을! 잡자!<br>동전을! 모으자!
+DustB: 잡아서<br>후회하게 해주마!
+DustB: 세 번만 잡으면<br>게임 끝이지!
 <<DustASpeak>>
-DustA: 동전을 많이 모으면<br>본사에서 특별 보너스도<br>준다고 하니까
-DustA: 파이팅이야 자네!
+DustA: 그렇게 환장하는<br>돈도 뺏어버리자고
 <<DustBSpeak>>
-DustB: 파이팅! 파이팅!
+DustB: 내가 잡으면<br>주머니를 털어주마!
+<<DustASpeak>>
+DustA: 청소기 소리가 들리면<br>그 때는 도망가도록 해
+DustA: 오히려 우리가<br>잡혀버리니까 말이야
+<<DustBSpeak>>
+DustB: 으으 끔찍해!
+<<DustASpeak>>
+DustA: 아무튼 파이팅이야!
+<<DustBSpeak>>
+DustB: 이제 곧 시작한다!
 <<OpeningDialogueFin>>
 
 ===
