@@ -60,7 +60,7 @@ position: 163,31
 <<elseif $RandomInt is 2>>
     Dust: (하품)
 <<elseif $RandomInt is 3>>
-    Dust: (꼬르륵)
+    Dust: (두리번)
 <<elseif $RandomInt is 4>>
     Dust: 가만 안 둬!
 <<elseif $RandomInt is 5>>
@@ -76,7 +76,7 @@ position: 163,31
 title: PMVacuumMode
 ---
 // 팩맘이 청소기를 획득 후 바로 메시지 발생 (말풍선)
-DustA: 으악 청소기!
+DustA: 청소기다!
 DustB: 도망쳐!
 <<wait 3>>
 <<HideBubble>>

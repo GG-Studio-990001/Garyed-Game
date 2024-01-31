@@ -46,6 +46,8 @@ namespace Runtime.CH1.Pacmom
 
         public override void RunLine(LocalizedLine dialogueLine, Action onDialogueLineFinished)
         {
+            soundSystem.StopSFX();
+
             string speaker = dialogueLine.CharacterName;
 
             if (speaker == GlobalConst.DustAStr || speaker == GlobalConst.DustBStr)
@@ -106,6 +108,7 @@ namespace Runtime.CH1.Pacmom
 
         public void OpeningDialogueFin()
         {
+            soundSystem.StopSFX();
             ShowSpeechBubble();
             timeline_2.SetActive(true);
         }

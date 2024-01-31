@@ -21599,7 +21599,7 @@ MonoBehaviour:
   bubbleB: {fileID: 283098243}
   textB: {fileID: 1132766442}
   currentTime: 0
-  targetTime: 10
+  targetTime: 15
 --- !u!1 &953717369
 GameObject:
   m_ObjectHideFlags: 0

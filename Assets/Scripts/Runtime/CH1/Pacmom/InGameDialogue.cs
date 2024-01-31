@@ -140,7 +140,8 @@ namespace Runtime.CH1.Pacmom
             runner.Stop();
             runner.StartDialogue("PMVacuumMode");
 
-            targetTime += 5f; // 청소기모드 직후 랜덤대사 출력 방지
+            if (targetTime < 5f)
+                targetTime += 5f; // 청소기모드 직후 랜덤대사 출력 방지
         }
 
         public void GameOverDialogue()
