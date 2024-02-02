@@ -1,5 +1,8 @@
+using Runtime.Common.View;
+using Runtime.Data.Original;
 using Runtime.ETC;
 using Runtime.InGameSystem;
+using Runtime.Interface;
 using System.Collections;
 using UnityEngine;
 
@@ -51,6 +54,12 @@ namespace Runtime.CH1.Pacmom
         private readonly float vacuumDuration = 10f;
         private readonly float vacuumEndDuration = 3f;
         private bool isMoving;
+
+        private IProvider<ControlsData> ControlsDataProvider => DataProviderManager.Instance.ControlsDataProvider;
+        private GameOverControls GameOverControls => ControlsDataProvider.Get().GameOverControls;
+
+        [SerializeField]
+        private SettingsUIView settingsUIView;
         #endregion
 
         #region Awake
@@ -58,6 +67,17 @@ namespace Runtime.CH1.Pacmom
         {
             AssignComponent();
             AssignController();
+            SetSettingUI();
+        }
+
+        private void SetSettingUI()
+        {
+            GameOverControls.UI.Enable();
+            GameOverControls.UI.GameSetting.performed += _ =>
+            {
+                settingsUIView.GameSettingToggle();
+                Time.timeScale = (Time.timeScale == 0 ? 1 : 0);
+            };
         }
 
         private void AssignComponent()
