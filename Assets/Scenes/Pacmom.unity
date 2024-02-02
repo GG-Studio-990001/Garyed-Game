@@ -9425,8 +9425,8 @@ MonoBehaviour:
       m_Calls: []
   typewriterEffectSpeed: 10
   continueButton: {fileID: 0}
-  holdTime: 1
-  autoAdvance: 0
+  holdTime: 2
+  autoAdvance: 1
 --- !u!225 &680145022
 CanvasGroup:
   m_ObjectHideFlags: 0
