@@ -50,6 +50,7 @@ namespace Runtime.CH1.Pacmom
         private int pacmomLives;
         private readonly float vacuumDuration = 10f;
         private readonly float vacuumEndDuration = 3f;
+        private bool isMoving;
         #endregion
 
         #region Awake
@@ -195,7 +196,7 @@ namespace Runtime.CH1.Pacmom
 
             yield return new WaitForSeconds(vacuumDuration - vacuumEndDuration);
             if (isGameOver) yield break;
-            
+
             spriteController.SetPacmomBlinkSprite();
 
             yield return new WaitForSeconds(vacuumEndDuration);
@@ -246,6 +247,8 @@ namespace Runtime.CH1.Pacmom
             pacmom.movement.SetCanMove(move);
             for (int i = 0; i < dusts.Length; i++)
                 dusts[i].movement.SetCanMove(move);
+
+            isMoving = move;
         }
 
         private void SetVacuumMode(bool isVacuumMode)
@@ -320,13 +323,17 @@ namespace Runtime.CH1.Pacmom
             if (byWhom == GlobalConst.PlayerStr)
             {
                 TakeHalfCoins(true);
+                LoseLife();
             }
             else if (byWhom == GlobalConst.DustStr)
             {
-                ReleaseHalfCoins();
                 dialogue.CatchDialogue(ID);
+                StartCoroutine("ReleaseHalfCoins");
             }
+        }
 
+        private void LoseLife()
+        {
             SetPacmomLives(pacmomLives - 1);
             uiController.LosePacmomLife(pacmomLives);
 
@@ -343,8 +350,13 @@ namespace Runtime.CH1.Pacmom
             }
         }
 
-        public void CoinEaten(string byWhom)
+        public void CoinEaten(Coin coin, string byWhom)
         {
+            if (!isMoving)
+                return;
+
+            coin.gameObject.SetActive(false);
+
             if (byWhom == GlobalConst.PlayerStr)
             {
                 soundSystem.PlayEffect("RapleyEatCoin");
@@ -382,25 +394,31 @@ namespace Runtime.CH1.Pacmom
             }
         }
 
-        private void ReleaseHalfCoins()
+        private IEnumerator ReleaseHalfCoins()
         {
-            soundSystem.PlayEffect("DropCoin");
+            // soundSystem.PlayEffect("DropCoin"); // 팩맘 기절 효과음이랑 겹침..
+            SetCharacterMove(false);
 
             int score = pacmomScore / 2;
             SetPacmomScore(pacmomScore - score);
-            Debug.Log("팩맘 코인 " + score + "개 떨굼");
+            Debug.Log("팩맘 코인 " + score + "개 떨굼"); 
 
-            foreach (Transform coin in coins)
+
+            while (score > 0)
             {
-                if (score <= 0)
-                    break;
-
+                int rand = Random.Range(0, coins.childCount);
+                Transform coin = coins.GetChild(rand);
                 if (!coin.gameObject.activeSelf)
                 {
                     coin.gameObject.SetActive(true);
                     score--;
+                    yield return new WaitForSeconds(0.03f);
                 }
             }
+
+            dialogue.HideBubble();
+            SetCharacterMove(true);
+            LoseLife();
         }
 
         private IEnumerator GetRemaningCoins()

@@ -9,14 +9,17 @@ namespace Runtime.CH1.Pacmom
 
         private void EatenByRapley()
         {
-            gameObject.SetActive(false);
-            gameController?.CoinEaten(GlobalConst.PlayerStr);
+            if (gameController is null)
+                gameObject.SetActive(false);
+
+            gameController?.CoinEaten(this, GlobalConst.PlayerStr);
         }
 
         private void EatenByPacmom()
         {
-            gameObject.SetActive(false);
-            gameController?.CoinEaten(GlobalConst.PacmomStr);
+            if (gameController is null)
+                gameObject.SetActive(false);
+            gameController?.CoinEaten(this, GlobalConst.PacmomStr);
         }
 
         private void OnTriggerEnter2D(Collider2D other)
