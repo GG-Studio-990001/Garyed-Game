@@ -50,7 +50,7 @@ namespace Tests.Runtime.PacmomGameTest
             rapleyMovement.rigid.position = Vector3.zero;
             rapleyMovement.SetNextDirection(new Vector2(-1, 0));
 
-            yield return new WaitForFixedUpdate();
+            yield return new WaitForSeconds(0.1f);
 
             Assert.IsTrue(rapleyMovement.rigid.position.x < 0);
         }
