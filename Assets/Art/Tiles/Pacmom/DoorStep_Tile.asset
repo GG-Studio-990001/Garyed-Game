@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d1514134bc4fbd41bb739b1b9a49231, type: 3}
   m_Name: DoorStep_Tile
   m_EditorClassIdentifier: 
-  m_DefaultSprite: {fileID: 21300000, guid: bc9187ff33d14af4794efc5c08b73dd9, type: 3}
+  m_DefaultSprite: {fileID: 21300000, guid: b20a434150caeae43a6f594f0f6a9897, type: 3}
   m_DefaultGameObject: {fileID: 4124520282429008869, guid: e2b3f427e25389a428453963f98e2bd0, type: 3}
-  m_DefaultColliderType: 1
+  m_DefaultColliderType: 2
   m_TilingRules: []

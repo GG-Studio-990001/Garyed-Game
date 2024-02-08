@@ -10,6 +10,7 @@ namespace Runtime.CH1.Pacmom
         {
             step = GetComponent<Step>();
 
+            step.availableDirections.Clear();
             step.availableDirections.Add(Vector2.up);
         }
     }

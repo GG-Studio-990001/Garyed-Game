@@ -228,7 +228,7 @@ namespace Runtime.CH1.Pacmom
 
         private void VacuumModeOn()
         {
-            spriteController.SetVaccumModeSprites();
+            spriteController.SetVacuumModeSprites();
             SetVacuumSpeed();
             SetVacuumMode(true);
             dialogue.VacuumDialogue();

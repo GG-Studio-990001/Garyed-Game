@@ -26,7 +26,7 @@ namespace Runtime.CH1.Pacmom
             }
         }
 
-        public void SetVaccumModeSprites()
+        public void SetVacuumModeSprites()
         {
             pacmomSprite.GetVacuumModeSprite();
             rapleySprite.GetVacuumModeSprite();
