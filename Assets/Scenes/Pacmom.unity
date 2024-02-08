@@ -2699,37 +2699,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   backgroundSounds:
-  - name: StartVacuum
-    clip: {fileID: 8300000, guid: 1e29cb3ecbf472b4b989f3d52b7272ad, type: 3}
   - name: ContinueVacuum
+    clip: {fileID: 8300000, guid: 1e29cb3ecbf472b4b989f3d52b7272ad, type: 3}
+  - name: StartVacuum
     clip: {fileID: 8300000, guid: 2a934aee0256f40498158bbe70cf6ef1, type: 3}
   - name: Intro
     clip: {fileID: 8300000, guid: 6df43ee3c641dd0489f309ed3c9f3e7b, type: 3}
   - name: Outro
     clip: {fileID: 8300000, guid: 048c55a9ada3b9146a2eb88fcc3bfeb3, type: 3}
   effectSounds:
-  - name: TicToc
-    clip: {fileID: 8300000, guid: c49df98368b2fb0419e305c031ac2836, type: 3}
   - name: PacmomEat
     clip: {fileID: 8300000, guid: c4919cc91ce45454ea3342a3e218bb28, type: 3}
-  - name: GoHome
-    clip: {fileID: 8300000, guid: 5594f14f1b75829459905e02c1f3deb0, type: 3}
-  - name: PacmomStun
-    clip: {fileID: 8300000, guid: 4510624fd2cbf1c4eb0a7d580e1203d1, type: 3}
-  - name: RapleyEatCoin
-    clip: {fileID: 8300000, guid: 14f6702f4c801f540ae6dc612dfcc6ca, type: 3}
-  - name: PacmomEatCoin
-    clip: {fileID: 8300000, guid: 13c5afa628b012b4fb0ce2a4c1c452e4, type: 3}
+  - name: TicToc
+    clip: {fileID: 8300000, guid: c49df98368b2fb0419e305c031ac2836, type: 3}
   - name: DropCoin
     clip: {fileID: 8300000, guid: 598b600381d97c4448a0c99a344d0cac, type: 3}
+  - name: RapleyEatCoin
+    clip: {fileID: 8300000, guid: 14f6702f4c801f540ae6dc612dfcc6ca, type: 3}
+  - name: PacmomStun
+    clip: {fileID: 8300000, guid: 4510624fd2cbf1c4eb0a7d580e1203d1, type: 3}
+  - name: PacmomEatCoin
+    clip: {fileID: 8300000, guid: 2538aebdce8a42e4a84860456253f5f0, type: 3}
   - name: GoMiniGame
     clip: {fileID: 8300000, guid: e36a4295f37a4b3469be7fd5a2a76fe4, type: 3}
   - name: ShowRapley
     clip: {fileID: 8300000, guid: a8856b2be57c6ca48a87a41fa964ea92, type: 3}
-  - name: DustMove
-    clip: {fileID: 8300000, guid: 77070bee67393704f8c3fdc7459741a8, type: 3}
-  - name: DustTalk
-    clip: {fileID: 8300000, guid: dbe9138bc9ce27542baa39a6cc2301c0, type: 3}
   backgroundAudioSource: {fileID: 909347510}
   effectAudioSource: {fileID: 1727271993}
 --- !u!4 &588262825

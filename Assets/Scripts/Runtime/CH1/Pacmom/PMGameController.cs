@@ -160,6 +160,7 @@ namespace Runtime.CH1.Pacmom
         #region End
         public void GameOver()
         {
+            soundSystem.StopMusic();
             timer.SetTimer(false);
             isGameOver = true;
 

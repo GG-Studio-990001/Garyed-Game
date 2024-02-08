@@ -52,8 +52,6 @@ namespace Runtime.CH1.Pacmom
 
             if (speaker == GlobalConst.DustAStr || speaker == GlobalConst.DustBStr)
             {
-                soundSystem.PlayEffect("DustTalk");
-
                 if (speaker == GlobalConst.DustAStr)
                     ResizeSpeechBubble(dustA);
                 else
