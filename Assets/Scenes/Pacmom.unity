@@ -1827,6 +1827,7 @@ GameObject:
   - component: {fileID: 372367289}
   - component: {fileID: 372367288}
   - component: {fileID: 372367290}
+  - component: {fileID: 372367291}
   m_Layer: 0
   m_Name: DialogueRunner
   m_TagString: Untagged
@@ -1905,6 +1906,37 @@ MonoBehaviour:
   speechBubbleB: {fileID: 1946743711}
   line: {fileID: 477990106}
   timeline_2: {fileID: 1493158440}
+--- !u!114 &372367291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 372367287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b027cd0bc320d640a816e5b5a02a043, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effectSounds:
+  - {fileID: 8300000, guid: 7ca67deb68f434a4c8693c5246ed66e7, type: 3}
+  - {fileID: 8300000, guid: 890382f44f65db247bd4a20a605b9d00, type: 3}
+  - {fileID: 8300000, guid: 0f522d12e37f17f42a934bf0dd9b942b, type: 3}
+  - {fileID: 8300000, guid: 52f50c9f5fdb6f94e822f90b6c37e8c1, type: 3}
+  - {fileID: 8300000, guid: 2ef50d7aad3ca5b439d18d1b7cf1de39, type: 3}
+  - {fileID: 8300000, guid: c1edd516e42d8bf47801f72cc27a8450, type: 3}
+  - {fileID: 8300000, guid: bbeedfc9d656d9646a3d67f8cdacc2e6, type: 3}
+  - {fileID: 8300000, guid: 85078cc117ca96345abbc8185b79f3d3, type: 3}
+  - {fileID: 8300000, guid: 830d04530a0af164687d4ab9011bf9d5, type: 3}
+  - {fileID: 8300000, guid: 82e62aae8c11a2e44a840f570d5cf862, type: 3}
+  - {fileID: 8300000, guid: ff6f71e0ac19ef141a05d2c203253253, type: 3}
+  - {fileID: 8300000, guid: 615ac8979fcf5724884adfd2e8c38130, type: 3}
+  - {fileID: 8300000, guid: c9b9fb25b6e36404f97676d4b21276e1, type: 3}
+  - {fileID: 8300000, guid: 39b7df7230dc8ed4bad1229bacddf108, type: 3}
+  - {fileID: 8300000, guid: 58c48aaf08d528945bd4ce1915bd5cd2, type: 3}
+  - {fileID: 8300000, guid: 88812cfe3baa6534c937857cb0f11c7f, type: 3}
+  - {fileID: 8300000, guid: a88456d293b5654449398075892903ef, type: 3}
+  effectAudioSource: {fileID: 1727271993}
 --- !u!1 &420327846
 GameObject:
   m_ObjectHideFlags: 0
@@ -9656,7 +9688,19 @@ MonoBehaviour:
   useTypewriterEffect: 1
   onCharacterTyped:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 372367291}
+        m_TargetAssemblyTypeName: Runtime.CH1.Pacmom.DustTalkSound, Scripts
+        m_MethodName: DustTalkingSFX
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   typewriterEffectSpeed: 10
   continueButton: {fileID: 0}
   holdTime: 2
