@@ -30,7 +30,8 @@ namespace Runtime.CH1.Pacmom
         [SerializeField]
         private float currentTime = 0f;
         [SerializeField]
-        private float targetTime = 10f;
+        private float targetTime = 15f;
+        private int isSpeaker = 0;
 
         private void Awake()
         {
@@ -79,8 +80,19 @@ namespace Runtime.CH1.Pacmom
             // 화자 미정일 때
             if (speaker == GlobalConst.DustStr)
             {
-                int rand = UnityEngine.Random.Range(0, 2);
-                speaker = (rand == 0 ? GlobalConst.DustAStr : GlobalConst.DustBStr);
+                switch (isSpeaker)
+                {
+                    case 0:
+                        int rand = UnityEngine.Random.Range(0, 2);
+                        speaker = (rand == 0 ? GlobalConst.DustAStr : GlobalConst.DustBStr);
+                        break;
+                    case 1:
+                        speaker = GlobalConst.DustAStr;
+                        break;
+                    case 2:
+                        speaker = GlobalConst.DustBStr;
+                        break;
+                }
             }
 
             TextMeshProUGUI text = (speaker == GlobalConst.DustAStr ? textA : textB);
@@ -98,6 +110,9 @@ namespace Runtime.CH1.Pacmom
                 textB.text = text.text;
             }
             
+            if (isSpeaker != 0)
+                isSpeaker = 0;
+
             onDialogueLineFinished();
         }
 
@@ -107,6 +122,8 @@ namespace Runtime.CH1.Pacmom
                 bubbleA.SetActive(false);
             if (bubbleB.activeSelf)
                 bubbleB.SetActive(false);
+
+            isSpeaker = 0;
         }
 
         #region Time
@@ -124,11 +141,25 @@ namespace Runtime.CH1.Pacmom
             RandomDialogue();
 
             currentTime = 0;
-            targetTime = UnityEngine.Random.Range(5f, 10f);
+            targetTime = UnityEngine.Random.Range(15f, 20f);
         }
         #endregion
 
         #region Start Dialogue
+        public void CatchDialogue(int ID)
+        {
+            runner.Stop();
+            isSpeaker = ID;
+            runner.StartDialogue("PMCatch");
+        }
+
+        public void BeCaughtDialogue(int ID)
+        {
+            runner.Stop();
+            isSpeaker = ID;
+            runner.StartDialogue("PMBeCaught");
+        }
+        
         private void RandomDialogue()
         {
             runner.Stop();
@@ -140,7 +171,8 @@ namespace Runtime.CH1.Pacmom
             runner.Stop();
             runner.StartDialogue("PMVacuumMode");
 
-            targetTime += 5f; // 청소기모드 직후 랜덤대사 출력 방지
+            if (targetTime < 5f)
+                targetTime += 5f; // 청소기모드 직후 랜덤대사 출력 방지
         }
 
         public void GameOverDialogue()

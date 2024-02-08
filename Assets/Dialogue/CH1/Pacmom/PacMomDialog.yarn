@@ -1,38 +1,49 @@
-// 기존 대화 UI가 없으므로 "라플리 : 불라불라"가 아닌 "블라블라" 이렇게 대화 텍스트만 이용됩니다.
-// 누가 말했는 지 편의를 위해 먼지유령1(회색), 먼지유령2(검정색) 구분합니다.
+// 말풍선이므로 화자를 제외한 텍스트 출력
+// DustA == 회색, DustB == 검정색
 
 title: PMStart
 ---
 <<DustASpeak>>
-DustA: 오 뭐지? 신입인가!
+DustA: 뭐야, 너 누구야!
 <<RapleySpeak>>
 Player: ?
 <<DustBSpeak>>
-DustB: 신입! 신입!
+DustB: 너도 우리 편이야?
+DustB: 같이 팩맘을 괴롭히자!
 <<DustASpeak>>
-DustA: 긴장하지 말고,<br>본사에서 배운 대로<br>할 거야
-DustA: 먼저, 저 문밖으로 나가서<br>팩맘의 동선을 살펴줘
-DustA: 곧바로 우리도<br>뒤따라서 나가마
+DustA: 흥, 우리에게<br>더러운 먼지들이라니
+DustA: 꼭 복수해 주겠어!
 <<DustBSpeak>>
-DustB: 팩맘을! 잡자!<br>동전을! 모으자!
+DustB: 잡아서<br>후회하게 해주마!
+DustB: 세 번만 잡으면<br>게임 끝이지!
 <<DustASpeak>>
-DustA: 동전을 많이 모으면<br>본사에서 특별 보너스도<br>준다고 하니까
-DustA: 파이팅이야 자네!
+DustA: 그렇게 환장하는<br>돈도 뺏어버리자고
 <<DustBSpeak>>
-DustB: 파이팅! 파이팅!
+DustB: 내가 잡으면<br>주머니를 털어주마!
+<<DustASpeak>>
+DustA: 청소기 소리가 들리면<br>그 때는 도망가도록 해
+DustA: 오히려 우리가<br>잡혀버리니까 말이야
+<<DustBSpeak>>
+DustB: 으으 끔찍해!
+<<DustASpeak>>
+DustA: 아무튼 파이팅이야!
+<<DustBSpeak>>
+DustB: 이제 곧 시작한다!
 <<OpeningDialogueFin>>
-
 ===
 
 title: PMRetry
 ---
 <<DustASpeak>>
-DustA: 또 왔구나?
-DustA: 바로 사직서 쓰고<br>가는 줄 알았어
-DustA: 오늘도 파이팅 해 보자고!
+DustA: 역시 다시 왔구나!
+DustA: 아까는 정말 아까웠어
 <<DustBSpeak>>
-DustB: 파이팅! 파이팅!
-
+DustB: 이번엔 제대로<br>괴롭혀주마!
+<<DustASpeak>>
+DustA: 한 번 더 파이팅이야!
+<<DustBSpeak>>
+DustB: 다시 시작이다!
+<<OpeningDialogueFin>>
 ===
 
 title: PMRandom
@@ -43,28 +54,67 @@ position: 163,31
 <<set $RandomInt = dice(6)>>
 
 <<if $RandomInt is 1>>
-    Dust: (꼬르륵)
+    Dust: 어딨지?
 <<elseif $RandomInt is 2>>
-    Dust: 임무 완수!
+    Dust: (하품)
 <<elseif $RandomInt is 3>>
-    Dust: 아 힘들어
+    Dust: (두리번)
 <<elseif $RandomInt is 4>>
-    Dust: 퇴사할까?
+    Dust: 가만 안 둬!
 <<elseif $RandomInt is 5>>
-    Dust: 도망칠까?
+    Dust: 두고 봐!
 <<else>>
-    Dust: 쉬는 시간은?
+    Dust: 괴롭혀주마
 <<endif>>
 <<wait 3>>
 <<HideBubble>>
-
 ===
 
 title: PMVacuumMode
 ---
 // 팩맘이 청소기를 획득 후 바로 메시지 발생 (말풍선)
-DustA: 다들 조심해!
-DustB: 조심! 조심!
+DustA: 청소기다!
+DustB: 도망쳐!
+<<wait 3>>
+<<HideBubble>>
+===
+
+title: PMCatch
+---
+<<declare $RandomInt2 = 0>>
+<<set $RandomInt = dice(4)>>
+
+<<if $RandomInt is 1>>
+    Dust: 잡았다!
+<<elseif $RandomInt is 2>>
+    Dust: 꼴 좋다!
+<<elseif $RandomInt is 3>>
+    Dust: 히히
+<<else>>
+    Dust: 팩맘 바보
+<<endif>>
+<<wait 3>>
+<<HideBubble>>
+===
+
+title: PMBeCaught
+---
+<<declare $RandomInt3 = 0>>
+<<set $RandomInt = dice(6)>>
+
+<<if $RandomInt is 1>>
+    Dust: 으악!
+<<elseif $RandomInt is 2>>
+    Dust: 짜증나
+<<elseif $RandomInt is 3>>
+    Dust: 이럴수가!
+<<elseif $RandomInt is 4>>
+    Dust: 으으
+<<elseif $RandomInt is 5>>
+    Dust: 이런..
+<<else>>
+    Dust: 힝
+<<endif>>
 <<wait 3>>
 <<HideBubble>>
 ===
@@ -72,6 +122,6 @@ DustB: 조심! 조심!
 title: PMGameClear
 ---
 // 코인 비교 분기 때 발생, 게임 종료 연출로 화면이 바뀌기전까지 보여줌
-DustA: 고생했다! // 임시로 짧게 수정
-DustB: 퇴근! 퇴근!
+DustA: 헉 끝났다!
+DustB: 이겼나?
 ===
