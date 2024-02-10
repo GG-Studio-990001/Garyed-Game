@@ -4,29 +4,30 @@
 title: PMStart
 ---
 <<DustASpeak>>
-DustA: 뭐야, 너 누구야!
+DustA: 뭐야, 여기에는<br>어떻게 들어온 거야?
+<<DustBSpeak>>
+DustB: 너도 팩맘을<br>잡으러 온 거야?
 <<RapleySpeak>>
-Player: ?
-<<DustBSpeak>>
-DustB: 너도 우리 편이야?
-DustB: 같이 팩맘을 괴롭히자!
+Player: 
 <<DustASpeak>>
-DustA: 흥, 우리에게<br>더러운 먼지들이라니
-DustA: 꼭 복수해 주겠어!
+DustA: 팩맘이 우리 보고<br>더러운 먼지들이래
 <<DustBSpeak>>
-DustB: 잡아서<br>후회하게 해주마!
-DustB: 세 번만 잡으면<br>게임 끝이지!
+DustB: 정말 미워!
 <<DustASpeak>>
-DustA: 그렇게 환장하는<br>돈도 뺏어버리자고
+DustA: 잡아서<br>코인을 뺏어주마!
 <<DustBSpeak>>
-DustB: 내가 잡으면<br>주머니를 털어주마!
+DustB: 잔뜩 뺏어주마!
 <<DustASpeak>>
-DustA: 청소기 소리가 들리면<br>그 때는 도망가도록 해
-DustA: 오히려 우리가<br>잡혀버리니까 말이야
+DustA: 세 번만 잡으면<br>게임 끝이지
+DustA: 팩맘보다<br>코인이 많아도 좋고
 <<DustBSpeak>>
-DustB: 으으 끔찍해!
+DustB: 엄청 배아파 할거야!
 <<DustASpeak>>
-DustA: 아무튼 파이팅이야!
+DustA: 하지만 '청소 시간'에는<br>꼭 도망가야 해!
+<<DustBSpeak>>
+DustB: 으으, 끔찍한 청소기
+<<DustASpeak>>
+DustA: 아무튼 파이팅이야
 <<DustBSpeak>>
 DustB: 이제 곧 시작한다!
 <<OpeningDialogueFin>>
@@ -47,9 +48,9 @@ DustB: 다시 시작이다!
 ===
 
 title: PMRandom
-// 자주 나오지 않으며, 구분없이 사용됨
 position: 163,31
 ---
+// 자주 나오지 않으며, 구분 없이 사용됨
 <<declare $RandomInt = 0>>
 <<set $RandomInt = dice(6)>>
 
@@ -72,7 +73,7 @@ position: 163,31
 
 title: PMVacuumMode
 ---
-// 팩맘이 청소기를 획득 후 바로 메시지 발생 (말풍선)
+// 팩맘이 청소기를 획득한 후 바로 메시지 발생
 DustA: 청소기다!
 DustB: 도망쳐!
 <<wait 3>>
@@ -93,8 +94,6 @@ title: PMCatch
 <<else>>
     Dust: 팩맘 바보
 <<endif>>
-<<wait 3>>
-<<HideBubble>>
 ===
 
 title: PMBeCaught
@@ -121,7 +120,7 @@ title: PMBeCaught
 
 title: PMGameClear
 ---
-// 코인 비교 분기 때 발생, 게임 종료 연출로 화면이 바뀌기전까지 보여줌
-DustA: 헉 끝났다!
-DustB: 이겼나?
+// 코인 비교 분기 때 발생, 게임 종료 연출로 화면이 바뀌기 전까지 보여줌
+DustA: 끝났다!
+DustB: 헉 벌써?
 ===

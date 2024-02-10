@@ -1,3 +1,4 @@
+using Runtime.ETC;
 using System.Collections;
 using UnityEngine;
 
@@ -11,6 +12,8 @@ namespace Runtime.CH1.Pacmom
         private Transform inside;
         [SerializeField]
         private Transform outside;
+        [SerializeField]
+        private Transform crossRoad;
         public bool isInRoom { get; private set; }
 
         public void SetInRoom(bool isInRoom)
@@ -57,7 +60,20 @@ namespace Runtime.CH1.Pacmom
                 yield return null;
             }
 
-            movement.SetNextDirection(new Vector2(Random.value < 0.5f ? -1.0f : 1.0f, 0.0f));
+            duration = 0.3f;
+            elapsed = 0.0f;
+            movement.GetEyeSprites(new Vector2(crossRoad.position.x < 0 ? -1.0f : 1.0f, 0.0f));
+
+            while (elapsed < duration)
+            {
+                Vector3 newPosition = Vector3.Lerp(outside.position, crossRoad.position, elapsed / duration);
+                newPosition.z = position.z;
+                movement.rigid.position = newPosition;
+                elapsed += Time.deltaTime;
+                yield return null;
+            }
+
+            movement.SetNextDirection(new Vector2(crossRoad.position.x < 0 ? -1.0f : 1.0f, 0.0f));
             movement.rigid.isKinematic = false;
             movement.enabled = true;
 

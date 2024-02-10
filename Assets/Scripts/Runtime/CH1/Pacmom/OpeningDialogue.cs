@@ -17,11 +17,11 @@ namespace Runtime.CH1.Pacmom
         [SerializeField]
         private PMEnding ending;
         [SerializeField]
-        private GameObject speechBubble;
-        [SerializeField]
         private RectTransform speechBubbleA;
         [SerializeField]
         private RectTransform speechBubbleB;
+        [SerializeField]
+        private GameObject rapleyBubble;
         [SerializeField]
         private TextMeshProUGUI line;
         [SerializeField]
@@ -52,8 +52,6 @@ namespace Runtime.CH1.Pacmom
 
             if (speaker == GlobalConst.DustAStr || speaker == GlobalConst.DustBStr)
             {
-                soundSystem.PlayEffect("DustTalk");
-
                 if (speaker == GlobalConst.DustAStr)
                     ResizeSpeechBubble(dustA);
                 else
@@ -103,7 +101,6 @@ namespace Runtime.CH1.Pacmom
         public void RapleySpeak()
         {
             ShowSpeechBubble(rapley);
-            SetLinePos(rapley);
         }
 
         public void OpeningDialogueFin()
@@ -115,32 +112,16 @@ namespace Runtime.CH1.Pacmom
 
         private void SetLinePos(int speaker)
         {
-            float xPos = -474, yPos = 201;
-            float fontSize = 33;
+            float xPos = (speaker == 0 ? -474 : 474);
 
-            switch (speaker)
-            {
-                case 0: // dust A
-                    break;
-                case 1: // dust B
-                    xPos *= -1;
-                    break;
-                case 2: // rapley
-                    xPos = 0;
-                    yPos = 185;
-                    fontSize = 75;
-                    break;
-            }
-
-            line.transform.localPosition = new Vector3(xPos, yPos, line.transform.localPosition.z);
-            line.fontSize = fontSize;
+            line.transform.localPosition = new Vector3(xPos, 201, line.transform.localPosition.z);
         }
 
         private void ShowSpeechBubble(int speaker = -1)
         {
             speechBubbleA.gameObject.SetActive(false);
             speechBubbleB.gameObject.SetActive(false);
-            speechBubble.SetActive(false);
+            rapleyBubble.SetActive(false);
 
             switch (speaker)
             {
@@ -151,7 +132,7 @@ namespace Runtime.CH1.Pacmom
                     speechBubbleB.gameObject.SetActive(true);
                     break;
                 case 2: // rapley
-                    speechBubble.SetActive(true);
+                    rapleyBubble.SetActive(true);
                     break;
             }
         }

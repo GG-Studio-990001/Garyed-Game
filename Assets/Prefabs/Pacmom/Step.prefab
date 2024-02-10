@@ -90,6 +90,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50f8950838d9c44408d6cdedc10f5ef6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obstacleLayer:
-    serializedVersion: 2
-    m_Bits: 512
+  <availableDirections>k__BackingField: []

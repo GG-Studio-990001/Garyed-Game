@@ -33,12 +33,12 @@ namespace Runtime.CH1.Pacmom
 
         public void GetEyeSpriteByPosition()
         {
-            GetEyeSprites(new Vector2(rigid.position.x < 0 ? 1 : -1, 0));
+            GetEyeSprites(transform.localPosition.x < 0 ? Vector2.right : Vector2.left);
         }
 
         public void GetEyeSprites(Vector2 direction)
         {
-            if (eyeSprite == null || !isNormalEye)
+            if (eyeSprite is null || !isNormalEye)
                 return;
 
             if (direction == Vector2.up)
