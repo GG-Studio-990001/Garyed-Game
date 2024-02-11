@@ -33,7 +33,7 @@ namespace Runtime.CH1.Pacmom
         [SerializeField]
         private Dust[] dusts = new Dust[GlobalConst.DustCnt];
         private AI[] dustAIs = new AI[GlobalConst.DustCnt];
-        private Room[] dustRooms = new Room[GlobalConst.DustCnt];
+        private DustRoom[] dustRooms = new DustRoom[GlobalConst.DustCnt];
 
         [Header("=Else=")]
         [SerializeField]
@@ -89,7 +89,7 @@ namespace Runtime.CH1.Pacmom
             for (int i = 0; i < dusts.Length; i++)
             {
                 dustAIs[i] = dusts[i].GetComponent<AI>();
-                dustRooms[i] = dusts[i].GetComponent<Room>();
+                dustRooms[i] = dusts[i].GetComponent<DustRoom>();
             }
         }
 
@@ -329,7 +329,7 @@ namespace Runtime.CH1.Pacmom
 
             dust.movement.SetCanMove(false);
             dust.movement.ResetState();
-            dust.GetComponent<Room>().SetInRoom(true);
+            dust.GetComponent<DustRoom>().SetInRoom(true);
             inRoom++;
 
             dialogue.BeCaughtDialogue(dust.dustID);

@@ -85,11 +85,11 @@ title: PMCatch
 <<declare $RandomInt2 = 0>>
 <<set $RandomInt2 = dice(4)>>
 
-<<if $RandomInt is 1>>
+<<if $RandomInt2 is 1>>
     Dust: 잡았다!
-<<elseif $RandomInt is 2>>
+<<elseif $RandomInt2 is 2>>
     Dust: 꼴 좋다!
-<<elseif $RandomInt is 3>>
+<<elseif $RandomInt2 is 3>>
     Dust: 히히
 <<else>>
     Dust: 팩맘 바보
@@ -101,15 +101,15 @@ title: PMBeCaught
 <<declare $RandomInt3 = 0>>
 <<set $RandomInt3 = dice(6)>>
 
-<<if $RandomInt is 1>>
+<<if $RandomInt3 is 1>>
     Dust: 으악!
-<<elseif $RandomInt is 2>>
+<<elseif $RandomInt3 is 2>>
     Dust: 짜증나
-<<elseif $RandomInt is 3>>
+<<elseif $RandomInt3 is 3>>
     Dust: 이럴수가!
-<<elseif $RandomInt is 4>>
+<<elseif $RandomInt3 is 4>>
     Dust: 으으
-<<elseif $RandomInt is 5>>
+<<elseif $RandomInt3 is 5>>
     Dust: 이런..
 <<else>>
     Dust: 힝
@@ -123,13 +123,13 @@ title: PMBlocked
 <<declare $RandomInt4 = 0>>
 <<set $RandomInt4 = dice(5)>>
 
-<<if $RandomInt is 1>>
+<<if $RandomInt4 is 1>>
     Dust: 뭐해?
-<<elseif $RandomInt is 2>>
+<<elseif $RandomInt4 is 2>>
     Dust: 비켜!
-<<elseif $RandomInt is 3>>
+<<elseif $RandomInt4 is 3>>
     Dust: 길 막지마
-<<elseif $RandomInt is 4>>
+<<elseif $RandomInt4 is 4>>
     Dust: 저리가
 <<else>>
     Dust: 뭐야

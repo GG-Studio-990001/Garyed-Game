@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Runtime.CH1.Pacmom
 {
-    public class Room : MonoBehaviour
+    public class DustRoom : MonoBehaviour
     {
         [SerializeField]
         private MovementAndEyes movement;
