@@ -146,6 +146,13 @@ namespace Runtime.CH1.Pacmom
         #endregion
 
         #region Start Dialogue
+        public void BlockedDialogue(int ID)
+        {
+            runner.Stop();
+            isSpeaker = ID;
+            runner.StartDialogue("PMBlocked");
+        }
+
         public void CatchDialogue(int ID)
         {
             runner.Stop();

@@ -118,6 +118,24 @@ title: PMBeCaught
 <<HideBubble>>
 ===
 
+title: PMBlocked
+---
+<<declare $RandomInt4 = 0>>
+<<if $RandomInt is 1>>
+    Dust: 뭐해?
+<<elseif $RandomInt is 2>>
+    Dust: 비켜!
+<<elseif $RandomInt is 3>>
+    Dust: 길 막지마
+<<elseif $RandomInt is 4>>
+    Dust: 저리가
+<<else>>
+    Dust: 뭐야
+<<endif>>
+<<wait 3>>
+<<HideBubble>>
+===
+
 title: PMGameClear
 ---
 // 코인 비교 분기 때 발생, 게임 종료 연출로 화면이 바뀌기 전까지 보여줌
