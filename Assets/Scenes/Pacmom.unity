@@ -1622,6 +1622,10 @@ PrefabInstance:
       propertyPath: EyeSprites.Array.data[3]
       value: 
       objectReference: {fileID: -1150924220, guid: e48202bc45cce2146932707e0ee993a9, type: 3}
+    - target: {fileID: 8517634723861635253, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
+      propertyPath: dialogue
+      value: 
+      objectReference: {fileID: 945587687}
     - target: {fileID: 8702271369505587194, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
       propertyPath: vacuumModeSprites.Array.data[0]
       value: 
@@ -25734,6 +25738,10 @@ PrefabInstance:
       propertyPath: EyeSprites.Array.data[3]
       value: 
       objectReference: {fileID: -1150924220, guid: e48202bc45cce2146932707e0ee993a9, type: 3}
+    - target: {fileID: 8517634723861635253, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
+      propertyPath: dialogue
+      value: 
+      objectReference: {fileID: 945587687}
     - target: {fileID: 8702271369505587194, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
       propertyPath: normalSprites.Array.data[0]
       value: 

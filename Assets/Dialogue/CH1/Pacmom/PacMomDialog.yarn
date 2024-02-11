@@ -83,7 +83,7 @@ DustB: 도망쳐!
 title: PMCatch
 ---
 <<declare $RandomInt2 = 0>>
-<<set $RandomInt = dice(4)>>
+<<set $RandomInt2 = dice(4)>>
 
 <<if $RandomInt is 1>>
     Dust: 잡았다!
@@ -99,7 +99,7 @@ title: PMCatch
 title: PMBeCaught
 ---
 <<declare $RandomInt3 = 0>>
-<<set $RandomInt = dice(6)>>
+<<set $RandomInt3 = dice(6)>>
 
 <<if $RandomInt is 1>>
     Dust: 으악!
@@ -121,6 +121,8 @@ title: PMBeCaught
 title: PMBlocked
 ---
 <<declare $RandomInt4 = 0>>
+<<set $RandomInt4 = dice(5)>>
+
 <<if $RandomInt is 1>>
     Dust: 뭐해?
 <<elseif $RandomInt is 2>>
