@@ -8,7 +8,6 @@ namespace Runtime.CH1.Pacmom
     {
         private LayerMask obstacleLayer;
 
-        [field:SerializeField]
         public List<Vector2> availableDirections { get; private set; }
 
         private void Start()
