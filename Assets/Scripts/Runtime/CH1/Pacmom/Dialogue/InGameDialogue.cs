@@ -146,6 +146,13 @@ namespace Runtime.CH1.Pacmom
         #endregion
 
         #region Start Dialogue
+        public void BlockedDialogue(int ID)
+        {
+            runner.Stop();
+            isSpeaker = ID;
+            runner.StartDialogue("PMBlocked");
+        }
+
         public void CatchDialogue(int ID)
         {
             runner.Stop();
@@ -166,10 +173,13 @@ namespace Runtime.CH1.Pacmom
             runner.StartDialogue("PMRandom");
         }
 
-        public void VacuumDialogue()
+        public void VacuumDialogue(bool isAgain = false)
         {
             runner.Stop();
-            runner.StartDialogue("PMVacuumMode");
+            if (!isAgain)
+                runner.StartDialogue("PMVacuumMode");
+            else
+                runner.StartDialogue("PMVacuumModeAgain");
 
             if (targetTime < 5f)
                 targetTime += 5f; // 청소기모드 직후 랜덤대사 출력 방지

@@ -1,10 +1,9 @@
-using Runtime.ETC;
 using System.Collections;
 using UnityEngine;
 
 namespace Runtime.CH1.Pacmom
 {
-    public class Room : MonoBehaviour
+    public class DustRoom : MonoBehaviour
     {
         [SerializeField]
         private MovementAndEyes movement;
@@ -26,6 +25,13 @@ namespace Runtime.CH1.Pacmom
             StartCoroutine("ExitTransition", afterTime);
         }
 
+        private void Transition(Vector3 start, Vector3 end, float lerpTime)
+        {
+            Vector3 newPosition = Vector3.Lerp(start, end, lerpTime);
+            newPosition.z = transform.position.z;
+            movement.rigid.position = newPosition;
+        }
+
         private IEnumerator ExitTransition(float afterTime)
         {
             Vector3 position = transform.position;
@@ -41,9 +47,7 @@ namespace Runtime.CH1.Pacmom
 
             while (elapsed < duration)
             {
-                Vector3 newPosition = Vector3.Lerp(position, inside.position, elapsed / duration);
-                newPosition.z = position.z;
-                movement.rigid.position = newPosition;
+                Transition(position, inside.position, elapsed / duration);
                 elapsed += Time.deltaTime;
                 yield return null;
             }
@@ -53,9 +57,7 @@ namespace Runtime.CH1.Pacmom
 
             while (elapsed < duration)
             {
-                Vector3 newPosition = Vector3.Lerp(inside.position, outside.position, elapsed / duration);
-                newPosition.z = position.z;
-                movement.rigid.position = newPosition;
+                Transition(inside.position, outside.position, elapsed / duration);
                 elapsed += Time.deltaTime;
                 yield return null;
             }
@@ -66,9 +68,7 @@ namespace Runtime.CH1.Pacmom
 
             while (elapsed < duration)
             {
-                Vector3 newPosition = Vector3.Lerp(outside.position, crossRoad.position, elapsed / duration);
-                newPosition.z = position.z;
-                movement.rigid.position = newPosition;
+                Transition(outside.position, crossRoad.position, elapsed / duration);
                 elapsed += Time.deltaTime;
                 yield return null;
             }

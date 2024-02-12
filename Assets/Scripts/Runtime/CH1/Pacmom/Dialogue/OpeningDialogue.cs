@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using Yarn.Unity;
 using Runtime.InGameSystem;
+using Yarn;
 
 namespace Runtime.CH1.Pacmom
 {
@@ -63,27 +64,12 @@ namespace Runtime.CH1.Pacmom
 
         private void ResizeSpeechBubble(int speaker)
         {
-            RectTransform bubble = (speaker == 0 ? speechBubbleA : speechBubbleB);
-
-            string text = line.text;
-
-            if (text.Length <= 12)
-            {
-                bubble.sizeDelta = new Vector2(bubble.sizeDelta.x, 200f);
-            }
-            else if (text.Length <= 29)
-            {
-                bubble.sizeDelta = new Vector2(bubble.sizeDelta.x, 250f);
-            }
-            else
-            {
-                bubble.sizeDelta = new Vector2(bubble.sizeDelta.x, 300f);
-            }
+            float height = (line.text.Length <= 12 ? 200f : 225f);
 
             if (speaker == 0)
-                speechBubbleA.sizeDelta = bubble.sizeDelta;
+                speechBubbleA.sizeDelta = new Vector2(speechBubbleA.sizeDelta.x, height - 12.26f);
             else
-                speechBubbleB.sizeDelta = bubble.sizeDelta;
+                speechBubbleB.sizeDelta = new Vector2(speechBubbleB.sizeDelta.x, height);
         }
 
         public void DustASpeak()
@@ -114,7 +100,7 @@ namespace Runtime.CH1.Pacmom
         {
             float xPos = (speaker == 0 ? -474 : 474);
 
-            line.transform.localPosition = new Vector3(xPos, 201, line.transform.localPosition.z);
+            line.transform.localPosition = new Vector3(xPos, line.transform.localPosition.y, line.transform.localPosition.z);
         }
 
         private void ShowSpeechBubble(int speaker = -1)

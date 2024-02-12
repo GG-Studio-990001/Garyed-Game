@@ -33,7 +33,7 @@ namespace Runtime.CH1.Pacmom
         [SerializeField]
         private Dust[] dusts = new Dust[GlobalConst.DustCnt];
         private AI[] dustAIs = new AI[GlobalConst.DustCnt];
-        private Room[] dustRooms = new Room[GlobalConst.DustCnt];
+        private DustRoom[] dustRooms = new DustRoom[GlobalConst.DustCnt];
 
         [Header("=Else=")]
         [SerializeField]
@@ -89,7 +89,7 @@ namespace Runtime.CH1.Pacmom
             for (int i = 0; i < dusts.Length; i++)
             {
                 dustAIs[i] = dusts[i].GetComponent<AI>();
-                dustRooms[i] = dusts[i].GetComponent<Room>();
+                dustRooms[i] = dusts[i].GetComponent<DustRoom>();
             }
         }
 
@@ -198,13 +198,16 @@ namespace Runtime.CH1.Pacmom
         {
             if (!pacmom.ai.isStronger)
             {
+                dialogue.VacuumDialogue();
+
                 soundSystem.PlayMusic("StartVacuum");
             }
             else
             {
                 StopCoroutine("VacuumTime");
-                soundSystem.StopMusic();
+                dialogue.VacuumDialogue(true);
 
+                soundSystem.StopMusic();
                 soundSystem.PlayMusic("ContinueVacuum");
             }
 
@@ -231,7 +234,6 @@ namespace Runtime.CH1.Pacmom
             spriteController.SetVacuumModeSprites();
             SetVacuumSpeed();
             SetVacuumMode(true);
-            dialogue.VacuumDialogue();
         }
 
         private void VacuumModeOff()
@@ -329,7 +331,7 @@ namespace Runtime.CH1.Pacmom
 
             dust.movement.SetCanMove(false);
             dust.movement.ResetState();
-            dust.GetComponent<Room>().SetInRoom(true);
+            dust.GetComponent<DustRoom>().SetInRoom(true);
             inRoom++;
 
             dialogue.BeCaughtDialogue(dust.dustID);
@@ -371,12 +373,15 @@ namespace Runtime.CH1.Pacmom
             }
         }
 
-        public void CoinEaten(Coin coin, string byWhom)
+        public Vector3 GetPacmomPos()
+        {
+            return pacmom.movement.rigid.position;
+        }
+
+        public void CoinEaten(string byWhom)
         {
             if (!isMoving)
                 return;
-
-            coin.gameObject.SetActive(false);
 
             if (byWhom == GlobalConst.PlayerStr)
             {
@@ -422,18 +427,22 @@ namespace Runtime.CH1.Pacmom
 
             int score = pacmomScore / 2;
             SetPacmomScore(pacmomScore - score);
-            Debug.Log("팩맘 코인 " + score + "개 떨굼"); 
+            Debug.Log("팩맘 코인 " + score + "개 떨굼");
 
+            // 떨굴 코인이 많으면 떨구는 시간 단축
+            float releaseTime = (score >= 70 ? 0.02f : 0.03f);
 
             while (score > 0)
             {
                 int rand = Random.Range(0, coins.childCount);
-                Transform coin = coins.GetChild(rand);
+                Transform childCoin = coins.transform.GetChild(rand);
+                Coin coin = childCoin.GetComponent<Coin>();
+
                 if (!coin.gameObject.activeSelf)
                 {
-                    coin.gameObject.SetActive(true);
+                    coin.ResetCoin();
                     score--;
-                    yield return new WaitForSeconds(0.03f);
+                    yield return new WaitForSeconds(releaseTime);
                 }
             }
 

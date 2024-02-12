@@ -41,22 +41,27 @@ namespace Runtime.CH1.Pacmom
             if (eyeSprite is null || !isNormalEye)
                 return;
 
-            if (direction == Vector2.up)
+            // int idx = (direction.x == 0 ? 0 : 2) + (direction.x + direction.y == -1 ? 1 : 0);
+
+            int idx = 0;
+
+            switch (direction)
             {
-                eyeSprite.sprite = EyeSprites[0];
+                case Vector2 v when v.Equals(Vector2.up): // 0 1
+                    idx = 0;
+                    break;
+                case Vector2 v when v.Equals(Vector2.down): // 0 -1
+                    idx = 1;
+                    break;
+                case Vector2 v when v.Equals(Vector2.right): // 1 0
+                    idx = 2;
+                    break;
+                case Vector2 v when v.Equals(Vector2.left): // -1 0
+                    idx = 3;
+                    break;
             }
-            else if (direction == Vector2.down)
-            {
-                eyeSprite.sprite = EyeSprites[1];
-            }
-            else if (direction == Vector2.right)
-            {
-                eyeSprite.sprite = EyeSprites[2];
-            }
-            else if (direction == Vector2.left)
-            {
-                eyeSprite.sprite = EyeSprites[3];
-            }
+
+            eyeSprite.sprite = EyeSprites[idx];
         }
     }
 }

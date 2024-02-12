@@ -1,5 +1,4 @@
 using Runtime.ETC;
-using System.Collections;
 using UnityEngine;
 
 namespace Runtime.CH1.Pacmom
@@ -9,9 +8,12 @@ namespace Runtime.CH1.Pacmom
         public PMGameController gameController;
         public MovementAndRotation movement { get; private set; }
         public AI ai { get; private set; }
+        [SerializeField]
+        private GameObject vacuum;
 
         private void Awake()
         {
+            // 테스트코드를 위해 이렇게 했는데 뭔가 별로임..
             if (GetComponent<MovementAndRotation>() != null)
             {
                 movement = GetComponent<MovementAndRotation>();
@@ -69,6 +71,7 @@ namespace Runtime.CH1.Pacmom
 
             ai.SetStronger(isVacuum);
             movement.spriteRotation.SetCanRotate(!isVacuum);
+            vacuum.SetActive(isVacuum);
         }
 
         public void SetRotateToZero()

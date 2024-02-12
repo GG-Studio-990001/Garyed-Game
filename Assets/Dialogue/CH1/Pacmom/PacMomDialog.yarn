@@ -80,16 +80,24 @@ DustB: 도망쳐!
 <<HideBubble>>
 ===
 
+title: PMVacuumModeAgain
+---
+DustA: 또 청소기?
+DustB: 이제 그만..
+<<wait 3>>
+<<HideBubble>>
+===
+
 title: PMCatch
 ---
 <<declare $RandomInt2 = 0>>
-<<set $RandomInt = dice(4)>>
+<<set $RandomInt2 = dice(4)>>
 
-<<if $RandomInt is 1>>
+<<if $RandomInt2 is 1>>
     Dust: 잡았다!
-<<elseif $RandomInt is 2>>
+<<elseif $RandomInt2 is 2>>
     Dust: 꼴 좋다!
-<<elseif $RandomInt is 3>>
+<<elseif $RandomInt2 is 3>>
     Dust: 히히
 <<else>>
     Dust: 팩맘 바보
@@ -99,20 +107,40 @@ title: PMCatch
 title: PMBeCaught
 ---
 <<declare $RandomInt3 = 0>>
-<<set $RandomInt = dice(6)>>
+<<set $RandomInt3 = dice(6)>>
 
-<<if $RandomInt is 1>>
+<<if $RandomInt3 is 1>>
     Dust: 으악!
-<<elseif $RandomInt is 2>>
+<<elseif $RandomInt3 is 2>>
     Dust: 짜증나
-<<elseif $RandomInt is 3>>
+<<elseif $RandomInt3 is 3>>
     Dust: 이럴수가!
-<<elseif $RandomInt is 4>>
+<<elseif $RandomInt3 is 4>>
     Dust: 으으
-<<elseif $RandomInt is 5>>
+<<elseif $RandomInt3 is 5>>
     Dust: 이런..
 <<else>>
     Dust: 힝
+<<endif>>
+<<wait 3>>
+<<HideBubble>>
+===
+
+title: PMBlocked
+---
+<<declare $RandomInt4 = 0>>
+<<set $RandomInt4 = dice(5)>>
+
+<<if $RandomInt4 is 1>>
+    Dust: 뭐해?
+<<elseif $RandomInt4 is 2>>
+    Dust: 비켜!
+<<elseif $RandomInt4 is 3>>
+    Dust: 길 막지마
+<<elseif $RandomInt4 is 4>>
+    Dust: 저리가
+<<else>>
+    Dust: 뭐야
 <<endif>>
 <<wait 3>>
 <<HideBubble>>
