@@ -5086,6 +5086,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1790369236414618104, guid: fabd929830e0d48429c6e047af57dd53, type: 3}
+      propertyPath: m_Size.x
+      value: 0.96875
+      objectReference: {fileID: 0}
+    - target: {fileID: 1790369236414618104, guid: fabd929830e0d48429c6e047af57dd53, type: 3}
+      propertyPath: m_Size.y
+      value: 1.15625
+      objectReference: {fileID: 0}
+    - target: {fileID: 1790369236414618104, guid: fabd929830e0d48429c6e047af57dd53, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 79651920, guid: 66d90c104bf665e46800e3db79e83fd8, type: 3}
+    - target: {fileID: 1790369236414618104, guid: fabd929830e0d48429c6e047af57dd53, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1838590789333861889, guid: fabd929830e0d48429c6e047af57dd53, type: 3}
       propertyPath: dialogueRunner
       value: 
@@ -5098,6 +5114,10 @@ PrefabInstance:
       propertyPath: dialogueRunner
       value: 
       objectReference: {fileID: 472331523037639807}
+    - target: {fileID: 5359305726504337310, guid: fabd929830e0d48429c6e047af57dd53, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5840771039378051981, guid: fabd929830e0d48429c6e047af57dd53, type: 3}
       propertyPath: m_Name
       value: Stage [1]
@@ -5110,6 +5130,22 @@ PrefabInstance:
       propertyPath: dialogueRunner
       value: 
       objectReference: {fileID: 472331523037639807}
+    - target: {fileID: 7864692886020494555, guid: fabd929830e0d48429c6e047af57dd53, type: 3}
+      propertyPath: m_Size.x
+      value: 0.90625
+      objectReference: {fileID: 0}
+    - target: {fileID: 7864692886020494555, guid: fabd929830e0d48429c6e047af57dd53, type: 3}
+      propertyPath: m_Size.y
+      value: 1.0625
+      objectReference: {fileID: 0}
+    - target: {fileID: 7864692886020494555, guid: fabd929830e0d48429c6e047af57dd53, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -135464655, guid: d504976748100f84ab60f3d261509cfc, type: 3}
+    - target: {fileID: 7864692886020494555, guid: fabd929830e0d48429c6e047af57dd53, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
