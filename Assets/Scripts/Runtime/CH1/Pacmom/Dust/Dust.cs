@@ -63,9 +63,14 @@ namespace Runtime.CH1.Pacmom
             if (collision.gameObject.layer == LayerMask.NameToLayer(GlobalConst.PacmomStr))
             {
                 if (ai.isStronger)
-                    gameController?.PacmomEaten(GlobalConst.DustStr, dustID);
+                {
+                    if (collision.gameObject.tag != "Vacuum")
+                        gameController?.PacmomEaten(GlobalConst.DustStr, dustID);
+                }
                 else
+                {
                     gameController?.DustEaten(this);
+                }
             }
         }
     }
