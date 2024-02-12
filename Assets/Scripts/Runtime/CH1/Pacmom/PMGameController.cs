@@ -198,13 +198,16 @@ namespace Runtime.CH1.Pacmom
         {
             if (!pacmom.ai.isStronger)
             {
+                dialogue.VacuumDialogue();
+
                 soundSystem.PlayMusic("StartVacuum");
             }
             else
             {
                 StopCoroutine("VacuumTime");
-                soundSystem.StopMusic();
+                dialogue.VacuumDialogue(true);
 
+                soundSystem.StopMusic();
                 soundSystem.PlayMusic("ContinueVacuum");
             }
 
@@ -231,7 +234,6 @@ namespace Runtime.CH1.Pacmom
             spriteController.SetVacuumModeSprites();
             SetVacuumSpeed();
             SetVacuumMode(true);
-            dialogue.VacuumDialogue();
         }
 
         private void VacuumModeOff()

@@ -80,6 +80,14 @@ DustB: 도망쳐!
 <<HideBubble>>
 ===
 
+title: PMVacuumModeAgain
+---
+DustA: 또 청소기?
+DustB: 이제 그만..
+<<wait 3>>
+<<HideBubble>>
+===
+
 title: PMCatch
 ---
 <<declare $RandomInt2 = 0>>
