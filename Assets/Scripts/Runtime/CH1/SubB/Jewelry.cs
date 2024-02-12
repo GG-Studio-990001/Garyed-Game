@@ -15,12 +15,14 @@ namespace Runtime.CH1.SubB
         
         private Vector3 _firstPosition;
         private IMovement _movement;
+        private Animator _animator;
         private float _pushTime;
 
         private void Awake()
         {
             _firstPosition = transform.position;
             _movement = new JewelryMovement(this.transform, spriteTransform, moveTime);
+            _animator = GetComponent<Animator>();
         }
 
         private void OnCollisionStay2D(Collision2D other)
@@ -60,6 +62,7 @@ namespace Runtime.CH1.SubB
 
         public void DestroyJewelry()
         {
+            _animator.Play("Jewelry_A");
             JewelryType = JewelryType.None;
             gameObject.transform.position = new Vector3(100, 100, 0);
             gameObject.SetActive(false);
