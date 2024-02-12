@@ -11,6 +11,7 @@ namespace Runtime.ETC
         public const string DustAStr = "DustA";
         public const string DustBStr = "DustB";
         public const string ObstacleStr = "Obstacle";
+        public const string VacuumStr = "Vacuum";
         public const int DustCnt = 2;
         #endregion
     }

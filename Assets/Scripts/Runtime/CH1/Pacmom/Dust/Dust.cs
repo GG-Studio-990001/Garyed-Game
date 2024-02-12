@@ -64,7 +64,7 @@ namespace Runtime.CH1.Pacmom
             {
                 if (ai.isStronger)
                 {
-                    if (collision.gameObject.tag != "Vacuum")
+                    if (collision.gameObject.tag != GlobalConst.VacuumStr)
                         gameController?.PacmomEaten(GlobalConst.DustStr, dustID);
                 }
                 else

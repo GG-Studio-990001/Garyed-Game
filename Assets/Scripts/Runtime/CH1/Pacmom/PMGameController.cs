@@ -371,12 +371,15 @@ namespace Runtime.CH1.Pacmom
             }
         }
 
-        public void CoinEaten(Coin coin, string byWhom)
+        public Vector3 GetPacmomPos()
+        {
+            return pacmom.movement.rigid.position;
+        }
+
+        public void CoinEaten(string byWhom)
         {
             if (!isMoving)
                 return;
-
-            coin.gameObject.SetActive(false);
 
             if (byWhom == GlobalConst.PlayerStr)
             {
@@ -422,18 +425,22 @@ namespace Runtime.CH1.Pacmom
 
             int score = pacmomScore / 2;
             SetPacmomScore(pacmomScore - score);
-            Debug.Log("팩맘 코인 " + score + "개 떨굼"); 
+            Debug.Log("팩맘 코인 " + score + "개 떨굼");
 
+            // 떨굴 코인이 많으면 떨구는 시간 단축
+            float releaseTime = (score >= 70 ? 0.02f : 0.03f);
 
             while (score > 0)
             {
                 int rand = Random.Range(0, coins.childCount);
-                Transform coin = coins.GetChild(rand);
+                Transform childCoin = coins.transform.GetChild(rand);
+                Coin coin = childCoin.GetComponent<Coin>();
+
                 if (!coin.gameObject.activeSelf)
                 {
-                    coin.gameObject.SetActive(true);
+                    coin.ResetCoin();
                     score--;
-                    yield return new WaitForSeconds(0.03f);
+                    yield return new WaitForSeconds(releaseTime);
                 }
             }
 

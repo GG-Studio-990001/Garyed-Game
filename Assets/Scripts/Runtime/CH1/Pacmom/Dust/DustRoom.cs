@@ -27,9 +27,8 @@ namespace Runtime.CH1.Pacmom
 
         private void Transition(Vector3 start, Vector3 end, float lerpTime)
         {
-            Vector3 position = transform.position;
             Vector3 newPosition = Vector3.Lerp(start, end, lerpTime);
-            newPosition.z = position.z;
+            newPosition.z = transform.position.z;
             movement.rigid.position = newPosition;
         }
 
