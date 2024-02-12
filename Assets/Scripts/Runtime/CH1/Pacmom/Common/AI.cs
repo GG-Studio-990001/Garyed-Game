@@ -41,7 +41,7 @@ namespace Runtime.CH1.Pacmom
 
                 // 방 안이면 X
                 if (-2.5f < enemy.localPosition.x && enemy.localPosition.x < 2.5f &&
-                    -1.5f < enemy.localPosition.y && enemy.localPosition.y < 0.5f)
+                    -1.5f < enemy.localPosition.y && enemy.localPosition.y < 1f)
                     continue;
 
                 if (distance > minDistance)
