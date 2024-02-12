@@ -2,6 +2,7 @@ using UnityEngine;
 
 namespace Runtime.CH1.Pacmom
 {
+    [RequireComponent(typeof(SpriteRenderer))]
     public class SpriteControl : MonoBehaviour
     {
         [SerializeField]
