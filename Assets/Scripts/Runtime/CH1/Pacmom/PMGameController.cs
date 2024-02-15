@@ -337,22 +337,26 @@ namespace Runtime.CH1.Pacmom
             dialogue.BeCaughtDialogue(dust.dustID);
         }
 
-        public void PacmomEaten(string byWhom, int ID = 0)
+        public void PacmomEatenByRapley()
+        {
+            PacmomEaten();
+
+            TakeHalfCoins(true);
+            LoseLife();
+        }
+
+        public void PacmomEatenByDust(int ID = 0)
+        {
+            PacmomEaten();
+
+            dialogue.CatchDialogue(ID);
+            StartCoroutine("ReleaseHalfCoins");
+        }
+
+        private void PacmomEaten()
         {
             soundSystem.PlayEffect("PacmomStun");
-
             Debug.Log("팩맘 먹힘");
-
-            if (byWhom == GlobalConst.PlayerStr)
-            {
-                TakeHalfCoins(true);
-                LoseLife();
-            }
-            else if (byWhom == GlobalConst.DustStr)
-            {
-                dialogue.CatchDialogue(ID);
-                StartCoroutine("ReleaseHalfCoins");
-            }
         }
 
         private void LoseLife()
@@ -378,29 +382,36 @@ namespace Runtime.CH1.Pacmom
             return pacmom.movement.rigid.position;
         }
 
-        public void CoinEaten(string byWhom)
+        public void CoinEatenByRapley()
         {
             if (!isMoving)
                 return;
 
-            if (byWhom == GlobalConst.PlayerStr)
-            {
-                soundSystem.PlayEffect("RapleyEatCoin");
+            soundSystem.PlayEffect("RapleyEatCoin");
 
-                SetRapleyScore(rapleyScore + 1);
-            }
-            else if (byWhom == GlobalConst.PacmomStr)
-            {
-                soundSystem.PlayEffect("PacmomEatCoin");
-
-                SetPacmomScore(pacmomScore + 1);
-            }
+            SetRapleyScore(rapleyScore + 1);
 
             if (!HasRemainingCoins())
             {
                 GameOver();
             }
         }
+
+        public void CoinEatenByPacmom()
+        {
+            if (!isMoving)
+                return;
+
+            soundSystem.PlayEffect("PacmomEatCoin");
+
+            SetPacmomScore(pacmomScore + 1);
+
+            if (!HasRemainingCoins())
+            {
+                GameOver();
+            }
+        }
+
         #endregion
 
         #region About Coin
@@ -422,7 +433,6 @@ namespace Runtime.CH1.Pacmom
 
         private IEnumerator ReleaseHalfCoins()
         {
-            // soundSystem.PlayEffect("DropCoin"); // 팩맘 기절 효과음이랑 겹침..
             SetCharacterMove(false);
 
             int score = pacmomScore / 2;

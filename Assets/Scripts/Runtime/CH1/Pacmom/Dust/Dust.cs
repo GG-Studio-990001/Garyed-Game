@@ -6,38 +6,21 @@ namespace Runtime.CH1.Pacmom
     public class Dust : MonoBehaviour
     {
         public PMGameController gameController;
-        public MovementAndEyes movement { get; private set; }
-        public AI ai { get; private set; }
+        public MovementAndEyes movement { get; set; }
+        public AI ai { get; set; }
         [field:SerializeField]
         public int dustID { get; private set; }
 
         private void Awake()
         {
-            if (GetComponent<MovementAndEyes>() != null)
-            {
-                movement = GetComponent<MovementAndEyes>();
-            }
-
-            if (GetComponent<AI>() != null)
-            {
-                ai = GetComponent<AI>();
-            }
+            movement = GetComponent<MovementAndEyes>();
+            ai = GetComponent<AI>();
         }
 
         private void Start()
         {
             SetAIValue();
             ResetState();
-        }
-
-        public void SetMovement(MovementAndEyes movement)
-        {
-            this.movement = movement;
-        }
-
-        public void SetAI(AI ai)
-        {
-            this.ai = ai;
         }
 
         private void SetAIValue()
@@ -65,7 +48,9 @@ namespace Runtime.CH1.Pacmom
                 if (ai.isStronger)
                 {
                     if (collision.gameObject.tag != GlobalConst.VacuumStr)
-                        gameController?.PacmomEaten(GlobalConst.DustStr, dustID);
+                    {
+                        gameController?.PacmomEatenByDust(dustID);
+                    }
                 }
                 else
                 {

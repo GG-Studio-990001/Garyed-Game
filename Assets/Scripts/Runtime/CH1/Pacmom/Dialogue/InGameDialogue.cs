@@ -1,5 +1,6 @@
 using Runtime.ETC;
 using System;
+using System.Collections.Specialized;
 using TMPro;
 using UnityEngine;
 using Yarn.Unity;
@@ -32,6 +33,7 @@ namespace Runtime.CH1.Pacmom
         [SerializeField]
         private float targetTime = 15f;
         private int isSpeaker = 0;
+        private readonly string DustStr = "Dust";
 
         private void Awake()
         {
@@ -78,7 +80,7 @@ namespace Runtime.CH1.Pacmom
             string speaker = dialogueLine.CharacterName;
 
             // 화자 미정일 때
-            if (speaker == GlobalConst.DustStr)
+            if (speaker == DustStr)
             {
                 switch (isSpeaker)
                 {

@@ -6,23 +6,15 @@ namespace Runtime.CH1.Pacmom
     public class Pacmom : MonoBehaviour
     {
         public PMGameController gameController;
-        public MovementAndRotation movement { get; private set; }
-        public AI ai { get; private set; }
+        public MovementAndRotation movement { get; set; }
+        public AI ai { get; set; }
         [SerializeField]
         private GameObject vacuum;
 
         private void Awake()
         {
-            // 테스트코드를 위해 이렇게 했는데 뭔가 별로임..
-            if (GetComponent<MovementAndRotation>() != null)
-            {
-                movement = GetComponent<MovementAndRotation>();
-            }
-
-            if (GetComponent<AI>() != null)
-            {
-                ai = GetComponent<AI>();
-            }
+            movement = GetComponent<MovementAndRotation>();
+            ai = GetComponent<AI>();
         }
 
         private void Start()
@@ -30,16 +22,6 @@ namespace Runtime.CH1.Pacmom
             SetSpriteRotation();
             SetAIValue();
             ResetState();
-        }
-
-        public void SetMovement(MovementAndRotation movement)
-        {
-            this.movement = movement;
-        }
-
-        public void SetAI(AI ai)
-        {
-            this.ai = ai;
         }
 
         private void SetAIValue()
@@ -86,7 +68,7 @@ namespace Runtime.CH1.Pacmom
                 if (ai.isStronger)
                     gameController?.RapleyEaten();
                 else
-                    gameController?.PacmomEaten(GlobalConst.PlayerStr);
+                    gameController?.PacmomEatenByRapley();
             }
         }
     }
