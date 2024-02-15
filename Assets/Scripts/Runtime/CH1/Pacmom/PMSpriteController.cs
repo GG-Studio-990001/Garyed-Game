@@ -12,7 +12,7 @@ namespace Runtime.CH1.Pacmom
         [SerializeField]
         private SpriteControl[] dustBodySprites = new SpriteControl[GlobalConst.DustCnt];
         [SerializeField]
-        private EyeSpriteControl[] dustEyeSprites = new EyeSpriteControl[GlobalConst.DustCnt];
+        private SpriteControl[] dustEyeSprites = new SpriteControl[GlobalConst.DustCnt];
 
         public void SetNormalSprites()
         {
