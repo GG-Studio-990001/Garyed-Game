@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d504976748100f84ab60f3d261509cfc
+guid: b3b375054942920419577616f77cf320
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 200
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -123,97 +123,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Sprite_R2-Mon 1_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 34
-        width: 29
-        height: 34
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0c9b75d7e8a282a4aa950a638c5b141f
-      internalID: 1639295588
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sprite_R2-Mon 1_1
-      rect:
-        serializedVersion: 2
-        x: 29
-        y: 34
-        width: 29
-        height: 34
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 312aa114870245643910d6eb1a0f229d
-      internalID: -135464655
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sprite_R2-Mon 1_2
-      rect:
-        serializedVersion: 2
-        x: 58
-        y: 34
-        width: 29
-        height: 34
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cd0c31ba15dfc044cb1723571a358f74
-      internalID: 384132864
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sprite_R2-Mon 1_3
-      rect:
-        serializedVersion: 2
-        x: 87
-        y: 34
-        width: 29
-        height: 34
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 63462bdb3b1a51845aa6d78e57cb1951
-      internalID: -1532543639
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sprite_R2-Mon 1_4
+      name: puzzle01_sprite_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 29
-        height: 34
+        width: 300
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -221,20 +137,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3a38bbbc9f976e64b8420e78cac651dc
-      internalID: 2070251237
+      spriteID: 2ae1bf1fd41664a439c4ff5c490bcf8e
+      internalID: 35510700
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_R2-Mon 1_5
+      name: puzzle01_sprite_1
       rect:
         serializedVersion: 2
-        x: 29
+        x: 300
         y: 0
-        width: 29
-        height: 34
+        width: 300
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -242,20 +158,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e17bf70e345c0564ead796a758151e8b
-      internalID: 1731058022
+      spriteID: 2bcbcc63e02ee1747a1cf2e60ac6356e
+      internalID: -307037097
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_R2-Mon 1_6
+      name: puzzle01_sprite_2
       rect:
         serializedVersion: 2
-        x: 58
+        x: 600
         y: 0
-        width: 29
-        height: 34
+        width: 300
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -263,20 +179,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fcb1fb04b850f8a4b8602616b1f7dd8f
-      internalID: 492746140
+      spriteID: 1e277b47631f55f4e94db6b307a01179
+      internalID: 321677821
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_R2-Mon 1_7
+      name: puzzle01_sprite_3
       rect:
         serializedVersion: 2
-        x: 87
+        x: 900
         y: 0
-        width: 29
-        height: 34
+        width: 300
+        height: 300
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -284,8 +200,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4a40cbd33b76ac247ba5558ea52f84a8
-      internalID: -1741418426
+      spriteID: d07435f8b8aecdd4c964495671d82f4c
+      internalID: -483164551
       vertices: []
       indices: 
       edges: []
@@ -293,7 +209,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 7bd66d249af8d1f4d9414f303e953ec5
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -301,14 +217,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Sprite_R2-Mon 1_0: 1639295588
-      Sprite_R2-Mon 1_1: -135464655
-      Sprite_R2-Mon 1_2: 384132864
-      Sprite_R2-Mon 1_3: -1532543639
-      Sprite_R2-Mon 1_4: 2070251237
-      Sprite_R2-Mon 1_5: 1731058022
-      Sprite_R2-Mon 1_6: 492746140
-      Sprite_R2-Mon 1_7: -1741418426
+      puzzle01_sprite_0: 35510700
+      puzzle01_sprite_1: -307037097
+      puzzle01_sprite_2: 321677821
+      puzzle01_sprite_3: -483164551
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

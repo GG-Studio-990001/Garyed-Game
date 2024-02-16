@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d504976748100f84ab60f3d261509cfc
+guid: c0d01e06b4db88142a041d0cd8f6c29f
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,13 +123,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Sprite_R2-Mon 1_0
+      name: res_mamago_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 34
-        width: 29
-        height: 34
+        x: 4
+        y: 81
+        width: 34
+        height: 35
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,20 +137,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0c9b75d7e8a282a4aa950a638c5b141f
-      internalID: 1639295588
+      spriteID: b17361d5412783e4082dff6c0ff6d66a
+      internalID: -828939405
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_R2-Mon 1_1
+      name: res_mamago_1
       rect:
         serializedVersion: 2
-        x: 29
-        y: 34
-        width: 29
-        height: 34
+        x: 41
+        y: 93
+        width: 20
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,20 +158,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 312aa114870245643910d6eb1a0f229d
-      internalID: -135464655
+      spriteID: 70cd422447fa42440ae5ec693ad31396
+      internalID: 128224708
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_R2-Mon 1_2
+      name: res_mamago_2
       rect:
         serializedVersion: 2
-        x: 58
-        y: 34
-        width: 29
-        height: 34
+        x: 69
+        y: 93
+        width: 20
+        height: 23
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -179,20 +179,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cd0c31ba15dfc044cb1723571a358f74
-      internalID: 384132864
+      spriteID: 07c8af71572f9d945bee523225156cb8
+      internalID: -1197520906
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_R2-Mon 1_3
+      name: res_mamago_3
       rect:
         serializedVersion: 2
-        x: 87
-        y: 34
-        width: 29
-        height: 34
+        x: 97
+        y: 93
+        width: 20
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -200,20 +200,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 63462bdb3b1a51845aa6d78e57cb1951
-      internalID: -1532543639
+      spriteID: 2412799502ba3644eaf7781f8c0ef8cc
+      internalID: -914803932
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_R2-Mon 1_4
+      name: res_mamago_4
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 29
-        height: 34
+        x: 123
+        y: 91
+        width: 56
+        height: 25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -221,20 +221,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3a38bbbc9f976e64b8420e78cac651dc
-      internalID: 2070251237
+      spriteID: 5406fdccce3548c458d3b9b8da93fd33
+      internalID: 2097995057
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_R2-Mon 1_5
+      name: res_mamago_5
       rect:
         serializedVersion: 2
-        x: 29
-        y: 0
-        width: 29
-        height: 34
+        x: 182
+        y: 95
+        width: 22
+        height: 19
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -242,19 +242,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e17bf70e345c0564ead796a758151e8b
-      internalID: 1731058022
+      spriteID: 3bb933f1dca21044481c32ca23509cb5
+      internalID: 1006270252
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_R2-Mon 1_6
+      name: res_mamago_6
       rect:
         serializedVersion: 2
-        x: 58
-        y: 0
-        width: 29
+        x: 205
+        y: 81
+        width: 28
         height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -263,20 +263,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fcb1fb04b850f8a4b8602616b1f7dd8f
-      internalID: 492746140
+      spriteID: 4a42b72eed5e95a4f810cd2b52227470
+      internalID: -786081652
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_R2-Mon 1_7
+      name: res_mamago_7
       rect:
         serializedVersion: 2
-        x: 87
-        y: 0
-        width: 29
-        height: 34
+        x: 3
+        y: 51
+        width: 232
+        height: 25
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -284,8 +284,92 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4a40cbd33b76ac247ba5558ea52f84a8
-      internalID: -1741418426
+      spriteID: ec8597f613cd2df42bf62f8006c17133
+      internalID: -1428583307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: res_mamago_8
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 2
+        width: 24
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c656e390a72125f4c8bf06e1581afaaa
+      internalID: 2136059231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: res_mamago_9
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 2
+        width: 85
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a44d1452ae8c863459579a06bd206995
+      internalID: -1693085022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: res_mamago_10
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 16
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: feb04c7ba978e814481ebbbb9b46d1dd
+      internalID: 992744276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: res_mamago_11
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 27
+        width: 40
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a3d0ac6b4a56344981c392234442794
+      internalID: -1959830042
       vertices: []
       indices: 
       edges: []
@@ -293,7 +377,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 7bd66d249af8d1f4d9414f303e953ec5
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -301,14 +385,19 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Sprite_R2-Mon 1_0: 1639295588
-      Sprite_R2-Mon 1_1: -135464655
-      Sprite_R2-Mon 1_2: 384132864
-      Sprite_R2-Mon 1_3: -1532543639
-      Sprite_R2-Mon 1_4: 2070251237
-      Sprite_R2-Mon 1_5: 1731058022
-      Sprite_R2-Mon 1_6: 492746140
-      Sprite_R2-Mon 1_7: -1741418426
+      res_mamago_0: -828939405
+      res_mamago_1: 128224708
+      res_mamago_10: 992744276
+      res_mamago_11: -1959830042
+      res_mamago_12: 1277612305
+      res_mamago_2: -1197520906
+      res_mamago_3: -914803932
+      res_mamago_4: 2097995057
+      res_mamago_5: 1006270252
+      res_mamago_6: -786081652
+      res_mamago_7: -1428583307
+      res_mamago_8: 2136059231
+      res_mamago_9: -1693085022
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
