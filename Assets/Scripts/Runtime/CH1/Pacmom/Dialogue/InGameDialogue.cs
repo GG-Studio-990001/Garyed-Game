@@ -79,7 +79,7 @@ namespace Runtime.CH1.Pacmom
             string speakerStr = dialogueLine.CharacterName;
             Speaker nowSpeaker = Speaker.none;
 
-            // 말 할 먼지 지정
+            // nowSpeaker 지정
             if (speakerStr == DustStr)
             {
                 switch (dustID)
@@ -96,6 +96,13 @@ namespace Runtime.CH1.Pacmom
                         break;
                 }
             }
+            else
+            {
+                if (speakerStr == GlobalConst.DustAStr)
+                    nowSpeaker = Speaker.dustA;
+                else if (speakerStr == GlobalConst.DustBStr)
+                    nowSpeaker = Speaker.dustB;
+            }
 
             TextMeshProUGUI text = (nowSpeaker == Speaker.dustA ? textA : textB);
 
@@ -106,7 +113,7 @@ namespace Runtime.CH1.Pacmom
                 bubbleA.SetActive(true);
                 textA.text = text.text;
             }
-            else
+            else if (nowSpeaker == Speaker.dustB)
             {
                 bubbleB.SetActive(true);
                 textB.text = text.text;

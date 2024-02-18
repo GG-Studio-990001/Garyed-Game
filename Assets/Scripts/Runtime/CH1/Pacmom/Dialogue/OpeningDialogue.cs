@@ -25,8 +25,6 @@ namespace Runtime.CH1.Pacmom
         private TextMeshProUGUI line;
         [SerializeField]
         private GameObject timeline_2;
-        private readonly string dustAStr = "dustA";
-        private readonly string dustBStr = "dustB";
 
         private void Awake()
         {
@@ -51,9 +49,9 @@ namespace Runtime.CH1.Pacmom
 
             string speaker = dialogueLine.CharacterName;
 
-            if (speaker == dustAStr)
+            if (speaker == GlobalConst.DustAStr)
                 ResizeSpeechBubble(Speaker.dustA);
-            else if (speaker == dustBStr)
+            else if (speaker == GlobalConst.DustBStr)
                 ResizeSpeechBubble(Speaker.dustB);
 
             onDialogueLineFinished();
