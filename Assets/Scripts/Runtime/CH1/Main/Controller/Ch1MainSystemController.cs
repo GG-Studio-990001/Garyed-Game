@@ -9,6 +9,7 @@ using Runtime.Input;
 using Runtime.Interface;
 using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Runtime.CH1.Main.Controller
 {
@@ -18,7 +19,8 @@ namespace Runtime.CH1.Main.Controller
         [SerializeField] private SoundSystem soundSystem;
         [SerializeField] private SettingsUIView settingsUIView;
         [SerializeField] private Ch1StageController ch1StageController;
-        [SerializeField] private Ch1DialogueManager ch1DialogueManager;
+        [SerializeField] private Ch1DialogueController ch1DialogueController;
+        [SerializeField] private TimelineController timelineController;
         [SerializeField] private FadeController fadeController;
         
         [Header("Player")]
@@ -42,8 +44,11 @@ namespace Runtime.CH1.Main.Controller
             _inGameKeyBinder.PlayerKeyBinding(player);
             _inGameKeyBinder.UIKeyBinding(settingsUIView);
             
-            ch1DialogueManager.OnDialogueStart.AddListener(() => _inGameKeyBinder.PlayerInputDisable());
-            ch1DialogueManager.OnDialogueEnd.AddListener(() => _inGameKeyBinder.PlayerInputEnable());
+            ch1DialogueController.OnDialogueStart.AddListener(() => _inGameKeyBinder.PlayerInputDisable());
+            ch1DialogueController.OnDialogueEnd.AddListener(() => _inGameKeyBinder.PlayerInputEnable());
+            
+            timelineController.PlayableDirector.played += (_) => _inGameKeyBinder.PlayerInputDisable();
+            timelineController.PlayableDirector.stopped += (_) => _inGameKeyBinder.PlayerInputEnable();
             
             settingsUIView.OnSettingsOpen += () => _inGameKeyBinder.PlayerInputDisable();
             settingsUIView.OnSettingsClose += () => _inGameKeyBinder.PlayerInputEnable();
@@ -52,12 +57,6 @@ namespace Runtime.CH1.Main.Controller
         private void GameInit()
         {
             ch1StageController.Init(fadeController, _inGameKeyBinder, player.transform);
-        }
-        
-        private void SetMusic(string soundName)
-        {
-            soundSystem.StopMusic();
-            soundSystem.PlayMusic(soundName);
         }
     }
 }

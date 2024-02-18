@@ -9,7 +9,7 @@ using Yarn.Unity;
 
 namespace Runtime.CH1.Main.Dialogue
 {
-    public class Ch1DialogueManager : DialogueViewBase
+    public class Ch1DialogueController : DialogueViewBase
     {
         [SerializeField] private DialogueRunner _runner;
         

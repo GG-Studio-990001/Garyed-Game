@@ -15,8 +15,8 @@ namespace Runtime.Common.View
         
         private SettingsUIPresenter _presenter;
         
-        public Action OnSettingsOpen;
-        public Action OnSettingsClose;
+        public event Action OnSettingsOpen;
+        public event Action OnSettingsClose;
         
         private void Start()
         {

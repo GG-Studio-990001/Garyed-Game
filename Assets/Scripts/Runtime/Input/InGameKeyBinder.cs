@@ -50,15 +50,5 @@ namespace Runtime.Input
             if (_playerInputEnableStack == 0)
                 _gameOverControls.Player.Enable();
         }
-        
-        public void UIInputDisable()
-        {
-            _gameOverControls.UI.Disable();
-        }
-        
-        public void UIInputEnable()
-        {
-            _gameOverControls.UI.Enable();
-        }
     }
 }

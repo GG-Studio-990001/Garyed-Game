@@ -573,6 +573,7 @@ MonoBehaviour:
   _timelineAssets:
   - {fileID: 11400000, guid: 29e843b83f4d54745879222afae3a6d3, type: 2}
   - {fileID: 11400000, guid: 1dc44c28531066c48989982cab644a0e, type: 2}
+  <PlayableDirector>k__BackingField: {fileID: 248890229}
 --- !u!1001 &272406420
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -801,7 +802,8 @@ MonoBehaviour:
   soundSystem: {fileID: 1531713231}
   settingsUIView: {fileID: 1076722901}
   ch1StageController: {fileID: 1754088581}
-  ch1DialogueManager: {fileID: 1757409998}
+  ch1DialogueController: {fileID: 0}
+  timelineController: {fileID: 0}
   fadeController: {fileID: 1311836793}
   player: {fileID: 1267461696}
 --- !u!1 &338986452
