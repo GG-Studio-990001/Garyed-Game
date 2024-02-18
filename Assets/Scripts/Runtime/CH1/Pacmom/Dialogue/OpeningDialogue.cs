@@ -4,18 +4,9 @@ using TMPro;
 using UnityEngine;
 using Yarn.Unity;
 using Runtime.InGameSystem;
-using Yarn;
 
 namespace Runtime.CH1.Pacmom
 {
-    public enum Speaker
-    {
-        dustA,
-        dustB,
-        rapley,
-        none
-    }
-
     public class OpeningDialogue : DialogueViewBase
     {
         private DialogueRunner runner;
@@ -34,6 +25,8 @@ namespace Runtime.CH1.Pacmom
         private TextMeshProUGUI line;
         [SerializeField]
         private GameObject timeline_2;
+        private readonly string dustAStr = "dustA";
+        private readonly string dustBStr = "dustB";
 
         private void Awake()
         {
@@ -58,9 +51,9 @@ namespace Runtime.CH1.Pacmom
 
             string speaker = dialogueLine.CharacterName;
 
-            if (speaker == GlobalConst.DustAStr)
+            if (speaker == dustAStr)
                 ResizeSpeechBubble(Speaker.dustA);
-            else if (speaker == GlobalConst.DustBStr)
+            else if (speaker == dustBStr)
                 ResizeSpeechBubble(Speaker.dustB);
 
             onDialogueLineFinished();

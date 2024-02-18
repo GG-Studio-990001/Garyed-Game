@@ -196,17 +196,18 @@ namespace Runtime.CH1.Pacmom
         #region Vacuum Mode
         public void UseVacuum()
         {
-            if (!pacmom.ai.isStronger)
-            {
-                dialogue.VacuumDialogue();
+            bool isVacuumMode = pacmom.ai.isStronger;
 
+            dialogue.VacuumDialogue(isVacuumMode);
+
+            if (!isVacuumMode)
+            {
                 soundSystem.PlayMusic("StartVacuum");
             }
             else
             {
                 StopCoroutine("VacuumTime");
-                dialogue.VacuumDialogue(true);
-
+                
                 soundSystem.StopMusic();
                 soundSystem.PlayMusic("ContinueVacuum");
             }

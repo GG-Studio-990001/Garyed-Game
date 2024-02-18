@@ -1,6 +1,5 @@
 using Runtime.ETC;
 using System;
-using System.Collections.Specialized;
 using TMPro;
 using UnityEngine;
 using Yarn.Unity;
@@ -32,7 +31,7 @@ namespace Runtime.CH1.Pacmom
         private float currentTime = 0f;
         [SerializeField]
         private float targetTime = 15f;
-        private int isSpeaker = 0;
+        private int dustID = 0;
         private readonly string DustStr = "Dust";
 
         private void Awake()
@@ -72,36 +71,37 @@ namespace Runtime.CH1.Pacmom
             dust.transform.position.y + 1.3f, dust.transform.position.z);
 
             bubble.transform.rotation = Quaternion.Euler(0f, yRotate, 0f);
-            text.transform.rotation = Quaternion.Euler(0f, yRotate * 2f, 0f); // 왜지..
+            text.transform.rotation = Quaternion.Euler(0f, yRotate * 2f, 0f);
         }
 
         public override void RunLine(LocalizedLine dialogueLine, Action onDialogueLineFinished)
         {
-            string speaker = dialogueLine.CharacterName;
+            string speakerStr = dialogueLine.CharacterName;
+            Speaker nowSpeaker = Speaker.none;
 
-            // 화자 미정일 때
-            if (speaker == DustStr)
+            // 말 할 먼지 지정
+            if (speakerStr == DustStr)
             {
-                switch (isSpeaker)
+                switch (dustID)
                 {
-                    case 0:
-                        int rand = UnityEngine.Random.Range(0, 2);
-                        speaker = (rand == 0 ? GlobalConst.DustAStr : GlobalConst.DustBStr);
-                        break;
                     case 1:
-                        speaker = GlobalConst.DustAStr;
+                        nowSpeaker = Speaker.dustA;
                         break;
                     case 2:
-                        speaker = GlobalConst.DustBStr;
+                        nowSpeaker = Speaker.dustB;
+                        break;
+                    default:
+                        int rand = UnityEngine.Random.Range(0, 2);
+                        nowSpeaker = (rand == 0 ? Speaker.dustA : Speaker.dustB);
                         break;
                 }
             }
 
-            TextMeshProUGUI text = (speaker == GlobalConst.DustAStr ? textA : textB);
+            TextMeshProUGUI text = (nowSpeaker == Speaker.dustA ? textA : textB);
 
             text.text = dialogueLine.TextWithoutCharacterName.Text;
 
-            if (speaker == GlobalConst.DustAStr)
+            if (nowSpeaker == Speaker.dustA)
             {
                 bubbleA.SetActive(true);
                 textA.text = text.text;
@@ -112,8 +112,8 @@ namespace Runtime.CH1.Pacmom
                 textB.text = text.text;
             }
             
-            if (isSpeaker != 0)
-                isSpeaker = 0;
+            if (dustID != 0) // 초기화
+                dustID = 0;
 
             onDialogueLineFinished();
         }
@@ -124,8 +124,6 @@ namespace Runtime.CH1.Pacmom
                 bubbleA.SetActive(false);
             if (bubbleB.activeSelf)
                 bubbleB.SetActive(false);
-
-            isSpeaker = 0;
         }
 
         #region Time
@@ -151,21 +149,21 @@ namespace Runtime.CH1.Pacmom
         public void BlockedDialogue(int ID)
         {
             runner.Stop();
-            isSpeaker = ID;
+            dustID = ID;
             runner.StartDialogue("PMBlocked");
         }
 
         public void CatchDialogue(int ID)
         {
             runner.Stop();
-            isSpeaker = ID;
+            dustID = ID;
             runner.StartDialogue("PMCatch");
         }
 
         public void BeCaughtDialogue(int ID)
         {
             runner.Stop();
-            isSpeaker = ID;
+            dustID = ID;
             runner.StartDialogue("PMBeCaught");
         }
         
@@ -175,10 +173,11 @@ namespace Runtime.CH1.Pacmom
             runner.StartDialogue("PMRandom");
         }
 
-        public void VacuumDialogue(bool isAgain = false)
+        public void VacuumDialogue(bool isVaccumMode)
         {
             runner.Stop();
-            if (!isAgain)
+
+            if (!isVaccumMode)
                 runner.StartDialogue("PMVacuumMode");
             else
                 runner.StartDialogue("PMVacuumModeAgain");
