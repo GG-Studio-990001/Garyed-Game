@@ -802,8 +802,8 @@ MonoBehaviour:
   soundSystem: {fileID: 1531713231}
   settingsUIView: {fileID: 1076722901}
   ch1StageController: {fileID: 1754088581}
-  ch1DialogueController: {fileID: 0}
-  timelineController: {fileID: 0}
+  ch1DialogueController: {fileID: 1757409998}
+  timelineController: {fileID: 248890232}
   fadeController: {fileID: 1311836793}
   player: {fileID: 1267461696}
 --- !u!1 &338986452
@@ -2392,7 +2392,7 @@ Transform:
   m_GameObject: {fileID: 1429684703}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalPosition: {x: 3.61, y: -0.4, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2800,7 +2800,7 @@ Transform:
   m_GameObject: {fileID: 1535368149}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalPosition: {x: 3.61, y: -0.4, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3084,7 +3084,7 @@ Transform:
   m_GameObject: {fileID: 1674432335}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalPosition: {x: 3.61, y: -0.4, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3844,11 +3844,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1441124673561100856, guid: 636fca1bc1c114943a004cbada5c227f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 3.61
       objectReference: {fileID: 0}
     - target: {fileID: 1441124673561100856, guid: 636fca1bc1c114943a004cbada5c227f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: -0.4
       objectReference: {fileID: 0}
     - target: {fileID: 1441124673561100856, guid: 636fca1bc1c114943a004cbada5c227f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4105,7 +4105,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5839968016702274743, guid: d0f2a1b23fc54d44db5c3ea0cf44e6bd, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6968878014986668113, guid: d0f2a1b23fc54d44db5c3ea0cf44e6bd, type: 3}
       propertyPath: m_Name
@@ -5688,7 +5688,7 @@ PrefabInstance:
       objectReference: {fileID: 472331523037639807}
     - target: {fileID: 4462915879690929843, guid: fabd929830e0d48429c6e047af57dd53, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4584031096270566077, guid: fabd929830e0d48429c6e047af57dd53, type: 3}
       propertyPath: m_LocalPosition.x

@@ -7,9 +7,7 @@ using Runtime.Data.Original;
 using Runtime.InGameSystem;
 using Runtime.Input;
 using Runtime.Interface;
-using System;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Runtime.CH1.Main.Controller
 {

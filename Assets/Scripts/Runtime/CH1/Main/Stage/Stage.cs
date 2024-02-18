@@ -1,5 +1,3 @@
-using Runtime.CH1.Main.Controller;
-using Runtime.Interface;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -9,11 +7,22 @@ namespace Runtime.CH1.Main.Stage
     {
         [field:SerializeField] public GameObject StageObject { get; set; }
         [field: SerializeField] public int StageNumber { get; set; }
-        public IStageController StageController { get; set; }
 
         [Header("Stage Extension")]
         [SerializeField] private PolygonCollider2D confiner2D;
         public UnityEvent onStageEnable;
+        
+        private StageMover[] _stageMovers;
+        
+        public void StageSettings(Ch1StageChanger stageChanger)
+        {
+            _stageMovers = GetComponentsInChildren<StageMover>();
+            
+            foreach (var stageMover in _stageMovers)
+            {
+                stageMover.StageChanger = stageChanger;
+            }
+        }
         
         public PolygonCollider2D GetStageCollider()
         {

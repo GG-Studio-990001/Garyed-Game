@@ -16,6 +16,7 @@ namespace Runtime.CH1.Main.Stage
         private Stage _currentStage;
         private CinemachineConfiner2D _confiner2D;
         
+        public Stage CurrentStage => _currentStage;
         public Action OnStageStart { get; set; }
         public Action OnStageEnd { get; set; }
         

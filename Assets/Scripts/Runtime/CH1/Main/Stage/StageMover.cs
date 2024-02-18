@@ -8,19 +8,14 @@ namespace Runtime.CH1.Main.Stage
     {
         [SerializeField] private int moveStageNumber;
         [SerializeField] private Vector2 spawnPosition;
-
-        private Stage _currentStage;
         
-        private void Awake()
-        {
-            _currentStage = GetComponentInParent<Stage>();
-        }
-    
+        public Ch1StageChanger StageChanger { get; set; }
+        
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (other.CompareTag(GlobalConst.PlayerStr))
             {
-                _currentStage.StageController.StageChanger.SwitchStage(moveStageNumber, spawnPosition);
+                StageChanger.SwitchStage(moveStageNumber, spawnPosition);
             }
         }
     }
