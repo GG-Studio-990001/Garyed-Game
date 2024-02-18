@@ -9,21 +9,21 @@ namespace Runtime.InGameSystem
         [SerializeField] private Image fadeImage;
         [SerializeField] private float fadeDeltaTime = 0.01f;
 
-        public float FadeDuration { get; set; } = 1f;
-        private Coroutine currentFadeCoroutine;
+        private float FadeDuration { get; set; } = 1f;
+        private Coroutine _currentFadeCoroutine;
 
         public void StartFadeIn()
         {
             StopCurrentFadeCoroutine();
             
-            currentFadeCoroutine = StartCoroutine(FadeInCoroutine(FadeDuration));
+            _currentFadeCoroutine = StartCoroutine(FadeInCoroutine(FadeDuration));
         }
 
         public void StartFadeOut()
         {
             StopCurrentFadeCoroutine();
             
-            currentFadeCoroutine = StartCoroutine(FadeOutCoroutine(FadeDuration));
+            _currentFadeCoroutine = StartCoroutine(FadeOutCoroutine(FadeDuration));
         }
 
         public void SetBackground(bool isBlack)
@@ -37,10 +37,10 @@ namespace Runtime.InGameSystem
 
         private void StopCurrentFadeCoroutine()
         {
-            if (currentFadeCoroutine != null)
+            if (_currentFadeCoroutine != null)
             {
-                StopCoroutine(currentFadeCoroutine);
-                currentFadeCoroutine = null;
+                StopCoroutine(_currentFadeCoroutine);
+                _currentFadeCoroutine = null;
             }
         }
 

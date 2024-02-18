@@ -1,11 +1,14 @@
 using Cinemachine;
+using Runtime.CH1.Main.Dialogue;
 using Runtime.CH1.Main.Player;
+using Runtime.CH1.Main.Stage;
 using Runtime.Common.View;
 using Runtime.Data.Original;
 using Runtime.InGameSystem;
+using Runtime.Input;
 using Runtime.Interface;
+using System;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Runtime.CH1.Main.Controller
 {
@@ -14,68 +17,47 @@ namespace Runtime.CH1.Main.Controller
         [Header("System")]
         [SerializeField] private SoundSystem soundSystem;
         [SerializeField] private SettingsUIView settingsUIView;
-        [FormerlySerializedAs("stageController")] [SerializeField] private Ch1StageController ch1StageController;
+        [SerializeField] private Ch1StageController ch1StageController;
+        [SerializeField] private Ch1DialogueManager ch1DialogueManager;
         [SerializeField] private FadeController fadeController;
         
         [Header("Player")]
         [SerializeField] private TopDownPlayer player;
         
-        [Header("Camera")]
-        [SerializeField] private CinemachineConfiner2D cinemachineConfiner2D;
-        
         private IProvider<ControlsData> ControlsDataProvider => DataProviderManager.Instance.ControlsDataProvider;
         private GameOverControls GameOverControls => ControlsDataProvider.Get().GameOverControls;
+
+        private InGameKeyBinder _inGameKeyBinder;
         
         private void Awake()
         {
-            // MainSystem 시작 될 때
+            GameKeyBinding();
             GameInit();
-            KeyBinding();
+        }
+        
+        private void GameKeyBinding()
+        {
+            _inGameKeyBinder = new InGameKeyBinder(GameOverControls);
             
-            // test
+            _inGameKeyBinder.PlayerKeyBinding(player);
+            _inGameKeyBinder.UIKeyBinding(settingsUIView);
             
+            ch1DialogueManager.OnDialogueStart.AddListener(() => _inGameKeyBinder.PlayerInputDisable());
+            ch1DialogueManager.OnDialogueEnd.AddListener(() => _inGameKeyBinder.PlayerInputEnable());
+            
+            settingsUIView.OnSettingsOpen += () => _inGameKeyBinder.PlayerInputDisable();
+            settingsUIView.OnSettingsClose += () => _inGameKeyBinder.PlayerInputEnable();
         }
         
         private void GameInit()
         {
-            fadeController.FadeDuration = 1;
-            
-            ch1StageController.Init(player.gameObject, cinemachineConfiner2D, fadeController, this);
-        }
-        
-        // 바인딩 해제 생각 (지금은 씬 이동 시 초기화)
-        private void KeyBinding()
-        {
-            // player
-            GameOverControls.Player.Enable();
-            GameOverControls.Player.Move.performed += player.OnMove;
-            GameOverControls.Player.Move.started += player.OnMove;
-            GameOverControls.Player.Move.canceled += player.OnMove;
-            GameOverControls.Player.Interaction.performed += _ => player.OnInteraction();
-            
-            // ui
-            GameOverControls.UI.Enable();
-            GameOverControls.UI.GameSetting.performed += _ => settingsUIView.GameSettingToggle();
+            ch1StageController.Init(fadeController, _inGameKeyBinder, player.transform);
         }
         
         private void SetMusic(string soundName)
         {
             soundSystem.StopMusic();
             soundSystem.PlayMusic(soundName);
-        }
-        
-        public void PlayerInputLimit(bool isLimit)
-        {
-            if (isLimit)
-            {
-                GameOverControls.Player.Disable();
-                GameOverControls.UI.Disable();
-            }
-            else
-            {
-                GameOverControls.Player.Enable();
-                GameOverControls.UI.Enable();
-            }
         }
     }
 }

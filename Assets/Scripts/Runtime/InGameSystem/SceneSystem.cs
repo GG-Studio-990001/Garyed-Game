@@ -10,7 +10,6 @@ namespace Runtime.InGameSystem
         
         public void LoadScene(string sceneName)
         {
-            DataProviderManager.Instance.ControlsDataProvider.Get().ResetControls();
             SceneManager.LoadScene(sceneName);
         }
         

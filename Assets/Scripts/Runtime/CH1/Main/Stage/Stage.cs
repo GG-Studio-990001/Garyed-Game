@@ -5,10 +5,9 @@ using UnityEngine.Events;
 
 namespace Runtime.CH1.Main.Stage
 {
-    public class Stage : MonoBehaviour, IStage
+    public class Stage : MonoBehaviour
     {
         [field:SerializeField] public GameObject StageObject { get; set; }
-        
         [field: SerializeField] public int StageNumber { get; set; }
         public IStageController StageController { get; set; }
 
@@ -16,14 +15,9 @@ namespace Runtime.CH1.Main.Stage
         [SerializeField] private PolygonCollider2D confiner2D;
         public UnityEvent onStageEnable;
         
-        public void SetSetting()
+        public PolygonCollider2D GetStageCollider()
         {
-            var stageController = (StageController as Ch1StageController);
-            
-            if (stageController.Confiner2D is null)
-                return;
-            
-            stageController.Confiner2D.m_BoundingShape2D = confiner2D;
+            return confiner2D;
         }
         
         public bool IsActivate()

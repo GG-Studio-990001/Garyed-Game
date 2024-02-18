@@ -3,6 +3,7 @@ using Runtime.InGameSystem;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 using Yarn.Unity;
 
@@ -20,6 +21,9 @@ namespace Runtime.CH1.Main.Dialogue
         
         public List<Sprite> Sprites = new List<Sprite>();
 
+        public UnityEvent OnDialogueStart => _runner.onDialogueStart;
+        public UnityEvent OnDialogueEnd => _runner.onDialogueComplete;
+        
         private void Awake()
         {
             _runner.AddCommandHandler<string>("PlayBackgroundSound", PlayBackgroundSound);

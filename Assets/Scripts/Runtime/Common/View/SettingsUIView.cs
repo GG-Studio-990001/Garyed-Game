@@ -1,4 +1,5 @@
 using Runtime.Common.Presentation;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,6 +15,9 @@ namespace Runtime.Common.View
         
         private SettingsUIPresenter _presenter;
         
+        public Action OnSettingsOpen;
+        public Action OnSettingsClose;
+        
         private void Start()
         {
             _presenter = PresenterFactory.CreateSettingsUIPresenter(this);
@@ -21,7 +25,16 @@ namespace Runtime.Common.View
         
         public void GameSettingToggle()
         {
-            _presenter.GameSettingToggle();
+            if (SettingUIObject.activeSelf)
+            {
+                OnSettingsClose?.Invoke();
+            }
+            else
+            {
+                OnSettingsOpen?.Invoke();
+            }
+            
+            SettingUIObject.SetActive(!SettingUIObject.activeSelf);
         }
     }
 }

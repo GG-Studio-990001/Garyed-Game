@@ -1,30 +1,32 @@
 using Cinemachine;
-using Runtime.CH1.Main.Stage;
+using Runtime.CH1.Main.Controller;
 using Runtime.InGameSystem;
+using Runtime.Input;
 using Runtime.Interface;
 using UnityEngine;
 
-namespace Runtime.CH1.Main.Controller
+namespace Runtime.CH1.Main.Stage
 {
     public class Ch1StageController : MonoBehaviour, IStageController
     {
-        public IStage CurrentStage { get; set; }
         public IStageChanger StageChanger { get; set; }
-        public CinemachineConfiner2D Confiner2D { get; private set; }
+        [field:SerializeField] public CinemachineConfiner2D Confiner2D { get; private set; }
         
-        private IStage[] _stages;
-        private GameObject _player;
+        private Stage[] _stages;
         private Ch1MainSystemController _mainSystemController;
         private FadeController _fadeController;
+        private InGameKeyBinder _inGameKeyBinder;
+        private Transform _playerTransform;
         
-        public void Init(GameObject player, CinemachineConfiner2D confiner2D, FadeController fadeController, Ch1MainSystemController mainSystemController)
+        public void Init(FadeController fadeController, InGameKeyBinder inGameKeyBinder, Transform playerTransform)
         {
-            _player = player;
-            Confiner2D = confiner2D;
             _fadeController = fadeController;
-            _mainSystemController = mainSystemController;
+            _inGameKeyBinder = inGameKeyBinder;
+            _playerTransform = playerTransform;
             
-            _stages = GetComponentsInChildren<IStage>();
+            _stages = GetComponentsInChildren<Stage>();
+            
+            StageChangerInit();
             
             foreach (var stage in _stages)
             {
@@ -36,26 +38,20 @@ namespace Runtime.CH1.Main.Controller
             {
                 if (stage.IsActivate())
                 {
-                    CurrentStage = stage;
-                    CurrentStage.SetSetting();
+                    StageChanger.SwitchStage(stage.StageNumber, new Vector2(0, 0));
                 }
             }
-            
+
             if (_fadeController is not null)
                 _fadeController.StartFadeIn();
-            
-            StagerChangerInit();
         }
         
-        private void StagerChangerInit()
+        private void StageChangerInit()
         {
-            StageChanger = new Ch1StageChanger(_player, CurrentStage, _stages, _fadeController);
+            StageChanger = new Ch1StageChanger(_playerTransform, _stages, _fadeController, Confiner2D);
             
-            if (_mainSystemController is null)
-                return;
-            
-            StageChanger.OnStageStart += () => _mainSystemController.PlayerInputLimit(true);
-            StageChanger.OnStageEnd += () => _mainSystemController.PlayerInputLimit(false);
+            StageChanger.OnStageStart += () => _inGameKeyBinder.PlayerInputDisable();
+            StageChanger.OnStageEnd += () => _inGameKeyBinder.PlayerInputEnable();
         }
     }
 }

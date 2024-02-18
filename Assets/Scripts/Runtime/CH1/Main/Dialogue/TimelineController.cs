@@ -14,8 +14,8 @@ namespace Runtime.CH1.Main.Dialogue
         {
             _playableDirector = GetComponent<PlayableDirector>();
             
-            _playableDirector.played += director => DataProviderManager.Instance.ControlsDataProvider.Get().RestrictPlayerInput();
-            _playableDirector.stopped += director => DataProviderManager.Instance.ControlsDataProvider.Get().ReleasePlayerInput();
+            //_playableDirector.played += director => DataProviderManager.Instance.ControlsDataProvider.Get().RestrictPlayerInput();
+            //_playableDirector.stopped += director => DataProviderManager.Instance.ControlsDataProvider.Get().ReleasePlayerInput();
         }
         
         public void PlayTimeline(int minor)
