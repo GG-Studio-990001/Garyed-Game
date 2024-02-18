@@ -46,7 +46,7 @@ namespace Runtime.Common.Presentation
             SetSfxVolume(_settingsData.SfxVolume);
             
             _settingsUIView.GameExitButton.onClick.AddListener(OnGameExitButtonClicked);
-            _settingsUIView.ExitButton.onClick.AddListener(OnExitButtonClicked);
+            _settingsUIView.ExitButton.onClick.AddListener(GameSettingToggle);
         }
         
         private void SetMusicVolume(float volume)
@@ -73,15 +73,6 @@ namespace Runtime.Common.Presentation
             UnityEditor.EditorApplication.isPlaying = false;
             #endif
             Application.Quit();
-        }
-        
-        private void OnExitButtonClicked()
-        {
-            SettingsDataProvider.Set(_settingsData);
-            
-            _settingsUIView.SettingUIObject.SetActive(false);
-            
-            ControlsDataProvider.Get().ReleasePlayerInput();
         }
 
         public void GameSettingToggle()
