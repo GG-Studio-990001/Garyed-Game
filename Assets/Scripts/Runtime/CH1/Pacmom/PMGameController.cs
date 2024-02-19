@@ -434,6 +434,8 @@ namespace Runtime.CH1.Pacmom
 
         private IEnumerator ReleaseHalfCoins()
         {
+            StopAllCoroutines(); // 방에서 나오는 먼지 예외처리
+
             SetCharacterMove(false);
 
             int score = pacmomScore / 2;

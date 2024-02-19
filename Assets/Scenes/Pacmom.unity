@@ -954,78 +954,6 @@ MonoBehaviour:
     m_Events:
     - m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 790340050}
-          m_TargetAssemblyTypeName: Runtime.CH1.Pacmom.SpriteControl, Scripts
-          m_MethodName: GetNormalSprite
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 650144428611018179}
-          m_TargetAssemblyTypeName: Runtime.CH1.Pacmom.SpriteControl, Scripts
-          m_MethodName: GetNormalSprite
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 2967598485551542251}
-          m_TargetAssemblyTypeName: Runtime.CH1.Pacmom.EyeSpriteControl, Scripts
-          m_MethodName: GetNormalSprite
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 3231760239639840162}
-          m_TargetAssemblyTypeName: Runtime.CH1.Pacmom.SpriteControl, Scripts
-          m_MethodName: GetNormalSprite
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 933165551766779786}
-          m_TargetAssemblyTypeName: Runtime.CH1.Pacmom.EyeSpriteControl, Scripts
-          m_MethodName: GetNormalSprite
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 1325164805}
-          m_TargetAssemblyTypeName: Runtime.CH1.Pacmom.SpriteControl, Scripts
-          m_MethodName: GetNormalSprite
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
         - m_Target: {fileID: 945587687}
           m_TargetAssemblyTypeName: Runtime.CH1.Pacmom.InGameDialogue, Scripts
           m_MethodName: HideBubble
@@ -1038,71 +966,23 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 1575259378}
+          m_TargetAssemblyTypeName: Runtime.CH1.Pacmom.PMEnding, Scripts
+          m_MethodName: GetAllNormalSprite
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
     - m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 790340050}
-          m_TargetAssemblyTypeName: Runtime.CH1.Pacmom.SpriteControl, Scripts
-          m_MethodName: GetVacuumModeSprite
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 650144428611018179}
-          m_TargetAssemblyTypeName: Runtime.CH1.Pacmom.SpriteControl, Scripts
-          m_MethodName: GetVacuumModeSprite
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 2967598485551542251}
-          m_TargetAssemblyTypeName: Runtime.CH1.Pacmom.EyeSpriteControl, Scripts
-          m_MethodName: GetVacuumModeSprite
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 3231760239639840162}
-          m_TargetAssemblyTypeName: Runtime.CH1.Pacmom.SpriteControl, Scripts
-          m_MethodName: GetVacuumModeSprite
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 933165551766779786}
-          m_TargetAssemblyTypeName: Runtime.CH1.Pacmom.EyeSpriteControl, Scripts
-          m_MethodName: GetVacuumModeSprite
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 1325164805}
-          m_TargetAssemblyTypeName: Runtime.CH1.Pacmom.SpriteControl, Scripts
-          m_MethodName: GetVacuumModeSprite
+        - m_Target: {fileID: 1575259378}
+          m_TargetAssemblyTypeName: Runtime.CH1.Pacmom.PMEnding, Scripts
+          m_MethodName: GetAllVacuumModeSprite
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -1131,18 +1011,6 @@ MonoBehaviour:
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 250424353}
-          m_TargetAssemblyTypeName: Runtime.CH1.Pacmom.PMTimeline, Scripts
-          m_MethodName: 
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: 
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -10926,7 +10794,7 @@ GameObject:
   - component: {fileID: 790340050}
   - component: {fileID: 790340052}
   m_Layer: 6
-  m_Name: Pacmom_1
+  m_Name: Pacmom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21617,7 +21485,7 @@ GameObject:
   - component: {fileID: 886292425}
   - component: {fileID: 886292424}
   m_Layer: 5
-  m_Name: BlackImg
+  m_Name: BlackBackground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23391,7 +23259,7 @@ GameObject:
   - component: {fileID: 1325164805}
   - component: {fileID: 1325164807}
   m_Layer: 3
-  m_Name: Rapley_1
+  m_Name: Rapley
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23807,9 +23675,8 @@ MonoBehaviour:
   timeline:
   - {fileID: 650095486}
   - {fileID: 1493158440}
-  characters:
-  - {fileID: 790340051}
-  - {fileID: 1325164806}
+  pacmom: {fileID: 790340051}
+  rapley: {fileID: 1325164806}
 --- !u!4 &1575259377
 Transform:
   m_ObjectHideFlags: 0
@@ -23840,6 +23707,13 @@ MonoBehaviour:
   sceneSystem: {fileID: 2119691701}
   PMShader: {fileID: 1575259379}
   Timeline_3: {fileID: 250424353}
+  spriteControls:
+  - {fileID: 790340050}
+  - {fileID: 650144428611018179}
+  - {fileID: 7412423910814691913}
+  - {fileID: 3231760239639840162}
+  - {fileID: 4828556437485611562}
+  - {fileID: 1325164805}
 --- !u!114 &1575259379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29452,7 +29326,7 @@ GameObject:
   - component: {fileID: 2929860188779462518}
   - component: {fileID: 2929860188779462519}
   m_Layer: 7
-  m_Name: Dust_B_1
+  m_Name: Dust_B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29476,18 +29350,6 @@ MonoBehaviour:
   vacuumModeSprites:
   - {fileID: -1415079764, guid: 1c1fc1d82a5a37942ba9937a303a3a8e, type: 3}
   - {fileID: -686159391, guid: 1c1fc1d82a5a37942ba9937a303a3a8e, type: 3}
---- !u!114 &933165551766779786
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4828556437485611561}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0aef8913e775d0b4ca735e9d86e0e29f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &969600381396707095
 Transform:
   m_ObjectHideFlags: 0
@@ -29616,7 +29478,7 @@ GameObject:
   - component: {fileID: 969600381396707095}
   - component: {fileID: 2704183146277498523}
   m_Layer: 7
-  m_Name: Dust_A_1
+  m_Name: Dust_A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29681,18 +29543,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &2967598485551542251
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7412423910814691912}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0aef8913e775d0b4ca735e9d86e0e29f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &3039018181211504170
 Transform:
   m_ObjectHideFlags: 0
@@ -29873,7 +29723,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2153579390394105696}
   - component: {fileID: 3743472194156410134}
-  - component: {fileID: 933165551766779786}
+  - component: {fileID: 4828556437485611562}
   m_Layer: 7
   m_Name: Eyes
   m_TagString: Untagged
@@ -29881,6 +29731,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &4828556437485611562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4828556437485611561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 280ad43caa5bdd74a8041a3cdab14439, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  normalSprites:
+  - {fileID: -1150924220, guid: e48202bc45cce2146932707e0ee993a9, type: 3}
+  vacuumModeSprites:
+  - {fileID: -81401543, guid: 1c1fc1d82a5a37942ba9937a303a3a8e, type: 3}
+  - {fileID: 619541116, guid: 1c1fc1d82a5a37942ba9937a303a3a8e, type: 3}
+  - {fileID: 1920455971, guid: 1c1fc1d82a5a37942ba9937a303a3a8e, type: 3}
+  - {fileID: 776353656, guid: 1c1fc1d82a5a37942ba9937a303a3a8e, type: 3}
 --- !u!212 &7345148047124818261
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -29943,7 +29812,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4053045269362845441}
   - component: {fileID: 1598564669931875703}
-  - component: {fileID: 2967598485551542251}
+  - component: {fileID: 7412423910814691913}
   m_Layer: 7
   m_Name: Eyes
   m_TagString: Untagged
@@ -29951,6 +29820,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &7412423910814691913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7412423910814691912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 280ad43caa5bdd74a8041a3cdab14439, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  normalSprites:
+  - {fileID: -1150924220, guid: e48202bc45cce2146932707e0ee993a9, type: 3}
+  vacuumModeSprites:
+  - {fileID: 659999010, guid: 1c1fc1d82a5a37942ba9937a303a3a8e, type: 3}
+  - {fileID: 351575495, guid: 1c1fc1d82a5a37942ba9937a303a3a8e, type: 3}
+  - {fileID: 1963257466, guid: 1c1fc1d82a5a37942ba9937a303a3a8e, type: 3}
+  - {fileID: 261432411, guid: 1c1fc1d82a5a37942ba9937a303a3a8e, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
