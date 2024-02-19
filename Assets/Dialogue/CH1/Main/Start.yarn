@@ -9,11 +9,11 @@ position: -62,-241
 title: CutScene0
 position: -406,-89
 ---
+
+<<wait 15>> // 실행안되는 버그..?
+
 <<PlayBackgroundSound FallingSound>>
 <<SetBackgroundColor true>>
-
-<<wait 1>>
-<<wait 15>>
 
 ???: 여기인가 떨어진 지점이
 
