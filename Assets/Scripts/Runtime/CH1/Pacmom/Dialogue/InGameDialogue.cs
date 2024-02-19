@@ -32,7 +32,6 @@ namespace Runtime.CH1.Pacmom
         [SerializeField]
         private float targetTime = 15f;
         private int dustID = 0;
-        private readonly string DustStr = "Dust";
 
         private void Awake()
         {
@@ -79,24 +78,11 @@ namespace Runtime.CH1.Pacmom
             string speakerStr = dialogueLine.CharacterName;
             Speaker nowSpeaker = Speaker.none;
 
-            // nowSpeaker 지정
-            if (speakerStr == DustStr)
+            if (dustID != 0) // ID로 구별
             {
-                switch (dustID)
-                {
-                    case 1:
-                        nowSpeaker = Speaker.dustA;
-                        break;
-                    case 2:
-                        nowSpeaker = Speaker.dustB;
-                        break;
-                    default:
-                        int rand = UnityEngine.Random.Range(0, 2);
-                        nowSpeaker = (rand == 0 ? Speaker.dustA : Speaker.dustB);
-                        break;
-                }
+                nowSpeaker = (dustID == 1 ? Speaker.dustA : Speaker.dustB);
             }
-            else
+            else // 이름으로 구별
             {
                 if (speakerStr == GlobalConst.DustAStr)
                     nowSpeaker = Speaker.dustA;
@@ -152,34 +138,48 @@ namespace Runtime.CH1.Pacmom
         }
         #endregion
 
-        #region Start Dialogue
+        #region Dialogue With ID
         public void BlockedDialogue(int ID)
         {
-            runner.Stop();
             dustID = ID;
+            runner.Stop();
             runner.StartDialogue("PMBlocked");
         }
 
         public void CatchDialogue(int ID)
         {
-            runner.Stop();
             dustID = ID;
+            runner.Stop();
             runner.StartDialogue("PMCatch");
         }
 
         public void BeCaughtDialogue(int ID)
         {
-            runner.Stop();
             dustID = ID;
+            runner.Stop();
             runner.StartDialogue("PMBeCaught");
         }
-        
+
         private void RandomDialogue()
         {
+            dustID = UnityEngine.Random.Range(1, 3);
+
+            bool dustABloked = dustA.GetComponent<DustBlocked>().isBlocked;
+            bool dustBBloked = dustB.GetComponent<DustBlocked>().isBlocked;
+
+            if (dustABloked && dustBBloked)
+                return;
+            else if (dustID == 1 && dustABloked)
+                dustID = 2;
+            else if (dustID == 2 && dustBBloked)
+                dustID = 1;
+
             runner.Stop();
             runner.StartDialogue("PMRandom");
         }
+        #endregion
 
+        #region Dialogue Both
         public void VacuumDialogue(bool WasVaccumMode)
         {
             runner.Stop();
