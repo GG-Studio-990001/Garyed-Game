@@ -11,16 +11,15 @@ namespace Runtime.CH1.Pacmom
     public class PMGameController : MonoBehaviour
     {
         #region 선언
-        private PMSpriteController spriteController;
+        [Header("=Contoller=")]
+        private PMSprite spriteController;
         [SerializeField]
-        private PMUIController uiController;
+        private PMData dataController;
         public SoundSystem soundSystem;
         [SerializeField]
         private Timer timer;
         [SerializeField]
         private InGameDialogue dialogue;
-        [SerializeField]
-        private PMEnding ending;
 
         [Header("=Character=")]
         [SerializeField]
@@ -37,20 +36,11 @@ namespace Runtime.CH1.Pacmom
 
         [Header("=Else=")]
         [SerializeField]
-        private Transform coins;
-        [SerializeField]
-        private Transform vacuums;
-        [SerializeField]
         private GameObject Door;
-
-        [Header("=Variable=")]
         [SerializeField]
         private int inRoom = 2;
         [field: SerializeField]
         public bool isGameOver { get; private set; } = false;
-        private int rapleyScore;
-        private int pacmomScore;
-        private int pacmomLives;
         private readonly float vacuumDuration = 10f;
         private readonly float vacuumEndDuration = 3f;
         private bool isMoving;
@@ -82,10 +72,10 @@ namespace Runtime.CH1.Pacmom
 
         private void AssignComponent()
         {
-            spriteController = GetComponent<PMSpriteController>();
+            spriteController = GetComponent<PMSprite>();
+            dataController = GetComponent<PMData>();
 
             pacmomAI = pacmom.GetComponent<AI>();
-
             for (int i = 0; i < dusts.Length; i++)
             {
                 dustAIs[i] = dusts[i].GetComponent<AI>();
@@ -102,38 +92,6 @@ namespace Runtime.CH1.Pacmom
             {
                 dusts[i].gameController = this;
             }
-
-            foreach (Transform coin in coins)
-            {
-                coin.GetComponent<Coin>().gameController = this;
-            }
-
-            foreach (Transform vacuum in vacuums)
-            {
-                vacuum.GetComponent<Vacuum>().gameController = this;
-            }
-        }
-        #endregion
-
-        #region Set
-        private void SetRapleyScore(int score)
-        {
-            rapleyScore = score;
-            uiController.ShowRapleyScore(score);
-        }
-
-        private void SetPacmomScore(int score)
-        {
-            pacmomScore = score;
-            uiController.ShowPacmomScore(score);
-        }
-
-        private void SetPacmomLives(int lives)
-        {
-            if (lives < 0)
-                return;
-
-            pacmomLives = lives;
         }
         #endregion
 
@@ -146,9 +104,7 @@ namespace Runtime.CH1.Pacmom
 
         public void StartGame()
         {
-            SetRapleyScore(0);
-            SetPacmomScore(0);
-            SetPacmomLives(3);
+            dataController.InitData();
 
             ResetStates();
             SetCharacterMove(true);
@@ -166,41 +122,21 @@ namespace Runtime.CH1.Pacmom
 
             SetCharacterMove(false);
 
-            if (HasRemainingCoins())
-            {
+            if (dataController.HasRemainingCoins())
                 dialogue.GameOverDialogue();
-                StartCoroutine(GetRemaningCoins());
-            }
-            else
-            {
-                Invoke("ChooseAWinner", 1.5f);
-            }
-        }
 
-        private void ChooseAWinner()
-        {
-            soundSystem.StopMusic();
-            soundSystem.StopSFX();
-
-            if (rapleyScore > pacmomScore)
-            {
-                ending.RapleyWin();
-            }
-            else
-            {
-                ending.PacmomWin();
-            }
+            StartCoroutine(dataController.GetRemaningCoins());
         }
         #endregion
 
         #region Vacuum Mode
         public void UseVacuum()
         {
-            bool isVacuumMode = pacmom.ai.isStronger;
+            bool WasVacuumMode = pacmom.ai.isStronger;
 
-            dialogue.VacuumDialogue(isVacuumMode);
+            dialogue.VacuumDialogue(WasVacuumMode);
 
-            if (!isVacuumMode)
+            if (!WasVacuumMode)
             {
                 soundSystem.PlayMusic("StartVacuum");
             }
@@ -322,7 +258,7 @@ namespace Runtime.CH1.Pacmom
         {
             soundSystem.PlayEffect("PacmomEat");
 
-            TakeHalfCoins(false);
+            dataController.TakeHalfCoins(false);
             rapley.ResetState();
         }
 
@@ -342,7 +278,7 @@ namespace Runtime.CH1.Pacmom
         {
             PacmomEaten();
 
-            TakeHalfCoins(true);
+            dataController.TakeHalfCoins(true);
             LoseLife();
         }
 
@@ -351,7 +287,16 @@ namespace Runtime.CH1.Pacmom
             PacmomEaten();
 
             dialogue.CatchDialogue(ID);
-            StartCoroutine("ReleaseHalfCoins");
+            StartCoroutine(dataController.ReleaseHalfCoins());
+
+            SetCharacterMove(false);
+        }
+
+        public void AfterPacmomEatenByDust()
+        {
+            dialogue.HideBubble();
+            SetCharacterMove(true);
+            LoseLife();
         }
 
         private void PacmomEaten()
@@ -360,12 +305,11 @@ namespace Runtime.CH1.Pacmom
             Debug.Log("팩맘 먹힘");
         }
 
-        private void LoseLife()
+        public void LoseLife()
         {
-            SetPacmomLives(pacmomLives - 1);
-            uiController.LosePacmomLife(pacmomLives);
+            dataController.LosePacmomLife();
 
-            if (pacmomLives > 0)
+            if (dataController.IsPacmomAlive())
             {
                 ResetStates();
             }
@@ -390,9 +334,9 @@ namespace Runtime.CH1.Pacmom
 
             soundSystem.PlayEffect("RapleyEatCoin");
 
-            SetRapleyScore(rapleyScore + 1);
+            dataController.RapleyScore1Up();
 
-            if (!HasRemainingCoins())
+            if (!dataController.HasRemainingCoins())
             {
                 GameOver();
             }
@@ -405,91 +349,12 @@ namespace Runtime.CH1.Pacmom
 
             soundSystem.PlayEffect("PacmomEatCoin");
 
-            SetPacmomScore(pacmomScore + 1);
+            dataController.PacmomScore1Up();
 
-            if (!HasRemainingCoins())
+            if (!dataController.HasRemainingCoins())
             {
                 GameOver();
             }
-        }
-
-        #endregion
-
-        #region About Coin
-        private void TakeHalfCoins(bool isRapleyTake)
-        {
-            if (isRapleyTake)
-            {
-                int score = pacmomScore / 2;
-                SetRapleyScore(rapleyScore + score);
-                SetPacmomScore(pacmomScore - score);
-            }
-            else
-            {
-                int score = rapleyScore / 2;
-                SetPacmomScore(pacmomScore + score);
-                SetRapleyScore(rapleyScore - score);
-            }
-        }
-
-        private IEnumerator ReleaseHalfCoins()
-        {
-            StopAllCoroutines(); // 방에서 나오는 먼지 예외처리
-
-            SetCharacterMove(false);
-
-            int score = pacmomScore / 2;
-            SetPacmomScore(pacmomScore - score);
-            Debug.Log("팩맘 코인 " + score + "개 떨굼");
-
-            // 떨굴 코인이 많으면 떨구는 시간 단축
-            float releaseTime = (score >= 70 ? 0.02f : 0.03f);
-
-            while (score > 0)
-            {
-                int rand = Random.Range(0, coins.childCount);
-                Transform childCoin = coins.transform.GetChild(rand);
-                Coin coin = childCoin.GetComponent<Coin>();
-
-                if (!coin.gameObject.activeSelf)
-                {
-                    coin.ResetCoin();
-                    score--;
-                    yield return new WaitForSeconds(releaseTime);
-                }
-            }
-
-            dialogue.HideBubble();
-            SetCharacterMove(true);
-            LoseLife();
-        }
-
-        private IEnumerator GetRemaningCoins()
-        {
-            foreach (Transform coin in coins)
-            {
-                if (coin.gameObject.activeSelf)
-                {
-                    soundSystem.PlayEffect("RapleyEatCoin");
-
-                    SetRapleyScore(rapleyScore + 1);
-                    coin.gameObject.SetActive(false);
-                    yield return new WaitForSeconds(0.03f);
-                }
-            }
-            Invoke("ChooseAWinner", 1.5f);
-        }
-
-        private bool HasRemainingCoins()
-        {
-            foreach (Transform coin in coins)
-            {
-                if (coin.gameObject.activeSelf)
-                {
-                    return true;
-                }
-            }
-            return false;
         }
         #endregion
     }

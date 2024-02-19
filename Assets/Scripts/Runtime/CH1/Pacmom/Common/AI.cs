@@ -6,6 +6,7 @@ namespace Runtime.CH1.Pacmom
     {
         public Movement movement;
         public Transform[] enemys;
+        [field: SerializeField]
         public bool isStronger { get; private set; }
         public bool doCoinMatter { get; private set; }
 

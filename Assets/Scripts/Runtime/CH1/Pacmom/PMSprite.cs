@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Runtime.CH1.Pacmom
 {
-    public class PMSpriteController : MonoBehaviour
+    public class PMSprite : MonoBehaviour
     {
         [SerializeField]
         private SpriteControl rapleySprite;

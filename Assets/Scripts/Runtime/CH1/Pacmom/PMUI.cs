@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Runtime.CH1.Pacmom
 {
-    public class PMUIController : MonoBehaviour
+    public class PMUI : MonoBehaviour
     {
         [SerializeField]
         private GameObject[] pacmomLives = new GameObject[3];

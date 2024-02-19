@@ -180,11 +180,11 @@ namespace Runtime.CH1.Pacmom
             runner.StartDialogue("PMRandom");
         }
 
-        public void VacuumDialogue(bool isVaccumMode)
+        public void VacuumDialogue(bool WasVaccumMode)
         {
             runner.Stop();
 
-            if (!isVaccumMode)
+            if (!WasVaccumMode)
                 runner.StartDialogue("PMVacuumMode");
             else
                 runner.StartDialogue("PMVacuumModeAgain");

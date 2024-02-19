@@ -45,6 +45,12 @@ namespace Runtime.InGameSystem
         {
             effectAudioSource.Stop();
         }
+
+        public void StopAllSound()
+        {
+            StopMusic();
+            StopSFX();
+        }
     
         private Sound FindSound(Sound[] sounds, string soundName) => System.Array.Find(sounds, sound => sound.name == soundName);
     }

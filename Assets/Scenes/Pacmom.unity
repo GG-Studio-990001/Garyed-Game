@@ -1568,7 +1568,7 @@ GameObject:
   - component: {fileID: 372367290}
   - component: {fileID: 372367291}
   m_Layer: 0
-  m_Name: DialogueRunner
+  m_Name: OpeningDialogueRunner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1619,12 +1619,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 372367287}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1318748796}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &372367290
 MonoBehaviour:
@@ -21688,7 +21688,7 @@ GameObject:
   - component: {fileID: 945587685}
   - component: {fileID: 945587687}
   m_Layer: 0
-  m_Name: DialogueRunner_2
+  m_Name: InGameDialogueRunner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21738,12 +21738,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 945587683}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1318748796}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &945587687
 MonoBehaviour:
@@ -23246,6 +23246,39 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &1318748795
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1318748796}
+  m_Layer: 0
+  m_Name: DialogueRunner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1318748796
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1318748795}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 372367289}
+  - {fileID: 945587686}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1325164803
 GameObject:
   m_ObjectHideFlags: 0
@@ -24660,6 +24693,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1761052960}
   - component: {fileID: 1761052961}
+  - component: {fileID: 1761052963}
   - component: {fileID: 1761052962}
   m_Layer: 0
   m_Name: GameManager
@@ -24695,18 +24729,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ff009cbe824fed4997d3db6e987e1dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uiController: {fileID: 56634734}
+  dataController: {fileID: 0}
   soundSystem: {fileID: 588262824}
   timer: {fileID: 1090495809}
   dialogue: {fileID: 945587687}
-  ending: {fileID: 1575259378}
   rapley: {fileID: 133942950}
   pacmom: {fileID: 1861729285}
   dusts:
   - {fileID: 1412902986}
   - {fileID: 155197197}
-  coins: {fileID: 1942074557}
-  vacuums: {fileID: 1145695306}
   Door: {fileID: 1707595100}
   inRoom: 2
   <isGameOver>k__BackingField: 0
@@ -24731,6 +24762,22 @@ MonoBehaviour:
   dustEyeSprites:
   - {fileID: 778017191}
   - {fileID: 341896884}
+--- !u!114 &1761052963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1761052958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf07c5c2bf023084aa688c27fcc41120, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uiController: {fileID: 56634734}
+  ending: {fileID: 1575259378}
+  coins: {fileID: 1942074557}
+  vacuums: {fileID: 1145695306}
 --- !u!1001 &1762810768
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29853,8 +29900,7 @@ SceneRoots:
   - {fileID: 715443919}
   - {fileID: 1761052960}
   - {fileID: 56634735}
-  - {fileID: 372367289}
-  - {fileID: 945587686}
+  - {fileID: 1318748796}
   - {fileID: 1575259377}
   - {fileID: 980018771}
   - {fileID: 1598279879}
