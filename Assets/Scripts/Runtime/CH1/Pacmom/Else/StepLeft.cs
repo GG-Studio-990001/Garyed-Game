@@ -10,8 +10,7 @@ namespace Runtime.CH1.Pacmom
         {
             step = GetComponent<Step>();
 
-            for (int i = 0; i < 2; i++)
-                step.availableDirections.Add(Vector2.left); // 3/5 확률
+            step.AddStepsTwice(step, Vector2.left);
         }
     }
 }
