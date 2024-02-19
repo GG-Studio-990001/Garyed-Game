@@ -9,15 +9,15 @@ namespace Runtime.CH1.Main.Stage
     public class Ch1StageController : MonoBehaviour
     {
         [field:SerializeField] public CinemachineConfiner2D Confiner2D { get; private set; }
+        public Ch1StageChanger StageChanger { get; private set; }
         
-        private Ch1StageChanger _stageChanger;
         private Stage[] _stages;
         private Ch1MainSystemController _mainSystemController;
         private FadeController _fadeController;
         private InGameKeyBinder _inGameKeyBinder;
         private Transform _playerTransform;
         
-        public Stage CurrentStage => _stageChanger.CurrentStage;
+        public Stage CurrentStage => StageChanger.CurrentStage;
         
         public void Init(FadeController fadeController, InGameKeyBinder inGameKeyBinder, Transform playerTransform)
         {
@@ -33,17 +33,17 @@ namespace Runtime.CH1.Main.Stage
         
         private void StageChangerInit()
         {
-            _stageChanger = new Ch1StageChanger(_playerTransform, _stages, _fadeController, Confiner2D);
+            StageChanger = new Ch1StageChanger(_playerTransform, _stages, _fadeController, Confiner2D);
             
-            _stageChanger.OnStageStart += () => _inGameKeyBinder.PlayerInputDisable();
-            _stageChanger.OnStageEnd += () => _inGameKeyBinder.PlayerInputEnable();
+            StageChanger.OnStageStart += () => _inGameKeyBinder.PlayerInputDisable();
+            StageChanger.OnStageEnd += () => _inGameKeyBinder.PlayerInputEnable();
         }
         
         private void StageSettings()
         {
             foreach (var stage in _stages)
             {
-                stage.StageSettings(_stageChanger);
+                stage.StageSettings(StageChanger);
             }
             
             // 아래는 개발용
@@ -52,7 +52,7 @@ namespace Runtime.CH1.Main.Stage
             {
                 if (stage.IsActivate())
                 {
-                    _stageChanger.SwitchStage(stage.StageNumber, new Vector2(0, 0));
+                    StageChanger.SwitchStage(stage.StageNumber, new Vector2(0, 0));
                 }
             }
 

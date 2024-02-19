@@ -13,12 +13,11 @@ namespace Runtime.CH1.Main.Stage
         [SerializeField] private StageMover[] stageMovers;
         public UnityEvent onStageEnable;
         
-        private StageMover[] _stageMovers;
-        
         public void StageSettings(Ch1StageChanger stageChanger)
         {
-            _stageMovers = stageMovers;
-            foreach (var stageMover in _stageMovers)
+            if (stageMovers is null) return;
+            
+            foreach (var stageMover in stageMovers)
             {
                 stageMover.StageChanger = stageChanger;
             }
