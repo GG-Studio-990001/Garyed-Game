@@ -2,18 +2,18 @@ title: StartNode
 color: red
 position: -62,-241
 ---
-
-<<declare $mainer = 0>>
-<<set $mainer to GetMinor()>>
-
 // 해당 타임라인으로 (연출)
-//<<PlayTimeline {$mainer}>>
+<<CurrentMinorDialogueStart>>
 ===
 
 title: CutScene0
-position: -42,-40
+position: -406,-89
 ---
+<<PlayBackgroundSound FallingSound>>
 <<SetBackgroundColor true>>
+
+<<wait 1>>
+<<wait 15>>
 
 ???: 여기인가 떨어진 지점이
 
@@ -22,6 +22,8 @@ position: -42,-40
 ???: ...?
 ???: 오! 게임이 아니고... 사람이잖아?
 ???: !@#!@!#holy@!#%!
+
+<<wait 10>>
 
 <<SetBackgroundColor false>>
 <<ChangeScene cutImg01>>
@@ -42,7 +44,7 @@ R2-Mon: !@!$!$!@!@
 
 <<ChangeScene None>>
 <<FadeIn>>
-<<NextCutScene>>
+//<<NextCutScene>>
 ===
 
 title: CutScene1

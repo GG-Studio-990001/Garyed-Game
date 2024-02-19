@@ -1,4 +1,5 @@
 using Cinemachine;
+using Runtime.Data.Original;
 using Runtime.InGameSystem;
 using System;
 using System.Collections.Generic;
@@ -24,6 +25,8 @@ namespace Runtime.CH1.Main.Dialogue
         public UnityEvent OnDialogueStart => _runner.onDialogueStart;
         public UnityEvent OnDialogueEnd => _runner.onDialogueComplete;
         
+        public PlayerData playerData;
+        
         private void Awake()
         {
             _runner.AddCommandHandler<string>("PlayBackgroundSound", PlayBackgroundSound);
@@ -32,9 +35,9 @@ namespace Runtime.CH1.Main.Dialogue
             _runner.AddCommandHandler<bool>("SetBackgroundColor", SetBackgroundColor);
             _runner.AddCommandHandler("FadeOut", _fadeController.StartFadeOut);
             _runner.AddCommandHandler("FadeIn", _fadeController.StartFadeIn);
-            _runner.AddCommandHandler<int>("PlayTimeline", PlayTimeline);
             _runner.AddCommandHandler<string>("ChangeScene", ChangeScene);
             _runner.AddCommandHandler("NextCutScene", NextCutScene);
+            _runner.AddCommandHandler("CurrentMinorDialogueStart", CurrentMinorDialogueStart);
         }
         
         private void PlayBackgroundSound(string soundName)
@@ -44,7 +47,7 @@ namespace Runtime.CH1.Main.Dialogue
 
         private void SetCamera()
         {
-            _virtualCamera.m_Lens.FieldOfView = 30;
+            _virtualCamera.m_Lens.FieldOfView = 30; // ?
         }
         
         private void SetBackgroundColor(bool isBlack)
@@ -52,14 +55,10 @@ namespace Runtime.CH1.Main.Dialogue
             _fadeController.SetBackground(isBlack);
         }
         
-        public void NextDirectionDialogue()
+        public void CurrentMinorDialogueStart()
         {
-            _runner.StartDialogue($"CutScene{DataProviderManager.Instance.PlayerDataProvider.Get().quarter.minor}");
-        }
-
-        private void PlayTimeline(int minor)
-        {
-            _timelineController.PlayTimeline(minor);
+            _runner.Stop();
+            _runner.StartDialogue($"CutScene{playerData.quarter.minor}");
         }
         
         private void NextCutScene()
@@ -114,10 +113,6 @@ namespace Runtime.CH1.Main.Dialogue
                 //variableStorage.TryGetValue("$ThreeMatchPuzzle", out lvalue);
                 variableStorage.SetValue("$ThreeMatchPuzzle", true);
             }
-            
-            // int minorValue;
-            // variableStorage.TryGetValue("$minor", out minorValue);
-            // variableStorage.SetValue("$minor", minorValue + 1);
         }
     }
 }
