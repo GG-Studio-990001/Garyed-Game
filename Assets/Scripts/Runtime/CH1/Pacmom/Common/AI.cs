@@ -26,17 +26,14 @@ namespace Runtime.CH1.Pacmom
             if (step == null)
                 return;
 
-            Vector2 direction = Vector2.zero;
-            float distance = float.MaxValue;
-            Transform closeEnemy = null;
+            float shortestDistance = float.MaxValue;
+            Transform nearestEnemy = null;
 
-            // 가장 가까운 적 찾기
             foreach (Transform enemy in enemys)
             {
-                float minDistance = (enemy.position - transform.position).sqrMagnitude;
+                float distanceFromEnemy = (enemy.position - transform.position).sqrMagnitude;
 
-                // 멀면 X
-                if (minDistance > 36f)
+                if (distanceFromEnemy > 36f)
                     continue;
 
                 // 방 안이면 X
@@ -44,19 +41,21 @@ namespace Runtime.CH1.Pacmom
                     -1.5f < enemy.localPosition.y && enemy.localPosition.y < 1f)
                     continue;
 
-                if (distance > minDistance)
+                if (shortestDistance > distanceFromEnemy)
                 {
-                    distance = minDistance;
-                    closeEnemy = enemy;
+                    shortestDistance = distanceFromEnemy;
+                    nearestEnemy = enemy;
                 }
             }
 
-            if (closeEnemy != null)
+            Vector2 direction = Vector2.zero;
+
+            if (nearestEnemy != null)
             {
                 if (isStronger)
-                    direction = ChaseEnemy(closeEnemy, step);
+                    direction = ChaseEnemy(nearestEnemy, step);
                 else
-                    direction = RunAwayFromEnemy(closeEnemy, step);
+                    direction = RunAwayFromEnemy(nearestEnemy, step);
             }
             else
             {

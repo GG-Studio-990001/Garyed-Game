@@ -1,10 +1,10 @@
 using Runtime.ETC;
-using Runtime.Interface;
+using Runtime.Interface.Pacmom;
 using UnityEngine;
 
 namespace Runtime.CH1.Pacmom
 {
-    public class Dust : MonoBehaviour, IPMCharacter
+    public class Dust : MonoBehaviour, ICharacter
     {
         public PMGameController gameController;
         public MovementAndEyes movement { get; set; }

@@ -2,6 +2,7 @@ using UnityEngine;
 
 namespace Runtime.CH1.Pacmom
 {
+    [RequireComponent(typeof(SpriteRenderer))]
     public class MovementAndRotation : Movement
     {
         public SpriteRotation spriteRotation { get; private set; }
@@ -10,7 +11,7 @@ namespace Runtime.CH1.Pacmom
         {
             spriteRotation = new SpriteRotation(GetComponent<SpriteRenderer>());
 
-            Set();
+            SetWhenAwake();
         }
 
         public override void ResetState()

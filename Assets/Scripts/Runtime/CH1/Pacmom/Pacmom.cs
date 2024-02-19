@@ -1,10 +1,10 @@
 using Runtime.ETC;
-using Runtime.Interface;
+using Runtime.Interface.Pacmom;
 using UnityEngine;
 
 namespace Runtime.CH1.Pacmom
 {
-    public class Pacmom : MonoBehaviour, IPMCharacter
+    public class Pacmom : MonoBehaviour, ICharacter
     {
         public PMGameController gameController;
         public MovementAndRotation movement { get; set; }

@@ -27,7 +27,7 @@ namespace Runtime.CH1.Pacmom
         {
             if (canFlip && direction.y == 0)
             {
-                spriteRenderer.flipX = (direction.x == 1 ? false : true);
+                spriteRenderer.flipX = (direction.x != 1);
             }
         }
 
