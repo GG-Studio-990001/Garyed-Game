@@ -18,6 +18,7 @@ namespace Runtime.Data.Provider
             PlayerData playerData = ScriptableObject.CreateInstance<PlayerData>();
             playerData.quarter = _playerData.quarter.Clone() as Quarter;
             playerData.position = _playerData.position;
+            playerData.subPuzzleData = _playerData.subPuzzleData;
             
             return playerData;
         }
@@ -28,6 +29,7 @@ namespace Runtime.Data.Provider
             _playerData.quarter.stage = value.quarter.stage;
             _playerData.quarter.minor = value.quarter.minor;
             _playerData.position = value.position;
+            _playerData.subPuzzleData = value.subPuzzleData;
         }
     }
 }

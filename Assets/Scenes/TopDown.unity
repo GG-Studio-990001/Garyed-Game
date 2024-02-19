@@ -361,7 +361,7 @@ GameObject:
   - component: {fileID: 248890229}
   - component: {fileID: 248890231}
   m_Layer: 0
-  m_Name: TimeLine
+  m_Name: TimeLineController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -493,6 +493,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 29e843b83f4d54745879222afae3a6d3, type: 2}
   - {fileID: 11400000, guid: 1dc44c28531066c48989982cab644a0e, type: 2}
   <PlayableDirector>k__BackingField: {fileID: 248890229}
+  playerData: {fileID: 11400000, guid: 65d91fdbadf9436458d8efbe1f8995fe, type: 2}
 --- !u!1001 &272406420
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -601,7 +602,7 @@ GameObject:
   - component: {fileID: 326335555}
   - component: {fileID: 326335556}
   m_Layer: 0
-  m_Name: CH1GameGontroller
+  m_Name: CH1GameController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2025,7 +2026,7 @@ Transform:
   m_GameObject: {fileID: 1429684703}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.61, y: -0.4, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2344,7 +2345,7 @@ Transform:
   m_GameObject: {fileID: 1535368149}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.61, y: -0.4, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2544,7 +2545,7 @@ Transform:
   m_GameObject: {fileID: 1674432335}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.61, y: -0.4, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3304,11 +3305,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1441124673561100856, guid: 636fca1bc1c114943a004cbada5c227f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.61
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1441124673561100856, guid: 636fca1bc1c114943a004cbada5c227f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1441124673561100856, guid: 636fca1bc1c114943a004cbada5c227f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5128,7 +5129,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 885117958501877593, guid: fabd929830e0d48429c6e047af57dd53, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1.59
       objectReference: {fileID: 0}
     - target: {fileID: 885117958501877593, guid: fabd929830e0d48429c6e047af57dd53, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5162,10 +5163,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1838590789333861889, guid: fabd929830e0d48429c6e047af57dd53, type: 3}
+      propertyPath: dialogueRunner
+      value: 
+      objectReference: {fileID: 472331523037639807}
+    - target: {fileID: 3231577179127185724, guid: fabd929830e0d48429c6e047af57dd53, type: 3}
+      propertyPath: dialogueRunner
+      value: 
+      objectReference: {fileID: 472331523037639807}
+    - target: {fileID: 4705884541536514397, guid: fabd929830e0d48429c6e047af57dd53, type: 3}
+      propertyPath: dialogueRunner
+      value: 
+      objectReference: {fileID: 472331523037639807}
     - target: {fileID: 5840771039378051981, guid: fabd929830e0d48429c6e047af57dd53, type: 3}
       propertyPath: m_Name
       value: Stage [1]
       objectReference: {fileID: 0}
+    - target: {fileID: 6423669661257059359, guid: fabd929830e0d48429c6e047af57dd53, type: 3}
+      propertyPath: dialogueRunner
+      value: 
+      objectReference: {fileID: 472331523037639807}
     - target: {fileID: 6470391209322846922, guid: fabd929830e0d48429c6e047af57dd53, type: 3}
       propertyPath: stageMovers.Array.size
       value: 2
@@ -5215,12 +5232,12 @@ SceneRoots:
   - {fileID: 712164682678826736}
   - {fileID: 342591944}
   - {fileID: 326335555}
-  - {fileID: 1284326281653811846}
+  - {fileID: 248890230}
   - {fileID: 1311836792}
   - {fileID: 1267319288}
+  - {fileID: 1284326281653811846}
   - {fileID: 338986455}
   - {fileID: 1757409997}
-  - {fileID: 368825193}
   - {fileID: 272406420}
-  - {fileID: 248890230}
+  - {fileID: 368825193}
   - {fileID: 1965160242}

@@ -52,12 +52,9 @@ namespace Runtime.CH1.Main.Stage
             {
                 if (stage.IsActivate())
                 {
-                    StageChanger.SwitchStage(stage.StageNumber, new Vector2(0, 0));
+                    StageChanger.SetStage(stage.StageNumber, new Vector2(0, 0));
                 }
             }
-
-            if (_fadeController is not null)
-                _fadeController.StartFadeIn();
         }
     }
 }

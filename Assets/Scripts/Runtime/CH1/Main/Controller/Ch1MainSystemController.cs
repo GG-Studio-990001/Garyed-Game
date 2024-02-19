@@ -33,8 +33,10 @@ namespace Runtime.CH1.Main.Controller
         {
             GameKeyBinding();
             GameInit();
+            TryGameIntro();
         }
-        
+
+        // 인게임에 사용되는 키 바인딩
         private void GameKeyBinding()
         {
             _inGameKeyBinder = new InGameKeyBinder(GameOverControls);
@@ -52,9 +54,16 @@ namespace Runtime.CH1.Main.Controller
             settingsUIView.OnSettingsClose += () => _inGameKeyBinder.PlayerInputEnable();
         }
         
+        // 각 컨트롤러 초기화
         private void GameInit()
         {
             ch1StageController.Init(fadeController, _inGameKeyBinder, player.transform);
+        }
+        
+        // 현재 minor버전에 맞는 연출 실행
+        private void TryGameIntro()
+        {
+            timelineController.PlayTimeline();
         }
     }
 }

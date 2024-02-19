@@ -28,6 +28,7 @@ namespace Runtime.CH1.Main.Stage
             _confiner2D = confiner2D;
         }
         
+        // 맵 이동
         public async Task SwitchStage(int moveStageNumber, Vector2 spawnPosition)
         {
             OnStageStart?.Invoke();
@@ -37,6 +38,33 @@ namespace Runtime.CH1.Main.Stage
 
             await Task.Delay(1000); // temp
             
+            StageMoveLogic(moveStageNumber, spawnPosition);
+            
+            await Task.Delay(1000);
+            
+            if (_fadeController is not null)
+                _fadeController.StartFadeIn();
+
+            OnStageEnd?.Invoke();
+        }
+        
+        // 맵 접속
+        public async Task SetStage(int moveStageNumber, Vector2 spawnPosition)
+        {
+            OnStageStart?.Invoke();
+            
+            StageMoveLogic(moveStageNumber, spawnPosition);
+            
+            await Task.Delay(1000);
+            
+            if (_fadeController is not null)
+                _fadeController.StartFadeIn();
+
+            OnStageEnd?.Invoke();
+        }
+
+        private void StageMoveLogic(int moveStageNumber, Vector2 spawnPosition)
+        {
             _currentStage?.Disable();
             
             _currentStage = _stages[moveStageNumber - 1];
@@ -45,15 +73,6 @@ namespace Runtime.CH1.Main.Stage
             
             _currentStage.Enable();
             _confiner2D.m_BoundingShape2D = _currentStage.GetStageCollider();
-            
-            await Task.Delay(1000);
-            
-            if (_fadeController is not null)
-                _fadeController.StartFadeIn();
-
-            OnStageEnd?.Invoke();
-            
-            return;
         }
     }
 }

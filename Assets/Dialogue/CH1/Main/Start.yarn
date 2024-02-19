@@ -7,7 +7,7 @@ position: -62,-241
 <<set $mainer to GetMinor()>>
 
 // 해당 타임라인으로 (연출)
-<<PlayTimeline {$mainer}>>
+//<<PlayTimeline {$mainer}>>
 ===
 
 title: CutScene0

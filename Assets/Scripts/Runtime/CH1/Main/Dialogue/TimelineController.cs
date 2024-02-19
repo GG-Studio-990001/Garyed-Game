@@ -1,4 +1,6 @@
+using Runtime.Data.Original;
 using Runtime.InGameSystem;
+using Runtime.Interface;
 using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.Timeline;
@@ -10,11 +12,13 @@ namespace Runtime.CH1.Main.Dialogue
         [SerializeField] private TimelineAsset[] _timelineAssets;
         [field:SerializeField] public PlayableDirector PlayableDirector { get; private set; }
 
-        private void Awake()
+        public PlayerData playerData;
+
+        public void PlayTimeline()
         {
- 
+            PlayTimeline(playerData.quarter.minor);
         }
-        
+
         public void PlayTimeline(int minor)
         {
             if (_timelineAssets.Length <= minor)

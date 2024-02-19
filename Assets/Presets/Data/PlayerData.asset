@@ -15,5 +15,8 @@ MonoBehaviour:
   quarter:
     chapter: 0
     stage: 1
-    minor: 3
+    minor: 0
+  subPuzzleData:
+    threeMatchPuzzleIsSolved: 0
+    pacmomIsSolved: 0
   position: {x: 0, y: 0, z: 0}
