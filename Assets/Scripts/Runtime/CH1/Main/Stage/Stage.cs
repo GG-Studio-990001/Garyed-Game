@@ -10,14 +10,14 @@ namespace Runtime.CH1.Main.Stage
 
         [Header("Stage Extension")]
         [SerializeField] private PolygonCollider2D confiner2D;
+        [SerializeField] private StageMover[] stageMovers;
         public UnityEvent onStageEnable;
         
         private StageMover[] _stageMovers;
         
         public void StageSettings(Ch1StageChanger stageChanger)
         {
-            _stageMovers = GetComponentsInChildren<StageMover>();
-            
+            _stageMovers = stageMovers;
             foreach (var stageMover in _stageMovers)
             {
                 stageMover.StageChanger = stageChanger;
