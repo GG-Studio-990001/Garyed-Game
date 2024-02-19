@@ -31,7 +31,7 @@ namespace Runtime.CH1.Pacmom
         private float currentTime = 0f;
         [SerializeField]
         private float targetTime = 15f;
-        private int isSpeaker = 0;
+        private int dustID = 0;
 
         private void Awake()
         {
@@ -70,48 +70,43 @@ namespace Runtime.CH1.Pacmom
             dust.transform.position.y + 1.3f, dust.transform.position.z);
 
             bubble.transform.rotation = Quaternion.Euler(0f, yRotate, 0f);
-            text.transform.rotation = Quaternion.Euler(0f, yRotate * 2f, 0f); // 왜지..
+            text.transform.rotation = Quaternion.Euler(0f, yRotate * 2f, 0f);
         }
 
         public override void RunLine(LocalizedLine dialogueLine, Action onDialogueLineFinished)
         {
-            string speaker = dialogueLine.CharacterName;
+            string speakerStr = dialogueLine.CharacterName;
+            Speaker nowSpeaker = Speaker.none;
 
-            // 화자 미정일 때
-            if (speaker == GlobalConst.DustStr)
+            if (dustID != 0) // ID로 구별
             {
-                switch (isSpeaker)
-                {
-                    case 0:
-                        int rand = UnityEngine.Random.Range(0, 2);
-                        speaker = (rand == 0 ? GlobalConst.DustAStr : GlobalConst.DustBStr);
-                        break;
-                    case 1:
-                        speaker = GlobalConst.DustAStr;
-                        break;
-                    case 2:
-                        speaker = GlobalConst.DustBStr;
-                        break;
-                }
+                nowSpeaker = (dustID == 1 ? Speaker.dustA : Speaker.dustB);
+            }
+            else // 이름으로 구별
+            {
+                if (speakerStr == GlobalConst.DustAStr)
+                    nowSpeaker = Speaker.dustA;
+                else if (speakerStr == GlobalConst.DustBStr)
+                    nowSpeaker = Speaker.dustB;
             }
 
-            TextMeshProUGUI text = (speaker == GlobalConst.DustAStr ? textA : textB);
+            TextMeshProUGUI text = (nowSpeaker == Speaker.dustA ? textA : textB);
 
             text.text = dialogueLine.TextWithoutCharacterName.Text;
 
-            if (speaker == GlobalConst.DustAStr)
+            if (nowSpeaker == Speaker.dustA)
             {
                 bubbleA.SetActive(true);
                 textA.text = text.text;
             }
-            else
+            else if (nowSpeaker == Speaker.dustB)
             {
                 bubbleB.SetActive(true);
                 textB.text = text.text;
             }
             
-            if (isSpeaker != 0)
-                isSpeaker = 0;
+            if (dustID != 0) // 초기화
+                dustID = 0;
 
             onDialogueLineFinished();
         }
@@ -122,8 +117,6 @@ namespace Runtime.CH1.Pacmom
                 bubbleA.SetActive(false);
             if (bubbleB.activeSelf)
                 bubbleB.SetActive(false);
-
-            isSpeaker = 0;
         }
 
         #region Time
@@ -145,38 +138,53 @@ namespace Runtime.CH1.Pacmom
         }
         #endregion
 
-        #region Start Dialogue
+        #region Dialogue With ID
         public void BlockedDialogue(int ID)
         {
+            dustID = ID;
             runner.Stop();
-            isSpeaker = ID;
             runner.StartDialogue("PMBlocked");
         }
 
         public void CatchDialogue(int ID)
         {
+            dustID = ID;
             runner.Stop();
-            isSpeaker = ID;
             runner.StartDialogue("PMCatch");
         }
 
         public void BeCaughtDialogue(int ID)
         {
+            dustID = ID;
             runner.Stop();
-            isSpeaker = ID;
             runner.StartDialogue("PMBeCaught");
         }
-        
+
         private void RandomDialogue()
         {
+            dustID = UnityEngine.Random.Range(1, 3);
+
+            bool dustABloked = dustA.GetComponent<DustBlocked>().isBlocked;
+            bool dustBBloked = dustB.GetComponent<DustBlocked>().isBlocked;
+
+            if (dustABloked && dustBBloked)
+                return;
+            else if (dustID == 1 && dustABloked)
+                dustID = 2;
+            else if (dustID == 2 && dustBBloked)
+                dustID = 1;
+
             runner.Stop();
             runner.StartDialogue("PMRandom");
         }
+        #endregion
 
-        public void VacuumDialogue(bool isAgain = false)
+        #region Dialogue Both
+        public void VacuumDialogue(bool WasVaccumMode)
         {
             runner.Stop();
-            if (!isAgain)
+
+            if (!WasVaccumMode)
                 runner.StartDialogue("PMVacuumMode");
             else
                 runner.StartDialogue("PMVacuumModeAgain");

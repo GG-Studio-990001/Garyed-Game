@@ -12,6 +12,7 @@ namespace Runtime.CH1.Pacmom
         [SerializeField]
         private float reachTime = 0f;
         private bool dustTalked = false;
+        public bool isBlocked { get; private set; } = false;
 
         private void Awake()
         {
@@ -21,6 +22,8 @@ namespace Runtime.CH1.Pacmom
 
         private void OnCollisionStay2D(Collision2D collision)
         {
+            isBlocked = true;
+
             if (collision.gameObject.layer == LayerMask.NameToLayer(GlobalConst.PlayerStr))
             {
                 reachTime += Time.deltaTime;
@@ -38,6 +41,7 @@ namespace Runtime.CH1.Pacmom
         {
             reachTime = 0f;
             dustTalked = false;
+            isBlocked = false;
         }
     }
 }

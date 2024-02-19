@@ -16,7 +16,9 @@ namespace Runtime.CH1.Pacmom
         [SerializeField]
         private GameObject[] timeline = new GameObject[2];
         [SerializeField]
-        private SpriteRenderer[] characters = new SpriteRenderer[2];
+        private SpriteRenderer pacmom;
+        [SerializeField]
+        private SpriteRenderer rapley;
 
         public void OpeningFinish()
         {
@@ -34,13 +36,13 @@ namespace Runtime.CH1.Pacmom
 
         public void FlipCharacters()
         {
-            for (int i = 0; i < characters.Length; i++)
-                characters[i].flipX = false;
+            pacmom.flipX = false;
+            rapley.flipX = false;
         }
 
         public void PacmomSizeUp()
         {
-            characters[0].transform.localScale = new Vector3(80f, 80f, 80f);
+            pacmom.transform.localScale = new Vector3(80f, 80f, 80f);
         }
 
         public void ControlEnable(bool control)

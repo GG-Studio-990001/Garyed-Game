@@ -14,4 +14,12 @@ namespace Runtime.ETC
         C,
         None
     }
+
+    public enum Speaker
+    {
+        dustA,
+        dustB,
+        rapley,
+        none
+    }
 }

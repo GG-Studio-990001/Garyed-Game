@@ -1,29 +1,22 @@
+using Runtime.Interface.Pacmom;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace Runtime.CH1.Pacmom
 {
-    public class Rapley : MonoBehaviour
+    public class Rapley : MonoBehaviour, ICharacter
     {
-        public MovementAndRotation movement { get; private set; }
+        public MovementAndRotation movement { get; set; }
 
         private void Awake()
         {
-            if (GetComponent<MovementAndRotation>() != null)
-            {
-                movement = GetComponent<MovementAndRotation>();
-            }
+            movement = GetComponent<MovementAndRotation>();
         }
 
         private void Start()
         {
             SetSpriteRotation();
             ResetState();
-        }
-
-        public void SetMovement(MovementAndRotation movement) // 테스트 코드용
-        {
-            this.movement = movement;
         }
 
         private void SetSpriteRotation()

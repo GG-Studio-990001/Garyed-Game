@@ -33,7 +33,7 @@ namespace Tests.Runtime.PacmomGameTest
             pacmom = pacmomObj.AddComponent<Pacmom>();
             pacmomSpr = pacmomObj.AddComponent<SpriteRenderer>();
             pacmomMovement = pacmomObj.AddComponent<MovementAndRotation>();
-            pacmom.SetMovement(pacmomMovement);
+            pacmom.movement = pacmomMovement;
             pacmomAI = pacmomObj.AddComponent<AI>();
             pacmomAI.movement = pacmomMovement;
 
@@ -41,7 +41,7 @@ namespace Tests.Runtime.PacmomGameTest
             dust = dustObj.AddComponent<Dust>();
             dustSpr = dustObj.AddComponent<SpriteRenderer>();
             dustMovement = dustObj.AddComponent<MovementAndEyes>();
-            dust.SetMovement(dustMovement);
+            dust.movement = dustMovement;
             dustAI = dustObj.AddComponent<AI>();
             dustAI.movement = dustMovement;
 

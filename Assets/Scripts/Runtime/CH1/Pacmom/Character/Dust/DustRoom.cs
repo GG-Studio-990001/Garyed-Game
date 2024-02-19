@@ -64,7 +64,9 @@ namespace Runtime.CH1.Pacmom
 
             duration = 0.3f;
             elapsed = 0.0f;
-            movement.GetEyeSprites(new Vector2(crossRoad.position.x < 0 ? -1.0f : 1.0f, 0.0f));
+
+            Vector2 crossRoadDirection = (crossRoad.position.x < 0 ? Vector2.left : Vector2.right);
+            movement.GetEyeSprites(crossRoadDirection);
 
             while (elapsed < duration)
             {
@@ -73,7 +75,7 @@ namespace Runtime.CH1.Pacmom
                 yield return null;
             }
 
-            movement.SetNextDirection(new Vector2(crossRoad.position.x < 0 ? -1.0f : 1.0f, 0.0f));
+            movement.SetNextDirection(crossRoadDirection);
             movement.rigid.isKinematic = false;
             movement.enabled = true;
 

@@ -7,13 +7,11 @@ namespace Runtime.CH1.Pacmom
         [SerializeField]
         private Transform connection;
 
-        private void OnTriggerEnter2D(Collider2D other)
+        private void OnTriggerEnter2D(Collider2D character)
         {
-            Vector3 position = other.transform.position;
-            position.x = connection.position.x;
-            position.y = connection.position.y;
+            Vector3 newPosition = new Vector3(connection.position.x, connection.position.y, character.transform.position.z);
 
-            other.transform.position = position;
+            character.transform.position = newPosition;
         }
     }
 }

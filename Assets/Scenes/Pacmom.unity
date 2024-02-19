@@ -927,12 +927,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 250424353}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1997660227}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &250424355
 MonoBehaviour:
@@ -954,78 +954,6 @@ MonoBehaviour:
     m_Events:
     - m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 790340050}
-          m_TargetAssemblyTypeName: Runtime.CH1.Pacmom.SpriteControl, Scripts
-          m_MethodName: GetNormalSprite
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 650144428611018179}
-          m_TargetAssemblyTypeName: Runtime.CH1.Pacmom.SpriteControl, Scripts
-          m_MethodName: GetNormalSprite
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 2967598485551542251}
-          m_TargetAssemblyTypeName: Runtime.CH1.Pacmom.EyeSpriteControl, Scripts
-          m_MethodName: GetNormalSprite
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 3231760239639840162}
-          m_TargetAssemblyTypeName: Runtime.CH1.Pacmom.SpriteControl, Scripts
-          m_MethodName: GetNormalSprite
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 933165551766779786}
-          m_TargetAssemblyTypeName: Runtime.CH1.Pacmom.EyeSpriteControl, Scripts
-          m_MethodName: GetNormalSprite
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 1325164805}
-          m_TargetAssemblyTypeName: Runtime.CH1.Pacmom.SpriteControl, Scripts
-          m_MethodName: GetNormalSprite
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
         - m_Target: {fileID: 945587687}
           m_TargetAssemblyTypeName: Runtime.CH1.Pacmom.InGameDialogue, Scripts
           m_MethodName: HideBubble
@@ -1038,71 +966,23 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 1575259378}
+          m_TargetAssemblyTypeName: Runtime.CH1.Pacmom.PMEnding, Scripts
+          m_MethodName: GetAllNormalSprite
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
     - m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 790340050}
-          m_TargetAssemblyTypeName: Runtime.CH1.Pacmom.SpriteControl, Scripts
-          m_MethodName: GetVacuumModeSprite
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 650144428611018179}
-          m_TargetAssemblyTypeName: Runtime.CH1.Pacmom.SpriteControl, Scripts
-          m_MethodName: GetVacuumModeSprite
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 2967598485551542251}
-          m_TargetAssemblyTypeName: Runtime.CH1.Pacmom.EyeSpriteControl, Scripts
-          m_MethodName: GetVacuumModeSprite
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 3231760239639840162}
-          m_TargetAssemblyTypeName: Runtime.CH1.Pacmom.SpriteControl, Scripts
-          m_MethodName: GetVacuumModeSprite
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 933165551766779786}
-          m_TargetAssemblyTypeName: Runtime.CH1.Pacmom.EyeSpriteControl, Scripts
-          m_MethodName: GetVacuumModeSprite
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 1325164805}
-          m_TargetAssemblyTypeName: Runtime.CH1.Pacmom.SpriteControl, Scripts
-          m_MethodName: GetVacuumModeSprite
+        - m_Target: {fileID: 1575259378}
+          m_TargetAssemblyTypeName: Runtime.CH1.Pacmom.PMEnding, Scripts
+          m_MethodName: GetAllVacuumModeSprite
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -1131,18 +1011,6 @@ MonoBehaviour:
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 250424353}
-          m_TargetAssemblyTypeName: Runtime.CH1.Pacmom.PMTimeline, Scripts
-          m_MethodName: 
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: 
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -1486,6 +1354,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 321128174}
   m_CullTransparentMesh: 1
+--- !u!114 &341896884 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6676530921051321078, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
+  m_PrefabInstance: {fileID: 1935626986}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 280ad43caa5bdd74a8041a3cdab14439, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &345737601
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1550,6 +1429,26 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6676530921051321078, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
+      propertyPath: normalSprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 92227687, guid: e48202bc45cce2146932707e0ee993a9, type: 3}
+    - target: {fileID: 6676530921051321078, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
+      propertyPath: vacuumModeSprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 659999010, guid: 1c1fc1d82a5a37942ba9937a303a3a8e, type: 3}
+    - target: {fileID: 6676530921051321078, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
+      propertyPath: vacuumModeSprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 351575495, guid: 1c1fc1d82a5a37942ba9937a303a3a8e, type: 3}
+    - target: {fileID: 6676530921051321078, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
+      propertyPath: vacuumModeSprites.Array.data[2]
+      value: 
+      objectReference: {fileID: 1963257466, guid: 1c1fc1d82a5a37942ba9937a303a3a8e, type: 3}
+    - target: {fileID: 6676530921051321078, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
+      propertyPath: vacuumModeSprites.Array.data[3]
+      value: 
+      objectReference: {fileID: 261432411, guid: 1c1fc1d82a5a37942ba9937a303a3a8e, type: 3}
     - target: {fileID: 7344224181382952703, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2
@@ -1669,7 +1568,7 @@ GameObject:
   - component: {fileID: 372367290}
   - component: {fileID: 372367291}
   m_Layer: 0
-  m_Name: DialogueRunner
+  m_Name: OpeningDialogueRunner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1720,12 +1619,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 372367287}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1318748796}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &372367290
 MonoBehaviour:
@@ -2171,8 +2070,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprites:
-  - {fileID: -908518317, guid: 6315bd1073caf0d4e990ea7c0f4bcb3a, type: 3}
-  - {fileID: -1902070208, guid: 6315bd1073caf0d4e990ea7c0f4bcb3a, type: 3}
   - {fileID: -908518317, guid: 6315bd1073caf0d4e990ea7c0f4bcb3a, type: 3}
   - {fileID: -816021202, guid: 6315bd1073caf0d4e990ea7c0f4bcb3a, type: 3}
 --- !u!1 &477691282
@@ -2724,9 +2621,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   backgroundSounds:
   - name: StartVacuum
-    clip: {fileID: 8300000, guid: 2a934aee0256f40498158bbe70cf6ef1, type: 3}
-  - name: ContinueVacuum
     clip: {fileID: 8300000, guid: 1e29cb3ecbf472b4b989f3d52b7272ad, type: 3}
+  - name: ContinueVacuum
+    clip: {fileID: 8300000, guid: 2a934aee0256f40498158bbe70cf6ef1, type: 3}
   - name: Intro
     clip: {fileID: 8300000, guid: 6df43ee3c641dd0489f309ed3c9f3e7b, type: 3}
   - name: Outro
@@ -9458,17 +9355,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!114 &595982757 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4733386059249401347, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
-  m_PrefabInstance: {fileID: 1935626986}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0aef8913e775d0b4ca735e9d86e0e29f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &598156039
 GameObject:
   m_ObjectHideFlags: 0
@@ -9555,12 +9441,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 650095486}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1997660227}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &650095489
 MonoBehaviour:
@@ -10884,6 +10770,17 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &778017191 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6676530921051321078, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
+  m_PrefabInstance: {fileID: 345737601}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 280ad43caa5bdd74a8041a3cdab14439, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &790340048
 GameObject:
   m_ObjectHideFlags: 0
@@ -10897,7 +10794,7 @@ GameObject:
   - component: {fileID: 790340050}
   - component: {fileID: 790340052}
   m_Layer: 6
-  m_Name: Pacmom_1
+  m_Name: Pacmom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21442,17 +21339,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!114 &866525580 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4733386059249401347, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
-  m_PrefabInstance: {fileID: 345737601}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0aef8913e775d0b4ca735e9d86e0e29f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &872828263
 GameObject:
   m_ObjectHideFlags: 0
@@ -21599,7 +21485,7 @@ GameObject:
   - component: {fileID: 886292425}
   - component: {fileID: 886292424}
   m_Layer: 5
-  m_Name: BlackImg
+  m_Name: BlackBackground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21802,7 +21688,7 @@ GameObject:
   - component: {fileID: 945587685}
   - component: {fileID: 945587687}
   m_Layer: 0
-  m_Name: DialogueRunner_2
+  m_Name: InGameDialogueRunner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21852,12 +21738,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 945587683}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1318748796}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &945587687
 MonoBehaviour:
@@ -22010,12 +21896,12 @@ GameObject:
   m_Component:
   - component: {fileID: 980018771}
   m_Layer: 0
-  m_Name: ----
+  m_Name: --InGame--
   m_TagString: EditorOnly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &980018771
 Transform:
   m_ObjectHideFlags: 0
@@ -23360,6 +23246,39 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &1318748795
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1318748796}
+  m_Layer: 0
+  m_Name: DialogueRunner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1318748796
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1318748795}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 372367289}
+  - {fileID: 945587686}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1325164803
 GameObject:
   m_ObjectHideFlags: 0
@@ -23373,7 +23292,7 @@ GameObject:
   - component: {fileID: 1325164805}
   - component: {fileID: 1325164807}
   m_Layer: 3
-  m_Name: Rapley_1
+  m_Name: Rapley
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23709,12 +23628,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1493158440}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1997660227}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1568963810
 GameObject:
@@ -23789,9 +23708,8 @@ MonoBehaviour:
   timeline:
   - {fileID: 650095486}
   - {fileID: 1493158440}
-  characters:
-  - {fileID: 790340051}
-  - {fileID: 1325164806}
+  pacmom: {fileID: 790340051}
+  rapley: {fileID: 1325164806}
 --- !u!4 &1575259377
 Transform:
   m_ObjectHideFlags: 0
@@ -23822,6 +23740,13 @@ MonoBehaviour:
   sceneSystem: {fileID: 2119691701}
   PMShader: {fileID: 1575259379}
   Timeline_3: {fileID: 250424353}
+  spriteControls:
+  - {fileID: 790340050}
+  - {fileID: 650144428611018179}
+  - {fileID: 7412423910814691913}
+  - {fileID: 3231760239639840162}
+  - {fileID: 4828556437485611562}
+  - {fileID: 1325164805}
 --- !u!114 &1575259379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24768,6 +24693,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1761052960}
   - component: {fileID: 1761052961}
+  - component: {fileID: 1761052963}
   - component: {fileID: 1761052962}
   m_Layer: 0
   m_Name: GameManager
@@ -24803,18 +24729,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ff009cbe824fed4997d3db6e987e1dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uiController: {fileID: 56634734}
+  dataController: {fileID: 0}
   soundSystem: {fileID: 588262824}
   timer: {fileID: 1090495809}
   dialogue: {fileID: 945587687}
-  ending: {fileID: 1575259378}
   rapley: {fileID: 133942950}
   pacmom: {fileID: 1861729285}
   dusts:
   - {fileID: 1412902986}
   - {fileID: 155197197}
-  coins: {fileID: 1942074557}
-  vacuums: {fileID: 1145695306}
   Door: {fileID: 1707595100}
   inRoom: 2
   <isGameOver>k__BackingField: 0
@@ -24837,8 +24760,24 @@ MonoBehaviour:
   - {fileID: 1135509576}
   - {fileID: 1785732109}
   dustEyeSprites:
-  - {fileID: 866525580}
-  - {fileID: 595982757}
+  - {fileID: 778017191}
+  - {fileID: 341896884}
+--- !u!114 &1761052963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1761052958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf07c5c2bf023084aa688c27fcc41120, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uiController: {fileID: 56634734}
+  ending: {fileID: 1575259378}
+  coins: {fileID: 1942074557}
+  vacuums: {fileID: 1145695306}
 --- !u!1001 &1762810768
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25483,7 +25422,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1865427656}
   m_Layer: 0
-  m_Name: ----
+  m_Name: --Else--
   m_TagString: EditorOnly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25869,6 +25808,7 @@ PrefabInstance:
       objectReference: {fileID: -1150924220, guid: e48202bc45cce2146932707e0ee993a9, type: 3}
     m_RemovedComponents:
     - {fileID: 6346998529763604019, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
+    - {fileID: 4733386059249401347, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
     m_RemovedGameObjects:
     - {fileID: 9074200449494484364, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
     - {fileID: 8974470889113537919, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
@@ -28959,8 +28899,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprites:
   - {fileID: 632556865, guid: ce5ae149e60272043ab43135fbed2730, type: 3}
-  - {fileID: -1061050227, guid: ce5ae149e60272043ab43135fbed2730, type: 3}
-  - {fileID: 632556865, guid: ce5ae149e60272043ab43135fbed2730, type: 3}
   - {fileID: -313153376, guid: ce5ae149e60272043ab43135fbed2730, type: 3}
 --- !u!1 &1953128313
 GameObject:
@@ -29063,6 +29001,40 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 28704590}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1997660226
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1997660227}
+  m_Layer: 0
+  m_Name: Timeline
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1997660227
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1997660226}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 650095488}
+  - {fileID: 1493158443}
+  - {fileID: 250424354}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2049974754
 GameObject:
@@ -29401,7 +29373,7 @@ GameObject:
   - component: {fileID: 2929860188779462518}
   - component: {fileID: 2929860188779462519}
   m_Layer: 7
-  m_Name: Dust_B_1
+  m_Name: Dust_B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29425,25 +29397,6 @@ MonoBehaviour:
   vacuumModeSprites:
   - {fileID: -1415079764, guid: 1c1fc1d82a5a37942ba9937a303a3a8e, type: 3}
   - {fileID: -686159391, guid: 1c1fc1d82a5a37942ba9937a303a3a8e, type: 3}
---- !u!114 &933165551766779786
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4828556437485611561}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0aef8913e775d0b4ca735e9d86e0e29f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  normalSprites:
-  - {fileID: -1150924220, guid: e48202bc45cce2146932707e0ee993a9, type: 3}
-  vacuumModeSprites:
-  - {fileID: -81401543, guid: 1c1fc1d82a5a37942ba9937a303a3a8e, type: 3}
-  - {fileID: 619541116, guid: 1c1fc1d82a5a37942ba9937a303a3a8e, type: 3}
-  - {fileID: 1920455971, guid: 1c1fc1d82a5a37942ba9937a303a3a8e, type: 3}
-  - {fileID: 776353656, guid: 1c1fc1d82a5a37942ba9937a303a3a8e, type: 3}
 --- !u!4 &969600381396707095
 Transform:
   m_ObjectHideFlags: 0
@@ -29572,7 +29525,7 @@ GameObject:
   - component: {fileID: 969600381396707095}
   - component: {fileID: 2704183146277498523}
   m_Layer: 7
-  m_Name: Dust_A_1
+  m_Name: Dust_A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29637,25 +29590,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &2967598485551542251
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7412423910814691912}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0aef8913e775d0b4ca735e9d86e0e29f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  normalSprites:
-  - {fileID: -1150924220, guid: e48202bc45cce2146932707e0ee993a9, type: 3}
-  vacuumModeSprites:
-  - {fileID: 659999010, guid: 1c1fc1d82a5a37942ba9937a303a3a8e, type: 3}
-  - {fileID: 351575495, guid: 1c1fc1d82a5a37942ba9937a303a3a8e, type: 3}
-  - {fileID: 1963257466, guid: 1c1fc1d82a5a37942ba9937a303a3a8e, type: 3}
-  - {fileID: 261432411, guid: 1c1fc1d82a5a37942ba9937a303a3a8e, type: 3}
 --- !u!4 &3039018181211504170
 Transform:
   m_ObjectHideFlags: 0
@@ -29836,7 +29770,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2153579390394105696}
   - component: {fileID: 3743472194156410134}
-  - component: {fileID: 933165551766779786}
+  - component: {fileID: 4828556437485611562}
   m_Layer: 7
   m_Name: Eyes
   m_TagString: Untagged
@@ -29844,6 +29778,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &4828556437485611562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4828556437485611561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 280ad43caa5bdd74a8041a3cdab14439, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  normalSprites:
+  - {fileID: -1150924220, guid: e48202bc45cce2146932707e0ee993a9, type: 3}
+  vacuumModeSprites:
+  - {fileID: -81401543, guid: 1c1fc1d82a5a37942ba9937a303a3a8e, type: 3}
+  - {fileID: 619541116, guid: 1c1fc1d82a5a37942ba9937a303a3a8e, type: 3}
+  - {fileID: 1920455971, guid: 1c1fc1d82a5a37942ba9937a303a3a8e, type: 3}
+  - {fileID: 776353656, guid: 1c1fc1d82a5a37942ba9937a303a3a8e, type: 3}
 --- !u!212 &7345148047124818261
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -29906,7 +29859,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4053045269362845441}
   - component: {fileID: 1598564669931875703}
-  - component: {fileID: 2967598485551542251}
+  - component: {fileID: 7412423910814691913}
   m_Layer: 7
   m_Name: Eyes
   m_TagString: Untagged
@@ -29914,6 +29867,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &7412423910814691913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7412423910814691912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 280ad43caa5bdd74a8041a3cdab14439, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  normalSprites:
+  - {fileID: -1150924220, guid: e48202bc45cce2146932707e0ee993a9, type: 3}
+  vacuumModeSprites:
+  - {fileID: 659999010, guid: 1c1fc1d82a5a37942ba9937a303a3a8e, type: 3}
+  - {fileID: 351575495, guid: 1c1fc1d82a5a37942ba9937a303a3a8e, type: 3}
+  - {fileID: 1963257466, guid: 1c1fc1d82a5a37942ba9937a303a3a8e, type: 3}
+  - {fileID: 261432411, guid: 1c1fc1d82a5a37942ba9937a303a3a8e, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -29928,18 +29900,15 @@ SceneRoots:
   - {fileID: 715443919}
   - {fileID: 1761052960}
   - {fileID: 56634735}
-  - {fileID: 372367289}
-  - {fileID: 945587686}
+  - {fileID: 1318748796}
   - {fileID: 1575259377}
   - {fileID: 980018771}
-  - {fileID: 86442426}
   - {fileID: 1598279879}
   - {fileID: 301195151}
   - {fileID: 1868357292}
   - {fileID: 1865427656}
-  - {fileID: 650095488}
-  - {fileID: 1493158443}
-  - {fileID: 250424354}
+  - {fileID: 86442426}
+  - {fileID: 1997660227}
   - {fileID: 1267132490}
   - {fileID: 1762810768}
   - {fileID: 490336366}

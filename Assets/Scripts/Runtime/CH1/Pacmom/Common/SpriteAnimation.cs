@@ -16,12 +16,18 @@ namespace Runtime.CH1.Pacmom
             SetLoop(true);
         }
 
+        public void SetLoop(bool isLoop)
+        {
+            this.isLoop = isLoop;
+        }
+
         public void NextSprite()
         {
             if (!isLoop && animFrame == sprites.Length - 1)
-            {
                 return;
-            }
+
+            if (sprites.Length == 1 && animFrame == sprites.Length - 1)
+                return;
 
             if (sprites.Length != 0)
             {
@@ -35,11 +41,6 @@ namespace Runtime.CH1.Pacmom
             animFrame = -1;
 
             NextSprite();
-        }
-
-        public void SetLoop(bool isLoop)
-        {
-            this.isLoop = isLoop;
         }
     }
 }

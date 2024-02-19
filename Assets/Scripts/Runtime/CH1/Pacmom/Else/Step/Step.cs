@@ -32,5 +32,12 @@ namespace Runtime.CH1.Pacmom
                 availableDirections.Add(direction);
             }
         }
+
+        public void AddStepsTwice(Step step, Vector2 direction)
+        {
+            for (int i = 0; i < 2; i++)
+                step.availableDirections.Add(direction);
+            // 구현 상속 대신 합성 사용
+        }
     }
 }

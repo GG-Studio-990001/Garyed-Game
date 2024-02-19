@@ -29,9 +29,8 @@ namespace Runtime.CH1.Pacmom
             }
         }
 
-        protected void Set()
+        protected void SetWhenAwake()
         {
-            // Awake에서 상속 필수
             SetRigidBody(GetComponent<Rigidbody2D>());
             startPosition = transform.position;
             canMove = true;

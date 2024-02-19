@@ -102,6 +102,8 @@ title: PMCatch
 <<else>>
     Dust: 팩맘 바보
 <<endif>>
+<<wait 3>>
+<<HideBubble>>
 ===
 
 title: PMBeCaught

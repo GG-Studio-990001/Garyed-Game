@@ -11,14 +11,14 @@ namespace Runtime.CH1.Pacmom
         [SerializeField]
         private bool isNormalEye { get; set; }
 
+        private void Awake()
+        {
+            SetWhenAwake();
+        }
+
         public void SetEyeNormal(bool isNormalEye)
         {
             this.isNormalEye = isNormalEye;
-        }
-
-        private void Awake()
-        {
-            Set();
         }
 
         protected override void SetDirection(Vector2 direction)
@@ -47,16 +47,16 @@ namespace Runtime.CH1.Pacmom
 
             switch (direction)
             {
-                case Vector2 v when v.Equals(Vector2.up): // 0 1
+                case Vector2 v when v.Equals(Vector2.up):
                     idx = 0;
                     break;
-                case Vector2 v when v.Equals(Vector2.down): // 0 -1
+                case Vector2 v when v.Equals(Vector2.down):
                     idx = 1;
                     break;
-                case Vector2 v when v.Equals(Vector2.right): // 1 0
+                case Vector2 v when v.Equals(Vector2.right):
                     idx = 2;
                     break;
-                case Vector2 v when v.Equals(Vector2.left): // -1 0
+                case Vector2 v when v.Equals(Vector2.left):
                     idx = 3;
                     break;
             }

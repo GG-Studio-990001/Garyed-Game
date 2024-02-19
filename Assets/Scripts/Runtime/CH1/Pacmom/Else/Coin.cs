@@ -24,13 +24,13 @@ namespace Runtime.CH1.Pacmom
         private void EatenByRapley()
         {
             gameObject.SetActive(false);
-            gameController?.CoinEaten(GlobalConst.PlayerStr);
+            gameController?.CoinEatenByRapley();
         }
 
         private void EatenByPacmom()
         {
             gameObject.SetActive(false);
-            gameController?.CoinEaten(GlobalConst.PacmomStr);
+            gameController?.CoinEatenByPacmom();
         }
 
         private void SuckByVacuum()
@@ -64,9 +64,13 @@ namespace Runtime.CH1.Pacmom
             else if (other.gameObject.layer == LayerMask.NameToLayer(GlobalConst.PacmomStr))
             {
                 if (other.gameObject.tag == GlobalConst.VacuumStr)
+                {
                     SuckByVacuum();
+                }
                 else
+                {
                     EatenByPacmom();
+                }
             }
         }
     }
