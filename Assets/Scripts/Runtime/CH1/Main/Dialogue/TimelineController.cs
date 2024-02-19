@@ -1,6 +1,4 @@
 using Runtime.Data.Original;
-using Runtime.InGameSystem;
-using Runtime.Interface;
 using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.Timeline;
@@ -28,6 +26,20 @@ namespace Runtime.CH1.Main.Dialogue
             }
             PlayableDirector.playableAsset = _timelineAssets[minor];
             PlayableDirector.Play();
+        }
+        
+        public void PlayTimeline(string timelineName)
+        {
+            for (int i = 0; i < _timelineAssets.Length; i++)
+            {
+                if (_timelineAssets[i].name == timelineName)
+                {
+                    PlayableDirector.playableAsset = _timelineAssets[i];
+                    PlayableDirector.Play();
+                    return;
+                }
+            }
+            Debug.LogError($"TimelineAsset with name {timelineName} not found");
         }
     }
 }

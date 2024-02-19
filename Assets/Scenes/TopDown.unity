@@ -571,6 +571,7 @@ MonoBehaviour:
   _timelineAssets:
   - {fileID: 11400000, guid: 29e843b83f4d54745879222afae3a6d3, type: 2}
   - {fileID: 11400000, guid: 1dc44c28531066c48989982cab644a0e, type: 2}
+  - {fileID: 11400000, guid: 7c05a6fefb8a7f5409a77d6dbfa8b321, type: 2}
   <PlayableDirector>k__BackingField: {fileID: 248890229}
   playerData: {fileID: 11400000, guid: 65d91fdbadf9436458d8efbe1f8995fe, type: 2}
 --- !u!1001 &272406420
@@ -4186,7 +4187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 610c541718d694070a21327d1ae62e75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  showDebug: 0
+  showDebug: 1
   debugTextView: {fileID: 0}
 --- !u!224 &4094602689952564441
 RectTransform:

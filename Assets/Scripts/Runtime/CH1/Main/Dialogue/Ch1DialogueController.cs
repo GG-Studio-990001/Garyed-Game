@@ -29,15 +29,23 @@ namespace Runtime.CH1.Main.Dialogue
         
         private void Awake()
         {
+            // UI/Sound
             _runner.AddCommandHandler<string>("PlayBackgroundSound", PlayBackgroundSound);
             _runner.AddCommandHandler("StopBackgroundSound", _soundSystem.StopMusic);
-            _runner.AddCommandHandler("SetCamera", SetCamera);
             _runner.AddCommandHandler<bool>("SetBackgroundColor", SetBackgroundColor);
             _runner.AddCommandHandler("FadeOut", _fadeController.StartFadeOut);
             _runner.AddCommandHandler("FadeIn", _fadeController.StartFadeIn);
             _runner.AddCommandHandler<string>("ChangeScene", ChangeScene);
-            _runner.AddCommandHandler("NextCutScene", NextCutScene);
+            
+            // Camera
+            _runner.AddCommandHandler("SetCamera", SetCamera);
+
+            // Logic
             _runner.AddCommandHandler("CurrentMinorDialogueStart", CurrentMinorDialogueStart);
+            _runner.AddCommandHandler("MinorVersionUp", () => playerData.quarter.minor++);
+            _runner.AddCommandHandler<string>("StartTimeline", (timelineName) => _timelineController.PlayTimeline(timelineName));
+            
+            // Character
         }
         
         private void PlayBackgroundSound(string soundName)
@@ -57,17 +65,10 @@ namespace Runtime.CH1.Main.Dialogue
         
         public void CurrentMinorDialogueStart()
         {
+            //_runner.NodeExists();
             _runner.Stop();
-            _runner.StartDialogue($"CutScene{playerData.quarter.minor}");
-        }
-        
-        private void NextCutScene()
-        {
-            var data = DataProviderManager.Instance.PlayerDataProvider.Get();
-            data.quarter.minor++;
-            DataProviderManager.Instance.PlayerDataProvider.Set(data);
-            
-            _timelineController.PlayTimeline(data.quarter.minor);
+            //_runner.Clear();
+            _runner.StartDialogue($"Dialogue{playerData.quarter.minor}");
         }
         
         private void ChangeScene(string spriteName)
