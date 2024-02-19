@@ -1,9 +1,10 @@
+using Runtime.Interface;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace Runtime.CH1.Pacmom
 {
-    public class Rapley : MonoBehaviour
+    public class Rapley : MonoBehaviour, IPMCharacter
     {
         public MovementAndRotation movement { get; set; }
 
