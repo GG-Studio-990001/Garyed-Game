@@ -98,7 +98,6 @@ namespace Runtime.CH1.Pacmom
         #region Start
         private void Start()
         {
-            spriteController.SetNormalSprites();
             SetCharacterMove(false);
         }
 
@@ -274,15 +273,15 @@ namespace Runtime.CH1.Pacmom
 
         public void PacmomEatenByRapley()
         {
-            PacmomEaten();
+            soundSystem.PlayEffect("PacmomStun");
 
             dataController.TakeHalfCoins(true);
             LoseLife();
         }
 
-        public void PacmomEatenByDust(int ID = 0)
+        public void PacmomEatenByDust(int ID)
         {
-            PacmomEaten();
+            soundSystem.PlayEffect("PacmomStun");
 
             dialogue.CatchDialogue(ID);
             StartCoroutine(dataController.ReleaseHalfCoins());
@@ -295,12 +294,6 @@ namespace Runtime.CH1.Pacmom
             dialogue.HideBubble();
             SetCharacterMove(true);
             LoseLife();
-        }
-
-        private void PacmomEaten()
-        {
-            soundSystem.PlayEffect("PacmomStun");
-            Debug.Log("팩맘 먹힘");
         }
 
         public void LoseLife()

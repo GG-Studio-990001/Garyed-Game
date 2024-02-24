@@ -14,6 +14,11 @@ namespace Runtime.CH1.Pacmom
         [SerializeField]
         private SpriteControl[] dustEyeSprites = new SpriteControl[GlobalConst.DustCnt];
 
+        private void Start()
+        {
+            SetNormalSprites();
+        }
+
         public void SetNormalSprites()
         {
             rapleySprite.GetNormalSprite();
