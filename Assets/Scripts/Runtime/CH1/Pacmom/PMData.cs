@@ -21,7 +21,7 @@ public class PMData : MonoBehaviour
     private int pacmomLives;
     #endregion
 
-    #region Awake
+    #region Awake & Start
     private void Awake()
     {
         gameController = GetComponent<PMGameController>();
@@ -35,6 +35,13 @@ public class PMData : MonoBehaviour
         {
             vacuum.GetComponent<Vacuum>().gameController = this.gameController;
         }
+    }
+
+    private void Start()
+    {
+        SetRapleyScore(0);
+        SetPacmomScore(0);
+        SetPacmomLives(3);
     }
     #endregion
 
@@ -57,13 +64,6 @@ public class PMData : MonoBehaviour
             return;
 
         pacmomLives = lives;
-    }
-
-    public void InitData()
-    {
-        SetRapleyScore(0);
-        SetPacmomScore(0);
-        SetPacmomLives(3);
     }
 
     public void RapleyScore1Up()

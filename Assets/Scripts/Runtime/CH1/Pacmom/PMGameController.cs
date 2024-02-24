@@ -104,8 +104,6 @@ namespace Runtime.CH1.Pacmom
 
         public void StartGame()
         {
-            dataController.InitData();
-
             ResetStates();
             SetCharacterMove(true);
 
