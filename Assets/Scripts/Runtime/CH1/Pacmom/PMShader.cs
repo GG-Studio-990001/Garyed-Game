@@ -11,7 +11,7 @@ namespace Runtime.CH1.Pacmom
 
         private void Start()
         {
-            if (volume == null)
+            if (volume is null)
                 return;
 
             volume.profile.TryGet(out m_bleed);
@@ -28,7 +28,7 @@ namespace Runtime.CH1.Pacmom
         public void ChangeBleedAmount()
         {
             //Null check
-            if (volume == null)
+            if (volume is null)
                 return;
             if (m_bleed is null)
                 return;

@@ -27,7 +27,7 @@ namespace Runtime.CH1.Pacmom
         {
             RaycastHit2D hit = Physics2D.BoxCast(transform.position, Vector2.one * 0.5f, 0f, direction, 1.5f, obstacleLayer);
 
-            if (hit.collider == null)
+            if (hit.collider is null)
             {
                 availableDirections.Add(direction);
             }

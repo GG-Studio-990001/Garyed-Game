@@ -24,7 +24,7 @@ namespace Runtime.CH1.Pacmom
         {
             Step step = other.GetComponent<Step>();
 
-            if (step == null)
+            if (step is null)
                 return;
 
             float shortestDistance = float.MaxValue;
@@ -51,7 +51,7 @@ namespace Runtime.CH1.Pacmom
 
             Vector2 direction = Vector2.zero;
 
-            if (nearestEnemy != null)
+            if (nearestEnemy is not null)
             {
                 if (isStronger)
                     direction = ChaseEnemy(nearestEnemy, step);
@@ -95,7 +95,7 @@ namespace Runtime.CH1.Pacmom
             Vector3 newPos = new Vector3(transform.position.x + direction.x * 2, transform.position.y + direction.y * 2, transform.position.z);
             RaycastHit2D hit = Physics2D.BoxCast(newPos, Vector2.one * 2f, 0, direction, 3f, LayerMask.GetMask("Coin"));
 
-            return hit.collider != null;
+            return hit.collider is not null;
         }
 
         private Vector2 MoveRandomly(Step step)

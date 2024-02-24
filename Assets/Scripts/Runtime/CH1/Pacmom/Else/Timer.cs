@@ -51,7 +51,7 @@ namespace Runtime.CH1.Pacmom
             if (timelimit < 1f)
             {
                 gameController?.GameOver();
-                if (gameController == null)
+                if (gameController is null)
                     SetTimer(false);
             }
         }
