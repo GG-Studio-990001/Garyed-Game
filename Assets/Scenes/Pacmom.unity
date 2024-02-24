@@ -1658,7 +1658,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   effectSounds:
-  - {fileID: 8300000, guid: 7ca67deb68f434a4c8693c5246ed66e7, type: 3}
+  - {fileID: 8300000, guid: 890382f44f65db247bd4a20a605b9d00, type: 3}
   - {fileID: 8300000, guid: 890382f44f65db247bd4a20a605b9d00, type: 3}
   - {fileID: 8300000, guid: 0f522d12e37f17f42a934bf0dd9b942b, type: 3}
   - {fileID: 8300000, guid: 52f50c9f5fdb6f94e822f90b6c37e8c1, type: 3}
@@ -25397,6 +25397,7 @@ MonoBehaviour:
   - {fileID: 133942948}
   - {fileID: 1412902989}
   - {fileID: 155197200}
+  <isStronger>k__BackingField: 0
 --- !u!114 &1861729289
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29181,7 +29182,6 @@ GameObject:
   - component: {fileID: 2115111730}
   - component: {fileID: 2115111733}
   - component: {fileID: 2115111732}
-  - component: {fileID: 2115111731}
   m_Layer: 5
   m_Name: TempChapterText
   m_TagString: Untagged
@@ -29208,18 +29208,6 @@ RectTransform:
   m_AnchoredPosition: {x: -20, y: 0}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 1, y: 1}
---- !u!114 &2115111731
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2115111729}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be15f809ec47f4a4393cacfdce81c606, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2115111732
 MonoBehaviour:
   m_ObjectHideFlags: 0
