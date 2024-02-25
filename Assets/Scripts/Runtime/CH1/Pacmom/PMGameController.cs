@@ -11,9 +11,9 @@ namespace Runtime.CH1.Pacmom
     public class PMGameController : MonoBehaviour
     {
         #region 선언
-        [Header("=Contoller=")]
         private PMSprite spriteController;
         private PMData dataController;
+        [Header("=Contoller=")]
         public SoundSystem soundSystem;
         [SerializeField]
         private InGameDialogue dialogue;
@@ -37,14 +37,12 @@ namespace Runtime.CH1.Pacmom
         private bool isMoving;
         private bool isVacuumMode = false;
 
-        #region Setting UI
         private IProvider<ControlsData> ControlsDataProvider => DataProviderManager.Instance.ControlsDataProvider;
         private GameOverControls GameOverControls => ControlsDataProvider.Get().GameOverControls;
 
+        [Header("=Setting UI=")]
         [SerializeField]
         private SettingsUIView settingsUIView;
-        #endregion
-
         #endregion
 
         #region Awake
