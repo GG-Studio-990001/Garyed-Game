@@ -19,12 +19,15 @@ public class PMData : MonoBehaviour
     private int rapleyScore;
     private int pacmomScore;
     private int pacmomLives;
+    private readonly float normalWaitTime = 0.03f;
+    private readonly float fasterWaitTime = 0.02f;
     #endregion
 
     #region Awake & Start
     private void Awake()
     {
         gameController = GetComponent<PMGameController>();
+        uiController.dataController = this;
 
         foreach (Transform coin in coins)
         {
@@ -105,6 +108,24 @@ public class PMData : MonoBehaviour
         }
     }
 
+    public float GetChangeTime(int diff)
+    {
+        diff = Mathf.Abs(diff);
+
+        if (diff >= 50)
+            return fasterWaitTime;
+        else
+            return normalWaitTime;
+    }
+
+    private float GetCoinTime(int score)
+    {
+        if (score >= 100)
+            return fasterWaitTime;
+        else
+            return normalWaitTime;
+    }
+
     public IEnumerator ReleaseHalfCoins()
     {
         // 방에서 나오는 먼지 예외처리
@@ -113,8 +134,7 @@ public class PMData : MonoBehaviour
         int score = pacmomScore / 2;
         SetPacmomScore(pacmomScore - score);
 
-        // 떨굴 코인이 많으면 떨구는 시간 단축
-        float releaseTime = (score >= 70 ? 0.02f : 0.03f);
+        float releaseTime = GetCoinTime(score);
 
         while (score > 0)
         {
@@ -143,7 +163,7 @@ public class PMData : MonoBehaviour
 
                 SetRapleyScore(rapleyScore + 1);
                 coin.gameObject.SetActive(false);
-                yield return new WaitForSeconds(0.03f);
+                yield return new WaitForSeconds(normalWaitTime);
             }
         }
         Invoke("ChooseAWinner", 1.5f);

@@ -6,6 +6,7 @@ namespace Runtime.CH1.Pacmom
 {
     public class PMUI : MonoBehaviour
     {
+        public PMData dataController;
         [SerializeField]
         private GameObject[] pacmomLives = new GameObject[3];
         [SerializeField]
@@ -32,12 +33,13 @@ namespace Runtime.CH1.Pacmom
         {
             string scoreStr = pacmomScoreTxt.text.Substring(1);
             int score = int.Parse(scoreStr);
+            float changeTime = dataController.GetChangeTime(newScore - score);
 
             while (score != newScore)
             {
                 score += (score < newScore ? 1 : -1);
                 pacmomScoreTxt.text = "x" + score.ToString();
-                yield return new WaitForSeconds(0.03f); // 0.03 코인 드롭/획득 시간 => const로 지정? // 리터럴 값 지양
+                yield return new WaitForSeconds(changeTime);
             }
         }
 
@@ -45,12 +47,13 @@ namespace Runtime.CH1.Pacmom
         {
             string scoreStr = rapleyScoreTxt.text.Substring(1);
             int score = int.Parse(scoreStr);
+            float changeTime = dataController.GetChangeTime(newScore - score);
 
             while (score != newScore)
             {
                 score += (score < newScore ? 1 : -1);
                 rapleyScoreTxt.text = "x" + score.ToString();
-                yield return new WaitForSeconds(0.03f);
+                yield return new WaitForSeconds(changeTime);
             }
         }
     }
