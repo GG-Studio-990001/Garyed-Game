@@ -13,13 +13,14 @@ namespace Runtime.CH1.Pacmom
         #region 선언
         [Header("=Contoller=")]
         private PMSprite spriteController;
-        [SerializeField]
         private PMData dataController;
         public SoundSystem soundSystem;
         [SerializeField]
+        private InGameDialogue dialogue;
+        [SerializeField]
         private Timer timer;
         [SerializeField]
-        private InGameDialogue dialogue;
+        private Door door;
 
         [Header("=Character=")]
         [SerializeField]
@@ -30,10 +31,6 @@ namespace Runtime.CH1.Pacmom
         private Dust[] dusts = new Dust[GlobalConst.DustCnt];
         private DustRoom[] dustRooms = new DustRoom[GlobalConst.DustCnt];
 
-        [Header("=Else=")]
-        [SerializeField]
-        private GameObject Door;
-        [field: SerializeField]
         public bool isGameOver { get; private set; } = false;
         private readonly float vacuumDuration = 10f;
         private readonly float vacuumEndDuration = 3f;
@@ -212,7 +209,7 @@ namespace Runtime.CH1.Pacmom
                 dusts[i].movement.SetEyeNormal(!isVacuumMode);
             }
 
-            Door.SetActive(isVacuumMode);
+            door.ActiveDoor(isVacuumMode);
         }
 
         private void SetVacuumSpeed()

@@ -187,6 +187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7596a19bd56838449abd356b574c45a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dataController: {fileID: 0}
   pacmomLives:
   - {fileID: 1148275729}
   - {fileID: 953717369}
@@ -1613,6 +1614,52 @@ Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 4929594504206174789, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
   m_PrefabInstance: {fileID: 345737601}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &370940466
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 370940467}
+  - component: {fileID: 370940468}
+  m_Layer: 0
+  m_Name: Door
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &370940467
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 370940466}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1707595101}
+  m_Father: {fileID: 1729251648}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &370940468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 370940466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3e5198be43ba8d419dc8478894a07d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  door: {fileID: 1707595100}
 --- !u!1 &372367287
 GameObject:
   m_ObjectHideFlags: 0
@@ -24308,7 +24355,7 @@ GameObject:
   - component: {fileID: 1707595102}
   - component: {fileID: 1707595104}
   m_Layer: 9
-  m_Name: Door
+  m_Name: DoorTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24327,7 +24374,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1729251648}
+  m_Father: {fileID: 370940467}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!483693784 &1707595102
 TilemapRenderer:
@@ -24775,7 +24822,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1707595101}
+  - {fileID: 370940467}
   - {fileID: 947682891}
   m_Father: {fileID: 301195151}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -24903,18 +24950,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ff009cbe824fed4997d3db6e987e1dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dataController: {fileID: 0}
   soundSystem: {fileID: 588262824}
-  timer: {fileID: 1090495809}
   dialogue: {fileID: 945587687}
+  timer: {fileID: 1090495809}
+  door: {fileID: 370940468}
   rapley: {fileID: 133942950}
   pacmom: {fileID: 1861729285}
   dusts:
   - {fileID: 1412902986}
   - {fileID: 155197197}
-  Door: {fileID: 1707595100}
-  inRoom: 2
-  <isGameOver>k__BackingField: 0
   settingsUIView: {fileID: 490336367}
 --- !u!114 &1761052962
 MonoBehaviour:
