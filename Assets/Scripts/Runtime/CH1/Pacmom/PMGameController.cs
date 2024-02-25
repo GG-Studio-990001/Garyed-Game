@@ -24,14 +24,10 @@ namespace Runtime.CH1.Pacmom
         [Header("=Character=")]
         [SerializeField]
         private Rapley rapley;
-
         [SerializeField]
         private Pacmom pacmom;
-        private AI pacmomAI;
-
         [SerializeField]
         private Dust[] dusts = new Dust[GlobalConst.DustCnt];
-        private AI[] dustAIs = new AI[GlobalConst.DustCnt];
         private DustRoom[] dustRooms = new DustRoom[GlobalConst.DustCnt];
 
         [Header("=Else=")]
@@ -75,10 +71,8 @@ namespace Runtime.CH1.Pacmom
             spriteController = GetComponent<PMSprite>();
             dataController = GetComponent<PMData>();
 
-            pacmomAI = pacmom.GetComponent<AI>();
             for (int i = 0; i < dusts.Length; i++)
             {
-                dustAIs[i] = dusts[i].GetComponent<AI>();
                 dustRooms[i] = dusts[i].GetComponent<DustRoom>();
             }
         }
@@ -211,10 +205,10 @@ namespace Runtime.CH1.Pacmom
         private void SetVacuumMode(bool isVacuumMode)
         {
             pacmom.VacuumMode(isVacuumMode);
-            pacmomAI.SetStronger(isVacuumMode);
+            pacmom.SetAIStronger(isVacuumMode);
             for (int i = 0; i < dusts.Length; i++)
             {
-                dustAIs[i].SetStronger(!isVacuumMode);
+                dusts[i].SetAIStronger(!isVacuumMode);
                 dusts[i].movement.SetEyeNormal(!isVacuumMode);
             }
 

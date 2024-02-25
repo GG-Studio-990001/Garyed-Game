@@ -21,14 +21,13 @@ namespace Runtime.CH1.Pacmom
         private void Start()
         {
             SetSpriteRotation();
-            SetAIValue();
+            SetAIStronger(false);
             ResetState();
         }
 
-        private void SetAIValue()
+        public void SetAIStronger(bool isStrong)
         {
-            ai?.SetStronger(false);
-            ai?.SetCoinMatter(true);
+            ai?.SetStronger(isStrong);
         }
 
         private void SetSpriteRotation()

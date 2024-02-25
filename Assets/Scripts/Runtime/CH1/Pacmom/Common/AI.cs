@@ -6,18 +6,14 @@ namespace Runtime.CH1.Pacmom
     {
         public Movement movement;
         public Transform[] enemys;
+        [SerializeField]
+        private bool doCoinMatter;
         [field: SerializeField]
         public bool isStronger { get; private set; }
-        public bool doCoinMatter { get; private set; }
 
         public void SetStronger(bool isStronger)
         {
             this.isStronger = isStronger;
-        }
-
-        public void SetCoinMatter(bool doCoinMatter)
-        {
-            this.doCoinMatter = doCoinMatter;
         }
 
         private void OnTriggerEnter2D(Collider2D other)
