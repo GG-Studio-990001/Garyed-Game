@@ -8,7 +8,7 @@ namespace Runtime.CH1.Pacmom
     {
         public PMGameController gameController;
         public MovementAndEyes movement { get; set; }
-        public AI ai { get; set; }
+        private AI ai;
         [field:SerializeField]
         public int dustID { get; private set; }
 
@@ -20,13 +20,18 @@ namespace Runtime.CH1.Pacmom
 
         private void Start()
         {
-            SetAIStronger(true);
+            SetStronger(true);
             ResetState();
         }
 
-        public void SetAIStronger(bool isStrong)
+        public bool IsStronger()
         {
-            ai?.SetStronger(isStrong);
+            return ai.isStronger;
+        }
+
+        public void SetStronger(bool isStrong)
+        {
+            ai?.SetAIStronger(isStrong);
         }
 
         public void ResetState()

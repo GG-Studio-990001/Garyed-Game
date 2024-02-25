@@ -38,6 +38,7 @@ namespace Runtime.CH1.Pacmom
         private readonly float vacuumDuration = 10f;
         private readonly float vacuumEndDuration = 3f;
         private bool isMoving;
+        private bool isVacuumMode = false;
 
         #region Setting UI
         private IProvider<ControlsData> ControlsDataProvider => DataProviderManager.Instance.ControlsDataProvider;
@@ -124,11 +125,9 @@ namespace Runtime.CH1.Pacmom
         #region Vacuum Mode
         public void UseVacuum()
         {
-            bool WasVacuumMode = pacmom.ai.isStronger;
+            dialogue.VacuumDialogue(isVacuumMode);
 
-            dialogue.VacuumDialogue(WasVacuumMode);
-
-            if (!WasVacuumMode)
+            if (!isVacuumMode)
             {
                 soundSystem.PlayMusic("StartVacuum");
             }
@@ -204,11 +203,12 @@ namespace Runtime.CH1.Pacmom
 
         private void SetVacuumMode(bool isVacuumMode)
         {
+            this.isVacuumMode = isVacuumMode;
             pacmom.VacuumMode(isVacuumMode);
-            pacmom.SetAIStronger(isVacuumMode);
+            pacmom.SetStronger(isVacuumMode);
             for (int i = 0; i < dusts.Length; i++)
             {
-                dusts[i].SetAIStronger(!isVacuumMode);
+                dusts[i].SetStronger(!isVacuumMode);
                 dusts[i].movement.SetEyeNormal(!isVacuumMode);
             }
 

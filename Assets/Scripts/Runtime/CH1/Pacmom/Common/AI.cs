@@ -11,7 +11,7 @@ namespace Runtime.CH1.Pacmom
         [field: SerializeField]
         public bool isStronger { get; private set; }
 
-        public void SetStronger(bool isStronger)
+        public void SetAIStronger(bool isStronger)
         {
             this.isStronger = isStronger;
         }

@@ -75,7 +75,7 @@ namespace Tests.Runtime.PacmomGameTest
             pacmomMovement.rigid.position = Vector3.zero;
             pacmomObj.layer = LayerMask.NameToLayer(GlobalConst.PacmomStr);
 
-            pacmomAI.SetStronger(true);
+            pacmomAI.SetAIStronger(true);
             pacmomAI.enemys = new Transform[1];
             pacmomAI.enemys[0] = dustObj.transform;
 
@@ -98,7 +98,7 @@ namespace Tests.Runtime.PacmomGameTest
             pacmomMovement.rigid.position = Vector3.zero;
             pacmomObj.layer = LayerMask.NameToLayer(GlobalConst.PacmomStr);
 
-            pacmomAI.SetStronger(false);
+            pacmomAI.SetAIStronger(false);
             pacmomAI.enemys = new Transform[1];
             pacmomAI.enemys[0] = dustObj.transform;
 

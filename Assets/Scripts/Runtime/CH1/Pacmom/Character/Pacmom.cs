@@ -8,7 +8,7 @@ namespace Runtime.CH1.Pacmom
     {
         public PMGameController gameController;
         public MovementAndRotation movement { get; set; }
-        public AI ai { get; set; }
+        private AI ai;
         [SerializeField]
         private GameObject vacuum;
 
@@ -21,13 +21,13 @@ namespace Runtime.CH1.Pacmom
         private void Start()
         {
             SetSpriteRotation();
-            SetAIStronger(false);
+            SetStronger(false);
             ResetState();
         }
 
-        public void SetAIStronger(bool isStrong)
+        public void SetStronger(bool isStrong)
         {
-            ai?.SetStronger(isStrong);
+            ai?.SetAIStronger(isStrong);
         }
 
         private void SetSpriteRotation()
@@ -51,7 +51,7 @@ namespace Runtime.CH1.Pacmom
         {
             SetRotateToZero();
 
-            ai.SetStronger(isVacuum);
+            ai.SetAIStronger(isVacuum);
             movement.spriteRotation.SetCanRotate(!isVacuum);
             vacuum.SetActive(isVacuum);
         }
