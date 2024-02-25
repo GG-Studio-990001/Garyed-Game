@@ -33,8 +33,6 @@ namespace Runtime.CH1.Pacmom
         [Header("=Else=")]
         [SerializeField]
         private GameObject Door;
-        [SerializeField]
-        private int inRoom = 2;
         [field: SerializeField]
         public bool isGameOver { get; private set; } = false;
         private readonly float vacuumDuration = 10f;
@@ -187,7 +185,6 @@ namespace Runtime.CH1.Pacmom
                 dusts[i].ResetState();
                 dustRooms[i].SetInRoom(true);
             }
-            inRoom = 2;
 
             DustExitRoom();
         }
@@ -237,8 +234,8 @@ namespace Runtime.CH1.Pacmom
             {
                 if (dustRooms[i].isInRoom)
                 {
-                    dustRooms[i].ExitRoom(GlobalConst.DustCnt - inRoom);
-                    inRoom--;
+                    int cntInRoom = GlobalConst.DustCnt - ((dustRooms[0].isInRoom ? 1 : 0) + (dustRooms[1].isInRoom ? 1 : 0));
+                    dustRooms[i].ExitRoom(cntInRoom);
                 }
             }
         }
@@ -260,7 +257,6 @@ namespace Runtime.CH1.Pacmom
             dust.movement.SetCanMove(false);
             dust.movement.ResetState();
             dust.GetComponent<DustRoom>().SetInRoom(true);
-            inRoom++;
 
             dialogue.BeCaughtDialogue(dust.dustID);
         }
