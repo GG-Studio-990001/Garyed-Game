@@ -16,7 +16,6 @@ namespace Tests.Runtime.PacmomGameTest
         private MovementAndRotation rapleyMovement;
 
         private GameObject coinObj;
-        private Coin coin;
 
         [UnitySetUp]
         public IEnumerator SetUp()
@@ -28,7 +27,7 @@ namespace Tests.Runtime.PacmomGameTest
             rapley.movement = rapleyMovement;
 
             coinObj = new GameObject("CoinObj");
-            coin = coinObj.AddComponent<Coin>();
+            coinObj.AddComponent<Coin>();
 
             yield return new WaitForFixedUpdate();
         }
