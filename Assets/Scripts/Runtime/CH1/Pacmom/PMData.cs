@@ -6,16 +6,19 @@ public class PMData : MonoBehaviour
 {
     #region 선언
     private PMGameController gameController;
+
     [Header("=Contoller=")]
     [SerializeField]
     private PMUI uiController;
     [SerializeField]
     private PMEnding ending;
+
     [Header("=Item=")]
     [SerializeField]
     private Transform coins;
     [SerializeField]
     private Transform vacuums;
+
     private int rapleyScore;
     private int pacmomScore;
     private int pacmomLives;

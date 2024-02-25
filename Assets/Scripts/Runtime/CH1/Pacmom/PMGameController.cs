@@ -39,11 +39,14 @@ namespace Runtime.CH1.Pacmom
         private readonly float vacuumEndDuration = 3f;
         private bool isMoving;
 
+        #region Setting UI
         private IProvider<ControlsData> ControlsDataProvider => DataProviderManager.Instance.ControlsDataProvider;
         private GameOverControls GameOverControls => ControlsDataProvider.Get().GameOverControls;
 
         [SerializeField]
         private SettingsUIView settingsUIView;
+        #endregion
+
         #endregion
 
         #region Awake
