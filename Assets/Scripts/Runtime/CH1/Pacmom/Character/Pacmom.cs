@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Runtime.CH1.Pacmom
 {
-    public class Pacmom : MonoBehaviour, ICharacter
+    public class Pacmom : MonoBehaviour, ICharacter, IFoodChain
     {
         public PMGameController gameController;
         public MovementAndRotation movement { get; set; }

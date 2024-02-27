@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Runtime.CH1.Pacmom
 {
-    public class Dust : MonoBehaviour, ICharacter
+    public class Dust : MonoBehaviour, ICharacter, IFoodChain
     {
         public PMGameController gameController;
         public MovementAndEyes movement { get; set; }
