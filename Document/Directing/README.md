@@ -23,3 +23,6 @@
 ## 문서 정리
 
 - [팀 목표 및 성격](./Team.md)
+- [게임 디자인 문서](./GameDesignDocument.md)
+- [게임 콘셉트 문서](./GameConceptDocument.md)
+- [일정 관리 문서](./Schedule.md)
