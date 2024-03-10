@@ -10,3 +10,4 @@
 - [일정 관리 컨벤션](ScheduleConvention.md)
 - [피드백 컨벤션](FeedbackConvention.md)
 - [논의 컨벤션](DiscussionConvention.md)
+- [코드 컨벤션](CodeConvention.md)
