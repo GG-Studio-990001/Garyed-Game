@@ -62,40 +62,52 @@ namespace Tests.Runtime.System
         [UnityTest]
         public IEnumerator WhenMusicVolumeChangesViewIsUpdated()
         {
+            // Arrange
             _musicVolumeSlider.value = 0.75f;
             
+            // Act
             yield return new WaitForFixedUpdate();
             
+            // Assert
             Assert.AreEqual(0.75f, _musicVolumeSlider.value);
         }
         
         [UnityTest]
         public IEnumerator WhenSfxVolumeChangesViewIsUpdated()
         {
+            // Arrange
             _sfxVolumeSlider.value = 0.3f;
             
+            // Act
             yield return new WaitForFixedUpdate();
             
+            // Assert
             Assert.AreEqual(0.3f, _sfxVolumeSlider.value);
         }
         
         [UnityTest]
         public IEnumerator WhenMusicVolumeChangesModelIsUpdated()
         {
+            // Arrange
             _musicVolumeSlider.value = 0.75f;
             
+            // Act
             yield return new WaitForFixedUpdate();
             
+            // Assert
             Assert.AreEqual(0.75f, _model.MusicVolume);
         }
         
         [UnityTest]
         public IEnumerator WhenSfxVolumeChangesModelIsUpdated()
         {
+            // Arrange
             _sfxVolumeSlider.value = 0.3f;
             
+            // Act
             yield return new WaitForFixedUpdate();
             
+            // Assert
             Assert.AreEqual(0.3f, _model.SfxVolume);
         }
         

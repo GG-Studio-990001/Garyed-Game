@@ -1,14 +1,16 @@
 using Cinemachine;
+using Runtime.Data.Original;
 using Runtime.InGameSystem;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 using Yarn.Unity;
 
 namespace Runtime.CH1.Main.Dialogue
 {
-    public class Ch1DialogueManager : DialogueViewBase
+    public class Ch1DialogueController : DialogueViewBase
     {
         [SerializeField] private DialogueRunner _runner;
         
@@ -20,17 +22,30 @@ namespace Runtime.CH1.Main.Dialogue
         
         public List<Sprite> Sprites = new List<Sprite>();
 
+        public UnityEvent OnDialogueStart => _runner.onDialogueStart;
+        public UnityEvent OnDialogueEnd => _runner.onDialogueComplete;
+        
+        public PlayerData playerData;
+        
         private void Awake()
         {
+            // UI/Sound
             _runner.AddCommandHandler<string>("PlayBackgroundSound", PlayBackgroundSound);
             _runner.AddCommandHandler("StopBackgroundSound", _soundSystem.StopMusic);
-            _runner.AddCommandHandler("SetCamera", SetCamera);
             _runner.AddCommandHandler<bool>("SetBackgroundColor", SetBackgroundColor);
             _runner.AddCommandHandler("FadeOut", _fadeController.StartFadeOut);
             _runner.AddCommandHandler("FadeIn", _fadeController.StartFadeIn);
-            _runner.AddCommandHandler<int>("PlayTimeline", PlayTimeline);
             _runner.AddCommandHandler<string>("ChangeScene", ChangeScene);
-            _runner.AddCommandHandler("NextCutScene", NextCutScene);
+            
+            // Camera
+            _runner.AddCommandHandler("SetCamera", SetCamera);
+
+            // Logic
+            _runner.AddCommandHandler("CurrentMinorDialogueStart", CurrentMinorDialogueStart);
+            _runner.AddCommandHandler("MinorVersionUp", () => playerData.quarter.minor++);
+            _runner.AddCommandHandler<string>("StartTimeline", (timelineName) => _timelineController.PlayTimeline(timelineName));
+            
+            // Character
         }
         
         private void PlayBackgroundSound(string soundName)
@@ -40,7 +55,7 @@ namespace Runtime.CH1.Main.Dialogue
 
         private void SetCamera()
         {
-            _virtualCamera.m_Lens.FieldOfView = 30;
+            _virtualCamera.m_Lens.FieldOfView = 30; // ?
         }
         
         private void SetBackgroundColor(bool isBlack)
@@ -48,23 +63,12 @@ namespace Runtime.CH1.Main.Dialogue
             _fadeController.SetBackground(isBlack);
         }
         
-        public void NextDirectionDialogue()
+        public void CurrentMinorDialogueStart()
         {
-            _runner.StartDialogue($"CutScene{DataProviderManager.Instance.PlayerDataProvider.Get().quarter.minor}");
-        }
-
-        private void PlayTimeline(int minor)
-        {
-            _timelineController.PlayTimeline(minor);
-        }
-        
-        private void NextCutScene()
-        {
-            var data = DataProviderManager.Instance.PlayerDataProvider.Get();
-            data.quarter.minor++;
-            DataProviderManager.Instance.PlayerDataProvider.Set(data);
-            
-            _timelineController.PlayTimeline(data.quarter.minor);
+            //_runner.NodeExists();
+            _runner.Stop();
+            //_runner.Clear();
+            _runner.StartDialogue($"Dialogue{playerData.quarter.minor}");
         }
         
         private void ChangeScene(string spriteName)
@@ -110,10 +114,6 @@ namespace Runtime.CH1.Main.Dialogue
                 //variableStorage.TryGetValue("$ThreeMatchPuzzle", out lvalue);
                 variableStorage.SetValue("$ThreeMatchPuzzle", true);
             }
-            
-            // int minorValue;
-            // variableStorage.TryGetValue("$minor", out minorValue);
-            // variableStorage.SetValue("$minor", minorValue + 1);
         }
     }
 }

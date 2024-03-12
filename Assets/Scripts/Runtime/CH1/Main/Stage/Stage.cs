@@ -1,29 +1,31 @@
-using Runtime.CH1.Main.Controller;
-using Runtime.Interface;
 using UnityEngine;
 using UnityEngine.Events;
 
 namespace Runtime.CH1.Main.Stage
 {
-    public class Stage : MonoBehaviour, IStage
+    public class Stage : MonoBehaviour
     {
         [field:SerializeField] public GameObject StageObject { get; set; }
-        
         [field: SerializeField] public int StageNumber { get; set; }
-        public IStageController StageController { get; set; }
 
         [Header("Stage Extension")]
         [SerializeField] private PolygonCollider2D confiner2D;
+        [SerializeField] private StageMover[] stageMovers;
         public UnityEvent onStageEnable;
         
-        public void SetSetting()
+        public void StageSettings(Ch1StageChanger stageChanger)
         {
-            var stageController = (StageController as Ch1StageController);
+            if (stageMovers is null) return;
             
-            if (stageController.Confiner2D is null)
-                return;
-            
-            stageController.Confiner2D.m_BoundingShape2D = confiner2D;
+            foreach (var stageMover in stageMovers)
+            {
+                stageMover.StageChanger = stageChanger;
+            }
+        }
+        
+        public PolygonCollider2D GetStageCollider()
+        {
+            return confiner2D;
         }
         
         public bool IsActivate()

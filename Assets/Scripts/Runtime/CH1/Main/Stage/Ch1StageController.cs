@@ -1,61 +1,60 @@
 using Cinemachine;
-using Runtime.CH1.Main.Stage;
+using Runtime.CH1.Main.Controller;
 using Runtime.InGameSystem;
-using Runtime.Interface;
+using Runtime.Input;
 using UnityEngine;
 
-namespace Runtime.CH1.Main.Controller
+namespace Runtime.CH1.Main.Stage
 {
-    public class Ch1StageController : MonoBehaviour, IStageController
+    public class Ch1StageController : MonoBehaviour
     {
-        public IStage CurrentStage { get; set; }
-        public IStageChanger StageChanger { get; set; }
-        public CinemachineConfiner2D Confiner2D { get; private set; }
+        [field:SerializeField] public CinemachineConfiner2D Confiner2D { get; private set; }
+        public Ch1StageChanger StageChanger { get; private set; }
         
-        private IStage[] _stages;
-        private GameObject _player;
+        private Stage[] _stages;
         private Ch1MainSystemController _mainSystemController;
         private FadeController _fadeController;
+        private InGameKeyBinder _inGameKeyBinder;
+        private Transform _playerTransform;
         
-        public void Init(GameObject player, CinemachineConfiner2D confiner2D, FadeController fadeController, Ch1MainSystemController mainSystemController)
+        public Stage CurrentStage => StageChanger.CurrentStage;
+        
+        public void Init(FadeController fadeController, InGameKeyBinder inGameKeyBinder, Transform playerTransform)
         {
-            _player = player;
-            Confiner2D = confiner2D;
             _fadeController = fadeController;
-            _mainSystemController = mainSystemController;
+            _inGameKeyBinder = inGameKeyBinder;
+            _playerTransform = playerTransform;
             
-            _stages = GetComponentsInChildren<IStage>();
+            _stages = GetComponentsInChildren<Stage>();
             
+            StageChangerInit();
+            StageSettings();
+        }
+        
+        private void StageChangerInit()
+        {
+            StageChanger = new Ch1StageChanger(_playerTransform, _stages, _fadeController, Confiner2D);
+            
+            StageChanger.OnStageStart += () => _inGameKeyBinder.PlayerInputDisable();
+            StageChanger.OnStageEnd += () => _inGameKeyBinder.PlayerInputEnable();
+        }
+        
+        private void StageSettings()
+        {
             foreach (var stage in _stages)
             {
-                stage.StageController = this;
+                stage.StageSettings(StageChanger);
             }
             
-            // 개발용: 인스펙터에서 스테이지를 바꿀 수 있도록 하기 위해
+            // 아래는 개발용
+            // 인스펙터에서 선택한 스테이지에서 시작 가능하게
             foreach (var stage in _stages)
             {
                 if (stage.IsActivate())
                 {
-                    CurrentStage = stage;
-                    CurrentStage.SetSetting();
+                    StageChanger.SetStage(stage.StageNumber, new Vector2(0, 0));
                 }
             }
-            
-            if (_fadeController is not null)
-                _fadeController.StartFadeIn();
-            
-            StagerChangerInit();
-        }
-        
-        private void StagerChangerInit()
-        {
-            StageChanger = new Ch1StageChanger(_player, CurrentStage, _stages, _fadeController);
-            
-            if (_mainSystemController is null)
-                return;
-            
-            StageChanger.OnStageStart += () => _mainSystemController.PlayerInputLimit(true);
-            StageChanger.OnStageEnd += () => _mainSystemController.PlayerInputLimit(false);
         }
     }
 }

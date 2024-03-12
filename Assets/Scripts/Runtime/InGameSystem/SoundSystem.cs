@@ -16,7 +16,7 @@ namespace Runtime.InGameSystem
             Sound sound = FindSound(backgroundSounds, soundName);
             if (sound == null)
             {
-                Debug.LogWarning($"Cannot find sound {soundName}");
+                backgroundAudioSource.Stop();
                 return;
             }
         

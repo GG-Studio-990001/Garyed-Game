@@ -6,6 +6,7 @@ namespace Runtime.Data.Original
     public class PlayerData : ScriptableObject
     {
         public Quarter quarter;
+        public SubPuzzleData subPuzzleData;
         public Vector3 position;
     }
 }
