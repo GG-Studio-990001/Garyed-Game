@@ -11,3 +11,4 @@
 - [피드백 컨벤션](FeedbackConvention.md)
 - [논의 컨벤션](DiscussionConvention.md)
 - [코드 컨벤션](CodeConvention.md)
+- [에셋/리소스 컨벤션](AssetConvention.md)
