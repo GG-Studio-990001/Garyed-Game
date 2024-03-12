@@ -94,7 +94,7 @@ namespace Runtime.CH1.Pacmom
             // 몸집이 있기 때문에 box로 검출
             RaycastHit2D hit = Physics2D.BoxCast(transform.position, Vector2.one * 0.5f, 0f, direction, 1.0f, obstacleLayer);
 
-            return hit.collider != null;
+            return hit.collider is not null;
         }
         #endregion
     }

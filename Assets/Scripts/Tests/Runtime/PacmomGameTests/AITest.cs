@@ -12,13 +12,11 @@ namespace Tests.Runtime.PacmomGameTest
     {
         private GameObject pacmomObj;
         private Pacmom pacmom;
-        private SpriteRenderer pacmomSpr;
         private MovementAndRotation pacmomMovement;
         private AI pacmomAI;
 
         private GameObject dustObj;
         private Dust dust;
-        private SpriteRenderer dustSpr;
         private MovementAndEyes dustMovement;
         private AI dustAI;
 
@@ -31,7 +29,6 @@ namespace Tests.Runtime.PacmomGameTest
         {
             pacmomObj = new GameObject("PacmomObj");
             pacmom = pacmomObj.AddComponent<Pacmom>();
-            pacmomSpr = pacmomObj.AddComponent<SpriteRenderer>();
             pacmomMovement = pacmomObj.AddComponent<MovementAndRotation>();
             pacmom.movement = pacmomMovement;
             pacmomAI = pacmomObj.AddComponent<AI>();
@@ -39,7 +36,6 @@ namespace Tests.Runtime.PacmomGameTest
 
             dustObj = new GameObject("DustObj");
             dust = dustObj.AddComponent<Dust>();
-            dustSpr = dustObj.AddComponent<SpriteRenderer>();
             dustMovement = dustObj.AddComponent<MovementAndEyes>();
             dust.movement = dustMovement;
             dustAI = dustObj.AddComponent<AI>();
@@ -75,7 +71,7 @@ namespace Tests.Runtime.PacmomGameTest
             pacmomMovement.rigid.position = Vector3.zero;
             pacmomObj.layer = LayerMask.NameToLayer(GlobalConst.PacmomStr);
 
-            pacmomAI.SetStronger(true);
+            pacmomAI.SetAIStronger(true);
             pacmomAI.enemys = new Transform[1];
             pacmomAI.enemys[0] = dustObj.transform;
 
@@ -98,7 +94,7 @@ namespace Tests.Runtime.PacmomGameTest
             pacmomMovement.rigid.position = Vector3.zero;
             pacmomObj.layer = LayerMask.NameToLayer(GlobalConst.PacmomStr);
 
-            pacmomAI.SetStronger(false);
+            pacmomAI.SetAIStronger(false);
             pacmomAI.enemys = new Transform[1];
             pacmomAI.enemys[0] = dustObj.transform;
 

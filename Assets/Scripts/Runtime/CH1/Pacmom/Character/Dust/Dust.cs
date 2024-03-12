@@ -4,11 +4,11 @@ using UnityEngine;
 
 namespace Runtime.CH1.Pacmom
 {
-    public class Dust : MonoBehaviour, ICharacter
+    public class Dust : MonoBehaviour, ICharacter, IFoodChain
     {
         public PMGameController gameController;
         public MovementAndEyes movement { get; set; }
-        public AI ai { get; set; }
+        private AI ai;
         [field:SerializeField]
         public int dustID { get; private set; }
 
@@ -20,14 +20,18 @@ namespace Runtime.CH1.Pacmom
 
         private void Start()
         {
-            SetAIValue();
+            SetStronger(true);
             ResetState();
         }
 
-        private void SetAIValue()
+        public bool IsStronger()
         {
-            ai?.SetStronger(true);
-            ai?.SetCoinMatter(false);
+            return ai.isStronger;
+        }
+
+        public void SetStronger(bool isStrong)
+        {
+            ai?.SetAIStronger(isStrong);
         }
 
         public void ResetState()

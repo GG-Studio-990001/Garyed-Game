@@ -16,10 +16,7 @@ namespace Tests.Runtime.PacmomGameTest
         private MovementAndRotation pacmomMovement;
 
         private GameObject coinObj;
-        private Coin coin;
-
         private GameObject vacuumObj;
-        private Vacuum vacuum;
 
         [UnitySetUp]
         public IEnumerator SetUp()
@@ -31,10 +28,10 @@ namespace Tests.Runtime.PacmomGameTest
             pacmom.movement = pacmomMovement;
 
             coinObj = new GameObject("CoinObj");
-            coin = coinObj.AddComponent<Coin>();
+            coinObj.AddComponent<Coin>();
 
             vacuumObj = new GameObject("VacuumObj");
-            vacuum = vacuumObj.AddComponent<Vacuum>();
+            vacuumObj.AddComponent<Vacuum>();
 
             yield return new WaitForFixedUpdate();
         }

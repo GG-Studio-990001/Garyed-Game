@@ -4,11 +4,11 @@ using UnityEngine;
 
 namespace Runtime.CH1.Pacmom
 {
-    public class Pacmom : MonoBehaviour, ICharacter
+    public class Pacmom : MonoBehaviour, ICharacter, IFoodChain
     {
         public PMGameController gameController;
         public MovementAndRotation movement { get; set; }
-        public AI ai { get; set; }
+        private AI ai;
         [SerializeField]
         private GameObject vacuum;
 
@@ -21,14 +21,13 @@ namespace Runtime.CH1.Pacmom
         private void Start()
         {
             SetSpriteRotation();
-            SetAIValue();
+            SetStronger(false);
             ResetState();
         }
 
-        private void SetAIValue()
+        public void SetStronger(bool isStrong)
         {
-            ai?.SetStronger(false);
-            ai?.SetCoinMatter(true);
+            ai?.SetAIStronger(isStrong);
         }
 
         private void SetSpriteRotation()
@@ -52,7 +51,7 @@ namespace Runtime.CH1.Pacmom
         {
             SetRotateToZero();
 
-            ai.SetStronger(isVacuum);
+            ai.SetAIStronger(isVacuum);
             movement.spriteRotation.SetCanRotate(!isVacuum);
             vacuum.SetActive(isVacuum);
         }

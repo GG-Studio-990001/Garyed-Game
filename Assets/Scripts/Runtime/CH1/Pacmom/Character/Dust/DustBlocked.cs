@@ -31,7 +31,7 @@ namespace Runtime.CH1.Pacmom
 
             if (!dustTalked && reachTime > 1.2f)
             {
-                if (!room.isInRoom && dust.ai.isStronger)
+                if (!room.isInRoom && dust.IsStronger())
                     dialogue.BlockedDialogue(dust.dustID);
                 dustTalked = true;
             }

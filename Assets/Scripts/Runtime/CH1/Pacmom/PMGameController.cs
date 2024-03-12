@@ -11,43 +11,36 @@ namespace Runtime.CH1.Pacmom
     public class PMGameController : MonoBehaviour
     {
         #region 선언
-        [Header("=Contoller=")]
         private PMSprite spriteController;
-        [SerializeField]
         private PMData dataController;
+        [Header("=Contoller=")]
         public SoundSystem soundSystem;
+        [SerializeField]
+        private InGameDialogue dialogue;
         [SerializeField]
         private Timer timer;
         [SerializeField]
-        private InGameDialogue dialogue;
+        private Door door;
 
         [Header("=Character=")]
         [SerializeField]
         private Rapley rapley;
-
         [SerializeField]
         private Pacmom pacmom;
-        private AI pacmomAI;
-
         [SerializeField]
         private Dust[] dusts = new Dust[GlobalConst.DustCnt];
-        private AI[] dustAIs = new AI[GlobalConst.DustCnt];
         private DustRoom[] dustRooms = new DustRoom[GlobalConst.DustCnt];
 
-        [Header("=Else=")]
-        [SerializeField]
-        private GameObject Door;
-        [SerializeField]
-        private int inRoom = 2;
-        [field: SerializeField]
         public bool isGameOver { get; private set; } = false;
         private readonly float vacuumDuration = 10f;
         private readonly float vacuumEndDuration = 3f;
         private bool isMoving;
+        private bool isVacuumMode = false;
 
         private IProvider<ControlsData> ControlsDataProvider => DataProviderManager.Instance.ControlsDataProvider;
         private GameOverControls GameOverControls => ControlsDataProvider.Get().GameOverControls;
 
+        [Header("=Setting UI=")]
         [SerializeField]
         private SettingsUIView settingsUIView;
         #endregion
@@ -75,10 +68,8 @@ namespace Runtime.CH1.Pacmom
             spriteController = GetComponent<PMSprite>();
             dataController = GetComponent<PMData>();
 
-            pacmomAI = pacmom.GetComponent<AI>();
             for (int i = 0; i < dusts.Length; i++)
             {
-                dustAIs[i] = dusts[i].GetComponent<AI>();
                 dustRooms[i] = dusts[i].GetComponent<DustRoom>();
             }
         }
@@ -98,14 +89,11 @@ namespace Runtime.CH1.Pacmom
         #region Start
         private void Start()
         {
-            spriteController.SetNormalSprites();
             SetCharacterMove(false);
         }
 
         public void StartGame()
         {
-            dataController.InitData();
-
             ResetStates();
             SetCharacterMove(true);
 
@@ -132,11 +120,9 @@ namespace Runtime.CH1.Pacmom
         #region Vacuum Mode
         public void UseVacuum()
         {
-            bool WasVacuumMode = pacmom.ai.isStronger;
+            dialogue.VacuumDialogue(isVacuumMode);
 
-            dialogue.VacuumDialogue(WasVacuumMode);
-
-            if (!WasVacuumMode)
+            if (!isVacuumMode)
             {
                 soundSystem.PlayMusic("StartVacuum");
             }
@@ -196,7 +182,6 @@ namespace Runtime.CH1.Pacmom
                 dusts[i].ResetState();
                 dustRooms[i].SetInRoom(true);
             }
-            inRoom = 2;
 
             DustExitRoom();
         }
@@ -213,15 +198,16 @@ namespace Runtime.CH1.Pacmom
 
         private void SetVacuumMode(bool isVacuumMode)
         {
+            this.isVacuumMode = isVacuumMode;
             pacmom.VacuumMode(isVacuumMode);
-            pacmomAI.SetStronger(isVacuumMode);
+            pacmom.SetStronger(isVacuumMode);
             for (int i = 0; i < dusts.Length; i++)
             {
-                dustAIs[i].SetStronger(!isVacuumMode);
+                dusts[i].SetStronger(!isVacuumMode);
                 dusts[i].movement.SetEyeNormal(!isVacuumMode);
             }
 
-            Door.SetActive(isVacuumMode);
+            door.ActiveDoor(isVacuumMode);
         }
 
         private void SetVacuumSpeed()
@@ -246,8 +232,8 @@ namespace Runtime.CH1.Pacmom
             {
                 if (dustRooms[i].isInRoom)
                 {
-                    dustRooms[i].ExitRoom(GlobalConst.DustCnt - inRoom);
-                    inRoom--;
+                    int cntInRoom = GlobalConst.DustCnt - ((dustRooms[0].isInRoom ? 1 : 0) + (dustRooms[1].isInRoom ? 1 : 0));
+                    dustRooms[i].ExitRoom(cntInRoom);
                 }
             }
         }
@@ -269,22 +255,21 @@ namespace Runtime.CH1.Pacmom
             dust.movement.SetCanMove(false);
             dust.movement.ResetState();
             dust.GetComponent<DustRoom>().SetInRoom(true);
-            inRoom++;
 
             dialogue.BeCaughtDialogue(dust.dustID);
         }
 
         public void PacmomEatenByRapley()
         {
-            PacmomEaten();
+            soundSystem.PlayEffect("PacmomStun");
 
             dataController.TakeHalfCoins(true);
             LoseLife();
         }
 
-        public void PacmomEatenByDust(int ID = 0)
+        public void PacmomEatenByDust(int ID)
         {
-            PacmomEaten();
+            soundSystem.PlayEffect("PacmomStun");
 
             dialogue.CatchDialogue(ID);
             StartCoroutine(dataController.ReleaseHalfCoins());
@@ -297,12 +282,6 @@ namespace Runtime.CH1.Pacmom
             dialogue.HideBubble();
             SetCharacterMove(true);
             LoseLife();
-        }
-
-        private void PacmomEaten()
-        {
-            soundSystem.PlayEffect("PacmomStun");
-            Debug.Log("팩맘 먹힘");
         }
 
         public void LoseLife()

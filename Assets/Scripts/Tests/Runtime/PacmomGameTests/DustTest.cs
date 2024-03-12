@@ -12,7 +12,6 @@ namespace Tests.Runtime.PacmomGameTest
     {
         private GameObject dustObj;
         private Dust dust;
-        private SpriteRenderer dustSpr;
         private MovementAndEyes dustMovement;
 
         [UnitySetUp]
@@ -20,7 +19,6 @@ namespace Tests.Runtime.PacmomGameTest
         {
             dustObj = new GameObject("DustObj");
             dust = dustObj.AddComponent<Dust>();
-            dustSpr = dustObj.AddComponent<SpriteRenderer>();
             dustMovement = dustObj.AddComponent<MovementAndEyes>();
             dust.movement = dustMovement;
 
