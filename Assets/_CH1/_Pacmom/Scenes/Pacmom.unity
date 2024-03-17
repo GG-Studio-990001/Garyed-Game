@@ -23959,10 +23959,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f01a2d5d2682fcd408dc47330623b8a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneSystem: {fileID: 2119691701}
-  PMShader: {fileID: 1575259379}
-  Timeline_3: {fileID: 250424353}
-  spriteControls:
+  _sceneSystem: {fileID: 2119691701}
+  _Shader: {fileID: 1575259379}
+  _timeline_3: {fileID: 250424353}
+  _spriteControls:
   - {fileID: 790340050}
   - {fileID: 650144428611018179}
   - {fileID: 7412423910814691913}
@@ -24993,10 +24993,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf07c5c2bf023084aa688c27fcc41120, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uiController: {fileID: 56634734}
-  ending: {fileID: 1575259378}
-  coins: {fileID: 1942074557}
-  vacuums: {fileID: 1145695306}
+  _uiController: {fileID: 56634734}
+  _ending: {fileID: 1575259378}
+  _coins: {fileID: 1942074557}
+  _vacuums: {fileID: 1145695306}
 --- !u!1001 &1762810768
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -5,41 +5,41 @@ using UnityEngine;
 public class PMData : MonoBehaviour
 {
     #region 선언
-    private PMGameController gameController;
+    private PMGameController _gameController;
 
     [Header("=Contoller=")]
     [SerializeField]
-    private PMUI uiController;
+    private PMUI _uiController;
     [SerializeField]
-    private PMEnding ending;
+    private PMEnding _ending;
 
     [Header("=Item=")]
     [SerializeField]
-    private Transform coins;
+    private Transform _coins;
     [SerializeField]
-    private Transform vacuums;
+    private Transform _vacuums;
 
-    private int rapleyScore;
-    private int pacmomScore;
-    private int pacmomLives;
-    private readonly float normalWaitTime = 0.03f;
-    private readonly float fasterWaitTime = 0.02f;
+    private int _rapleyScore;
+    private int _pacmomScore;
+    private int _pacmomLives;
+    private readonly float _normalWaitTime = 0.03f;
+    private readonly float _fasterWaitTime = 0.02f;
     #endregion
 
     #region Awake & Start
     private void Awake()
     {
-        gameController = GetComponent<PMGameController>();
-        uiController.dataController = this;
+        _gameController = GetComponent<PMGameController>();
+        _uiController.dataController = this;
 
-        foreach (Transform coin in coins)
+        foreach (Transform coin in _coins)
         {
-            coin.GetComponent<Coin>().gameController = this.gameController;
+            coin.GetComponent<Coin>().gameController = this._gameController;
         }
 
-        foreach (Transform vacuum in vacuums)
+        foreach (Transform vacuum in _vacuums)
         {
-            vacuum.GetComponent<Vacuum>().gameController = this.gameController;
+            vacuum.GetComponent<Vacuum>().gameController = this._gameController;
         }
     }
 
@@ -54,14 +54,14 @@ public class PMData : MonoBehaviour
     #region Score & Lives
     private void SetRapleyScore(int score)
     {
-        rapleyScore = score;
-        uiController.ShowRapleyScore(score);
+        _rapleyScore = score;
+        _uiController.ShowRapleyScore(score);
     }
 
     private void SetPacmomScore(int score)
     {
-        pacmomScore = score;
-        uiController.ShowPacmomScore(score);
+        _pacmomScore = score;
+        _uiController.ShowPacmomScore(score);
     }
 
     private void SetPacmomLives(int lives)
@@ -69,28 +69,28 @@ public class PMData : MonoBehaviour
         if (lives < 0)
             return;
 
-        pacmomLives = lives;
+        _pacmomLives = lives;
     }
 
     public void RapleyScore1Up()
     {
-        SetRapleyScore(rapleyScore + 1);
+        SetRapleyScore(_rapleyScore + 1);
     }
 
     public void PacmomScore1Up()
     {
-        SetPacmomScore(pacmomScore + 1);
+        SetPacmomScore(_pacmomScore + 1);
     }
 
     public void LosePacmomLife()
     {
-        SetPacmomLives(pacmomLives - 1);
-        uiController.LosePacmomLife(pacmomLives);
+        SetPacmomLives(_pacmomLives - 1);
+        _uiController.LosePacmomLife(_pacmomLives);
     }
 
     public bool IsPacmomAlive()
     {
-        return (pacmomLives > 0);
+        return (_pacmomLives > 0);
     }
     #endregion
 
@@ -99,15 +99,15 @@ public class PMData : MonoBehaviour
     {
         if (isRapleyTake)
         {
-            int score = pacmomScore / 2;
-            SetRapleyScore(rapleyScore + score);
-            SetPacmomScore(pacmomScore - score);
+            int score = _pacmomScore / 2;
+            SetRapleyScore(_rapleyScore + score);
+            SetPacmomScore(_pacmomScore - score);
         }
         else
         {
-            int score = rapleyScore / 2;
-            SetPacmomScore(pacmomScore + score);
-            SetRapleyScore(rapleyScore - score);
+            int score = _rapleyScore / 2;
+            SetPacmomScore(_pacmomScore + score);
+            SetRapleyScore(_rapleyScore - score);
         }
     }
 
@@ -116,17 +116,17 @@ public class PMData : MonoBehaviour
         diff = Mathf.Abs(diff);
 
         if (diff >= 50)
-            return fasterWaitTime;
+            return _fasterWaitTime;
         else
-            return normalWaitTime;
+            return _normalWaitTime;
     }
 
     private float GetCoinTime(int score)
     {
         if (score >= 100)
-            return fasterWaitTime;
+            return _fasterWaitTime;
         else
-            return normalWaitTime;
+            return _normalWaitTime;
     }
 
     public IEnumerator ReleaseHalfCoins()
@@ -134,15 +134,15 @@ public class PMData : MonoBehaviour
         // 방에서 나오는 먼지 예외처리
         StopAllCoroutines();
 
-        int score = pacmomScore / 2;
-        SetPacmomScore(pacmomScore - score);
+        int score = _pacmomScore / 2;
+        SetPacmomScore(_pacmomScore - score);
 
         float releaseTime = GetCoinTime(score);
 
         while (score > 0)
         {
-            int rand = Random.Range(0, coins.childCount);
-            Transform childCoin = coins.transform.GetChild(rand);
+            int rand = Random.Range(0, _coins.childCount);
+            Transform childCoin = _coins.transform.GetChild(rand);
             Coin coin = childCoin.GetComponent<Coin>();
 
             if (!coin.gameObject.activeSelf)
@@ -153,20 +153,20 @@ public class PMData : MonoBehaviour
             }
         }
 
-        gameController.AfterPacmomEatenByDust();
+        _gameController.AfterPacmomEatenByDust();
     }
 
     public IEnumerator GetRemaningCoins()
     {
-        foreach (Transform coin in coins)
+        foreach (Transform coin in _coins)
         {
             if (coin.gameObject.activeSelf)
             {
-                gameController.soundSystem.PlayEffect("RapleyEatCoin");
+                _gameController.soundSystem.PlayEffect("RapleyEatCoin");
 
-                SetRapleyScore(rapleyScore + 1);
+                SetRapleyScore(_rapleyScore + 1);
                 coin.gameObject.SetActive(false);
-                yield return new WaitForSeconds(normalWaitTime);
+                yield return new WaitForSeconds(_normalWaitTime);
             }
         }
         Invoke("ChooseAWinner", 1.5f);
@@ -174,17 +174,17 @@ public class PMData : MonoBehaviour
 
     private void ChooseAWinner()
     {
-        gameController.soundSystem.StopAllSound();
+        _gameController.soundSystem.StopAllSound();
 
-        if (rapleyScore > pacmomScore)
-            ending.RapleyWin();
+        if (_rapleyScore > _pacmomScore)
+            _ending.RapleyWin();
         else
-            ending.PacmomWin();
+            _ending.PacmomWin();
     }
 
     public bool HasRemainingCoins()
     {
-        foreach (Transform coin in coins)
+        foreach (Transform coin in _coins)
         {
             if (coin.gameObject.activeSelf)
             {
