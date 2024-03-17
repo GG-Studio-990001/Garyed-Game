@@ -187,13 +187,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7596a19bd56838449abd356b574c45a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dataController: {fileID: 0}
-  pacmomLives:
+  dataController: {fileID: 1761052963}
+  _pacmomLives:
   - {fileID: 1148275729}
   - {fileID: 953717369}
   - {fileID: 1329747252}
-  pacmomScoreTxt: {fileID: 207246688}
-  rapleyScoreTxt: {fileID: 2049974756}
+  _pacmomScoreTxt: {fileID: 207246688}
+  _rapleyScoreTxt: {fileID: 2049974756}
 --- !u!4 &56634735
 Transform:
   m_ObjectHideFlags: 0
@@ -275,6 +275,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeImage: {fileID: 1651796630}
+  background: {fileID: 0}
   fadeDeltaTime: 0.01
 --- !u!224 &86442426
 RectTransform:
@@ -23920,17 +23921,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0a1599129becef468d423c57a6b4643, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerInput: {fileID: 133942949}
-  controller: {fileID: 1761052961}
-  openingUI: {fileID: 252038269}
-  dialogueRunner:
+  _playerInput: {fileID: 133942949}
+  _controller: {fileID: 1761052961}
+  _openingUI: {fileID: 252038269}
+  _dialogueRunner:
   - {fileID: 372367287}
   - {fileID: 945587683}
-  timeline:
+  _timeline:
   - {fileID: 650095486}
   - {fileID: 1493158440}
-  pacmom: {fileID: 790340051}
-  rapley: {fileID: 1325164806}
+  _pacmom: {fileID: 790340051}
+  _rapley: {fileID: 1325164806}
 --- !u!4 &1575259377
 Transform:
   m_ObjectHideFlags: 0
@@ -24972,13 +24973,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d4b0d9ee5d87b749918c8ff1576b1f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rapleySprite: {fileID: 133942954}
-  pacmomSprite: {fileID: 1861729287}
-  dustBodySprites:
+  _rapleySprite: {fileID: 133942954}
+  _pacmomSprite: {fileID: 1861729287}
+  _dustBodySprites:
   - {fileID: 1135509576}
-  - {fileID: 1785732109}
-  dustEyeSprites:
   - {fileID: 778017191}
+  _dustEyeSprites:
+  - {fileID: 1785732109}
   - {fileID: 341896884}
 --- !u!114 &1761052963
 MonoBehaviour:
