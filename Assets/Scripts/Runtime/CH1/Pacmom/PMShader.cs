@@ -7,22 +7,22 @@ namespace Runtime.CH1.Pacmom
     {
         [SerializeField]
         public Volume volume;
-        private Bleed m_bleed;
+        private Bleed _m_bleed;
 
         private void Start()
         {
             if (volume is null)
                 return;
 
-            volume.profile.TryGet(out m_bleed);
+            volume.profile.TryGet(out _m_bleed);
 
-            if (m_bleed is null)
+            if (_m_bleed is null)
             {
                 Debug.Log("Add Glitch1 effect to your Volume component to make Manipulation Example work");
                 return;
             }
 
-            m_bleed.active = true;
+            _m_bleed.active = true;
         }
 
         public void ChangeBleedAmount()
@@ -30,10 +30,10 @@ namespace Runtime.CH1.Pacmom
             //Null check
             if (volume is null)
                 return;
-            if (m_bleed is null)
+            if (_m_bleed is null)
                 return;
 
-            m_bleed.bleedAmount.value = 10f;
+            _m_bleed.bleedAmount.value = 10f;
         }
     }
 }

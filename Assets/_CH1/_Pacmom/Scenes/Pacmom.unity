@@ -24952,15 +24952,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundSystem: {fileID: 588262824}
-  dialogue: {fileID: 945587687}
-  timer: {fileID: 1090495809}
-  door: {fileID: 370940468}
-  rapley: {fileID: 133942950}
-  pacmom: {fileID: 1861729285}
-  dusts:
+  _dialogue: {fileID: 945587687}
+  _timer: {fileID: 1090495809}
+  _door: {fileID: 370940468}
+  _rapley: {fileID: 133942950}
+  _pacmom: {fileID: 1861729285}
+  _dusts:
   - {fileID: 1412902986}
   - {fileID: 155197197}
-  settingsUIView: {fileID: 490336367}
+  _settingsUIView: {fileID: 490336367}
 --- !u!114 &1761052962
 MonoBehaviour:
   m_ObjectHideFlags: 0
