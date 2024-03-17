@@ -22,4 +22,12 @@ namespace Runtime.ETC
         rapley,
         none
     }
+
+    public enum Sound
+    {
+        BGM,
+        Effect,
+        Speech,
+        Max,
+    }
 }

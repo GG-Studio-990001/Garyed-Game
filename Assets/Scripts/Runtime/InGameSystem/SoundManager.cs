@@ -1,75 +1,82 @@
-using System;
+using Runtime.ETC;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AddressableAssets;
-using UnityEngine.ResourceManagement.AsyncOperations;
-using UnityEngine.ResourceManagement.ResourceLocations;
 
 namespace Runtime.InGameSystem
 {
-    public class SoundManager : MonoBehaviour
+    // 코드에서 SoundType은 정적으로 3개로 고정이기 때문에
+    // 구분하지 않고 분기문으로 처리, Sound 타입에 따라 정리
+    public class SoundManager
     {
-        public static SoundManager Instance { get; private set; }
-        private Dictionary<string, AssetReference> _soundReferences = new Dictionary<string, AssetReference>();
+        private AudioSource[] _audioSources = new AudioSource[(int)Sound.Max];
+        private Dictionary<string, AudioClip> _audioClips = new();
+        
+        private GameObject _soundRoot = null;
 
-        private void Awake()
+        public void Init()
         {
-            if (Instance == null)
+            if (_soundRoot == null)
             {
-                Instance = this;
-                DontDestroyOnLoad(this);
+                _soundRoot = GameObject.Find("@SoundRoot");
+                if (_soundRoot == null)
+                {
+                    _soundRoot = new GameObject("@SoundRoot");
+                    Object.DontDestroyOnLoad(_soundRoot);
 
-                //InitializeSounds("Sound");
-                //PlaySound("BGM_Mamago");
-                return;
+                    string[] soundTypeNames = System.Enum.GetNames(typeof(Sound));
+                    for (int count = 0; count < soundTypeNames.Length; count++)
+                    {
+                        GameObject soundObject = new GameObject(soundTypeNames[count]);
+                        soundObject.transform.parent = _soundRoot.transform;
+                        _audioSources[count] = Utils.GetOrAddComponent<AudioSource>(soundObject);
+                    }
+
+                    _audioSources[(int)Sound.BGM].loop = true;
+                }
+            }
+        }
+
+        public void Clear()
+        {
+            foreach (var audioSource in _audioSources)
+            {
+                audioSource.Stop();
             }
             
-            Destroy(gameObject);
+            _audioClips.Clear();
         }
         
-        private void InitializeSounds(string groupName)
+        public bool Play(Sound type, string path, float volume = 1.0f, float pitch = 1.0f)
         {
-            Addressables.LoadResourceLocationsAsync(groupName).Completed += handle =>
+            if (string.IsNullOrEmpty(path))
             {
-                if (handle.Status == AsyncOperationStatus.Succeeded)
-                {
-                    foreach (var location in handle.Result)
-                    {
-                        if (location.ResourceType == typeof(AudioClip))
-                        {
-                            Debug.Log($"Load sound {location.PrimaryKey}");
-                            string soundName = location.PrimaryKey;
-                            _soundReferences.Add(soundName, new AssetReference(soundName));
-                        }
-                    }
-                }
-                else
-                {
-                    Debug.LogError($"Cannot load sound group {groupName}");
-                }
-            };
+                return false;
+            }
+
+            AudioSource audioSource = _audioSources[(int)type];
+            if (path.Contains("Sound/") == false)
+            {
+                path = $"Sound/{path}";
+            }
+
+            audioSource.volume = volume;
+
+            // BGM
+            if (type == Sound.BGM)
+            {
+                AudioClip 
+            }
         }
 
-        public void PlaySound(string soundName)
+        private AudioClip getAudioClip(string path)
         {
-            if (_soundReferences.TryGetValue(soundName, out var soundReference))
+            AudioClip audioClip = null;
+            if (_audioClips.TryGetValue(path, out audioClip))
             {
-                soundReference.LoadAssetAsync<AudioClip>().Completed += handle =>
-                {
-                    if (handle.Status == AsyncOperationStatus.Succeeded)
-                    {
-                        AudioSource.PlayClipAtPoint(handle.Result, Vector3.zero);
-                    }
-                    else
-                    {
-                        Debug.LogError($"Cannot load sound {soundName}");
-                    }
-                };
+                return audioClip;
             }
-            else
-            {
-                Debug.LogError($"Cannot find sound {soundName}");
-            }
+            
+            audioClip = Managers.
         }
     }
 }
