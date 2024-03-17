@@ -10,8 +10,6 @@ namespace Runtime.Common.Presentation
     {
         private readonly SettingsUIView _settingsUIView;
         private readonly SettingsData _settingsData;
-        private readonly AudioSource _backgroundAudioSource;
-        private readonly AudioSource _effectAudioSource;
         
         public SettingsData SettingsData => _settingsData;
         
@@ -29,19 +27,6 @@ namespace Runtime.Common.Presentation
             _settingsUIView.MusicVolumeSlider.onValueChanged.AddListener(SetMusicVolume);
             _settingsUIView.SfxVolumeSlider.onValueChanged.AddListener(SetSfxVolume);
             
-            _backgroundAudioSource = GameObject.Find(_backgroundAudioSourceName).GetComponent<AudioSource>();
-            _effectAudioSource = GameObject.Find(_effectAudioSourceName).GetComponent<AudioSource>();
-            
-            if (_backgroundAudioSource == null)
-            {
-                Debug.LogError("Cannot find BackgroundAudioSource");
-            }
-            
-            if (_effectAudioSource == null)
-            {
-                Debug.LogError("Cannot find EffectAudioSource");
-            }
-            
             SetMusicVolume(_settingsData.MusicVolume);
             SetSfxVolume(_settingsData.SfxVolume);
             
@@ -54,7 +39,7 @@ namespace Runtime.Common.Presentation
             _settingsData.MusicVolume = volume;
             _settingsUIView.MusicVolumeSlider.value = _settingsData.MusicVolume;
             
-            _backgroundAudioSource.volume = _settingsData.MusicVolume;
+            Managers.Sound.BGM.volume = _settingsData.MusicVolume;
         }
         
         private void SetSfxVolume(float volume)
@@ -62,7 +47,7 @@ namespace Runtime.Common.Presentation
             _settingsData.SfxVolume = volume;
             _settingsUIView.SfxVolumeSlider.value = _settingsData.SfxVolume;
             
-            _effectAudioSource.volume = _settingsData.SfxVolume;
+            Managers.Sound.Effect.volume = _settingsData.SfxVolume;
         }
         
         private void OnGameExitButtonClicked()

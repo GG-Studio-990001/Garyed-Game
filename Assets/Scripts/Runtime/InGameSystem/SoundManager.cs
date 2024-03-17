@@ -11,6 +11,10 @@ namespace Runtime.InGameSystem
         private AudioSource[] _audioSources = new AudioSource[(int)Sound.Max];
         private Dictionary<string, AudioClip> _audioClips = new();
         
+        public AudioSource BGM => _audioSources[(int)Sound.BGM];
+        public AudioSource Speech => _audioSources[(int)Sound.Speech];
+        public AudioSource Effect => _audioSources[(int)Sound.Effect];
+        
         private GameObject _soundRoot = null;
 
         public void Init()
@@ -24,7 +28,7 @@ namespace Runtime.InGameSystem
                     Object.DontDestroyOnLoad(_soundRoot);
 
                     string[] soundTypeNames = System.Enum.GetNames(typeof(Sound));
-                    for (int count = 0; count < soundTypeNames.Length; count++)
+                    for (int count = 0; count < soundTypeNames.Length - 1; count++)
                     {
                         GameObject soundObject = new GameObject(soundTypeNames[count]);
                         soundObject.transform.parent = _soundRoot.transform;
@@ -61,11 +65,33 @@ namespace Runtime.InGameSystem
 
             audioSource.volume = volume;
 
-            // BGM
-            if (type == Sound.BGM)
+            AudioClip audioClip = getAudioClip(path);
+            if (audioClip == null)
             {
-                AudioClip 
+                return false;
             }
+            
+            audioSource.pitch = pitch;
+            
+            // BGM
+            if (type == Sound.BGM || type == Sound.Speech)
+            {
+                if (audioSource.isPlaying)
+                {
+                    audioSource.Stop();
+                }
+                
+                audioSource.clip = audioClip;
+                audioSource.Play();
+                return true;
+            }
+            else if (type == Sound.Effect)
+            {
+                audioSource.PlayOneShot(audioClip);
+                return true;
+            }
+
+            return false;
         }
 
         private AudioClip getAudioClip(string path)
@@ -75,8 +101,10 @@ namespace Runtime.InGameSystem
             {
                 return audioClip;
             }
-            
-            audioClip = Managers.
+
+            audioClip = Managers.Resource.Load<AudioClip>(path);
+            _audioClips.Add(path, audioClip);
+            return audioClip;
         }
     }
 }

@@ -8,6 +8,7 @@ using Runtime.InGameSystem;
 using Runtime.Input;
 using Runtime.Interface;
 using UnityEngine;
+using Sound = Runtime.ETC.Sound;
 
 namespace Runtime.CH1.Main.Controller
 {
@@ -63,6 +64,7 @@ namespace Runtime.CH1.Main.Controller
         // 현재 minor버전에 맞는 연출 실행
         private void TryGameIntro()
         {
+            Managers.Sound.Play(Sound.BGM, "Ch1Main");
             //timelineController.PlayTimeline();
         }
     }

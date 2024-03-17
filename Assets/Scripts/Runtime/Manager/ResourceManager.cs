@@ -8,12 +8,28 @@ namespace Runtime.Manager
     // 이 부분에서만 교체하면 다 바뀌게 할 수 있게 설정함
     public class ResourceManager
     {
-        public Dictionary<string, Sprite> _sprites = new();
+        public readonly Dictionary<string, Sprite> _sprites = new();
         
         public void Init()
         {
         }
-        
-        public T Load<T>(string)
+
+        public T Load<T>(string path) where T : Object
+        {
+            if (typeof(T) == typeof(Sprite))
+            {
+                if (_sprites.TryGetValue(path, out Sprite sprite))
+                {
+                    return sprite as T;
+                }
+                
+                Sprite sp = Resources.Load<Sprite>(path);
+                _sprites.Add(path, sp);
+                return sp as T;
+            }
+            
+            return Resources.Load<T>(path);
+        }
     }
+    
 }

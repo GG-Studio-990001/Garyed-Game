@@ -31,7 +31,7 @@ namespace Runtime.CH1.Main.Dialogue
         {
             // UI/Sound
             _runner.AddCommandHandler<string>("PlayBackgroundSound", PlayBackgroundSound);
-            _runner.AddCommandHandler("StopBackgroundSound", _soundSystem.StopMusic);
+            //_runner.AddCommandHandler("StopBackgroundSound", _soundSystem.StopMusic);
             _runner.AddCommandHandler<bool>("SetBackgroundColor", SetBackgroundColor);
             _runner.AddCommandHandler("FadeOut", _fadeController.StartFadeOut);
             _runner.AddCommandHandler("FadeIn", _fadeController.StartFadeIn);
