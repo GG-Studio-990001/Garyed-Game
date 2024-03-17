@@ -5,16 +5,16 @@ namespace Runtime.CH1.Pacmom
     public class DustTalkSound : MonoBehaviour
     {
         [SerializeField]
-        private AudioClip[] effectSounds;
+        private AudioClip[] _effectSounds;
         [SerializeField]
-        private AudioSource effectAudioSource;
+        private AudioSource _effectAudioSource;
 
         public void DustTalkingSFX()
         {
-            int rand = Random.Range(0, effectSounds.Length);
-            AudioClip audio = effectSounds[rand];
+            int rand = Random.Range(0, _effectSounds.Length);
+            AudioClip audio = _effectSounds[rand];
 
-            effectAudioSource.PlayOneShot(audio);
+            _effectAudioSource.PlayOneShot(audio);
         }
     }
 }

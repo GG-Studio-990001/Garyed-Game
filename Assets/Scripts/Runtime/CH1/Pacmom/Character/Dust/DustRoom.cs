@@ -5,15 +5,19 @@ namespace Runtime.CH1.Pacmom
 {
     public class DustRoom : MonoBehaviour
     {
+        private MovementAndEyes _movement;
         [SerializeField]
-        private MovementAndEyes movement;
+        private Transform _inside;
         [SerializeField]
-        private Transform inside;
+        private Transform _outside;
         [SerializeField]
-        private Transform outside;
-        [SerializeField]
-        private Transform crossRoad;
+        private Transform _crossRoad;
         public bool isInRoom { get; private set; }
+
+        private void Awake()
+        {
+            _movement = GetComponent<MovementAndEyes>();
+        }
 
         public void SetInRoom(bool isInRoom)
         {
@@ -29,16 +33,16 @@ namespace Runtime.CH1.Pacmom
         {
             Vector3 newPosition = Vector3.Lerp(start, end, lerpTime);
             newPosition.z = transform.position.z;
-            movement.rigid.position = newPosition;
+            _movement.rigid.position = newPosition;
         }
 
         private IEnumerator ExitTransition(float afterTime)
         {
             Vector3 position = transform.position;
 
-            movement.GetEyeSpriteByPosition();
-            movement.rigid.isKinematic = true;
-            movement.enabled = false;
+            _movement.GetEyeSpriteByPosition();
+            _movement.rigid.isKinematic = true;
+            _movement.enabled = false;
 
             yield return new WaitForSeconds(afterTime);
 
@@ -47,17 +51,17 @@ namespace Runtime.CH1.Pacmom
 
             while (elapsed < duration)
             {
-                Transition(position, inside.position, elapsed / duration);
+                Transition(position, _inside.position, elapsed / duration);
                 elapsed += Time.deltaTime;
                 yield return null;
             }
 
             elapsed = 0.0f;
-            movement.GetEyeSprites(Vector2.up);
+            _movement.GetEyeSprites(Vector2.up);
 
             while (elapsed < duration)
             {
-                Transition(inside.position, outside.position, elapsed / duration);
+                Transition(_inside.position, _outside.position, elapsed / duration);
                 elapsed += Time.deltaTime;
                 yield return null;
             }
@@ -65,21 +69,21 @@ namespace Runtime.CH1.Pacmom
             duration = 0.3f;
             elapsed = 0.0f;
 
-            Vector2 crossRoadDirection = (crossRoad.position.x < 0 ? Vector2.left : Vector2.right);
-            movement.GetEyeSprites(crossRoadDirection);
+            Vector2 crossRoadDirection = (_crossRoad.position.x < 0 ? Vector2.left : Vector2.right);
+            _movement.GetEyeSprites(crossRoadDirection);
 
             while (elapsed < duration)
             {
-                Transition(outside.position, crossRoad.position, elapsed / duration);
+                Transition(_outside.position, _crossRoad.position, elapsed / duration);
                 elapsed += Time.deltaTime;
                 yield return null;
             }
 
-            movement.SetNextDirection(crossRoadDirection);
-            movement.rigid.isKinematic = false;
-            movement.enabled = true;
+            _movement.SetNextDirection(crossRoadDirection);
+            _movement.rigid.isKinematic = false;
+            _movement.enabled = true;
 
-            movement.SetCanMove(true);
+            _movement.SetCanMove(true);
             isInRoom = false;
         }
     }

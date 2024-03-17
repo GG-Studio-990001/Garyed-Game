@@ -1474,11 +1474,23 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1710744394}
     - target: {fileID: 5522138042445295253, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
+      propertyPath: _inside
+      value: 
+      objectReference: {fileID: 1710744394}
+    - target: {fileID: 5522138042445295253, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
       propertyPath: outside
       value: 
       objectReference: {fileID: 137094738}
     - target: {fileID: 5522138042445295253, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
+      propertyPath: _outside
+      value: 
+      objectReference: {fileID: 137094738}
+    - target: {fileID: 5522138042445295253, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
       propertyPath: crossRoad
+      value: 
+      objectReference: {fileID: 1091952894}
+    - target: {fileID: 5522138042445295253, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
+      propertyPath: _crossRoad
       value: 
       objectReference: {fileID: 1091952894}
     - target: {fileID: 5555307432301182834, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
@@ -1583,6 +1595,10 @@ PrefabInstance:
       objectReference: {fileID: -1150924220, guid: e48202bc45cce2146932707e0ee993a9, type: 3}
     - target: {fileID: 8517634723861635253, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
       propertyPath: dialogue
+      value: 
+      objectReference: {fileID: 945587687}
+    - target: {fileID: 8517634723861635253, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
+      propertyPath: _dialogue
       value: 
       objectReference: {fileID: 945587687}
     - target: {fileID: 8702271369505587194, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
@@ -1763,8 +1779,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b027cd0bc320d640a816e5b5a02a043, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  effectSounds:
-  - {fileID: 8300000, guid: 890382f44f65db247bd4a20a605b9d00, type: 3}
+  _effectSounds:
   - {fileID: 8300000, guid: 890382f44f65db247bd4a20a605b9d00, type: 3}
   - {fileID: 8300000, guid: 0f522d12e37f17f42a934bf0dd9b942b, type: 3}
   - {fileID: 8300000, guid: 52f50c9f5fdb6f94e822f90b6c37e8c1, type: 3}
@@ -1781,7 +1796,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 58c48aaf08d528945bd4ce1915bd5cd2, type: 3}
   - {fileID: 8300000, guid: 88812cfe3baa6534c937857cb0f11c7f, type: 3}
   - {fileID: 8300000, guid: a88456d293b5654449398075892903ef, type: 3}
-  effectAudioSource: {fileID: 1727271993}
+  - {fileID: 8300000, guid: 1c7d5c7e1e2d45a44b7f63166f1f55bc, type: 3}
+  _effectAudioSource: {fileID: 1727271993}
 --- !u!1 &418745303
 GameObject:
   m_ObjectHideFlags: 0
@@ -25878,11 +25894,23 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1710744394}
     - target: {fileID: 5522138042445295253, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
+      propertyPath: _inside
+      value: 
+      objectReference: {fileID: 1710744394}
+    - target: {fileID: 5522138042445295253, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
       propertyPath: outside
       value: 
       objectReference: {fileID: 137094738}
     - target: {fileID: 5522138042445295253, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
+      propertyPath: _outside
+      value: 
+      objectReference: {fileID: 137094738}
+    - target: {fileID: 5522138042445295253, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
       propertyPath: crossRoad
+      value: 
+      objectReference: {fileID: 1657808416}
+    - target: {fileID: 5522138042445295253, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
+      propertyPath: _crossRoad
       value: 
       objectReference: {fileID: 1657808416}
     - target: {fileID: 5555307432301182834, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
@@ -25991,6 +26019,10 @@ PrefabInstance:
       objectReference: {fileID: -1150924220, guid: e48202bc45cce2146932707e0ee993a9, type: 3}
     - target: {fileID: 8517634723861635253, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
       propertyPath: dialogue
+      value: 
+      objectReference: {fileID: 945587687}
+    - target: {fileID: 8517634723861635253, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
+      propertyPath: _dialogue
       value: 
       objectReference: {fileID: 945587687}
     - target: {fileID: 8702271369505587194, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
