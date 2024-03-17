@@ -16,9 +16,11 @@ public class Managers : MonoBehaviour
     
     private static SoundManager _soundManager = new SoundManager();
     private static ResourceManager _resourceManager = new ResourceManager();
+    private static DataManager _dataManager = new DataManager();
 
     public static SoundManager Sound { get { Init(); return _soundManager; } }
     public static ResourceManager Resource { get { Init(); return _resourceManager; } }
+    public static DataManager Data { get { Init(); return _dataManager; } }
 
     public void Start()
     {
@@ -41,6 +43,7 @@ public class Managers : MonoBehaviour
             // Mangner Init
             _soundManager.Init();
             _resourceManager.Init();
+            _dataManager.Init();
         }
     }
 }
