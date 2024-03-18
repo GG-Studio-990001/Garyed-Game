@@ -22314,8 +22314,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameController: {fileID: 0}
-  timerTxt: {fileID: 1090495807}
-  timelimit: 180
+  _timelimit: 180
 --- !u!1 &1091952893
 GameObject:
   m_ObjectHideFlags: 0
