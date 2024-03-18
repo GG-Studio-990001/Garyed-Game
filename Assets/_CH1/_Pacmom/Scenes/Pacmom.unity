@@ -406,7 +406,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6095678ee6b18034a96e0f409f4aea26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  connection: {fileID: 1995104920}
+  _connection: {fileID: 1995104920}
 --- !u!61 &106776904
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1684,7 +1684,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3e5198be43ba8d419dc8478894a07d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  door: {fileID: 1707595100}
+  _door: {fileID: 1707595100}
 --- !u!1 &372367287
 GameObject:
   m_ObjectHideFlags: 0
@@ -2397,7 +2397,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6095678ee6b18034a96e0f409f4aea26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  connection: {fileID: 1953128314}
+  _connection: {fileID: 1953128314}
 --- !u!61 &477691285
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2690,7 +2690,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6095678ee6b18034a96e0f409f4aea26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  connection: {fileID: 821184583}
+  _connection: {fileID: 821184583}
 --- !u!61 &552229817
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11339,7 +11339,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6095678ee6b18034a96e0f409f4aea26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  connection: {fileID: 598156040}
+  _connection: {fileID: 598156040}
 --- !u!61 &848897738
 BoxCollider2D:
   m_ObjectHideFlags: 0
