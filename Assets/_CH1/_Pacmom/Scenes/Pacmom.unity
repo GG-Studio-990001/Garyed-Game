@@ -11110,11 +11110,7 @@ MonoBehaviour:
   - {fileID: 1957713918, guid: 624604c3a324b01478b135343c65f064, type: 3}
   vacuumModeSprites:
   - {fileID: -1633829432, guid: 624604c3a324b01478b135343c65f064, type: 3}
-  dieSprites:
-  - {fileID: 1957713918, guid: 624604c3a324b01478b135343c65f064, type: 3}
-  - {fileID: -31350341, guid: 624604c3a324b01478b135343c65f064, type: 3}
-  - {fileID: -722194990, guid: 624604c3a324b01478b135343c65f064, type: 3}
-  - {fileID: -1681543061, guid: 624604c3a324b01478b135343c65f064, type: 3}
+  _dieSprites: []
 --- !u!212 &790340051
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -25614,7 +25610,7 @@ MonoBehaviour:
   - {fileID: 1957713918, guid: 624604c3a324b01478b135343c65f064, type: 3}
   vacuumModeSprites:
   - {fileID: -1633829432, guid: 624604c3a324b01478b135343c65f064, type: 3}
-  dieSprites:
+  _dieSprites:
   - {fileID: 1957713918, guid: 624604c3a324b01478b135343c65f064, type: 3}
   - {fileID: -31350341, guid: 624604c3a324b01478b135343c65f064, type: 3}
   - {fileID: -722194990, guid: 624604c3a324b01478b135343c65f064, type: 3}

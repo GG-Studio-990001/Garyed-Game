@@ -11,7 +11,7 @@ namespace Runtime.CH1.Pacmom
         protected Sprite[] normalSprites;
         [SerializeField]
         protected Sprite[] vacuumModeSprites;
-        private float animTime = 0.25f;
+        private float _animTime = 0.25f;
 
         public void Awake()
         {
@@ -20,7 +20,7 @@ namespace Runtime.CH1.Pacmom
 
         private void Start()
         {
-            InvokeRepeating("SpriteAnimation", animTime, animTime);
+            InvokeRepeating("SpriteAnimation", _animTime, _animTime);
         }
 
         private void SpriteAnimation()
