@@ -37,8 +37,8 @@ namespace Runtime.CH1.Pacmom
         private bool _isMoving;
         private bool _isVacuumMode = false;
 
-        private IProvider<ControlsData> ControlsDataProvider => DataProviderManager.Instance.ControlsDataProvider;
-        private GameOverControls GameOverControls => ControlsDataProvider.Get().GameOverControls;
+        private IProvider<ControlsData> _controlsDataProvider => DataProviderManager.Instance.ControlsDataProvider;
+        private GameOverControls _gameOverControls => _controlsDataProvider.Get().GameOverControls;
 
         [Header("=Setting UI=")]
         [SerializeField]
@@ -55,8 +55,8 @@ namespace Runtime.CH1.Pacmom
 
         private void SetSettingUI()
         {
-            GameOverControls.UI.Enable();
-            GameOverControls.UI.GameSetting.performed += _ =>
+            _gameOverControls.UI.Enable();
+            _gameOverControls.UI.GameSetting.performed += _ =>
             {
                 _settingsUIView.GameSettingToggle();
                 Time.timeScale = (Time.timeScale == 0 ? 1 : 0);
