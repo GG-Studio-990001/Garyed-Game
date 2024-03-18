@@ -11,7 +11,7 @@ namespace Runtime.CH1.Pacmom
         [SerializeField]
         private PMShader _Shader;
         [SerializeField]
-        private GameObject _timeline_3;
+        private GameObject _timeline3;
         [SerializeField]
         private SpriteControl[] _spriteControls = new SpriteControl[6];
         public bool isGameClear { get; private set; } // 저장 필요
@@ -19,7 +19,7 @@ namespace Runtime.CH1.Pacmom
         public void RapleyWin()
         {
             Debug.Log("라플리 승리");
-            _timeline_3.SetActive(true);
+            _timeline3.SetActive(true);
             isGameClear = true;
         }
 
