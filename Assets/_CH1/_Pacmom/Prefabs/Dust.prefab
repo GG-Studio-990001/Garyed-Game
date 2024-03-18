@@ -255,8 +255,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movement: {fileID: 8324175502395817452}
   enemys: []
-  doCoinMatter: 0
-  <isStronger>k__BackingField: 0
+  _doCoinMatter: 0
+  <isStronger>k__BackingField: 1
 --- !u!114 &5522138042445295253
 MonoBehaviour:
   m_ObjectHideFlags: 0

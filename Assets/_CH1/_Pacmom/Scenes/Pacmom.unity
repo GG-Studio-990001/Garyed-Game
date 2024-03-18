@@ -1469,6 +1469,10 @@ PrefabInstance:
       propertyPath: enemys.Array.data[0]
       value: 
       objectReference: {fileID: 1861729284}
+    - target: {fileID: 5395930438513632476, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
+      propertyPath: <isStronger>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5522138042445295253, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
       propertyPath: inside
       value: 
@@ -25632,7 +25636,7 @@ MonoBehaviour:
   - {fileID: 133942948}
   - {fileID: 1412902989}
   - {fileID: 155197200}
-  doCoinMatter: 1
+  _doCoinMatter: 1
   <isStronger>k__BackingField: 0
 --- !u!114 &1861729289
 MonoBehaviour:
