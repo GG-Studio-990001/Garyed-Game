@@ -681,9 +681,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bba9badf88412aa4fb2a67e5461e47a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 8
-  speedMultiplier: 1
-  initialDirection: {x: 0, y: 1}
+  _speed: 8
+  _speedMultiplier: 1
+  _initialDirection: {x: 0, y: 1}
 --- !u!95 &133942956
 Animator:
   serializedVersion: 5
@@ -1568,6 +1568,10 @@ PrefabInstance:
     - target: {fileID: 8159136489922289943, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
       propertyPath: <dustID>k__BackingField
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8324175502395817452, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
+      propertyPath: _speed
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8324175502395817452, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
       propertyPath: m_Enabled
@@ -25646,9 +25650,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bba9badf88412aa4fb2a67e5461e47a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 6
-  speedMultiplier: 1
-  initialDirection: {x: -1, y: 0}
+  _speed: 6
+  _speedMultiplier: 1
+  _initialDirection: {x: -1, y: 0}
 --- !u!1 &1865427655
 GameObject:
   m_ObjectHideFlags: 0
