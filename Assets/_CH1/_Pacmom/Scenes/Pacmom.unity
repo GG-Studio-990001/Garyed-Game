@@ -1768,13 +1768,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 153d5efdc62c3c744815999e70d1e924, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundSystem: {fileID: 588262824}
-  ending: {fileID: 1575259378}
-  speechBubbleA: {fileID: 470871492}
-  speechBubbleB: {fileID: 1946743711}
-  rapleyBubble: {fileID: 1826524975}
-  line: {fileID: 477990106}
-  timeline_2: {fileID: 1493158440}
+  _soundSystem: {fileID: 588262824}
+  _ending: {fileID: 1575259378}
+  _speechBubbleA: {fileID: 470871492}
+  _speechBubbleB: {fileID: 1946743711}
+  _rapleyBubble: {fileID: 1826524975}
+  _line: {fileID: 477990106}
+  _timeline2: {fileID: 1493158440}
 --- !u!114 &372367291
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21931,15 +21931,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b56f45846f8118b4d817fc9e42e0c02d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 1761052961}
-  dustA: {fileID: 972530197}
-  bubbleA: {fileID: 1604375867}
-  textA: {fileID: 589625776}
-  dustB: {fileID: 965024648}
-  bubbleB: {fileID: 283098243}
-  textB: {fileID: 1132766442}
-  currentTime: 0
-  targetTime: 15
+  _controller: {fileID: 1761052961}
+  _dustA: {fileID: 972530197}
+  _bubbleA: {fileID: 1604375867}
+  _textA: {fileID: 589625776}
+  _dustB: {fileID: 965024648}
+  _bubbleB: {fileID: 283098243}
+  _textB: {fileID: 1132766442}
+  _currentTime: 0
+  _targetTime: 15
 --- !u!1 &947682890
 GameObject:
   m_ObjectHideFlags: 0
