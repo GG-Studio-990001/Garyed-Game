@@ -35,12 +35,12 @@ public class PMData : MonoBehaviour
 
         foreach (Transform coin in _coins)
         {
-            coin.GetComponent<Coin>().gameController = this._gameController;
+            coin.GetComponent<Coin>().gameController = _gameController;
         }
 
         foreach (Transform vacuum in _vacuums)
         {
-            vacuum.GetComponent<Vacuum>().gameController = this._gameController;
+            vacuum.GetComponent<Vacuum>().gameController = _gameController;
         }
     }
 
@@ -175,7 +175,7 @@ public class PMData : MonoBehaviour
 
     private void ChooseAWinner()
     {
-        // _gameController.soundSystem.StopAllSound(); //TODO Managers.Sound로 교체
+        Managers.Sound.StopEffect(); // BGM 사용 시 StopAllSound
 
         if (_rapleyScore > _pacmomScore)
             _ending.RapleyWin();

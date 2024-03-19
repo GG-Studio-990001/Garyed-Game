@@ -3,7 +3,6 @@ using System;
 using TMPro;
 using UnityEngine;
 using Yarn.Unity;
-// using Sound = Runtime.ETC.Sound;
 
 namespace Runtime.CH1.Pacmom
 {
@@ -43,7 +42,7 @@ namespace Runtime.CH1.Pacmom
 
         public override void RunLine(LocalizedLine dialogueLine, Action onDialogueLineFinished)
         {
-            // Managers.Sound.StopSFX(); //TODO Manager.Sound로 교체
+            Managers.Sound.StopEffect();
 
             string speaker = dialogueLine.CharacterName;
 
@@ -84,7 +83,7 @@ namespace Runtime.CH1.Pacmom
 
         public void OpeningDialogueFin()
         {
-            // Managers.Sound.StopSFX(); //TODO Manager.Sound로 교체
+            Managers.Sound.StopEffect();
             ShowSpeechBubble(Speaker.none);
             _timeline2.SetActive(true);
         }

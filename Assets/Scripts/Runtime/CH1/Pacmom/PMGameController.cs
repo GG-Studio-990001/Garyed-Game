@@ -97,7 +97,7 @@ namespace Runtime.CH1.Pacmom
         #region End
         public void GameOver()
         {
-            //soundSystem.StopMusic(); //TODO Manager.Sound로 교체
+            Managers.Sound.StopEffect(); // BGM 사용 시 StopAllSound
             _timer.SetTimer(false);
             isGameOver = true;
 
@@ -123,7 +123,7 @@ namespace Runtime.CH1.Pacmom
             {
                 StopCoroutine("VacuumTime");
 
-                // soundSystem.StopMusic(); //TODO Manager.Sound로 교체
+                Managers.Sound.StopEffect();
                 Managers.Sound.Play(Sound.Effect, "Pacmom_BGM_01");
             }
 
