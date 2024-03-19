@@ -6,13 +6,13 @@ namespace Runtime.CH1.Pacmom
     public class PMSprite : MonoBehaviour
     {
         [SerializeField]
-        private SpriteControl rapleySprite;
+        private SpriteControl _rapleySprite;
         [SerializeField]
-        private PacmomSpriteControl pacmomSprite;
+        private PacmomSpriteControl _pacmomSprite;
         [SerializeField]
-        private SpriteControl[] dustBodySprites = new SpriteControl[GlobalConst.DustCnt];
+        private SpriteControl[] _dustBodySprites = new SpriteControl[GlobalConst.DustCnt];
         [SerializeField]
-        private SpriteControl[] dustEyeSprites = new SpriteControl[GlobalConst.DustCnt];
+        private SpriteControl[] _dustEyeSprites = new SpriteControl[GlobalConst.DustCnt];
 
         private void Start()
         {
@@ -21,36 +21,36 @@ namespace Runtime.CH1.Pacmom
 
         public void SetNormalSprites()
         {
-            rapleySprite.GetNormalSprite();
-            pacmomSprite.GetNormalSprite();
+            _rapleySprite.GetNormalSprite();
+            _pacmomSprite.GetNormalSprite();
 
             for (int i = 0; i < GlobalConst.DustCnt; i++)
             {
-                dustBodySprites[i].GetNormalSprite();
-                dustEyeSprites[i].GetNormalSprite();
+                _dustBodySprites[i].GetNormalSprite();
+                _dustEyeSprites[i].GetNormalSprite();
             }
         }
 
         public void SetVacuumModeSprites()
         {
-            pacmomSprite.GetVacuumModeSprite();
-            rapleySprite.GetVacuumModeSprite();
+            _pacmomSprite.GetVacuumModeSprite();
+            _rapleySprite.GetVacuumModeSprite();
 
             for (int i = 0; i < GlobalConst.DustCnt; i++)
             {
-                dustBodySprites[i].GetVacuumModeSprite();
-                dustEyeSprites[i].GetVacuumModeSprite();
+                _dustBodySprites[i].GetVacuumModeSprite();
+                _dustEyeSprites[i].GetVacuumModeSprite();
             }
         }
 
         public void SetPacmomDieSprite()
         {
-            pacmomSprite.GetDieSprite();
+            _pacmomSprite.GetDieSprite();
         }
 
         public void SetPacmomBlinkSprite()
         {
-            pacmomSprite.GetVaccumBlinkSprite();
+            _pacmomSprite.GetVaccumBlinkSprite();
         }
     }
 }
