@@ -162,7 +162,7 @@ public class PMData : MonoBehaviour
         {
             if (coin.gameObject.activeSelf)
             {
-                _gameController.soundSystem.PlayEffect("RapleyEatCoin");
+                //_gameController.soundSystem.PlayEffect("RapleyEatCoin"); //TODO Manager.Sound로 교체
 
                 SetRapleyScore(_rapleyScore + 1);
                 coin.gameObject.SetActive(false);
@@ -174,7 +174,7 @@ public class PMData : MonoBehaviour
 
     private void ChooseAWinner()
     {
-        _gameController.soundSystem.StopAllSound();
+        // _gameController.soundSystem.StopAllSound(); //TODO Manager.Sound로 교체
 
         if (_rapleyScore > _pacmomScore)
             _ending.RapleyWin();

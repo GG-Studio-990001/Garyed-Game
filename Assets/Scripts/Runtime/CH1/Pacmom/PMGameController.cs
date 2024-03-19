@@ -13,8 +13,8 @@ namespace Runtime.CH1.Pacmom
         #region 선언
         private PMSprite _spriteController;
         private PMData _dataController;
-        [Header("=Contoller=")]
-        public SoundSystem soundSystem;
+        // [Header("=Contoller=")]
+        // public SoundSystem soundSystem;
         [SerializeField]
         private InGameDialogue _dialogue;
         [SerializeField]
@@ -37,9 +37,6 @@ namespace Runtime.CH1.Pacmom
         private bool _isMoving;
         private bool _isVacuumMode = false;
 
-        private IProvider<ControlsData> _controlsDataProvider => DataProviderManager.Instance.ControlsDataProvider;
-        private GameOverControls _gameOverControls => _controlsDataProvider.Get().GameOverControls;
-
         [Header("=Setting UI=")]
         [SerializeField]
         private SettingsUIView _settingsUIView;
@@ -55,8 +52,8 @@ namespace Runtime.CH1.Pacmom
 
         private void SetSettingUI()
         {
-            _gameOverControls.UI.Enable();
-            _gameOverControls.UI.GameSetting.performed += _ =>
+            Managers.Data.GameOverControls.UI.Enable();
+            Managers.Data.GameOverControls.UI.GameSetting.performed += _ =>
             {
                 _settingsUIView.GameSettingToggle();
                 Time.timeScale = (Time.timeScale == 0 ? 1 : 0);
@@ -104,7 +101,7 @@ namespace Runtime.CH1.Pacmom
         #region End
         public void GameOver()
         {
-            soundSystem.StopMusic();
+            //soundSystem.StopMusic(); //TODO Manager.Sound로 교체
             _timer.SetTimer(false);
             isGameOver = true;
 
@@ -124,14 +121,14 @@ namespace Runtime.CH1.Pacmom
 
             if (!_isVacuumMode)
             {
-                soundSystem.PlayMusic("StartVacuum");
+                // soundSystem.PlayMusic("StartVacuum"); //TODO Manager.Sound로 교체
             }
             else
             {
                 StopCoroutine("VacuumTime");
                 
-                soundSystem.StopMusic();
-                soundSystem.PlayMusic("ContinueVacuum");
+                // soundSystem.StopMusic();
+                // soundSystem.PlayMusic("ContinueVacuum"); //TODO Manager.Sound로 교체
             }
 
             StartCoroutine("VacuumTime");
@@ -242,7 +239,7 @@ namespace Runtime.CH1.Pacmom
         #region Eaten
         public void RapleyEaten()
         {
-            soundSystem.PlayEffect("PacmomEat");
+            //soundSystem.PlayEffect("PacmomEat"); //TODO Manager.Sound로 교체
 
             _dataController.TakeHalfCoins(false);
             _rapley.ResetState();
@@ -250,7 +247,7 @@ namespace Runtime.CH1.Pacmom
 
         public void DustEaten(Dust dust)
         {
-            soundSystem.PlayEffect("PacmomEat");
+            // soundSystem.PlayEffect("PacmomEat");//TODO Manager.Sound로 교체
 
             dust.movement.SetCanMove(false);
             dust.movement.ResetState();
@@ -261,7 +258,7 @@ namespace Runtime.CH1.Pacmom
 
         public void PacmomEatenByRapley()
         {
-            soundSystem.PlayEffect("PacmomStun");
+            //soundSystem.PlayEffect("PacmomStun"); //TODO Manager.Sound로 교체
 
             _dataController.TakeHalfCoins(true);
             LoseLife();
@@ -269,7 +266,7 @@ namespace Runtime.CH1.Pacmom
 
         public void PacmomEatenByDust(int ID)
         {
-            soundSystem.PlayEffect("PacmomStun");
+            // soundSystem.PlayEffect("PacmomStun"); //TODO Manager.Sound로 교체
 
             _dialogue.CatchDialogue(ID);
             StartCoroutine(_dataController.ReleaseHalfCoins());
@@ -311,7 +308,7 @@ namespace Runtime.CH1.Pacmom
             if (!_isMoving)
                 return;
 
-            soundSystem.PlayEffect("RapleyEatCoin");
+            //soundSystem.PlayEffect("RapleyEatCoin"); //TODO Manager.Sound로 교체
 
             _dataController.RapleyScore1Up();
 
@@ -326,7 +323,7 @@ namespace Runtime.CH1.Pacmom
             if (!_isMoving)
                 return;
 
-            soundSystem.PlayEffect("PacmomEatCoin");
+            // soundSystem.PlayEffect("PacmomEatCoin"); //TODO Manager.Sound로 교체
 
             _dataController.PacmomScore1Up();
 
