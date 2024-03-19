@@ -4,15 +4,15 @@ namespace Runtime.CH1.Pacmom
 {
     public class SpriteAnimation
     {
-        private readonly SpriteRenderer spriteRenderer;
+        private readonly SpriteRenderer _spriteRenderer;
 
         public Sprite[] sprites;
-        private int animFrame = -1;
+        private int _animFrame = -1;
         public bool isLoop { get; private set; }
 
         public SpriteAnimation(SpriteRenderer spriteRenderer)
         {
-            this.spriteRenderer = spriteRenderer;
+            _spriteRenderer = spriteRenderer;
             SetLoop(true);
         }
 
@@ -23,22 +23,22 @@ namespace Runtime.CH1.Pacmom
 
         public void NextSprite()
         {
-            if (!isLoop && animFrame == sprites.Length - 1)
+            if (!isLoop && _animFrame == sprites.Length - 1)
                 return;
 
-            if (sprites.Length == 1 && animFrame == sprites.Length - 1)
+            if (sprites.Length == 1 && _animFrame == sprites.Length - 1)
                 return;
 
             if (sprites.Length != 0)
             {
-                animFrame = ++animFrame % sprites.Length;
-                spriteRenderer.sprite = sprites[animFrame];
+                _animFrame = ++_animFrame % sprites.Length;
+                _spriteRenderer.sprite = sprites[_animFrame];
             }
         }
 
         public void RestartAnim()
         {
-            animFrame = -1;
+            _animFrame = -1;
 
             NextSprite();
         }

@@ -5,7 +5,7 @@ namespace Runtime.CH1.Pacmom
     public class PacmomSpriteControl : SpriteControl
     {
         [SerializeField]
-        private Sprite[] dieSprites;
+        private Sprite[] _dieSprites;
 
         public void GetVaccumBlinkSprite()
         {
@@ -17,10 +17,10 @@ namespace Runtime.CH1.Pacmom
 
         public void GetDieSprite()
         {
-            spriteAnim.sprites = new Sprite[dieSprites.Length];
-            for (int i = 0; i < dieSprites.Length; i++)
+            spriteAnim.sprites = new Sprite[_dieSprites.Length];
+            for (int i = 0; i < _dieSprites.Length; i++)
             {
-                spriteAnim.sprites[i] = dieSprites[i];
+                spriteAnim.sprites[i] = _dieSprites[i];
             }
             spriteAnim.SetLoop(false);
             spriteAnim.RestartAnim();
