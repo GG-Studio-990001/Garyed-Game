@@ -21733,7 +21733,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b56f45846f8118b4d817fc9e42e0c02d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _controller: {fileID: 1761052961}
+  gameController: {fileID: 0}
   _dustA: {fileID: 972530197}
   _bubbleA: {fileID: 1604375867}
   _textA: {fileID: 589625776}
