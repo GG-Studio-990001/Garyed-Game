@@ -1078,6 +1078,18 @@ MonoBehaviour:
           m_CallState: 2
     - m_PersistentCalls:
         m_Calls:
+        - m_Target: {fileID: 436344327}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
         - m_Target: {fileID: 2119691701}
           m_TargetAssemblyTypeName: Runtime.InGameSystem.SceneSystem, Scripts
           m_MethodName: LoadScene
@@ -1469,10 +1481,6 @@ PrefabInstance:
       propertyPath: enemys.Array.data[0]
       value: 
       objectReference: {fileID: 1861729284}
-    - target: {fileID: 5395930438513632476, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
-      propertyPath: <isStronger>k__BackingField
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5522138042445295253, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
       propertyPath: inside
       value: 
@@ -1572,10 +1580,6 @@ PrefabInstance:
     - target: {fileID: 8159136489922289943, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
       propertyPath: <dustID>k__BackingField
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8324175502395817452, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
-      propertyPath: _speed
-      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8324175502395817452, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
       propertyPath: m_Enabled
@@ -23112,7 +23116,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1267132489
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24494,7 +24498,7 @@ GameObject:
   - component: {fileID: 1727271994}
   - component: {fileID: 1727271993}
   m_Layer: 0
-  m_Name: EffectAudioSource
+  m_Name: AudioSource
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -35,7 +35,8 @@ namespace Runtime.CH1.Pacmom
 
         private void SuckByVacuum()
         {
-            StartCoroutine("SuckCoin");
+            if (gameObject.activeSelf)
+                StartCoroutine("SuckCoin");
         }
 
         private IEnumerator SuckCoin()

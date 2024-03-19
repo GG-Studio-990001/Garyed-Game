@@ -51,7 +51,6 @@ title: PMRandom
 position: 163,31
 ---
 // 자주 나오지 않으며, 구분 없이 사용됨
-<<ShortDialogue>>
 <<declare $RandomInt = 0>>
 <<set $RandomInt = dice(6)>>
 
@@ -73,21 +72,18 @@ position: 163,31
 title: PMVacuumMode
 ---
 // 팩맘이 청소기를 획득한 후 바로 메시지 발생
-<<ShortDialogue>>
 DustA: 청소기다!
 DustB: 도망쳐!
 ===
 
 title: PMVacuumModeAgain
 ---
-<<ShortDialogue>>
 DustA: 또 청소기?
 DustB: 이제 그만..
 ===
 
 title: PMCatch
 ---
-<<ShortDialogue>>
 <<declare $RandomInt2 = 0>>
 <<set $RandomInt2 = dice(4)>>
 
@@ -104,7 +100,6 @@ title: PMCatch
 
 title: PMBeCaught
 ---
-<<ShortDialogue>>
 <<declare $RandomInt3 = 0>>
 <<set $RandomInt3 = dice(6)>>
 
@@ -125,7 +120,6 @@ title: PMBeCaught
 
 title: PMBlocked
 ---
-<<ShortDialogue>>
 <<declare $RandomInt4 = 0>>
 <<set $RandomInt4 = dice(5)>>
 

@@ -1,7 +1,6 @@
 using Runtime.ETC;
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using Yarn.Unity;
@@ -34,12 +33,12 @@ namespace Runtime.CH1.Pacmom
         [SerializeField]
         private float _targetTime = 15f;
         private int _dustID = 0;
-        private IEnumerator _bubbleCoroutine;
+        private IEnumerator _bubbleACoroutine = null;
+        private IEnumerator _bubbleBCoroutine = null;
 
         private void Awake()
         {
             _runner = GetComponent<DialogueRunner>();
-            _runner.AddCommandHandler("ShortDialogue", ShortDialogue);
         }
 
         private void Update()
@@ -93,19 +92,15 @@ namespace Runtime.CH1.Pacmom
                     nowSpeaker = Speaker.dustB;
             }
 
-            TextMeshProUGUI text = (nowSpeaker == Speaker.dustA ? _textA : _textB);
-
-            text.text = dialogueLine.TextWithoutCharacterName.Text;
-
             if (nowSpeaker == Speaker.dustA)
             {
-                _bubbleA.SetActive(true);
-                _textA.text = text.text;
+                ShowBubbleA();
+                _textA.text = dialogueLine.TextWithoutCharacterName.Text;
             }
             else if (nowSpeaker == Speaker.dustB)
             {
-                _bubbleB.SetActive(true);
-                _textB.text = text.text;
+                ShowBubbleB();
+                _textB.text = dialogueLine.TextWithoutCharacterName.Text;
             }
             
             if (_dustID != 0) // 초기화
@@ -114,33 +109,61 @@ namespace Runtime.CH1.Pacmom
             onDialogueLineFinished();
         }
 
-        public void ShortDialogue()
+        private void ShowBubbleA()
         {
-            if (_bubbleCoroutine != null)
-                StopCoroutine(_bubbleCoroutine);
+            _bubbleA.SetActive(true);
 
-            _bubbleCoroutine = HideBubbleAfterTime();
-            StartCoroutine(_bubbleCoroutine);
+            if (_bubbleACoroutine != null)
+                StopCoroutine(_bubbleACoroutine);
+
+            _bubbleACoroutine = WaitBubbleA();
+            StartCoroutine(_bubbleACoroutine);
         }
 
-        private IEnumerator HideBubbleAfterTime()
+        private void ShowBubbleB()
+        {
+            _bubbleB.SetActive(true);
+
+            if (_bubbleBCoroutine != null)
+                StopCoroutine(_bubbleBCoroutine);
+
+            _bubbleBCoroutine = WaitBubbleB();
+            StartCoroutine(_bubbleBCoroutine);
+        }
+
+        private IEnumerator WaitBubbleA()
         {
             yield return new WaitForSeconds(3f);
 
-            HideBubble();
+            HideBubbleA();
+        }
+
+        private IEnumerator WaitBubbleB()
+        {
+            yield return new WaitForSeconds(3f);
+
+            HideBubbleB();
         }
 
         public void StopDialogue()
         {
-            if (_bubbleCoroutine != null)
-                StopCoroutine(_bubbleCoroutine);
-            HideBubble();
+            HideBubbleA();
+            HideBubbleB();
+
+            if (_bubbleACoroutine != null)
+                StopCoroutine(_bubbleACoroutine);
+            if (_bubbleBCoroutine != null)
+                StopCoroutine(_bubbleBCoroutine);
         }
 
-        private void HideBubble()
+        private void HideBubbleA()
         {
             if (_bubbleA.activeSelf)
                 _bubbleA.SetActive(false);
+        }
+
+        private void HideBubbleB()
+        {
             if (_bubbleB.activeSelf)
                 _bubbleB.SetActive(false);
         }
