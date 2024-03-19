@@ -1720,7 +1720,7 @@ MonoBehaviour:
   _variableStorage: {fileID: 0}
   dialogueViews:
   - {fileID: 680145021}
-  - {fileID: 372367290}
+  - {fileID: 0}
   startNode: PMStart
   startAutomatically: 0
   runSelectedOptionAsLine: 0
@@ -1765,10 +1765,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 372367287}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 153d5efdc62c3c744815999e70d1e924, type: 3}
+  m_Script: {fileID: 11500000, guid: 4202d29cbb3309f4981067ab4a014c3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _soundSystem: {fileID: 588262824}
   _ending: {fileID: 1575259378}
   _speechBubbleA: {fileID: 470871492}
   _speechBubbleB: {fileID: 1946743711}
@@ -2899,34 +2898,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b2878810a627fa44a099eac32098f35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backgroundSounds:
-  - name: StartVacuum
-    clip: {fileID: 8300000, guid: 1e29cb3ecbf472b4b989f3d52b7272ad, type: 3}
-  - name: ContinueVacuum
-    clip: {fileID: 8300000, guid: 2a934aee0256f40498158bbe70cf6ef1, type: 3}
-  - name: Intro
-    clip: {fileID: 8300000, guid: 6df43ee3c641dd0489f309ed3c9f3e7b, type: 3}
-  - name: Outro
-    clip: {fileID: 8300000, guid: 048c55a9ada3b9146a2eb88fcc3bfeb3, type: 3}
-  effectSounds:
-  - name: PacmomEat
-    clip: {fileID: 8300000, guid: c4919cc91ce45454ea3342a3e218bb28, type: 3}
-  - name: TicToc
-    clip: {fileID: 8300000, guid: c49df98368b2fb0419e305c031ac2836, type: 3}
-  - name: DropCoin
-    clip: {fileID: 8300000, guid: 598b600381d97c4448a0c99a344d0cac, type: 3}
-  - name: RapleyEatCoin
-    clip: {fileID: 8300000, guid: 14f6702f4c801f540ae6dc612dfcc6ca, type: 3}
-  - name: PacmomStun
-    clip: {fileID: 8300000, guid: 4510624fd2cbf1c4eb0a7d580e1203d1, type: 3}
-  - name: PacmomEatCoin
-    clip: {fileID: 8300000, guid: 2538aebdce8a42e4a84860456253f5f0, type: 3}
-  - name: GoMiniGame
-    clip: {fileID: 8300000, guid: e36a4295f37a4b3469be7fd5a2a76fe4, type: 3}
-  - name: ShowRapley
-    clip: {fileID: 8300000, guid: a8856b2be57c6ca48a87a41fa964ea92, type: 3}
-  backgroundAudioSource: {fileID: 909347510}
-  effectAudioSource: {fileID: 1727271993}
 --- !u!4 &588262825
 Transform:
   m_ObjectHideFlags: 0
@@ -24970,7 +24941,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ff009cbe824fed4997d3db6e987e1dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundSystem: {fileID: 588262824}
   _dialogue: {fileID: 945587687}
   _timer: {fileID: 1090495809}
   _door: {fileID: 370940468}
@@ -25016,63 +24986,6 @@ MonoBehaviour:
   _ending: {fileID: 1575259378}
   _coins: {fileID: 1942074557}
   _vacuums: {fileID: 1145695306}
---- !u!1001 &1762810768
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 154652129440317533, guid: decbfadc25163ea4a9090d5e1d7c4db7, type: 3}
-      propertyPath: m_Name
-      value: DataProviderManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 7835288402774165857, guid: decbfadc25163ea4a9090d5e1d7c4db7, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7835288402774165857, guid: decbfadc25163ea4a9090d5e1d7c4db7, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7835288402774165857, guid: decbfadc25163ea4a9090d5e1d7c4db7, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7835288402774165857, guid: decbfadc25163ea4a9090d5e1d7c4db7, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7835288402774165857, guid: decbfadc25163ea4a9090d5e1d7c4db7, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7835288402774165857, guid: decbfadc25163ea4a9090d5e1d7c4db7, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7835288402774165857, guid: decbfadc25163ea4a9090d5e1d7c4db7, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7835288402774165857, guid: decbfadc25163ea4a9090d5e1d7c4db7, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7835288402774165857, guid: decbfadc25163ea4a9090d5e1d7c4db7, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7835288402774165857, guid: decbfadc25163ea4a9090d5e1d7c4db7, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: decbfadc25163ea4a9090d5e1d7c4db7, type: 3}
 --- !u!114 &1785732109 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7033105817521802283, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
@@ -30151,5 +30064,4 @@ SceneRoots:
   - {fileID: 86442426}
   - {fileID: 1997660227}
   - {fileID: 1267132490}
-  - {fileID: 1762810768}
   - {fileID: 490336366}

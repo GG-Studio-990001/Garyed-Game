@@ -1,6 +1,7 @@
 using Runtime.CH1.Pacmom;
 using System.Collections;
 using UnityEngine;
+using Sound = Runtime.ETC.Sound;
 
 public class PMData : MonoBehaviour
 {
@@ -162,7 +163,7 @@ public class PMData : MonoBehaviour
         {
             if (coin.gameObject.activeSelf)
             {
-                //_gameController.soundSystem.PlayEffect("RapleyEatCoin"); //TODO Manager.Sound로 교체
+                Managers.Sound.Play(Sound.Effect, "Pacmom_SFX_10");
 
                 SetRapleyScore(_rapleyScore + 1);
                 coin.gameObject.SetActive(false);
@@ -174,7 +175,7 @@ public class PMData : MonoBehaviour
 
     private void ChooseAWinner()
     {
-        // _gameController.soundSystem.StopAllSound(); //TODO Manager.Sound로 교체
+        // _gameController.soundSystem.StopAllSound(); //TODO Managers.Sound로 교체
 
         if (_rapleyScore > _pacmomScore)
             _ending.RapleyWin();

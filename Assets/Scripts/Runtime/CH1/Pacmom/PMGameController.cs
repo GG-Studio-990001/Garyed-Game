@@ -1,10 +1,8 @@
 using Runtime.Common.View;
-using Runtime.Data.Original;
 using Runtime.ETC;
-using Runtime.InGameSystem;
-using Runtime.Interface;
 using System.Collections;
 using UnityEngine;
+using Sound = Runtime.ETC.Sound;
 
 namespace Runtime.CH1.Pacmom
 {
@@ -13,8 +11,6 @@ namespace Runtime.CH1.Pacmom
         #region 선언
         private PMSprite _spriteController;
         private PMData _dataController;
-        // [Header("=Contoller=")]
-        // public SoundSystem soundSystem;
         [SerializeField]
         private InGameDialogue _dialogue;
         [SerializeField]
@@ -121,14 +117,14 @@ namespace Runtime.CH1.Pacmom
 
             if (!_isVacuumMode)
             {
-                // soundSystem.PlayMusic("StartVacuum"); //TODO Manager.Sound로 교체
+                Managers.Sound.Play(Sound.Effect, "Pacmom_BGM_02");
             }
             else
             {
                 StopCoroutine("VacuumTime");
-                
-                // soundSystem.StopMusic();
-                // soundSystem.PlayMusic("ContinueVacuum"); //TODO Manager.Sound로 교체
+
+                // soundSystem.StopMusic(); //TODO Manager.Sound로 교체
+                Managers.Sound.Play(Sound.Effect, "Pacmom_BGM_01");
             }
 
             StartCoroutine("VacuumTime");
@@ -239,7 +235,7 @@ namespace Runtime.CH1.Pacmom
         #region Eaten
         public void RapleyEaten()
         {
-            //soundSystem.PlayEffect("PacmomEat"); //TODO Manager.Sound로 교체
+            Managers.Sound.Play(Sound.Effect, "Pacmom_SFX_06");
 
             _dataController.TakeHalfCoins(false);
             _rapley.ResetState();
@@ -247,7 +243,7 @@ namespace Runtime.CH1.Pacmom
 
         public void DustEaten(Dust dust)
         {
-            // soundSystem.PlayEffect("PacmomEat");//TODO Manager.Sound로 교체
+            Managers.Sound.Play(Sound.Effect, "Pacmom_SFX_06");
 
             dust.movement.SetCanMove(false);
             dust.movement.ResetState();
@@ -258,7 +254,7 @@ namespace Runtime.CH1.Pacmom
 
         public void PacmomEatenByRapley()
         {
-            //soundSystem.PlayEffect("PacmomStun"); //TODO Manager.Sound로 교체
+            Managers.Sound.Play(Sound.Effect, "Pacmom_SFX_11");
 
             _dataController.TakeHalfCoins(true);
             LoseLife();
@@ -266,7 +262,7 @@ namespace Runtime.CH1.Pacmom
 
         public void PacmomEatenByDust(int ID)
         {
-            // soundSystem.PlayEffect("PacmomStun"); //TODO Manager.Sound로 교체
+            Managers.Sound.Play(Sound.Effect, "Pacmom_SFX_11");
 
             _dialogue.CatchDialogue(ID);
             StartCoroutine(_dataController.ReleaseHalfCoins());
@@ -308,7 +304,7 @@ namespace Runtime.CH1.Pacmom
             if (!_isMoving)
                 return;
 
-            //soundSystem.PlayEffect("RapleyEatCoin"); //TODO Manager.Sound로 교체
+            Managers.Sound.Play(Sound.Effect, "Pacmom_SFX_10");
 
             _dataController.RapleyScore1Up();
 
@@ -323,7 +319,7 @@ namespace Runtime.CH1.Pacmom
             if (!_isMoving)
                 return;
 
-            // soundSystem.PlayEffect("PacmomEatCoin"); //TODO Manager.Sound로 교체
+            Managers.Sound.Play(Sound.Effect, "Pacmom_SFX_12");
 
             _dataController.PacmomScore1Up();
 
