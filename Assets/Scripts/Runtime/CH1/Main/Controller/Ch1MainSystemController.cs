@@ -8,13 +8,13 @@ using Runtime.InGameSystem;
 using Runtime.Input;
 using Runtime.Interface;
 using UnityEngine;
+using Sound = Runtime.ETC.Sound;
 
 namespace Runtime.CH1.Main.Controller
 {
     public class Ch1MainSystemController : MonoBehaviour
     {
         [Header("System")]
-        [SerializeField] private SoundSystem soundSystem;
         [SerializeField] private SettingsUIView settingsUIView;
         [SerializeField] private Ch1StageController ch1StageController;
         [SerializeField] private Ch1DialogueController ch1DialogueController;
@@ -23,9 +23,6 @@ namespace Runtime.CH1.Main.Controller
         
         [Header("Player")]
         [SerializeField] private TopDownPlayer player;
-        
-        private IProvider<ControlsData> ControlsDataProvider => DataProviderManager.Instance.ControlsDataProvider;
-        private GameOverControls GameOverControls => ControlsDataProvider.Get().GameOverControls;
 
         private InGameKeyBinder _inGameKeyBinder;
         
@@ -33,13 +30,13 @@ namespace Runtime.CH1.Main.Controller
         {
             GameKeyBinding();
             GameInit();
-            TryGameIntro();
+            SetGame();
         }
 
-        // 인게임에 사용되는 키 바인딩
+        // 인게임에 사용되는 키 이벤트 바인딩
         private void GameKeyBinding()
         {
-            _inGameKeyBinder = new InGameKeyBinder(GameOverControls);
+            _inGameKeyBinder = new InGameKeyBinder(Managers.Data.GameOverControls);
             
             _inGameKeyBinder.PlayerKeyBinding(player);
             _inGameKeyBinder.UIKeyBinding(settingsUIView);
@@ -60,10 +57,11 @@ namespace Runtime.CH1.Main.Controller
             ch1StageController.Init(fadeController, _inGameKeyBinder, player.transform);
         }
         
-        // 현재 minor버전에 맞는 연출 실행
-        private void TryGameIntro()
+        // 저장된 데이터를 토대로 맵 이동
+        private void SetGame()
         {
-            //timelineController.PlayTimeline();
+            Managers.Sound.Play(Sound.BGM, "Ch1Main");
+            ch1StageController.SetStage(Managers.Data.Stage, new Vector2(0, 0));
         }
     }
 }

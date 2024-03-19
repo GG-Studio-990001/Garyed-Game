@@ -5,16 +5,17 @@ using UnityEngine.Timeline;
 
 namespace Runtime.CH1.Main.Dialogue
 {
+    // 타임라인 관리 클래스
     public class TimelineController : MonoBehaviour
     {
         [SerializeField] private TimelineAsset[] _timelineAssets;
         [field:SerializeField] public PlayableDirector PlayableDirector { get; private set; }
 
-        public PlayerData playerData;
+        //public PlayerData playerData;
 
         public void PlayTimeline()
         {
-            PlayTimeline(playerData.quarter.minor);
+            //PlayTimeline(playerData.quarter.minor);
         }
 
         public void PlayTimeline(int minor)

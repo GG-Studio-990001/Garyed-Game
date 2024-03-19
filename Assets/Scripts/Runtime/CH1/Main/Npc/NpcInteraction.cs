@@ -11,10 +11,18 @@ namespace Runtime.CH1.Main
         [SerializeField] private DialogueRunner dialogueRunner;
 
         public Action<Vector2> OnInteract { get; set; }
-        
+
+        private void Awake()
+        {
+            if (dialogueRunner == null)
+            {
+                dialogueRunner = FindObjectOfType<DialogueRunner>();
+            }
+        }
+
         public bool Interact(Vector2 direction)
         {
-            dialogueRunner?.StartDialogue(talkToNode);
+            dialogueRunner.StartDialogue(talkToNode);
             
             OnInteract?.Invoke(direction);
             

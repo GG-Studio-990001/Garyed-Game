@@ -10,11 +10,10 @@ using Yarn.Unity;
 
 namespace Runtime.CH1.Main.Dialogue
 {
+    // CH1 대화 컨트롤러 Yarn Spinner를 사용하여 대화를 관리하는 클래스
     public class Ch1DialogueController : DialogueViewBase
     {
         [SerializeField] private DialogueRunner _runner;
-        
-        [SerializeField] private SoundSystem _soundSystem;
         [SerializeField] private FadeController _fadeController;
         [SerializeField] private CinemachineVirtualCamera _virtualCamera;
         [SerializeField] private TimelineController _timelineController;
@@ -25,13 +24,11 @@ namespace Runtime.CH1.Main.Dialogue
         public UnityEvent OnDialogueStart => _runner.onDialogueStart;
         public UnityEvent OnDialogueEnd => _runner.onDialogueComplete;
         
-        public PlayerData playerData;
-        
         private void Awake()
         {
             // UI/Sound
             _runner.AddCommandHandler<string>("PlayBackgroundSound", PlayBackgroundSound);
-            _runner.AddCommandHandler("StopBackgroundSound", _soundSystem.StopMusic);
+            //_runner.AddCommandHandler("StopBackgroundSound", _soundSystem.StopMusic);
             _runner.AddCommandHandler<bool>("SetBackgroundColor", SetBackgroundColor);
             _runner.AddCommandHandler("FadeOut", _fadeController.StartFadeOut);
             _runner.AddCommandHandler("FadeIn", _fadeController.StartFadeIn);
@@ -42,7 +39,7 @@ namespace Runtime.CH1.Main.Dialogue
 
             // Logic
             _runner.AddCommandHandler("CurrentMinorDialogueStart", CurrentMinorDialogueStart);
-            _runner.AddCommandHandler("MinorVersionUp", () => playerData.quarter.minor++);
+            //_runner.AddCommandHandler("MinorVersionUp", () => playerData.quarter.minor++);
             _runner.AddCommandHandler<string>("StartTimeline", (timelineName) => _timelineController.PlayTimeline(timelineName));
             
             // Character
@@ -50,7 +47,7 @@ namespace Runtime.CH1.Main.Dialogue
         
         private void PlayBackgroundSound(string soundName)
         {
-            _soundSystem.PlayMusic(soundName);
+            //_soundSystem.PlayMusic(soundName); // TODO Manager.Sound로 교체
         }
 
         private void SetCamera()
@@ -68,7 +65,7 @@ namespace Runtime.CH1.Main.Dialogue
             //_runner.NodeExists();
             _runner.Stop();
             //_runner.Clear();
-            _runner.StartDialogue($"Dialogue{playerData.quarter.minor}");
+            //_runner.StartDialogue($"Dialogue{playerData.quarter.minor}");
         }
         
         private void ChangeScene(string spriteName)

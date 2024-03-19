@@ -73,7 +73,7 @@ namespace Runtime.CH1.Pacmom
         {
             if (_isAlmostOver && isTimerRunning)
             {
-                gameController.soundSystem.PlayEffect("TicToc");
+                //gameController.soundSystem.PlayEffect("TicToc");
                 Invoke("TicToc", 1f);
             }
         }

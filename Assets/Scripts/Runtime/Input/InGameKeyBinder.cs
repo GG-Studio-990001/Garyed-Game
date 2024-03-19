@@ -3,6 +3,7 @@ using Runtime.Common.View;
 
 namespace Runtime.Input
 {
+    // 현재 플랫폼에 맞게 키 바인딩을 설정하는 클래스
     public class InGameKeyBinder
     {
         private readonly GameOverControls _gameOverControls;

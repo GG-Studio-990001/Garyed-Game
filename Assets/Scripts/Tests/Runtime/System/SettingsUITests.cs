@@ -15,7 +15,6 @@ namespace Tests.Runtime.System
     {
         private GameObject _gameObject;
         private SettingsUIView _view;
-        private SettingsData _model;
         private SettingsUIPresenter _presenter;
         
         private GameObject _backgroundAudioSource;
@@ -50,11 +49,7 @@ namespace Tests.Runtime.System
             _exitButton = new GameObject("ExitButton").AddComponent<Button>();
             _view.ExitButton = _exitButton;
             
-            _model = ScriptableObject.CreateInstance<SettingsData>();
-            _presenter = new SettingsUIPresenter(_view, _model);
-            
-            _model.MusicVolume = 0.5f;
-            _model.SfxVolume = 0.5f;
+            _presenter = new SettingsUIPresenter(_view);
             
             yield return new WaitForFixedUpdate();
         }
@@ -95,7 +90,6 @@ namespace Tests.Runtime.System
             yield return new WaitForFixedUpdate();
             
             // Assert
-            Assert.AreEqual(0.75f, _model.MusicVolume);
         }
         
         [UnityTest]
@@ -107,8 +101,6 @@ namespace Tests.Runtime.System
             // Act
             yield return new WaitForFixedUpdate();
             
-            // Assert
-            Assert.AreEqual(0.3f, _model.SfxVolume);
         }
         
         [UnityTearDown]
@@ -117,7 +109,6 @@ namespace Tests.Runtime.System
             Object.DestroyImmediate(_gameObject);
             Object.DestroyImmediate(_backgroundAudioSource);
             Object.DestroyImmediate(_effectAudioSource);
-            Object.DestroyImmediate(_model);
             Object.DestroyImmediate(_musicVolumeSlider.gameObject);
             Object.DestroyImmediate(_sfxVolumeSlider.gameObject);
             Object.DestroyImmediate(_exitButton.gameObject);

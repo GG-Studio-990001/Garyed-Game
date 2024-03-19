@@ -31,6 +31,16 @@ namespace Runtime.CH1.Main.Stage
             StageSettings();
         }
         
+        public void SetStage(int moveStageNumber, Vector2 spawnPosition)
+        {
+            foreach (var stage in _stages)
+            {
+                stage.Disable();
+            }
+            
+            _stages[moveStageNumber].Enable();
+        }
+        
         private void StageChangerInit()
         {
             StageChanger = new Ch1StageChanger(_playerTransform, _stages, _fadeController, Confiner2D);
@@ -39,7 +49,7 @@ namespace Runtime.CH1.Main.Stage
             StageChanger.OnStageEnd += () => _inGameKeyBinder.PlayerInputEnable();
         }
         
-        private void StageSettings()
+        private async void StageSettings()
         {
             foreach (var stage in _stages)
             {
@@ -52,7 +62,7 @@ namespace Runtime.CH1.Main.Stage
             {
                 if (stage.IsActivate())
                 {
-                    StageChanger.SetStage(stage.StageNumber, new Vector2(0, 0));
+                    await StageChanger.SetStage(stage.StageNumber, new Vector2(0, 0));
                 }
             }
         }
