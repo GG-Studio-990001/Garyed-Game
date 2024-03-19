@@ -24,9 +24,6 @@ namespace Runtime.CH1.Main.Controller
         
         [Header("Player")]
         [SerializeField] private TopDownPlayer player;
-        
-        private IProvider<ControlsData> ControlsDataProvider => DataProviderManager.Instance.ControlsDataProvider;
-        private GameOverControls GameOverControls => ControlsDataProvider.Get().GameOverControls;
 
         private InGameKeyBinder _inGameKeyBinder;
         
@@ -34,13 +31,13 @@ namespace Runtime.CH1.Main.Controller
         {
             GameKeyBinding();
             GameInit();
-            TryGameIntro();
+            SetGame();
         }
 
-        // 인게임에 사용되는 키 바인딩
+        // 인게임에 사용되는 키 이벤트 바인딩
         private void GameKeyBinding()
         {
-            _inGameKeyBinder = new InGameKeyBinder(GameOverControls);
+            _inGameKeyBinder = new InGameKeyBinder(Managers.Data.GameOverControls);
             
             _inGameKeyBinder.PlayerKeyBinding(player);
             _inGameKeyBinder.UIKeyBinding(settingsUIView);
@@ -62,10 +59,12 @@ namespace Runtime.CH1.Main.Controller
         }
         
         // 현재 minor버전에 맞는 연출 실행
-        private void TryGameIntro()
+        private void SetGame()
         {
             Managers.Sound.Play(Sound.BGM, "Ch1Main");
-            //timelineController.PlayTimeline();
+            ch1StageController.SetStage(Managers.Data.Stage, new Vector2(0, 0));
+            
+            Managers.Data.SaveGame();
         }
     }
 }

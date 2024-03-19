@@ -573,7 +573,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1dc44c28531066c48989982cab644a0e, type: 2}
   - {fileID: 11400000, guid: 7c05a6fefb8a7f5409a77d6dbfa8b321, type: 2}
   <PlayableDirector>k__BackingField: {fileID: 248890229}
-  playerData: {fileID: 11400000, guid: 65d91fdbadf9436458d8efbe1f8995fe, type: 2}
 --- !u!1 &326335554
 GameObject:
   m_ObjectHideFlags: 0
@@ -2905,7 +2904,6 @@ MonoBehaviour:
   _backgroundImage: {fileID: 1782403766}
   Sprites:
   - {fileID: 21300000, guid: e43bac692c7b23349ba9ba49ec2f5b29, type: 3}
-  playerData: {fileID: 11400000, guid: 65d91fdbadf9436458d8efbe1f8995fe, type: 2}
 --- !u!1 &1782403764
 GameObject:
   m_ObjectHideFlags: 0
@@ -3290,7 +3288,7 @@ MonoBehaviour:
   - {fileID: 3177337089561241846}
   - {fileID: 1653161658143596180}
   startNode: StartNode
-  startAutomatically: 1
+  startAutomatically: 0
   runSelectedOptionAsLine: 0
   lineProvider: {fileID: 0}
   verboseLogging: 1

@@ -5,10 +5,10 @@ namespace Runtime.CH1.Main.Dialogue
 {
     public static class YarnFunctionTest
     {
-        [YarnFunction("GetMinor")]
-        public static int GetMinor()
-        {
-            return DataProviderManager.Instance.PlayerDataProvider.Get().quarter.minor;
-        }
+        // [YarnFunction("GetMinor")]
+        // public static int GetMinor()
+        // {
+        //     //return DataProviderManager.Instance.PlayerDataProvider.Get().quarter.minor;
+        // }
     }
 }

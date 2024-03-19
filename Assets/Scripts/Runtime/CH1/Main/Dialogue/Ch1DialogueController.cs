@@ -25,7 +25,7 @@ namespace Runtime.CH1.Main.Dialogue
         public UnityEvent OnDialogueStart => _runner.onDialogueStart;
         public UnityEvent OnDialogueEnd => _runner.onDialogueComplete;
         
-        public PlayerData playerData;
+        //public PlayerData playerData;
         
         private void Awake()
         {
@@ -42,7 +42,7 @@ namespace Runtime.CH1.Main.Dialogue
 
             // Logic
             _runner.AddCommandHandler("CurrentMinorDialogueStart", CurrentMinorDialogueStart);
-            _runner.AddCommandHandler("MinorVersionUp", () => playerData.quarter.minor++);
+            //_runner.AddCommandHandler("MinorVersionUp", () => playerData.quarter.minor++);
             _runner.AddCommandHandler<string>("StartTimeline", (timelineName) => _timelineController.PlayTimeline(timelineName));
             
             // Character
@@ -68,7 +68,7 @@ namespace Runtime.CH1.Main.Dialogue
             //_runner.NodeExists();
             _runner.Stop();
             //_runner.Clear();
-            _runner.StartDialogue($"Dialogue{playerData.quarter.minor}");
+            //_runner.StartDialogue($"Dialogue{playerData.quarter.minor}");
         }
         
         private void ChangeScene(string spriteName)

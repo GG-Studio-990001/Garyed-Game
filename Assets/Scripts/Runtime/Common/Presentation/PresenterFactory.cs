@@ -7,8 +7,7 @@ namespace Runtime.Common.Presentation
     {
         public static SettingsUIPresenter CreateSettingsUIPresenter(SettingsUIView view)
         {
-            return new SettingsUIPresenter(view, DataProviderManager.Instance.SettingsDataProvider.Get());
-            //return new SettingsUIPresenter(view, Resources.Load<SettingsData>("SettingsData"));
+            return new SettingsUIPresenter(view);
         }
     }
 }

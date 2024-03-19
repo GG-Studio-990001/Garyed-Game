@@ -25,8 +25,6 @@ namespace Tests.Runtime.CH1.Player
         [UnitySetUp]
         public IEnumerator Setup()
         {
-            DataProviderManager dataProviderManager = new GameObject("DataProviderManager").AddComponent<DataProviderManager>();
-            
             _playerObject = new GameObject("Player");
             Animator animator = _playerObject.AddComponent<Animator>();
             
