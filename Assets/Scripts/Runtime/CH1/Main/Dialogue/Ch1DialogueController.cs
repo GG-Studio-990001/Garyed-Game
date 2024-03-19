@@ -10,11 +10,10 @@ using Yarn.Unity;
 
 namespace Runtime.CH1.Main.Dialogue
 {
+    // CH1 대화 컨트롤러 Yarn Spinner를 사용하여 대화를 관리하는 클래스
     public class Ch1DialogueController : DialogueViewBase
     {
         [SerializeField] private DialogueRunner _runner;
-        
-        [SerializeField] private SoundSystem _soundSystem;
         [SerializeField] private FadeController _fadeController;
         [SerializeField] private CinemachineVirtualCamera _virtualCamera;
         [SerializeField] private TimelineController _timelineController;
@@ -24,8 +23,6 @@ namespace Runtime.CH1.Main.Dialogue
 
         public UnityEvent OnDialogueStart => _runner.onDialogueStart;
         public UnityEvent OnDialogueEnd => _runner.onDialogueComplete;
-        
-        //public PlayerData playerData;
         
         private void Awake()
         {
@@ -50,7 +47,7 @@ namespace Runtime.CH1.Main.Dialogue
         
         private void PlayBackgroundSound(string soundName)
         {
-            _soundSystem.PlayMusic(soundName);
+            //_soundSystem.PlayMusic(soundName); // TODO Manager.Sound로 교체
         }
 
         private void SetCamera()

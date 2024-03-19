@@ -42,8 +42,6 @@ namespace Runtime.Common.Presentation
             UnityEditor.EditorApplication.isPlaying = false;
             #endif
             Application.Quit();
-
-            //Managers.Sound.Play()
         }
     }
 }

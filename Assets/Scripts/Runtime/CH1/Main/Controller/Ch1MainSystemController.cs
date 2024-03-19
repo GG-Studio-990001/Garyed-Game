@@ -15,7 +15,6 @@ namespace Runtime.CH1.Main.Controller
     public class Ch1MainSystemController : MonoBehaviour
     {
         [Header("System")]
-        [SerializeField] private SoundSystem soundSystem;
         [SerializeField] private SettingsUIView settingsUIView;
         [SerializeField] private Ch1StageController ch1StageController;
         [SerializeField] private Ch1DialogueController ch1DialogueController;
@@ -58,13 +57,11 @@ namespace Runtime.CH1.Main.Controller
             ch1StageController.Init(fadeController, _inGameKeyBinder, player.transform);
         }
         
-        // 현재 minor버전에 맞는 연출 실행
+        // 저장된 데이터를 토대로 맵 이동
         private void SetGame()
         {
             Managers.Sound.Play(Sound.BGM, "Ch1Main");
             ch1StageController.SetStage(Managers.Data.Stage, new Vector2(0, 0));
-            
-            Managers.Data.SaveGame();
         }
     }
 }

@@ -5,6 +5,7 @@ using UnityEngine.Timeline;
 
 namespace Runtime.CH1.Main.Dialogue
 {
+    // 타임라인 관리 클래스
     public class TimelineController : MonoBehaviour
     {
         [SerializeField] private TimelineAsset[] _timelineAssets;

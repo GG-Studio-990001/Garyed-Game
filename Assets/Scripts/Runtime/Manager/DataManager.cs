@@ -10,6 +10,7 @@ namespace Runtime.Manager
     {
         public int chapter; // enum으로 변경
         public int stage;
+        public int minor;
         public bool pacmomIsCleared;
         public float musicVolume;
         public float sfxVolume;
@@ -26,6 +27,7 @@ namespace Runtime.Manager
 
         public int Chapter { get { return _gameData.chapter; } set { _gameData.chapter = value; } }
         public int Stage { get { return _gameData.stage; } set { _gameData.stage = value; } }
+        public int Minor { get { return _gameData.minor; } set { _gameData.minor = value; } }
         public bool PacmomIsCleared { get { return _gameData.pacmomIsCleared; } set { _gameData.pacmomIsCleared = value; } }
 
         public float MusicVolume

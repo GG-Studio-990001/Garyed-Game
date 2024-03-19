@@ -11,8 +11,8 @@ namespace Runtime.CH1.Pacmom
     {
         private DialogueRunner runner;
 
-        [SerializeField]
-        private SoundSystem soundSystem;
+        // [SerializeField]
+        // private SoundSystem soundSystem; // TODO Manager.Sound로 교체
         [SerializeField]
         private PMEnding ending;
         [SerializeField]
@@ -45,7 +45,7 @@ namespace Runtime.CH1.Pacmom
 
         public override void RunLine(LocalizedLine dialogueLine, Action onDialogueLineFinished)
         {
-            soundSystem.StopSFX();
+            //soundSystem.StopSFX(); // TODO Manager.Sound로 교체
 
             string speaker = dialogueLine.CharacterName;
 
@@ -86,7 +86,7 @@ namespace Runtime.CH1.Pacmom
 
         public void OpeningDialogueFin()
         {
-            soundSystem.StopSFX();
+            //soundSystem.StopSFX(); // TODO Manager.Sound로 교체
             ShowSpeechBubble(Speaker.none);
             timeline_2.SetActive(true);
         }
