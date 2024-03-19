@@ -5,11 +5,11 @@ namespace Runtime.CH1.Pacmom
     public class Passage : MonoBehaviour
     {
         [SerializeField]
-        private Transform connection;
+        private Transform _connection;
 
         private void OnTriggerEnter2D(Collider2D character)
         {
-            Vector3 newPosition = new Vector3(connection.position.x, connection.position.y, character.transform.position.z);
+            Vector3 newPosition = new Vector3(_connection.position.x, _connection.position.y, character.transform.position.z);
 
             character.transform.position = newPosition;
         }

@@ -8,15 +8,15 @@ namespace Runtime.CH1.Pacmom
     {
         public PMData dataController;
         [SerializeField]
-        private GameObject[] pacmomLives = new GameObject[3];
+        private GameObject[] _pacmomLives = new GameObject[3];
         [SerializeField]
-        private TextMeshProUGUI pacmomScoreTxt;
+        private TextMeshProUGUI _pacmomScoreTxt;
         [SerializeField]
-        private TextMeshProUGUI rapleyScoreTxt;
+        private TextMeshProUGUI _rapleyScoreTxt;
 
         public void LosePacmomLife(int nowLives)
         {
-            pacmomLives[nowLives].SetActive(false);
+            _pacmomLives[nowLives].SetActive(false);
         }
 
         public void ShowPacmomScore(int newScore)
@@ -31,28 +31,28 @@ namespace Runtime.CH1.Pacmom
 
         private IEnumerator ChangePacmomScore(int newScore)
         {
-            string scoreStr = pacmomScoreTxt.text.Substring(1);
+            string scoreStr = _pacmomScoreTxt.text.Substring(1);
             int score = int.Parse(scoreStr);
             float changeTime = dataController.GetChangeTime(newScore - score);
 
             while (score != newScore)
             {
                 score += (score < newScore ? 1 : -1);
-                pacmomScoreTxt.text = "x" + score.ToString();
+                _pacmomScoreTxt.text = "x" + score.ToString();
                 yield return new WaitForSeconds(changeTime);
             }
         }
 
         private IEnumerator ChangeRapleyScore(int newScore)
         {
-            string scoreStr = rapleyScoreTxt.text.Substring(1);
+            string scoreStr = _rapleyScoreTxt.text.Substring(1);
             int score = int.Parse(scoreStr);
             float changeTime = dataController.GetChangeTime(newScore - score);
 
             while (score != newScore)
             {
                 score += (score < newScore ? 1 : -1);
-                rapleyScoreTxt.text = "x" + score.ToString();
+                _rapleyScoreTxt.text = "x" + score.ToString();
                 yield return new WaitForSeconds(changeTime);
             }
         }

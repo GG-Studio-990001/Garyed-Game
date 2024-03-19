@@ -13,13 +13,12 @@ namespace Runtime.CH1.Pacmom
         public bool canMove { get; private set; }
 
         [SerializeField]
-        private float speed = 8f;
+        private float _speed = 8f;
         [SerializeField]
-        private float speedMultiplier = 1f;
+        private float _speedMultiplier = 1f;
         [SerializeField]
-        private Vector2 initialDirection;
-
-        private LayerMask obstacleLayer;
+        private Vector2 _initialDirection;
+        private LayerMask _obstacleLayer;
 
         private void Update()
         {
@@ -34,13 +33,13 @@ namespace Runtime.CH1.Pacmom
             SetRigidBody(GetComponent<Rigidbody2D>());
             startPosition = transform.position;
             canMove = true;
-            obstacleLayer = LayerMask.GetMask(GlobalConst.ObstacleStr);
+            _obstacleLayer = LayerMask.GetMask(GlobalConst.ObstacleStr);
         }
 
         public virtual void ResetState()
         {
             transform.position = startPosition;
-            direction = initialDirection;
+            direction = _initialDirection;
             nextDirection = Vector2.zero;
         }
 
@@ -48,7 +47,7 @@ namespace Runtime.CH1.Pacmom
         {
             // 길 너비와 몸 지름이 같기 때문에 rigidbody를 주체로 움직임
             Vector2 position = rigid.position;
-            Vector2 translation = direction * speed * speedMultiplier * Time.fixedDeltaTime;
+            Vector2 translation = direction * _speed * _speedMultiplier * Time.fixedDeltaTime;
 
             rigid.MovePosition(position + translation);
         }
@@ -61,7 +60,7 @@ namespace Runtime.CH1.Pacmom
 
         public void SetSpeedMultiplier(float speedMultiplier)
         {
-            this.speedMultiplier = speedMultiplier;
+            _speedMultiplier = speedMultiplier;
         }
 
         public void SetCanMove(bool canMove)
@@ -92,7 +91,7 @@ namespace Runtime.CH1.Pacmom
         {
             // 방향에 길이 막혀있으면 true 반환
             // 몸집이 있기 때문에 box로 검출
-            RaycastHit2D hit = Physics2D.BoxCast(transform.position, Vector2.one * 0.5f, 0f, direction, 1.0f, obstacleLayer);
+            RaycastHit2D hit = Physics2D.BoxCast(transform.position, Vector2.one * 0.5f, 0f, direction, 1.0f, _obstacleLayer);
 
             return hit.collider is not null;
         }

@@ -232,12 +232,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e52d0147f893494c8c45433a156e479, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  speedMultiplier: 1
-  initialDirection: {x: 0, y: 0}
-  eyeSprite: {fileID: 9128906991448013983}
-  EyeSprites:
-  - {fileID: 0}
+  _speed: 5
+  _speedMultiplier: 1
+  _initialDirection: {x: 0, y: 0}
+  _eyeSprite: {fileID: 9128906991448013983}
+  _EyeSprites:
+  - {fileID: 1438590464, guid: e48202bc45cce2146932707e0ee993a9, type: 3}
+  - {fileID: 112017311, guid: e48202bc45cce2146932707e0ee993a9, type: 3}
+  - {fileID: 92227687, guid: e48202bc45cce2146932707e0ee993a9, type: 3}
+  - {fileID: -1150924220, guid: e48202bc45cce2146932707e0ee993a9, type: 3}
 --- !u!114 &5395930438513632476
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -252,6 +255,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movement: {fileID: 8324175502395817452}
   enemys: []
+  _doCoinMatter: 0
+  <isStronger>k__BackingField: 1
 --- !u!114 &5522138042445295253
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -264,10 +269,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9db8ac1e0478be1409f0ffdc00e53044, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movement: {fileID: 8324175502395817452}
-  inside: {fileID: 0}
-  outside: {fileID: 0}
-  crossRoad: {fileID: 0}
+  _inside: {fileID: 0}
+  _outside: {fileID: 0}
+  _crossRoad: {fileID: 0}
 --- !u!114 &8517634723861635253
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -280,8 +284,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3656dd137e2f5154599b72ced36ff159, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogue: {fileID: 0}
-  reachTime: 0
+  _dialogue: {fileID: 0}
+  _reachTime: 0
 --- !u!1 &8942196247262051131
 GameObject:
   m_ObjectHideFlags: 0

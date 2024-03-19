@@ -8,52 +8,52 @@ namespace Runtime.CH1.Pacmom
 {
     public class InGameDialogue : DialogueViewBase
     {
-        private DialogueRunner runner;
+        private DialogueRunner _runner;
         [SerializeField]
-        PMGameController controller;
+        private PMGameController _controller;
 
         [Header("=DustA=")]
         [SerializeField]
-        private GameObject dustA;
+        private GameObject _dustA;
         [SerializeField]
-        private GameObject bubbleA;
+        private GameObject _bubbleA;
         [SerializeField]
-        private TextMeshProUGUI textA;
+        private TextMeshProUGUI _textA;
         [Header("=DustB=")]
         [SerializeField]
-        private GameObject dustB;
+        private GameObject _dustB;
         [SerializeField]
-        private GameObject bubbleB;
+        private GameObject _bubbleB;
         [SerializeField]
-        private TextMeshProUGUI textB;
+        private TextMeshProUGUI _textB;
         [Header("=Else=")]
         [SerializeField]
-        private float currentTime = 0f;
+        private float _currentTime = 0f;
         [SerializeField]
-        private float targetTime = 15f;
-        private int dustID = 0;
+        private float _targetTime = 15f;
+        private int _dustID = 0;
 
         private void Awake()
         {
-            runner = GetComponent<DialogueRunner>();
-            runner.AddCommandHandler("HideBubble", HideBubble);
+            _runner = GetComponent<DialogueRunner>();
+            _runner.AddCommandHandler("HideBubble", HideBubble);
         }
 
         private void Update()
         {
             CheckTime();
 
-            if (bubbleA.activeInHierarchy)
-                SetBubble(dustA, bubbleA, textA);
+            if (_bubbleA.activeInHierarchy)
+                SetBubble(_dustA, _bubbleA, _textA);
 
-            if (bubbleB.activeInHierarchy)
-                SetBubble(dustB, bubbleB, textB);
+            if (_bubbleB.activeInHierarchy)
+                SetBubble(_dustB, _bubbleB, _textB);
         }
 
         private void SetBubble(GameObject dust, GameObject bubble, TextMeshProUGUI text)
         {
-            float xPos = (dust == dustA ? -2.3f : 2.3f);
-            float yRotate = (dust == dustA ? 0f : -180f);
+            float xPos = (dust == _dustA ? -2.3f : 2.3f);
+            float yRotate = (dust == _dustA ? 0f : -180f);
 
             if (dust.transform.position.x > 12)
             {
@@ -78,9 +78,9 @@ namespace Runtime.CH1.Pacmom
             string speakerStr = dialogueLine.CharacterName;
             Speaker nowSpeaker = Speaker.none;
 
-            if (dustID != 0) // ID로 구별
+            if (_dustID != 0) // ID로 구별
             {
-                nowSpeaker = (dustID == 1 ? Speaker.dustA : Speaker.dustB);
+                nowSpeaker = (_dustID == 1 ? Speaker.dustA : Speaker.dustB);
             }
             else // 이름으로 구별
             {
@@ -90,42 +90,42 @@ namespace Runtime.CH1.Pacmom
                     nowSpeaker = Speaker.dustB;
             }
 
-            TextMeshProUGUI text = (nowSpeaker == Speaker.dustA ? textA : textB);
+            TextMeshProUGUI text = (nowSpeaker == Speaker.dustA ? _textA : _textB);
 
             text.text = dialogueLine.TextWithoutCharacterName.Text;
 
             if (nowSpeaker == Speaker.dustA)
             {
-                bubbleA.SetActive(true);
-                textA.text = text.text;
+                _bubbleA.SetActive(true);
+                _textA.text = text.text;
             }
             else if (nowSpeaker == Speaker.dustB)
             {
-                bubbleB.SetActive(true);
-                textB.text = text.text;
+                _bubbleB.SetActive(true);
+                _textB.text = text.text;
             }
             
-            if (dustID != 0) // 초기화
-                dustID = 0;
+            if (_dustID != 0) // 초기화
+                _dustID = 0;
 
             onDialogueLineFinished();
         }
 
         public void HideBubble()
         {
-            if (bubbleA.activeSelf)
-                bubbleA.SetActive(false);
-            if (bubbleB.activeSelf)
-                bubbleB.SetActive(false);
+            if (_bubbleA.activeSelf)
+                _bubbleA.SetActive(false);
+            if (_bubbleB.activeSelf)
+                _bubbleB.SetActive(false);
         }
 
         #region Time
         private void CheckTime()
         {
-            if (!controller.isGameOver && dustA.GetComponent<AI>().isStronger)
-                currentTime += Time.deltaTime;
+            if (!_controller.isGameOver && _dustA.GetComponent<AI>().isStronger)
+                _currentTime += Time.deltaTime;
 
-            if (targetTime < currentTime)
+            if (_targetTime < _currentTime)
                 ShowRandom();
         }
 
@@ -133,70 +133,70 @@ namespace Runtime.CH1.Pacmom
         {
             RandomDialogue();
 
-            currentTime = 0;
-            targetTime = UnityEngine.Random.Range(15f, 20f);
+            _currentTime = 0;
+            _targetTime = UnityEngine.Random.Range(15f, 20f);
         }
         #endregion
 
         #region Dialogue With ID
         public void BlockedDialogue(int ID)
         {
-            dustID = ID;
-            runner.Stop();
-            runner.StartDialogue("PMBlocked");
+            _dustID = ID;
+            _runner.Stop();
+            _runner.StartDialogue("PMBlocked");
         }
 
         public void CatchDialogue(int ID)
         {
-            dustID = ID;
-            runner.Stop();
-            runner.StartDialogue("PMCatch");
+            _dustID = ID;
+            _runner.Stop();
+            _runner.StartDialogue("PMCatch");
         }
 
         public void BeCaughtDialogue(int ID)
         {
-            dustID = ID;
-            runner.Stop();
-            runner.StartDialogue("PMBeCaught");
+            _dustID = ID;
+            _runner.Stop();
+            _runner.StartDialogue("PMBeCaught");
         }
 
         private void RandomDialogue()
         {
-            dustID = UnityEngine.Random.Range(1, 3);
+            _dustID = UnityEngine.Random.Range(1, 3);
 
-            bool dustABloked = dustA.GetComponent<DustBlocked>().isBlocked;
-            bool dustBBloked = dustB.GetComponent<DustBlocked>().isBlocked;
+            bool dustABloked = _dustA.GetComponent<DustBlocked>().isBlocked;
+            bool dustBBloked = _dustB.GetComponent<DustBlocked>().isBlocked;
 
             if (dustABloked && dustBBloked)
                 return;
-            else if (dustID == 1 && dustABloked)
-                dustID = 2;
-            else if (dustID == 2 && dustBBloked)
-                dustID = 1;
+            else if (_dustID == 1 && dustABloked)
+                _dustID = 2;
+            else if (_dustID == 2 && dustBBloked)
+                _dustID = 1;
 
-            runner.Stop();
-            runner.StartDialogue("PMRandom");
+            _runner.Stop();
+            _runner.StartDialogue("PMRandom");
         }
         #endregion
 
         #region Dialogue Both
         public void VacuumDialogue(bool WasVaccumMode)
         {
-            runner.Stop();
+            _runner.Stop();
 
             if (!WasVaccumMode)
-                runner.StartDialogue("PMVacuumMode");
+                _runner.StartDialogue("PMVacuumMode");
             else
-                runner.StartDialogue("PMVacuumModeAgain");
+                _runner.StartDialogue("PMVacuumModeAgain");
 
-            if (targetTime < 5f)
-                targetTime += 5f; // 청소기모드 직후 랜덤대사 출력 방지
+            if (_targetTime < 5f)
+                _targetTime += 5f; // 청소기모드 직후 랜덤대사 출력 방지
         }
 
         public void GameOverDialogue()
         {
-            runner.Stop();
-            runner.StartDialogue("PMGameClear");
+            _runner.Stop();
+            _runner.StartDialogue("PMGameClear");
         }
         #endregion
     }
