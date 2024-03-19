@@ -1,5 +1,7 @@
 using Runtime.ETC;
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using Yarn.Unity;
@@ -32,11 +34,12 @@ namespace Runtime.CH1.Pacmom
         [SerializeField]
         private float _targetTime = 15f;
         private int _dustID = 0;
+        private IEnumerator _bubbleCoroutine;
 
         private void Awake()
         {
             _runner = GetComponent<DialogueRunner>();
-            _runner.AddCommandHandler("HideBubble", HideBubble);
+            _runner.AddCommandHandler("ShortDialogue", ShortDialogue);
         }
 
         private void Update()
@@ -111,7 +114,30 @@ namespace Runtime.CH1.Pacmom
             onDialogueLineFinished();
         }
 
-        public void HideBubble()
+        public void ShortDialogue()
+        {
+            if (_bubbleCoroutine != null)
+                StopCoroutine(_bubbleCoroutine);
+
+            _bubbleCoroutine = HideBubbleAfterTime();
+            StartCoroutine(_bubbleCoroutine);
+        }
+
+        private IEnumerator HideBubbleAfterTime()
+        {
+            yield return new WaitForSeconds(3f);
+
+            HideBubble();
+        }
+
+        public void StopDialogue()
+        {
+            if (_bubbleCoroutine != null)
+                StopCoroutine(_bubbleCoroutine);
+            HideBubble();
+        }
+
+        private void HideBubble()
         {
             if (_bubbleA.activeSelf)
                 _bubbleA.SetActive(false);
@@ -126,10 +152,10 @@ namespace Runtime.CH1.Pacmom
                 _currentTime += Time.deltaTime;
 
             if (_targetTime < _currentTime)
-                ShowRandom();
+                ShowRandomDialogue();
         }
 
-        private void ShowRandom()
+        private void ShowRandomDialogue()
         {
             RandomDialogue();
 

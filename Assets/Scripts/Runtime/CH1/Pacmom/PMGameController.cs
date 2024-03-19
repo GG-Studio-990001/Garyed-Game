@@ -61,7 +61,7 @@ namespace Runtime.CH1.Pacmom
             _spriteController = GetComponent<PMSprite>();
             _dataController = GetComponent<PMData>();
 
-            for (int i = 0; i < _dusts.Length; i++)
+            for (int i = 0; i < GlobalConst.DustCnt; i++)
             {
                 _dustRooms[i] = _dusts[i].GetComponent<DustRoom>();
             }
@@ -72,7 +72,7 @@ namespace Runtime.CH1.Pacmom
             _timer.gameController = this;
             _pacmom.gameController = this;
 
-            for (int i = 0; i < _dusts.Length; i++)
+            for (int i = 0; i < GlobalConst.DustCnt; i++)
             {
                 _dusts[i].gameController = this;
             }
@@ -170,7 +170,7 @@ namespace Runtime.CH1.Pacmom
             _rapley.ResetState();
             _pacmom.ResetState();
 
-            for (int i = 0; i < _dusts.Length; i++)
+            for (int i = 0; i < GlobalConst.DustCnt; i++)
             {
                 _dusts[i].ResetState();
                 _dustRooms[i].SetInRoom(true);
@@ -183,7 +183,7 @@ namespace Runtime.CH1.Pacmom
         {
             _rapley.movement.SetCanMove(move);
             _pacmom.movement.SetCanMove(move);
-            for (int i = 0; i < _dusts.Length; i++)
+            for (int i = 0; i < GlobalConst.DustCnt; i++)
                 _dusts[i].movement.SetCanMove(move);
 
             _isMoving = move;
@@ -194,7 +194,7 @@ namespace Runtime.CH1.Pacmom
             this._isVacuumMode = isVacuumMode;
             _pacmom.VacuumMode(isVacuumMode);
             _pacmom.SetStronger(isVacuumMode);
-            for (int i = 0; i < _dusts.Length; i++)
+            for (int i = 0; i < GlobalConst.DustCnt; i++)
             {
                 _dusts[i].SetStronger(!isVacuumMode);
                 _dusts[i].movement.SetEyeNormal(!isVacuumMode);
@@ -207,7 +207,7 @@ namespace Runtime.CH1.Pacmom
         {
             _pacmom.movement.SetSpeedMultiplier(1.2f);
             _rapley.movement.SetSpeedMultiplier(0.7f);
-            for (int i = 0; i < _dusts.Length; i++)
+            for (int i = 0; i < GlobalConst.DustCnt; i++)
                 _dusts[i].movement.SetSpeedMultiplier(0.7f);
         }
 
@@ -215,18 +215,20 @@ namespace Runtime.CH1.Pacmom
         {
             _pacmom.movement.SetSpeedMultiplier(1f);
             _rapley.movement.SetSpeedMultiplier(1f);
-            for (int i = 0; i < _dusts.Length; i++)
+            for (int i = 0; i < GlobalConst.DustCnt; i++)
                 _dusts[i].movement.SetSpeedMultiplier(1f);
         }
 
         private void DustExitRoom()
         {
-            for (int i = 0; i < _dusts.Length; i++)
+            int dustInRoom = (_dustRooms[0].isInRoom ? 1 : 0) + (_dustRooms[1].isInRoom ? 1 : 0);
+
+            for (int i = 0; i < GlobalConst.DustCnt; i++)
             {
                 if (_dustRooms[i].isInRoom)
                 {
-                    int cntInRoom = GlobalConst.DustCnt - ((_dustRooms[0].isInRoom ? 1 : 0) + (_dustRooms[1].isInRoom ? 1 : 0));
-                    _dustRooms[i].ExitRoom(cntInRoom);
+                    _dustRooms[i].ExitRoom(GlobalConst.DustCnt - dustInRoom);
+                    dustInRoom--;
                 }
             }
         }
@@ -272,7 +274,7 @@ namespace Runtime.CH1.Pacmom
 
         public void AfterPacmomEatenByDust()
         {
-            _dialogue.HideBubble();
+            _dialogue.StopDialogue();
             SetCharacterMove(true);
             LoseLife();
         }
