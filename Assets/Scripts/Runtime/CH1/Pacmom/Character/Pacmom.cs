@@ -8,14 +8,14 @@ namespace Runtime.CH1.Pacmom
     {
         public PMGameController gameController;
         public MovementAndRotation movement { get; set; }
-        private AI _ai;
+        private AI ai;
         [SerializeField]
         private GameObject vacuum;
 
         private void Awake()
         {
             movement = GetComponent<MovementAndRotation>();
-            _ai = GetComponent<AI>();
+            ai = GetComponent<AI>();
         }
 
         private void Start()
@@ -27,7 +27,7 @@ namespace Runtime.CH1.Pacmom
 
         public void SetStronger(bool isStrong)
         {
-            _ai?.SetAIStronger(isStrong);
+            ai?.SetAIStronger(isStrong);
         }
 
         private void SetSpriteRotation()
@@ -51,7 +51,7 @@ namespace Runtime.CH1.Pacmom
         {
             SetRotateToZero();
 
-            _ai.SetAIStronger(isVacuum);
+            ai.SetAIStronger(isVacuum);
             movement.spriteRotation.SetCanRotate(!isVacuum);
             vacuum.SetActive(isVacuum);
         }
@@ -65,7 +65,7 @@ namespace Runtime.CH1.Pacmom
         {
             if (collision.gameObject.layer == LayerMask.NameToLayer(GlobalConst.PlayerStr))
             {
-                if (_ai.isStronger)
+                if (ai.isStronger)
                     gameController?.RapleyEaten();
                 else
                     gameController?.PacmomEatenByRapley();

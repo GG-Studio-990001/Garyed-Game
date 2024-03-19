@@ -5,11 +5,11 @@ namespace Runtime.CH1.Pacmom
     public class Door : MonoBehaviour
     {
         [SerializeField]
-        private GameObject _door;
+        private GameObject door;
 
         public void ActiveDoor(bool isOpen)
         {
-            _door.SetActive(isOpen);
+            door.SetActive(isOpen);
         }
     }
 }

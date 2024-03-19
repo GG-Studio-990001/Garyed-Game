@@ -6,27 +6,27 @@ namespace Runtime.CH1.Pacmom
     [RequireComponent(typeof(Image))]
     public class ImageAnimation : MonoBehaviour
     {
-        private Image _image;
+        private Image image;
         public Sprite[] sprites;
-        private int _animFrame = -1;
-        private float _animTime = 0.25f;
+        private int animFrame = -1;
+        private float animTime = 0.25f;
 
         public void Awake()
         {
-            _image = GetComponent<Image>();
+            image = GetComponent<Image>();
         }
 
         private void Start()
         {
-            InvokeRepeating("NextSprite", _animTime, _animTime);
+            InvokeRepeating("NextSprite", animTime, animTime);
         }
 
         public void NextSprite()
         {
             if (sprites.Length != 0)
             {
-                _animFrame = ++_animFrame % sprites.Length;
-                _image.sprite = sprites[_animFrame];
+                animFrame = ++animFrame % sprites.Length;
+                image.sprite = sprites[animFrame];
             }
         }
     }

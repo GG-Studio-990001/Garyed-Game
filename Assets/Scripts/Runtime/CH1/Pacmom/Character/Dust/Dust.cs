@@ -8,14 +8,14 @@ namespace Runtime.CH1.Pacmom
     {
         public PMGameController gameController;
         public MovementAndEyes movement { get; set; }
-        private AI _ai;
+        private AI ai;
         [field:SerializeField]
         public int dustID { get; private set; }
 
         private void Awake()
         {
             movement = GetComponent<MovementAndEyes>();
-            _ai = GetComponent<AI>();
+            ai = GetComponent<AI>();
         }
 
         private void Start()
@@ -26,12 +26,12 @@ namespace Runtime.CH1.Pacmom
 
         public bool IsStronger()
         {
-            return _ai.isStronger;
+            return ai.isStronger;
         }
 
         public void SetStronger(bool isStrong)
         {
-            _ai?.SetAIStronger(isStrong);
+            ai?.SetAIStronger(isStrong);
         }
 
         public void ResetState()
@@ -50,7 +50,7 @@ namespace Runtime.CH1.Pacmom
         {
             if (collision.gameObject.layer == LayerMask.NameToLayer(GlobalConst.PacmomStr))
             {
-                if (_ai.isStronger)
+                if (ai.isStronger)
                 {
                     if (collision.gameObject.tag != GlobalConst.VacuumStr)
                     {

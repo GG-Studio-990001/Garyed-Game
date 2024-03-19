@@ -6,14 +6,14 @@ namespace Runtime.CH1.Pacmom
 {
     public class Step : MonoBehaviour
     {
-        private LayerMask _obstacleLayer;
+        private LayerMask obstacleLayer;
 
         [field:SerializeField]
         public List<Vector2> availableDirections { get; private set; }
 
         private void Start()
         {
-            _obstacleLayer = LayerMask.GetMask(GlobalConst.ObstacleStr);
+            obstacleLayer = LayerMask.GetMask(GlobalConst.ObstacleStr);
 
             availableDirections = new List<Vector2>();
 
@@ -25,7 +25,7 @@ namespace Runtime.CH1.Pacmom
 
         private void CheckAvailableDirection(Vector2 direction)
         {
-            RaycastHit2D hit = Physics2D.BoxCast(transform.position, Vector2.one * 0.5f, 0f, direction, 1.5f, _obstacleLayer);
+            RaycastHit2D hit = Physics2D.BoxCast(transform.position, Vector2.one * 0.5f, 0f, direction, 1.5f, obstacleLayer);
 
             if (hit.collider is null)
             {

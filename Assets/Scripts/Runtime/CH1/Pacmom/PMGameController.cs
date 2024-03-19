@@ -11,38 +11,38 @@ namespace Runtime.CH1.Pacmom
     public class PMGameController : MonoBehaviour
     {
         #region 선언
-        private PMSprite _spriteController;
-        private PMData _dataController;
+        private PMSprite spriteController;
+        private PMData dataController;
         [Header("=Contoller=")]
         public SoundSystem soundSystem;
         [SerializeField]
-        private InGameDialogue _dialogue;
+        private InGameDialogue dialogue;
         [SerializeField]
-        private Timer _timer;
+        private Timer timer;
         [SerializeField]
-        private Door _door;
+        private Door door;
 
         [Header("=Character=")]
         [SerializeField]
-        private Rapley _rapley;
+        private Rapley rapley;
         [SerializeField]
-        private Pacmom _pacmom;
+        private Pacmom pacmom;
         [SerializeField]
-        private Dust[] _dusts = new Dust[GlobalConst.DustCnt];
-        private DustRoom[] _dustRooms = new DustRoom[GlobalConst.DustCnt];
+        private Dust[] dusts = new Dust[GlobalConst.DustCnt];
+        private DustRoom[] dustRooms = new DustRoom[GlobalConst.DustCnt];
 
         public bool isGameOver { get; private set; } = false;
-        private readonly float _vacuumDuration = 10f;
-        private readonly float _vacuumEndDuration = 3f;
-        private bool _isMoving;
-        private bool _isVacuumMode = false;
+        private readonly float vacuumDuration = 10f;
+        private readonly float vacuumEndDuration = 3f;
+        private bool isMoving;
+        private bool isVacuumMode = false;
 
-        private IProvider<ControlsData> _controlsDataProvider => DataProviderManager.Instance.ControlsDataProvider;
-        private GameOverControls _gameOverControls => _controlsDataProvider.Get().GameOverControls;
+        private IProvider<ControlsData> ControlsDataProvider => DataProviderManager.Instance.ControlsDataProvider;
+        private GameOverControls GameOverControls => ControlsDataProvider.Get().GameOverControls;
 
         [Header("=Setting UI=")]
         [SerializeField]
-        private SettingsUIView _settingsUIView;
+        private SettingsUIView settingsUIView;
         #endregion
 
         #region Awake
@@ -55,33 +55,33 @@ namespace Runtime.CH1.Pacmom
 
         private void SetSettingUI()
         {
-            _gameOverControls.UI.Enable();
-            _gameOverControls.UI.GameSetting.performed += _ =>
+            GameOverControls.UI.Enable();
+            GameOverControls.UI.GameSetting.performed += _ =>
             {
-                _settingsUIView.GameSettingToggle();
+                settingsUIView.GameSettingToggle();
                 Time.timeScale = (Time.timeScale == 0 ? 1 : 0);
             };
         }
 
         private void AssignComponent()
         {
-            _spriteController = GetComponent<PMSprite>();
-            _dataController = GetComponent<PMData>();
+            spriteController = GetComponent<PMSprite>();
+            dataController = GetComponent<PMData>();
 
-            for (int i = 0; i < _dusts.Length; i++)
+            for (int i = 0; i < dusts.Length; i++)
             {
-                _dustRooms[i] = _dusts[i].GetComponent<DustRoom>();
+                dustRooms[i] = dusts[i].GetComponent<DustRoom>();
             }
         }
 
         private void AssignController()
         {
-            _timer.gameController = this;
-            _pacmom.gameController = this;
+            timer.gameController = this;
+            pacmom.gameController = this;
 
-            for (int i = 0; i < _dusts.Length; i++)
+            for (int i = 0; i < dusts.Length; i++)
             {
-                _dusts[i].gameController = this;
+                dusts[i].gameController = this;
             }
         }
         #endregion
@@ -97,7 +97,7 @@ namespace Runtime.CH1.Pacmom
             ResetStates();
             SetCharacterMove(true);
 
-            _timer.SetTimer(true);
+            timer.SetTimer(true);
         }
         #endregion
 
@@ -105,24 +105,24 @@ namespace Runtime.CH1.Pacmom
         public void GameOver()
         {
             soundSystem.StopMusic();
-            _timer.SetTimer(false);
+            timer.SetTimer(false);
             isGameOver = true;
 
             SetCharacterMove(false);
 
-            if (_dataController.HasRemainingCoins())
-                _dialogue.GameOverDialogue();
+            if (dataController.HasRemainingCoins())
+                dialogue.GameOverDialogue();
 
-            StartCoroutine(_dataController.GetRemaningCoins());
+            StartCoroutine(dataController.GetRemaningCoins());
         }
         #endregion
 
         #region Vacuum Mode
         public void UseVacuum()
         {
-            _dialogue.VacuumDialogue(_isVacuumMode);
+            dialogue.VacuumDialogue(isVacuumMode);
 
-            if (!_isVacuumMode)
+            if (!isVacuumMode)
             {
                 soundSystem.PlayMusic("StartVacuum");
             }
@@ -141,12 +141,12 @@ namespace Runtime.CH1.Pacmom
         {
             VacuumModeOn();
 
-            yield return new WaitForSeconds(_vacuumDuration - _vacuumEndDuration);
+            yield return new WaitForSeconds(vacuumDuration - vacuumEndDuration);
             if (isGameOver) yield break;
 
-            _spriteController.SetPacmomBlinkSprite();
+            spriteController.SetPacmomBlinkSprite();
 
-            yield return new WaitForSeconds(_vacuumEndDuration);
+            yield return new WaitForSeconds(vacuumEndDuration);
             if (isGameOver) yield break;
 
             VacuumModeOff();
@@ -154,14 +154,14 @@ namespace Runtime.CH1.Pacmom
 
         private void VacuumModeOn()
         {
-            _spriteController.SetVacuumModeSprites();
+            spriteController.SetVacuumModeSprites();
             SetVacuumSpeed();
             SetVacuumMode(true);
         }
 
         private void VacuumModeOff()
         {
-            _spriteController.SetNormalSprites();
+            spriteController.SetNormalSprites();
             SetNormalSpeed();
             SetVacuumMode(false);
 
@@ -172,15 +172,15 @@ namespace Runtime.CH1.Pacmom
         #region Common
         private void ResetStates()
         {
-            _spriteController.SetNormalSprites();
+            spriteController.SetNormalSprites();
 
-            _rapley.ResetState();
-            _pacmom.ResetState();
+            rapley.ResetState();
+            pacmom.ResetState();
 
-            for (int i = 0; i < _dusts.Length; i++)
+            for (int i = 0; i < dusts.Length; i++)
             {
-                _dusts[i].ResetState();
-                _dustRooms[i].SetInRoom(true);
+                dusts[i].ResetState();
+                dustRooms[i].SetInRoom(true);
             }
 
             DustExitRoom();
@@ -188,52 +188,52 @@ namespace Runtime.CH1.Pacmom
 
         private void SetCharacterMove(bool move)
         {
-            _rapley.movement.SetCanMove(move);
-            _pacmom.movement.SetCanMove(move);
-            for (int i = 0; i < _dusts.Length; i++)
-                _dusts[i].movement.SetCanMove(move);
+            rapley.movement.SetCanMove(move);
+            pacmom.movement.SetCanMove(move);
+            for (int i = 0; i < dusts.Length; i++)
+                dusts[i].movement.SetCanMove(move);
 
-            _isMoving = move;
+            isMoving = move;
         }
 
         private void SetVacuumMode(bool isVacuumMode)
         {
-            this._isVacuumMode = isVacuumMode;
-            _pacmom.VacuumMode(isVacuumMode);
-            _pacmom.SetStronger(isVacuumMode);
-            for (int i = 0; i < _dusts.Length; i++)
+            this.isVacuumMode = isVacuumMode;
+            pacmom.VacuumMode(isVacuumMode);
+            pacmom.SetStronger(isVacuumMode);
+            for (int i = 0; i < dusts.Length; i++)
             {
-                _dusts[i].SetStronger(!isVacuumMode);
-                _dusts[i].movement.SetEyeNormal(!isVacuumMode);
+                dusts[i].SetStronger(!isVacuumMode);
+                dusts[i].movement.SetEyeNormal(!isVacuumMode);
             }
 
-            _door.ActiveDoor(isVacuumMode);
+            door.ActiveDoor(isVacuumMode);
         }
 
         private void SetVacuumSpeed()
         {
-            _pacmom.movement.SetSpeedMultiplier(1.2f);
-            _rapley.movement.SetSpeedMultiplier(0.7f);
-            for (int i = 0; i < _dusts.Length; i++)
-                _dusts[i].movement.SetSpeedMultiplier(0.7f);
+            pacmom.movement.SetSpeedMultiplier(1.2f);
+            rapley.movement.SetSpeedMultiplier(0.7f);
+            for (int i = 0; i < dusts.Length; i++)
+                dusts[i].movement.SetSpeedMultiplier(0.7f);
         }
 
         private void SetNormalSpeed()
         {
-            _pacmom.movement.SetSpeedMultiplier(1f);
-            _rapley.movement.SetSpeedMultiplier(1f);
-            for (int i = 0; i < _dusts.Length; i++)
-                _dusts[i].movement.SetSpeedMultiplier(1f);
+            pacmom.movement.SetSpeedMultiplier(1f);
+            rapley.movement.SetSpeedMultiplier(1f);
+            for (int i = 0; i < dusts.Length; i++)
+                dusts[i].movement.SetSpeedMultiplier(1f);
         }
 
         private void DustExitRoom()
         {
-            for (int i = 0; i < _dusts.Length; i++)
+            for (int i = 0; i < dusts.Length; i++)
             {
-                if (_dustRooms[i].isInRoom)
+                if (dustRooms[i].isInRoom)
                 {
-                    int cntInRoom = GlobalConst.DustCnt - ((_dustRooms[0].isInRoom ? 1 : 0) + (_dustRooms[1].isInRoom ? 1 : 0));
-                    _dustRooms[i].ExitRoom(cntInRoom);
+                    int cntInRoom = GlobalConst.DustCnt - ((dustRooms[0].isInRoom ? 1 : 0) + (dustRooms[1].isInRoom ? 1 : 0));
+                    dustRooms[i].ExitRoom(cntInRoom);
                 }
             }
         }
@@ -244,8 +244,8 @@ namespace Runtime.CH1.Pacmom
         {
             soundSystem.PlayEffect("PacmomEat");
 
-            _dataController.TakeHalfCoins(false);
-            _rapley.ResetState();
+            dataController.TakeHalfCoins(false);
+            rapley.ResetState();
         }
 
         public void DustEaten(Dust dust)
@@ -256,14 +256,14 @@ namespace Runtime.CH1.Pacmom
             dust.movement.ResetState();
             dust.GetComponent<DustRoom>().SetInRoom(true);
 
-            _dialogue.BeCaughtDialogue(dust.dustID);
+            dialogue.BeCaughtDialogue(dust.dustID);
         }
 
         public void PacmomEatenByRapley()
         {
             soundSystem.PlayEffect("PacmomStun");
 
-            _dataController.TakeHalfCoins(true);
+            dataController.TakeHalfCoins(true);
             LoseLife();
         }
 
@@ -271,31 +271,31 @@ namespace Runtime.CH1.Pacmom
         {
             soundSystem.PlayEffect("PacmomStun");
 
-            _dialogue.CatchDialogue(ID);
-            StartCoroutine(_dataController.ReleaseHalfCoins());
+            dialogue.CatchDialogue(ID);
+            StartCoroutine(dataController.ReleaseHalfCoins());
 
             SetCharacterMove(false);
         }
 
         public void AfterPacmomEatenByDust()
         {
-            _dialogue.HideBubble();
+            dialogue.HideBubble();
             SetCharacterMove(true);
             LoseLife();
         }
 
         public void LoseLife()
         {
-            _dataController.LosePacmomLife();
+            dataController.LosePacmomLife();
 
-            if (_dataController.IsPacmomAlive())
+            if (dataController.IsPacmomAlive())
             {
                 ResetStates();
             }
             else
             {
-                _pacmom.SetRotateToZero();
-                _spriteController.SetPacmomDieSprite();
+                pacmom.SetRotateToZero();
+                spriteController.SetPacmomDieSprite();
 
                 GameOver();
             }
@@ -303,19 +303,19 @@ namespace Runtime.CH1.Pacmom
 
         public Vector3 GetPacmomPos()
         {
-            return _pacmom.movement.rigid.position;
+            return pacmom.movement.rigid.position;
         }
 
         public void CoinEatenByRapley()
         {
-            if (!_isMoving)
+            if (!isMoving)
                 return;
 
             soundSystem.PlayEffect("RapleyEatCoin");
 
-            _dataController.RapleyScore1Up();
+            dataController.RapleyScore1Up();
 
-            if (!_dataController.HasRemainingCoins())
+            if (!dataController.HasRemainingCoins())
             {
                 GameOver();
             }
@@ -323,14 +323,14 @@ namespace Runtime.CH1.Pacmom
 
         public void CoinEatenByPacmom()
         {
-            if (!_isMoving)
+            if (!isMoving)
                 return;
 
             soundSystem.PlayEffect("PacmomEatCoin");
 
-            _dataController.PacmomScore1Up();
+            dataController.PacmomScore1Up();
 
-            if (!_dataController.HasRemainingCoins())
+            if (!dataController.HasRemainingCoins())
             {
                 GameOver();
             }

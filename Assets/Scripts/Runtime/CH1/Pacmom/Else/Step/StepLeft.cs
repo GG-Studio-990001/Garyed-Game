@@ -4,13 +4,13 @@ namespace Runtime.CH1.Pacmom
 {
     public class StepLeft : MonoBehaviour
     {
-        private Step _step;
+        private Step step;
 
         private void Start()
         {
-            _step = GetComponent<Step>();
+            step = GetComponent<Step>();
 
-            _step.AddStepsTwice(_step, Vector2.left);
+            step.AddStepsTwice(step, Vector2.left);
         }
     }
 }

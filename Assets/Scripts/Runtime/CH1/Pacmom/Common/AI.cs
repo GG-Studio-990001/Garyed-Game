@@ -7,7 +7,7 @@ namespace Runtime.CH1.Pacmom
         public Movement movement;
         public Transform[] enemys;
         [SerializeField]
-        private bool _doCoinMatter;
+        private bool doCoinMatter;
         [field: SerializeField]
         public bool isStronger { get; private set; }
 
@@ -56,7 +56,7 @@ namespace Runtime.CH1.Pacmom
             }
             else
             {
-                if (_doCoinMatter)
+                if (doCoinMatter)
                     direction = FindCoin(step);
                 else
                     direction = MoveRandomly(step);

@@ -5,11 +5,11 @@ namespace Runtime.CH1.Pacmom
     public class MovementAndEyes : Movement
     {
         [SerializeField]
-        private SpriteRenderer _eyeSprite;
+        private SpriteRenderer eyeSprite;
         [SerializeField]
-        private Sprite[] _EyeSprites;
+        private Sprite[] EyeSprites;
         [SerializeField]
-        private bool _isNormalEye { get; set; }
+        private bool isNormalEye { get; set; }
 
         private void Awake()
         {
@@ -18,7 +18,7 @@ namespace Runtime.CH1.Pacmom
 
         public void SetEyeNormal(bool isNormalEye)
         {
-            _isNormalEye = isNormalEye;
+            this.isNormalEye = isNormalEye;
         }
 
         protected override void SetDirection(Vector2 direction)
@@ -38,7 +38,7 @@ namespace Runtime.CH1.Pacmom
 
         public void GetEyeSprites(Vector2 direction)
         {
-            if (_eyeSprite is null || !_isNormalEye)
+            if (eyeSprite is null || !isNormalEye)
                 return;
 
             // int idx = (direction.x == 0 ? 0 : 2) + (direction.x + direction.y == -1 ? 1 : 0);
@@ -61,7 +61,7 @@ namespace Runtime.CH1.Pacmom
                     break;
             }
 
-            _eyeSprite.sprite = _EyeSprites[idx];
+            eyeSprite.sprite = EyeSprites[idx];
         }
     }
 }

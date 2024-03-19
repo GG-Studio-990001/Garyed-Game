@@ -5,19 +5,19 @@ namespace Runtime.CH1.Pacmom
 {
     public class DustBlocked : MonoBehaviour
     {
-        private Dust _dust;
-        private DustRoom _room;
+        private Dust dust;
+        private DustRoom room;
         [SerializeField]
-        private InGameDialogue _dialogue;
+        private InGameDialogue dialogue;
         [SerializeField]
-        private float _reachTime = 0f;
-        private bool _dustTalked = false;
+        private float reachTime = 0f;
+        private bool dustTalked = false;
         public bool isBlocked { get; private set; } = false;
 
         private void Awake()
         {
-            _dust = GetComponent<Dust>();
-            _room = GetComponent<DustRoom>();
+            dust = GetComponent<Dust>();
+            room = GetComponent<DustRoom>();
         }
 
         private void OnCollisionStay2D(Collision2D collision)
@@ -26,21 +26,21 @@ namespace Runtime.CH1.Pacmom
 
             if (collision.gameObject.layer == LayerMask.NameToLayer(GlobalConst.PlayerStr))
             {
-                _reachTime += Time.deltaTime;
+                reachTime += Time.deltaTime;
             }
 
-            if (!_dustTalked && _reachTime > 1.2f)
+            if (!dustTalked && reachTime > 1.2f)
             {
-                if (!_room.isInRoom && _dust.IsStronger())
-                    _dialogue.BlockedDialogue(_dust.dustID);
-                _dustTalked = true;
+                if (!room.isInRoom && dust.IsStronger())
+                    dialogue.BlockedDialogue(dust.dustID);
+                dustTalked = true;
             }
         }
 
         private void OnCollisionExit2D(Collision2D collision)
         {
-            _reachTime = 0f;
-            _dustTalked = false;
+            reachTime = 0f;
+            dustTalked = false;
             isBlocked = false;
         }
     }

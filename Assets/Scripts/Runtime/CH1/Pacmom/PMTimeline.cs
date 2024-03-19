@@ -6,48 +6,48 @@ namespace Runtime.CH1.Pacmom
     public class PMTimeline : MonoBehaviour
     {
         [SerializeField]
-        private PlayerInput _playerInput;
+        private PlayerInput playerInput;
         [SerializeField]
-        private PMGameController _controller;
+        private PMGameController controller;
         [SerializeField]
-        private GameObject _openingUI;
+        private GameObject openingUI;
         [SerializeField]
-        private GameObject[] _dialogueRunner = new GameObject[2];
+        private GameObject[] dialogueRunner = new GameObject[2];
         [SerializeField]
-        private GameObject[] _timeline = new GameObject[2];
+        private GameObject[] timeline = new GameObject[2];
         [SerializeField]
-        private SpriteRenderer _pacmom;
+        private SpriteRenderer pacmom;
         [SerializeField]
-        private SpriteRenderer _rapley;
+        private SpriteRenderer rapley;
 
         public void OpeningFinish()
         {
-            _openingUI.SetActive(false);
+            openingUI.SetActive(false);
 
-            for (int i=0; i< _timeline.Length; i++)
-                _timeline[i].SetActive(false);
+            for (int i=0; i<timeline.Length; i++)
+                timeline[i].SetActive(false);
 
-            _dialogueRunner[0].SetActive(false);
-            _dialogueRunner[1].SetActive(true);
+            dialogueRunner[0].SetActive(false);
+            dialogueRunner[1].SetActive(true);
 
             ControlEnable(true);
-            _controller.StartGame();
+            controller.StartGame();
         }
 
         public void FlipCharacters()
         {
-            _pacmom.flipX = false;
-            _rapley.flipX = false;
+            pacmom.flipX = false;
+            rapley.flipX = false;
         }
 
         public void PacmomSizeUp()
         {
-            _pacmom.transform.localScale = new Vector3(80f, 80f, 80f);
+            pacmom.transform.localScale = new Vector3(80f, 80f, 80f);
         }
 
         public void ControlEnable(bool control)
         {
-            _playerInput.enabled = control;
+            playerInput.enabled = control;
         }
     }
 }

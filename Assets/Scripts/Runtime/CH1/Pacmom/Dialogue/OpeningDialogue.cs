@@ -9,43 +9,43 @@ namespace Runtime.CH1.Pacmom
 {
     public class OpeningDialogue : DialogueViewBase
     {
-        private DialogueRunner _runner;
+        private DialogueRunner runner;
 
         [SerializeField]
-        private SoundSystem _soundSystem;
+        private SoundSystem soundSystem;
         [SerializeField]
-        private PMEnding _ending;
+        private PMEnding ending;
         [SerializeField]
-        private RectTransform _speechBubbleA;
+        private RectTransform speechBubbleA;
         [SerializeField]
-        private RectTransform _speechBubbleB;
+        private RectTransform speechBubbleB;
         [SerializeField]
-        private GameObject _rapleyBubble;
+        private GameObject rapleyBubble;
         [SerializeField]
-        private TextMeshProUGUI _line;
+        private TextMeshProUGUI line;
         [SerializeField]
-        private GameObject _timeline2;
+        private GameObject timeline_2;
 
         private void Awake()
         {
-            _runner = GetComponent<DialogueRunner>();
-            _runner.AddCommandHandler("DustASpeak", DustASpeak);
-            _runner.AddCommandHandler("DustBSpeak", DustBSpeak);
-            _runner.AddCommandHandler("RapleySpeak", RapleySpeak);
-            _runner.AddCommandHandler("OpeningDialogueFin", OpeningDialogueFin);
+            runner = GetComponent<DialogueRunner>();
+            runner.AddCommandHandler("DustASpeak", DustASpeak);
+            runner.AddCommandHandler("DustBSpeak", DustBSpeak);
+            runner.AddCommandHandler("RapleySpeak", RapleySpeak);
+            runner.AddCommandHandler("OpeningDialogueFin", OpeningDialogueFin);
         }
 
         public void StartDialogue()
         {
-            if (!_ending.isGameClear)
-                _runner.StartDialogue("PMStart");
+            if (!ending.isGameClear)
+                runner.StartDialogue("PMStart");
             else
-                _runner.StartDialogue("PMRetry");
+                runner.StartDialogue("PMRetry");
         }
 
         public override void RunLine(LocalizedLine dialogueLine, Action onDialogueLineFinished)
         {
-            _soundSystem.StopSFX();
+            soundSystem.StopSFX();
 
             string speaker = dialogueLine.CharacterName;
 
@@ -59,12 +59,12 @@ namespace Runtime.CH1.Pacmom
 
         private void ResizeSpeechBubble(Speaker speaker)
         {
-            float height = (_line.text.Length <= 12 ? 200f : 225f);
+            float height = (line.text.Length <= 12 ? 200f : 225f);
 
             if (speaker == Speaker.dustA)
-                _speechBubbleA.sizeDelta = new Vector2(_speechBubbleA.sizeDelta.x, height - 12.26f);
+                speechBubbleA.sizeDelta = new Vector2(speechBubbleA.sizeDelta.x, height - 12.26f);
             else if (speaker == Speaker.dustB)
-                _speechBubbleB.sizeDelta = new Vector2(_speechBubbleB.sizeDelta.x, height);
+                speechBubbleB.sizeDelta = new Vector2(speechBubbleB.sizeDelta.x, height);
         }
 
         public void DustASpeak()
@@ -86,34 +86,34 @@ namespace Runtime.CH1.Pacmom
 
         public void OpeningDialogueFin()
         {
-            _soundSystem.StopSFX();
+            soundSystem.StopSFX();
             ShowSpeechBubble(Speaker.none);
-            _timeline2.SetActive(true);
+            timeline_2.SetActive(true);
         }
 
         private void SetLinePos(Speaker speaker)
         {
             float xPos = (speaker == Speaker.dustA ? -474 : 474);
 
-            _line.transform.localPosition = new Vector3(xPos, _line.transform.localPosition.y, _line.transform.localPosition.z);
+            line.transform.localPosition = new Vector3(xPos, line.transform.localPosition.y, line.transform.localPosition.z);
         }
 
         private void ShowSpeechBubble(Speaker speaker)
         {
-            _speechBubbleA.gameObject.SetActive(false);
-            _speechBubbleB.gameObject.SetActive(false);
-            _rapleyBubble.SetActive(false);
+            speechBubbleA.gameObject.SetActive(false);
+            speechBubbleB.gameObject.SetActive(false);
+            rapleyBubble.SetActive(false);
 
             switch (speaker)
             {
                 case Speaker.dustA:
-                    _speechBubbleA.gameObject.SetActive(true);
+                    speechBubbleA.gameObject.SetActive(true);
                     break;
                 case Speaker.dustB:
-                    _speechBubbleB.gameObject.SetActive(true);
+                    speechBubbleB.gameObject.SetActive(true);
                     break;
                 case Speaker.rapley:
-                    _rapleyBubble.SetActive(true);
+                    rapleyBubble.SetActive(true);
                     break;
             }
         }
