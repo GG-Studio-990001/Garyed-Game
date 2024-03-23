@@ -187,7 +187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7596a19bd56838449abd356b574c45a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dataController: {fileID: 1761052963}
+  DataController: {fileID: 1761052963}
   _pacmomLives:
   - {fileID: 1148275729}
   - {fileID: 953717369}
@@ -23116,7 +23116,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1267132489
 MonoBehaviour:
   m_ObjectHideFlags: 0

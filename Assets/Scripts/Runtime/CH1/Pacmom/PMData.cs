@@ -32,7 +32,7 @@ namespace Runtime.CH1.Pacmom
         private void Awake()
         {
             _gameController = GetComponent<PMGameController>();
-            _uiController.dataController = this;
+            _uiController.DataController = this;
 
             foreach (Transform coin in _coins)
             {
