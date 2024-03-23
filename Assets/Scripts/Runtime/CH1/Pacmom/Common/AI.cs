@@ -4,16 +4,16 @@ namespace Runtime.CH1.Pacmom
 {
     public class AI : MonoBehaviour
     {
-        public Movement movement;
-        public Transform[] enemys;
+        public Movement Movement;
+        public Transform[] Enemys;
         [SerializeField]
         private bool _doCoinMatter;
         [field: SerializeField]
-        public bool isStronger { get; private set; }
+        public bool IsStronger { get; private set; }
 
         public void SetAIStronger(bool isStronger)
         {
-            this.isStronger = isStronger;
+            IsStronger = isStronger;
         }
 
         private void OnTriggerEnter2D(Collider2D other)
@@ -26,7 +26,7 @@ namespace Runtime.CH1.Pacmom
             float shortestDistance = float.MaxValue;
             Transform nearestEnemy = null;
 
-            foreach (Transform enemy in enemys)
+            foreach (Transform enemy in Enemys)
             {
                 float distanceFromEnemy = (enemy.position - transform.position).sqrMagnitude;
 
@@ -49,7 +49,7 @@ namespace Runtime.CH1.Pacmom
 
             if (nearestEnemy is not null)
             {
-                if (isStronger)
+                if (IsStronger)
                     direction = ChaseEnemy(nearestEnemy, step);
                 else
                     direction = RunAwayFromEnemy(nearestEnemy, step);
@@ -62,20 +62,20 @@ namespace Runtime.CH1.Pacmom
                     direction = MoveRandomly(step);
             }
             
-            movement.SetNextDirection(direction);
+            Movement.SetNextDirection(direction);
         }
 
         private Vector2 FindCoin(Step step)
         {
-            if (step.availableDirections.Contains(movement.direction)) // 가던 방향에 코인이 있으면 그대로
+            if (step.availableDirections.Contains(Movement.direction)) // 가던 방향에 코인이 있으면 그대로
             {
-                if (DetectCoin(movement.direction))
-                    return movement.direction;
+                if (DetectCoin(Movement.direction))
+                    return Movement.direction;
             }
 
             foreach (Vector2 availableDirection in step.availableDirections)
             {
-                if (availableDirection == movement.direction || availableDirection == -1 * movement.direction)
+                if (availableDirection == Movement.direction || availableDirection == -1 * Movement.direction)
                     continue;
 
                 if (DetectCoin(availableDirection))
@@ -98,7 +98,7 @@ namespace Runtime.CH1.Pacmom
         {
             int index = Random.Range(0, step.availableDirections.Count);
 
-            if (step.availableDirections[index] == -1 * movement.direction && step.availableDirections.Count > 1)
+            if (step.availableDirections[index] == -1 * Movement.direction && step.availableDirections.Count > 1)
             {
                 index++;
 

@@ -65,7 +65,7 @@ namespace Runtime.CH1.Pacmom
         {
             if (collision.gameObject.layer == LayerMask.NameToLayer(GlobalConst.PlayerStr))
             {
-                if (_ai.isStronger)
+                if (_ai.IsStronger)
                     GameController?.RapleyEaten();
                 else
                     GameController?.PacmomEatenByRapley();

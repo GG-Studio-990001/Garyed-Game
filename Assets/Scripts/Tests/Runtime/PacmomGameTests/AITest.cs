@@ -32,14 +32,14 @@ namespace Tests.Runtime.PacmomGameTest
             pacmomMovement = pacmomObj.AddComponent<MovementAndRotation>();
             pacmom.Movement = pacmomMovement;
             pacmomAI = pacmomObj.AddComponent<AI>();
-            pacmomAI.movement = pacmomMovement;
+            pacmomAI.Movement = pacmomMovement;
 
             dustObj = new GameObject("DustObj");
             dust = dustObj.AddComponent<Dust>();
             dustMovement = dustObj.AddComponent<MovementAndEyes>();
             dust.Movement = dustMovement;
             dustAI = dustObj.AddComponent<AI>();
-            dustAI.movement = dustMovement;
+            dustAI.Movement = dustMovement;
 
             stepObj = new GameObject("StepObj");
             step = stepObj.AddComponent<Step>();
@@ -72,8 +72,8 @@ namespace Tests.Runtime.PacmomGameTest
             pacmomObj.layer = LayerMask.NameToLayer(GlobalConst.PacmomStr);
 
             pacmomAI.SetAIStronger(true);
-            pacmomAI.enemys = new Transform[1];
-            pacmomAI.enemys[0] = dustObj.transform;
+            pacmomAI.Enemys = new Transform[1];
+            pacmomAI.Enemys[0] = dustObj.transform;
 
             yield return new WaitForFixedUpdate();
 
@@ -95,8 +95,8 @@ namespace Tests.Runtime.PacmomGameTest
             pacmomObj.layer = LayerMask.NameToLayer(GlobalConst.PacmomStr);
 
             pacmomAI.SetAIStronger(false);
-            pacmomAI.enemys = new Transform[1];
-            pacmomAI.enemys[0] = dustObj.transform;
+            pacmomAI.Enemys = new Transform[1];
+            pacmomAI.Enemys[0] = dustObj.transform;
 
             yield return new WaitForFixedUpdate();
 

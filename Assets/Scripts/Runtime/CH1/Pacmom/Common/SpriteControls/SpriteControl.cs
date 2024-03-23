@@ -30,22 +30,22 @@ namespace Runtime.CH1.Pacmom
 
         public virtual void GetNormalSprite()
         {
-            spriteAnim.sprites = new Sprite[normalSprites.Length];
+            spriteAnim.Sprites = new Sprite[normalSprites.Length];
 
-            for (int i = 0; i < spriteAnim.sprites.Length; i++)
+            for (int i = 0; i < spriteAnim.Sprites.Length; i++)
             {
-                spriteAnim.sprites[i] = normalSprites[i];
+                spriteAnim.Sprites[i] = normalSprites[i];
             }
             spriteAnim.RestartAnim();
         }
 
         public virtual void GetVacuumModeSprite()
         {
-            spriteAnim.sprites = new Sprite[vacuumModeSprites.Length];
+            spriteAnim.Sprites = new Sprite[vacuumModeSprites.Length];
 
-            for (int i = 0; i < spriteAnim.sprites.Length; i++)
+            for (int i = 0; i < spriteAnim.Sprites.Length; i++)
             {
-                spriteAnim.sprites[i] = vacuumModeSprites[i];
+                spriteAnim.Sprites[i] = vacuumModeSprites[i];
             }
             spriteAnim.RestartAnim();
         }

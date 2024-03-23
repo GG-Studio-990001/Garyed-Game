@@ -26,7 +26,7 @@ namespace Runtime.CH1.Pacmom
 
         public bool IsStronger()
         {
-            return _ai.isStronger;
+            return _ai.IsStronger;
         }
 
         public void SetStronger(bool isStrong)
@@ -50,7 +50,7 @@ namespace Runtime.CH1.Pacmom
         {
             if (collision.gameObject.layer == LayerMask.NameToLayer(GlobalConst.PacmomStr))
             {
-                if (_ai.isStronger)
+                if (_ai.IsStronger)
                 {
                     if (collision.gameObject.tag != GlobalConst.VacuumStr)
                     {

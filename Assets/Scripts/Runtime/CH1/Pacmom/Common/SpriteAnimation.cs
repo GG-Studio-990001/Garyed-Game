@@ -6,9 +6,9 @@ namespace Runtime.CH1.Pacmom
     {
         private readonly SpriteRenderer _spriteRenderer;
 
-        public Sprite[] sprites;
+        public Sprite[] Sprites;
         private int _animFrame = -1;
-        public bool isLoop { get; private set; }
+        public bool IsLoop { get; private set; }
 
         public SpriteAnimation(SpriteRenderer spriteRenderer)
         {
@@ -18,21 +18,21 @@ namespace Runtime.CH1.Pacmom
 
         public void SetLoop(bool isLoop)
         {
-            this.isLoop = isLoop;
+            IsLoop = isLoop;
         }
 
         public void NextSprite()
         {
-            if (!isLoop && _animFrame == sprites.Length - 1)
+            if (!IsLoop && _animFrame == Sprites.Length - 1)
                 return;
 
-            if (sprites.Length == 1 && _animFrame == sprites.Length - 1)
+            if (Sprites.Length == 1 && _animFrame == Sprites.Length - 1)
                 return;
 
-            if (sprites.Length != 0)
+            if (Sprites.Length != 0)
             {
-                _animFrame = ++_animFrame % sprites.Length;
-                _spriteRenderer.sprite = sprites[_animFrame];
+                _animFrame = ++_animFrame % Sprites.Length;
+                _spriteRenderer.sprite = Sprites[_animFrame];
             }
         }
 
