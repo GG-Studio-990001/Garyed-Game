@@ -97,13 +97,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 280ad43caa5bdd74a8041a3cdab14439, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  normalSprites:
+  _normalSprites:
+  - {fileID: 92227687, guid: e48202bc45cce2146932707e0ee993a9, type: 3}
+  - {fileID: 112017311, guid: e48202bc45cce2146932707e0ee993a9, type: 3}
+  - {fileID: 92227687, guid: e48202bc45cce2146932707e0ee993a9, type: 3}
   - {fileID: -1150924220, guid: e48202bc45cce2146932707e0ee993a9, type: 3}
-  vacuumModeSprites:
-  - {fileID: -81401543, guid: 1c1fc1d82a5a37942ba9937a303a3a8e, type: 3}
-  - {fileID: 619541116, guid: 1c1fc1d82a5a37942ba9937a303a3a8e, type: 3}
-  - {fileID: 1920455971, guid: 1c1fc1d82a5a37942ba9937a303a3a8e, type: 3}
-  - {fileID: 776353656, guid: 1c1fc1d82a5a37942ba9937a303a3a8e, type: 3}
+  _vacuumModeSprites: []
 --- !u!1 &5555307432301182834
 GameObject:
   m_ObjectHideFlags: 0
@@ -241,7 +240,6 @@ MonoBehaviour:
   - {fileID: 112017311, guid: e48202bc45cce2146932707e0ee993a9, type: 3}
   - {fileID: 92227687, guid: e48202bc45cce2146932707e0ee993a9, type: 3}
   - {fileID: -1150924220, guid: e48202bc45cce2146932707e0ee993a9, type: 3}
-  IsNormalEye: 1
 --- !u!114 &5395930438513632476
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -384,9 +382,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 280ad43caa5bdd74a8041a3cdab14439, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  normalSprites:
-  - {fileID: -182289765, guid: e48202bc45cce2146932707e0ee993a9, type: 3}
-  - {fileID: -350171849, guid: e48202bc45cce2146932707e0ee993a9, type: 3}
-  vacuumModeSprites:
-  - {fileID: -1415079764, guid: 1c1fc1d82a5a37942ba9937a303a3a8e, type: 3}
-  - {fileID: -686159391, guid: 1c1fc1d82a5a37942ba9937a303a3a8e, type: 3}
+  _normalSprites: []
+  _vacuumModeSprites: []

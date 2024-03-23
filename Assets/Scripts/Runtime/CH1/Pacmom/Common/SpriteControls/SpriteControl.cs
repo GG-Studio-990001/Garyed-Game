@@ -6,16 +6,16 @@ namespace Runtime.CH1.Pacmom
     public class SpriteControl : MonoBehaviour
     {
         [SerializeField]
-        protected SpriteAnimation spriteAnim;
+        protected SpriteAnimation _spriteAnim;
         [SerializeField]
-        protected Sprite[] normalSprites;
+        protected Sprite[] _normalSprites;
         [SerializeField]
-        protected Sprite[] vacuumModeSprites;
-        private float _animTime = 0.25f;
+        protected Sprite[] _vacuumModeSprites;
+        private readonly float _animTime = 0.25f;
 
         public void Awake()
         {
-            spriteAnim = new SpriteAnimation(GetComponent<SpriteRenderer>());
+            _spriteAnim = new SpriteAnimation(GetComponent<SpriteRenderer>());
         }
 
         private void Start()
@@ -25,29 +25,29 @@ namespace Runtime.CH1.Pacmom
 
         private void SpriteAnimation()
         {
-            spriteAnim.NextSprite();
+            _spriteAnim.NextSprite();
         }
 
         public virtual void GetNormalSprite()
         {
-            spriteAnim.Sprites = new Sprite[normalSprites.Length];
+            _spriteAnim.Sprites = new Sprite[_normalSprites.Length];
 
-            for (int i = 0; i < spriteAnim.Sprites.Length; i++)
+            for (int i = 0; i < _spriteAnim.Sprites.Length; i++)
             {
-                spriteAnim.Sprites[i] = normalSprites[i];
+                _spriteAnim.Sprites[i] = _normalSprites[i];
             }
-            spriteAnim.RestartAnim();
+            _spriteAnim.RestartAnim();
         }
 
         public virtual void GetVacuumModeSprite()
         {
-            spriteAnim.Sprites = new Sprite[vacuumModeSprites.Length];
+            _spriteAnim.Sprites = new Sprite[_vacuumModeSprites.Length];
 
-            for (int i = 0; i < spriteAnim.Sprites.Length; i++)
+            for (int i = 0; i < _spriteAnim.Sprites.Length; i++)
             {
-                spriteAnim.Sprites[i] = vacuumModeSprites[i];
+                _spriteAnim.Sprites[i] = _vacuumModeSprites[i];
             }
-            spriteAnim.RestartAnim();
+            _spriteAnim.RestartAnim();
         }
     }
 }
