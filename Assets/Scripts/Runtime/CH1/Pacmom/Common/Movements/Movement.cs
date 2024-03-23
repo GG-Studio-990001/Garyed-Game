@@ -47,7 +47,7 @@ namespace Runtime.CH1.Pacmom
         {
             // 길 너비와 몸 지름이 같기 때문에 rigidbody를 주체로 움직임
             Vector2 position = Rigid.position;
-            Vector2 translation = Direction * _speed * _speedMultiplier * Time.fixedDeltaTime;
+            Vector2 translation =  _speed * _speedMultiplier * Time.fixedDeltaTime * Direction;
 
             Rigid.MovePosition(position + translation);
         }
@@ -93,7 +93,7 @@ namespace Runtime.CH1.Pacmom
             // 몸집이 있기 때문에 box로 검출
             RaycastHit2D hit = Physics2D.BoxCast(transform.position, Vector2.one * 0.5f, 0f, direction, 1.0f, _obstacleLayer);
 
-            return hit.collider is not null;
+            return hit.collider != null;
         }
         #endregion
     }

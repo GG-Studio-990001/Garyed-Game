@@ -18,10 +18,10 @@ namespace Runtime.CH1.Pacmom
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            Step step = other.GetComponent<Step>();
-
-            if (step is null)
+            if (!other.TryGetComponent<Step>(out _))
                 return;
+
+            Step step = other.GetComponent<Step>();
 
             float shortestDistance = float.MaxValue;
             Transform nearestEnemy = null;
@@ -45,9 +45,9 @@ namespace Runtime.CH1.Pacmom
                 }
             }
 
-            Vector2 direction = Vector2.zero;
+            Vector2 direction;
 
-            if (nearestEnemy is not null)
+            if (nearestEnemy != null)
             {
                 if (IsStronger)
                     direction = ChaseEnemy(nearestEnemy, step);
@@ -67,13 +67,13 @@ namespace Runtime.CH1.Pacmom
 
         private Vector2 FindCoin(Step step)
         {
-            if (step.availableDirections.Contains(Movement.Direction)) // 가던 방향에 코인이 있으면 그대로
+            if (step.AvailableDirections.Contains(Movement.Direction)) // 가던 방향에 코인이 있으면 그대로
             {
                 if (DetectCoin(Movement.Direction))
                     return Movement.Direction;
             }
 
-            foreach (Vector2 availableDirection in step.availableDirections)
+            foreach (Vector2 availableDirection in step.AvailableDirections)
             {
                 if (availableDirection == Movement.Direction || availableDirection == -1 * Movement.Direction)
                     continue;
@@ -88,25 +88,25 @@ namespace Runtime.CH1.Pacmom
         private bool DetectCoin(Vector2 direction)
         {
             // 몸의 중심이 아닌 입을 기준으로
-            Vector3 newPos = new Vector3(transform.position.x + direction.x * 2, transform.position.y + direction.y * 2, transform.position.z);
+            Vector3 newPos = new(transform.position.x + direction.x * 2, transform.position.y + direction.y * 2, transform.position.z);
             RaycastHit2D hit = Physics2D.BoxCast(newPos, Vector2.one * 2f, 0, direction, 3f, LayerMask.GetMask("Coin"));
 
-            return hit.collider is not null;
+            return hit.collider != null;
         }
 
         private Vector2 MoveRandomly(Step step)
         {
-            int index = Random.Range(0, step.availableDirections.Count);
+            int index = Random.Range(0, step.AvailableDirections.Count);
 
-            if (step.availableDirections[index] == -1 * Movement.Direction && step.availableDirections.Count > 1)
+            if (step.AvailableDirections[index] == -1 * Movement.Direction && step.AvailableDirections.Count > 1)
             {
                 index++;
 
-                if (index >= step.availableDirections.Count)
+                if (index >= step.AvailableDirections.Count)
                     index = 0;
             }
 
-            return step.availableDirections[index];
+            return step.AvailableDirections[index];
         }
 
         private Vector2 RunAwayFromEnemy(Transform enemy, Step step)
@@ -114,9 +114,9 @@ namespace Runtime.CH1.Pacmom
             Vector2 direction = Vector2.zero;
             float maxDistance = float.MinValue;
 
-            foreach (Vector2 availableDirection in step.availableDirections)
+            foreach (Vector2 availableDirection in step.AvailableDirections)
             {
-                Vector3 newPosition = transform.position + new Vector3(availableDirection.x, availableDirection.y, 0f);
+                Vector3 newPosition = transform.position + new Vector3(availableDirection.x, availableDirection.y);
                 float newDistance = (enemy.position - newPosition).sqrMagnitude;
 
                 if (newDistance > maxDistance)
@@ -134,9 +134,9 @@ namespace Runtime.CH1.Pacmom
             Vector2 direction = Vector2.zero;
             float minDistance = float.MaxValue;
 
-            foreach (Vector2 availableDirection in step.availableDirections)
+            foreach (Vector2 availableDirection in step.AvailableDirections)
             {
-                Vector3 newPosition = transform.position + new Vector3(availableDirection.x, availableDirection.y, 0f);
+                Vector3 newPosition = transform.position + new Vector3(availableDirection.x, availableDirection.y);
                 float newDistance = (enemy.position - newPosition).sqrMagnitude;
 
                 if (newDistance < minDistance)

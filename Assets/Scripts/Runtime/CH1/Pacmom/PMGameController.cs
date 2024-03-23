@@ -25,7 +25,7 @@ namespace Runtime.CH1.Pacmom
         private Pacmom _pacmom;
         [SerializeField]
         private Dust[] _dusts = new Dust[GlobalConst.DustCnt];
-        private DustRoom[] _dustRooms = new DustRoom[GlobalConst.DustCnt];
+        private readonly DustRoom[] _dustRooms = new DustRoom[GlobalConst.DustCnt];
 
         public bool IsGameOver { get; private set; } = false;
         private readonly float _vacuumDuration = 10f;

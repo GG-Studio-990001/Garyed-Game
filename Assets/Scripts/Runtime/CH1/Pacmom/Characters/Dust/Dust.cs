@@ -52,7 +52,7 @@ namespace Runtime.CH1.Pacmom
             {
                 if (_ai.IsStronger)
                 {
-                    if (collision.gameObject.tag != GlobalConst.VacuumStr)
+                    if (collision.gameObject.tag is not GlobalConst.VacuumStr)
                     {
                         GameController?.PacmomEatenByDust(DustID);
                     }

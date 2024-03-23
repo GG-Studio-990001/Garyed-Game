@@ -67,10 +67,10 @@ namespace Runtime.CH1.Pacmom
                 yRotate = -180f;
             }
 
-            bubble.transform.position = new Vector3(dust.transform.position.x + xPos,
-            dust.transform.position.y + 1.3f, dust.transform.position.z);
+            
+            bubble.transform.SetPositionAndRotation(new Vector3(dust.transform.position.x + xPos,
+                dust.transform.position.y + 1.3f, dust.transform.position.z), Quaternion.Euler(0f, yRotate, 0f));
 
-            bubble.transform.rotation = Quaternion.Euler(0f, yRotate, 0f);
             text.transform.rotation = Quaternion.Euler(0f, yRotate * 2f, 0f);
         }
 

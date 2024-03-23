@@ -21,7 +21,6 @@ namespace Tests.Runtime.PacmomGameTest
         private AI dustAI;
 
         private GameObject stepObj;
-        private Step step;
         private readonly string stepStr = "Step";
 
         [UnitySetUp]
@@ -42,7 +41,7 @@ namespace Tests.Runtime.PacmomGameTest
             dustAI.Movement = dustMovement;
 
             stepObj = new GameObject("StepObj");
-            step = stepObj.AddComponent<Step>();
+            stepObj.AddComponent<Step>();
 
             yield return new WaitForFixedUpdate();
         }
