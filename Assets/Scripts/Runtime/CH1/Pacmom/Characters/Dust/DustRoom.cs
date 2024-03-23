@@ -12,7 +12,7 @@ namespace Runtime.CH1.Pacmom
         private Transform _outside;
         [SerializeField]
         private Transform _crossRoad;
-        public bool isInRoom { get; private set; }
+        public bool IsInRoom { get; private set; }
 
         private void Awake()
         {
@@ -21,7 +21,7 @@ namespace Runtime.CH1.Pacmom
 
         public void SetInRoom(bool isInRoom)
         {
-            this.isInRoom = isInRoom;
+            IsInRoom = isInRoom;
         }
 
         public void ExitRoom(float afterTime)
@@ -84,7 +84,7 @@ namespace Runtime.CH1.Pacmom
             _movement.enabled = true;
 
             _movement.SetCanMove(true);
-            isInRoom = false;
+            IsInRoom = false;
         }
     }
 }

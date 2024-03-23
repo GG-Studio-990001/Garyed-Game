@@ -1578,6 +1578,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 945587687}
     - target: {fileID: 8159136489922289943, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
+      propertyPath: <DustID>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8159136489922289943, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
       propertyPath: <dustID>k__BackingField
       value: 1
       objectReference: {fileID: 0}
@@ -25735,6 +25739,10 @@ PrefabInstance:
       propertyPath: dialogue
       value: 
       objectReference: {fileID: 945587687}
+    - target: {fileID: 8159136489922289943, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
+      propertyPath: <DustID>k__BackingField
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8159136489922289943, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
       propertyPath: <dustID>k__BackingField
       value: 2

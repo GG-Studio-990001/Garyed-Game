@@ -12,7 +12,7 @@ namespace Runtime.CH1.Pacmom
         [SerializeField]
         private float _reachTime = 0f;
         private bool _dustTalked = false;
-        public bool isBlocked { get; private set; } = false;
+        public bool IsBlocked { get; private set; } = false;
 
         private void Awake()
         {
@@ -22,7 +22,7 @@ namespace Runtime.CH1.Pacmom
 
         private void OnCollisionStay2D(Collision2D collision)
         {
-            isBlocked = true;
+            IsBlocked = true;
 
             if (collision.gameObject.layer == LayerMask.NameToLayer(GlobalConst.PlayerStr))
             {
@@ -31,8 +31,8 @@ namespace Runtime.CH1.Pacmom
 
             if (!_dustTalked && _reachTime > 1.2f)
             {
-                if (!_room.isInRoom && _dust.IsStronger())
-                    _dialogue.BlockedDialogue(_dust.dustID);
+                if (!_room.IsInRoom && _dust.IsStronger())
+                    _dialogue.BlockedDialogue(_dust.DustID);
                 _dustTalked = true;
             }
         }
@@ -41,7 +41,7 @@ namespace Runtime.CH1.Pacmom
         {
             _reachTime = 0f;
             _dustTalked = false;
-            isBlocked = false;
+            IsBlocked = false;
         }
     }
 }

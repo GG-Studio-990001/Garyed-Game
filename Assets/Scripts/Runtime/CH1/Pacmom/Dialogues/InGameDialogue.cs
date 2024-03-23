@@ -212,8 +212,8 @@ namespace Runtime.CH1.Pacmom
         {
             _dustID = UnityEngine.Random.Range(1, 3);
 
-            bool dustABloked = _dustA.GetComponent<DustBlocked>().isBlocked;
-            bool dustBBloked = _dustB.GetComponent<DustBlocked>().isBlocked;
+            bool dustABloked = _dustA.GetComponent<DustBlocked>().IsBlocked;
+            bool dustBBloked = _dustB.GetComponent<DustBlocked>().IsBlocked;
 
             if (dustABloked && dustBBloked)
                 return;

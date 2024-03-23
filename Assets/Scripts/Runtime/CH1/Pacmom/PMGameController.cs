@@ -75,7 +75,7 @@ namespace Runtime.CH1.Pacmom
 
             for (int i = 0; i < GlobalConst.DustCnt; i++)
             {
-                _dusts[i].gameController = this;
+                _dusts[i].GameController = this;
             }
         }
         #endregion
@@ -189,7 +189,7 @@ namespace Runtime.CH1.Pacmom
             _rapley.movement.SetCanMove(move);
             _pacmom.movement.SetCanMove(move);
             for (int i = 0; i < GlobalConst.DustCnt; i++)
-                _dusts[i].movement.SetCanMove(move);
+                _dusts[i].Movement.SetCanMove(move);
 
             _isMoving = move;
         }
@@ -202,7 +202,7 @@ namespace Runtime.CH1.Pacmom
             for (int i = 0; i < GlobalConst.DustCnt; i++)
             {
                 _dusts[i].SetStronger(!isVacuumMode);
-                _dusts[i].movement.SetEyeNormal(!isVacuumMode);
+                _dusts[i].Movement.SetEyeNormal(!isVacuumMode);
             }
 
             _door.ActiveDoor(isVacuumMode);
@@ -213,7 +213,7 @@ namespace Runtime.CH1.Pacmom
             _pacmom.movement.SetSpeedMultiplier(1.2f);
             _rapley.movement.SetSpeedMultiplier(0.7f);
             for (int i = 0; i < GlobalConst.DustCnt; i++)
-                _dusts[i].movement.SetSpeedMultiplier(0.7f);
+                _dusts[i].Movement.SetSpeedMultiplier(0.7f);
         }
 
         private void SetNormalSpeed()
@@ -221,16 +221,16 @@ namespace Runtime.CH1.Pacmom
             _pacmom.movement.SetSpeedMultiplier(1f);
             _rapley.movement.SetSpeedMultiplier(1f);
             for (int i = 0; i < GlobalConst.DustCnt; i++)
-                _dusts[i].movement.SetSpeedMultiplier(1f);
+                _dusts[i].Movement.SetSpeedMultiplier(1f);
         }
 
         private void DustExitRoom()
         {
-            int dustInRoom = (_dustRooms[0].isInRoom ? 1 : 0) + (_dustRooms[1].isInRoom ? 1 : 0);
+            int dustInRoom = (_dustRooms[0].IsInRoom ? 1 : 0) + (_dustRooms[1].IsInRoom ? 1 : 0);
 
             for (int i = 0; i < GlobalConst.DustCnt; i++)
             {
-                if (_dustRooms[i].isInRoom)
+                if (_dustRooms[i].IsInRoom)
                 {
                     _dustRooms[i].ExitRoom(GlobalConst.DustCnt - dustInRoom);
                     dustInRoom--;
@@ -252,11 +252,11 @@ namespace Runtime.CH1.Pacmom
         {
             Managers.Sound.Play(Sound.Effect, "Pacmom_SFX_06");
 
-            dust.movement.SetCanMove(false);
-            dust.movement.ResetState();
+            dust.Movement.SetCanMove(false);
+            dust.Movement.ResetState();
             dust.GetComponent<DustRoom>().SetInRoom(true);
 
-            _dialogue.BeCaughtDialogue(dust.dustID);
+            _dialogue.BeCaughtDialogue(dust.DustID);
         }
 
         public void PacmomEatenByRapley()

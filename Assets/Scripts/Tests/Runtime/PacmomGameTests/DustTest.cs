@@ -20,7 +20,7 @@ namespace Tests.Runtime.PacmomGameTest
             dustObj = new GameObject("DustObj");
             dust = dustObj.AddComponent<Dust>();
             dustMovement = dustObj.AddComponent<MovementAndEyes>();
-            dust.movement = dustMovement;
+            dust.Movement = dustMovement;
 
             yield return new WaitForFixedUpdate();
         }
