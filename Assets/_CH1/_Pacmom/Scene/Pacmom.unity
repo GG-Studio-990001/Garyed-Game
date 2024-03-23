@@ -23781,7 +23781,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sceneSystem: {fileID: 2119691701}
-  _Shader: {fileID: 1575259379}
   _timeline3: {fileID: 250424353}
   _spriteControls:
   - {fileID: 790340050}
@@ -23802,7 +23801,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4812dc66f40e3fc40919c71c28b01b4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  volume: {fileID: 1267132489}
+  _volume: {fileID: 1267132489}
 --- !u!1 &1598279875
 GameObject:
   m_ObjectHideFlags: 0

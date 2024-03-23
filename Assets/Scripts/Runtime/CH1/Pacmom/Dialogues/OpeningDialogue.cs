@@ -34,7 +34,12 @@ namespace Runtime.CH1.Pacmom
 
         public void StartDialogue()
         {
-            if (!_ending.isGameClear)
+            if (Managers.Data.IsPacmomPlayed)
+            {
+                Debug.Log("이미 클리어됨");
+            }
+
+            if (!Managers.Data.IsPacmomPlayed)
                 _runner.StartDialogue("PMStart");
             else
                 _runner.StartDialogue("PMRetry");
