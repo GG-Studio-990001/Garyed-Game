@@ -24,7 +24,7 @@ namespace Tests.Runtime.PacmomGameTest
             rapley = rapleyObj.AddComponent<Rapley>();
             rapleySpr = rapleyObj.AddComponent<SpriteRenderer>();
             rapleyMovement = rapleyObj.AddComponent<MovementAndRotation>();
-            rapley.movement = rapleyMovement;
+            rapley.Movement = rapleyMovement;
 
             coinObj = new GameObject("CoinObj");
             coinObj.AddComponent<Coin>();

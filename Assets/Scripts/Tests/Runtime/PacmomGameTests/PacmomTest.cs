@@ -25,7 +25,7 @@ namespace Tests.Runtime.PacmomGameTest
             pacmom = pacmomObj.AddComponent<Pacmom>();
             pacmomSpr = pacmomObj.AddComponent<SpriteRenderer>();
             pacmomMovement = pacmomObj.AddComponent<MovementAndRotation>();
-            pacmom.movement = pacmomMovement;
+            pacmom.Movement = pacmomMovement;
 
             coinObj = new GameObject("CoinObj");
             coinObj.AddComponent<Coin>();

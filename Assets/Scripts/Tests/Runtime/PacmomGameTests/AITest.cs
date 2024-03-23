@@ -30,7 +30,7 @@ namespace Tests.Runtime.PacmomGameTest
             pacmomObj = new GameObject("PacmomObj");
             pacmom = pacmomObj.AddComponent<Pacmom>();
             pacmomMovement = pacmomObj.AddComponent<MovementAndRotation>();
-            pacmom.movement = pacmomMovement;
+            pacmom.Movement = pacmomMovement;
             pacmomAI = pacmomObj.AddComponent<AI>();
             pacmomAI.movement = pacmomMovement;
 

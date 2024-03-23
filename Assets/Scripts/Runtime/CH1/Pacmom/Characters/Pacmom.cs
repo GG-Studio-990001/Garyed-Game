@@ -6,16 +6,16 @@ namespace Runtime.CH1.Pacmom
 {
     public class Pacmom : MonoBehaviour, ICharacter, IFoodChain
     {
-        public PMGameController gameController;
-        public MovementAndRotation movement { get; set; }
+        public PMGameController GameController;
+        public MovementAndRotation Movement { get; set; }
         private AI _ai;
-        [SerializeField]
-        private GameObject vacuum;
+        private GameObject _vacuum;
 
         private void Awake()
         {
-            movement = GetComponent<MovementAndRotation>();
+            Movement = GetComponent<MovementAndRotation>();
             _ai = GetComponent<AI>();
+            _vacuum = transform.GetChild(0).gameObject;
         }
 
         private void Start()
@@ -32,19 +32,19 @@ namespace Runtime.CH1.Pacmom
 
         private void SetSpriteRotation()
         {
-            movement.spriteRotation.SetCanRotate(true);
-            movement.spriteRotation.SetCanFlip(true);
+            Movement.spriteRotation.SetCanRotate(true);
+            Movement.spriteRotation.SetCanFlip(true);
         }
 
         public void ResetState()
         {
             SetRotateToZero();
-            movement.ResetState();
+            Movement.ResetState();
         }
 
         private void FixedUpdate()
         {
-            movement.Move();
+            Movement.Move();
         }
 
         public void VacuumMode(bool isVacuum)
@@ -52,8 +52,8 @@ namespace Runtime.CH1.Pacmom
             SetRotateToZero();
 
             _ai.SetAIStronger(isVacuum);
-            movement.spriteRotation.SetCanRotate(!isVacuum);
-            vacuum.SetActive(isVacuum);
+            Movement.spriteRotation.SetCanRotate(!isVacuum);
+            _vacuum.SetActive(isVacuum);
         }
 
         public void SetRotateToZero()
@@ -66,9 +66,9 @@ namespace Runtime.CH1.Pacmom
             if (collision.gameObject.layer == LayerMask.NameToLayer(GlobalConst.PlayerStr))
             {
                 if (_ai.isStronger)
-                    gameController?.RapleyEaten();
+                    GameController?.RapleyEaten();
                 else
-                    gameController?.PacmomEatenByRapley();
+                    GameController?.PacmomEatenByRapley();
             }
         }
     }

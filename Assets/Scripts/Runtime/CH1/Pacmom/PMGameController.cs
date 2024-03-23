@@ -71,7 +71,7 @@ namespace Runtime.CH1.Pacmom
         {
             _dialogue.gameController = this;
             _timer.gameController = this;
-            _pacmom.gameController = this;
+            _pacmom.GameController = this;
 
             for (int i = 0; i < GlobalConst.DustCnt; i++)
             {
@@ -186,8 +186,8 @@ namespace Runtime.CH1.Pacmom
 
         private void SetCharacterMove(bool move)
         {
-            _rapley.movement.SetCanMove(move);
-            _pacmom.movement.SetCanMove(move);
+            _rapley.Movement.SetCanMove(move);
+            _pacmom.Movement.SetCanMove(move);
             for (int i = 0; i < GlobalConst.DustCnt; i++)
                 _dusts[i].Movement.SetCanMove(move);
 
@@ -210,16 +210,16 @@ namespace Runtime.CH1.Pacmom
 
         private void SetVacuumSpeed()
         {
-            _pacmom.movement.SetSpeedMultiplier(1.2f);
-            _rapley.movement.SetSpeedMultiplier(0.7f);
+            _pacmom.Movement.SetSpeedMultiplier(1.2f);
+            _rapley.Movement.SetSpeedMultiplier(0.7f);
             for (int i = 0; i < GlobalConst.DustCnt; i++)
                 _dusts[i].Movement.SetSpeedMultiplier(0.7f);
         }
 
         private void SetNormalSpeed()
         {
-            _pacmom.movement.SetSpeedMultiplier(1f);
-            _rapley.movement.SetSpeedMultiplier(1f);
+            _pacmom.Movement.SetSpeedMultiplier(1f);
+            _rapley.Movement.SetSpeedMultiplier(1f);
             for (int i = 0; i < GlobalConst.DustCnt; i++)
                 _dusts[i].Movement.SetSpeedMultiplier(1f);
         }
@@ -303,7 +303,7 @@ namespace Runtime.CH1.Pacmom
 
         public Vector3 GetPacmomPos()
         {
-            return _pacmom.movement.rigid.position;
+            return _pacmom.Movement.rigid.position;
         }
 
         public void CoinEatenByRapley()
