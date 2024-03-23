@@ -10,7 +10,7 @@ namespace Runtime.CH1.Pacmom
     public class InGameDialogue : DialogueViewBase
     {
         private DialogueRunner _runner;
-        public PMGameController gameController;
+        public PMGameController GameController;
 
         [Header("=DustA=")]
         [SerializeField]
@@ -170,7 +170,7 @@ namespace Runtime.CH1.Pacmom
         #region Time
         private void CheckTime()
         {
-            if (!gameController.IsGameOver && _dustA.GetComponent<AI>().IsStronger)
+            if (!GameController.IsGameOver && _dustA.GetComponent<AI>().IsStronger)
                 _currentTime += Time.deltaTime;
 
             if (_targetTime < _currentTime)

@@ -1016,7 +1016,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 945587687}
           m_TargetAssemblyTypeName: Runtime.CH1.Pacmom.InGameDialogue, Scripts
-          m_MethodName: HideBubble
+          m_MethodName: StopDialogue
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -11089,8 +11089,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7d3538a8753d6c4cbfcd4369ef23092, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _normalSprites: []
-  _vacuumModeSprites: []
+  _normalSprites:
+  - {fileID: -31350341, guid: 624604c3a324b01478b135343c65f064, type: 3}
+  - {fileID: 1957713918, guid: 624604c3a324b01478b135343c65f064, type: 3}
+  - {fileID: 1366521872, guid: 624604c3a324b01478b135343c65f064, type: 3}
+  - {fileID: 1957713918, guid: 624604c3a324b01478b135343c65f064, type: 3}
+  _vacuumModeSprites:
+  - {fileID: -1633829432, guid: 624604c3a324b01478b135343c65f064, type: 3}
   _dieSprites: []
 --- !u!212 &790340051
 SpriteRenderer:
@@ -23381,8 +23386,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 280ad43caa5bdd74a8041a3cdab14439, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _normalSprites: []
-  _vacuumModeSprites: []
+  _normalSprites:
+  - {fileID: 525879217, guid: f6eb4ce53aa2d7f4bba33e89f5c696f3, type: 3}
+  - {fileID: -2116760790, guid: f6eb4ce53aa2d7f4bba33e89f5c696f3, type: 3}
+  - {fileID: 525879217, guid: f6eb4ce53aa2d7f4bba33e89f5c696f3, type: 3}
+  - {fileID: 1091901569, guid: f6eb4ce53aa2d7f4bba33e89f5c696f3, type: 3}
+  _vacuumModeSprites:
+  - {fileID: 239316576, guid: f6eb4ce53aa2d7f4bba33e89f5c696f3, type: 3}
+  - {fileID: 1849880115, guid: f6eb4ce53aa2d7f4bba33e89f5c696f3, type: 3}
+  - {fileID: -1453775011, guid: f6eb4ce53aa2d7f4bba33e89f5c696f3, type: 3}
+  - {fileID: 2043577889, guid: f6eb4ce53aa2d7f4bba33e89f5c696f3, type: 3}
 --- !u!212 &1325164806
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -29487,8 +29500,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 280ad43caa5bdd74a8041a3cdab14439, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _normalSprites: []
-  _vacuumModeSprites: []
+  _normalSprites:
+  - {fileID: -182289765, guid: e48202bc45cce2146932707e0ee993a9, type: 3}
+  - {fileID: -350171849, guid: e48202bc45cce2146932707e0ee993a9, type: 3}
+  _vacuumModeSprites:
+  - {fileID: 423321701, guid: e48202bc45cce2146932707e0ee993a9, type: 3}
+  - {fileID: 813358491, guid: e48202bc45cce2146932707e0ee993a9, type: 3}
 --- !u!4 &969600381396707095
 Transform:
   m_ObjectHideFlags: 0
@@ -29709,8 +29726,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 280ad43caa5bdd74a8041a3cdab14439, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _normalSprites: []
-  _vacuumModeSprites: []
+  _normalSprites:
+  - {fileID: -554062099, guid: e48202bc45cce2146932707e0ee993a9, type: 3}
+  - {fileID: 888255319, guid: e48202bc45cce2146932707e0ee993a9, type: 3}
+  _vacuumModeSprites:
+  - {fileID: -415892916, guid: e48202bc45cce2146932707e0ee993a9, type: 3}
+  - {fileID: 266997818, guid: e48202bc45cce2146932707e0ee993a9, type: 3}
 --- !u!1 &3556164412971332274
 GameObject:
   m_ObjectHideFlags: 0
@@ -29878,8 +29899,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 280ad43caa5bdd74a8041a3cdab14439, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _normalSprites: []
-  _vacuumModeSprites: []
+  _normalSprites:
+  - {fileID: -1150924220, guid: e48202bc45cce2146932707e0ee993a9, type: 3}
+  _vacuumModeSprites:
+  - {fileID: 0}
 --- !u!212 &7345148047124818261
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -29962,8 +29985,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 280ad43caa5bdd74a8041a3cdab14439, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _normalSprites: []
-  _vacuumModeSprites: []
+  _normalSprites:
+  - {fileID: -1150924220, guid: e48202bc45cce2146932707e0ee993a9, type: 3}
+  _vacuumModeSprites:
+  - {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

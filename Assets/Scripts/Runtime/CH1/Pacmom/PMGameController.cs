@@ -69,7 +69,7 @@ namespace Runtime.CH1.Pacmom
 
         private void AssignController()
         {
-            _dialogue.gameController = this;
+            _dialogue.GameController = this;
             _timer.gameController = this;
             _pacmom.GameController = this;
 
