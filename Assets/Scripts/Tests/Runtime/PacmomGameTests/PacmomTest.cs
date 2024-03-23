@@ -51,13 +51,13 @@ namespace Tests.Runtime.PacmomGameTest
         {
             pacmomMovement.SetRigidBody(pacmomObj.GetComponent<Rigidbody2D>());
 
-            pacmomMovement.rigid.position = Vector3.zero;
+            pacmomMovement.Rigid.position = Vector3.zero;
             pacmomMovement.SetNextDirection(new Vector2(1, 0));
 
             yield return new WaitForSeconds(0.1f);
 
-            Debug.Log(pacmomMovement.rigid.position.x);
-            Assert.IsTrue(pacmomMovement.rigid.position.x > 0);
+            Debug.Log(pacmomMovement.Rigid.position.x);
+            Assert.IsTrue(pacmomMovement.Rigid.position.x > 0);
         }
 
         [UnityTest]

@@ -67,15 +67,15 @@ namespace Runtime.CH1.Pacmom
 
         private Vector2 FindCoin(Step step)
         {
-            if (step.availableDirections.Contains(Movement.direction)) // 가던 방향에 코인이 있으면 그대로
+            if (step.availableDirections.Contains(Movement.Direction)) // 가던 방향에 코인이 있으면 그대로
             {
-                if (DetectCoin(Movement.direction))
-                    return Movement.direction;
+                if (DetectCoin(Movement.Direction))
+                    return Movement.Direction;
             }
 
             foreach (Vector2 availableDirection in step.availableDirections)
             {
-                if (availableDirection == Movement.direction || availableDirection == -1 * Movement.direction)
+                if (availableDirection == Movement.Direction || availableDirection == -1 * Movement.Direction)
                     continue;
 
                 if (DetectCoin(availableDirection))
@@ -98,7 +98,7 @@ namespace Runtime.CH1.Pacmom
         {
             int index = Random.Range(0, step.availableDirections.Count);
 
-            if (step.availableDirections[index] == -1 * Movement.direction && step.availableDirections.Count > 1)
+            if (step.availableDirections[index] == -1 * Movement.Direction && step.availableDirections.Count > 1)
             {
                 index++;
 

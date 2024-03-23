@@ -1478,9 +1478,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1412902993}
     - target: {fileID: 5395930438513632476, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
+      propertyPath: Enemys.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5395930438513632476, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
       propertyPath: enemys.Array.size
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5395930438513632476, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
+      propertyPath: Enemys.Array.data[0]
+      value: 
+      objectReference: {fileID: 1861729284}
     - target: {fileID: 5395930438513632476, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
       propertyPath: enemys.Array.data[0]
       value: 
@@ -25392,7 +25400,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Movement: {fileID: 1861729289}
-  Enemys: []
+  Enemys:
+  - {fileID: 133942948}
+  - {fileID: 1412902989}
+  - {fileID: 155197200}
   _doCoinMatter: 1
   <IsStronger>k__BackingField: 0
 --- !u!114 &1861729289
@@ -25647,9 +25658,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1935626991}
     - target: {fileID: 5395930438513632476, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
+      propertyPath: Enemys.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5395930438513632476, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
       propertyPath: enemys.Array.size
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5395930438513632476, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
+      propertyPath: Enemys.Array.data[0]
+      value: 
+      objectReference: {fileID: 1861729284}
     - target: {fileID: 5395930438513632476, guid: 60885ee87633ff6428833e5ff9b154a9, type: 3}
       propertyPath: enemys.Array.data[0]
       value: 

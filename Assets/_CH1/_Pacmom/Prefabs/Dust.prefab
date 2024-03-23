@@ -218,8 +218,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7cb8f41a7f7b4448a0bf91eb97e356a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameController: {fileID: 0}
-  <dustID>k__BackingField: 0
+  GameController: {fileID: 0}
+  <DustID>k__BackingField: 0
 --- !u!114 &8324175502395817452
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -241,6 +241,7 @@ MonoBehaviour:
   - {fileID: 112017311, guid: e48202bc45cce2146932707e0ee993a9, type: 3}
   - {fileID: 92227687, guid: e48202bc45cce2146932707e0ee993a9, type: 3}
   - {fileID: -1150924220, guid: e48202bc45cce2146932707e0ee993a9, type: 3}
+  IsNormalEye: 1
 --- !u!114 &5395930438513632476
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -253,10 +254,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e686847b23f620448c1c7bc0afef7fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movement: {fileID: 8324175502395817452}
-  enemys: []
+  Movement: {fileID: 0}
+  Enemys: []
   _doCoinMatter: 0
-  <isStronger>k__BackingField: 1
+  <IsStronger>k__BackingField: 1
 --- !u!114 &5522138042445295253
 MonoBehaviour:
   m_ObjectHideFlags: 0

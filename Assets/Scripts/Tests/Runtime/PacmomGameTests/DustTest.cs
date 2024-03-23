@@ -1,6 +1,5 @@
 using NUnit.Framework;
 using Runtime.CH1.Pacmom;
-using Runtime.ETC;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.TestTools;
@@ -38,12 +37,12 @@ namespace Tests.Runtime.PacmomGameTest
         {
             dustMovement.SetRigidBody(dustObj.GetComponent<Rigidbody2D>());
 
-            dustMovement.rigid.position = Vector3.zero;
+            dustMovement.Rigid.position = Vector3.zero;
             dustMovement.SetNextDirection(new Vector2(1, 0));
 
             yield return new WaitForFixedUpdate();
 
-            Assert.IsTrue(dustMovement.rigid.position.x > 0);
+            Assert.IsTrue(dustMovement.Rigid.position.x > 0);
         }
     }
 }

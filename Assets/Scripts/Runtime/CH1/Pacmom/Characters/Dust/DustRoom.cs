@@ -33,7 +33,7 @@ namespace Runtime.CH1.Pacmom
         {
             Vector3 newPosition = Vector3.Lerp(start, end, lerpTime);
             newPosition.z = transform.position.z;
-            _movement.rigid.position = newPosition;
+            _movement.Rigid.position = newPosition;
         }
 
         private IEnumerator ExitTransition(float afterTime)
@@ -41,7 +41,7 @@ namespace Runtime.CH1.Pacmom
             Vector3 position = transform.position;
 
             _movement.GetEyeSpriteByPosition();
-            _movement.rigid.isKinematic = true;
+            _movement.Rigid.isKinematic = true;
             _movement.enabled = false;
 
             yield return new WaitForSeconds(afterTime);
@@ -80,7 +80,7 @@ namespace Runtime.CH1.Pacmom
             }
 
             _movement.SetNextDirection(crossRoadDirection);
-            _movement.rigid.isKinematic = false;
+            _movement.Rigid.isKinematic = false;
             _movement.enabled = true;
 
             _movement.SetCanMove(true);

@@ -68,7 +68,7 @@ namespace Tests.Runtime.PacmomGameTest
 
             pacmomObj.AddComponent<CircleCollider2D>();
             pacmomMovement.SetRigidBody(pacmomObj.GetComponent<Rigidbody2D>());
-            pacmomMovement.rigid.position = Vector3.zero;
+            pacmomMovement.Rigid.position = Vector3.zero;
             pacmomObj.layer = LayerMask.NameToLayer(GlobalConst.PacmomStr);
 
             pacmomAI.SetAIStronger(true);
@@ -77,7 +77,7 @@ namespace Tests.Runtime.PacmomGameTest
 
             yield return new WaitForFixedUpdate();
 
-            Assert.IsTrue(pacmomMovement.nextDirection.x < 0);
+            Assert.IsTrue(pacmomMovement.NextDirection.x < 0);
         }
         
         [UnityTest]
@@ -91,7 +91,7 @@ namespace Tests.Runtime.PacmomGameTest
 
             pacmomObj.AddComponent<CircleCollider2D>();
             pacmomMovement.SetRigidBody(pacmomObj.GetComponent<Rigidbody2D>());
-            pacmomMovement.rigid.position = Vector3.zero;
+            pacmomMovement.Rigid.position = Vector3.zero;
             pacmomObj.layer = LayerMask.NameToLayer(GlobalConst.PacmomStr);
 
             pacmomAI.SetAIStronger(false);
@@ -100,7 +100,7 @@ namespace Tests.Runtime.PacmomGameTest
 
             yield return new WaitForFixedUpdate();
 
-            Assert.IsTrue(pacmomMovement.nextDirection.x > 0);
+            Assert.IsTrue(pacmomMovement.NextDirection.x > 0);
         }
     }
 }

@@ -21,8 +21,8 @@ namespace Runtime.CH1.Pacmom
 
         private void SetSpriteRotation()
         {
-            Movement.spriteRotation.SetCanRotate(false);
-            Movement.spriteRotation.SetCanFlip(true);
+            Movement.SpriteRotation.SetCanRotate(false);
+            Movement.SpriteRotation.SetCanFlip(true);
         }
 
         public void ResetState()

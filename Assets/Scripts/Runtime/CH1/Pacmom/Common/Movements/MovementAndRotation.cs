@@ -5,11 +5,11 @@ namespace Runtime.CH1.Pacmom
     [RequireComponent(typeof(SpriteRenderer))]
     public class MovementAndRotation : Movement
     {
-        public SpriteRotation spriteRotation { get; private set; }
+        public SpriteRotation SpriteRotation { get; private set; }
 
         private void Awake()
         {
-            spriteRotation = new SpriteRotation(GetComponent<SpriteRenderer>());
+            SpriteRotation = new SpriteRotation(GetComponent<SpriteRenderer>());
 
             SetWhenAwake();
         }
@@ -18,8 +18,8 @@ namespace Runtime.CH1.Pacmom
         {
             base.ResetState();
 
-            if (spriteRotation.canFlip)
-                spriteRotation.FlipSprite(direction);
+            if (SpriteRotation.CanFlip)
+                SpriteRotation.FlipSprite(Direction);
         }
 
         protected override void SetDirection(Vector2 direction)
@@ -28,10 +28,10 @@ namespace Runtime.CH1.Pacmom
 
             if (!CheckRoadBlocked(direction))
             {
-                int zValue = spriteRotation.RotationZValue(direction);
+                int zValue = SpriteRotation.RotationZValue(direction);
                 transform.rotation = Quaternion.Euler(0, 0, zValue);
 
-                spriteRotation.FlipSprite(direction);
+                SpriteRotation.FlipSprite(direction);
             }
         }
     }

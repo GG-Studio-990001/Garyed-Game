@@ -303,7 +303,7 @@ namespace Runtime.CH1.Pacmom
 
         public Vector3 GetPacmomPos()
         {
-            return _pacmom.Movement.rigid.position;
+            return _pacmom.Movement.Rigid.position;
         }
 
         public void CoinEatenByRapley()
