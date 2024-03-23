@@ -6,31 +6,30 @@ namespace Runtime.CH1.Pacmom
 {
     public class Coin : MonoBehaviour
     {
-        public PMGameController gameController;
-        public Vector3 defaultPos;
+        public PMGameController GameController;
+        private Vector3 _defaultPos;
 
         private void Start()
         {
-            defaultPos = transform.position;
+            _defaultPos = transform.position;
         }
 
         public void ResetCoin()
         {
-            transform.position = defaultPos;
+            transform.position = _defaultPos;
             gameObject.SetActive(true);
-            // SetActive를 Coin 스크립트로 옮긴건 좋은 것 같음 (자율적인 객체)
         }
 
         private void EatenByRapley()
         {
             gameObject.SetActive(false);
-            gameController?.CoinEatenByRapley();
+            GameController?.CoinEatenByRapley();
         }
 
         private void EatenByPacmom()
         {
             gameObject.SetActive(false);
-            gameController?.CoinEatenByPacmom();
+            GameController?.CoinEatenByPacmom();
         }
 
         private void SuckByVacuum()
@@ -46,8 +45,8 @@ namespace Runtime.CH1.Pacmom
 
             while (elapsed < duration)
             {
-                Vector3 pacomPos = gameController.GetPacmomPos();
-                Vector3 newPosition = Vector3.Lerp(defaultPos, pacomPos, elapsed / duration);
+                Vector3 pacomPos = GameController.GetPacmomPos();
+                Vector3 newPosition = Vector3.Lerp(_defaultPos, pacomPos, elapsed / duration);
                 newPosition.z = transform.position.z;
                 this.transform.position = newPosition;
 

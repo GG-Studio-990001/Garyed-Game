@@ -1,17 +1,18 @@
 using TMPro;
 using UnityEngine;
+using Sound = Runtime.ETC.Sound;
 
 namespace Runtime.CH1.Pacmom
 {
     public class Timer : MonoBehaviour
     {
-        public PMGameController gameController;
+        public PMGameController GameController;
         private TextMeshProUGUI _timerTxt;
         [SerializeField]
         private float _timelimit = 180;
         private int _min;
         private int _sec;
-        public bool isTimerRunning { get; private set; }
+        public bool IsTimerRunning { get; private set; }
         private bool _isAlmostOver = false;
 
         private void Awake()
@@ -21,12 +22,12 @@ namespace Runtime.CH1.Pacmom
 
         public void SetTimer(bool isTimerRunning)
         {
-            this.isTimerRunning = isTimerRunning;
+            IsTimerRunning = isTimerRunning;
         }
 
         void Update()
         {
-            if (!isTimerRunning)
+            if (!IsTimerRunning)
                 return;
             
             CountTime();
@@ -54,8 +55,8 @@ namespace Runtime.CH1.Pacmom
         {
             if (_timelimit < 1f)
             {
-                gameController?.GameOver();
-                if (gameController is null)
+                GameController?.GameOver();
+                if (GameController is null)
                     SetTimer(false);
             }
         }
@@ -71,9 +72,9 @@ namespace Runtime.CH1.Pacmom
 
         private void TicToc()
         {
-            if (_isAlmostOver && isTimerRunning)
+            if (_isAlmostOver && IsTimerRunning)
             {
-                //gameController.soundSystem.PlayEffect("TicToc");
+                Managers.Sound.Play(Sound.Effect, "Pacmom_SFX_08");
                 Invoke("TicToc", 1f);
             }
         }

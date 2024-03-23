@@ -36,12 +36,12 @@ namespace Runtime.CH1.Pacmom
 
             foreach (Transform coin in _coins)
             {
-                coin.GetComponent<Coin>().gameController = _gameController;
+                coin.GetComponent<Coin>().GameController = _gameController;
             }
 
             foreach (Transform vacuum in _vacuums)
             {
-                vacuum.GetComponent<Vacuum>().gameController = _gameController;
+                vacuum.GetComponent<Vacuum>().GameController = _gameController;
             }
         }
 

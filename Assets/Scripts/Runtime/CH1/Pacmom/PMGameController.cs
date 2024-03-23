@@ -70,7 +70,7 @@ namespace Runtime.CH1.Pacmom
         private void AssignController()
         {
             _dialogue.GameController = this;
-            _timer.gameController = this;
+            _timer.GameController = this;
             _pacmom.GameController = this;
 
             for (int i = 0; i < GlobalConst.DustCnt; i++)
