@@ -170,7 +170,7 @@ namespace Runtime.CH1.Pacmom
         #region Time
         private void CheckTime()
         {
-            if (!gameController.isGameOver && _dustA.GetComponent<AI>().isStronger)
+            if (!gameController.IsGameOver && _dustA.GetComponent<AI>().isStronger)
                 _currentTime += Time.deltaTime;
 
             if (_targetTime < _currentTime)

@@ -27,7 +27,7 @@ namespace Runtime.CH1.Pacmom
         private Dust[] _dusts = new Dust[GlobalConst.DustCnt];
         private DustRoom[] _dustRooms = new DustRoom[GlobalConst.DustCnt];
 
-        public bool isGameOver { get; private set; } = false;
+        public bool IsGameOver { get; private set; } = false;
         private readonly float _vacuumDuration = 10f;
         private readonly float _vacuumEndDuration = 3f;
         private bool _isMoving;
@@ -98,9 +98,9 @@ namespace Runtime.CH1.Pacmom
         #region End
         public void GameOver()
         {
-            Managers.Sound.StopEffect(); // BGM 사용 시 StopAllSound
+            Managers.Sound.StopEffect();
             _timer.SetTimer(false);
-            isGameOver = true;
+            IsGameOver = true;
 
             SetCharacterMove(false);
 
@@ -136,12 +136,12 @@ namespace Runtime.CH1.Pacmom
             VacuumModeOn();
 
             yield return new WaitForSeconds(_vacuumDuration - _vacuumEndDuration);
-            if (isGameOver) yield break;
+            if (IsGameOver) yield break;
 
             _spriteController.SetPacmomBlinkSprite();
 
             yield return new WaitForSeconds(_vacuumEndDuration);
-            if (isGameOver) yield break;
+            if (IsGameOver) yield break;
 
             VacuumModeOff();
         }
