@@ -21785,7 +21785,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b56f45846f8118b4d817fc9e42e0c02d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameController: {fileID: 0}
+  GameController: {fileID: 0}
   _dustA: {fileID: 972530197}
   _bubbleA: {fileID: 1604375867}
   _textA: {fileID: 589625776}
@@ -22167,7 +22167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10558416b4f6a154585fd7710c97978f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameController: {fileID: 0}
+  GameController: {fileID: 0}
   _timelimit: 180
 --- !u!1 &1091952893
 GameObject:
@@ -25399,6 +25399,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GameController: {fileID: 0}
+  _vacuum: {fileID: 1725276333}
 --- !u!114 &1861729287
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -26,7 +26,7 @@ namespace Runtime.CH1.Pacmom
 
         public void ExitRoom(float afterTime)
         {
-            StartCoroutine("ExitTransition", afterTime);
+            StartCoroutine(nameof(ExitTransition), afterTime);
         }
 
         private void Transition(Vector3 start, Vector3 end, float lerpTime)

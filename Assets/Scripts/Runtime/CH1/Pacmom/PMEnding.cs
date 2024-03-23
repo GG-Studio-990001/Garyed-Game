@@ -34,7 +34,7 @@ namespace Runtime.CH1.Pacmom
 
             Debug.Log("팩맘 승리");
             Time.timeScale = 0;
-            StartCoroutine("ToMain");
+            StartCoroutine(nameof(ToMain));
         }
 
         private void GamePlayed()

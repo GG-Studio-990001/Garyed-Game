@@ -35,7 +35,7 @@ namespace Runtime.CH1.Pacmom
         private void SuckByVacuum()
         {
             if (gameObject.activeSelf)
-                StartCoroutine("SuckCoin");
+                StartCoroutine(nameof(SuckCoin));
         }
 
         private IEnumerator SuckCoin()
@@ -63,7 +63,7 @@ namespace Runtime.CH1.Pacmom
             }
             else if (other.gameObject.layer == LayerMask.NameToLayer(GlobalConst.PacmomStr))
             {
-                if (other.gameObject.tag == GlobalConst.VacuumStr)
+                if (other.gameObject.CompareTag(GlobalConst.VacuumStr))
                 {
                     SuckByVacuum();
                 }

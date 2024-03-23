@@ -9,13 +9,13 @@ namespace Runtime.CH1.Pacmom
         public PMGameController GameController;
         public MovementAndRotation Movement { get; set; }
         private AI _ai;
+        [SerializeField]
         private GameObject _vacuum;
 
         private void Awake()
         {
             Movement = GetComponent<MovementAndRotation>();
             _ai = GetComponent<AI>();
-            _vacuum = transform.GetChild(0).gameObject;
         }
 
         private void Start()

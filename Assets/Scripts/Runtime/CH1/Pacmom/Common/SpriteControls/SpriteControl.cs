@@ -20,7 +20,7 @@ namespace Runtime.CH1.Pacmom
 
         private void Start()
         {
-            InvokeRepeating("SpriteAnimation", _animTime, _animTime);
+            InvokeRepeating(nameof(SpriteAnimation), _animTime, _animTime);
         }
 
         private void SpriteAnimation()

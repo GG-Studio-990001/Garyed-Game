@@ -171,7 +171,7 @@ namespace Runtime.CH1.Pacmom
                     yield return new WaitForSeconds(_normalWaitTime);
                 }
             }
-            Invoke("ChooseAWinner", 1.5f);
+            Invoke(nameof(ChooseAWinner), 1.5f);
         }
 
         private void ChooseAWinner()

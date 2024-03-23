@@ -56,7 +56,7 @@ namespace Runtime.CH1.Pacmom
             if (_timelimit < 1f)
             {
                 GameController?.GameOver();
-                if (GameController is null)
+                if (GameController == null)
                     SetTimer(false);
             }
         }
@@ -66,7 +66,7 @@ namespace Runtime.CH1.Pacmom
             if (!_isAlmostOver && _timelimit <= 10f)
             {
                 _isAlmostOver = true;
-                Invoke("TicToc", 1f);
+                Invoke(nameof(TicToc), 1f);
             }
         }
 
@@ -75,7 +75,7 @@ namespace Runtime.CH1.Pacmom
             if (_isAlmostOver && IsTimerRunning)
             {
                 Managers.Sound.Play(Sound.Effect, "Pacmom_SFX_08");
-                Invoke("TicToc", 1f);
+                Invoke(nameof(TicToc), 1f);
             }
         }
     }
