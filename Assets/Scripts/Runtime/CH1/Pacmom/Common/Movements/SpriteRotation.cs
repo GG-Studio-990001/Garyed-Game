@@ -5,8 +5,8 @@ namespace Runtime.CH1.Pacmom
     public class SpriteRotation
     {
         private readonly SpriteRenderer spriteRenderer;
-        public bool canFlip { get; private set; }
-        public bool canRotate { get; private set; }
+        public bool CanFlip { get; private set; }
+        public bool CanRotate { get; private set; }
 
         public SpriteRotation(SpriteRenderer spriteRenderer)
         {
@@ -15,17 +15,17 @@ namespace Runtime.CH1.Pacmom
 
         public void SetCanFlip(bool canFlip)
         {
-            this.canFlip = canFlip;
+            CanFlip = canFlip;
         }
 
         public void SetCanRotate(bool canRotate)
         {
-            this.canRotate = canRotate;
+            CanRotate = canRotate;
         }
 
         public void FlipSprite(Vector2 direction)
         {
-            if (canFlip && direction.y == 0)
+            if (CanFlip && direction.y == 0)
             {
                 spriteRenderer.flipX = (direction.x != 1);
             }
@@ -34,7 +34,7 @@ namespace Runtime.CH1.Pacmom
         public int RotationZValue(Vector2 direction)
         {
             int zValue = 0;
-            if (canRotate)
+            if (CanRotate)
             {
                 if (direction.x == 0)
                 {

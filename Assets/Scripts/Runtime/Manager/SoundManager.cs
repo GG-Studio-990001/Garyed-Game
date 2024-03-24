@@ -106,5 +106,21 @@ namespace Runtime.InGameSystem
             _audioClips.Add(path, audioClip);
             return audioClip;
         }
+
+        public void StopAllSound()
+        {
+            StopBGM();
+            StopEffect();
+        }
+
+        public void StopBGM()
+        {
+            BGM.Stop();
+        }
+
+        public void StopEffect()
+        {
+            Effect.Stop();
+        }
     }
 }

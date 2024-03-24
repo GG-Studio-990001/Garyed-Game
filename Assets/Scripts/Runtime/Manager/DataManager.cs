@@ -1,4 +1,4 @@
-﻿using Runtime.Data.Original;
+using Runtime.Data.Original;
 using System;
 using System.Numerics;
 using UnityEngine;
@@ -11,7 +11,8 @@ namespace Runtime.Manager
         public int chapter; // enum으로 변경
         public int stage;
         public int minor;
-        public bool pacmomIsCleared;
+        public bool IsPacmomPlayed;
+        public bool IsPacmomCleared;
         public float musicVolume;
         public float sfxVolume;
     }
@@ -28,7 +29,8 @@ namespace Runtime.Manager
         public int Chapter { get { return _gameData.chapter; } set { _gameData.chapter = value; } }
         public int Stage { get { return _gameData.stage; } set { _gameData.stage = value; } }
         public int Minor { get { return _gameData.minor; } set { _gameData.minor = value; } }
-        public bool PacmomIsCleared { get { return _gameData.pacmomIsCleared; } set { _gameData.pacmomIsCleared = value; } }
+        public bool IsPacmomPlayed { get { return _gameData.IsPacmomPlayed; } set { _gameData.IsPacmomPlayed = value; } }
+        public bool IsPacmomCleared { get { return _gameData.IsPacmomCleared; } set { _gameData.IsPacmomCleared = value; } }
 
         public float MusicVolume
         {
@@ -49,7 +51,8 @@ namespace Runtime.Manager
             // 시작 데이터 Init
             _gameData.chapter = 1;
             _gameData.stage = 0;
-            _gameData.pacmomIsCleared = false;
+            _gameData.IsPacmomPlayed = false;
+            _gameData.IsPacmomCleared = false;
             
             GameOverControls = new GameOverControls();
         }

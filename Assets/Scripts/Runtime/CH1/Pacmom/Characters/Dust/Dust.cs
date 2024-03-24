@@ -6,15 +6,15 @@ namespace Runtime.CH1.Pacmom
 {
     public class Dust : MonoBehaviour, ICharacter, IFoodChain
     {
-        public PMGameController gameController;
-        public MovementAndEyes movement { get; set; }
+        public PMGameController GameController;
+        public MovementAndEyes Movement { get; set; }
         private AI _ai;
         [field:SerializeField]
-        public int dustID { get; private set; }
+        public int DustID { get; private set; }
 
         private void Awake()
         {
-            movement = GetComponent<MovementAndEyes>();
+            Movement = GetComponent<MovementAndEyes>();
             _ai = GetComponent<AI>();
         }
 
@@ -26,40 +26,44 @@ namespace Runtime.CH1.Pacmom
 
         public bool IsStronger()
         {
-            return _ai.isStronger;
+            return _ai.IsStronger;
         }
 
         public void SetStronger(bool isStrong)
         {
-            _ai?.SetAIStronger(isStrong);
+            if (_ai != null)
+                _ai.SetAIStronger(isStrong);
         }
 
         public void ResetState()
         {
-            movement.SetEyeNormal(true);
-            movement.GetEyeSpriteByPosition();
-            movement.ResetState();
+            Movement.SetEyeNormal(true);
+            Movement.GetEyeSpriteByPosition();
+            Movement.ResetState();
         }
 
         private void FixedUpdate()
         {
-            movement.Move();
+            Movement.Move();
         }
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
             if (collision.gameObject.layer == LayerMask.NameToLayer(GlobalConst.PacmomStr))
             {
-                if (_ai.isStronger)
+                if (GameController == null)
+                    return;
+
+                if (_ai.IsStronger)
                 {
-                    if (collision.gameObject.tag != GlobalConst.VacuumStr)
-                    {
-                        gameController?.PacmomEatenByDust(dustID);
-                    }
+                    if (collision.gameObject.CompareTag(GlobalConst.VacuumStr))
+                        return;
+                    
+                    GameController.PacmomEatenByDust(DustID);
                 }
                 else
                 {
-                    gameController?.DustEaten(this);
+                    GameController.DustEaten(this);
                 }
             }
         }

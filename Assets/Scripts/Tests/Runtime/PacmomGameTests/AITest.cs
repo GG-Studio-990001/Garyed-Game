@@ -21,7 +21,6 @@ namespace Tests.Runtime.PacmomGameTest
         private AI dustAI;
 
         private GameObject stepObj;
-        private Step step;
         private readonly string stepStr = "Step";
 
         [UnitySetUp]
@@ -30,19 +29,19 @@ namespace Tests.Runtime.PacmomGameTest
             pacmomObj = new GameObject("PacmomObj");
             pacmom = pacmomObj.AddComponent<Pacmom>();
             pacmomMovement = pacmomObj.AddComponent<MovementAndRotation>();
-            pacmom.movement = pacmomMovement;
+            pacmom.Movement = pacmomMovement;
             pacmomAI = pacmomObj.AddComponent<AI>();
-            pacmomAI.movement = pacmomMovement;
+            pacmomAI.Movement = pacmomMovement;
 
             dustObj = new GameObject("DustObj");
             dust = dustObj.AddComponent<Dust>();
             dustMovement = dustObj.AddComponent<MovementAndEyes>();
-            dust.movement = dustMovement;
+            dust.Movement = dustMovement;
             dustAI = dustObj.AddComponent<AI>();
-            dustAI.movement = dustMovement;
+            dustAI.Movement = dustMovement;
 
             stepObj = new GameObject("StepObj");
-            step = stepObj.AddComponent<Step>();
+            stepObj.AddComponent<Step>();
 
             yield return new WaitForFixedUpdate();
         }
@@ -68,16 +67,16 @@ namespace Tests.Runtime.PacmomGameTest
 
             pacmomObj.AddComponent<CircleCollider2D>();
             pacmomMovement.SetRigidBody(pacmomObj.GetComponent<Rigidbody2D>());
-            pacmomMovement.rigid.position = Vector3.zero;
+            pacmomMovement.Rigid.position = Vector3.zero;
             pacmomObj.layer = LayerMask.NameToLayer(GlobalConst.PacmomStr);
 
             pacmomAI.SetAIStronger(true);
-            pacmomAI.enemys = new Transform[1];
-            pacmomAI.enemys[0] = dustObj.transform;
+            pacmomAI.Enemys = new Transform[1];
+            pacmomAI.Enemys[0] = dustObj.transform;
 
             yield return new WaitForFixedUpdate();
 
-            Assert.IsTrue(pacmomMovement.nextDirection.x < 0);
+            Assert.IsTrue(pacmomMovement.NextDirection.x < 0);
         }
         
         [UnityTest]
@@ -91,16 +90,16 @@ namespace Tests.Runtime.PacmomGameTest
 
             pacmomObj.AddComponent<CircleCollider2D>();
             pacmomMovement.SetRigidBody(pacmomObj.GetComponent<Rigidbody2D>());
-            pacmomMovement.rigid.position = Vector3.zero;
+            pacmomMovement.Rigid.position = Vector3.zero;
             pacmomObj.layer = LayerMask.NameToLayer(GlobalConst.PacmomStr);
 
             pacmomAI.SetAIStronger(false);
-            pacmomAI.enemys = new Transform[1];
-            pacmomAI.enemys[0] = dustObj.transform;
+            pacmomAI.Enemys = new Transform[1];
+            pacmomAI.Enemys[0] = dustObj.transform;
 
             yield return new WaitForFixedUpdate();
 
-            Assert.IsTrue(pacmomMovement.nextDirection.x > 0);
+            Assert.IsTrue(pacmomMovement.NextDirection.x > 0);
         }
     }
 }

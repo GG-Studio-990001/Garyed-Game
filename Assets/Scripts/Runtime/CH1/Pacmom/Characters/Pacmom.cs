@@ -6,15 +6,15 @@ namespace Runtime.CH1.Pacmom
 {
     public class Pacmom : MonoBehaviour, ICharacter, IFoodChain
     {
-        public PMGameController gameController;
-        public MovementAndRotation movement { get; set; }
+        public PMGameController GameController;
+        public MovementAndRotation Movement { get; set; }
         private AI _ai;
         [SerializeField]
-        private GameObject vacuum;
+        private GameObject _vacuum;
 
         private void Awake()
         {
-            movement = GetComponent<MovementAndRotation>();
+            Movement = GetComponent<MovementAndRotation>();
             _ai = GetComponent<AI>();
         }
 
@@ -27,24 +27,25 @@ namespace Runtime.CH1.Pacmom
 
         public void SetStronger(bool isStrong)
         {
-            _ai?.SetAIStronger(isStrong);
+            if (_ai != null)
+                _ai.SetAIStronger(isStrong);
         }
 
         private void SetSpriteRotation()
         {
-            movement.spriteRotation.SetCanRotate(true);
-            movement.spriteRotation.SetCanFlip(true);
+            Movement.SpriteRotation.SetCanRotate(true);
+            Movement.SpriteRotation.SetCanFlip(true);
         }
 
         public void ResetState()
         {
             SetRotateToZero();
-            movement.ResetState();
+            Movement.ResetState();
         }
 
         private void FixedUpdate()
         {
-            movement.Move();
+            Movement.Move();
         }
 
         public void VacuumMode(bool isVacuum)
@@ -52,8 +53,8 @@ namespace Runtime.CH1.Pacmom
             SetRotateToZero();
 
             _ai.SetAIStronger(isVacuum);
-            movement.spriteRotation.SetCanRotate(!isVacuum);
-            vacuum.SetActive(isVacuum);
+            Movement.SpriteRotation.SetCanRotate(!isVacuum);
+            _vacuum.SetActive(isVacuum);
         }
 
         public void SetRotateToZero()
@@ -65,10 +66,13 @@ namespace Runtime.CH1.Pacmom
         {
             if (collision.gameObject.layer == LayerMask.NameToLayer(GlobalConst.PlayerStr))
             {
-                if (_ai.isStronger)
-                    gameController?.RapleyEaten();
+                if (GameController == null)
+                    return;
+
+                if (_ai.IsStronger)
+                    GameController.RapleyEaten();
                 else
-                    gameController?.PacmomEatenByRapley();
+                    GameController.PacmomEatenByRapley();
             }
         }
     }

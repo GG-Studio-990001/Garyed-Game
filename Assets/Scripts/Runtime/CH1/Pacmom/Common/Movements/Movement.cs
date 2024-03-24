@@ -6,11 +6,11 @@ namespace Runtime.CH1.Pacmom
     [RequireComponent(typeof(Rigidbody2D))]
     public class Movement : MonoBehaviour
     {
-        public Rigidbody2D rigid { get; private set; }
-        public Vector2 direction { get; private set; }
-        public Vector2 nextDirection { get; private set; }
-        public Vector3 startPosition { get; private set; }
-        public bool canMove { get; private set; }
+        public Rigidbody2D Rigid { get; private set; }
+        public Vector2 Direction { get; private set; }
+        public Vector2 NextDirection { get; private set; }
+        public Vector3 StartPosition { get; private set; }
+        public bool CanMove { get; private set; }
 
         [SerializeField]
         private float _speed = 8f;
@@ -22,40 +22,40 @@ namespace Runtime.CH1.Pacmom
 
         private void Update()
         {
-            if (nextDirection != Vector2.zero || !canMove)
+            if (NextDirection != Vector2.zero || !CanMove)
             {
-                SetDirection(nextDirection);
+                SetDirection(NextDirection);
             }
         }
 
         protected void SetWhenAwake()
         {
             SetRigidBody(GetComponent<Rigidbody2D>());
-            startPosition = transform.position;
-            canMove = true;
+            StartPosition = transform.position;
+            CanMove = true;
             _obstacleLayer = LayerMask.GetMask(GlobalConst.ObstacleStr);
         }
 
         public virtual void ResetState()
         {
-            transform.position = startPosition;
-            direction = _initialDirection;
-            nextDirection = Vector2.zero;
+            transform.position = StartPosition;
+            Direction = _initialDirection;
+            NextDirection = Vector2.zero;
         }
 
         public void Move()
         {
             // 길 너비와 몸 지름이 같기 때문에 rigidbody를 주체로 움직임
-            Vector2 position = rigid.position;
-            Vector2 translation = direction * _speed * _speedMultiplier * Time.fixedDeltaTime;
+            Vector2 position = Rigid.position;
+            Vector2 translation =  _speed * _speedMultiplier * Time.fixedDeltaTime * Direction;
 
-            rigid.MovePosition(position + translation);
+            Rigid.MovePosition(position + translation);
         }
 
         #region Set
         public void SetRigidBody(Rigidbody2D rigid)
         {
-            this.rigid = rigid;
+            Rigid = rigid;
         }
 
         public void SetSpeedMultiplier(float speedMultiplier)
@@ -65,9 +65,9 @@ namespace Runtime.CH1.Pacmom
 
         public void SetCanMove(bool canMove)
         {
-            this.canMove = canMove;
+            CanMove = canMove;
 
-            if (!this.canMove)
+            if (!CanMove)
                 SetNextDirection(Vector2.zero);
         }
         #endregion
@@ -75,15 +75,15 @@ namespace Runtime.CH1.Pacmom
         #region Direction
         public void SetNextDirection(Vector2 direction)
         {
-            nextDirection = direction;
+            NextDirection = direction;
         }
 
         protected virtual void SetDirection(Vector2 direction)
         {
             if (!CheckRoadBlocked(direction))
             {
-                this.direction = direction;
-                nextDirection = Vector2.zero;
+                Direction = direction;
+                NextDirection = Vector2.zero;
             }
         }
 
@@ -93,7 +93,7 @@ namespace Runtime.CH1.Pacmom
             // 몸집이 있기 때문에 box로 검출
             RaycastHit2D hit = Physics2D.BoxCast(transform.position, Vector2.one * 0.5f, 0f, direction, 1.0f, _obstacleLayer);
 
-            return hit.collider is not null;
+            return hit.collider != null;
         }
         #endregion
     }

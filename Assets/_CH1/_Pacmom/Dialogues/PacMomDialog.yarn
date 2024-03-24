@@ -67,8 +67,6 @@ position: 163,31
 <<else>>
     Dust: 괴롭혀주마
 <<endif>>
-<<wait 3>>
-<<HideBubble>>
 ===
 
 title: PMVacuumMode
@@ -76,16 +74,12 @@ title: PMVacuumMode
 // 팩맘이 청소기를 획득한 후 바로 메시지 발생
 DustA: 청소기다!
 DustB: 도망쳐!
-<<wait 3>>
-<<HideBubble>>
 ===
 
 title: PMVacuumModeAgain
 ---
 DustA: 또 청소기?
 DustB: 이제 그만..
-<<wait 3>>
-<<HideBubble>>
 ===
 
 title: PMCatch
@@ -102,8 +96,6 @@ title: PMCatch
 <<else>>
     Dust: 팩맘 바보
 <<endif>>
-<<wait 3>>
-<<HideBubble>>
 ===
 
 title: PMBeCaught
@@ -124,8 +116,6 @@ title: PMBeCaught
 <<else>>
     Dust: 힝
 <<endif>>
-<<wait 3>>
-<<HideBubble>>
 ===
 
 title: PMBlocked
@@ -144,8 +134,6 @@ title: PMBlocked
 <<else>>
     Dust: 뭐야
 <<endif>>
-<<wait 3>>
-<<HideBubble>>
 ===
 
 title: PMGameClear

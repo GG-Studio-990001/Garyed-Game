@@ -24,7 +24,7 @@ namespace Tests.Runtime.PacmomGameTest
             rapley = rapleyObj.AddComponent<Rapley>();
             rapleySpr = rapleyObj.AddComponent<SpriteRenderer>();
             rapleyMovement = rapleyObj.AddComponent<MovementAndRotation>();
-            rapley.movement = rapleyMovement;
+            rapley.Movement = rapleyMovement;
 
             coinObj = new GameObject("CoinObj");
             coinObj.AddComponent<Coin>();
@@ -46,12 +46,12 @@ namespace Tests.Runtime.PacmomGameTest
         {
             rapleyMovement.SetRigidBody(rapleyObj.GetComponent<Rigidbody2D>());
 
-            rapleyMovement.rigid.position = Vector3.zero;
+            rapleyMovement.Rigid.position = Vector3.zero;
             rapleyMovement.SetNextDirection(new Vector2(-1, 0));
 
             yield return new WaitForSeconds(0.1f);
 
-            Assert.IsTrue(rapleyMovement.rigid.position.x < 0);
+            Assert.IsTrue(rapleyMovement.Rigid.position.x < 0);
         }
 
         [UnityTest]

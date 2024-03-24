@@ -6,11 +6,11 @@ namespace Runtime.CH1.Pacmom
 {
     public class Rapley : MonoBehaviour, ICharacter
     {
-        public MovementAndRotation movement { get; set; }
+        public MovementAndRotation Movement { get; set; }
 
         private void Awake()
         {
-            movement = GetComponent<MovementAndRotation>();
+            Movement = GetComponent<MovementAndRotation>();
         }
 
         private void Start()
@@ -21,26 +21,27 @@ namespace Runtime.CH1.Pacmom
 
         private void SetSpriteRotation()
         {
-            movement.spriteRotation.SetCanRotate(false);
-            movement.spriteRotation.SetCanFlip(true);
+            Movement.SpriteRotation.SetCanRotate(false);
+            Movement.SpriteRotation.SetCanFlip(true);
         }
 
         public void ResetState()
         {
-            movement.ResetState();
+            Movement.ResetState();
         }
 
         private void FixedUpdate()
         {
-            movement.Move();
+            Movement.Move();
         }
 
         private void OnMove(InputValue value)
         {
             Vector2 inputDirection = value.Get<Vector2>();
+
             if (inputDirection != Vector2.zero)
             {
-                movement.SetNextDirection(inputDirection);
+                Movement.SetNextDirection(inputDirection);
             }
         }
     }

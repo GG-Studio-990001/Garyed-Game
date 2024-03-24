@@ -3,7 +3,6 @@ using System;
 using TMPro;
 using UnityEngine;
 using Yarn.Unity;
-using Runtime.InGameSystem;
 
 namespace Runtime.CH1.Pacmom
 {
@@ -11,8 +10,6 @@ namespace Runtime.CH1.Pacmom
     {
         private DialogueRunner _runner;
 
-        // [SerializeField]
-        // private SoundSystem _soundSystem; //TODO Manager.Sound로 교체
         [SerializeField]
         private PMEnding _ending;
         [SerializeField]
@@ -37,7 +34,12 @@ namespace Runtime.CH1.Pacmom
 
         public void StartDialogue()
         {
-            if (!_ending.isGameClear)
+            if (Managers.Data.IsPacmomPlayed)
+            {
+                Debug.Log("이미 클리어됨");
+            }
+
+            if (!Managers.Data.IsPacmomPlayed)
                 _runner.StartDialogue("PMStart");
             else
                 _runner.StartDialogue("PMRetry");
@@ -45,7 +47,7 @@ namespace Runtime.CH1.Pacmom
 
         public override void RunLine(LocalizedLine dialogueLine, Action onDialogueLineFinished)
         {
-           // _soundSystem.StopSFX(); //TODO Manager.Sound로 교체
+            Managers.Sound.StopEffect();
 
             string speaker = dialogueLine.CharacterName;
 
@@ -86,7 +88,7 @@ namespace Runtime.CH1.Pacmom
 
         public void OpeningDialogueFin()
         {
-            //_soundSystem.StopSFX(); //TODO Manager.Sound로 교체
+            Managers.Sound.StopEffect();
             ShowSpeechBubble(Speaker.none);
             _timeline2.SetActive(true);
         }

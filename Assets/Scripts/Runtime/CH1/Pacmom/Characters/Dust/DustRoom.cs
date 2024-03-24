@@ -12,7 +12,7 @@ namespace Runtime.CH1.Pacmom
         private Transform _outside;
         [SerializeField]
         private Transform _crossRoad;
-        public bool isInRoom { get; private set; }
+        public bool IsInRoom { get; private set; }
 
         private void Awake()
         {
@@ -21,19 +21,19 @@ namespace Runtime.CH1.Pacmom
 
         public void SetInRoom(bool isInRoom)
         {
-            this.isInRoom = isInRoom;
+            IsInRoom = isInRoom;
         }
 
         public void ExitRoom(float afterTime)
         {
-            StartCoroutine("ExitTransition", afterTime);
+            StartCoroutine(nameof(ExitTransition), afterTime);
         }
 
         private void Transition(Vector3 start, Vector3 end, float lerpTime)
         {
             Vector3 newPosition = Vector3.Lerp(start, end, lerpTime);
             newPosition.z = transform.position.z;
-            _movement.rigid.position = newPosition;
+            _movement.Rigid.position = newPosition;
         }
 
         private IEnumerator ExitTransition(float afterTime)
@@ -41,7 +41,7 @@ namespace Runtime.CH1.Pacmom
             Vector3 position = transform.position;
 
             _movement.GetEyeSpriteByPosition();
-            _movement.rigid.isKinematic = true;
+            _movement.Rigid.isKinematic = true;
             _movement.enabled = false;
 
             yield return new WaitForSeconds(afterTime);
@@ -80,11 +80,11 @@ namespace Runtime.CH1.Pacmom
             }
 
             _movement.SetNextDirection(crossRoadDirection);
-            _movement.rigid.isKinematic = false;
+            _movement.Rigid.isKinematic = false;
             _movement.enabled = true;
 
             _movement.SetCanMove(true);
-            isInRoom = false;
+            IsInRoom = false;
         }
     }
 }
