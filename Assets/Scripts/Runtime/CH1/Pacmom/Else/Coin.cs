@@ -23,13 +23,17 @@ namespace Runtime.CH1.Pacmom
         private void EatenByRapley()
         {
             gameObject.SetActive(false);
-            GameController?.CoinEatenByRapley();
+
+            if (GameController != null)
+                GameController.CoinEatenByRapley();
         }
 
         private void EatenByPacmom()
         {
             gameObject.SetActive(false);
-            GameController?.CoinEatenByPacmom();
+
+            if (GameController != null)
+                GameController.CoinEatenByPacmom();
         }
 
         private void SuckByVacuum()

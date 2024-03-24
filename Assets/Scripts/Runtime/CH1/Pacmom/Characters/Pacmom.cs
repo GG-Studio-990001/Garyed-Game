@@ -27,7 +27,8 @@ namespace Runtime.CH1.Pacmom
 
         public void SetStronger(bool isStrong)
         {
-            _ai?.SetAIStronger(isStrong);
+            if (_ai != null)
+                _ai.SetAIStronger(isStrong);
         }
 
         private void SetSpriteRotation()
@@ -65,10 +66,13 @@ namespace Runtime.CH1.Pacmom
         {
             if (collision.gameObject.layer == LayerMask.NameToLayer(GlobalConst.PlayerStr))
             {
+                if (GameController == null)
+                    return;
+
                 if (_ai.IsStronger)
-                    GameController?.RapleyEaten();
+                    GameController.RapleyEaten();
                 else
-                    GameController?.PacmomEatenByRapley();
+                    GameController.PacmomEatenByRapley();
             }
         }
     }

@@ -11,12 +11,12 @@ namespace Runtime.CH1.Pacmom
 
         private void Start()
         {
-            if (_volume is null)
+            if (_volume == null)
                 return;
 
             _volume.profile.TryGet(out _bleed);
 
-            if (_bleed is null)
+            if (_bleed == null)
             {
                 Debug.Log("Add Glitch1 effect to your Volume component to make Manipulation Example work");
                 return;
@@ -27,7 +27,7 @@ namespace Runtime.CH1.Pacmom
 
         public void ChangeBleedAmount()
         {
-            if (_volume is null || _bleed is null)
+            if (_volume == null || _bleed == null)
                 return;
 
             _bleed.bleedAmount.value = 10f;

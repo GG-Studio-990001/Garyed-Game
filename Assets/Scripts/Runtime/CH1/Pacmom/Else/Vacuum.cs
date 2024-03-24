@@ -10,7 +10,9 @@ namespace Runtime.CH1.Pacmom
         private void Eaten()
         {
             gameObject.SetActive(false);
-            GameController?.UseVacuum();
+
+            if (GameController != null)
+                GameController.UseVacuum();
         }
 
         private void OnTriggerEnter2D(Collider2D other)

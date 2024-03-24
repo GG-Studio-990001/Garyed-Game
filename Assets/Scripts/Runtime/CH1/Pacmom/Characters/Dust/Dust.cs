@@ -31,7 +31,8 @@ namespace Runtime.CH1.Pacmom
 
         public void SetStronger(bool isStrong)
         {
-            _ai?.SetAIStronger(isStrong);
+            if (_ai != null)
+                _ai.SetAIStronger(isStrong);
         }
 
         public void ResetState()
@@ -50,16 +51,19 @@ namespace Runtime.CH1.Pacmom
         {
             if (collision.gameObject.layer == LayerMask.NameToLayer(GlobalConst.PacmomStr))
             {
+                if (GameController == null)
+                    return;
+
                 if (_ai.IsStronger)
                 {
-                    if (collision.gameObject.tag is not GlobalConst.VacuumStr)
-                    {
-                        GameController?.PacmomEatenByDust(DustID);
-                    }
+                    if (collision.gameObject.CompareTag(GlobalConst.VacuumStr))
+                        return;
+                    
+                    GameController.PacmomEatenByDust(DustID);
                 }
                 else
                 {
-                    GameController?.DustEaten(this);
+                    GameController.DustEaten(this);
                 }
             }
         }

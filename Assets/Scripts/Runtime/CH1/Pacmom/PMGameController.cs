@@ -126,13 +126,13 @@ namespace Runtime.CH1.Pacmom
             }
             else
             {
-                StopCoroutine("VacuumTime");
+                StopCoroutine(nameof(VacuumTime));
 
                 Managers.Sound.StopEffect();
                 Managers.Sound.Play(Sound.Effect, "Pacmom_BGM_01");
             }
 
-            StartCoroutine("VacuumTime");
+            StartCoroutine(nameof(VacuumTime));
         }
 
         private IEnumerator VacuumTime()

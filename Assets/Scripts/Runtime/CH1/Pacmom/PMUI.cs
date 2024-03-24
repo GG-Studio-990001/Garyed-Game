@@ -21,12 +21,12 @@ namespace Runtime.CH1.Pacmom
 
         public void ShowPacmomScore(int newScore)
         {
-            StartCoroutine("ChangePacmomScore", newScore);
+            StartCoroutine(nameof(ChangePacmomScore), newScore);
         }
 
         public void ShowRapleyScore(int newScore)
         {
-            StartCoroutine("ChangeRapleyScore", newScore);
+            StartCoroutine(nameof(ChangeRapleyScore), newScore);
         }
 
         private IEnumerator ChangePacmomScore(int newScore)
