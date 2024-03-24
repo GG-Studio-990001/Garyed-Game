@@ -2421,9 +2421,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66596c5233380fb4abbe4a691ddacc9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprites:
+  Sprites:
   - {fileID: -908518317, guid: 6315bd1073caf0d4e990ea7c0f4bcb3a, type: 3}
-  - {fileID: -816021202, guid: 6315bd1073caf0d4e990ea7c0f4bcb3a, type: 3}
+  - {fileID: -1902070208, guid: 6315bd1073caf0d4e990ea7c0f4bcb3a, type: 3}
+  _animTime: 0.25
 --- !u!1 &477691282
 GameObject:
   m_ObjectHideFlags: 0
@@ -29052,9 +29053,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66596c5233380fb4abbe4a691ddacc9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprites:
+  Sprites:
   - {fileID: 632556865, guid: ce5ae149e60272043ab43135fbed2730, type: 3}
   - {fileID: -313153376, guid: ce5ae149e60272043ab43135fbed2730, type: 3}
+  _animTime: 0.25
 --- !u!1 &1953128313
 GameObject:
   m_ObjectHideFlags: 0

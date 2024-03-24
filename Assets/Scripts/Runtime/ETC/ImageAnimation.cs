@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class ImageAnimation : MonoBehaviour
 {
     private Image _image;
-    public Sprite[] sprites;
+    public Sprite[] Sprites;
     private int _animFrame = -1;
     [SerializeField]
     private float _animTime = 0.25f;
@@ -17,15 +17,15 @@ public class ImageAnimation : MonoBehaviour
 
     private void Start()
     {
-        InvokeRepeating("NextSprite", _animTime, _animTime);
+        InvokeRepeating(nameof(NextSprite), _animTime, _animTime);
     }
 
     public void NextSprite()
     {
-        if (sprites.Length != 0)
+        if (Sprites.Length != 0)
         {
-            _animFrame = ++_animFrame % sprites.Length;
-            _image.sprite = sprites[_animFrame];
+            _animFrame = ++_animFrame % Sprites.Length;
+            _image.sprite = Sprites[_animFrame];
         }
     }
 }
