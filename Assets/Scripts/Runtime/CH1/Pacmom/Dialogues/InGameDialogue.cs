@@ -1,6 +1,5 @@
 using Runtime.ETC;
 using System;
-using System.Collections;
 using TMPro;
 using UnityEngine;
 using Yarn.Unity;
@@ -32,8 +31,6 @@ namespace Runtime.CH1.Pacmom
         [SerializeField]
         private float _targetTime = 15f;
         private int _dustID = 0;
-        private IEnumerator _bubbleACoroutine = null;
-        private IEnumerator _bubbleBCoroutine = null;
 
         private void Awake()
         {
@@ -67,7 +64,7 @@ namespace Runtime.CH1.Pacmom
                 yRotate = -180f;
             }
 
-            
+
             bubble.transform.SetPositionAndRotation(new Vector3(dust.transform.position.x + xPos,
                 dust.transform.position.y + 1.3f, dust.transform.position.z), Quaternion.Euler(0f, yRotate, 0f));
 
@@ -101,7 +98,7 @@ namespace Runtime.CH1.Pacmom
                 ShowBubbleB();
                 _textB.text = dialogueLine.TextWithoutCharacterName.Text;
             }
-            
+
             if (_dustID != 0) // 초기화
                 _dustID = 0;
 
@@ -112,47 +109,22 @@ namespace Runtime.CH1.Pacmom
         {
             _bubbleA.SetActive(true);
 
-            if (_bubbleACoroutine != null)
-                StopCoroutine(_bubbleACoroutine);
-
-            _bubbleACoroutine = WaitBubbleA();
-            StartCoroutine(_bubbleACoroutine);
+            CancelInvoke(nameof(HideBubbleA));
+            Invoke(nameof(HideBubbleA), 3f);
         }
 
         private void ShowBubbleB()
         {
             _bubbleB.SetActive(true);
 
-            if (_bubbleBCoroutine != null)
-                StopCoroutine(_bubbleBCoroutine);
-
-            _bubbleBCoroutine = WaitBubbleB();
-            StartCoroutine(_bubbleBCoroutine);
-        }
-
-        private IEnumerator WaitBubbleA()
-        {
-            yield return new WaitForSeconds(3f);
-
-            HideBubbleA();
-        }
-
-        private IEnumerator WaitBubbleB()
-        {
-            yield return new WaitForSeconds(3f);
-
-            HideBubbleB();
+            CancelInvoke(nameof(HideBubbleB));
+            Invoke(nameof(HideBubbleB), 3f);
         }
 
         public void StopDialogue()
         {
             HideBubbleA();
             HideBubbleB();
-
-            if (_bubbleACoroutine != null)
-                StopCoroutine(_bubbleACoroutine);
-            if (_bubbleBCoroutine != null)
-                StopCoroutine(_bubbleBCoroutine);
         }
 
         private void HideBubbleA()
