@@ -8,8 +8,13 @@ namespace Runtime.CH1.Title
         private Transform[] _backgrounds = new Transform[2];
         [SerializeField]
         private float _speed = 10;
-        private float _yPos = 1827;
-        private float _gap = 629 * 4;
+        private float _gap;
+        private readonly float _yPos = 1827;
+
+        private void Start()
+        {
+            _gap = _backgrounds[0].localPosition.y - _backgrounds[1].localPosition.y;
+        }
 
         private void Update()
         {
