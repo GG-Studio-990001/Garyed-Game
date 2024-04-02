@@ -41,6 +41,7 @@ namespace Runtime.CH1.Pacmom
         #region Awake
         private void Awake()
         {
+            Managers.Data.SaveGame();
             AssignComponent();
             AssignController();
             SetSettingUI();
