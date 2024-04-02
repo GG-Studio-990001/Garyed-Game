@@ -176,7 +176,8 @@ namespace Runtime.CH1.Pacmom
 
         private void ChooseAWinner()
         {
-            Managers.Sound.StopEffect(); // BGM 사용 시 StopAllSound
+            Managers.Sound.StopEffect();
+            _gameController.DialogueStop();
 
             if (_rapleyScore > _pacmomScore)
                 _ending.RapleyWin();

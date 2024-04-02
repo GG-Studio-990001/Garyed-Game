@@ -110,7 +110,9 @@ namespace Runtime.CH1.Pacmom
             _bubbleA.SetActive(true);
 
             CancelInvoke(nameof(HideBubbleA));
-            Invoke(nameof(HideBubbleA), 3f);
+
+            if (!GameController.IsGameOver)
+                Invoke(nameof(HideBubbleA), 3f);
         }
 
         private void ShowBubbleB()
@@ -118,7 +120,9 @@ namespace Runtime.CH1.Pacmom
             _bubbleB.SetActive(true);
 
             CancelInvoke(nameof(HideBubbleB));
-            Invoke(nameof(HideBubbleB), 3f);
+
+            if (!GameController.IsGameOver)
+                Invoke(nameof(HideBubbleB), 3f);
         }
 
         public void StopDialogue()
