@@ -41,6 +41,7 @@ namespace Runtime.CH1.Pacmom
         #region Awake
         private void Awake()
         {
+            Managers.Data.SaveGame();
             AssignComponent();
             AssignController();
             SetSettingUI();
@@ -279,9 +280,14 @@ namespace Runtime.CH1.Pacmom
 
         public void AfterPacmomEatenByDust()
         {
-            _dialogue.StopDialogue();
+            DialogueStop();
             SetCharacterMove(true);
             LoseLife();
+        }
+
+        public void DialogueStop()
+        {
+            _dialogue.StopDialogue();
         }
 
         public void LoseLife()
