@@ -617,7 +617,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cabcfa5afb24b5ebc2fa597483a7647, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundSystem: {fileID: 0}
   settingsUIView: {fileID: 1076722901}
   ch1StageController: {fileID: 1754088581}
   ch1DialogueController: {fileID: 1757409998}
@@ -2532,7 +2531,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 0
-  orthographic size: 5
+  orthographic size: 5.625
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2897,7 +2896,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _runner: {fileID: 472331523037639807}
-  _soundSystem: {fileID: 0}
   _fadeController: {fileID: 1311836793}
   _virtualCamera: {fileID: 1429684704}
   _timelineController: {fileID: 248890232}
@@ -4415,7 +4413,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1955385957656908964, guid: 6d173b4636e6a974e877862ce6efc4e9, type: 3}
       propertyPath: m_Name
-      value: Stage [3]
+      value: Stage [1]
       objectReference: {fileID: 0}
     - target: {fileID: 1997415462381612931, guid: 6d173b4636e6a974e877862ce6efc4e9, type: 3}
       propertyPath: dialogueRunner
@@ -4435,23 +4433,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6358058024704460647, guid: 6d173b4636e6a974e877862ce6efc4e9, type: 3}
       propertyPath: m_Size.x
-      value: 75
+      value: 96
       objectReference: {fileID: 0}
     - target: {fileID: 6358058024704460647, guid: 6d173b4636e6a974e877862ce6efc4e9, type: 3}
       propertyPath: m_Size.y
-      value: 16.882324
+      value: 21.609375
       objectReference: {fileID: 0}
     - target: {fileID: 6358058024704460647, guid: 6d173b4636e6a974e877862ce6efc4e9, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 1e2062c29d3ff2c44872f4c22899c805, type: 3}
+      objectReference: {fileID: 21300000, guid: bf487f5c13944884299f847fe20665d3, type: 3}
     - target: {fileID: 6358058024704460647, guid: 6d173b4636e6a974e877862ce6efc4e9, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6505116825378322279, guid: 6d173b4636e6a974e877862ce6efc4e9, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7075669497129808175, guid: 6d173b4636e6a974e877862ce6efc4e9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5183,13 +5181,17 @@ PrefabInstance:
       propertyPath: dialogueRunner
       value: 
       objectReference: {fileID: 472331523037639807}
+    - target: {fileID: 4462915879690929843, guid: fabd929830e0d48429c6e047af57dd53, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4705884541536514397, guid: fabd929830e0d48429c6e047af57dd53, type: 3}
       propertyPath: dialogueRunner
       value: 
       objectReference: {fileID: 472331523037639807}
     - target: {fileID: 5840771039378051981, guid: fabd929830e0d48429c6e047af57dd53, type: 3}
       propertyPath: m_Name
-      value: Stage [1]
+      value: Stage [3]
       objectReference: {fileID: 0}
     - target: {fileID: 6423669661257059359, guid: fabd929830e0d48429c6e047af57dd53, type: 3}
       propertyPath: dialogueRunner
