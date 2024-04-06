@@ -1,4 +1,5 @@
 using Runtime.Common.Presentation;
+using Runtime.Event;
 using System;
 using UnityEngine;
 using UnityEngine.UI;
@@ -28,10 +29,12 @@ namespace Runtime.Common.View
             if (SettingUIObject.activeSelf)
             {
                 OnSettingsClose?.Invoke();
+                SettingsEvent.ToggleSettings(false);
             }
             else
             {
                 OnSettingsOpen?.Invoke();
+                SettingsEvent.ToggleSettings(true);
             }
             
             SettingUIObject.SetActive(!SettingUIObject.activeSelf);

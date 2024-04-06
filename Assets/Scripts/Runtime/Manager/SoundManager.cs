@@ -1,4 +1,5 @@
 using Runtime.ETC;
+using Runtime.Event;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -36,7 +37,21 @@ namespace Runtime.InGameSystem
                     }
 
                     _audioSources[(int)Sound.BGM].loop = true;
+                    
+                    SettingsEvent.OnSettingsToggled += OnSettingsToggled;
                 }
+            }
+        }
+
+        private void OnSettingsToggled(bool isOpen)
+        {
+            if (isOpen)
+            {
+                Effect.Pause();
+            }
+            else
+            {
+                Effect.UnPause();
             }
         }
 
@@ -114,7 +129,7 @@ namespace Runtime.InGameSystem
         }
 
         public void StopBGM()
-        {
+        { 
             BGM.Stop();
         }
 

@@ -4,6 +4,7 @@ using Runtime.CH1.Main.Player;
 using Runtime.CH1.Main.Stage;
 using Runtime.Common.View;
 using Runtime.Data.Original;
+using Runtime.Event;
 using Runtime.InGameSystem;
 using Runtime.Input;
 using Runtime.Interface;
