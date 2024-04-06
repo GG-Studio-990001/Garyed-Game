@@ -1,34 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8056069968841516349
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cfffc298908164ce083c9c5e7137028d, type: 3}
-  m_Name: LowRes
-  m_EditorClassIdentifier: 
-  active: 0
-  enable:
-    m_OverrideState: 1
-    m_Value: 0
-  height:
-    m_OverrideState: 1
-    m_Value: 548
-  mask:
-    m_OverrideState: 1
-    m_Value: {fileID: 0}
-    dimension: 1
-  maskChannel:
-    m_OverrideState: 1
-    m_Value: 0
-  GlobalPostProcessingSettings:
-    m_OverrideState: 1
-    m_Value: 0
 --- !u!114 &-5519858940489164446
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -99,7 +70,7 @@ MonoBehaviour:
   - {fileID: -5519858940489164446}
   - {fileID: 6860809590303937816}
   - {fileID: 1016730550975212528}
-  - {fileID: -8056069968841516349}
+  - {fileID: 6422858189852592341}
 --- !u!114 &1016730550975212528
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -176,6 +147,35 @@ MonoBehaviour:
     m_Value: 0
   GlobalPostProcessingSettings:
     m_OverrideState: 1
+    m_Value: 0
+--- !u!114 &6422858189852592341
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfffc298908164ce083c9c5e7137028d, type: 3}
+  m_Name: LowRes
+  m_EditorClassIdentifier: 
+  active: 1
+  enable:
+    m_OverrideState: 0
+    m_Value: 0
+  height:
+    m_OverrideState: 0
+    m_Value: 180
+  mask:
+    m_OverrideState: 0
+    m_Value: {fileID: 0}
+    dimension: 1
+  maskChannel:
+    m_OverrideState: 0
+    m_Value: 0
+  GlobalPostProcessingSettings:
+    m_OverrideState: 0
     m_Value: 0
 --- !u!114 &6860809590303937816
 MonoBehaviour:
