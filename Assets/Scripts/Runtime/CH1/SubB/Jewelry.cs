@@ -62,7 +62,6 @@ namespace Runtime.CH1.SubB
 
         public void DestroyJewelry()
         {
-            _animator.Play("Jewelry_A");
             JewelryType = JewelryType.None;
             gameObject.transform.position = new Vector3(100, 100, 0);
             gameObject.SetActive(false);

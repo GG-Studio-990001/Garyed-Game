@@ -162,20 +162,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 1
   enable:
-    m_OverrideState: 0
-    m_Value: 0
+    m_OverrideState: 1
+    m_Value: 1
   height:
-    m_OverrideState: 0
-    m_Value: 180
+    m_OverrideState: 1
+    m_Value: 800
   mask:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: {fileID: 0}
     dimension: 1
   maskChannel:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 0
   GlobalPostProcessingSettings:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 0
 --- !u!114 &6860809590303937816
 MonoBehaviour:
