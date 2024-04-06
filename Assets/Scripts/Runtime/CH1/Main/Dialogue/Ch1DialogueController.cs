@@ -23,6 +23,7 @@ namespace Runtime.CH1.Main.Dialogue
         [SerializeField] private TimelineController _timelineController;
         [SerializeField] private Image _backgroundImage;
         
+        [SerializeField] private GameObject _slgUI;
         [SerializeField] private Volume _volume;
         private LowRes _lowRes;
         
@@ -35,27 +36,25 @@ namespace Runtime.CH1.Main.Dialogue
         {
             // UI/Sound
             _runner.AddCommandHandler<string>("PlayBackgroundSound", PlayBackgroundSound);
-            //_runner.AddCommandHandler("StopBackgroundSound", _soundSystem.StopMusic);
             _runner.AddCommandHandler<bool>("SetBackgroundColor", SetBackgroundColor);
             _runner.AddCommandHandler("FadeOut", _fadeController.StartFadeOut);
             _runner.AddCommandHandler("FadeIn", _fadeController.StartFadeIn);
             _runner.AddCommandHandler<string>("ChangeScene", ChangeScene);
-
-            // Camera
             _runner.AddCommandHandler("SetCamera", SetCamera);
-
-            // Logic
             _runner.AddCommandHandler("CurrentMinorDialogueStart", CurrentMinorDialogueStart);
-            //_runner.AddCommandHandler("MinorVersionUp", () => playerData.quarter.minor++);
             _runner.AddCommandHandler<string>("StartTimeline", (timelineName) => _timelineController.PlayTimeline(timelineName));
             _runner.AddCommandHandler<string>("SceneChange", SceneChange);
-
-            // Character
+            _runner.AddCommandHandler("SLGSetting", SetSLUUI);
+            
             if (_volume != null)
             {
                 _volume.profile.TryGet(out _lowRes);
             }
-            
+        }
+        
+        private void SetSLUUI()
+        {
+            _slgUI.SetActive(true);
         }
         
         private void SceneChange(string sceneName)
