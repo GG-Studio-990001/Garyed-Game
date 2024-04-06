@@ -15,6 +15,17 @@ namespace Runtime.Manager
         public bool IsPacmomCleared;
         public float musicVolume;
         public float sfxVolume;
+        
+        public GameData()
+        {
+            chapter = 1;
+            stage = 0;
+            minor = 0;
+            IsPacmomPlayed = false;
+            IsPacmomCleared = false;
+            musicVolume = 1;
+            sfxVolume = 1;
+        }
     }
     
     public class DataManager
@@ -48,12 +59,6 @@ namespace Runtime.Manager
         
         public void Init()
         {
-            // 시작 데이터 Init
-            _gameData.chapter = 1;
-            _gameData.stage = 0;
-            _gameData.IsPacmomPlayed = false;
-            _gameData.IsPacmomCleared = false;
-            
             GameOverControls = new GameOverControls();
         }
         
@@ -85,6 +90,12 @@ namespace Runtime.Manager
             Managers.Data.SaveData = data;
             Debug.Log($"Load Game Completed : {_path}");
             return true;
+        }
+        
+        public void NewGame()
+        {
+            _gameData = new GameData();
+            SaveGame();
         }
 
     }

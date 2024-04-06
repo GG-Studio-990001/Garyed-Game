@@ -126,10 +126,10 @@ TextureImporter:
       name: res_Floyard2_0
       rect:
         serializedVersion: 2
-        x: 47
-        y: 2407
-        width: 1599
-        height: 1572
+        x: 49
+        y: 2890
+        width: 1171
+        height: 1111
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,8 +137,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 000ab5029e62848408d9a68392de197a
-      internalID: -585334408
+      spriteID: 40b0bb416de64404bb2ecec41ad80522
+      internalID: -536603668
       vertices: []
       indices: 
       edges: []
@@ -147,10 +147,10 @@ TextureImporter:
       name: res_Floyard2_1
       rect:
         serializedVersion: 2
-        x: 1662
-        y: 2235
-        width: 2113
-        height: 1751
+        x: 1233
+        y: 2599
+        width: 1592
+        height: 1389
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,8 +158,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b7ff6b3ed72b1ad42bca24195692469d
-      internalID: 584400173
+      spriteID: c58340ffe080e8d47b49d47d0912a4c7
+      internalID: -1904231879
       vertices: []
       indices: 
       edges: []
@@ -168,10 +168,10 @@ TextureImporter:
       name: res_Floyard2_2
       rect:
         serializedVersion: 2
-        x: 3791
-        y: 2598
-        width: 1596
-        height: 1391
+        x: 2845
+        y: 2237
+        width: 2110
+        height: 1747
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -179,8 +179,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 765a7b80a6b982242b04105cac064bf6
-      internalID: 285603497
+      spriteID: fbe7bf9a2fc6d9d4c81deb8132100d6c
+      internalID: 1988365934
       vertices: []
       indices: 
       edges: []
@@ -189,10 +189,10 @@ TextureImporter:
       name: res_Floyard2_3
       rect:
         serializedVersion: 2
-        x: 5394
-        y: 2889
-        width: 1177
-        height: 1113
+        x: 4971
+        y: 2408
+        width: 1599
+        height: 1570
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -200,8 +200,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0ffd1057a999ad849afd492f30b831e8
-      internalID: -494997492
+      spriteID: 493770b9bcc4fe044bca7e246918d045
+      internalID: -1835949347
       vertices: []
       indices: 
       edges: []
@@ -210,10 +210,10 @@ TextureImporter:
       name: res_Floyard2_4
       rect:
         serializedVersion: 2
-        x: 151
-        y: 1034
-        width: 1653
-        height: 1139
+        x: 518
+        y: 52
+        width: 2353
+        height: 2130
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -221,8 +221,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1d8eab147363d8043ab12d8d6397e315
-      internalID: -1700878021
+      spriteID: 4a73eda1fb69c5a42ae0d19e953a4a7b
+      internalID: -1270900304
       vertices: []
       indices: 
       edges: []
@@ -231,10 +231,10 @@ TextureImporter:
       name: res_Floyard2_5
       rect:
         serializedVersion: 2
-        x: 1830
-        y: 934
-        width: 1848
-        height: 1239
+        x: 2942
+        y: 935
+        width: 1845
+        height: 1237
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -242,8 +242,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8a83841571d3d3b4bb8934b62b83b04d
-      internalID: -1163278918
+      spriteID: b739b42190c50e04baaee9486136d151
+      internalID: 547310343
       vertices: []
       indices: 
       edges: []
@@ -252,10 +252,10 @@ TextureImporter:
       name: res_Floyard2_6
       rect:
         serializedVersion: 2
-        x: 3746
-        y: 50
-        width: 2356
-        height: 2133
+        x: 4816
+        y: 1036
+        width: 1650
+        height: 1136
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -263,8 +263,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 51a8312ee3e983e4799ce17447e1a499
-      internalID: -1773815280
+      spriteID: 4c2c070e05be50a4ca19c765bbf7bcae
+      internalID: 1003465251
       vertices: []
       indices: 
       edges: []
@@ -273,10 +273,10 @@ TextureImporter:
       name: res_Floyard2_7
       rect:
         serializedVersion: 2
-        x: 76
-        y: 25
-        width: 239
-        height: 569
+        x: 3589
+        y: 489
+        width: 269
+        height: 100
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -284,8 +284,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9005134f9573d384cb17bbf45af1f4d1
-      internalID: 402007717
+      spriteID: 570404a37f2209542a2d196790f6ec96
+      internalID: -1342046091
       vertices: []
       indices: 
       edges: []
@@ -294,10 +294,10 @@ TextureImporter:
       name: res_Floyard2_8
       rect:
         serializedVersion: 2
-        x: 426
-        y: 555
-        width: 42
-        height: 23
+        x: 4078
+        y: 288
+        width: 760
+        height: 314
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -305,8 +305,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c213a8731809504459b9c5919fef6cb9
-      internalID: -507535131
+      spriteID: 7bc354e0ac5b5cc458b6e3e817266579
+      internalID: 1129606681
       vertices: []
       indices: 
       edges: []
@@ -315,10 +315,10 @@ TextureImporter:
       name: res_Floyard2_9
       rect:
         serializedVersion: 2
-        x: 1011
-        y: 374
-        width: 625
-        height: 217
+        x: 4984
+        y: 375
+        width: 621
+        height: 214
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -326,8 +326,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6480f20c85d1e494e894847060dc32c7
-      internalID: -1302037482
+      spriteID: 65ef15f918cf9214eb9e47f3defd7a8a
+      internalID: 1012755940
       vertices: []
       indices: 
       edges: []
@@ -336,10 +336,10 @@ TextureImporter:
       name: res_Floyard2_10
       rect:
         serializedVersion: 2
-        x: 1778
-        y: 286
-        width: 764
-        height: 317
+        x: 6152
+        y: 557
+        width: 39
+        height: 19
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -347,8 +347,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c1c2ae3d1f99e4e45b5bf74e06a01f03
-      internalID: 234926652
+      spriteID: 7c6f2c9474d50a4478d9fd5e3d8a6fcf
+      internalID: 2107048700
       vertices: []
       indices: 
       edges: []
@@ -357,10 +357,10 @@ TextureImporter:
       name: res_Floyard2_11
       rect:
         serializedVersion: 2
-        x: 2759
-        y: 487
-        width: 272
-        height: 104
+        x: 6304
+        y: 26
+        width: 237
+        height: 566
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -368,8 +368,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b2a3ebfb3fa6f724e83963ce94f69798
-      internalID: -88956685
+      spriteID: 3ba303fff714a0b4da30f1580ea840d4
+      internalID: 1885048897
       vertices: []
       indices: 
       edges: []
@@ -378,10 +378,10 @@ TextureImporter:
       name: res_Floyard2_12
       rect:
         serializedVersion: 2
-        x: 419
-        y: 329
-        width: 437
-        height: 165
+        x: 5764
+        y: 330
+        width: 434
+        height: 162
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -389,8 +389,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f595f7ae3e91c2d44b7ed2749dc8536d
-      internalID: 652646317
+      spriteID: fbc2cc4eb0a5ce041b3b8d0fb17e9e03
+      internalID: 1450656462
       vertices: []
       indices: 
       edges: []
@@ -399,10 +399,10 @@ TextureImporter:
       name: res_Floyard2_13
       rect:
         serializedVersion: 2
-        x: 416
-        y: 183
-        width: 252
-        height: 94
+        x: 5952
+        y: 184
+        width: 249
+        height: 91
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -410,8 +410,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 17301b1a77d2df543a428dd6032e57a0
-      internalID: -50936483
+      spriteID: 6386f6f84bbccd14ea9ea95b44b7def2
+      internalID: -1858160264
       vertices: []
       indices: 
       edges: []
@@ -420,10 +420,10 @@ TextureImporter:
       name: res_Floyard2_14
       rect:
         serializedVersion: 2
-        x: 426
-        y: 83
-        width: 74
-        height: 32
+        x: 6120
+        y: 84
+        width: 71
+        height: 29
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -431,8 +431,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 973365e4490ed4e44af4c98b76a42bad
-      internalID: 710809186
+      spriteID: 18694b825050fab4685fdfafb9b11389
+      internalID: -1882946419
       vertices: []
       indices: 
       edges: []
@@ -440,7 +440,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 1b87c515f73950d4091b78ec20c9955c
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -448,21 +448,21 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      res_Floyard2_0: -585334408
-      res_Floyard2_1: 584400173
-      res_Floyard2_10: 234926652
-      res_Floyard2_11: -88956685
-      res_Floyard2_12: 652646317
-      res_Floyard2_13: -50936483
-      res_Floyard2_14: 710809186
-      res_Floyard2_2: 285603497
-      res_Floyard2_3: -494997492
-      res_Floyard2_4: -1700878021
-      res_Floyard2_5: -1163278918
-      res_Floyard2_6: -1773815280
-      res_Floyard2_7: 402007717
-      res_Floyard2_8: -507535131
-      res_Floyard2_9: -1302037482
+      res_Floyard2_0: -536603668
+      res_Floyard2_1: -1904231879
+      res_Floyard2_10: 2107048700
+      res_Floyard2_11: 1885048897
+      res_Floyard2_12: 1450656462
+      res_Floyard2_13: -1858160264
+      res_Floyard2_14: -1882946419
+      res_Floyard2_2: 1988365934
+      res_Floyard2_3: -1835949347
+      res_Floyard2_4: -1270900304
+      res_Floyard2_5: 547310343
+      res_Floyard2_6: 1003465251
+      res_Floyard2_7: -1342046091
+      res_Floyard2_8: 1129606681
+      res_Floyard2_9: 1012755940
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

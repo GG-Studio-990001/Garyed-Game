@@ -61,6 +61,8 @@ namespace Runtime.CH1.Main.Controller
         private void SetGame()
         {
             Managers.Sound.Play(Sound.BGM, "Ch1Main");
+            Debug.Log($"Check!!!!!!! {Managers.Data.Stage}");
+            
             ch1StageController.SetStage(Managers.Data.Stage, new Vector2(0, 0));
         }
     }
