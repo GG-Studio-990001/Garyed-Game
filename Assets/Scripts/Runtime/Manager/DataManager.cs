@@ -1,10 +1,12 @@
 using Runtime.Data.Original;
+using Runtime.Input;
 using System;
 using System.Numerics;
 using UnityEngine;
 
 namespace Runtime.Manager
 {
+    // 게임 데이터 CH별로 따로 클래스 만들어야 할 듯
     [Serializable]
     public class GameData
     {
@@ -15,6 +17,17 @@ namespace Runtime.Manager
         public bool IsPacmomCleared;
         public float musicVolume;
         public float sfxVolume;
+        
+        public GameData()
+        {
+            chapter = 1;
+            stage = 0;
+            minor = 0;
+            IsPacmomPlayed = false;
+            IsPacmomCleared = false;
+            musicVolume = 1;
+            sfxVolume = 1;
+        }
     }
     
     public class DataManager
@@ -23,6 +36,7 @@ namespace Runtime.Manager
         private GameData SaveData { get { return _gameData; } set { _gameData = value; } }
         
         public GameOverControls GameOverControls { get; set; }
+        public InGameKeyBinder InGameKeyBinder { get; set; }
 
         #region properties
 
@@ -48,13 +62,8 @@ namespace Runtime.Manager
         
         public void Init()
         {
-            // 시작 데이터 Init
-            _gameData.chapter = 1;
-            _gameData.stage = 0;
-            _gameData.IsPacmomPlayed = false;
-            _gameData.IsPacmomCleared = false;
-            
             GameOverControls = new GameOverControls();
+            InGameKeyBinder = new InGameKeyBinder(GameOverControls);
         }
         
         public void SaveGame()
@@ -85,6 +94,12 @@ namespace Runtime.Manager
             Managers.Data.SaveData = data;
             Debug.Log($"Load Game Completed : {_path}");
             return true;
+        }
+        
+        public void NewGame()
+        {
+            _gameData = new GameData();
+            SaveGame();
         }
 
     }

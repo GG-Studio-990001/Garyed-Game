@@ -1,0 +1,16 @@
+﻿title: Object
+---
+     :평범한 오브젝트다. #line:05d6b92 
+===
+
+title: PacmomObject
+---
+     :팩맘 접속!
+     <<SceneChange Pacmom>>
+===
+
+title: SLGObject
+---
+     :SLG UI 장착!
+     <<SLGSetting>>
+===

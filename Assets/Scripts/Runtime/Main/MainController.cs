@@ -9,6 +9,7 @@ namespace Runtime.Main
         
         public void NewGame()
         {
+            Managers.Data.NewGame();
             sceneSystem.LoadSceneWithFade($"CH{Managers.Data.Chapter}");
         }
         
