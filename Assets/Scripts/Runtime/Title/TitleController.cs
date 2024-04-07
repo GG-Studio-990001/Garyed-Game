@@ -1,4 +1,3 @@
-using Runtime.Common.View;
 using UnityEngine;
 using Sound = Runtime.ETC.Sound;
 
