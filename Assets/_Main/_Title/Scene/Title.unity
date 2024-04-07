@@ -815,7 +815,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1026191231}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 2016}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -905,6 +905,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1427901089}
   - component: {fileID: 1427901090}
+  - component: {fileID: 1427901091}
   m_Layer: 0
   m_Name: Object
   m_TagString: Untagged
@@ -920,7 +921,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1427901088}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.7}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -949,6 +950,18 @@ MonoBehaviour:
   - {fileID: 1912976439}
   - {fileID: 143776158}
   _speed: 10
+--- !u!210 &1427901091
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1427901088}
+  m_Enabled: 1
+  m_SortingLayerID: 517879615
+  m_SortingLayer: 3
+  m_SortingOrder: 0
+  m_SortAtRoot: 0
 --- !u!1 &1483779046
 GameObject:
   m_ObjectHideFlags: 0
@@ -6142,8 +6155,8 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1546151723
+  m_SortingLayer: 4
   m_SortingOrder: 2
   m_RenderMode: 0
   m_MeshDistribution: 0
