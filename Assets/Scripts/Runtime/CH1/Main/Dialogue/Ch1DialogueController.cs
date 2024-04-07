@@ -59,6 +59,7 @@ namespace Runtime.CH1.Main.Dialogue
         
         private void SceneChange(string sceneName)
         {
+            // Hard Coding
             if ("Pacmom" == sceneName)
             {
                 float startValue = 500f;
@@ -67,11 +68,14 @@ namespace Runtime.CH1.Main.Dialogue
 
                 _lowRes.IsActive();
                 
+                Managers.Data.InGameKeyBinder.PlayerInputDisable();
+                
                 DOVirtual.Float(startValue, endValue, duration, currentValue =>
                 {
                     _lowRes.height.value = (int)currentValue;
                 }).SetEase(Ease.Linear).onComplete += () =>
                 {
+                    Managers.Data.InGameKeyBinder.PlayerInputEnable();
                     SceneManager.LoadScene("Pacmom");
                 };
             }

@@ -16,7 +16,7 @@ namespace Runtime.Input
             _gameOverControls = gameOverControls;
         }
         
-        public void PlayerKeyBinding(TopDownPlayer player)
+        public void CH1PlayerKeyBinding(TopDownPlayer player)
         {
             _gameOverControls.Player.Enable();
             _gameOverControls.Player.Move.performed += player.OnMove;
@@ -25,7 +25,7 @@ namespace Runtime.Input
             _gameOverControls.Player.Interaction.performed += _ => player.OnInteraction();
         }
         
-        public void UIKeyBinding(SettingsUIView settingsUIView)
+        public void CH1UIKeyBinding(SettingsUIView settingsUIView)
         {
             _gameOverControls.UI.Enable();
             _gameOverControls.UI.GameSetting.performed += _ => settingsUIView.GameSettingToggle();

@@ -13,15 +13,13 @@ namespace Runtime.CH1.Main.Stage
         
         [SerializeField] private Stage[] stages;
         private FadeController _fadeController;
-        private InGameKeyBinder _inGameKeyBinder;
         private Transform _playerTransform;
         
         public Stage CurrentStage => StageChanger.CurrentStage;
         
-        public void Init(FadeController fadeController, InGameKeyBinder inGameKeyBinder, Transform playerTransform)
+        public void Init(FadeController fadeController, Transform playerTransform)
         {
             _fadeController = fadeController;
-            _inGameKeyBinder = inGameKeyBinder;
             _playerTransform = playerTransform;
             
             StageChangerInit();
@@ -42,8 +40,8 @@ namespace Runtime.CH1.Main.Stage
         {
             StageChanger = new Ch1StageChanger(_playerTransform, stages, _fadeController, Confiner2D);
             
-            StageChanger.OnStageStart += () => _inGameKeyBinder.PlayerInputDisable();
-            StageChanger.OnStageEnd += () => _inGameKeyBinder.PlayerInputEnable();
+            StageChanger.OnStageStart += () => Managers.Data.InGameKeyBinder.PlayerInputDisable();
+            StageChanger.OnStageEnd += () => Managers.Data.InGameKeyBinder.PlayerInputEnable();
         }
         
         private async void StageSettings()
