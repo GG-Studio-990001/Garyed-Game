@@ -8,7 +8,9 @@ namespace Runtime.CH1.Title
         [SerializeField]
         private GameObject _target;
         [SerializeField]
-        private float _blinkTime = 1f;
+        private float _showTime = 1.5f;
+        [SerializeField]
+        private float _hideTime = 0.5f;
 
         private void Start()
         {
@@ -20,9 +22,9 @@ namespace Runtime.CH1.Title
             while (true)
             {
                 _target.SetActive(true);
-                yield return new WaitForSeconds(_blinkTime);
+                yield return new WaitForSeconds(_showTime);
                 _target.SetActive(false);
-                yield return new WaitForSeconds(_blinkTime);
+                yield return new WaitForSeconds(_hideTime);
             }
         }
     }
