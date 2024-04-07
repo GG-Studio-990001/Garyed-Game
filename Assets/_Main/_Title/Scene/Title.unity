@@ -591,8 +591,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Press Any Key
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 26a727b9d0caa1e4984e5b288058805d, type: 2}
-  m_sharedMaterial: {fileID: 1200307263839244826, guid: 26a727b9d0caa1e4984e5b288058805d, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 39e8d2fced2b5b544a108479b0a5815f, type: 2}
+  m_sharedMaterial: {fileID: -305420469534864050, guid: 39e8d2fced2b5b544a108479b0a5815f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -11047,8 +11047,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Grayed Game
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 26a727b9d0caa1e4984e5b288058805d, type: 2}
-  m_sharedMaterial: {fileID: 1200307263839244826, guid: 26a727b9d0caa1e4984e5b288058805d, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 39e8d2fced2b5b544a108479b0a5815f, type: 2}
+  m_sharedMaterial: {fileID: -305420469534864050, guid: 39e8d2fced2b5b544a108479b0a5815f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
