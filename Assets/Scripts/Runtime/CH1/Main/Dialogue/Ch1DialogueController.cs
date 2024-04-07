@@ -76,6 +76,7 @@ namespace Runtime.CH1.Main.Dialogue
                 }).SetEase(Ease.Linear).onComplete += () =>
                 {
                     Managers.Data.InGameKeyBinder.PlayerInputEnable();
+                    Managers.Sound.StopAllSound();
                     SceneManager.LoadScene("Pacmom");
                 };
             }
