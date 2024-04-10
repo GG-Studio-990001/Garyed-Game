@@ -9,7 +9,7 @@ namespace Runtime.CH1.Title
         [SerializeField]
         private float _speed = 10;
         private float _gap;
-        private readonly float _yPos = 1827;
+        private readonly float _yPos = 20;
 
         private void Start()
         {
@@ -20,7 +20,7 @@ namespace Runtime.CH1.Title
         {
             for (int i = 0; i < _backgrounds.Length; i++)
             {
-                _backgrounds[i].localPosition += new Vector3(0, _speed, 0) * Time.deltaTime;
+                _backgrounds[i].localPosition += new Vector3(0, _speed * 0.01f, 0) * Time.deltaTime;
 
                 if (_backgrounds[i].localPosition.y > _yPos)
                 {
