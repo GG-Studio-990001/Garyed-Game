@@ -25,7 +25,7 @@ namespace Runtime.CH1.Pacmom
             }
         }
 
-        public int RotationZValue(Vector2 direction)
+        public int GetZValue(Vector2 direction)
         {
             int zValue = 0;
 

@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 
 namespace Runtime.CH1.Pacmom
 {
-    public class Rapley : MonoBehaviour, ICharacter
+    public class Rapley : MonoBehaviour
     {
         public MovementWithFlipAndRotate Movement { get; set; }
 
@@ -16,17 +16,12 @@ namespace Runtime.CH1.Pacmom
         private void Start()
         {
             SetSpriteRotation();
-            ResetState();
+            Movement.ResetState();
         }
 
         private void SetSpriteRotation()
         {
             Movement.SpriteRotation.SetCanRotate(false);
-        }
-
-        public void ResetState()
-        {
-            Movement.ResetState();
         }
 
         private void FixedUpdate()

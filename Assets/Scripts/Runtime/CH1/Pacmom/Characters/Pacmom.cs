@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Runtime.CH1.Pacmom
 {
-    public class Pacmom : MonoBehaviour, ICharacter, IFoodChain
+    public class Pacmom : MonoBehaviour, IFoodChain
     {
         public PMGameController GameController;
         public MovementWithFlipAndRotate Movement { get; set; }
@@ -22,7 +22,7 @@ namespace Runtime.CH1.Pacmom
         {
             SetSpriteRotation();
             SetStronger(false);
-            ResetState();
+            Movement.ResetState();
         }
 
         public void SetStronger(bool isStrong)
@@ -36,12 +36,6 @@ namespace Runtime.CH1.Pacmom
             Movement.SpriteRotation.SetCanRotate(true);
         }
 
-        public void ResetState()
-        {
-            SetRotateToZero();
-            Movement.ResetState();
-        }
-
         private void FixedUpdate()
         {
             Movement.Move();
@@ -49,16 +43,11 @@ namespace Runtime.CH1.Pacmom
 
         public void VacuumMode(bool isVacuum)
         {
-            SetRotateToZero();
+            Movement.SetRotateZ();
 
             _ai.SetAIStronger(isVacuum);
             Movement.SpriteRotation.SetCanRotate(!isVacuum);
             _vacuum.SetActive(isVacuum);
-        }
-
-        public void SetRotateToZero()
-        {
-            transform.rotation = Quaternion.Euler(Vector3.zero);
         }
 
         private void OnCollisionEnter2D(Collision2D collision)

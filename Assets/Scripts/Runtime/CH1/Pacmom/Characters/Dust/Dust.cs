@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Runtime.CH1.Pacmom
 {
-    public class Dust : MonoBehaviour, ICharacter, IFoodChain
+    public class Dust : MonoBehaviour, IFoodChain
     {
         public PMGameController GameController;
         public MovementWithEyes Movement { get; set; }
@@ -21,7 +21,7 @@ namespace Runtime.CH1.Pacmom
         private void Start()
         {
             SetStronger(true);
-            ResetState();
+            Movement.ResetState();
         }
 
         public bool IsStronger()
@@ -33,13 +33,6 @@ namespace Runtime.CH1.Pacmom
         {
             if (_ai != null)
                 _ai.SetAIStronger(isStrong);
-        }
-
-        public void ResetState()
-        {
-            Movement.SetEyeNormal(true);
-            Movement.GetEyeSpriteByPosition();
-            Movement.ResetState();
         }
 
         private void FixedUpdate()

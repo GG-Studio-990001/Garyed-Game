@@ -19,6 +19,11 @@ namespace Runtime.CH1.Pacmom
             base.ResetState();
 
             SpriteRotation.FlipSprite(Direction);
+
+            if (SpriteRotation.CanRotate)
+            {
+                SetRotateZ(0);
+            }
         }
 
         protected override void SetDirection(Vector2 direction)
@@ -31,10 +36,14 @@ namespace Runtime.CH1.Pacmom
 
                 if (SpriteRotation.CanRotate)
                 {
-                    int zValue = SpriteRotation.RotationZValue(direction);
-                    transform.rotation = Quaternion.Euler(0, 0, zValue);
+                    SetRotateZ(SpriteRotation.GetZValue(direction));
                 }
             }
+        }
+
+        public void SetRotateZ(int zValue = 0)
+        {
+            transform.rotation = Quaternion.Euler(0, 0, zValue);
         }
     }
 }
