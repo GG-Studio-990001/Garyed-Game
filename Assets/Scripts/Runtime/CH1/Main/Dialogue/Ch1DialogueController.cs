@@ -1,5 +1,6 @@
 using Cinemachine;
 using DG.Tweening;
+using Runtime.CH1.Main.Controller;
 using Runtime.Data.Original;
 using Runtime.InGameSystem;
 using System;
@@ -55,6 +56,12 @@ namespace Runtime.CH1.Main.Dialogue
         private void SetSLUUI()
         {
             _slgUI.SetActive(true);
+            //TODO 함수 구조 고민
+            SLGActionComponent SLGAction = FindObjectOfType<SLGActionComponent>();
+            if(SLGAction != null)
+            {
+                SLGAction.OnSLGInit();
+            }
         }
         
         private void SceneChange(string sceneName)
