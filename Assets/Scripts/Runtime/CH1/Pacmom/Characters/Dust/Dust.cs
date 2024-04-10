@@ -7,14 +7,14 @@ namespace Runtime.CH1.Pacmom
     public class Dust : MonoBehaviour, ICharacter, IFoodChain
     {
         public PMGameController GameController;
-        public MovementAndEyes Movement { get; set; }
+        public MovementWithEyes Movement { get; set; }
         private AI _ai;
         [field:SerializeField]
         public int DustID { get; private set; }
 
         private void Awake()
         {
-            Movement = GetComponent<MovementAndEyes>();
+            Movement = GetComponent<MovementWithEyes>();
             _ai = GetComponent<AI>();
         }
 

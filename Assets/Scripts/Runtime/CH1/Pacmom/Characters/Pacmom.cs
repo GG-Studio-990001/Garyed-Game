@@ -7,14 +7,14 @@ namespace Runtime.CH1.Pacmom
     public class Pacmom : MonoBehaviour, ICharacter, IFoodChain
     {
         public PMGameController GameController;
-        public MovementAndRotation Movement { get; set; }
+        public MovementWithFlipAndRotate Movement { get; set; }
         private AI _ai;
         [SerializeField]
         private GameObject _vacuum;
 
         private void Awake()
         {
-            Movement = GetComponent<MovementAndRotation>();
+            Movement = GetComponent<MovementWithFlipAndRotate>();
             _ai = GetComponent<AI>();
         }
 
@@ -34,7 +34,6 @@ namespace Runtime.CH1.Pacmom
         private void SetSpriteRotation()
         {
             Movement.SpriteRotation.SetCanRotate(true);
-            Movement.SpriteRotation.SetCanFlip(true);
         }
 
         public void ResetState()

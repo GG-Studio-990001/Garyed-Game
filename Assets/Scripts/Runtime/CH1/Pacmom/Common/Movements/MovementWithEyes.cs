@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Runtime.CH1.Pacmom
 {
-    public class MovementAndEyes : Movement
+    public class MovementWithEyes : Movement
     {
         [SerializeField]
         private SpriteRenderer _eyeSprite;
