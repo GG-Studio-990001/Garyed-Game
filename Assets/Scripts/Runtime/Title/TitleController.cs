@@ -1,3 +1,5 @@
+using Runtime.Common.View;
+using Runtime.InGameSystem;
 using UnityEngine;
 using Sound = Runtime.ETC.Sound;
 
@@ -5,9 +7,15 @@ namespace Runtime.CH1.Title
 {
     public class TitleController : MonoBehaviour
     {
+        [SerializeField]
+        private SceneSystem _sceneSystem;
+        [SerializeField]
+        private SettingsUIView _settingsUIView;
+
         private void Awake()
         {
-            SetEscape();
+            ToMain();
+            SetSettingUI();
         }
 
         private void Start()
@@ -15,15 +23,21 @@ namespace Runtime.CH1.Title
             Managers.Sound.Play(Sound.BGM, "Title_BGM_CH1_02");
         }
 
-        private void SetEscape()
+        private void ToMain()
+        {
+            Managers.Data.GameOverControls.UI.Enable();
+            Managers.Data.GameOverControls.UI.DialogueInput.performed += _ =>
+            {
+                _sceneSystem.LoadScene("Main");
+            };
+        }
+
+        private void SetSettingUI()
         {
             Managers.Data.GameOverControls.UI.Enable();
             Managers.Data.GameOverControls.UI.GameSetting.performed += _ =>
             {
-                #if UNITY_EDITOR
-                UnityEditor.EditorApplication.isPlaying = false;
-                #endif
-                Application.Quit();
+                _settingsUIView.GameSettingToggle();
             };
         }
     }
