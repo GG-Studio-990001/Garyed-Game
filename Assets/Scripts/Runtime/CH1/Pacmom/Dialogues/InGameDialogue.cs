@@ -31,6 +31,8 @@ namespace Runtime.CH1.Pacmom
         [SerializeField]
         private float _targetTime = 15f;
         private int _dustID = 0;
+        private readonly float _minTime = 5;
+        private readonly float _delayTime = 5;
 
         private void Awake()
         {
@@ -125,10 +127,10 @@ namespace Runtime.CH1.Pacmom
                 Invoke(nameof(HideBubbleB), 3f);
         }
 
-        public void StopDialogue()
+        public void StopDialogue(float delayTime = 0f)
         {
-            HideBubbleA();
-            HideBubbleB();
+            Invoke(nameof(HideBubbleA), delayTime);
+            Invoke(nameof(HideBubbleB), delayTime);
         }
 
         private void HideBubbleA()
@@ -213,8 +215,8 @@ namespace Runtime.CH1.Pacmom
             else
                 _runner.StartDialogue("PMVacuumModeAgain");
 
-            if (_targetTime < 5f)
-                _targetTime += 5f; // 청소기모드 직후 랜덤대사 출력 방지
+            if (_targetTime < _minTime)
+                _targetTime += _delayTime;
         }
 
         public void GameOverDialogue()
