@@ -273,9 +273,9 @@ namespace Runtime.CH1.Pacmom
             Managers.Sound.Play(Sound.Effect, "Pacmom_SFX_11");
 
             _dialogue.CatchDialogue(ID);
-            StartCoroutine(_dataController.ReleaseHalfCoins());
-
             SetCharacterMove(false);
+
+            StartCoroutine(_dataController.ReleaseHalfCoins());
         }
 
         public void AfterPacmomEatenByDust()
