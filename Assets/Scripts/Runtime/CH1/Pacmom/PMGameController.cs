@@ -41,7 +41,6 @@ namespace Runtime.CH1.Pacmom
         #region Awake
         private void Awake()
         {
-            Managers.Data.SaveGame();
             AssignComponent();
             AssignController();
             SetSettingUI();
@@ -173,12 +172,12 @@ namespace Runtime.CH1.Pacmom
         {
             _spriteController.SetNormalSprites();
 
-            _rapley.ResetState();
-            _pacmom.ResetState();
+            _rapley.Movement.ResetState();
+            _pacmom.Movement.ResetState();
 
             for (int i = 0; i < GlobalConst.DustCnt; i++)
             {
-                _dusts[i].ResetState();
+                _dusts[i].Movement.ResetState();
                 _dustRooms[i].SetInRoom(true);
             }
 
@@ -246,7 +245,7 @@ namespace Runtime.CH1.Pacmom
             Managers.Sound.Play(Sound.Effect, "Pacmom_SFX_06");
 
             _dataController.TakeHalfCoins(false);
-            _rapley.ResetState();
+            _rapley.Movement.ResetState();
         }
 
         public void DustEaten(Dust dust)
@@ -273,9 +272,9 @@ namespace Runtime.CH1.Pacmom
             Managers.Sound.Play(Sound.Effect, "Pacmom_SFX_11");
 
             _dialogue.CatchDialogue(ID);
-            StartCoroutine(_dataController.ReleaseHalfCoins());
-
             SetCharacterMove(false);
+
+            StartCoroutine(_dataController.ReleaseHalfCoins());
         }
 
         public void AfterPacmomEatenByDust()
@@ -300,7 +299,7 @@ namespace Runtime.CH1.Pacmom
             }
             else
             {
-                _pacmom.SetRotateToZero();
+                _pacmom.Movement.SetRotateZ();
                 _spriteController.SetPacmomDieSprite();
 
                 GameOver();

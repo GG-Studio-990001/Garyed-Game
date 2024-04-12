@@ -3,7 +3,7 @@ using UnityEngine;
 namespace Runtime.CH1.Pacmom
 {
     [RequireComponent(typeof(SpriteRenderer))]
-    public class MovementAndRotation : Movement
+    public class MovementWithFlipAndRotate : Movement
     {
         public SpriteRotation SpriteRotation { get; private set; }
 
@@ -18,8 +18,12 @@ namespace Runtime.CH1.Pacmom
         {
             base.ResetState();
 
-            if (SpriteRotation.CanFlip)
-                SpriteRotation.FlipSprite(Direction);
+            SpriteRotation.FlipSprite(Direction);
+
+            if (SpriteRotation.CanRotate)
+            {
+                SetRotateZ(0);
+            }
         }
 
         protected override void SetDirection(Vector2 direction)
@@ -28,11 +32,18 @@ namespace Runtime.CH1.Pacmom
 
             if (!CheckRoadBlocked(direction))
             {
-                int zValue = SpriteRotation.RotationZValue(direction);
-                transform.rotation = Quaternion.Euler(0, 0, zValue);
-
                 SpriteRotation.FlipSprite(direction);
+
+                if (SpriteRotation.CanRotate)
+                {
+                    SetRotateZ(SpriteRotation.GetZValue(direction));
+                }
             }
+        }
+
+        public void SetRotateZ(int zValue = 0)
+        {
+            transform.rotation = Quaternion.Euler(0, 0, zValue);
         }
     }
 }

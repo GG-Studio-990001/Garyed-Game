@@ -240,6 +240,7 @@ MonoBehaviour:
   - {fileID: 112017311, guid: e48202bc45cce2146932707e0ee993a9, type: 3}
   - {fileID: 92227687, guid: e48202bc45cce2146932707e0ee993a9, type: 3}
   - {fileID: -1150924220, guid: e48202bc45cce2146932707e0ee993a9, type: 3}
+  <IsNormalEye>k__BackingField: 1
 --- !u!114 &5395930438513632476
 MonoBehaviour:
   m_ObjectHideFlags: 0

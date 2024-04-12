@@ -2,12 +2,13 @@ using UnityEngine;
 
 namespace Runtime.CH1.Pacmom
 {
-    public class MovementAndEyes : Movement
+    public class MovementWithEyes : Movement
     {
         [SerializeField]
         private SpriteRenderer _eyeSprite;
         [SerializeField]
         private Sprite[] _EyeSprites;
+        [field:SerializeField]
         public bool IsNormalEye { get; private set; }
 
         private void Awake()
@@ -15,9 +16,11 @@ namespace Runtime.CH1.Pacmom
             SetWhenAwake();
         }
 
-        public void SetEyeNormal(bool isNormalEye)
+        public override void ResetState()
         {
-            IsNormalEye = isNormalEye;
+            base.ResetState();
+
+            GetEyeSpriteByPosition();
         }
 
         protected override void SetDirection(Vector2 direction)
@@ -28,6 +31,11 @@ namespace Runtime.CH1.Pacmom
             {
                 GetEyeSprites(direction);
             }
+        }
+
+        public void SetEyeNormal(bool isNormalEye)
+        {
+            IsNormalEye = isNormalEye;
         }
 
         public void GetEyeSpriteByPosition()

@@ -39,6 +39,9 @@ namespace Runtime.CH1.Pacmom
 
         private void OnCollisionExit2D(Collision2D collision)
         {
+            if (_dustTalked)
+                _dialogue.StopDialogue(1f);
+            
             _reachTime = 0f;
             _dustTalked = false;
             IsBlocked = false;

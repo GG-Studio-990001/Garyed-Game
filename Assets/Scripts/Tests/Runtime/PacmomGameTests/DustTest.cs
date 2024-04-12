@@ -11,14 +11,14 @@ namespace Tests.Runtime.PacmomGameTest
     {
         private GameObject dustObj;
         private Dust dust;
-        private MovementAndEyes dustMovement;
+        private MovementWithEyes dustMovement;
 
         [UnitySetUp]
         public IEnumerator SetUp()
         {
             dustObj = new GameObject("DustObj");
             dust = dustObj.AddComponent<Dust>();
-            dustMovement = dustObj.AddComponent<MovementAndEyes>();
+            dustMovement = dustObj.AddComponent<MovementWithEyes>();
             dust.Movement = dustMovement;
 
             yield return new WaitForFixedUpdate();
