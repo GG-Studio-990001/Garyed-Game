@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4974062424257057792}
   - component: {fileID: 2769705586761642506}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: BigDustLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
