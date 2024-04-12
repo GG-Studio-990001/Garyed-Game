@@ -674,6 +674,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f93fb071f22dde843badc8bba2cf2586, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _windowedPPU: 67
+  _fullScreenPPU: 100
 --- !u!1 &411657961
 GameObject:
   m_ObjectHideFlags: 0
