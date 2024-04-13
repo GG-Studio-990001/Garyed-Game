@@ -22418,8 +22418,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f93fb071f22dde843badc8bba2cf2586, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _windowedPPU: 59
-  _fullScreenPPU: 89
+  _windowedPPU: 60
+  _fullScreenPPU: 90
 --- !u!114 &1118124728
 MonoBehaviour:
   m_ObjectHideFlags: 0
