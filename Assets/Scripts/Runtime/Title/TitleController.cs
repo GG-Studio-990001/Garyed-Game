@@ -11,11 +11,11 @@ namespace Runtime.CH1.Title
         private SceneSystem _sceneSystem;
         [SerializeField]
         private SettingsUIView _settingsUIView;
+        private GameOverControls controls;
 
         private void Awake()
         {
-            ToMain();
-            SetSettingUI();
+            SetController();
         }
 
         private void Start()
@@ -23,22 +23,14 @@ namespace Runtime.CH1.Title
             Managers.Sound.Play(Sound.BGM, "Title_BGM_CH1_02");
         }
 
-        private void ToMain()
+        private void SetController()
         {
-            Managers.Data.GameOverControls.UI.Enable();
-            Managers.Data.GameOverControls.UI.DialogueInput.performed += _ =>
-            {
-                _sceneSystem.LoadScene("Main");
-            };
-        }
+            controls = new GameOverControls();
+            controls.UI.Enable();
 
-        private void SetSettingUI()
-        {
-            Managers.Data.GameOverControls.UI.Enable();
-            Managers.Data.GameOverControls.UI.GameSetting.performed += _ =>
-            {
-                _settingsUIView.GameSettingToggle();
-            };
+            controls.UI.GameSetting.performed += _ => _settingsUIView.GameSettingToggle();
+            controls.UI.DialogueInput.performed += _ => _sceneSystem.LoadScene("Main");
+            controls.UI.DialogueInput.canceled += _ => controls.UI.Disable();
         }
     }
 }
