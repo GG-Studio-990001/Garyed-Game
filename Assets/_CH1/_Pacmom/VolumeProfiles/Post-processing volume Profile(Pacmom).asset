@@ -21,7 +21,7 @@ MonoBehaviour:
     m_Value: 0
   bleedAmount:
     m_OverrideState: 1
-    m_Value: 2
+    m_Value: 1.52
   bleedDebug:
     m_OverrideState: 1
     m_Value: 0
@@ -72,7 +72,7 @@ MonoBehaviour:
     m_OverrideState: 1
     m_Value: 0
   GlobalPostProcessingSettings:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: 0
 --- !u!114 &11400000
 MonoBehaviour:
