@@ -136,6 +136,9 @@ namespace Runtime.CH1.Pacmom
 
             foreach (Vector2 availableDirection in step.AvailableDirections)
             {
+                if (availableDirection == -1 * Movement.Direction)
+                    continue;
+
                 Vector3 newPosition = transform.position + new Vector3(availableDirection.x, availableDirection.y);
                 float newDistance = (enemy.position - newPosition).sqrMagnitude;
 
