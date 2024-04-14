@@ -10,6 +10,7 @@ namespace Runtime.CH1.Pacmom
         private bool _doCoinMatter;
         [field: SerializeField]
         public bool IsStronger { get; private set; }
+        private readonly float[] _roomPos = { -2.5f, 2.5f, -1.5f, 1f };
 
         public void SetAIStronger(bool isStronger)
         {
@@ -33,9 +34,8 @@ namespace Runtime.CH1.Pacmom
                 if (distanceFromEnemy > 36f)
                     continue;
 
-                // 방 안이면 X
-                if (-2.5f < enemy.localPosition.x && enemy.localPosition.x < 2.5f &&
-                    -1.5f < enemy.localPosition.y && enemy.localPosition.y < 1f)
+                if (_roomPos[0] < enemy.localPosition.x && enemy.localPosition.x < _roomPos[1] &&
+                    _roomPos[2] < enemy.localPosition.y && enemy.localPosition.y < _roomPos[3])
                     continue;
 
                 if (shortestDistance > distanceFromEnemy)
@@ -136,6 +136,9 @@ namespace Runtime.CH1.Pacmom
 
             foreach (Vector2 availableDirection in step.AvailableDirections)
             {
+                if (availableDirection == -1 * Movement.Direction)
+                    continue;
+
                 Vector3 newPosition = transform.position + new Vector3(availableDirection.x, availableDirection.y);
                 float newDistance = (enemy.position - newPosition).sqrMagnitude;
 

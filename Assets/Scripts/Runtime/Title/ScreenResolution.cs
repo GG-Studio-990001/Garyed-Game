@@ -7,13 +7,16 @@ namespace Runtime.ETC
     {
         private PixelPerfectCamera _pixCam;
 
+        public int _windowedPPU;
+        public int _fullScreenPPU;
+
         private readonly int _maxWidth = 1920;
         private readonly int _maxHeight = 1080;
 
         private readonly int _windowedWidth = 1280;
         private readonly int _windowedHeight = 720;
 
-        private bool _fullscreenFixed = false;
+        private bool _fullScreenFixed = false;
         private bool _windowedFixed = false;
         private bool _wasFullScreen = false;
 
@@ -31,21 +34,21 @@ namespace Runtime.ETC
         {
             if (Screen.fullScreen == true)
             {
-                _pixCam.assetsPPU = 100;
+                _pixCam.assetsPPU = _fullScreenPPU;
 
                 _wasFullScreen = true;
                 _windowedFixed = false;
 
-                if (_fullscreenFixed == false)
+                if (_fullScreenFixed == false)
                 {
-                    _fullscreenFixed = true;
+                    _fullScreenFixed = true;
 
                     Screen.SetResolution(_maxWidth, _maxHeight, true);
                 }
             }
             else
             {
-                _pixCam.assetsPPU = 67;
+                _pixCam.assetsPPU = _windowedPPU;
 
                 if (_wasFullScreen == true)
                 {
@@ -58,7 +61,7 @@ namespace Runtime.ETC
                     }
                 }
 
-                _fullscreenFixed = false;
+                _fullScreenFixed = false;
             }
         }
     }
