@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 1394698431
   m_SortingLayer: 1
   m_SortingOrder: 10
-  m_Sprite: {fileID: 573444039, guid: e61c0abdce82a8d44b29b59b68dde8cd, type: 3}
+  m_Sprite: {fileID: -1663097838, guid: e61c0abdce82a8d44b29b59b68dde8cd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -99,7 +99,7 @@ GameObject:
   - component: {fileID: 9137255935938833722}
   - component: {fileID: 6613296832188148636}
   m_Layer: 0
-  m_Name: Jewelry_B
+  m_Name: Jewelry_C
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
