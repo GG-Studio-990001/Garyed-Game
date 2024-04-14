@@ -295,11 +295,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2823583071256302185, guid: 572843549c62f874b82e47c3e91a5d2f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.83
+      value: 3.99
       objectReference: {fileID: 0}
     - target: {fileID: 2823583071256302185, guid: 572843549c62f874b82e47c3e91a5d2f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.47
+      value: -2.23
       objectReference: {fileID: 0}
     - target: {fileID: 2823583071256302185, guid: 572843549c62f874b82e47c3e91a5d2f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -388,7 +388,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.20188665, y: -2.2964478}
@@ -1098,10 +1098,10 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.20188665, y: -2.2964478}
+  m_Offset: {x: 4.0377245, y: 1.2327304}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1112,7 +1112,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 10.8153715, y: 16.310274}
+  m_Size: {x: 18.457111, y: 13.573773}
   m_EdgeRadius: 0
 --- !u!1 &617964512
 GameObject:
@@ -2474,7 +2474,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.20188665, y: -2.2964478}
@@ -3702,11 +3702,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2823583071256302185, guid: 572843549c62f874b82e47c3e91a5d2f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -12.41
+      value: 4.47
       objectReference: {fileID: 0}
     - target: {fileID: 2823583071256302185, guid: 572843549c62f874b82e47c3e91a5d2f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.55
+      value: 4.65
       objectReference: {fileID: 0}
     - target: {fileID: 2823583071256302185, guid: 572843549c62f874b82e47c3e91a5d2f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3795,10 +3795,10 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.20188665, y: -2.2964478}
+  m_Offset: {x: 1.1275043, y: 1.4388723}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -3809,7 +3809,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 10.8153715, y: 16.310274}
+  m_Size: {x: 13.4741535, y: 14.893692}
   m_EdgeRadius: 0
 --- !u!1 &1754088579
 GameObject:
@@ -4231,7 +4231,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.20188665, y: -2.2964478}
@@ -4892,7 +4892,7 @@ PrefabInstance:
       objectReference: {fileID: 747753858}
     - target: {fileID: 8894729880827182924, guid: d0f2a1b23fc54d44db5c3ea0cf44e6bd, type: 3}
       propertyPath: <StageNumber>k__BackingField
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5634,6 +5634,10 @@ PrefabInstance:
       propertyPath: stageMovers.Array.data[1]
       value: 
       objectReference: {fileID: 717329203}
+    - target: {fileID: 3531386728025199524, guid: a4fa811cdc3960346896b628a8bbe022, type: 3}
+      propertyPath: <StageNumber>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3601637012647261642, guid: a4fa811cdc3960346896b628a8bbe022, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.size
       value: 11
@@ -6188,7 +6192,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2823583071256302185, guid: 572843549c62f874b82e47c3e91a5d2f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.41
+      value: -6.35
       objectReference: {fileID: 0}
     - target: {fileID: 2823583071256302185, guid: 572843549c62f874b82e47c3e91a5d2f, type: 3}
       propertyPath: m_LocalPosition.y
