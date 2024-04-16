@@ -19,6 +19,25 @@ public class SLGInteractionObject : InteractionObject
         _SLGAction = FindAnyObjectByType<SLGActionComponent>().GetComponent<SLGActionComponent>();
     }
 
+    private void Update()
+    {
+        //따로 클릭 가능한 UI들을 빼야할까?
+        if (_isActive && Input.GetMouseButtonDown(0))
+        {
+
+            Vector2 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            RaycastHit2D hit = Physics2D.Raycast(pos, Vector2.zero);
+
+            if (hit.collider != null)
+            {
+                if (hit.collider.gameObject == this.gameObject)
+                {
+                    Interact();
+                }
+            }
+        }
+    }
+
     public void InitInteractionData(SLGObjectType InType)
     {
         type = InType;
@@ -44,6 +63,8 @@ public class SLGInteractionObject : InteractionObject
         if (_SLGAction != null)
         {
             _SLGAction.ProcessObjectInteraction(type);
+            _isActive = false;
+            this.gameObject.SetActive(false);
         }
         return true;
     }
