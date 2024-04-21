@@ -30,7 +30,7 @@ namespace Runtime.CH1.Title
 
             controls.UI.GameSetting.performed += _ => _settingsUIView.GameSettingToggle();
             controls.UI.DialogueInput.performed += _ => _sceneSystem.LoadScene("Main");
-            controls.UI.DialogueInput.canceled += _ => controls.UI.Disable();
+            controls.UI.DialogueInput.canceled += _ => controls.Dispose();
         }
     }
 }

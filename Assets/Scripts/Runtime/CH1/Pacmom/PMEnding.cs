@@ -8,6 +8,8 @@ namespace Runtime.CH1.Pacmom
     {
         private PMShader _shader;
         [SerializeField]
+        private ControlSystem _controlSystem;
+        [SerializeField]
         private SceneSystem _sceneSystem;
         [SerializeField]
         private GameObject _timeline3;
@@ -33,7 +35,7 @@ namespace Runtime.CH1.Pacmom
             GamePlayed();
 
             Debug.Log("팩맘 승리");
-            StartCoroutine(nameof(ToMain));
+            StartCoroutine(nameof(PacmomGameOver));
         }
 
         private void GamePlayed()
@@ -60,7 +62,7 @@ namespace Runtime.CH1.Pacmom
             }
         }
 
-        IEnumerator ToMain()
+        IEnumerator PacmomGameOver()
         {
             Time.timeScale = 0;
             _shader.ChangeBleedAmount();
@@ -68,7 +70,14 @@ namespace Runtime.CH1.Pacmom
             yield return new WaitForSecondsRealtime(3f);
 
             Time.timeScale = 1f;
-            _sceneSystem.LoadScene("Main");
+
+            ExitPacmom();
+        }
+
+        public void ExitPacmom()
+        {
+            _controlSystem.ExitNewControl();
+            _sceneSystem.LoadScene("CH1");
         }
     }
 }
