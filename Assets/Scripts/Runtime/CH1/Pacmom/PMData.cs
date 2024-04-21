@@ -180,9 +180,14 @@ namespace Runtime.CH1.Pacmom
             _gameController.DialogueStop();
 
             if (_rapleyScore > _pacmomScore)
+            {
                 _ending.RapleyWin();
+                _ending.ShowResultCoin(_rapleyScore);
+            }
             else
+            {
                 _ending.PacmomWin();
+            }
         }
 
         public bool HasRemainingCoins()
