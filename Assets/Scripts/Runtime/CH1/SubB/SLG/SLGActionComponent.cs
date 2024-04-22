@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 namespace SLGDefines
 { 
@@ -22,11 +23,20 @@ public class SLGActionComponent : MonoBehaviour
 {
     public List<Sprite> SLGPopupSprites;
 
+    
     [SerializeField] private GameObject _constructUI;
     [SerializeField] private TextMeshProUGUI UI_WoodText;
     [SerializeField] private TextMeshProUGUI UI_StoneText;
 
+    [SerializeField] private TextMeshProUGUI Wnd_WoodText;
+    [SerializeField] private TextMeshProUGUI Wnd_StoneText;
+    [SerializeField] private TextMeshProUGUI Wnd_TimeText;
+    [SerializeField] private Button Wnd_ConstructionBtn;
+    [SerializeField] private Button Wnd_CloseBtn;
+
     [SerializeField] private GameObject _sponSpots;
+    [SerializeField] private GameObject SLGConstructionObject;
+
 
     private SLGInteractionObject[] _cachedObjects;
     private int _spawnCount = 0;
@@ -34,16 +44,32 @@ public class SLGActionComponent : MonoBehaviour
     //Data 파일로 따로 분리?
     private int _wood = 0;
     private int _stone = 0;
+    private DateTime BeginTime;
 
+    //CONST Value 
     const int INCREASE_ASSET_COUNT = 10;
     const int MAX_SPAWN_COUNT = 3;
+    const int NEEDED_ASSET_COUNT = 30;
+    const int NEEDED_CONSTRUCTION_TIME_SEC = 60 * 60 * 24;
+
+    bool bShowWnd = false;
 
     void Start()
     {
         _sponSpots.SetActive(false);
         _cachedObjects = _sponSpots.GetComponentsInChildren<SLGInteractionObject>();
+        Wnd_ConstructionBtn.onClick.AddListener(OnClickConstructBtn);
+        Wnd_CloseBtn.onClick.AddListener(OnClickCloseBtn);
     }
 
+    private void Update()
+    {
+        if(bShowWnd)
+        {
+            RefreshTimeText();
+        }
+    }
+    
     public Sprite GetInteractionSprite (SLGObjectType InObjectType)
     {
         if((int)InObjectType >=  SLGPopupSprites.Count) 
@@ -56,6 +82,10 @@ public class SLGActionComponent : MonoBehaviour
 
     public void ProcessObjectInteraction (SLGObjectType InObjectType)
     {
+        if (bShowWnd)
+        {
+            return;
+        }
         switch(InObjectType)
         {
             case SLGObjectType.WOOD:
@@ -74,7 +104,11 @@ public class SLGActionComponent : MonoBehaviour
                 {
                     if(_constructUI)
                     {
+                        Wnd_WoodText.text = _wood.ToString() + "/" + NEEDED_ASSET_COUNT.ToString();
+                        Wnd_StoneText.text = _stone.ToString() + "/" + NEEDED_ASSET_COUNT.ToString();
+                        RefreshTimeText();
                         _constructUI.SetActive(true);
+                        bShowWnd = true;
                     }
                     break;
                 }
@@ -89,13 +123,15 @@ public class SLGActionComponent : MonoBehaviour
         {
             Object.gameObject.SetActive(false);
         }
+        if (SLGConstructionObject != null)
+        { 
+            SLGConstructionObject.SetActive(true);
+        }
+
+        _constructUI.SetActive(false);
+        BeginTime = DateTime.Now.ToLocalTime();
 
         InitMap();
-    }
-
-    private void RefreshAssetUI()
-    {
-        
     }
 
     private void InitMap ()
@@ -120,5 +156,43 @@ public class SLGActionComponent : MonoBehaviour
                 break;
             }
         } 
+    }
+
+    private void RefreshTimeText()
+    {
+        //Load Time Data
+        int DurationTimeSec = (int)((DateTime.Now.ToLocalTime() - BeginTime).TotalSeconds);
+        int RemainedTimeSec = NEEDED_CONSTRUCTION_TIME_SEC - DurationTimeSec;
+        if (RemainedTimeSec > 0)
+        {
+            int Hour = RemainedTimeSec / (60 * 60);
+            RemainedTimeSec -= 60 * 60 * Hour;
+
+            int Min = RemainedTimeSec / (60);
+            int Sec = RemainedTimeSec % (60);
+            Wnd_TimeText.text =Hour.ToString() +"시간"+Min.ToString()+"분"+Sec.ToString()+"초";
+        }
+    }
+
+    private void OnClickCloseBtn()
+    {
+        if (_constructUI != null)
+        {
+            _constructUI.SetActive(false);
+            bShowWnd = false;
+        }
+    }
+    private void OnClickConstructBtn ()
+    {
+        //TODO 건설 가능 시 텍스트 표시 수정
+        //TODO 건설 불가 표시 / OR 건설 완료
+        if (_wood >= NEEDED_ASSET_COUNT && _stone >= NEEDED_ASSET_COUNT)
+        {
+            Debug.Log("건설가능");
+        }
+        else
+        {
+            Debug.Log("건설불가능");
+        }
     }
 }
