@@ -15,14 +15,16 @@ namespace Runtime.CH1.SubB
         public ThreeMatchPuzzleController Controller { get; set; }
         public Tilemap Tilemap { get; private set; }
         
-        private Vector3 _firstPosition;
+        private Vector3 _originalPosition;
+        private JewelryType _originalJewelryType;
         private IMovement _movement;
         private float _pushTime;
 
         private void Awake()
         {
             Tilemap = GetComponentInParent<Tilemap>();
-            _firstPosition = transform.position;
+            _originalPosition = transform.position;
+            _originalJewelryType = JewelryType;
             _movement = new JewelryMovement(this.transform, spriteTransform, moveTime, Tilemap);
         }
 
@@ -58,8 +60,13 @@ namespace Runtime.CH1.SubB
         }
         
         private void OnCollisionExit2D(Collision2D other) => _pushTime = 0f;
-        
-        public void ResetPosition() => transform.position = _firstPosition;
+
+        public void ResetPosition()
+        {
+            transform.position = _originalPosition;
+            JewelryType = _originalJewelryType;
+            gameObject.SetActive(true);
+        }
 
         public void DestroyJewelry()
         {
