@@ -13,7 +13,7 @@ namespace Runtime.CH1.SubB
         [SerializeField] private float pushLimitTime = 1.0f;
 
         public ThreeMatchPuzzleController Controller { get; set; }
-        public Tilemap Tilemap { get; private set; }
+        public Tilemap Tilemap { get; set; }
 
         private Vector3 _orignalPosition;
         private JewelryType _originalType;
