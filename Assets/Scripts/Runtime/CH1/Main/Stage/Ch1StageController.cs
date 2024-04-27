@@ -53,14 +53,19 @@ namespace Runtime.CH1.Main.Stage
             
             // 아래는 개발용
             // 인스펙터에서 선택한 스테이지에서 시작 가능하게
+#if UNITY_EDITOR
             foreach (var stage in stages)
             {
                 if (stage.IsActivate())
                 {
-                    await StageChanger.SetStage(stage.StageNumber, new Vector2(0, 0));
+                    await StageChanger.SetStage(stage.StageNumber, _playerTransform.position);
                     return;
                 }
             }
+#else // 빌드된다면 데이터로 읽기
+
+#endif
+            
         }
     }
 }

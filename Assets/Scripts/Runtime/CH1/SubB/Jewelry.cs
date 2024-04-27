@@ -13,17 +13,17 @@ namespace Runtime.CH1.SubB
         [SerializeField] private float pushLimitTime = 1.0f;
 
         public ThreeMatchPuzzleController Controller { get; set; }
+        public Tilemap Tilemap { get; private set; }
         
         private Vector3 _firstPosition;
         private IMovement _movement;
         private float _pushTime;
-        private Tilemap tilemap;
 
         private void Awake()
         {
-            tilemap = GetComponentInParent<Tilemap>();
+            Tilemap = GetComponentInParent<Tilemap>();
             _firstPosition = transform.position;
-            _movement = new JewelryMovement(this.transform, spriteTransform, moveTime, tilemap);
+            _movement = new JewelryMovement(this.transform, spriteTransform, moveTime, Tilemap);
         }
 
         private void OnCollisionStay2D(Collision2D other)
@@ -63,11 +63,12 @@ namespace Runtime.CH1.SubB
 
         public void DestroyJewelry()
         {
-            // 수정
-            JewelryType = JewelryType.None;
-            gameObject.transform.position = new Vector3(100, 100, 0);
-            gameObject.SetActive(false);
+            Invoke(nameof(SetActiveFalse), 0.1f);
+            JewelryType = JewelryType.Disappear;
+            // 이펙트
         }
+        
+        private void SetActiveFalse() => gameObject.SetActive(false);
 
         private void CallCheckMatching() => Controller.CheckMatching();
     }
