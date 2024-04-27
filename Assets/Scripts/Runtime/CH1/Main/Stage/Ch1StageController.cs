@@ -58,6 +58,7 @@ namespace Runtime.CH1.Main.Stage
                 if (stage.IsActivate())
                 {
                     await StageChanger.SetStage(stage.StageNumber, new Vector2(0, 0));
+                    return;
                 }
             }
         }
