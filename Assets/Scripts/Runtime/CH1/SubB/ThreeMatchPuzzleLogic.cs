@@ -104,14 +104,12 @@ namespace Runtime.CH1.SubB
 
         private void ClearCheck()
         {
-            if (_jewelries.Any(jewelry => jewelry.JewelryType != JewelryType.Disappear))
+            if (_jewelries.Any(jewelry => jewelry.JewelryType != JewelryType.None))
             {
                 return;
             }
             
             IsClear?.Invoke();
-            
-            Debug.Log("??????????");
         }
     }
 }

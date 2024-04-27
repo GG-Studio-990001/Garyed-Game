@@ -8,7 +8,7 @@ namespace Runtime.CH1.SubB
     public class ThreeMatchPuzzleController : MonoBehaviour
     {
         public UnityEvent onClear;
-        [field:SerializeField] public bool IsClear { get; private set; }
+        public bool IsClear { get; private set; }
         [field:SerializeField] public List<Jewelry> Jewelries { get; set; }
         
         private ThreeMatchPuzzleLogic _logic;
@@ -35,11 +35,6 @@ namespace Runtime.CH1.SubB
 
         public void PuzzleReset()
         {
-            if (IsClear)
-            {
-                return;
-            }
-            
             foreach (var jewelry in Jewelries)
             {
                 jewelry.ResetPosition();
