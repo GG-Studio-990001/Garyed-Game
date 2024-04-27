@@ -1,6 +1,7 @@
 using DG.Tweening;
 using Runtime.Interface;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 namespace Runtime.CH1.SubB
 {
@@ -11,14 +12,16 @@ namespace Runtime.CH1.SubB
         private readonly Transform _transform;
         private readonly Transform _spriteTransform;
         private readonly float _moveSpeed;
+        private readonly Tilemap _tilemap;
         private bool _isMoving;
         private Vector2 _previousMovementInput = Vector2.zero;
         
-        public JewelryMovement(Transform transform, Transform spriteTransform, float moveSpeed)
+        public JewelryMovement(Transform transform, Transform spriteTransform, float moveSpeed, Tilemap tilemap)
         {
             _transform = transform;
             _spriteTransform = spriteTransform;
             _moveSpeed = moveSpeed;
+            _tilemap = tilemap;
         }
         
         public bool Move(Vector2 movementInput)
@@ -29,8 +32,10 @@ namespace Runtime.CH1.SubB
             }
             
             _previousMovementInput = movementInput;
-            
-            Vector3 targetPosition = _transform.position + (Vector3)movementInput;
+            Vector3Int currentCell = _tilemap.WorldToCell(_transform.position);
+            Vector3Int targetCell = currentCell + new Vector3Int((int)movementInput.x, (int)movementInput.y, 0);
+
+            Vector3 targetPosition = _tilemap.GetCellCenterWorld(targetCell); //_transform.position + (Vector3)movementInput;
 
             if (_spriteTransform != null)
             {

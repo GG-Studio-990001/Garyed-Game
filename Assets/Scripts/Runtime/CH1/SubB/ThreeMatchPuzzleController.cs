@@ -15,6 +15,11 @@ namespace Runtime.CH1.SubB
         
         private void Start()
         {
+            if (Jewelries.Count == 0 || Jewelries == null)
+            {
+                Jewelries = new List<Jewelry>(FindObjectsOfType<Jewelry>());
+            }
+            
             _logic = new ThreeMatchPuzzleLogic(Jewelries);
             _logic.IsClear += () =>
             {

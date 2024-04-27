@@ -1,6 +1,7 @@
 using Runtime.ETC;
 using Runtime.Interface;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 namespace Runtime.CH1.SubB
 {
@@ -15,14 +16,14 @@ namespace Runtime.CH1.SubB
         
         private Vector3 _firstPosition;
         private IMovement _movement;
-        private Animator _animator;
         private float _pushTime;
+        private Tilemap tilemap;
 
         private void Awake()
         {
+            tilemap = GetComponentInParent<Tilemap>();
             _firstPosition = transform.position;
-            _movement = new JewelryMovement(this.transform, spriteTransform, moveTime);
-            _animator = GetComponent<Animator>();
+            _movement = new JewelryMovement(this.transform, spriteTransform, moveTime, tilemap);
         }
 
         private void OnCollisionStay2D(Collision2D other)
@@ -62,6 +63,7 @@ namespace Runtime.CH1.SubB
 
         public void DestroyJewelry()
         {
+            // 수정
             JewelryType = JewelryType.None;
             gameObject.transform.position = new Vector3(100, 100, 0);
             gameObject.SetActive(false);
