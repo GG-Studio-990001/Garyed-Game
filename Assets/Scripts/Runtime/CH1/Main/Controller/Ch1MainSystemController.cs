@@ -63,7 +63,7 @@ namespace Runtime.CH1.Main.Controller
             #if UNITY_EDITOR
             
             #else // 빌드된다면 데이터로 읽기
-            ch1StageController.SetStage(Managers.Data.Stage, new Vector2(0, 0));
+            //ch1StageController.SetStage(Managers.Data.Stage, new Vector2(0, 0));
             #endif
         }
     }

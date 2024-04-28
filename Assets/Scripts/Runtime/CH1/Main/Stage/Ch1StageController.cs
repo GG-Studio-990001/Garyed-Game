@@ -62,8 +62,15 @@ namespace Runtime.CH1.Main.Stage
                     return;
                 }
             }
-#else // 빌드된다면 데이터로 읽기
-
+#else // 빌드된다면 데이터로 읽
+            foreach (var stage in stages)
+            {
+                if (stage.IsActivate())
+                {
+                    stage.Disable();
+                }
+            }
+            await StageChanger.SetStage(Managers.Data.Stage, _playerTransform.position);
 #endif
             
         }

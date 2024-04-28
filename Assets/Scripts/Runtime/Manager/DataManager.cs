@@ -21,7 +21,7 @@ namespace Runtime.Manager
         public GameData()
         {
             chapter = 1;
-            stage = 0;
+            stage = 1;
             minor = 0;
             IsPacmomPlayed = false;
             IsPacmomCleared = false;
