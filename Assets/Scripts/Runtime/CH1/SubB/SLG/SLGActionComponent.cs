@@ -23,7 +23,7 @@ public class SLGActionComponent : MonoBehaviour
 {
     public List<Sprite> SLGPopupSprites;
 
-    
+
     [SerializeField] private GameObject _constructUI;
     [SerializeField] private TextMeshProUGUI UI_WoodText;
     [SerializeField] private TextMeshProUGUI UI_StoneText;
@@ -52,7 +52,7 @@ public class SLGActionComponent : MonoBehaviour
     const int NEEDED_ASSET_COUNT = 30;
     const int NEEDED_CONSTRUCTION_TIME_SEC = 60 * 60 * 24;
 
-    bool bShowWnd = false;
+    public bool bShowWnd;
 
     void Start()
     {

@@ -23,7 +23,7 @@ public class SLGInteractionObject : InteractionObject
     private void Update()
     {
         //따로 클릭 가능한 UI들을 빼야할까?
-        if (Input.GetMouseButtonDown(0))
+        if (_SLGAction != null && _SLGAction.bShowWnd == false && Input.GetMouseButtonDown(0))
         {
             Camera.main.orthographic = true;
             Vector2 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
