@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using Runtime.CH1.Main.Stage;
+using Runtime.CH1.Main.Controller;
 
 namespace SLGDefines
 { 
@@ -22,7 +24,6 @@ namespace SLGDefines
 public class SLGActionComponent : MonoBehaviour
 {
     public List<Sprite> SLGPopupSprites;
-
 
     [SerializeField] private GameObject _constructUI;
     [SerializeField] private TextMeshProUGUI UI_WoodText;
@@ -51,6 +52,7 @@ public class SLGActionComponent : MonoBehaviour
     const int MAX_SPAWN_COUNT = 3;
     const int NEEDED_ASSET_COUNT = 30;
     const int NEEDED_CONSTRUCTION_TIME_SEC = 60 * 60 * 24;
+    const int SCENE_MOVE_COUNT_SPAWN = 5;
 
     public bool bShowWnd;
 
@@ -131,6 +133,12 @@ public class SLGActionComponent : MonoBehaviour
         _constructUI.SetActive(false);
         BeginTime = DateTime.Now.ToLocalTime();
 
+        Ch1StageController SC = FindObjectOfType<Ch1StageController>();
+        if(SC != null)
+        {
+            SC.StageChanger.OnStageEnd += OnChangeStageForSLG;
+        }
+            
         InitMap();
     }
 
@@ -193,6 +201,24 @@ public class SLGActionComponent : MonoBehaviour
         else
         {
             Debug.Log("건설불가능");
+        }
+    }
+
+    private void OnChangeStageForSLG ()
+    {
+        GameObject mainObject = FindObjectOfType<Ch1MainSystemController>().gameObject;
+        if (mainObject != null)
+        {
+            CH1CommonData CH1Data = mainObject.GetComponent<CH1CommonData>();
+            if(CH1Data != null)
+            {
+                CH1Data._sceneMoveCount++;
+                if (CH1Data._sceneMoveCount >= SCENE_MOVE_COUNT_SPAWN)
+                {
+                    SpawnRandomObject();
+                    CH1Data._sceneMoveCount = 0;
+                }
+            }
         }
     }
 }
