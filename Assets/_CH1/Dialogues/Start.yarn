@@ -15,7 +15,7 @@ position: -62,-241
 <<if $index == 0>>
     파머: 너도 자동생성이 된거니!! #line:05e1346 
     파머: 잠시만.. #line:08b2a86 
-    <<StartTimeline Dallor_Move>>
+    <<StartTimeline Cut00>>
     <<set $index = $index + 1>>
     <<stop>>
 <<elseif $index == 1>>
@@ -78,8 +78,6 @@ position: -406,-89
 
 <<ChangeScene None>>
 <<FadeIn>>
-<<MinorVersionUp>>
-<<CurrentMinorDialogueStart>>
 <<stop>>
 ===
 

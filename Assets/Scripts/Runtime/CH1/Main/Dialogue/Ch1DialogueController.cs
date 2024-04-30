@@ -110,9 +110,9 @@ namespace Runtime.CH1.Main.Dialogue
         public void CurrentMinorDialogueStart()
         {
             //_runner.NodeExists();
-            _runner.Stop();
+           // _runner.Stop();
             //_runner.Clear();
-            //_runner.StartDialogue($"Dialogue{playerData.quarter.minor}");
+            _runner.StartDialogue($"Dialogue{Managers.Data.Minor}");
         }
         
         private void ChangeScene(string spriteName)
