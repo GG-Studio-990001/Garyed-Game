@@ -19,8 +19,6 @@ namespace Runtime.CH1.SubB
             Vector2.right
         };
         
-        public Action IsClear { get; set; }
-        
         public ThreeMatchPuzzleLogic(List<Jewelry> jewelries)
         {
             this._jewelries = jewelries;
@@ -69,8 +67,6 @@ namespace Runtime.CH1.SubB
             }
             
             _jewelriesToDestroy.Clear();
-            
-            ClearCheck();
         }
 
         private bool CheckingBf(Vector3 position, JewelryType type, Vector2 direction, int length)
@@ -101,15 +97,5 @@ namespace Runtime.CH1.SubB
         }
 
         private Jewelry CheckAndReturnJewelry(Vector3 position) => _jewelries.FirstOrDefault(jewelry => jewelry.Tilemap.WorldToCell(jewelry.transform.position) == position);
-
-        private void ClearCheck()
-        {
-            if (_jewelries.Any(jewelry => jewelry.JewelryType != JewelryType.Disappear))
-            {
-                return;
-            }
-            
-            IsClear?.Invoke();
-        }
     }
 }
