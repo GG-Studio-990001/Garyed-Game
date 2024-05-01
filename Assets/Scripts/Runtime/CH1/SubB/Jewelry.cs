@@ -54,7 +54,7 @@ namespace Runtime.CH1.SubB
                     if (Controller.ValidateMovement(this, direction))
                     {
                         _movement.Move(direction);
-                        Invoke(nameof(CallCheckMatching), moveTime);
+                        Invoke(nameof(CallCheckMatching), moveTime + 0.1f);
                     }
                 }
             }
@@ -69,7 +69,7 @@ namespace Runtime.CH1.SubB
             gameObject.SetActive(true);
         }
 
-    public void DestroyJewelry()
+        public void DestroyJewelry()
         {
             JewelryType = JewelryType.Disappear;
             Invoke(nameof(SetActiveFalse), 0.1f);

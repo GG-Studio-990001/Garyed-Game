@@ -89,7 +89,7 @@ namespace Runtime.CH1.SubB
             {
                 return true;
             }
-            
+
             Vector3 nextCell = position + new Vector3((int)direction.x, (int)direction.y, 0);
             if (CheckingBf(nextCell, type, direction,length - 1))
             {
