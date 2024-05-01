@@ -8,29 +8,31 @@ namespace Runtime.CH1.SubB
     public class Jewelry : MonoBehaviour
     {
         [field: SerializeField] public JewelryType JewelryType { get; set; }
-        [SerializeField] private Transform spriteTransform;
         [SerializeField] private float moveTime = 0.5f;
         [SerializeField] private float pushLimitTime = 1.0f;
 
         public ThreeMatchPuzzleController Controller { get; set; }
         public Tilemap Tilemap { get; set; }
+        public bool IsMoving => _movement.IsMoving;
 
+        private Animator _animator;
         private Vector3 _orignalPosition;
         private JewelryType _originalType;
-        private IMovement _movement;
+        private JewelryMovement _movement;
         private float _pushTime;
 
         private void Awake()
         {
             Tilemap = GetComponentInParent<Tilemap>();
+            _animator = GetComponent<Animator>();
             _orignalPosition = transform.position;
             _originalType = JewelryType;
-            _movement = new JewelryMovement(this.transform, spriteTransform, moveTime, Tilemap);
+            _movement = new JewelryMovement(this.transform, moveTime, Tilemap);
         }
 
         private void OnCollisionStay2D(Collision2D other)
         {
-            if (JewelryType == JewelryType.None)
+            if (JewelryType == JewelryType.None || JewelryType == JewelryType.Disappear)
             {
                 return;
             }
@@ -71,9 +73,14 @@ namespace Runtime.CH1.SubB
 
         public void DestroyJewelry()
         {
+            if (JewelryType is not JewelryType.Disappear)
+            {
+                _animator.Play($"Type{JewelryType}_Effect");
+            }
+            
             JewelryType = JewelryType.Disappear;
-            Invoke(nameof(SetActiveFalse), 0.1f);
-            // 이펙트
+            
+            Invoke(nameof(SetActiveFalse), 1f);
         }
         
         private void SetActiveFalse() => gameObject.SetActive(false);

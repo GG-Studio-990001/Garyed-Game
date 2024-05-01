@@ -40,6 +40,10 @@ namespace Runtime.CH1.SubB
                 {
                     return false;
                 }
+                if (otherJewelry.IsMoving)
+                {
+                    return false;
+                }
             }
             
             return true;

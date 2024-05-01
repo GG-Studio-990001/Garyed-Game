@@ -96,7 +96,6 @@ GameObject:
   - component: {fileID: 1815851034275988002}
   - component: {fileID: 7842068294119541405}
   - component: {fileID: 9222804178671123590}
-  - component: {fileID: 9137255935938833722}
   - component: {fileID: 6613296832188148636}
   m_Layer: 0
   m_Name: Jewelry_None
@@ -209,27 +208,6 @@ MonoBehaviour:
   spriteTransform: {fileID: 1050441004744373826}
   moveTime: 1
   pushLimitTime: 1.1
---- !u!95 &9137255935938833722
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2358058096223057332}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ced7ebbc12694a14c8c3b8fdd1b2efcd, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!212 &6613296832188148636
 SpriteRenderer:
   m_ObjectHideFlags: 0
