@@ -24401,8 +24401,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  moveStageNumber: 2
-  spawnPosition: {x: 25.16, y: 1.96}
+  moveStageNumber: 7
+  spawnPosition: {x: -14.77, y: -0.69}
 --- !u!1001 &1531897607
 PrefabInstance:
   m_ObjectHideFlags: 0
