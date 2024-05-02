@@ -1,5 +1,8 @@
 using Runtime.CH1.Main.Player;
+using Runtime.CH1.Title;
 using Runtime.Common.View;
+using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 namespace Runtime.Input
 {
@@ -15,7 +18,7 @@ namespace Runtime.Input
         {
             _gameOverControls = gameOverControls;
         }
-        
+
         public void CH1PlayerKeyBinding(TopDownPlayer player)
         {
             _gameOverControls.Player.Enable();
@@ -30,7 +33,13 @@ namespace Runtime.Input
             _gameOverControls.UI.Enable();
             _gameOverControls.UI.GameSetting.performed += _ => settingsUIView.GameSettingToggle();
         }
-        
+
+        public void CH1UIKeyUnbinding(SettingsUIView settingsUIView)
+        {
+            _gameOverControls.UI.GameSetting.performed -= _ => settingsUIView.GameSettingToggle();
+            _gameOverControls.UI.Disable();
+        }
+
         public void PlayerInputDisable()
         {
             _playerInputEnableStack++;
