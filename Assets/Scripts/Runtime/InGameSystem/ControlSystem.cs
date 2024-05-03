@@ -19,7 +19,7 @@ namespace Runtime.InGameSystem
 
         private void InitNewControl()
         {
-            Managers.Data.GameOverControls.Disable();
+           // Managers.Data.GameOverControls.Disable();
 
             controls = new GameOverControls();
             controls.UI.Enable();
@@ -38,7 +38,7 @@ namespace Runtime.InGameSystem
         {
             controls.Dispose();
 
-            Managers.Data.GameOverControls.Enable();
+           // Managers.Data.GameOverControls.Enable();
         }
     }
 }

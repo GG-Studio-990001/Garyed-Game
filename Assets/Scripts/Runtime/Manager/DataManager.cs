@@ -32,12 +32,11 @@ namespace Runtime.Manager
     
     public class DataManager
     {
-        private GameData _gameData = new();
         private GameData SaveData { get { return _gameData; } set { _gameData = value; } }
-        
-        public GameOverControls GameOverControls { get; set; }
         public InGameKeyBinder InGameKeyBinder { get; set; }
-
+        
+        private GameData _gameData = new();
+        private GameOverControls _gameOverControls = new();
         #region properties
 
         public int Chapter { get { return _gameData.chapter; } set { _gameData.chapter = value; } }
@@ -62,8 +61,8 @@ namespace Runtime.Manager
         
         public void Init()
         {
-            GameOverControls = new GameOverControls();
-            InGameKeyBinder = new InGameKeyBinder(GameOverControls);
+            _gameOverControls = new GameOverControls();
+            InGameKeyBinder = new InGameKeyBinder(_gameOverControls);
         }
         
         public void SaveGame()

@@ -1,6 +1,7 @@
 using Runtime.CH1.Main.Player;
 using Runtime.CH1.Title;
 using Runtime.Common.View;
+using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
@@ -9,16 +10,24 @@ namespace Runtime.Input
     // 현재 플랫폼에 맞게 키 바인딩을 설정하는 클래스
     public class InGameKeyBinder
     {
-        private readonly GameOverControls _gameOverControls;
+        private GameOverControls _gameOverControls;
         
         private int _playerInputEnableStack;
-        private int _uiInputEnableStack;
         
         public InGameKeyBinder(GameOverControls gameOverControls)
         {
             _gameOverControls = gameOverControls;
         }
+        
+        // Title Key Binding
+        public void TitleKeyBinding(TitleController titleControl)
+        {
+            _gameOverControls.UI.Enable();
+            _gameOverControls.UI.DialogueInput.performed += _ => titleControl.LoadMainScene();
+            _gameOverControls.UI.GameSetting.performed += _ => titleControl.SetSettingUI();
+        }
 
+        // CH1 Key Bind
         public void CH1PlayerKeyBinding(TopDownPlayer player)
         {
             _gameOverControls.Player.Enable();
@@ -33,11 +42,14 @@ namespace Runtime.Input
             _gameOverControls.UI.Enable();
             _gameOverControls.UI.GameSetting.performed += _ => settingsUIView.GameSettingToggle();
         }
-
-        public void CH1UIKeyUnbinding(SettingsUIView settingsUIView)
+        
+        // ETC
+        public void GameControlReset()
         {
-            _gameOverControls.UI.GameSetting.performed -= _ => settingsUIView.GameSettingToggle();
-            _gameOverControls.UI.Disable();
+            _gameOverControls.Dispose();
+            _gameOverControls = new GameOverControls();
+
+            _playerInputEnableStack = 0;
         }
 
         public void PlayerInputDisable()

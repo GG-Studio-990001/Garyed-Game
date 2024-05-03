@@ -35,6 +35,8 @@ namespace Runtime.CH1.Main.Controller
         // 인게임에 사용되는 키 이벤트 바인딩
         private void GameKeyBinding()
         {
+            Managers.Data.InGameKeyBinder.GameControlReset();
+            
             Managers.Data.InGameKeyBinder.CH1PlayerKeyBinding(player);
             Managers.Data.InGameKeyBinder.CH1UIKeyBinding(settingsUIView);
             

@@ -3,56 +3,36 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
-public class TitleInputControl : MonoBehaviour
+public class TitleInputControl
 {
-    [SerializeField]
     private SettingsUIView _settingsUIView;
-
-    private void Awake()
+    
+    public TitleInputControl(SettingsUIView settingsUIView)
     {
-        TitleKeyBinding();
-        CH1UIKeyBinding();
+        _settingsUIView = settingsUIView;
     }
 
-    private void LoadMainScene(InputAction.CallbackContext ctx)
-    {
-        if (ctx.performed)
-        {
-            SceneManager.LoadScene("Main");
-            TitleKeyUnbinding();
-            CH1UIKeyUnbinding();
-        }
-    }
-
-    private void TitleKeyBinding()
-    {
-        Managers.Data.GameOverControls.UI.Enable();
-        Managers.Data.GameOverControls.UI.DialogueInput.performed += LoadMainScene;
-    }
-
-    private void TitleKeyUnbinding()
-    {
-        Managers.Data.GameOverControls.UI.Disable();
-        Managers.Data.GameOverControls.UI.DialogueInput.performed -= LoadMainScene;
-    }
-
-    private void SetSettingUI(InputAction.CallbackContext ctx)
-    {
-        if (ctx.performed)
-        {
-            _settingsUIView.GameSettingToggle();
-        }
-    }
-
-    private void CH1UIKeyBinding()
-    {
-        Managers.Data.GameOverControls.UI.Enable();
-        Managers.Data.GameOverControls.UI.GameSetting.performed += SetSettingUI;
-    }
-
-    private void CH1UIKeyUnbinding()
-    {
-        Managers.Data.GameOverControls.UI.Disable();
-        Managers.Data.GameOverControls.UI.GameSetting.performed -= SetSettingUI;
-    }
+    // private void TitleKeyBinding()
+    // {
+    //     Managers.Data.GameOverControls.UI.Enable();
+    //     Managers.Data.GameOverControls.UI.DialogueInput.performed += _ => LoadMainScene();
+    // }
+    //
+    // private void TitleKeyUnbinding()
+    // {
+    //     Managers.Data.GameOverControls.UI.Disable();
+    //     Managers.Data.GameOverControls.UI.DialogueInput.performed -= _ => LoadMainScene();
+    // }
+    //
+    // public void TitleSettingUIKeyBinding()
+    // {
+    //     Managers.Data.GameOverControls.UI.Enable();
+    //     Managers.Data.GameOverControls.UI.GameSetting.performed += SetSettingUI; //  _settingsUIView.GameSettingToggle();
+    // }
+    //
+    // public void TitleSettingUIUnbinding()
+    // {
+    //     Managers.Data.GameOverControls.UI.Disable();
+    //     Managers.Data.GameOverControls.UI.GameSetting.performed -= SetSettingUI;
+    // }
 }
