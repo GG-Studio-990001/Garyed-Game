@@ -6,7 +6,7 @@ using Sound = Runtime.ETC.Sound;
 
 namespace Runtime.CH1.Pacmom
 {
-    public class PMGameController : MonoBehaviour
+    public class PMController : MonoBehaviour
     {
         #region 선언
         private PMSprite _spriteController;
@@ -32,10 +32,6 @@ namespace Runtime.CH1.Pacmom
         private readonly float _vacuumEndDuration = 3f;
         private bool _isMoving;
         private bool _isVacuumMode = false;
-
-        [Header("=Setting UI=")]
-        [SerializeField]
-        private SettingsUIView _settingsUIView;
         #endregion
 
         #region Awake
@@ -43,17 +39,6 @@ namespace Runtime.CH1.Pacmom
         {
             AssignComponent();
             AssignController();
-            SetSettingUI();
-        }
-
-        private void SetSettingUI()
-        {
-            Managers.Data.GameOverControls.UI.Enable();
-            Managers.Data.GameOverControls.UI.GameSetting.performed += _ =>
-            {
-                _settingsUIView.GameSettingToggle();
-                Time.timeScale = (Time.timeScale == 0 ? 1 : 0);
-            };
         }
 
         private void AssignComponent()
