@@ -5,7 +5,7 @@ namespace Runtime.CH1.Pacmom
 {
     public class Vacuum : MonoBehaviour
     {
-        public PMGameController GameController;
+        public PMController GameController;
 
         private void Eaten()
         {

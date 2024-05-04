@@ -6,7 +6,7 @@ namespace Runtime.CH1.Pacmom
 {
     public class Pacmom : MonoBehaviour, IFoodChain
     {
-        public PMGameController GameController;
+        public PMController GameController;
         public MovementWithFlipAndRotate Movement { get; set; }
         private AI _ai;
         [SerializeField]

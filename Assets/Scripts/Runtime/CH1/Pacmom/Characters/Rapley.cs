@@ -1,4 +1,3 @@
-using Runtime.Interface.Pacmom;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -29,9 +28,9 @@ namespace Runtime.CH1.Pacmom
             Movement.Move();
         }
 
-        private void OnMove(InputValue value)
+        public void OnMove(InputAction.CallbackContext context)
         {
-            Vector2 inputDirection = value.Get<Vector2>();
+            Vector2 inputDirection = context.ReadValue<Vector2>();
 
             if (inputDirection != Vector2.zero)
             {

@@ -6,7 +6,7 @@ namespace Runtime.CH1.Pacmom
 {
     public class Timer : MonoBehaviour
     {
-        public PMGameController GameController;
+        public PMController GameController;
         private TextMeshProUGUI _timerTxt;
         [SerializeField]
         private float _timelimit = 180;

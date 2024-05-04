@@ -6,7 +6,7 @@ namespace Runtime.CH1.Pacmom
 {
     public class Dust : MonoBehaviour, IFoodChain
     {
-        public PMGameController GameController;
+        public PMController GameController;
         public MovementWithEyes Movement { get; set; }
         private AI _ai;
         [field:SerializeField]
