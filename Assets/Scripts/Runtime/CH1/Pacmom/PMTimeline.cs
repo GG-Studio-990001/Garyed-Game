@@ -30,8 +30,18 @@ namespace Runtime.CH1.Pacmom
             _dialogueRunner[0].SetActive(false);
             _dialogueRunner[1].SetActive(true);
 
-            ControlEnable(true);
+            ControlEnable();
             _controller.StartGame();
+        }
+
+        public void ControlEnable()
+        {
+            Managers.Data.InGameKeyBinder.PlayerInputEnable();
+        }
+
+        public void ControlDisable()
+        {
+            Managers.Data.InGameKeyBinder.PlayerInputDisable();
         }
 
         public void FlipCharacters()
@@ -43,11 +53,6 @@ namespace Runtime.CH1.Pacmom
         public void PacmomSizeUp()
         {
             _pacmom.transform.localScale = new Vector3(80f, 80f, 80f);
-        }
-
-        public void ControlEnable(bool control)
-        {
-            _playerInput.enabled = control;
         }
     }
 }

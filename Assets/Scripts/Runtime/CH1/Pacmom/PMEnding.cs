@@ -10,8 +10,6 @@ namespace Runtime.CH1.Pacmom
     {
         private PMShader _shader;
         [SerializeField]
-        private ControlSystem _controlSystem;
-        [SerializeField]
         private SceneSystem _sceneSystem;
         [SerializeField]
         private GameObject _timeline3;
@@ -80,7 +78,6 @@ namespace Runtime.CH1.Pacmom
 
         public void ExitPacmom()
         {
-            _controlSystem.ExitNewControl();
             _sceneSystem.LoadScene("CH1");
         }
 

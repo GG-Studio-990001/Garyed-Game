@@ -1,9 +1,7 @@
 using Runtime.CH1.Main.Player;
+using Runtime.CH1.Pacmom;
 using Runtime.CH1.Title;
 using Runtime.Common.View;
-using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.SceneManagement;
 
 namespace Runtime.Input
 {
@@ -19,15 +17,27 @@ namespace Runtime.Input
             _gameOverControls = gameOverControls;
         }
         
-        // Title Key Binding
-        public void TitleKeyBinding(TitleController titleControl)
+        // Title
+        public void TitleKeyBinding(TitleKeyBinder keyBinder)
         {
             _gameOverControls.UI.Enable();
-            _gameOverControls.UI.DialogueInput.performed += _ => titleControl.LoadMainScene();
-            _gameOverControls.UI.GameSetting.performed += _ => titleControl.SetSettingUI();
+            _gameOverControls.UI.DialogueInput.performed += _ => keyBinder.LoadMainScene();
+            _gameOverControls.UI.GameSetting.performed += _ => keyBinder.SetSettingUI();
         }
 
-        // CH1 Key Bind
+        // Pacmom
+        public void PMKeyBinding(PMKeyBinder keyBinder, Rapley rapley)
+        {
+            _gameOverControls.UI.Enable();
+            _gameOverControls.UI.GameSetting.performed += _ => keyBinder.SetSettingUI();
+
+            _gameOverControls.Player.Enable();
+            _gameOverControls.Player.Move.performed += rapley.OnMove;
+            _gameOverControls.Player.Move.started += rapley.OnMove;
+            _gameOverControls.Player.Move.canceled += rapley.OnMove;
+        }
+
+        // CH1
         public void CH1PlayerKeyBinding(TopDownPlayer player)
         {
             _gameOverControls.Player.Enable();
