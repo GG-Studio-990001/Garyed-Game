@@ -7,7 +7,7 @@ namespace Runtime.CH1.Pacmom
     public class PMData : MonoBehaviour
     {
         #region 선언
-        private PMGameController _gameController;
+        private PMController _gameController;
 
         [Header("=Contoller=")]
         [SerializeField]
@@ -31,7 +31,7 @@ namespace Runtime.CH1.Pacmom
         #region Awake & Start
         private void Awake()
         {
-            _gameController = GetComponent<PMGameController>();
+            _gameController = GetComponent<PMController>();
             _uiController.DataController = this;
 
             foreach (Transform coin in _coins)

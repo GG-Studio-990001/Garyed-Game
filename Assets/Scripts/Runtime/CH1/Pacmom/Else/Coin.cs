@@ -6,7 +6,7 @@ namespace Runtime.CH1.Pacmom
 {
     public class Coin : MonoBehaviour
     {
-        public PMGameController GameController;
+        public PMController GameController;
         private Vector3 _defaultPos;
 
         private void Start()

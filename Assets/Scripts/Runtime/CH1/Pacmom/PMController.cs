@@ -6,7 +6,7 @@ using Sound = Runtime.ETC.Sound;
 
 namespace Runtime.CH1.Pacmom
 {
-    public class PMGameController : MonoBehaviour
+    public class PMController : MonoBehaviour
     {
         #region 선언
         private PMSprite _spriteController;

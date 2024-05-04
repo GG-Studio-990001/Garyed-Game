@@ -8,7 +8,7 @@ namespace Runtime.CH1.Pacmom
         [SerializeField]
         private PlayerInput _playerInput;
         [SerializeField]
-        private PMGameController _controller;
+        private PMController _controller;
         [SerializeField]
         private GameObject _openingUI;
         [SerializeField]
