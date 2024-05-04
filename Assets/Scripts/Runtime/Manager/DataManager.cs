@@ -13,20 +13,22 @@ namespace Runtime.Manager
         public int chapter; // enum으로 변경
         public int stage;
         public int minor;
-        public bool IsPacmomPlayed;
-        public bool IsPacmomCleared;
         public float musicVolume;
         public float sfxVolume;
-        
+        public bool IsPacmomPlayed;
+        public bool IsPacmomCleared;
+        public int PacmomCoin;
+
         public GameData()
         {
             chapter = 1;
             stage = 0;
             minor = 0;
-            IsPacmomPlayed = false;
-            IsPacmomCleared = false;
             musicVolume = 1;
             sfxVolume = 1;
+            IsPacmomPlayed = false;
+            IsPacmomCleared = false;
+            PacmomCoin = 0;
         }
     }
     
@@ -37,28 +39,28 @@ namespace Runtime.Manager
         
         private GameData _gameData = new();
         private GameOverControls _gameOverControls = new();
-        #region properties
 
+        #region properties
         public int Chapter { get { return _gameData.chapter; } set { _gameData.chapter = value; } }
         public int Stage { get { return _gameData.stage; } set { _gameData.stage = value; } }
         public int Minor { get { return _gameData.minor; } set { _gameData.minor = value; } }
-        public bool IsPacmomPlayed { get { return _gameData.IsPacmomPlayed; } set { _gameData.IsPacmomPlayed = value; } }
-        public bool IsPacmomCleared { get { return _gameData.IsPacmomCleared; } set { _gameData.IsPacmomCleared = value; } }
 
         public float MusicVolume
         {
             get { return _gameData.musicVolume; } 
             set { Math.Clamp(value, 0, 1); _gameData.musicVolume = value; }
         }
-
         public float SfxVolume
         {
             get { return _gameData.sfxVolume; } 
             set { Math.Clamp(value, 0, 1); _gameData.sfxVolume = value; }
         }
 
+        public bool IsPacmomPlayed { get { return _gameData.IsPacmomPlayed; } set { _gameData.IsPacmomPlayed = value; } }
+        public bool IsPacmomCleared { get { return _gameData.IsPacmomCleared; } set { _gameData.IsPacmomCleared = value; } }
+        public int PacmomCoin { get { return _gameData.PacmomCoin; } set { _gameData.PacmomCoin = value; } }
         #endregion
-        
+
         public void Init()
         {
             _gameOverControls = new GameOverControls();

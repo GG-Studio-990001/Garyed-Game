@@ -2,7 +2,6 @@ using Runtime.InGameSystem;
 using System.Collections;
 using TMPro;
 using UnityEngine;
-using Sound = Runtime.ETC.Sound;
 
 namespace Runtime.CH1.Pacmom
 {
@@ -23,13 +22,20 @@ namespace Runtime.CH1.Pacmom
             _shader = GetComponent<PMShader>();
         }
 
-        public void RapleyWin()
+        public void RapleyWin(int reward)
         {
+            GetRewardCoin(reward);
             Managers.Data.IsPacmomCleared = true;
             GamePlayed();
 
             Debug.Log("라플리 승리");
             _timeline3.SetActive(true);
+        }
+
+        private void GetRewardCoin(int finalScore)
+        {
+            _resultCoinTxt.text = "x" + finalScore.ToString();
+            Managers.Data.PacmomCoin += finalScore;
         }
 
         public void PacmomWin()
@@ -79,26 +85,6 @@ namespace Runtime.CH1.Pacmom
         public void ExitPacmom()
         {
             _sceneSystem.LoadScene("CH1");
-        }
-
-        public void ShowResultCoin(int finalScore)
-        {
-            StartCoroutine(nameof(ResultCoinUp), finalScore);
-        }
-
-        private IEnumerator ResultCoinUp(int finalScore)
-        {
-            string scoreStr = _resultCoinTxt.text[1..];
-            int score = int.Parse(scoreStr);
-            float changeTime = 0.01f;
-
-            while (score < finalScore)
-            {
-                Managers.Sound.Play(Sound.Effect, "Pacmom_SFX_10");
-                score++;
-                _resultCoinTxt.text = "x" + score.ToString();
-                yield return new WaitForSeconds(changeTime);
-            }
         }
     }
 }

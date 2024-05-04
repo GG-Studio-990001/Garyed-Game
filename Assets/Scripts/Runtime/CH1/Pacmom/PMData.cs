@@ -181,8 +181,7 @@ namespace Runtime.CH1.Pacmom
 
             if (_rapleyScore > _pacmomScore)
             {
-                _ending.RapleyWin();
-                _ending.ShowResultCoin(_rapleyScore);
+                _ending.RapleyWin(_rapleyScore);
             }
             else
             {
