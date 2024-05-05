@@ -61,7 +61,12 @@ namespace Runtime.CH1.Main.Controller
         {
             Managers.Sound.Play(Sound.BGM, "Ch1Main");
             
-            ch1StageController.SetStage(Managers.Data.Stage, new Vector2(0, 0));
+            // 개발자 모드
+            #if UNITY_EDITOR
+            
+            #else // 빌드된다면 데이터로 읽기
+            //ch1StageController.SetStage(Managers.Data.Stage, new Vector2(0, 0));
+            #endif
         }
     }
 }

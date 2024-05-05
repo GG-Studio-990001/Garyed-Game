@@ -16,6 +16,8 @@ namespace Runtime.CH1.Main.Player
         [SerializeField] private float moveSpeed = 5.0f;
         [SerializeField] private float animSpeed = 0.5f;
         
+        public Vector2 Direction => _movement.Direction;
+        
         private IMovement _movement;
         private IAnimation _animation;
         private IInteraction _interaction;

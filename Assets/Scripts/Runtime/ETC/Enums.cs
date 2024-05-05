@@ -12,7 +12,9 @@ namespace Runtime.ETC
         A,
         B,
         C,
-        None
+        D,
+        None,
+        Disappear
     }
 
     public enum Speaker

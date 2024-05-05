@@ -80,7 +80,7 @@ namespace Runtime.InGameSystem
 
             audioSource.volume = volume;
 
-            AudioClip audioClip = getAudioClip(path);
+            AudioClip audioClip = GetAudioClip(path);
             if (audioClip == null)
             {
                 return false;
@@ -109,7 +109,7 @@ namespace Runtime.InGameSystem
             return false;
         }
 
-        private AudioClip getAudioClip(string path)
+        private AudioClip GetAudioClip(string path)
         {
             AudioClip audioClip = null;
             if (_audioClips.TryGetValue(path, out audioClip))

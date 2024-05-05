@@ -22,7 +22,7 @@ namespace Runtime.Manager
         public GameData()
         {
             chapter = 1;
-            stage = 0;
+            stage = 1;
             minor = 0;
             musicVolume = 1;
             sfxVolume = 1;
@@ -48,12 +48,12 @@ namespace Runtime.Manager
         public float MusicVolume
         {
             get { return _gameData.musicVolume; } 
-            set { Math.Clamp(value, 0, 1); _gameData.musicVolume = value; }
+            set { Math.Clamp(value, 0, 1); _gameData.musicVolume = value; Managers.Sound.BGM.volume = value;}
         }
         public float SfxVolume
         {
             get { return _gameData.sfxVolume; } 
-            set { Math.Clamp(value, 0, 1); _gameData.sfxVolume = value; }
+            set { Math.Clamp(value, 0, 1); _gameData.sfxVolume = value; Managers.Sound.Effect.volume = value;}
         }
 
         public bool IsPacmomPlayed { get { return _gameData.IsPacmomPlayed; } set { _gameData.IsPacmomPlayed = value; } }

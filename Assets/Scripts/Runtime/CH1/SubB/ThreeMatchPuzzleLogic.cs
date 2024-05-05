@@ -19,8 +19,6 @@ namespace Runtime.CH1.SubB
             Vector2.right
         };
         
-        public Action IsClear { get; set; }
-        
         public ThreeMatchPuzzleLogic(List<Jewelry> jewelries)
         {
             this._jewelries = jewelries;
@@ -28,11 +26,21 @@ namespace Runtime.CH1.SubB
 
         public bool ValidateMovement(Jewelry jewelry, Vector2 direction)
         {
-            Vector2 targetPosition = jewelry.transform.position + (Vector3) direction;
+            Vector3Int currentCell = jewelry.Tilemap.WorldToCell(jewelry.transform.position);
+            Vector3Int targetCell = currentCell + new Vector3Int((int)direction.x, (int)direction.y, 0);
             
             foreach (var otherJewelry in _jewelries)
             {
-                if ((Vector2)otherJewelry.transform.position == targetPosition)
+                Vector3Int otherCell = jewelry.Tilemap.WorldToCell(otherJewelry.transform.position);
+                if (otherJewelry.JewelryType == JewelryType.Disappear)
+                {
+                    continue;
+                }
+                if (otherCell == targetCell)
+                {
+                    return false;
+                }
+                if (otherJewelry.IsMoving)
                 {
                     return false;
                 }
@@ -45,9 +53,15 @@ namespace Runtime.CH1.SubB
         {
             foreach (var jewelry in _jewelries)
             {
+                if (jewelry.JewelryType == JewelryType.None || jewelry.JewelryType == JewelryType.Disappear)
+                {
+                    continue;
+                }
+                
+                Vector3 currentCell = jewelry.Tilemap.WorldToCell(jewelry.transform.position);
                 foreach (var direction in _directions)
                 {
-                    CheckingBf(jewelry.transform.position, jewelry.JewelryType, direction,3);
+                    CheckingBf(currentCell, jewelry.JewelryType, direction, 3);
                 }
             }
             
@@ -57,11 +71,9 @@ namespace Runtime.CH1.SubB
             }
             
             _jewelriesToDestroy.Clear();
-            
-            ClearCheck();
         }
 
-        private bool CheckingBf(Vector2 position, JewelryType type, Vector2 direction, int length)
+        private bool CheckingBf(Vector3 position, JewelryType type, Vector2 direction, int length)
         {
             var jewelry = CheckAndReturnJewelry(position);
             
@@ -69,7 +81,7 @@ namespace Runtime.CH1.SubB
             {
                 return false;
             }
-            if (jewelry.JewelryType != type || jewelry.JewelryType == JewelryType.None)
+            if (jewelry.JewelryType != type)
             {
                 return false;
             }
@@ -77,8 +89,9 @@ namespace Runtime.CH1.SubB
             {
                 return true;
             }
-            
-            if (CheckingBf(position + direction, type, direction,length - 1))
+
+            Vector3 nextCell = position + new Vector3((int)direction.x, (int)direction.y, 0);
+            if (CheckingBf(nextCell, type, direction,length - 1))
             {
                 _jewelriesToDestroy.Add(jewelry);
                 return true;
@@ -87,16 +100,6 @@ namespace Runtime.CH1.SubB
             return false;
         }
 
-        private Jewelry CheckAndReturnJewelry(Vector2 position) => _jewelries.FirstOrDefault(jewelry => (Vector2)jewelry.transform.position == position);
-
-        private void ClearCheck()
-        {
-            if (_jewelries.Any(jewelry => jewelry.JewelryType != JewelryType.None))
-            {
-                return;
-            }
-            
-            IsClear?.Invoke();
-        }
+        private Jewelry CheckAndReturnJewelry(Vector3 position) => _jewelries.FirstOrDefault(jewelry => jewelry.Tilemap.WorldToCell(jewelry.transform.position) == position);
     }
 }
