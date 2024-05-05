@@ -205,7 +205,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <JewelryType>k__BackingField: 4
-  spriteTransform: {fileID: 1050441004744373826}
   moveTime: 1
   pushLimitTime: 1.1
 --- !u!212 &6613296832188148636
@@ -246,8 +245,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 517879615
-  m_SortingLayer: 3
+  m_SortingLayerID: 1394698431
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
