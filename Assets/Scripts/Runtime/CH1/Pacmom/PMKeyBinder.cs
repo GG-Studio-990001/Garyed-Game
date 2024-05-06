@@ -2,27 +2,30 @@ using Runtime.CH1.Pacmom;
 using Runtime.Common.View;
 using UnityEngine;
 
-public class PMKeyBinder : MonoBehaviour
+namespace Runtime.CH1.Pacmom
 {
-    [SerializeField]
-    private SettingsUIView settingsUIView;
-    [SerializeField]
-    private Rapley rapley;
-
-    private void Start()
+    public class PMKeyBinder : MonoBehaviour
     {
-        InitKeyBinding();
-    }
+        [SerializeField]
+        private SettingsUIView settingsUIView;
+        [SerializeField]
+        private Rapley rapley;
 
-    private void InitKeyBinding()
-    {
-        Managers.Data.InGameKeyBinder.GameControlReset();
-        Managers.Data.InGameKeyBinder.PMKeyBinding(this, rapley);
-    }
+        private void Start()
+        {
+            InitKeyBinding();
+        }
 
-    public void SetSettingUI()
-    {
-        settingsUIView.GameSettingToggle();
-        Time.timeScale = (Time.timeScale == 0 ? 1 : 0);
+        private void InitKeyBinding()
+        {
+            Managers.Data.InGameKeyBinder.GameControlReset();
+            Managers.Data.InGameKeyBinder.PMKeyBinding(this, rapley);
+        }
+
+        public void SetSettingUI()
+        {
+            settingsUIView.GameSettingToggle();
+            Time.timeScale = (Time.timeScale == 0 ? 1 : 0);
+        }
     }
 }
