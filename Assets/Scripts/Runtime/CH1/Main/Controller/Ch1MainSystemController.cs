@@ -25,7 +25,7 @@ namespace Runtime.CH1.Main.Controller
         [Header("Player")]
         [SerializeField] private TopDownPlayer player;
         
-        private void Awake()
+        private void Start()
         {
             GameKeyBinding();
             GameInit();
