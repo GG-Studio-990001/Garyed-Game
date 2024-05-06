@@ -38,7 +38,7 @@ namespace Runtime.Manager
         public InGameKeyBinder InGameKeyBinder { get; set; }
         
         private GameData _gameData = new();
-        private GameOverControls _gameOverControls = new();
+        private GameOverControls _gameOverControls;
 
         #region properties
         public int Chapter { get { return _gameData.chapter; } set { _gameData.chapter = value; } }
