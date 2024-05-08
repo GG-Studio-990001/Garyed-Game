@@ -7,6 +7,10 @@ using TMPro;
 using UnityEngine.UI;
 using Runtime.CH1.Main.Stage;
 using Runtime.CH1.Main.Controller;
+using Runtime.ETC;
+using UnityEngine.UIElements;
+using Codice.Client.Common.Fs;
+using System.Data;
 
 namespace SLGDefines
 { 
@@ -28,12 +32,18 @@ public class SLGActionComponent : MonoBehaviour
     [SerializeField] private GameObject _constructUI;
     [SerializeField] private TextMeshProUGUI UI_WoodText;
     [SerializeField] private TextMeshProUGUI UI_StoneText;
+    [SerializeField] private TextMeshProUGUI UI_CoinText;
 
+    [SerializeField] private GameObject Wnd_CostSection;
+    [SerializeField] private GameObject Wnd_AccelerateSection;
+    
     [SerializeField] private TextMeshProUGUI Wnd_WoodText;
     [SerializeField] private TextMeshProUGUI Wnd_StoneText;
     [SerializeField] private TextMeshProUGUI Wnd_TimeText;
-    [SerializeField] private Button Wnd_ConstructionBtn;
-    [SerializeField] private Button Wnd_CloseBtn;
+    [SerializeField] private TextMeshProUGUI Wnd_CoinCostText;
+    [SerializeField] private UnityEngine.UI.Button Wnd_ConstructionBtn;
+    [SerializeField] private UnityEngine.UI.Button Wnd_AccelerateBtn;
+    [SerializeField] private UnityEngine.UI.Button Wnd_CloseBtn;
 
     [SerializeField] private GameObject _sponSpots;
     [SerializeField] private GameObject SLGConstructionObject;
@@ -41,11 +51,14 @@ public class SLGActionComponent : MonoBehaviour
 
     private SLGInteractionObject[] _cachedObjects;
     private int _spawnCount = 0;
+    private SLGProgress SLGProgressInfo;
+    private int SLGConstructionBeginTime;
+
+    private CH1CommonData CH1Data;
 
     //Data 파일로 따로 분리?
     private int _wood = 0;
     private int _stone = 0;
-    private DateTime BeginTime;
 
     //CONST Value 
     const int INCREASE_ASSET_COUNT = 10;
@@ -53,15 +66,20 @@ public class SLGActionComponent : MonoBehaviour
     const int NEEDED_ASSET_COUNT = 30;
     const int NEEDED_CONSTRUCTION_TIME_SEC = 60 * 60 * 24;
     const int SCENE_MOVE_COUNT_SPAWN = 5;
+    const int NEEDED_COIN_COUNT = 200;
 
     public bool bShowWnd;
 
     void Start()
     {
+        SLGProgressInfo = Managers.Data.SLGProgressData;
+        SLGConstructionBeginTime = Managers.Data.SLGConstructionBeginTime;
+
         _sponSpots.SetActive(false);
         _cachedObjects = _sponSpots.GetComponentsInChildren<SLGInteractionObject>();
         Wnd_ConstructionBtn.onClick.AddListener(OnClickConstructBtn);
         Wnd_CloseBtn.onClick.AddListener(OnClickCloseBtn);
+        Wnd_AccelerateBtn.onClick.AddListener(OnClickAccelerateBtn);
     }
 
     private void Update()
@@ -104,14 +122,8 @@ public class SLGActionComponent : MonoBehaviour
                 }
             case SLGObjectType.ConstructWindow:
                 {
-                    if(_constructUI)
-                    {
-                        Wnd_WoodText.text = _wood.ToString() + "/" + NEEDED_ASSET_COUNT.ToString();
-                        Wnd_StoneText.text = _stone.ToString() + "/" + NEEDED_ASSET_COUNT.ToString();
-                        RefreshTimeText();
-                        _constructUI.SetActive(true);
-                        bShowWnd = true;
-                    }
+                    _constructUI.SetActive(true);
+                    RefreshConstructionWnd();
                     break;
                 }
             default: break;
@@ -120,6 +132,12 @@ public class SLGActionComponent : MonoBehaviour
 
     public void OnSLGInit ()
     {
+        GameObject mainObject = FindObjectOfType<Ch1MainSystemController>().gameObject;
+        if (mainObject != null)
+        {
+            CH1Data = mainObject.GetComponent<CH1CommonData>();
+        }
+        MoveOnNextProgress();
         _sponSpots.SetActive(true);
         foreach(SLGInteractionObject Object in _cachedObjects)
         {
@@ -131,7 +149,7 @@ public class SLGActionComponent : MonoBehaviour
         }
 
         _constructUI.SetActive(false);
-        BeginTime = DateTime.Now.ToLocalTime();
+        RefreshCoinText();
 
         Ch1StageController SC = FindObjectOfType<Ch1StageController>();
         if(SC != null)
@@ -140,6 +158,7 @@ public class SLGActionComponent : MonoBehaviour
         }
             
         InitMap();
+        MoveOnNextProgress();
     }
 
     private void InitMap ()
@@ -152,6 +171,11 @@ public class SLGActionComponent : MonoBehaviour
 
     private void SpawnRandomObject ()
     {
+        if(SLGProgressInfo > SLGProgress.EndConstruction)
+        {
+            return;
+        }
+
         while(true)
         { 
             int RandomNum = (UnityEngine.Random.Range(0, _cachedObjects.Length));
@@ -165,11 +189,36 @@ public class SLGActionComponent : MonoBehaviour
             }
         } 
     }
+    
+    private void RefreshConstructionWnd()
+    {
+        if (_constructUI)
+        {
+            if (SLGProgressInfo == SLGProgress.BeforeConstruction)
+            {
+                Wnd_AccelerateSection.gameObject.SetActive(false);
+                Wnd_CostSection.gameObject.SetActive(true);
+
+                Wnd_WoodText.text = _wood.ToString() + "/" + NEEDED_ASSET_COUNT.ToString();
+                Wnd_StoneText.text = _stone.ToString() + "/" + NEEDED_ASSET_COUNT.ToString();
+            }
+            else if(SLGProgressInfo == SLGProgress.Constructing)
+            {
+                Wnd_AccelerateSection.gameObject.SetActive(true);
+                Wnd_CostSection.gameObject.SetActive(false);
+
+                Wnd_CoinCostText.text = CH1Data._coin.ToString() + "/" + NEEDED_COIN_COUNT.ToString();
+                RefreshTimeText();
+            }
+
+            bShowWnd = true;
+        }
+    }
 
     private void RefreshTimeText()
     {
-        //Load Time Data
-        int DurationTimeSec = (int)((DateTime.Now.ToLocalTime() - BeginTime).TotalSeconds);
+        //시간 색상 표시 수정
+        int DurationTimeSec = DateTime.Now.ToLocalTime().Second - SLGConstructionBeginTime;
         int RemainedTimeSec = NEEDED_CONSTRUCTION_TIME_SEC - DurationTimeSec;
         if (RemainedTimeSec > 0)
         {
@@ -179,6 +228,17 @@ public class SLGActionComponent : MonoBehaviour
             int Min = RemainedTimeSec / (60);
             int Sec = RemainedTimeSec % (60);
             Wnd_TimeText.text =Hour.ToString() +"시간"+Min.ToString()+"분"+Sec.ToString()+"초";
+        }
+    }
+
+    private void RefreshCoinText()
+    {
+        if (UI_CoinText != null)
+        {
+            if (CH1Data != null)
+            {
+                UI_CoinText.text = CH1Data._coin.ToString();
+            }
         }
     }
 
@@ -192,11 +252,11 @@ public class SLGActionComponent : MonoBehaviour
     }
     private void OnClickConstructBtn ()
     {
-        //TODO 건설 가능 시 텍스트 표시 수정
-        //TODO 건설 불가 표시 / OR 건설 완료
+        //TODO 건설 가능 시 텍스트 색 표시 수정
         if (_wood >= NEEDED_ASSET_COUNT && _stone >= NEEDED_ASSET_COUNT)
         {
             Debug.Log("건설가능");
+            MoveOnNextProgress();
         }
         else
         {
@@ -205,18 +265,63 @@ public class SLGActionComponent : MonoBehaviour
     }
 
     private void OnChangeStageForSLG ()
+{
+    if (CH1Data != null)
+    {
+        CH1Data._sceneMoveCount++;
+        if (CH1Data._sceneMoveCount >= SCENE_MOVE_COUNT_SPAWN)
+        {
+            SpawnRandomObject();
+            CH1Data._sceneMoveCount = 0;
+        }
+    }
+}
+
+    private void MoveOnNextProgress()
+    {
+        SLGProgressInfo++;
+        Managers.Data.SLGProgressData = SLGProgressInfo;
+
+        if (SLGProgressInfo < SLGProgress.ModeClose)
+        {
+            if (bShowWnd)
+            {
+                RefreshConstructionWnd();
+            }
+            if(SLGProgressInfo == SLGProgress.Constructing)
+            {
+                Managers.Data.SLGConstructionBeginTime = DateTime.Now.Second;
+                SLGConstructionBeginTime = DateTime.Now.Second;
+            }
+        }
+        else
+        {
+            EndSLGMode();
+        }
+    }
+
+    private void EndSLGMode()
+    {
+        //SLG 끝난 처리
+    }
+
+    private void OnClickAccelerateBtn()
     {
         GameObject mainObject = FindObjectOfType<Ch1MainSystemController>().gameObject;
         if (mainObject != null)
         {
             CH1CommonData CH1Data = mainObject.GetComponent<CH1CommonData>();
-            if(CH1Data != null)
+            if (CH1Data != null)
             {
-                CH1Data._sceneMoveCount++;
-                if (CH1Data._sceneMoveCount >= SCENE_MOVE_COUNT_SPAWN)
+                if (CH1Data._coin >= NEEDED_COIN_COUNT)
                 {
-                    SpawnRandomObject();
-                    CH1Data._sceneMoveCount = 0;
+                    CH1Data._coin -= NEEDED_COIN_COUNT;
+                    RefreshCoinText();
+                    MoveOnNextProgress();
+                }
+                else
+                {
+                    Debug.Log("건설 불가능");
                 }
             }
         }
