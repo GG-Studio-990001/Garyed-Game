@@ -32,8 +32,8 @@ namespace Runtime.CH1.Main.Dialogue
         [Header("=CutScene=")]
         [SerializeField] private GameObject _illerstrationParent;
         [SerializeField] private GameObject[] _illerstration = new GameObject[3];
-        [SerializeField] private GameObject[] _npcs = new GameObject[3];
-        [SerializeField] private Vector3[] _locations = new Vector3[3];
+        [SerializeField] private GameObject[] _characters = new GameObject[4];
+        [SerializeField] private Vector3[] _locations = new Vector3[4];
         [SerializeField] private GameObject _lucky;
 
         private void Awake()
@@ -44,6 +44,8 @@ namespace Runtime.CH1.Main.Dialogue
             _runner.AddCommandHandler("FadeIn", _fadeController.StartFadeIn);
 
             // CutScene
+            _runner.AddCommandHandler("NewSceneStart", NewSceneStart);
+            _runner.AddCommandHandler("SceneStart", SceneStart);
             _runner.AddCommandHandler<int>("ShowIllustration", ShowIllustration);
             _runner.AddCommandHandler("HideIllustration", HideIllustration);
             _runner.AddCommandHandler("CharactersMove", CharactersMove);
@@ -62,6 +64,27 @@ namespace Runtime.CH1.Main.Dialogue
             if (_volume != null)
             {
                 _volume.profile.TryGet(out _lowRes);
+            }
+        }
+
+        private void NewSceneStart()
+        {
+            Managers.Data.Scene++;
+            Managers.Data.SaveGame();
+        }
+
+        private void SceneStart()
+        {
+            Managers.Data.SceneDetail++;
+            Managers.Data.SaveGame();
+        }
+
+        public void CheckCutScene()
+        {
+            if (Managers.Data.Scene == 1 && Managers.Data.SceneDetail == 1)
+            {
+                _runner.StartDialogue("S1.2");
+                //_runner.StartDialogue($"Dialogue{Managers.Data.Minor}");
             }
         }
 
@@ -90,9 +113,9 @@ namespace Runtime.CH1.Main.Dialogue
 
         private void CharactersMove()
         {
-            for (int i = 0; i < _npcs.Length; i++)
+            for (int i = 0; i < _characters.Length; i++)
             {
-                _npcs[i].transform.DOMove(_locations[i], 5f).SetEase(Ease.Linear);
+                _characters[i].transform.DOMove(_locations[i], 5f).SetEase(Ease.Linear);
             }
         }
 

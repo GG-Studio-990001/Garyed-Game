@@ -1,13 +1,13 @@
 ﻿title: Beagle
 ---
-<<set $mainer to GetMinor()>>
+//<<set $mainer to GetMinor()>>
 
-<<if $mainer <= 3>>
-    <<jump Beagle1>>
-<<else>>
-    <<jump BeagleDefault>>
+//<<if $mainer <= 3>>
+//    <<jump Beagle1>>
+//<<else>>
+//    <<jump BeagleDefault>>
 
-<<endif>>
+//<<endif>>
 ===
 
 title: Beagle1

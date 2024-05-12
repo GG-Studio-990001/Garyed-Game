@@ -2,16 +2,16 @@
 // 사건분기에 따라 여기서 분류 후 JUMP하는 게 바람직
 // 해당 NPC는 라플리의 코인을 들고 도망가는 도벽있는 NPC
 ---
-<<set $mainer to GetMinor()>>
+//<<set $mainer to GetMinor()>>
 
-<<if $mainer == 1>>
-    <<jump NPC1_1>>
-<<elseif $mainer == 2>>
-    <<jump NPC1_1>> //temp
+//<<if $mainer == 1>>
+//    <<jump NPC1_1>>
+//<<elseif $mainer == 2>>
+//    <<jump NPC1_1>> //temp
 // <<else>>
 //     <<jump NPC1Default>>
 
-<<endif>>
+//<<endif>>
 ===
 
 title: NPC1_1

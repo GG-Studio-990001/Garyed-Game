@@ -9,9 +9,11 @@ namespace Runtime.Manager
     [Serializable]
     public class GameData
     {
-        public int chapter; // enum으로 변경
-        public int stage;
-        public int minor;
+        // Progress
+        public int Chapter;
+        public int Scene;
+        public int SceneDetail; // 씬 세부 진행도
+        // Sound
         public float BgmVolume;
         public float SfxVolume;
         // Pacmom
@@ -24,9 +26,11 @@ namespace Runtime.Manager
 
         public GameData()
         {
-            chapter = 1;
-            stage = 1;
-            minor = 0;
+            // Progress
+            Chapter = 1;
+            Scene = 0;
+            SceneDetail = 0;
+            // Sound
             BgmVolume = 1;
             SfxVolume = 1;
             // Pacmom
@@ -48,9 +52,9 @@ namespace Runtime.Manager
         private GameOverControls _gameOverControls;
 
         #region properties
-        public int Chapter { get { return _gameData.chapter; } set { _gameData.chapter = value; } }
-        public int Stage { get { return _gameData.stage; } set { _gameData.stage = value; } }
-        public int Minor { get { return _gameData.minor; } set { _gameData.minor = value; } }
+        public int Chapter { get { return _gameData.Chapter; } set { _gameData.Chapter = value; } }
+        public int Scene { get { return _gameData.Scene; } set { _gameData.Scene = value; } }
+        public int SceneDetail { get { return _gameData.SceneDetail; } set { _gameData.SceneDetail = value; } }
 
         public float BgmVolume
         {
