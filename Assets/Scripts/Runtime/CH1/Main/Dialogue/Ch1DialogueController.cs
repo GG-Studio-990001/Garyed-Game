@@ -30,11 +30,11 @@ namespace Runtime.CH1.Main.Dialogue
         public UnityEvent OnDialogueEnd => _runner.onDialogueComplete;
 
         [Header("=CutScene=")]
-        [SerializeField] private GameObject illerstrationParent;
-        [SerializeField] private GameObject[] illerstration = new GameObject[3];
-        [SerializeField] private GameObject[] npcs = new GameObject[3];
-        [SerializeField] private Vector3[] locations = new Vector3[3];
-        [SerializeField] private GameObject lucky;
+        [SerializeField] private GameObject _illerstrationParent;
+        [SerializeField] private GameObject[] _illerstration = new GameObject[3];
+        [SerializeField] private GameObject[] _npcs = new GameObject[3];
+        [SerializeField] private Vector3[] _locations = new Vector3[3];
+        [SerializeField] private GameObject _lucky;
 
         private void Awake()
         {
@@ -67,32 +67,32 @@ namespace Runtime.CH1.Main.Dialogue
 
         private void GetLucky()
         {
-            lucky.SetActive(false);
+            _lucky.SetActive(false);
         }
 
         private void ShowIllustration(int num)
         {
-            illerstrationParent.SetActive(true);
+            _illerstrationParent.SetActive(true);
 
-            for (int i=0; i<3; i++)
+            for (int i=0; i< _illerstration.Length; i++)
             {
                 if (i == num)
-                    illerstration[i].SetActive(true);
+                    _illerstration[i].SetActive(true);
                 else
-                    illerstration[i].SetActive(false);
+                    _illerstration[i].SetActive(false);
             }
         }
 
         private void HideIllustration()
         {
-            illerstrationParent.SetActive(false);
+            _illerstrationParent.SetActive(false);
         }
 
         private void CharactersMove()
         {
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i < _npcs.Length; i++)
             {
-                npcs[i].transform.DOMove(locations[i], 5f);
+                _npcs[i].transform.DOMove(_locations[i], 5f).SetEase(Ease.Linear);
             }
         }
 
