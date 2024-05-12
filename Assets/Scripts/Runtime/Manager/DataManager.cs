@@ -2,6 +2,7 @@ using Runtime.Data.Original;
 using Runtime.Input;
 using System;
 using System.Numerics;
+using Runtime.ETC;
 using UnityEngine;
 
 namespace Runtime.Manager
@@ -15,6 +16,11 @@ namespace Runtime.Manager
         public int minor;
         public float musicVolume;
         public float sfxVolume;
+
+        //SLG
+        public int SLGConstructionBeginTime;
+        public SLGProgress SLGProgressData;
+
         public bool IsPacmomPlayed;
         public bool IsPacmomCleared;
         public int PacmomCoin;
@@ -26,6 +32,10 @@ namespace Runtime.Manager
             minor = 0;
             musicVolume = 1;
             sfxVolume = 1;
+
+            SLGConstructionBeginTime = 0;
+            SLGProgressData = SLGProgress.None;
+
             IsPacmomPlayed = false;
             IsPacmomCleared = false;
             PacmomCoin = 0;
@@ -44,6 +54,11 @@ namespace Runtime.Manager
         public int Chapter { get { return _gameData.chapter; } set { _gameData.chapter = value; } }
         public int Stage { get { return _gameData.stage; } set { _gameData.stage = value; } }
         public int Minor { get { return _gameData.minor; } set { _gameData.minor = value; } }
+
+        public bool IsPacmomPlayed { get { return _gameData.IsPacmomPlayed; } set { _gameData.IsPacmomPlayed = value; } }
+        public bool IsPacmomCleared { get { return _gameData.IsPacmomCleared; } set { _gameData.IsPacmomCleared = value; } }
+        public int SLGConstructionBeginTime { get { return _gameData.SLGConstructionBeginTime; } set { _gameData.SLGConstructionBeginTime = value; } }
+        public SLGProgress SLGProgressData { get { return _gameData.SLGProgressData; } set { _gameData.SLGProgressData = value; } }
 
         public float MusicVolume
         {

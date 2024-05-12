@@ -7,16 +7,37 @@ using System.Transactions;
 using Yarn.Unity;
 using Runtime.CH1.Main.Controller;
 using Runtime.CH1.Main.Object;
+using UnityEngine.Experimental.Rendering.Universal;
 
 public class SLGInteractionObject : InteractionObject
 {
-    private SLGObjectType type = SLGObjectType.WOOD;
+    [SerializeField] private SLGObjectType type = SLGObjectType.WOOD;
     private SLGActionComponent _SLGAction;
     public bool _isActive = false;
 
     void Start()
     {
         _SLGAction = FindAnyObjectByType<SLGActionComponent>().GetComponent<SLGActionComponent>();
+    }
+
+    private void Update()
+    {
+        //따로 클릭 가능한 UI들을 빼야할까?
+        if (_SLGAction != null && _SLGAction.bShowWnd == false && Input.GetMouseButtonDown(0))
+        {
+            Camera.main.orthographic = true;
+            Vector2 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            RaycastHit2D hit = Physics2D.Raycast(pos, Vector2.zero, 10, LayerMask.GetMask("UI"));
+
+            if (hit.collider != null)
+            {
+                if (hit.transform.gameObject == this.gameObject)
+                {
+                    Interact();
+                }
+            }
+            Camera.main.orthographic = false;
+        }
     }
 
     public void InitInteractionData(SLGObjectType InType)
@@ -44,6 +65,11 @@ public class SLGInteractionObject : InteractionObject
         if (_SLGAction != null)
         {
             _SLGAction.ProcessObjectInteraction(type);
+            _isActive = false;
+            if(type <= SLGObjectType.ASSETMAX)
+            {
+                this.gameObject.SetActive(false);
+            }
         }
         return true;
     }
