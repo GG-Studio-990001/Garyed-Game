@@ -6,11 +6,10 @@ namespace Runtime.CH1.Main.Dialogue
     // Yarn Spinner에서 사용할 정적 함수들을 모아놓은 클래스
     public static class YarnFunction
     {
-        /*
-        [YarnFunction("GetMinor")]
-        public static int GetMinor()
+        [YarnFunction("GetProgress")]
+        public static int GetProgress()
         {
-            return Managers.Data.Minor;
-        }*/
+            return Managers.Data.Scene * 10 + Managers.Data.SceneDetail;
+        }
     }
 }
