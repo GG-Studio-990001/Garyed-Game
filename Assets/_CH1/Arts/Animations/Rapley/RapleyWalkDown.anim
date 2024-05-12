@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: TopDownPlayerDown
+  m_Name: RapleyWalkDown
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,13 +21,13 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: 1268561240, guid: 8a82effefccfa1b4db9112a68c07bd4f, type: 3}
+      value: {fileID: 880595507, guid: ad7d920799ca61c4c9535aaafe202317, type: 3}
     - time: 0.083333336
-      value: {fileID: -139688899, guid: 8a82effefccfa1b4db9112a68c07bd4f, type: 3}
+      value: {fileID: 243709852, guid: ad7d920799ca61c4c9535aaafe202317, type: 3}
     - time: 0.16666667
-      value: {fileID: -317178525, guid: 8a82effefccfa1b4db9112a68c07bd4f, type: 3}
+      value: {fileID: -588775670, guid: ad7d920799ca61c4c9535aaafe202317, type: 3}
     - time: 0.25
-      value: {fileID: -1171220363, guid: 8a82effefccfa1b4db9112a68c07bd4f, type: 3}
+      value: {fileID: 1397222005, guid: ad7d920799ca61c4c9535aaafe202317, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -50,10 +50,10 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: 1268561240, guid: 8a82effefccfa1b4db9112a68c07bd4f, type: 3}
-    - {fileID: -139688899, guid: 8a82effefccfa1b4db9112a68c07bd4f, type: 3}
-    - {fileID: -317178525, guid: 8a82effefccfa1b4db9112a68c07bd4f, type: 3}
-    - {fileID: -1171220363, guid: 8a82effefccfa1b4db9112a68c07bd4f, type: 3}
+    - {fileID: 880595507, guid: ad7d920799ca61c4c9535aaafe202317, type: 3}
+    - {fileID: 243709852, guid: ad7d920799ca61c4c9535aaafe202317, type: 3}
+    - {fileID: -588775670, guid: ad7d920799ca61c4c9535aaafe202317, type: 3}
+    - {fileID: 1397222005, guid: ad7d920799ca61c4c9535aaafe202317, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}

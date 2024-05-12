@@ -17,7 +17,8 @@ namespace Runtime.CH1.Main.Player
         [SerializeField] private float animSpeed = 0.5f;
         
         public Vector2 Direction => _movement.Direction;
-        
+        private Vector2 _lastInput;
+
         private IMovement _movement;
         private IAnimation _animation;
         private IInteraction _interaction;
@@ -34,7 +35,7 @@ namespace Runtime.CH1.Main.Player
         
         private void Update()
         {
-            _animation.SetAnimation(_state.ToString(), _movementInput);
+            _animation.SetAnimation(_state.ToString(), _lastInput);
         }
 
         private void FixedUpdate()
@@ -48,8 +49,14 @@ namespace Runtime.CH1.Main.Player
             bool isInteract = _interaction.Interact(_movement.Direction);
             _state = isInteract ? PlayerState.Interact : PlayerState.Idle;
         }
-        
-        public void OnMove(InputAction.CallbackContext context) => _movementInput = context.ReadValue<Vector2>();
-        public void OnMove(Vector2 movementInput) => _movementInput = movementInput;
+
+        public void OnMove(InputAction.CallbackContext context)
+        {
+            _movementInput = context.ReadValue<Vector2>();
+            if (context.ReadValue<Vector2>() != Vector2.zero)
+                _lastInput = context.ReadValue<Vector2>();
+        }
+
+        // public void OnMove(Vector2 movementInput) => _movementInput = movementInput;
     }
 }

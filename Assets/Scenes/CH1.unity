@@ -1212,7 +1212,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.48, y: -6.2599998, z: 0}
-  m_LocalScale: {x: 1.3, y: 1.3, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1908934227}
@@ -4128,7 +4128,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.9, y: -5, z: 0}
-  m_LocalScale: {x: 1.3, y: 1.3, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1908934227}
@@ -5620,7 +5620,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.1700001, y: -5.44, z: 0}
-  m_LocalScale: {x: 1.3, y: 1.3, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1908934227}
@@ -14492,6 +14492,18 @@ PrefabInstance:
     - target: {fileID: 2322268151887491608, guid: 636fca1bc1c114943a004cbada5c227f, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 7482139239248921598, guid: 636fca1bc1c114943a004cbada5c227f, type: 3}
+      propertyPath: m_Size.x
+      value: 0.90625
+      objectReference: {fileID: 0}
+    - target: {fileID: 7482139239248921598, guid: 636fca1bc1c114943a004cbada5c227f, type: 3}
+      propertyPath: m_Size.y
+      value: 1.09375
+      objectReference: {fileID: 0}
+    - target: {fileID: 7482139239248921598, guid: 636fca1bc1c114943a004cbada5c227f, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -27567,7 +27579,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f453f694addf4275988fac205bc91968, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_BoundingShape2D: {fileID: 1712496539}
+  m_BoundingShape2D: {fileID: 0}
   m_Damping: 0.5
   m_MaxWindowSize: -1
 --- !u!1001 &1432370932
@@ -33370,7 +33382,7 @@ Transform:
   m_GameObject: {fileID: 1674432335}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 25.766228, y: -4.61996, z: -10}
+  m_LocalPosition: {x: -1.71, y: -4.67, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -35376,11 +35388,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 1368314908901170753, guid: c0ae61144ca480d4c99f053ad7e3906a, type: 3}
   m_PrefabInstance: {fileID: 1711814653}
-  m_PrefabAsset: {fileID: 0}
---- !u!60 &1712496539 stripped
-PolygonCollider2D:
-  m_CorrespondingSourceObject: {fileID: 1424756799786137292, guid: a4fa811cdc3960346896b628a8bbe022, type: 3}
-  m_PrefabInstance: {fileID: 4981053743895912313}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1715151230
 PrefabInstance:
@@ -42296,7 +42303,7 @@ MonoBehaviour:
   - {fileID: 1653161658143596180}
   - {fileID: 1662598218}
   startNode: s1_intro
-  startAutomatically: 1
+  startAutomatically: 0
   runSelectedOptionAsLine: 0
   lineProvider: {fileID: 0}
   verboseLogging: 1
@@ -42506,6 +42513,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1674432337}
+    - target: {fileID: 8333262551354297480, guid: 0d61b18444317944a99ee38e37220ff8, type: 3}
+      propertyPath: m_Name
+      value: BGMSlider
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

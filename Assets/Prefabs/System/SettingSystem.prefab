@@ -711,7 +711,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <SettingUIObject>k__BackingField: {fileID: 2439501320894941370}
-  <MusicVolumeSlider>k__BackingField: {fileID: 7662190475497434602}
+  <BgmVolumeSlider>k__BackingField: {fileID: 7662190475497434602}
   <SfxVolumeSlider>k__BackingField: {fileID: 7254572399140336775}
   <ExitButton>k__BackingField: {fileID: 4010945733610806736}
   <GameExitButton>k__BackingField: {fileID: 5769651196865268794}
@@ -1573,7 +1573,7 @@ GameObject:
   - component: {fileID: 5343786072050440618}
   - component: {fileID: 7662190475497434602}
   m_Layer: 5
-  m_Name: MusicSlider
+  m_Name: BGMSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
