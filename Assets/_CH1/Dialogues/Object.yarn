@@ -1,14 +1,53 @@
-﻿title: Object
+﻿title: PacmomGamePack
+---
+     :팩맘 접속!
+     <<SceneChange Pacmom>>
+===
+
+title: GameDescriptionPack
+---
+     :만능게임설명팩을 획득했다.
+     <<GetLucky>>
+===
+
+title: Knife1
+---
+     :평범한 작은 칼이다.
+===
+
+title: Knife2
+---
+     :평범한 작은 칼이다.
+===
+
+title: GameBoy
+---
+     :평범한 게임보이이다.
+===
+
+title: BigKnife
+---
+     :부서진 큰 칼이다.
+===
+title: Potions
+---
+     :작은 포션들이다.
+===
+title: BigPotion
+---
+     :부서진 큰 포션이다.
+===
+title: Rings
+---
+     :링들이 쌓여있다.
+===
+
+// 아래는 임시
+title: Object
 ---
      :평범한 오브젝트다. #line:05d6b92 
      <<wait 1>>
      :평범한!!
-===
-
-title: PacmomObject
----
-     :팩맘 접속!
-     <<SceneChange Pacmom>>
 ===
 
 title: SLGObject

@@ -34,6 +34,7 @@ namespace Runtime.CH1.Main.Dialogue
         [SerializeField] private GameObject[] illerstration = new GameObject[3];
         [SerializeField] private GameObject[] characters = new GameObject[4];
         [SerializeField] private Vector3[] locations = new Vector3[4];
+        [SerializeField] private GameObject lucky;
 
         private void Awake()
         {
@@ -46,6 +47,8 @@ namespace Runtime.CH1.Main.Dialogue
             _runner.AddCommandHandler<int>("ShowIllustration", ShowIllustration);
             _runner.AddCommandHandler("HideIllustration", HideIllustration);
             _runner.AddCommandHandler("CharactersMove", CharactersMove);
+
+            _runner.AddCommandHandler("GetLucky", GetLucky);
 
             /*
             // UI/Sound
@@ -60,6 +63,11 @@ namespace Runtime.CH1.Main.Dialogue
             {
                 _volume.profile.TryGet(out _lowRes);
             }
+        }
+
+        private void GetLucky()
+        {
+            lucky.SetActive(false);
         }
 
         private void ShowIllustration(int num)
