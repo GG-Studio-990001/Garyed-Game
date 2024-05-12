@@ -1,33 +1,26 @@
-using Runtime.Interface.Pacmom;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace Runtime.CH1.Pacmom
 {
-    public class Rapley : MonoBehaviour, ICharacter
+    public class Rapley : MonoBehaviour
     {
-        public MovementAndRotation Movement { get; set; }
+        public MovementWithFlipAndRotate Movement { get; set; }
 
         private void Awake()
         {
-            Movement = GetComponent<MovementAndRotation>();
+            Movement = GetComponent<MovementWithFlipAndRotate>();
         }
 
         private void Start()
         {
             SetSpriteRotation();
-            ResetState();
+            Movement.ResetState();
         }
 
         private void SetSpriteRotation()
         {
             Movement.SpriteRotation.SetCanRotate(false);
-            Movement.SpriteRotation.SetCanFlip(true);
-        }
-
-        public void ResetState()
-        {
-            Movement.ResetState();
         }
 
         private void FixedUpdate()
@@ -35,9 +28,9 @@ namespace Runtime.CH1.Pacmom
             Movement.Move();
         }
 
-        private void OnMove(InputValue value)
+        public void OnMove(InputAction.CallbackContext context)
         {
-            Vector2 inputDirection = value.Get<Vector2>();
+            Vector2 inputDirection = context.ReadValue<Vector2>();
 
             if (inputDirection != Vector2.zero)
             {

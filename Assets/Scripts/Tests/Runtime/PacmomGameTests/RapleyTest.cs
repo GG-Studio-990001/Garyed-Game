@@ -13,7 +13,7 @@ namespace Tests.Runtime.PacmomGameTest
         private GameObject rapleyObj;
         private Rapley rapley;
         private SpriteRenderer rapleySpr;
-        private MovementAndRotation rapleyMovement;
+        private MovementWithFlipAndRotate rapleyMovement;
 
         private GameObject coinObj;
 
@@ -23,7 +23,7 @@ namespace Tests.Runtime.PacmomGameTest
             rapleyObj = new GameObject("RapleyObj");
             rapley = rapleyObj.AddComponent<Rapley>();
             rapleySpr = rapleyObj.AddComponent<SpriteRenderer>();
-            rapleyMovement = rapleyObj.AddComponent<MovementAndRotation>();
+            rapleyMovement = rapleyObj.AddComponent<MovementWithFlipAndRotate>();
             rapley.Movement = rapleyMovement;
 
             coinObj = new GameObject("CoinObj");

@@ -5,7 +5,7 @@ namespace Runtime.CH1.Pacmom
 {
     public class DustRoom : MonoBehaviour
     {
-        private MovementAndEyes _movement;
+        private MovementWithEyes _movement;
         [SerializeField]
         private Transform _inside;
         [SerializeField]
@@ -16,7 +16,7 @@ namespace Runtime.CH1.Pacmom
 
         private void Awake()
         {
-            _movement = GetComponent<MovementAndEyes>();
+            _movement = GetComponent<MovementWithEyes>();
         }
 
         public void SetInRoom(bool isInRoom)

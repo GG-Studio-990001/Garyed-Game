@@ -1,11 +1,13 @@
 using Runtime.ETC;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Runtime.CH1.Main.Stage
 {
     [RequireComponent(typeof(BoxCollider2D))]
     public class StageMover : MonoBehaviour
     {
+        public UnityEvent OnStageMove;
         [SerializeField] private int moveStageNumber;
         [SerializeField] private Vector2 spawnPosition;
         
@@ -16,6 +18,7 @@ namespace Runtime.CH1.Main.Stage
             if (other.CompareTag(GlobalConst.PlayerStr))
             {
                 StageChanger.SwitchStage(moveStageNumber, spawnPosition);
+                OnStageMove?.Invoke();
             }
         }
     }

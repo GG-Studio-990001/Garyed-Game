@@ -12,12 +12,12 @@ namespace Tests.Runtime.PacmomGameTest
     {
         private GameObject pacmomObj;
         private Pacmom pacmom;
-        private MovementAndRotation pacmomMovement;
+        private MovementWithFlipAndRotate pacmomMovement;
         private AI pacmomAI;
 
         private GameObject dustObj;
         private Dust dust;
-        private MovementAndEyes dustMovement;
+        private MovementWithEyes dustMovement;
         private AI dustAI;
 
         private GameObject stepObj;
@@ -28,14 +28,14 @@ namespace Tests.Runtime.PacmomGameTest
         {
             pacmomObj = new GameObject("PacmomObj");
             pacmom = pacmomObj.AddComponent<Pacmom>();
-            pacmomMovement = pacmomObj.AddComponent<MovementAndRotation>();
+            pacmomMovement = pacmomObj.AddComponent<MovementWithFlipAndRotate>();
             pacmom.Movement = pacmomMovement;
             pacmomAI = pacmomObj.AddComponent<AI>();
             pacmomAI.Movement = pacmomMovement;
 
             dustObj = new GameObject("DustObj");
             dust = dustObj.AddComponent<Dust>();
-            dustMovement = dustObj.AddComponent<MovementAndEyes>();
+            dustMovement = dustObj.AddComponent<MovementWithEyes>();
             dust.Movement = dustMovement;
             dustAI = dustObj.AddComponent<AI>();
             dustAI.Movement = dustMovement;

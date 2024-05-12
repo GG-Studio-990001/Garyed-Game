@@ -5,6 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.TestTools;
+using UnityEngine.Tilemaps;
 
 namespace Tests.Runtime.CH1.Sub_B
 {
@@ -21,14 +22,20 @@ namespace Tests.Runtime.CH1.Sub_B
             _controllerObject = new GameObject("Controller");
             _controller = _controllerObject.AddComponent<ThreeMatchPuzzleController>();
             
+            var grid = new GameObject("Grid").AddComponent<Grid>();
+            var tilemap = new GameObject("Tilemap").AddComponent<Tilemap>();
+            tilemap.transform.parent = grid.transform;
+            
             _jewelries = new List<Jewelry>();
             
             for (int i = 0; i < 3; i++)
             {
-                _jewelries[i] = new GameObject($"Jewelry{i}").AddComponent<Jewelry>();
-                _jewelries[i].transform.parent = _controller.transform;
-                _jewelries[i].transform.position = new Vector3(i, 0, 0f);
-                _jewelries[i].JewelryType = JewelryType.None;
+                var go = new GameObject($"Jewelry{i}").AddComponent<Jewelry>();
+                go.Tilemap = tilemap;
+                go.transform.parent = tilemap.transform;
+                go.gameObject.transform.position = new Vector3(i, 0, 0f);
+                go.JewelryType = JewelryType.None;
+                _jewelries.Add(go);
             }
             
             _controller.Jewelries = _jewelries;

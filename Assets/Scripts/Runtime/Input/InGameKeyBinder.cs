@@ -1,4 +1,7 @@
 using Runtime.CH1.Main.Player;
+using Runtime.CH1.Pacmom;
+using Runtime.CH1.Title;
+using Runtime.CH2;
 using Runtime.Common.View;
 
 namespace Runtime.Input
@@ -6,16 +9,36 @@ namespace Runtime.Input
     // 현재 플랫폼에 맞게 키 바인딩을 설정하는 클래스
     public class InGameKeyBinder
     {
-        private readonly GameOverControls _gameOverControls;
+        private GameOverControls _gameOverControls;
         
         private int _playerInputEnableStack;
-        private int _uiInputEnableStack;
         
         public InGameKeyBinder(GameOverControls gameOverControls)
         {
             _gameOverControls = gameOverControls;
         }
         
+        // Title
+        public void TitleKeyBinding(TitleKeyBinder keyBinder)
+        {
+            _gameOverControls.UI.Enable();
+            _gameOverControls.UI.DialogueInput.performed += _ => keyBinder.LoadMainScene();
+            _gameOverControls.UI.GameSetting.performed += _ => keyBinder.SetSettingUI();
+        }
+
+        // Pacmom
+        public void PMKeyBinding(PMKeyBinder keyBinder, Rapley rapley)
+        {
+            _gameOverControls.UI.Enable();
+            _gameOverControls.UI.GameSetting.performed += _ => keyBinder.SetSettingUI();
+
+            _gameOverControls.Player.Enable();
+            _gameOverControls.Player.Move.performed += rapley.OnMove;
+            _gameOverControls.Player.Move.started += rapley.OnMove;
+            _gameOverControls.Player.Move.canceled += rapley.OnMove;
+        }
+
+        // CH1
         public void CH1PlayerKeyBinding(TopDownPlayer player)
         {
             _gameOverControls.Player.Enable();
@@ -30,7 +53,23 @@ namespace Runtime.Input
             _gameOverControls.UI.Enable();
             _gameOverControls.UI.GameSetting.performed += _ => settingsUIView.GameSettingToggle();
         }
-        
+
+        // CH2
+        public void CH2KeyBinding(CH2KeyBinder keyBinder)
+        {
+            _gameOverControls.UI.Enable();
+            _gameOverControls.UI.GameSetting.performed += _ => keyBinder.SetSettingUI();
+        }
+
+        // ETC
+        public void GameControlReset()
+        {
+            _gameOverControls.Dispose();
+            _gameOverControls = new GameOverControls();
+
+            _playerInputEnableStack = 0;
+        }
+
         public void PlayerInputDisable()
         {
             _playerInputEnableStack++;

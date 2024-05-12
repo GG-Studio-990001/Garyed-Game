@@ -1,6 +1,8 @@
 ﻿title: Object
 ---
      :평범한 오브젝트다. #line:05d6b92 
+     <<wait 3>>
+     :평범한!!
 ===
 
 title: PacmomObject

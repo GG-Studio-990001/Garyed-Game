@@ -13,7 +13,7 @@ namespace Tests.Runtime.PacmomGameTest
         private GameObject pacmomObj;
         private Pacmom pacmom;
         private SpriteRenderer pacmomSpr;
-        private MovementAndRotation pacmomMovement;
+        private MovementWithFlipAndRotate pacmomMovement;
 
         private GameObject coinObj;
         private GameObject vacuumObj;
@@ -24,7 +24,7 @@ namespace Tests.Runtime.PacmomGameTest
             pacmomObj = new GameObject("PacmomObj");
             pacmom = pacmomObj.AddComponent<Pacmom>();
             pacmomSpr = pacmomObj.AddComponent<SpriteRenderer>();
-            pacmomMovement = pacmomObj.AddComponent<MovementAndRotation>();
+            pacmomMovement = pacmomObj.AddComponent<MovementWithFlipAndRotate>();
             pacmom.Movement = pacmomMovement;
 
             coinObj = new GameObject("CoinObj");

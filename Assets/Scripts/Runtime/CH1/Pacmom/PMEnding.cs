@@ -1,5 +1,6 @@
 using Runtime.InGameSystem;
 using System.Collections;
+using TMPro;
 using UnityEngine;
 
 namespace Runtime.CH1.Pacmom
@@ -13,14 +14,17 @@ namespace Runtime.CH1.Pacmom
         private GameObject _timeline3;
         [SerializeField]
         private SpriteControl[] _spriteControls = new SpriteControl[6];
-        
+        [SerializeField]
+        private TextMeshProUGUI _resultCoinTxt;
+
         public void Awake()
         {
             _shader = GetComponent<PMShader>();
         }
 
-        public void RapleyWin()
+        public void RapleyWin(int reward)
         {
+            GetRewardCoin(reward);
             Managers.Data.IsPacmomCleared = true;
             GamePlayed();
 
@@ -28,13 +32,18 @@ namespace Runtime.CH1.Pacmom
             _timeline3.SetActive(true);
         }
 
+        private void GetRewardCoin(int finalScore)
+        {
+            _resultCoinTxt.text = "x" + finalScore.ToString();
+            Managers.Data.PacmomCoin += finalScore;
+        }
+
         public void PacmomWin()
         {
             GamePlayed();
 
             Debug.Log("팩맘 승리");
-            Time.timeScale = 0;
-            // StartCoroutine(nameof(ToMain));
+            StartCoroutine(nameof(PacmomGameOver));
         }
 
         private void GamePlayed()
@@ -61,7 +70,7 @@ namespace Runtime.CH1.Pacmom
             }
         }
 
-        IEnumerator ToMain()
+        IEnumerator PacmomGameOver()
         {
             Time.timeScale = 0;
             _shader.ChangeBleedAmount();
@@ -69,7 +78,13 @@ namespace Runtime.CH1.Pacmom
             yield return new WaitForSecondsRealtime(3f);
 
             Time.timeScale = 1f;
-            _sceneSystem.LoadScene("Main");
+
+            ExitPacmom();
+        }
+
+        public void ExitPacmom()
+        {
+            _sceneSystem.LoadScene("CH1");
         }
     }
 }

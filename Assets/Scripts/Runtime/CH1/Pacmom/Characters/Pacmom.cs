@@ -4,17 +4,17 @@ using UnityEngine;
 
 namespace Runtime.CH1.Pacmom
 {
-    public class Pacmom : MonoBehaviour, ICharacter, IFoodChain
+    public class Pacmom : MonoBehaviour, IFoodChain
     {
-        public PMGameController GameController;
-        public MovementAndRotation Movement { get; set; }
+        public PMController GameController;
+        public MovementWithFlipAndRotate Movement { get; set; }
         private AI _ai;
         [SerializeField]
         private GameObject _vacuum;
 
         private void Awake()
         {
-            Movement = GetComponent<MovementAndRotation>();
+            Movement = GetComponent<MovementWithFlipAndRotate>();
             _ai = GetComponent<AI>();
         }
 
@@ -22,7 +22,7 @@ namespace Runtime.CH1.Pacmom
         {
             SetSpriteRotation();
             SetStronger(false);
-            ResetState();
+            Movement.ResetState();
         }
 
         public void SetStronger(bool isStrong)
@@ -34,13 +34,6 @@ namespace Runtime.CH1.Pacmom
         private void SetSpriteRotation()
         {
             Movement.SpriteRotation.SetCanRotate(true);
-            Movement.SpriteRotation.SetCanFlip(true);
-        }
-
-        public void ResetState()
-        {
-            SetRotateToZero();
-            Movement.ResetState();
         }
 
         private void FixedUpdate()
@@ -50,16 +43,11 @@ namespace Runtime.CH1.Pacmom
 
         public void VacuumMode(bool isVacuum)
         {
-            SetRotateToZero();
+            Movement.SetRotateZ();
 
             _ai.SetAIStronger(isVacuum);
             Movement.SpriteRotation.SetCanRotate(!isVacuum);
             _vacuum.SetActive(isVacuum);
-        }
-
-        public void SetRotateToZero()
-        {
-            transform.rotation = Quaternion.Euler(Vector3.zero);
         }
 
         private void OnCollisionEnter2D(Collision2D collision)
