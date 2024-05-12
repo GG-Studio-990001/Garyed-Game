@@ -109,6 +109,6 @@ namespace Runtime.CH1.SubB
         
         private void SetActiveFalse() => gameObject.SetActive(false);
         private void CallCheckMatching() => Controller.CheckMatching();
-        public void PlayEffectSound() => Managers.Sound.Play(Sound.Effect, "Candy_POP_SFX", 0.5f);
+        public void PlayEffectSound() => Managers.Sound.Play(Sound.SFX, "Candy_POP_SFX", 0.5f);
     }
 }

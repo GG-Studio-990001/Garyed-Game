@@ -32,8 +32,8 @@ namespace Runtime.CH1.Main.Dialogue
         [Header("=CutScene=")]
         [SerializeField] private GameObject illerstrationParent;
         [SerializeField] private GameObject[] illerstration = new GameObject[3];
-        [SerializeField] private GameObject[] characters = new GameObject[4];
-        [SerializeField] private Vector3[] locations = new Vector3[4];
+        [SerializeField] private GameObject[] npcs = new GameObject[3];
+        [SerializeField] private Vector3[] locations = new Vector3[3];
         [SerializeField] private GameObject lucky;
 
         private void Awake()
@@ -92,7 +92,7 @@ namespace Runtime.CH1.Main.Dialogue
         {
             for (int i = 0; i < 4; i++)
             {
-                characters[i].transform.DOMove(locations[i], 5f);
+                npcs[i].transform.DOMove(locations[i], 5f);
             }
         }
 

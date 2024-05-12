@@ -13,8 +13,8 @@ namespace Runtime.InGameSystem
         private Dictionary<string, AudioClip> _audioClips = new();
         
         public AudioSource BGM => _audioSources[(int)Sound.BGM];
+        public AudioSource SFX => _audioSources[(int)Sound.SFX];
         public AudioSource Speech => _audioSources[(int)Sound.Speech];
-        public AudioSource Effect => _audioSources[(int)Sound.Effect];
         
         private GameObject _soundRoot = null;
 
@@ -47,11 +47,11 @@ namespace Runtime.InGameSystem
         {
             if (isOpen)
             {
-                Effect.Pause();
+                SFX.Pause();
             }
             else
             {
-                Effect.UnPause();
+                SFX.UnPause();
             }
         }
 
@@ -100,7 +100,7 @@ namespace Runtime.InGameSystem
                 audioSource.Play();
                 return true;
             }
-            else if (type == Sound.Effect)
+            else if (type == Sound.SFX)
             {
                 audioSource.PlayOneShot(audioClip);
                 return true;
@@ -125,7 +125,7 @@ namespace Runtime.InGameSystem
         public void StopAllSound()
         {
             StopBGM();
-            StopEffect();
+            StopSFX();
         }
 
         public void StopBGM()
@@ -133,9 +133,9 @@ namespace Runtime.InGameSystem
             BGM.Stop();
         }
 
-        public void StopEffect()
+        public void StopSFX()
         {
-            Effect.Stop();
+            SFX.Stop();
         }
     }
 }

@@ -47,7 +47,7 @@ namespace Runtime.CH1.Pacmom
 
         public override void RunLine(LocalizedLine dialogueLine, Action onDialogueLineFinished)
         {
-            Managers.Sound.StopEffect();
+            Managers.Sound.StopSFX();
 
             string speaker = dialogueLine.CharacterName;
 
@@ -88,7 +88,7 @@ namespace Runtime.CH1.Pacmom
 
         public void OpeningDialogueFin()
         {
-            Managers.Sound.StopEffect();
+            Managers.Sound.StopSFX();
             ShowSpeechBubble(Speaker.none);
             _timeline2.SetActive(true);
         }

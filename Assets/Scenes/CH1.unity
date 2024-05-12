@@ -10996,17 +10996,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1368314908901170753, guid: c0ae61144ca480d4c99f053ad7e3906a, type: 3}
   m_PrefabInstance: {fileID: 1397605484}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &669133893 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2322268151887491608, guid: 636fca1bc1c114943a004cbada5c227f, type: 3}
-  m_PrefabInstance: {fileID: 850711365}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &669133898 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2753138371252244015, guid: 636fca1bc1c114943a004cbada5c227f, type: 3}
   m_PrefabInstance: {fileID: 850711365}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 669133893}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f5aa0ff439b839941b5741c08bb66124, type: 3}
@@ -25064,7 +25059,7 @@ GameObject:
   - component: {fileID: 1298425575}
   - component: {fileID: 1298425574}
   m_Layer: 0
-  m_Name: GameManager
+  m_Name: Managers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36567,11 +36562,10 @@ MonoBehaviour:
   - {fileID: 1782403764}
   - {fileID: 1502912376}
   - {fileID: 857957157}
-  characters:
-  - {fileID: 669133893}
-  - {fileID: 290311364}
-  - {fileID: 100080068}
-  - {fileID: 360165076}
+  npcs:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   locations:
   - {x: 17.4, y: -5.2, z: 0}
   - {x: 16.38, y: -6.2, z: 0}
@@ -42920,7 +42914,7 @@ MonoBehaviour:
   typewriterEffectSpeed: 10
   continueButton: {fileID: 0}
   holdTime: 1.5
-  autoAdvance: 1
+  autoAdvance: 0
 --- !u!222 &3386377522962879151
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -14,20 +14,20 @@ namespace Runtime.Common.Presentation
         {
             _settingsUIView = settingsUIView;
             
-            _settingsUIView.MusicVolumeSlider.onValueChanged.AddListener(SetMusicVolume);
+            _settingsUIView.BgmVolumeSlider.onValueChanged.AddListener(SetBgmVolume);
             _settingsUIView.SfxVolumeSlider.onValueChanged.AddListener(SetSfxVolume);
-            
-            SetMusicVolume(Managers.Data.MusicVolume);
+
+            SetBgmVolume(Managers.Data.BgmVolume);
             SetSfxVolume(Managers.Data.SfxVolume);
             
             _settingsUIView.GameExitButton.onClick.AddListener(OnGameExitButtonClicked);
             _settingsUIView.ExitButton.onClick.AddListener(_settingsUIView.GameSettingToggle);
         }
         
-        private void SetMusicVolume(float volume)
+        private void SetBgmVolume(float volume)
         {
-            Managers.Data.MusicVolume = volume;
-            _settingsUIView.MusicVolumeSlider.value = volume;
+            Managers.Data.BgmVolume = volume;
+            _settingsUIView.BgmVolumeSlider.value = volume;
         }
         
         private void SetSfxVolume(float volume)

@@ -75,7 +75,7 @@ namespace Runtime.CH1.Pacmom
         {
             if (_isAlmostOver && IsTimerRunning)
             {
-                Managers.Sound.Play(Sound.Effect, "Pacmom_SFX_08");
+                Managers.Sound.Play(Sound.SFX, "Pacmom_SFX_08");
                 Invoke(nameof(TicToc), 1f);
             }
         }

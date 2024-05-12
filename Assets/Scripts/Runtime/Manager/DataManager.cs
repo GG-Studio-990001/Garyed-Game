@@ -12,8 +12,8 @@ namespace Runtime.Manager
         public int chapter; // enum으로 변경
         public int stage;
         public int minor;
-        public float musicVolume;
-        public float sfxVolume;
+        public float BgmVolume;
+        public float SfxVolume;
         // Pacmom
         public bool IsPacmomPlayed;
         public bool IsPacmomCleared;
@@ -27,8 +27,8 @@ namespace Runtime.Manager
             chapter = 1;
             stage = 1;
             minor = 0;
-            musicVolume = 1;
-            sfxVolume = 1;
+            BgmVolume = 1;
+            SfxVolume = 1;
             // Pacmom
             IsPacmomPlayed = false;
             IsPacmomCleared = false;
@@ -52,15 +52,15 @@ namespace Runtime.Manager
         public int Stage { get { return _gameData.stage; } set { _gameData.stage = value; } }
         public int Minor { get { return _gameData.minor; } set { _gameData.minor = value; } }
 
-        public float MusicVolume
+        public float BgmVolume
         {
-            get { return _gameData.musicVolume; }
-            set { Math.Clamp(value, 0, 1); _gameData.musicVolume = value; Managers.Sound.BGM.volume = value; }
+            get { return _gameData.BgmVolume; }
+            set { Math.Clamp(value, 0, 1); _gameData.BgmVolume = value; Managers.Sound.BGM.volume = value; }
         }
         public float SfxVolume
         {
-            get { return _gameData.sfxVolume; }
-            set { Math.Clamp(value, 0, 1); _gameData.sfxVolume = value; Managers.Sound.Effect.volume = value; }
+            get { return _gameData.SfxVolume; }
+            set { Math.Clamp(value, 0, 1); _gameData.SfxVolume = value; Managers.Sound.SFX.volume = value; }
         }
 
         // Pacmom
@@ -114,6 +114,5 @@ namespace Runtime.Manager
             _gameData = new GameData();
             SaveGame();
         }
-
     }
 }
