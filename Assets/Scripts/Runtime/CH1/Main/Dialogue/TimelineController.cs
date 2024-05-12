@@ -9,10 +9,11 @@ namespace Runtime.CH1.Main.Dialogue
     public class TimelineController : MonoBehaviour
     {
         [SerializeField] private TimelineAsset[] _timelineAssets;
-        [field:SerializeField] public PlayableDirector PlayableDirector { get; private set; }
+        [field: SerializeField] public PlayableDirector PlayableDirector { get; private set; }
 
         //public PlayerData playerData;
 
+        /*
         public void PlayTimeline()
         {
             //PlayTimeline(playerData.quarter.minor);
@@ -27,8 +28,8 @@ namespace Runtime.CH1.Main.Dialogue
             }
             PlayableDirector.playableAsset = _timelineAssets[minor];
             PlayableDirector.Play();
-        }
-        
+        }*/
+
         public void PlayTimeline(string timelineName)
         {
             for (int i = 0; i < _timelineAssets.Length; i++)

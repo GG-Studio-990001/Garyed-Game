@@ -1,10 +1,6 @@
 using Cinemachine;
 using DG.Tweening;
-using Runtime.CH1.Main.Controller;
-using Runtime.Data.Original;
 using Runtime.InGameSystem;
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -33,37 +29,65 @@ namespace Runtime.CH1.Main.Dialogue
         public UnityEvent OnDialogueStart => _runner.onDialogueStart;
         public UnityEvent OnDialogueEnd => _runner.onDialogueComplete;
 
+        [Header("=CutScene=")]
+        [SerializeField] private GameObject illerstrationParent;
+        [SerializeField] private GameObject[] illerstration = new GameObject[3];
+        [SerializeField] private GameObject[] characters = new GameObject[4];
+        [SerializeField] private Vector3[] locations = new Vector3[4];
+
         private void Awake()
         {
+            _runner.AddCommandHandler<string>("StartTimeline", (timelineName) => _timelineController.PlayTimeline(timelineName));
+            _runner.AddCommandHandler<string>("SceneChange", SceneChange);
+            _runner.AddCommandHandler("FadeOut", _fadeController.StartFadeOut);
+            _runner.AddCommandHandler("FadeIn", _fadeController.StartFadeIn);
+
+            // CutScene
+            _runner.AddCommandHandler<int>("ShowIllustration", ShowIllustration);
+            _runner.AddCommandHandler("HideIllustration", HideIllustration);
+            _runner.AddCommandHandler("CharactersMove", CharactersMove);
+
+            /*
             // UI/Sound
             _runner.AddCommandHandler<string>("PlayBackgroundSound", PlayBackgroundSound);
             _runner.AddCommandHandler<bool>("SetBackgroundColor", SetBackgroundColor);
-            _runner.AddCommandHandler("FadeOut", _fadeController.StartFadeOut);
-            _runner.AddCommandHandler("FadeIn", _fadeController.StartFadeIn);
             _runner.AddCommandHandler<string>("ChangeScene", ChangeScene);
             _runner.AddCommandHandler("SetCamera", SetCamera);
             _runner.AddCommandHandler("CurrentMinorDialogueStart", CurrentMinorDialogueStart);
-            _runner.AddCommandHandler<string>("StartTimeline", (timelineName) => _timelineController.PlayTimeline(timelineName));
-            _runner.AddCommandHandler<string>("SceneChange", SceneChange);
             _runner.AddCommandHandler("SLGSetting", SetSLUUI);
-            
+            */
             if (_volume != null)
             {
                 _volume.profile.TryGet(out _lowRes);
             }
         }
-        
-        private void SetSLUUI()
+
+        private void ShowIllustration(int num)
         {
-            _slgUI.SetActive(true);
-            //TODO 함수 구조 고민
-            SLGActionComponent SLGAction = FindObjectOfType<SLGActionComponent>();
-            if(SLGAction != null)
+            illerstrationParent.SetActive(true);
+
+            for (int i=0; i<3; i++)
             {
-                SLGAction.OnSLGInit();
+                if (i == num)
+                    illerstration[i].SetActive(true);
+                else
+                    illerstration[i].SetActive(false);
             }
         }
-        
+
+        private void HideIllustration()
+        {
+            illerstrationParent.SetActive(false);
+        }
+
+        private void CharactersMove()
+        {
+            for (int i = 0; i < 4; i++)
+            {
+                characters[i].transform.DOMove(locations[i], 5f);
+            }
+        }
+
         private void SceneChange(string sceneName)
         {
             // Hard Coding
@@ -74,9 +98,9 @@ namespace Runtime.CH1.Main.Dialogue
                 float duration = 2f;
 
                 _lowRes.IsActive();
-                
+
                 Managers.Data.InGameKeyBinder.PlayerInputDisable();
-                
+
                 DOVirtual.Float(startValue, endValue, duration, currentValue =>
                 {
                     _lowRes.height.value = (int)currentValue;
@@ -89,9 +113,29 @@ namespace Runtime.CH1.Main.Dialogue
             }
         }
 
+        public void SetDialogueData(string value)
+        {
+            var variableStorage = GameObject.FindObjectOfType<InMemoryVariableStorage>();
 
+            if (value == "ThreeMatchPuzzle")
+            {
+                //variableStorage.TryGetValue("$ThreeMatchPuzzle", out lvalue);
+                variableStorage.SetValue("$ThreeMatchPuzzle", true);
+            }
+        }
 
-
+        /*
+        private void SetSLUUI()
+        {
+            _slgUI.SetActive(true);
+            //TODO 함수 구조 고민
+            SLGActionComponent SLGAction = FindObjectOfType<SLGActionComponent>();
+            if(SLGAction != null)
+            {
+                SLGAction.OnSLGInit();
+            }
+        }
+        
         private void PlayBackgroundSound(string soundName)
         {
             //_soundSystem.PlayMusic(soundName); // TODO Manager.Sound로 교체
@@ -148,16 +192,6 @@ namespace Runtime.CH1.Main.Dialogue
 
             return null;
         }
-        
-        public void SetDialogueData(string value)
-        {
-            var variableStorage = GameObject.FindObjectOfType<InMemoryVariableStorage>();
-
-            if (value == "ThreeMatchPuzzle")
-            {
-                //variableStorage.TryGetValue("$ThreeMatchPuzzle", out lvalue);
-                variableStorage.SetValue("$ThreeMatchPuzzle", true);
-            }
-        }
+        */
     }
 }
