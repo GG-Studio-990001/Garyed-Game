@@ -13,6 +13,7 @@ namespace Runtime.CH1.Pacmom
         [SerializeField] private GameObject _bubble;
         [SerializeField] private Vector3 _outPosition;
         [SerializeField] private Vector3 _inPosition;
+        [SerializeField] private GameObject _drawing;
 
         private void Awake()
         {
@@ -25,6 +26,24 @@ namespace Runtime.CH1.Pacmom
             _runner.AddCommandHandler("Idle", Idle);
             _runner.AddCommandHandler("Pointing", Pointing);
             _runner.AddCommandHandler("Showing", Showing);
+            _runner.AddCommandHandler<bool>("ShowDrawing", ShowDrawing);
+        }
+
+        private void ShowDrawing(bool active)
+        {
+            if (active)
+            {
+                Invoke("ActiveDrawing", 1f);
+            }
+            else
+            {
+                _drawing.SetActive(false);
+            }
+        }
+
+        private void ActiveDrawing()
+        {
+            _drawing.SetActive(true);
         }
 
         private void WalkIn()

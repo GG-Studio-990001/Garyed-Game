@@ -6,13 +6,12 @@ namespace Runtime.Luck
     public class LuckyAnimation
     {
         private readonly Animator _animator;
-        //private static readonly int Standing = Animator.StringToHash(IsStanding);
+        
         private static readonly int Walking = Animator.StringToHash(IsWalking);
         private static readonly int Pointing = Animator.StringToHash(IsPointing);
         private static readonly int Showing = Animator.StringToHash(IsShowing);
         private static readonly int Clapping = Animator.StringToHash(IsClapping);
 
-        //private const string IsStanding = "IsStanding";
         private const string IsWalking = "IsWalking";
         private const string IsPointing = "IsPointing";
         private const string IsShowing = "IsShowing";
@@ -22,12 +21,10 @@ namespace Runtime.Luck
         public LuckyAnimation(Animator animator)
         {
             _animator = animator;
-            _animator.speed = 2f;
         }
 
         public void ResetAnim()
         {
-            _animator.speed = 2f;
             _animator.SetBool(Walking, false);
             _animator.SetBool(Pointing, false);
             _animator.SetBool(Showing, false);
@@ -40,10 +37,9 @@ namespace Runtime.Luck
 
             switch (stateName)
             {
-                case "Standing":
-                    break;
+                //case "Idle":
+                //    break;
                 case "Walking":
-                    _animator.speed = 5f;
                     _animator.SetBool(Walking, true);
                     break;
                 case "Pointing":

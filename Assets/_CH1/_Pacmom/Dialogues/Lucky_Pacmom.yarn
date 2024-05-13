@@ -21,9 +21,12 @@ title: Lucky_Pacmom
 럭키: 팩맘보다 코인을<br>더 많이 모아봐!
 
 <<Showing>>
+<<ShowDrawing true>>
 // 팩맘을 보여준다.
 럭키: 대신 청소기를 든<br>팩맘은 조심해야 해
 럭키: 청소시간에<br>팩맘과 부딪히면<br>코인을 빼앗긴대
+<<ShowDrawing false>>
+<<Idle>>
 럭키: 휴, 말 다 했다
 럭키: 럭키님 퇴장이요~
 
