@@ -1,0 +1,144 @@
+// 말풍선이므로 화자를 제외한 텍스트 출력
+// DustA == 회색, DustB == 검정색
+
+title: PMStart
+---
+<<DustASpeak>>
+DustA: 뭐야, 여기에는<br>어떻게 들어온 거야?
+<<DustBSpeak>>
+DustB: 너도 팩맘을<br>잡으러 온 거야?
+<<RapleySpeak>>
+Player: 
+<<DustASpeak>>
+DustA: 팩맘이 우리 보고<br>더러운 먼지들이래
+<<DustBSpeak>>
+DustB: 정말 미워!
+<<DustASpeak>>
+DustA: 잡아서<br>코인을 뺏어주마!
+<<DustBSpeak>>
+DustB: 잔뜩 뺏어주마!
+<<DustASpeak>>
+DustA: 세 번만 잡으면<br>게임 끝이지
+DustA: 팩맘보다<br>코인이 많아도 좋고
+<<DustBSpeak>>
+DustB: 엄청 배아파 할거야!
+<<DustASpeak>>
+DustA: 하지만 <i>청소 시간</i>에는<br>꼭 도망가야 해!
+<<DustBSpeak>>
+DustB: 으으, 끔찍한 청소기
+<<DustASpeak>>
+DustA: 아무튼 파이팅이야
+<<DustBSpeak>>
+DustB: 이제 곧 시작한다!
+<<OpeningDialogueFin>>
+===
+
+title: PMRetry
+---
+<<DustASpeak>>
+DustA: 역시 다시 왔구나!
+DustA: 아까는 정말 아까웠어
+<<DustBSpeak>>
+DustB: 이번엔 제대로<br>괴롭혀주마!
+<<DustASpeak>>
+DustA: 한 번 더 파이팅이야!
+<<DustBSpeak>>
+DustB: 다시 시작이다!
+<<OpeningDialogueFin>>
+===
+
+title: PMRandom
+position: 163,31
+---
+// 자주 나오지 않으며, 구분 없이 사용됨
+<<declare $RandomInt = 0>>
+<<set $RandomInt = dice(6)>>
+
+<<if $RandomInt is 1>>
+    Dust: 어딨지?
+<<elseif $RandomInt is 2>>
+    Dust: (하품)
+<<elseif $RandomInt is 3>>
+    Dust: (두리번)
+<<elseif $RandomInt is 4>>
+    Dust: 가만 안 둬!
+<<elseif $RandomInt is 5>>
+    Dust: 두고 봐!
+<<else>>
+    Dust: 괴롭혀주마
+<<endif>>
+===
+
+title: PMVacuumMode
+---
+// 팩맘이 청소기를 획득한 후 바로 메시지 발생
+DustA: 청소기다!
+DustB: 도망쳐!
+===
+
+title: PMVacuumModeAgain
+---
+DustA: 또 청소기?
+DustB: 이제 그만..
+===
+
+title: PMCatch
+---
+<<declare $RandomInt2 = 0>>
+<<set $RandomInt2 = dice(4)>>
+
+<<if $RandomInt2 is 1>>
+    Dust: 잡았다!
+<<elseif $RandomInt2 is 2>>
+    Dust: 꼴 좋다!
+<<elseif $RandomInt2 is 3>>
+    Dust: 히히
+<<else>>
+    Dust: 팩맘 바보
+<<endif>>
+===
+
+title: PMBeCaught
+---
+<<declare $RandomInt3 = 0>>
+<<set $RandomInt3 = dice(6)>>
+
+<<if $RandomInt3 is 1>>
+    Dust: 으악!
+<<elseif $RandomInt3 is 2>>
+    Dust: 짜증나
+<<elseif $RandomInt3 is 3>>
+    Dust: 이럴수가!
+<<elseif $RandomInt3 is 4>>
+    Dust: 으으
+<<elseif $RandomInt3 is 5>>
+    Dust: 이런..
+<<else>>
+    Dust: 힝
+<<endif>>
+===
+
+title: PMBlocked
+---
+<<declare $RandomInt4 = 0>>
+<<set $RandomInt4 = dice(5)>>
+
+<<if $RandomInt4 is 1>>
+    Dust: 뭐해?
+<<elseif $RandomInt4 is 2>>
+    Dust: 비켜!
+<<elseif $RandomInt4 is 3>>
+    Dust: 길 막지마
+<<elseif $RandomInt4 is 4>>
+    Dust: 저리가
+<<else>>
+    Dust: 뭐야
+<<endif>>
+===
+
+title: PMGameClear
+---
+// 코인 비교 분기 때 발생, 게임 종료 연출로 화면이 바뀌기 전까지 보여줌
+DustA: 끝났다!
+DustB: 헉 벌써?
+===
