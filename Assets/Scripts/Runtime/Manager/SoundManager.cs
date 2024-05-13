@@ -65,7 +65,7 @@ namespace Runtime.InGameSystem
             _audioClips.Clear();
         }
         
-        public bool Play(Sound type, string path, float volume = 1.0f, float pitch = 1.0f)
+        public bool Play(Sound type, string path) // , float volume = 1.0f, float pitch = 1.0f
         {
             if (string.IsNullOrEmpty(path))
             {
@@ -78,7 +78,11 @@ namespace Runtime.InGameSystem
                 path = $"Sound/{path}";
             }
 
-            audioSource.volume = volume;
+            // 임시 처리
+            if (type == Sound.BGM)
+                audioSource.volume = Managers.Data.BgmVolume;
+            else
+                audioSource.volume = Managers.Data.SfxVolume;
 
             AudioClip audioClip = GetAudioClip(path);
             if (audioClip == null)
@@ -86,7 +90,7 @@ namespace Runtime.InGameSystem
                 return false;
             }
             
-            audioSource.pitch = pitch;
+            // audioSource.pitch = pitch;
             
             // BGM
             if (type == Sound.BGM || type == Sound.Speech)
@@ -129,7 +133,7 @@ namespace Runtime.InGameSystem
         }
 
         public void StopBGM()
-        { 
+        {
             BGM.Stop();
         }
 

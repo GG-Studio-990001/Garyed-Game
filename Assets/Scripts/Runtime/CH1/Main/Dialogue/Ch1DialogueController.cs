@@ -70,13 +70,13 @@ namespace Runtime.CH1.Main.Dialogue
         private void NewSceneStart()
         {
             Managers.Data.Scene++;
-            Managers.Data.SaveGame();
         }
 
         private void SceneStart()
         {
             Managers.Data.SceneDetail++;
             Managers.Data.SaveGame();
+            Debug.Log(Managers.Data.Scene + " " + Managers.Data.SceneDetail);
         }
 
         public void CheckCutScene()

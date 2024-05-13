@@ -1903,15 +1903,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b027cd0bc320d640a816e5b5a02a043, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _effectSounds:
-  - {fileID: 8300000, guid: 890382f44f65db247bd4a20a605b9d00, type: 3}
-  - {fileID: 8300000, guid: 0f522d12e37f17f42a934bf0dd9b942b, type: 3}
-  - {fileID: 8300000, guid: 52f50c9f5fdb6f94e822f90b6c37e8c1, type: 3}
-  - {fileID: 8300000, guid: 2ef50d7aad3ca5b439d18d1b7cf1de39, type: 3}
-  - {fileID: 8300000, guid: c1edd516e42d8bf47801f72cc27a8450, type: 3}
-  - {fileID: 8300000, guid: bbeedfc9d656d9646a3d67f8cdacc2e6, type: 3}
-  - {fileID: 8300000, guid: 85078cc117ca96345abbc8185b79f3d3, type: 3}
-  - {fileID: 8300000, guid: 830d04530a0af164687d4ab9011bf9d5, type: 3}
+  _sfxSounds:
+  - {fileID: 8300000, guid: 8526a369b4e13fd4c8eb09b9dffed966, type: 3}
+  - {fileID: 8300000, guid: 503bda22883786b4e9fa975646513d12, type: 3}
+  - {fileID: 8300000, guid: 392b834d920f2fe4ca39bc9264de8666, type: 3}
+  - {fileID: 8300000, guid: 904e705b251028c47be633d0d573d64f, type: 3}
+  - {fileID: 8300000, guid: 41170f0974f76ed46acd6335aa84461a, type: 3}
+  - {fileID: 8300000, guid: 72375b8dd54581b40872b0de3070ac7c, type: 3}
+  - {fileID: 8300000, guid: 04f68894ada36fc4abdf04727ac2a99e, type: 3}
+  - {fileID: 8300000, guid: 61c2f3350fa1fc142bc8645ff4e13cb6, type: 3}
   - {fileID: 8300000, guid: 82e62aae8c11a2e44a840f570d5cf862, type: 3}
   - {fileID: 8300000, guid: ff6f71e0ac19ef141a05d2c203253253, type: 3}
   - {fileID: 8300000, guid: 615ac8979fcf5724884adfd2e8c38130, type: 3}
@@ -1921,7 +1921,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 88812cfe3baa6534c937857cb0f11c7f, type: 3}
   - {fileID: 8300000, guid: a88456d293b5654449398075892903ef, type: 3}
   - {fileID: 8300000, guid: 1c7d5c7e1e2d45a44b7f63166f1f55bc, type: 3}
-  _effectAudioSource: {fileID: 1727271993}
+  _sfxAudioSource: {fileID: 1727271993}
 --- !u!1 &418745303
 GameObject:
   m_ObjectHideFlags: 0
@@ -2608,9 +2608,65 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4010945733610806736, guid: 0d61b18444317944a99ee38e37220ff8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4010945733610806736, guid: 0d61b18444317944a99ee38e37220ff8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4010945733610806736, guid: 0d61b18444317944a99ee38e37220ff8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1518688482}
+    - target: {fileID: 4010945733610806736, guid: 0d61b18444317944a99ee38e37220ff8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4010945733610806736, guid: 0d61b18444317944a99ee38e37220ff8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: TimeScaleToggle
+      objectReference: {fileID: 0}
+    - target: {fileID: 4010945733610806736, guid: 0d61b18444317944a99ee38e37220ff8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Runtime.CH1.Pacmom.PMKeyBinder, Scripts
+      objectReference: {fileID: 0}
+    - target: {fileID: 4010945733610806736, guid: 0d61b18444317944a99ee38e37220ff8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 5025059340301348446, guid: 0d61b18444317944a99ee38e37220ff8, type: 3}
       propertyPath: m_Name
       value: SettingSystem
+      objectReference: {fileID: 0}
+    - target: {fileID: 5769651196865268794, guid: 0d61b18444317944a99ee38e37220ff8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5769651196865268794, guid: 0d61b18444317944a99ee38e37220ff8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5769651196865268794, guid: 0d61b18444317944a99ee38e37220ff8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1518688482}
+    - target: {fileID: 5769651196865268794, guid: 0d61b18444317944a99ee38e37220ff8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5769651196865268794, guid: 0d61b18444317944a99ee38e37220ff8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: TimeScaleToggle
+      objectReference: {fileID: 0}
+    - target: {fileID: 5769651196865268794, guid: 0d61b18444317944a99ee38e37220ff8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Runtime.CH1.Pacmom.PMKeyBinder, Scripts
+      objectReference: {fileID: 0}
+    - target: {fileID: 5769651196865268794, guid: 0d61b18444317944a99ee38e37220ff8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

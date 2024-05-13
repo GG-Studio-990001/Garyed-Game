@@ -31,8 +31,8 @@ namespace Runtime.Manager
             Scene = 0;
             SceneDetail = 0;
             // Sound
-            BgmVolume = 1;
-            SfxVolume = 1;
+            BgmVolume = 0.5f;
+            SfxVolume = 0.5f;
             // Pacmom
             IsPacmomPlayed = false;
             IsPacmomCleared = false;
