@@ -61,7 +61,7 @@ public class SLGInteractionObject : InteractionObject
 
     public bool Interact(Vector2 direction = default)
     {
-        onInteract?.Invoke();
+        OnInteract?.Invoke();
         if (_SLGAction != null)
         {
             _SLGAction.ProcessObjectInteraction(type);

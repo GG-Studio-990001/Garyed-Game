@@ -28,6 +28,8 @@ namespace Runtime.CH1.Main.PlayerFunction
             {
                 case nameof(PlayerState.Idle):
                     _animator.SetBool(Moving, false);
+                    _animator.SetFloat(Horizontal1, direction.x);
+                    _animator.SetFloat(Vertical1, direction.y);
                     break;
                 case nameof(PlayerState.Move):
                     _animator.SetBool(Moving, true);

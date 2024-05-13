@@ -34,12 +34,9 @@ namespace Runtime.CH1.Pacmom
 
         public void StartDialogue()
         {
-            if (Managers.Data.IsPacmomPlayed)
-            {
-                Debug.Log("이미 클리어됨");
-            }
-
-            if (!Managers.Data.IsPacmomPlayed)
+            if (Managers.Data.IsPacmomCleared)
+                _runner.StartDialogue("PMStartAgain");
+            else if (!Managers.Data.IsPacmomPlayed)
                 _runner.StartDialogue("PMStart");
             else
                 _runner.StartDialogue("PMRetry");
@@ -47,7 +44,7 @@ namespace Runtime.CH1.Pacmom
 
         public override void RunLine(LocalizedLine dialogueLine, Action onDialogueLineFinished)
         {
-            Managers.Sound.StopEffect();
+            Managers.Sound.StopSFX();
 
             string speaker = dialogueLine.CharacterName;
 
@@ -88,7 +85,7 @@ namespace Runtime.CH1.Pacmom
 
         public void OpeningDialogueFin()
         {
-            Managers.Sound.StopEffect();
+            Managers.Sound.StopSFX();
             ShowSpeechBubble(Speaker.none);
             _timeline2.SetActive(true);
         }

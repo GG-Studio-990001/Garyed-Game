@@ -37,8 +37,8 @@ namespace Tests.Runtime.System
             _gameObject = new GameObject("SettingsUI");
             _view = _gameObject.AddComponent<SettingsUIView>();
 
-            _musicVolumeSlider = new GameObject("MusicVolumeSlider").AddComponent<Slider>();
-            _view.MusicVolumeSlider = _musicVolumeSlider;
+            _musicVolumeSlider = new GameObject("BgmVolumeSlider").AddComponent<Slider>();
+            _view.BgmVolumeSlider = _musicVolumeSlider;
             
             _sfxVolumeSlider = new GameObject("SfxVolumeSlider").AddComponent<Slider>();
             _view.SfxVolumeSlider = _sfxVolumeSlider;

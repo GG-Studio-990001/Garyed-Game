@@ -22,7 +22,7 @@ namespace Runtime.Input
         public void TitleKeyBinding(TitleKeyBinder keyBinder)
         {
             _gameOverControls.UI.Enable();
-            _gameOverControls.UI.DialogueInput.performed += _ => keyBinder.LoadMainScene();
+            _gameOverControls.UI.DialogueInput.performed += _ => keyBinder.ActiveTimeline();
             _gameOverControls.UI.GameSetting.performed += _ => keyBinder.SetSettingUI();
         }
 

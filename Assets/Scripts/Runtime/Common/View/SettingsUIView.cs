@@ -9,7 +9,7 @@ namespace Runtime.Common.View
     public class SettingsUIView : MonoBehaviour
     {
         [field:SerializeField] public GameObject SettingUIObject { get; set; }
-        [field:SerializeField] public Slider MusicVolumeSlider { get; set; }
+        [field:SerializeField] public Slider BgmVolumeSlider { get; set; }
         [field:SerializeField] public Slider SfxVolumeSlider { get; set; }
         [field:SerializeField] public Button ExitButton { get; set; }
         [field:SerializeField] public Button GameExitButton { get; set; }
@@ -30,6 +30,7 @@ namespace Runtime.Common.View
             {
                 OnSettingsClose?.Invoke();
                 SettingsEvent.ToggleSettings(false);
+                // Managers.Data.SaveGame(); // 볼륨 해야되는데..
             }
             else
             {

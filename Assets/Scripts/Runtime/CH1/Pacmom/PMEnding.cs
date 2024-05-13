@@ -79,7 +79,7 @@ namespace Runtime.CH1.Pacmom
 
             Time.timeScale = 1f;
 
-            ExitPacmom();
+            _sceneSystem.LoadScene("Pacmom");
         }
 
         public void ExitPacmom()

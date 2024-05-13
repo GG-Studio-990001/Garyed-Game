@@ -9,11 +9,13 @@ namespace Runtime.Manager
     [Serializable]
     public class GameData
     {
-        public int chapter; // enum으로 변경
-        public int stage;
-        public int minor;
-        public float musicVolume;
-        public float sfxVolume;
+        // Progress
+        public int Chapter;
+        public int Scene;
+        public int SceneDetail; // 씬 세부 진행도
+        // Sound
+        public float BgmVolume;
+        public float SfxVolume;
         // Pacmom
         public bool IsPacmomPlayed;
         public bool IsPacmomCleared;
@@ -24,11 +26,13 @@ namespace Runtime.Manager
 
         public GameData()
         {
-            chapter = 1;
-            stage = 1;
-            minor = 0;
-            musicVolume = 1;
-            sfxVolume = 1;
+            // Progress
+            Chapter = 1;
+            Scene = 0;
+            SceneDetail = 0;
+            // Sound
+            BgmVolume = 0.5f;
+            SfxVolume = 0.5f;
             // Pacmom
             IsPacmomPlayed = false;
             IsPacmomCleared = false;
@@ -48,19 +52,19 @@ namespace Runtime.Manager
         private GameOverControls _gameOverControls;
 
         #region properties
-        public int Chapter { get { return _gameData.chapter; } set { _gameData.chapter = value; } }
-        public int Stage { get { return _gameData.stage; } set { _gameData.stage = value; } }
-        public int Minor { get { return _gameData.minor; } set { _gameData.minor = value; } }
+        public int Chapter { get { return _gameData.Chapter; } set { _gameData.Chapter = value; } }
+        public int Scene { get { return _gameData.Scene; } set { _gameData.Scene = value; } }
+        public int SceneDetail { get { return _gameData.SceneDetail; } set { _gameData.SceneDetail = value; } }
 
-        public float MusicVolume
+        public float BgmVolume
         {
-            get { return _gameData.musicVolume; }
-            set { Math.Clamp(value, 0, 1); _gameData.musicVolume = value; Managers.Sound.BGM.volume = value; }
+            get { return _gameData.BgmVolume; }
+            set { Math.Clamp(value, 0, 1); _gameData.BgmVolume = value; Managers.Sound.BGM.volume = value; }
         }
         public float SfxVolume
         {
-            get { return _gameData.sfxVolume; }
-            set { Math.Clamp(value, 0, 1); _gameData.sfxVolume = value; Managers.Sound.Effect.volume = value; }
+            get { return _gameData.SfxVolume; }
+            set { Math.Clamp(value, 0, 1); _gameData.SfxVolume = value; Managers.Sound.SFX.volume = value; }
         }
 
         // Pacmom
@@ -114,6 +118,5 @@ namespace Runtime.Manager
             _gameData = new GameData();
             SaveGame();
         }
-
     }
 }

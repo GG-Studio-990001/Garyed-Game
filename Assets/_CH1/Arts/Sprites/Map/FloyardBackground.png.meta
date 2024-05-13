@@ -115,7 +115,7 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 659
+        width: 923
         height: 769
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -134,9 +134,9 @@ TextureImporter:
       name: FloyardBackground (1)_1
       rect:
         serializedVersion: 2
-        x: 602
+        x: 923
         y: 0
-        width: 1104
+        width: 814
         height: 769
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -155,9 +155,9 @@ TextureImporter:
       name: FloyardBackground (1)_2
       rect:
         serializedVersion: 2
-        x: 1706
+        x: 1737
         y: 0
-        width: 1094
+        width: 1063
         height: 769
       alignment: 0
       pivot: {x: 0.5, y: 0.5}

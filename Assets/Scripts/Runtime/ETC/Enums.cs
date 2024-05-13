@@ -28,7 +28,7 @@ namespace Runtime.ETC
     public enum Sound
     {
         BGM,
-        Effect,
+        SFX,
         Speech,
         Max,
     }

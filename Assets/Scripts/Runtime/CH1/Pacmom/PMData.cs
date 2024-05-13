@@ -164,7 +164,7 @@ namespace Runtime.CH1.Pacmom
             {
                 if (coin.gameObject.activeSelf)
                 {
-                    Managers.Sound.Play(Sound.Effect, "Pacmom_SFX_10");
+                    Managers.Sound.Play(Sound.SFX, "Pacmom_SFX_10");
 
                     SetRapleyScore(_rapleyScore + 1);
                     coin.gameObject.SetActive(false);
@@ -176,7 +176,7 @@ namespace Runtime.CH1.Pacmom
 
         private void ChooseAWinner()
         {
-            Managers.Sound.StopEffect();
+            Managers.Sound.StopSFX();
             _gameController.DialogueStop();
 
             if (_rapleyScore > _pacmomScore)

@@ -7,7 +7,9 @@ namespace Runtime.CH1.Title
     public class TitleKeyBinder : MonoBehaviour
     {
         [SerializeField]
-        private SettingsUIView settingsUIView;
+        private SettingsUIView _settingsUIView;
+        [SerializeField]
+        private GameObject _timeline;
 
         private void Start()
         {
@@ -20,14 +22,14 @@ namespace Runtime.CH1.Title
             Managers.Data.InGameKeyBinder.TitleKeyBinding(this);
         }
 
-        public void LoadMainScene()
+        public void ActiveTimeline()
         {
-            SceneManager.LoadScene("Main");
+            _timeline.SetActive(true);
         }
 
         public void SetSettingUI()
         {
-            settingsUIView.GameSettingToggle();
+            _settingsUIView.GameSettingToggle();
         }
     }
 }

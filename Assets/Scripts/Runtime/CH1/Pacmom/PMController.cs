@@ -37,6 +37,10 @@ namespace Runtime.CH1.Pacmom
         #region Awake
         private void Awake()
         {
+            Managers.Data.LoadGame();
+            Debug.Log("IsPacmomPlayed: " + Managers.Data.IsPacmomPlayed);
+            Debug.Log("IsPacmomCleared: " + Managers.Data.IsPacmomCleared);
+
             AssignComponent();
             AssignController();
         }
@@ -68,10 +72,6 @@ namespace Runtime.CH1.Pacmom
         #region Start
         private void Start()
         {
-            Managers.Data.LoadGame();
-            Debug.Log("IsPacmomPlayed: " + Managers.Data.IsPacmomPlayed);
-            Debug.Log("IsPacmomCleared: " + Managers.Data.IsPacmomCleared);
-
             SetCharacterMove(false);
         }
 
@@ -87,7 +87,7 @@ namespace Runtime.CH1.Pacmom
         #region End
         public void GameOver()
         {
-            Managers.Sound.StopEffect();
+            Managers.Sound.StopSFX();
             _timer.SetTimer(false);
             IsGameOver = true;
 
@@ -107,14 +107,14 @@ namespace Runtime.CH1.Pacmom
 
             if (!_isVacuumMode)
             {
-                Managers.Sound.Play(Sound.Effect, "Pacmom_BGM_02");
+                Managers.Sound.Play(Sound.SFX, "Pacmom_BGM_02");
             }
             else
             {
                 StopCoroutine(nameof(VacuumTime));
 
-                Managers.Sound.StopEffect();
-                Managers.Sound.Play(Sound.Effect, "Pacmom_BGM_01");
+                Managers.Sound.StopSFX();
+                Managers.Sound.Play(Sound.SFX, "Pacmom_BGM_01");
             }
 
             StartCoroutine(nameof(VacuumTime));
@@ -227,7 +227,7 @@ namespace Runtime.CH1.Pacmom
         #region Eaten
         public void RapleyEaten()
         {
-            Managers.Sound.Play(Sound.Effect, "Pacmom_SFX_06");
+            Managers.Sound.Play(Sound.SFX, "Pacmom_SFX_06");
 
             _dataController.TakeHalfCoins(false);
             _rapley.Movement.ResetState();
@@ -235,7 +235,7 @@ namespace Runtime.CH1.Pacmom
 
         public void DustEaten(Dust dust)
         {
-            Managers.Sound.Play(Sound.Effect, "Pacmom_SFX_06");
+            Managers.Sound.Play(Sound.SFX, "Pacmom_SFX_06");
 
             dust.Movement.SetCanMove(false);
             dust.Movement.ResetState();
@@ -246,7 +246,7 @@ namespace Runtime.CH1.Pacmom
 
         public void PacmomEatenByRapley()
         {
-            Managers.Sound.Play(Sound.Effect, "Pacmom_SFX_11");
+            Managers.Sound.Play(Sound.SFX, "Pacmom_SFX_11");
 
             _dataController.TakeHalfCoins(true);
             LoseLife();
@@ -254,7 +254,7 @@ namespace Runtime.CH1.Pacmom
 
         public void PacmomEatenByDust(int ID)
         {
-            Managers.Sound.Play(Sound.Effect, "Pacmom_SFX_11");
+            Managers.Sound.Play(Sound.SFX, "Pacmom_SFX_11");
 
             _dialogue.CatchDialogue(ID);
             SetCharacterMove(false);
@@ -301,7 +301,7 @@ namespace Runtime.CH1.Pacmom
             if (!_isMoving)
                 return;
 
-            Managers.Sound.Play(Sound.Effect, "Pacmom_SFX_10");
+            Managers.Sound.Play(Sound.SFX, "Pacmom_SFX_10");
 
             _dataController.RapleyScore1Up();
 
@@ -316,7 +316,7 @@ namespace Runtime.CH1.Pacmom
             if (!_isMoving)
                 return;
 
-            Managers.Sound.Play(Sound.Effect, "Pacmom_SFX_12");
+            Managers.Sound.Play(Sound.SFX, "Pacmom_SFX_12");
 
             _dataController.PacmomScore1Up();
 

@@ -1,13 +1,13 @@
 using Cinemachine;
 using DG.Tweening;
 using Runtime.InGameSystem;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Yarn.Unity;
+using Sound = Runtime.ETC.Sound;
 
 namespace Runtime.CH1.Main.Dialogue
 {
@@ -24,17 +24,12 @@ namespace Runtime.CH1.Main.Dialogue
         [SerializeField] private Volume _volume;
         private LowRes _lowRes;
         
-        public List<Sprite> Sprites = new List<Sprite>();
+        // public List<Sprite> Sprites = new List<Sprite>();
 
         public UnityEvent OnDialogueStart => _runner.onDialogueStart;
         public UnityEvent OnDialogueEnd => _runner.onDialogueComplete;
 
-        [Header("=CutScene=")]
-        [SerializeField] private GameObject illerstrationParent;
-        [SerializeField] private GameObject[] illerstration = new GameObject[3];
-        [SerializeField] private GameObject[] characters = new GameObject[4];
-        [SerializeField] private Vector3[] locations = new Vector3[4];
-        [SerializeField] private GameObject lucky;
+        [SerializeField] private CutSceneDialogue _cutScene;
 
         private void Awake()
         {
@@ -44,11 +39,16 @@ namespace Runtime.CH1.Main.Dialogue
             _runner.AddCommandHandler("FadeIn", _fadeController.StartFadeIn);
 
             // CutScene
-            _runner.AddCommandHandler<int>("ShowIllustration", ShowIllustration);
-            _runner.AddCommandHandler("HideIllustration", HideIllustration);
-            _runner.AddCommandHandler("CharactersMove", CharactersMove);
+            _runner.AddCommandHandler("NewSceneStart", NewSceneStart);
+            _runner.AddCommandHandler("SceneStart", SceneStart);
+            _runner.AddCommandHandler("SceneEnd", SceneEnd);
+            _runner.AddCommandHandler<int>("ShowIllustration", _cutScene.ShowIllustration);
+            _runner.AddCommandHandler("HideIllustration", _cutScene.HideIllustration);
+            _runner.AddCommandHandler("CharactersMove", _cutScene.CharactersMove1);
+            _runner.AddCommandHandler("CharactersStop", _cutScene.CharactersStop1);
+            _runner.AddCommandHandler<int>("NpcJump", _cutScene.NpcJump);
 
-            _runner.AddCommandHandler("GetLucky", GetLucky);
+            _runner.AddCommandHandler("GetLucky", _cutScene.GetLucky);
 
             /*
             // UI/Sound
@@ -65,35 +65,36 @@ namespace Runtime.CH1.Main.Dialogue
             }
         }
 
-        private void GetLucky()
+        private void Start()
         {
-            lucky.SetActive(false);
+            if (Managers.Data.Scene == 0 && Managers.Data.SceneDetail == 0)
+                _runner.StartDialogue("S1");
         }
 
-        private void ShowIllustration(int num)
+        public void CheckCutScene()
         {
-            illerstrationParent.SetActive(true);
-
-            for (int i=0; i<3; i++)
+            if (Managers.Data.Scene == 1 && Managers.Data.SceneDetail == 1)
             {
-                if (i == num)
-                    illerstration[i].SetActive(true);
-                else
-                    illerstration[i].SetActive(false);
+                _runner.StartDialogue("S1.2");
+                //_runner.StartDialogue($"Dialogue{Managers.Data.Minor}");
             }
         }
-
-        private void HideIllustration()
+        private void NewSceneStart()
         {
-            illerstrationParent.SetActive(false);
+            Managers.Data.Scene++;
         }
 
-        private void CharactersMove()
+        private void SceneStart()
         {
-            for (int i = 0; i < 4; i++)
-            {
-                characters[i].transform.DOMove(locations[i], 5f);
-            }
+            Managers.Data.SceneDetail++;
+            _cutScene.Player.IsDirecting = true;
+        }
+
+        private void SceneEnd()
+        {
+            _cutScene.Player.IsDirecting = false;
+            Managers.Data.SaveGame();
+            Debug.Log(Managers.Data.Scene + " " + Managers.Data.SceneDetail);
         }
 
         private void SceneChange(string sceneName)
@@ -130,6 +131,11 @@ namespace Runtime.CH1.Main.Dialogue
                 //variableStorage.TryGetValue("$ThreeMatchPuzzle", out lvalue);
                 variableStorage.SetValue("$ThreeMatchPuzzle", true);
             }
+        }
+
+        public void TypingSFX()
+        {
+            Managers.Sound.Play(Sound.SFX, "[CH1] Text SFX");
         }
 
         /*

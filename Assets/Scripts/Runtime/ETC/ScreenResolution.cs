@@ -34,7 +34,8 @@ namespace Runtime.ETC
         {
             if (Screen.fullScreen == true)
             {
-                _pixCam.assetsPPU = _fullScreenPPU;
+                if (_fullScreenPPU != 0)
+                    _pixCam.assetsPPU = _fullScreenPPU;
 
                 _wasFullScreen = true;
                 _windowedFixed = false;
@@ -48,7 +49,8 @@ namespace Runtime.ETC
             }
             else
             {
-                _pixCam.assetsPPU = _windowedPPU;
+                if (_windowedPPU != 0)
+                    _pixCam.assetsPPU = _windowedPPU;
 
                 if (_wasFullScreen == true)
                 {
