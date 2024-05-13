@@ -11,7 +11,6 @@
 //     <<jump Dallar3>>
 // <<else>>
 //     <<jump DallarDefault>>
-
 <<endif>>
 ===
 
@@ -23,14 +22,15 @@ title: Dallar1
 달러: 어디에서 왔는지 기억은 나는가?
 달러: ...몰라도 괜찮다네
 달러: 파머가 말한대로 색깔 있는 것만 만지지 말게나.
-    // 첫 상호작용에만 출력되고, 2번째 상호작용에는 출력되지 않게하는 변수 선언
-    //<<if $DallarStance is true>>
-    //    달러: 어디에서 왔는지 기억은 나나? #line:0850f7e 
-    //    달러: ... #line:0f54baa 
-    //    달러: 그렇군. #line:0c1a9c0 
-    //    <<set $DallarStance to false>>
-    //<<endif>>
-    //달러: 당신의 가치에 맞는 물건을 꼭 가져왔으면 좋겠네. #line:09d1fcc 
+
+// 첫 상호작용에만 출력되고, 2번째 상호작용에는 출력되지 않게하는 변수 선언
+//<<if $DallarStance is true>>
+//    달러: 어디에서 왔는지 기억은 나나? #line:0850f7e 
+//    달러: ... #line:0f54baa 
+//    달러: 그렇군. #line:0c1a9c0 
+//    <<set $DallarStance to false>>
+//<<endif>>
+//달러: 당신의 가치에 맞는 물건을 꼭 가져왔으면 좋겠네. #line:09d1fcc 
 ===
 
 

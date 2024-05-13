@@ -1234,7 +1234,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2eb91de49df4589839f3e6e93a4d5f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  talkToNode: 
   dialogueRunner: {fileID: 0}
 --- !u!61 &100080071
 BoxCollider2D:
@@ -1476,7 +1475,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6dd3a0605680fc4d99395d8cfaf79da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onInteract:
+  OnInteract:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1001 &100678042
@@ -2375,7 +2374,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6dd3a0605680fc4d99395d8cfaf79da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onInteract:
+  OnInteract:
     m_PersistentCalls:
       m_Calls: []
 --- !u!4 &156468047 stripped
@@ -4240,7 +4239,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2eb91de49df4589839f3e6e93a4d5f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  talkToNode: Dallar
   dialogueRunner: {fileID: 472331523037639807}
 --- !u!61 &290311367
 BoxCollider2D:
@@ -5699,7 +5697,7 @@ GameObject:
   - component: {fileID: 360165079}
   - component: {fileID: 360165078}
   m_Layer: 15
-  m_Name: R2-Mon
+  m_Name: R2_Mon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5732,7 +5730,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2eb91de49df4589839f3e6e93a4d5f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  talkToNode: 
   dialogueRunner: {fileID: 0}
 --- !u!61 &360165079
 BoxCollider2D:
@@ -8718,7 +8715,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6dd3a0605680fc4d99395d8cfaf79da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onInteract:
+  OnInteract:
     m_PersistentCalls:
       m_Calls: []
 --- !u!60 &482497566
@@ -10245,7 +10242,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6dd3a0605680fc4d99395d8cfaf79da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onInteract:
+  OnInteract:
     m_PersistentCalls:
       m_Calls: []
 --- !u!4 &613787599 stripped
@@ -10437,21 +10434,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6dd3a0605680fc4d99395d8cfaf79da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onInteract:
+  OnInteract:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 617964512}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!61 &617964516
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13552,7 +13537,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6dd3a0605680fc4d99395d8cfaf79da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onInteract:
+  OnInteract:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1001 &771952670
@@ -14946,11 +14931,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1441124673561100856, guid: 636fca1bc1c114943a004cbada5c227f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.16
+      value: -1.65
       objectReference: {fileID: 0}
     - target: {fileID: 1441124673561100856, guid: 636fca1bc1c114943a004cbada5c227f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.05
+      value: -4.93
       objectReference: {fileID: 0}
     - target: {fileID: 1441124673561100856, guid: 636fca1bc1c114943a004cbada5c227f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -22313,7 +22298,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6dd3a0605680fc4d99395d8cfaf79da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onInteract:
+  OnInteract:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1001 &1152149292
@@ -25479,7 +25464,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6dd3a0605680fc4d99395d8cfaf79da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onInteract:
+  OnInteract:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1001 &1263034747
@@ -25743,7 +25728,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6dd3a0605680fc4d99395d8cfaf79da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onInteract:
+  OnInteract:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1001 &1277133688
@@ -28905,7 +28890,7 @@ Transform:
   m_GameObject: {fileID: 1429684703}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.16, y: -3.05, z: -10}
+  m_LocalPosition: {x: -1.65, y: -4.93, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -29574,7 +29559,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6dd3a0605680fc4d99395d8cfaf79da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onInteract:
+  OnInteract:
     m_PersistentCalls:
       m_Calls: []
 --- !u!58 &1461111653
@@ -35026,7 +35011,7 @@ Transform:
   m_GameObject: {fileID: 1674432335}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.16, y: -3.05, z: -10}
+  m_LocalPosition: {x: -1.65, y: -4.93, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -40088,7 +40073,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1908934227
 Transform:
   m_ObjectHideFlags: 0
@@ -40864,7 +40849,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6dd3a0605680fc4d99395d8cfaf79da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onInteract:
+  OnInteract:
     m_PersistentCalls:
       m_Calls: []
 --- !u!70 &1934507072
@@ -43594,7 +43579,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6dd3a0605680fc4d99395d8cfaf79da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onInteract:
+  OnInteract:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1001 &2096542812
@@ -44183,7 +44168,7 @@ MonoBehaviour:
   - {fileID: 1653161658143596180}
   - {fileID: 1662598218}
   startNode: S1
-  startAutomatically: 0
+  startAutomatically: 1
   runSelectedOptionAsLine: 0
   lineProvider: {fileID: 0}
   verboseLogging: 1
@@ -44512,7 +44497,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5839968016702274743, guid: d0f2a1b23fc54d44db5c3ea0cf44e6bd, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6011573724401493930, guid: d0f2a1b23fc54d44db5c3ea0cf44e6bd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -44963,7 +44948,7 @@ MonoBehaviour:
         m_CallState: 2
   typewriterEffectSpeed: 10
   continueButton: {fileID: 0}
-  holdTime: 1.5
+  holdTime: 0
   autoAdvance: 0
 --- !u!222 &3386377522962879151
 CanvasRenderer:
@@ -47344,6 +47329,7 @@ PrefabInstance:
     - {fileID: 5988176475115625434, guid: fabd929830e0d48429c6e047af57dd53, type: 3}
     - {fileID: 9143369838455812675, guid: fabd929830e0d48429c6e047af57dd53, type: 3}
     - {fileID: 1018682659687249, guid: fabd929830e0d48429c6e047af57dd53, type: 3}
+    - {fileID: 4908646703140777971, guid: fabd929830e0d48429c6e047af57dd53, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 6138575075136299047, guid: fabd929830e0d48429c6e047af57dd53, type: 3}
       insertIndex: 2

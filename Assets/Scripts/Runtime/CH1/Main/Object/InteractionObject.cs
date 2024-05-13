@@ -7,7 +7,7 @@ namespace Runtime.CH1.Main.Object
 {
     public class InteractionObject : MonoBehaviour, IInteractive
     {
-        public UnityEvent onInteract;
+        public UnityEvent OnInteract;
         private DialogueRunner dialogueRunner;
     
         private void Awake()
@@ -24,7 +24,7 @@ namespace Runtime.CH1.Main.Object
 
         public bool Interact(Vector2 direction = default)
         {
-            onInteract?.Invoke();
+            OnInteract?.Invoke();
             dialogueRunner.StartDialogue(gameObject.name);
             return true;
         }
