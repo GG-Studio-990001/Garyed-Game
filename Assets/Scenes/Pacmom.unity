@@ -23148,7 +23148,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1143825158}
   - component: {fileID: 1143825157}
-  - component: {fileID: 1143825156}
   - component: {fileID: 1143825155}
   m_Layer: 5
   m_Name: Lucky Camera
@@ -23201,14 +23200,6 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
---- !u!81 &1143825156
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1143825153}
-  m_Enabled: 1
 --- !u!20 &1143825157
 Camera:
   m_ObjectHideFlags: 0
@@ -24492,6 +24483,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1574099397}
   - component: {fileID: 1574099398}
+  - component: {fileID: 1574099399}
   m_Layer: 0
   m_Name: LuckyDialogueRunner
   m_TagString: Untagged
@@ -24508,11 +24500,11 @@ Transform:
   m_GameObject: {fileID: 1574099396}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 100}
+  m_LocalScale: {x: 0.046875, y: 0.046875, z: 0.046875}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1972450718}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1574099398
 MonoBehaviour:
@@ -24530,6 +24522,7 @@ MonoBehaviour:
   _variableStorage: {fileID: 0}
   dialogueViews:
   - {fileID: 2130668681}
+  - {fileID: 1574099399}
   startNode: Lucky_Pacmom
   startAutomatically: 1
   runSelectedOptionAsLine: 0
@@ -24550,6 +24543,22 @@ MonoBehaviour:
   onCommand:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1574099399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1574099396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9cf4ca3552b78e448ad177b9655d9f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _lucky: {fileID: 2118194188}
+  _bubble: {fileID: 2130668678}
+  _outPosition: {x: 773, y: -159, z: 0}
+  _inPosition: {x: 353, y: -159, z: 0}
 --- !u!1 &1575259375
 GameObject:
   m_ObjectHideFlags: 0
@@ -30115,7 +30124,6 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1574099397}
   - {fileID: 2118194189}
   - {fileID: 2130668679}
   m_Father: {fileID: 0}
@@ -31261,6 +31269,7 @@ SceneRoots:
   m_Roots:
   - {fileID: 217373127}
   - {fileID: 1143825158}
+  - {fileID: 1574099397}
   - {fileID: 1972450718}
   - {fileID: 1882183158}
   - {fileID: 1118124721}
