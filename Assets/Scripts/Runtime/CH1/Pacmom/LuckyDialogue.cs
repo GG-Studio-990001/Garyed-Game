@@ -2,7 +2,6 @@ using DG.Tweening;
 using Runtime.Luck;
 using UnityEngine;
 using Yarn.Unity;
-using static PlasticGui.PlasticTableColumn;
 
 namespace Runtime.CH1.Pacmom
 {
@@ -14,6 +13,8 @@ namespace Runtime.CH1.Pacmom
         [SerializeField] private Vector3 _outPosition;
         [SerializeField] private Vector3 _inPosition;
         [SerializeField] private GameObject _drawing;
+        [SerializeField] private GameObject[] LuckyObjs;
+        [SerializeField] private GameObject _timeline;
 
         private void Awake()
         {
@@ -27,6 +28,19 @@ namespace Runtime.CH1.Pacmom
             _runner.AddCommandHandler("Pointing", Pointing);
             _runner.AddCommandHandler("Showing", Showing);
             _runner.AddCommandHandler<bool>("ShowDrawing", ShowDrawing);
+            _runner.AddCommandHandler("LuckyExit", LuckyExit);
+            _runner.AddCommandHandler("StartPacmom", StartPacmom);
+        }
+
+        private void LuckyExit()
+        {
+            for (int i=0; i< LuckyObjs.Length; i++)
+                LuckyObjs[i].SetActive(false);
+        }
+
+        private void StartPacmom()
+        {
+            _timeline.SetActive(true);
         }
 
         private void ShowDrawing(bool active)
@@ -37,6 +51,7 @@ namespace Runtime.CH1.Pacmom
             }
             else
             {
+                CancelInvoke("ActiveDrawing");
                 _drawing.SetActive(false);
             }
         }

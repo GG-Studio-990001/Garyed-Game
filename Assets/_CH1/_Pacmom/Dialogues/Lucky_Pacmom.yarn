@@ -33,6 +33,7 @@ title: Lucky_Pacmom
 <<ActiveBubble false>>
 <<WalkOut>>
 <<wait 3>>
-<<Idle>>
+<<LuckyExit>>
+<<StartPacmom>>
 // 럭키가 맵 밖으로 나간다.
 ===

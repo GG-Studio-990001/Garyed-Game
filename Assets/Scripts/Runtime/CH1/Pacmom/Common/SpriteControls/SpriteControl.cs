@@ -18,7 +18,7 @@ namespace Runtime.CH1.Pacmom
             _spriteAnim = new SpriteAnimation(GetComponent<SpriteRenderer>());
         }
 
-        private void Start()
+        public void StartAnim()
         {
             InvokeRepeating(nameof(SpriteAnimation), _animTime, _animTime);
         }

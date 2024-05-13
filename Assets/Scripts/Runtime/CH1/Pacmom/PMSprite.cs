@@ -19,6 +19,17 @@ namespace Runtime.CH1.Pacmom
             SetNormalSprites();
         }
 
+        public void StartSpriteAnim()
+        {
+            _rapleySprite.StartAnim();
+            _pacmomSprite.StartAnim();
+            for (int i = 0; i < GlobalConst.DustCnt; i++)
+            {
+                _dustBodySprites[i].StartAnim();
+                _dustEyeSprites[i].StartAnim();
+            }
+        }
+
         public void SetNormalSprites()
         {
             _rapleySprite.GetNormalSprite();
