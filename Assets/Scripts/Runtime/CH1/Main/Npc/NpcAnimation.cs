@@ -18,6 +18,7 @@ namespace Runtime.CH1.Main
         public NpcAnimation(Animator animator)
         {
             _animator = animator;
+            _animator.speed = 0.5f;
         }
 
         public bool SetAnimation(string stateName, Vector2 direction = default)

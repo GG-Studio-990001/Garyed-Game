@@ -20,7 +20,7 @@ namespace Runtime.CH1.Main.Player
         private Vector2 _lastInput;
 
         private IMovement _movement;
-        public IAnimation _animation { get; private set; }
+        public IAnimation Animation { get; private set; }
         private IInteraction _interaction;
         
         private PlayerState _state = PlayerState.Idle;
@@ -31,14 +31,14 @@ namespace Runtime.CH1.Main.Player
         private void Start()
         {
             _movement = new TopDownMovement(moveSpeed, transform);
-            _animation = new TopDownAnimation(GetComponent<Animator>(), animSpeed);
+            Animation = new TopDownAnimation(GetComponent<Animator>(), animSpeed);
             _interaction = new TopDownInteraction(transform, LayerMask.GetMask(GlobalConst.Interaction));
         }
         
         private void Update()
         {
             if (!IsDirecting)
-                _animation.SetAnimation(_state.ToString(), _lastInput);
+                Animation.SetAnimation(_state.ToString(), _lastInput);
         }
 
         private void FixedUpdate()
