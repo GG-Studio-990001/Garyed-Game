@@ -1,0 +1,48 @@
+﻿title: NPC1
+// 사건분기에 따라 여기서 분류 후 JUMP하는 게 바람직
+// 해당 NPC는 라플리의 코인을 들고 도망가는 도벽있는 NPC
+---
+//<<set $mainer to GetMinor()>>
+
+//<<if $mainer == 1>>
+//    <<jump NPC1_1>>
+//<<elseif $mainer == 2>>
+//    <<jump NPC1_1>> //temp
+// <<else>>
+//     <<jump NPC1Default>>
+
+//<<endif>>
+===
+
+title: NPC1_1
+// 사건 분기 : 1.01.0
+// 설명 : 인트로 이후 첫 자유행동 시점
+// 이미지에 따라 이름이 다르게 표현될 예정
+---
+    심마니: 오? 당신은 아까 떨어진 꼬마구나. #line:0f21805 
+    심마니: 뭐하고 있냐고? #line:0d283c0 
+    심마니: 농땡이피우는 것처럼 보이지만, 저 이상한 물체를 보고 있었어. #line:0c0dba6 
+    심마니: 무언가 돈이 되지 않을까? #line:0db4c52 
+    심마니: 대장을 잠시 불렀으니까, 알려주실거야. #line:0f9372c 
+===
+
+title: NPC1_2
+// 사건 분기 : 1.04.0 ~ 1.05.0
+// 설명 : 팩맘 클리어 연출 이후 자유행동 시점
+---
+    <<declare $CoinGet = false>>
+    <<declare $NPC1Stance = false>>
+    // 플레이어가 SLG UI를 획득하고 코인 아이콘을 클릭함에 따라 대화가 변경됨.
+    <<if $CoinGet is false>>
+        두건을 쓴 심마니: 돈이다 돈!! 헤헤..    #line:0e57641 
+    <<else>>
+        <<if $NPC1Stance is false>>
+            두건을 쓴 심마니: 어.. 돈이 사라졌어!!! #line:00d6ed5 
+            두건을 쓴 심마니: ... #line:00c5816 
+            <<set $NPC1Stance to true>>
+        두건을 쓴 심마니: 꼬마야 미안하단다. #line:071bfb9 
+        두건을 쓴 심마니: 잠시 돈에 눈이 멀었네. #line:0eb7d10 
+        <<endif>>
+    <<endif>>
+=== 
+

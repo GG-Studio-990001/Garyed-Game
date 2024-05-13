@@ -16,6 +16,11 @@ namespace Runtime.CH1.Title
             _gap = _backgrounds[0].localPosition.y - _backgrounds[1].localPosition.y;
         }
 
+        public void SetSpeed(float speed)
+        {
+            _speed = speed;
+        }
+
         private void Update()
         {
             for (int i = 0; i < _backgrounds.Length; i++)

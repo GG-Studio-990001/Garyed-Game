@@ -1,0 +1,45 @@
+﻿title: Mamago
+// 사건분기에 따라 여기서 분류 후 JUMP하는 게 바람직
+---
+<<set $mainer to GetMinor()>>
+
+
+<<jump Mamago_1>>
+
+// <<if $mainer == 1>>
+    
+// <<elseif $mainer == 2>>
+//     <<jump Dallar2>>
+// <<elseif $mainer == 3>>
+//     <<jump Dallar3>>
+// <<else>>
+//     <<jump DallarDefault>>
+===
+
+title: Mamago_1
+// 사건 분기 : 1.04.2
+// 설명 : 마마고 컴퍼니 초반 및 입장 연출 이후
+---
+    마마고: Sorry.. (죄송합니다...) #line:07e6df2 
+    마마고: 지금 전기가 끊겨 운영이 힘듭니다. #line:00e1831 
+===
+
+title: Mamago_2
+// 사건 분기 : 1.04.2
+// 설명 : 마마고 컴퍼니 발전 퍼즐 성공 및 연출 이후
+---
+    <<declare $MamagoStance = false>>
+    마마고: merci beaucoup (감사합니다!) #line:01c9a5b 
+
+        <<if $MamagoStance is false>>
+            마마고: 옵션 UI를 드리겠습니다! 한 번 사용해보세요. #line:0fa8e20 
+            // 라플리 획득 모션 및 사운드 출력
+            마마고: 추가로 감사의 의미로 기계어 번역팩을 드리겠습니다. #line:00d7918 
+            마마고: 한 번 옵션과 함께 확인해 보세요. #line:0693bab 
+        <<else>>
+            마마고: Now(지금), 상품준비중에 있습니다! #line:0b472be 
+            마마고: 다음에 다시 방문해주세요.  #line:0a1661c 
+        <<endif>>
+        
+    마마고: printf("Good bye"); (안녕히계세요) #line:0d37995 
+===

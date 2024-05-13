@@ -4407,6 +4407,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1368314908901170753, guid: c0ae61144ca480d4c99f053ad7e3906a, type: 3}
   m_PrefabInstance: {fileID: 299372200}
   m_PrefabAsset: {fileID: 0}
+--- !u!60 &301413838 stripped
+PolygonCollider2D:
+  m_CorrespondingSourceObject: {fileID: 415993968003067430, guid: 6d173b4636e6a974e877862ce6efc4e9, type: 3}
+  m_PrefabInstance: {fileID: 5950810866135006222}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &301522635
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28909,7 +28914,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f453f694addf4275988fac205bc91968, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_BoundingShape2D: {fileID: 0}
+  m_BoundingShape2D: {fileID: 301413838}
   m_Damping: 0.5
   m_MaxWindowSize: -1
 --- !u!1001 &1432370932
@@ -34936,6 +34941,7 @@ GameObject:
   - component: {fileID: 1674432340}
   - component: {fileID: 1674432341}
   - component: {fileID: 1674432342}
+  - component: {fileID: 1674432343}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -35011,7 +35017,7 @@ Transform:
   m_GameObject: {fileID: 1674432335}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.65, y: -4.93, z: -10}
+  m_LocalPosition: {x: 0.9894229, y: -4.9292397, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -35119,6 +35125,20 @@ MonoBehaviour:
   m_CropFrameX: 0
   m_CropFrameY: 0
   m_StretchFill: 0
+--- !u!114 &1674432343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1674432335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f93fb071f22dde843badc8bba2cf2586, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _windowedPPU: 0
+  _fullScreenPPU: 0
 --- !u!1001 &1677440271
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -44934,10 +44954,11 @@ MonoBehaviour:
   onCharacterTyped:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Runtime.InGameSystem.SoundSystem, Scripts
-        m_MethodName: PlayEffect
-        m_Mode: 5
+      - m_Target: {fileID: 1757409998}
+        m_TargetAssemblyTypeName: Runtime.CH1.Main.Dialogue.Ch1DialogueController,
+          Scripts
+        m_MethodName: TypingSFX
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

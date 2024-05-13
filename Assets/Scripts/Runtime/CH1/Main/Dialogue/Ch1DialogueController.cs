@@ -8,6 +8,7 @@ using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Yarn.Unity;
+using Sound = Runtime.ETC.Sound;
 
 namespace Runtime.CH1.Main.Dialogue
 {
@@ -153,6 +154,11 @@ namespace Runtime.CH1.Main.Dialogue
                 //variableStorage.TryGetValue("$ThreeMatchPuzzle", out lvalue);
                 variableStorage.SetValue("$ThreeMatchPuzzle", true);
             }
+        }
+
+        public void TypingSFX()
+        {
+            Managers.Sound.Play(Sound.SFX, "[CH1] Text SFX");
         }
 
         /*
