@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ad7d920799ca61c4c9535aaafe202317
+guid: 4167d87133391c24e8e2b5a28fd888ef
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -82,6 +82,19 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -110,13 +123,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Sprite_Rapley 1_4
+      name: Sprite_Farmer_4
       rect:
         serializedVersion: 2
         x: 0
-        y: 105
-        width: 29
-        height: 35
+        y: 120
+        width: 33
+        height: 40
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +137,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f89906f835acdcc44b136ed07ad22417
-      internalID: 880595507
+      spriteID: c67d93ef8dea6394596b9e1bfa47e761
+      internalID: 855917538
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Rapley 1_5
+      name: Sprite_Farmer_5
       rect:
         serializedVersion: 2
-        x: 29
-        y: 105
-        width: 29
-        height: 35
+        x: 33
+        y: 120
+        width: 33
+        height: 40
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,20 +158,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 379e04fcee09f17479a7da676507ac14
-      internalID: 243709852
+      spriteID: 2290cdabb0607d645934cca3f2822f69
+      internalID: 726896103
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Rapley 1_6
+      name: Sprite_Farmer_6
       rect:
         serializedVersion: 2
-        x: 58
-        y: 105
-        width: 29
-        height: 35
+        x: 66
+        y: 120
+        width: 33
+        height: 40
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,20 +179,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8d45eaae2275230408c0e28006a4a777
-      internalID: -588775670
+      spriteID: 1cf0c1bb7a2d5a840bec9cd20d44ffbd
+      internalID: 1223693306
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Rapley 1_7
+      name: Sprite_Farmer_7
       rect:
         serializedVersion: 2
-        x: 87
-        y: 105
-        width: 29
-        height: 35
+        x: 99
+        y: 120
+        width: 33
+        height: 40
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,104 +200,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3607563fae6a53643a3c8e8d7d0200b9
-      internalID: 1397222005
+      spriteID: 16c4f4a37a5928847add774eb953597c
+      internalID: -382644806
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Rapley 1_8
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 70
-        width: 29
-        height: 35
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d1a334864eb5ee446b14beca24ade3f1
-      internalID: 305540289
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sprite_Rapley 1_9
-      rect:
-        serializedVersion: 2
-        x: 29
-        y: 70
-        width: 29
-        height: 35
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b86945988dbe84e4087a4f8e4f7e5dd1
-      internalID: -1293372645
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sprite_Rapley 1_10
-      rect:
-        serializedVersion: 2
-        x: 58
-        y: 70
-        width: 29
-        height: 35
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bd3fefe8a67ac3649a95791206768243
-      internalID: -872610280
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sprite_Rapley 1_11
-      rect:
-        serializedVersion: 2
-        x: 87
-        y: 70
-        width: 29
-        height: 35
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 79a4cbdf967ca474e9bd16af2fd35042
-      internalID: 1788762118
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sprite_Rapley 1_12
+      name: Sprite_Farmer_8
       rect:
         serializedVersion: 2
         x: 0
-        y: 35
-        width: 29
-        height: 35
+        y: 80
+        width: 33
+        height: 40
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -292,20 +221,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 737e661090dbe4a4ab369ddbf8917c1f
-      internalID: -1874645265
+      spriteID: 2c1ad84d9706f6840a0e6a3d4a57573c
+      internalID: -691119841
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Rapley 1_13
+      name: Sprite_Farmer_9
       rect:
         serializedVersion: 2
-        x: 29
-        y: 35
-        width: 29
-        height: 35
+        x: 33
+        y: 80
+        width: 33
+        height: 40
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -313,20 +242,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 07264f6fd5df4d34f9a9c07f362ab47f
-      internalID: -948034691
+      spriteID: 6e79d69b38164b44b869d0532494b4bf
+      internalID: -528415208
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Rapley 1_14
+      name: Sprite_Farmer_10
       rect:
         serializedVersion: 2
-        x: 58
-        y: 35
-        width: 29
-        height: 35
+        x: 66
+        y: 80
+        width: 33
+        height: 40
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -334,20 +263,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8f931bb4a06149844a68183bc250c455
-      internalID: 1472264026
+      spriteID: 0101efe5d13ee4540b0cc4a33bfdc65a
+      internalID: 732133814
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Rapley 1_15
+      name: Sprite_Farmer_11
       rect:
         serializedVersion: 2
-        x: 87
-        y: 35
-        width: 29
-        height: 35
+        x: 99
+        y: 80
+        width: 33
+        height: 40
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -355,20 +284,104 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a1337fee5c4997740a99b2e6288deff5
-      internalID: -553152755
+      spriteID: e67ee22c1a49dc041a3f25a654709579
+      internalID: 426037415
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Rapley 1_16
+      name: Sprite_Farmer_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 40
+        width: 33
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3b2274a316030e4ba5714df3d4e6cac
+      internalID: -649487359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Farmer_13
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 40
+        width: 33
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6c243d3b6e48184994f8dab77b716fe
+      internalID: -198956789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Farmer_14
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 40
+        width: 33
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98245ed2d25715848868e93dd0d526b6
+      internalID: 2083716157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Farmer_15
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 40
+        width: 33
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5c02c6ad19750e429053b11fb58e29a
+      internalID: -1915395791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite_Farmer_16
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 29
-        height: 35
+        width: 33
+        height: 40
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -376,20 +389,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 09002704bcfbb6b46a0bed81209f3f59
-      internalID: 1248959271
+      spriteID: 669ed5db335908f4089bf93fd488d3b1
+      internalID: 231099112
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Rapley 1_17
+      name: Sprite_Farmer_17
       rect:
         serializedVersion: 2
-        x: 29
+        x: 33
         y: 0
-        width: 29
-        height: 35
+        width: 33
+        height: 40
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -397,20 +410,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6f441e2d21829a6429ff9c37b918b853
-      internalID: 262482317
+      spriteID: b8fb873bda9efff46b98fdf346cf5c62
+      internalID: -245571336
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Rapley 1_18
+      name: Sprite_Farmer_18
       rect:
         serializedVersion: 2
-        x: 58
+        x: 66
         y: 0
-        width: 29
-        height: 35
+        width: 33
+        height: 40
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -418,20 +431,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2470c02c0da1bd54f881436ea26f4f1b
-      internalID: 906859907
+      spriteID: 870bdda4b1446344c932fe9f826b71f7
+      internalID: 1628796503
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Rapley 1_19
+      name: Sprite_Farmer_19
       rect:
         serializedVersion: 2
-        x: 87
+        x: 99
         y: 0
-        width: 29
-        height: 35
+        width: 33
+        height: 40
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -439,8 +452,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5a1787c88bd144341a582a4743f0a1a2
-      internalID: 1607305056
+      spriteID: 0d642f8294571594eaff42e4f7d64799
+      internalID: 2025510352
       vertices: []
       indices: 
       edges: []
@@ -448,7 +461,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: a2f2f194c57ee3b4681187b714320446
+    spriteID: e0fa92d0f3519f74991fdf2e859b3423
     internalID: 0
     vertices: []
     indices: 
@@ -456,26 +469,26 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Sprite_Rapley 1_0: -1417369035
-      Sprite_Rapley 1_1: 1544643510
-      Sprite_Rapley 1_10: -872610280
-      Sprite_Rapley 1_11: 1788762118
-      Sprite_Rapley 1_12: -1874645265
-      Sprite_Rapley 1_13: -948034691
-      Sprite_Rapley 1_14: 1472264026
-      Sprite_Rapley 1_15: -553152755
-      Sprite_Rapley 1_16: 1248959271
-      Sprite_Rapley 1_17: 262482317
-      Sprite_Rapley 1_18: 906859907
-      Sprite_Rapley 1_19: 1607305056
-      Sprite_Rapley 1_2: -315986543
-      Sprite_Rapley 1_3: 744229682
-      Sprite_Rapley 1_4: 880595507
-      Sprite_Rapley 1_5: 243709852
-      Sprite_Rapley 1_6: -588775670
-      Sprite_Rapley 1_7: 1397222005
-      Sprite_Rapley 1_8: 305540289
-      Sprite_Rapley 1_9: -1293372645
+      Sprite_Farmer_0: 2055935178
+      Sprite_Farmer_1: 1770067462
+      Sprite_Farmer_10: 732133814
+      Sprite_Farmer_11: 426037415
+      Sprite_Farmer_12: -649487359
+      Sprite_Farmer_13: -198956789
+      Sprite_Farmer_14: 2083716157
+      Sprite_Farmer_15: -1915395791
+      Sprite_Farmer_16: 231099112
+      Sprite_Farmer_17: -245571336
+      Sprite_Farmer_18: 1628796503
+      Sprite_Farmer_19: 2025510352
+      Sprite_Farmer_2: 2094864247
+      Sprite_Farmer_3: 1238146255
+      Sprite_Farmer_4: 855917538
+      Sprite_Farmer_5: 726896103
+      Sprite_Farmer_6: 1223693306
+      Sprite_Farmer_7: -382644806
+      Sprite_Farmer_8: -691119841
+      Sprite_Farmer_9: -528415208
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
