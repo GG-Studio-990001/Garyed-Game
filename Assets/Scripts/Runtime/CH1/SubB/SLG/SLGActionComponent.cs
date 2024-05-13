@@ -6,6 +6,7 @@ using TMPro;
 using Runtime.CH1.Main.Stage;
 using Runtime.CH1.Main.Controller;
 using Runtime.ETC;
+using Runtime.CH1.Main.Dialogue;
 
 namespace SLGDefines
 { 
@@ -23,7 +24,9 @@ namespace SLGDefines
 public class SLGActionComponent : MonoBehaviour
 {
     public List<Sprite> SLGPopupSprites;
+    [SerializeField] private Texture2D cursorTexture;
 
+    [SerializeField] private GameObject _SLGCanvas;
     [SerializeField] private GameObject _constructUI;
     [SerializeField] private TextMeshProUGUI UI_WoodText;
     [SerializeField] private TextMeshProUGUI UI_StoneText;
@@ -31,7 +34,7 @@ public class SLGActionComponent : MonoBehaviour
 
     [SerializeField] private GameObject Wnd_CostSection;
     [SerializeField] private GameObject Wnd_AccelerateSection;
-    
+
     [SerializeField] private TextMeshProUGUI Wnd_WoodText;
     [SerializeField] private TextMeshProUGUI Wnd_StoneText;
     [SerializeField] private TextMeshProUGUI Wnd_TimeText;
@@ -42,16 +45,19 @@ public class SLGActionComponent : MonoBehaviour
 
     [SerializeField] private GameObject _sponSpots;
     [SerializeField] private GameObject SLGConstructionObject;
+    [SerializeField] private GameObject SLGTriggerObject;
+    [SerializeField] private GameObject SLGConstructionSite;
+    [SerializeField] private GameObject SLGMaMagoGate;
+    [SerializeField] private GameObject SLGMaMagoGateColider;
 
 
     private SLGInteractionObject[] _cachedObjects;
     private int _spawnCount = 0;
     private SLGProgress SLGProgressInfo;
-    private int SLGConstructionBeginTime;
+    private long SLGConstructionBeginTime;
 
     private CH1CommonData CH1Data;
 
-    //Data 파일로 따로 분리?
     private int _wood = 0;
     private int _stone = 0;
 
@@ -65,43 +71,139 @@ public class SLGActionComponent : MonoBehaviour
 
     public bool bShowWnd;
 
+    private void Awake()
+    {
+        //SLGProgressInfo = SLGProgress.None;
+    }
+
     void Start()
     {
+        Managers.Data.LoadGame();
         SLGProgressInfo = Managers.Data.SLGProgressData;
         SLGConstructionBeginTime = Managers.Data.SLGConstructionBeginTime;
 
-        _sponSpots.SetActive(false);
         _cachedObjects = _sponSpots.GetComponentsInChildren<SLGInteractionObject>();
         Wnd_ConstructionBtn.onClick.AddListener(OnClickConstructBtn);
         Wnd_CloseBtn.onClick.AddListener(OnClickCloseBtn);
         Wnd_AccelerateBtn.onClick.AddListener(OnClickAccelerateBtn);
+        _constructUI.SetActive(false);
+
+        SLGConstructionSite.SetActive(true);
+        SLGMaMagoGate.SetActive(false);
+        SLGMaMagoGateColider.SetActive(false);
+        _sponSpots.SetActive(false);
+
+        GameObject mainObject = FindObjectOfType<Ch1MainSystemController>().gameObject;
+        if (mainObject != null)
+        {
+            CH1Data = mainObject.GetComponent<CH1CommonData>();
+        }
+
+        Ch1StageController SC = FindObjectOfType<Ch1StageController>();
+        if (SC != null)
+        {
+            SC.StageChanger.OnStageEnd += OnChangeStageForSLG;
+        }
+
+        if (SLGProgressInfo == SLGProgress.None)
+        {
+            SLGTriggerObject.SetActive(true);
+            _SLGCanvas.SetActive(false);
+        }
+        else if (SLGProgressInfo >= SLGProgress.EndConstruction)
+        {
+            _SLGCanvas.SetActive(false);
+            SLGConstructionSite.SetActive(false);
+            SLGMaMagoGate.SetActive(true);
+            SLGMaMagoGateColider.SetActive(true);
+            SLGTriggerObject.SetActive(false);
+        }
+        else
+        {
+            SLGTriggerObject.SetActive(false);
+            SLGResume();
+            InitMap();
+            if (SLGProgressInfo == SLGProgress.BeforeConstruction)
+            {
+                _sponSpots.SetActive(true);
+            }
+        }
+        
     }
 
     private void Update()
     {
-        if(bShowWnd)
+        if (SLGProgressInfo == SLGProgress.Constructing)
         {
-            RefreshTimeText();
+            int DurationTimeSec = (int)(((DateTime.Now - DateTime.MinValue).TotalSeconds) - SLGConstructionBeginTime);
+            int RemainedTimeSec = NEEDED_CONSTRUCTION_TIME_SEC - DurationTimeSec;
+            if (RemainedTimeSec >= 0)
+            {
+                if (bShowWnd)
+                {
+                    int Hour = RemainedTimeSec / (60 * 60);
+                    RemainedTimeSec -= 60 * 60 * Hour;
+
+                    int Min = RemainedTimeSec / (60);
+                    int Sec = RemainedTimeSec % (60);
+                    Wnd_TimeText.text = Hour.ToString() + ":" + Min.ToString() + ":" + Sec.ToString();
+                }
+            }
+            else
+            {
+                EndSLGMode();
+            }
         }
     }
-    
-    public Sprite GetInteractionSprite (SLGObjectType InObjectType)
+
+    public bool IsInSLGMode()
     {
-        if((int)InObjectType >=  SLGPopupSprites.Count) 
-        { 
-            return null; 
+        return SLGProgressInfo > SLGProgress.None;
+    }
+
+    public Sprite GetInteractionSprite(SLGObjectType InObjectType)
+    {
+        if ((int)InObjectType >= SLGPopupSprites.Count)
+        {
+            return null;
         }
 
         return SLGPopupSprites[(int)InObjectType];
     }
 
-    public void ProcessObjectInteraction (SLGObjectType InObjectType)
+    public void SLGPause()
+    {
+        _SLGCanvas.SetActive(false);
+        Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+        Managers.Data.SLGProgressData = SLGProgressInfo;
+    }
+
+    public void SLGResume()
+    {
+        _SLGCanvas.SetActive(true);
+        SLGTriggerObject.SetActive(false);
+        _sponSpots.SetActive(true);
+        SLGConstructionObject.SetActive(true);
+        _wood = Managers.Data.SLGWoodCount;
+        _stone = Managers.Data.SLGStoneCount;
+
+        Cursor.SetCursor(cursorTexture, Vector2.zero, CursorMode.Auto);
+        RefreshHudInfo();
+    }
+
+    public void RefreshHudInfo()
+    {
+        RefreshCoinText();
+        UI_WoodText.text = _wood.ToString();
+        UI_StoneText.text = _stone.ToString();
+    }
+    public void ProcessObjectInteraction(SLGObjectType InObjectType)
     {
         if (bShowWnd)
         {
             return;
         }
-        switch(InObjectType)
+        switch (InObjectType)
         {
             case SLGObjectType.WOOD:
                 {
@@ -125,66 +227,60 @@ public class SLGActionComponent : MonoBehaviour
         }
     }
 
-    public void OnSLGInit ()
+    public void OnSLGInit()
     {
-        GameObject mainObject = FindObjectOfType<Ch1MainSystemController>().gameObject;
-        if (mainObject != null)
-        {
-            CH1Data = mainObject.GetComponent<CH1CommonData>();
-        }
         MoveOnNextProgress();
+        _SLGCanvas.SetActive(true);
         _sponSpots.SetActive(true);
-        foreach(SLGInteractionObject Object in _cachedObjects)
-        {
-            Object.gameObject.SetActive(false);
-        }
+        SLGTriggerObject.SetActive(false);
+
+        Cursor.SetCursor(cursorTexture, Vector2.zero, CursorMode.Auto);
+
         if (SLGConstructionObject != null)
-        { 
+        {
             SLGConstructionObject.SetActive(true);
         }
 
         _constructUI.SetActive(false);
         RefreshCoinText();
 
-        Ch1StageController SC = FindObjectOfType<Ch1StageController>();
-        if(SC != null)
-        {
-            SC.StageChanger.OnStageEnd += OnChangeStageForSLG;
-        }
-            
         InitMap();
         MoveOnNextProgress();
     }
 
-    private void InitMap ()
+    private void InitMap()
     {
+        foreach (SLGInteractionObject Object in _cachedObjects)
+        {
+            Object.gameObject.SetActive(false);
+        }
         for (int i = 0; i < Mathf.Min(MAX_SPAWN_COUNT, _cachedObjects.Length); i++)
         {
             SpawnRandomObject();
         }
     }
 
-    private void SpawnRandomObject ()
+    private void SpawnRandomObject()
     {
-        if(SLGProgressInfo > SLGProgress.EndConstruction)
+        if (SLGProgressInfo > SLGProgress.EndConstruction)
         {
             return;
         }
 
-        while(true)
-        { 
+        while (true)
+        {
             int RandomNum = (UnityEngine.Random.Range(0, _cachedObjects.Length));
-            if(!_cachedObjects[RandomNum]._isActive)
+            if (!_cachedObjects[RandomNum]._isActive)
             {
-                SLGObjectType NewType = (SLGObjectType) (UnityEngine.Random.Range(0, (int)SLGObjectType.ASSETMAX));
+                SLGObjectType NewType = (SLGObjectType)(UnityEngine.Random.Range(0, (int)SLGObjectType.ASSETMAX));
                 _cachedObjects[RandomNum].InitInteractionData(NewType);
                 _cachedObjects[RandomNum].gameObject.SetActive(true);
                 _spawnCount++;
                 break;
             }
-        } 
+        }
     }
-    
+
     private void RefreshConstructionWnd()
     {
         if (_constructUI)
@@ -197,32 +293,15 @@ public class SLGActionComponent : MonoBehaviour
                 Wnd_WoodText.text = _wood.ToString() + "/" + NEEDED_ASSET_COUNT.ToString();
                 Wnd_StoneText.text = _stone.ToString() + "/" + NEEDED_ASSET_COUNT.ToString();
             }
-            else if(SLGProgressInfo == SLGProgress.Constructing)
+            else if (SLGProgressInfo == SLGProgress.Constructing)
             {
                 Wnd_AccelerateSection.gameObject.SetActive(true);
                 Wnd_CostSection.gameObject.SetActive(false);
 
-                Wnd_CoinCostText.text = CH1Data._coin.ToString() + "/" + NEEDED_COIN_COUNT.ToString();
-                RefreshTimeText();
+                Wnd_CoinCostText.text = Managers.Data.PacmomCoin.ToString() + "/" + NEEDED_COIN_COUNT.ToString();
             }
 
             bShowWnd = true;
-        }
-    }
-
-    private void RefreshTimeText()
-    {
-        //시간 색상 표시 수정
-        int DurationTimeSec = DateTime.Now.ToLocalTime().Second - SLGConstructionBeginTime;
-        int RemainedTimeSec = NEEDED_CONSTRUCTION_TIME_SEC - DurationTimeSec;
-        if (RemainedTimeSec > 0)
-        {
-            int Hour = RemainedTimeSec / (60 * 60);
-            RemainedTimeSec -= 60 * 60 * Hour;
-
-            int Min = RemainedTimeSec / (60);
-            int Sec = RemainedTimeSec % (60);
-            Wnd_TimeText.text =Hour.ToString() +"시간"+Min.ToString()+"분"+Sec.ToString()+"초";
         }
     }
 
@@ -230,13 +309,26 @@ public class SLGActionComponent : MonoBehaviour
     {
         if (UI_CoinText != null)
         {
-            if (CH1Data != null)
+            UI_CoinText.text = Managers.Data.PacmomCoin.ToString();
+        }
+    }
+    private void OnClickAccelerateBtn()
+    {
+        GameObject mainObject = FindObjectOfType<Ch1MainSystemController>().gameObject;
+        if (mainObject != null)
+        {
+            if (Managers.Data.PacmomCoin >= NEEDED_COIN_COUNT)
             {
-                UI_CoinText.text = CH1Data._coin.ToString();
+                Managers.Data.PacmomCoin -= NEEDED_COIN_COUNT;
+                RefreshCoinText();
+                MoveOnNextProgress();
+            }
+            else
+            {
+                Debug.Log("건설 불가능");
             }
         }
     }
-
     private void OnClickCloseBtn()
     {
         if (_constructUI != null)
@@ -245,12 +337,14 @@ public class SLGActionComponent : MonoBehaviour
             bShowWnd = false;
         }
     }
-    private void OnClickConstructBtn ()
+    private void OnClickConstructBtn()
     {
         //TODO 건설 가능 시 텍스트 색 표시 수정
         if (_wood >= NEEDED_ASSET_COUNT && _stone >= NEEDED_ASSET_COUNT)
         {
-            Debug.Log("건설가능");
+            _wood -= NEEDED_ASSET_COUNT;
+            _stone -= NEEDED_ASSET_COUNT;
+            RefreshHudInfo();
             MoveOnNextProgress();
         }
         else
@@ -259,66 +353,60 @@ public class SLGActionComponent : MonoBehaviour
         }
     }
 
-    private void OnChangeStageForSLG ()
-{
-    if (CH1Data != null)
+    private void OnChangeStageForSLG()
     {
-        CH1Data._sceneMoveCount++;
-        if (CH1Data._sceneMoveCount >= SCENE_MOVE_COUNT_SPAWN)
+        if (CH1Data != null && SLGProgressInfo == SLGProgress.BeforeConstruction)
         {
-            SpawnRandomObject();
-            CH1Data._sceneMoveCount = 0;
+            CH1Data._sceneMoveCount++;
+            if (CH1Data._sceneMoveCount >= SCENE_MOVE_COUNT_SPAWN)
+            {
+                SpawnRandomObject();
+                CH1Data._sceneMoveCount = 0;
+            }
         }
     }
-}
+
+    private void WriteSLGData()
+    {
+        Managers.Data.SLGProgressData = SLGProgressInfo;
+        Managers.Data.SLGConstructionBeginTime = SLGConstructionBeginTime;
+        Managers.Data.SLGWoodCount = _wood;
+        Managers.Data.SLGStoneCount = _stone;
+    }
 
     private void MoveOnNextProgress()
     {
         SLGProgressInfo++;
-        Managers.Data.SLGProgressData = SLGProgressInfo;
 
-        if (SLGProgressInfo < SLGProgress.ModeClose)
+        if (SLGProgressInfo < SLGProgress.EndConstruction)
         {
             if (bShowWnd)
             {
                 RefreshConstructionWnd();
             }
-            if(SLGProgressInfo == SLGProgress.Constructing)
+            if (SLGProgressInfo == SLGProgress.Constructing)
             {
-                Managers.Data.SLGConstructionBeginTime = DateTime.Now.Second;
-                SLGConstructionBeginTime = DateTime.Now.Second;
+                SLGConstructionBeginTime = (long)((DateTime.Now - DateTime.MinValue).TotalSeconds);
             }
         }
         else
         {
             EndSLGMode();
         }
+
+        WriteSLGData();
+        Managers.Data.SaveGame();
     }
 
     private void EndSLGMode()
     {
-        //SLG 끝난 처리
-    }
-
-    private void OnClickAccelerateBtn()
-    {
-        GameObject mainObject = FindObjectOfType<Ch1MainSystemController>().gameObject;
-        if (mainObject != null)
-        {
-            CH1CommonData CH1Data = mainObject.GetComponent<CH1CommonData>();
-            if (CH1Data != null)
-            {
-                if (CH1Data._coin >= NEEDED_COIN_COUNT)
-                {
-                    CH1Data._coin -= NEEDED_COIN_COUNT;
-                    RefreshCoinText();
-                    MoveOnNextProgress();
-                }
-                else
-                {
-                    Debug.Log("건설 불가능");
-                }
-            }
-        }
+        Debug.Log("건설 끝");
+        _SLGCanvas.SetActive(false);
+        bShowWnd = false;
+        SLGConstructionObject.SetActive(false);
+        _sponSpots.SetActive(false);
+        SLGConstructionSite.SetActive(false);
+        SLGMaMagoGate.SetActive(true);
+        SLGMaMagoGateColider.SetActive(true);
     }
 }

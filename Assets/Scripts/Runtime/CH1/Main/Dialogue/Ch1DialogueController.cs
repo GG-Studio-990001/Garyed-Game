@@ -20,7 +20,6 @@ namespace Runtime.CH1.Main.Dialogue
         [SerializeField] private TimelineController _timelineController;
         [SerializeField] private Image _backgroundImage;
         
-        [SerializeField] private GameObject _slgUI;
         [SerializeField] private Volume _volume;
         private LowRes _lowRes;
         
@@ -57,8 +56,9 @@ namespace Runtime.CH1.Main.Dialogue
             _runner.AddCommandHandler<string>("ChangeScene", ChangeScene);
             _runner.AddCommandHandler("SetCamera", SetCamera);
             _runner.AddCommandHandler("CurrentMinorDialogueStart", CurrentMinorDialogueStart);
-            _runner.AddCommandHandler("SLGSetting", SetSLUUI);
             */
+            _runner.AddCommandHandler("SLGSetting", SetSLGUI);
+            
             if (_volume != null)
             {
                 _volume.profile.TryGet(out _lowRes);
@@ -138,18 +138,11 @@ namespace Runtime.CH1.Main.Dialogue
             Managers.Sound.Play(Sound.SFX, "[CH1] Text SFX");
         }
 
-        /*
-        private void SetSLUUI()
+        private void SetSLGUI()
         {
-            _slgUI.SetActive(true);
-            //TODO 함수 구조 고민
-            SLGActionComponent SLGAction = FindObjectOfType<SLGActionComponent>();
-            if(SLGAction != null)
-            {
-                SLGAction.OnSLGInit();
-            }
+
         }
-        
+        /*        
         private void PlayBackgroundSound(string soundName)
         {
             //_soundSystem.PlayMusic(soundName); // TODO Manager.Sound로 교체

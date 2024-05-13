@@ -25,8 +25,8 @@ public class SLGInteractionObject : InteractionObject
         //따로 클릭 가능한 UI들을 빼야할까?
         if (_SLGAction != null && _SLGAction.bShowWnd == false && Input.GetMouseButtonDown(0))
         {
-            Camera.main.orthographic = true;
-            Vector2 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector3 startPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, -Camera.main.transform.position.z);
+            Vector3 pos = Camera.main.ScreenToWorldPoint(startPoint);
             RaycastHit2D hit = Physics2D.Raycast(pos, Vector2.zero, 10, LayerMask.GetMask("UI"));
 
             if (hit.collider != null)
@@ -36,12 +36,15 @@ public class SLGInteractionObject : InteractionObject
                     Interact();
                 }
             }
-            Camera.main.orthographic = false;
         }
     }
 
     public void InitInteractionData(SLGObjectType InType)
     {
+        if(_SLGAction == null)
+        {
+            _SLGAction = FindAnyObjectByType<SLGActionComponent>().GetComponent<SLGActionComponent>();
+        }
         type = InType;
         RefreshPopupIcon();
         _isActive = true;

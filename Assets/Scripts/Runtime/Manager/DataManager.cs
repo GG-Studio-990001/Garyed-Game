@@ -21,8 +21,10 @@ namespace Runtime.Manager
         public bool IsPacmomCleared;
         public int PacmomCoin;
         // SLG
-        public int SLGConstructionBeginTime;
+        public long SLGConstructionBeginTime;
         public SLGProgress SLGProgressData;
+        public int SLGWoodCount;
+        public int SLGStoneCount;
 
         public GameData()
         {
@@ -40,6 +42,8 @@ namespace Runtime.Manager
             // SLG
             SLGConstructionBeginTime = 0;
             SLGProgressData = SLGProgress.None;
+            SLGWoodCount = 0;
+            SLGStoneCount = 0;
         }
     }
     
@@ -73,8 +77,12 @@ namespace Runtime.Manager
         public int PacmomCoin { get { return _gameData.PacmomCoin; } set { _gameData.PacmomCoin = value; } }
 
         // SLG
-        public int SLGConstructionBeginTime { get { return _gameData.SLGConstructionBeginTime; } set { _gameData.SLGConstructionBeginTime = value; } }
+        public long SLGConstructionBeginTime { get { return _gameData.SLGConstructionBeginTime; } set { _gameData.SLGConstructionBeginTime = value; } }
         public SLGProgress SLGProgressData { get { return _gameData.SLGProgressData; } set { _gameData.SLGProgressData = value; } }
+
+        public int SLGWoodCount { get { return _gameData.SLGWoodCount; } set { _gameData.SLGWoodCount = value; } }
+
+        public int SLGStoneCount { get { return _gameData.SLGStoneCount; } set { _gameData.SLGStoneCount = value; } }
         #endregion
 
         public void Init()

@@ -49,7 +49,7 @@ namespace Runtime.CH1.Main.Player
         
         public void OnInteraction()
         {
-            bool isInteract = _interaction.Interact(_movement.Direction);
+             bool isInteract = _interaction.Interact(_movement.Direction);
             _state = isInteract ? PlayerState.Interact : PlayerState.Idle;
         }
 
