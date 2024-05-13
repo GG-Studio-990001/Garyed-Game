@@ -1,5 +1,6 @@
 using Cinemachine;
 using DG.Tweening;
+using Runtime.CH1.Main.Player;
 using Runtime.ETC;
 using Runtime.InGameSystem;
 using UnityEngine;
@@ -8,6 +9,7 @@ using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Yarn.Unity;
+using static UnityEditor.Experimental.GraphView.GraphView;
 using Sound = Runtime.ETC.Sound;
 
 namespace Runtime.CH1.Main.Dialogue
@@ -32,11 +34,14 @@ namespace Runtime.CH1.Main.Dialogue
 
         [Header("=CutScene=")]
         [SerializeField] private GameObject _illerstrationParent;
-        [SerializeField] private GameObject[] _illerstration = new GameObject[3];
-        [SerializeField] private GameObject[] _characters = new GameObject[4];
-        [SerializeField] private Npc[] _charAnim = new Npc[4];
-        [SerializeField] private Vector3[] _locations = new Vector3[4];
+        [SerializeField] private GameObject[] _illerstration = new GameObject[1];
         [SerializeField] private GameObject _lucky;
+        [Header("=Player=")]
+        [SerializeField] private TopDownPlayer _player;
+        [SerializeField] private Vector3 _location;
+        [Header("=Npc=")]
+        [SerializeField] private Npc[] _npc = new Npc[3];
+        [SerializeField] private Vector3[] _locations = new Vector3[3];
 
         private void Awake()
         {
@@ -48,6 +53,7 @@ namespace Runtime.CH1.Main.Dialogue
             // CutScene
             _runner.AddCommandHandler("NewSceneStart", NewSceneStart);
             _runner.AddCommandHandler("SceneStart", SceneStart);
+            _runner.AddCommandHandler("SceneEnd", SceneEnd);
             _runner.AddCommandHandler<int>("ShowIllustration", ShowIllustration);
             _runner.AddCommandHandler("HideIllustration", HideIllustration);
             _runner.AddCommandHandler("CharactersMove", CharactersMove);
@@ -78,9 +84,16 @@ namespace Runtime.CH1.Main.Dialogue
         private void SceneStart()
         {
             Managers.Data.SceneDetail++;
+            _player.IsDirecting = true;
+            
+        }
+
+        private void SceneEnd()
+        {
+            _player.IsDirecting = false;
             Managers.Data.SaveGame();
             Debug.Log(Managers.Data.Scene + " " + Managers.Data.SceneDetail);
-        }
+        }    
 
         public void CheckCutScene()
         {
@@ -116,19 +129,27 @@ namespace Runtime.CH1.Main.Dialogue
 
         private void CharactersMove()
         {
-            Vector2 rightDir = new Vector2(1, 0);
-            _charAnim[1].Anim.SetAnimation(PlayerState.Move.ToString(), rightDir);
+            string state = PlayerState.Move.ToString();
 
-            for (int i = 0; i < _characters.Length; i++)
+            _player._animation.SetAnimation(state, Vector2.right);
+            _player.transform.DOMove(_location, 5f).SetEase(Ease.Linear);
+
+            for (int i = 0; i < _npc.Length; i++)
             {
-                _characters[i].transform.DOMove(_locations[i], 5f).SetEase(Ease.Linear);
+                _npc[i].Anim.SetAnimation(state, Vector2.right);
+                _npc[i].transform.DOMove(_locations[i], 5f).SetEase(Ease.Linear);
             }
         }
 
         private void CharactersStop()
         {
-            Vector2 rightDir = new Vector2(1, 0);
-            _charAnim[1].Anim.SetAnimation(PlayerState.Idle.ToString(), rightDir);
+            string state = PlayerState.Idle.ToString();
+
+            _player._animation.SetAnimation(state, Vector2.down);
+
+            _npc[0].Anim.SetAnimation(state, Vector2.right);
+            _npc[1].Anim.SetAnimation(state, Vector2.up);
+            _npc[2].Anim.SetAnimation(state, Vector2.left);
         }
 
         private void SceneChange(string sceneName)

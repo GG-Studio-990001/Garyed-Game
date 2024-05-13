@@ -613,11 +613,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1368314908901170753, guid: de5eada4866075340ab44613feffb2f4, type: 3}
   m_PrefabInstance: {fileID: 39623079}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &41885828 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2322268151887491608, guid: 636fca1bc1c114943a004cbada5c227f, type: 3}
-  m_PrefabInstance: {fileID: 850711365}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &42346891
 GameObject:
   m_ObjectHideFlags: 0
@@ -11335,7 +11330,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2753138371252244015, guid: 636fca1bc1c114943a004cbada5c227f, type: 3}
   m_PrefabInstance: {fileID: 850711365}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 41885828}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f5aa0ff439b839941b5741c08bb66124, type: 3}
@@ -38255,22 +38250,17 @@ MonoBehaviour:
   _illerstrationParent: {fileID: 440311592}
   _illerstration:
   - {fileID: 1782403764}
-  _characters:
-  - {fileID: 41885828}
-  - {fileID: 290311364}
-  - {fileID: 100080068}
-  - {fileID: 360165076}
-  _charAnim:
-  - {fileID: 0}
+  _lucky: {fileID: 595339711}
+  _player: {fileID: 669133898}
+  _location: {x: 15.33, y: -6.13, z: 0}
+  _npc:
   - {fileID: 290311369}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 100080073}
+  - {fileID: 360165081}
   _locations:
-  - {x: 15.33, y: -6.13, z: 0}
   - {x: 13.58, y: -7.18, z: 0}
   - {x: 15.5, y: -8.14, z: 0}
   - {x: 17.58, y: -7.58, z: 0}
-  _lucky: {fileID: 595339711}
 --- !u!1 &1759116065
 GameObject:
   m_ObjectHideFlags: 0
@@ -44908,7 +44898,7 @@ MonoBehaviour:
   lineText: {fileID: 8739223720555902289}
   showCharacterNameInLineView: 1
   characterNameText: {fileID: 915647123790645336}
-  useTypewriterEffect: 1
+  useTypewriterEffect: 0
   onCharacterTyped:
     m_PersistentCalls:
       m_Calls:

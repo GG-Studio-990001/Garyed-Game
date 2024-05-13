@@ -15,7 +15,8 @@ namespace Runtime.CH1.Main
             _interaction = GetComponent<NpcInteraction>();
             Anim = new NpcAnimation(GetComponent<Animator>());
 
-            _interaction.OnInteract += (direction) => _spriteRenderer.flipX = direction.x < 0;
+            // 현재 방향을 알아야 함
+            // _interaction.OnInteract += (direction) => _spriteRenderer.flipX = direction.x < 0;
         }
     }
 }

@@ -20,11 +20,13 @@ namespace Runtime.CH1.Main.Player
         private Vector2 _lastInput;
 
         private IMovement _movement;
-        private IAnimation _animation;
+        public IAnimation _animation { get; private set; }
         private IInteraction _interaction;
         
         private PlayerState _state = PlayerState.Idle;
         private Vector2 _movementInput;
+
+        public bool IsDirecting = false;
         
         private void Start()
         {
@@ -35,7 +37,8 @@ namespace Runtime.CH1.Main.Player
         
         private void Update()
         {
-            _animation.SetAnimation(_state.ToString(), _lastInput);
+            if (!IsDirecting)
+                _animation.SetAnimation(_state.ToString(), _lastInput);
         }
 
         private void FixedUpdate()
