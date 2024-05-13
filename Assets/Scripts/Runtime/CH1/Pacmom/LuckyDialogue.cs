@@ -29,17 +29,18 @@ namespace Runtime.CH1.Pacmom
             _runner.AddCommandHandler("Showing", Showing);
             _runner.AddCommandHandler<bool>("ShowDrawing", ShowDrawing);
             _runner.AddCommandHandler("LuckyExit", LuckyExit);
-            _runner.AddCommandHandler("StartPacmom", StartPacmom);
+        }
+
+        private void Start()
+        {
+            if (Managers.Data.IsPacmomPlayed)
+                LuckyExit();
         }
 
         private void LuckyExit()
         {
             for (int i=0; i< LuckyObjs.Length; i++)
                 LuckyObjs[i].SetActive(false);
-        }
-
-        private void StartPacmom()
-        {
             _timeline.SetActive(true);
         }
 

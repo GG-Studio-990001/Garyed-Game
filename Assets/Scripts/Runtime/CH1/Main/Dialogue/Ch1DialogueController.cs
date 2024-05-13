@@ -64,6 +64,13 @@ namespace Runtime.CH1.Main.Dialogue
                 _volume.profile.TryGet(out _lowRes);
             }
         }
+
+        private void Start()
+        {
+            if (Managers.Data.Scene == 0 && Managers.Data.SceneDetail == 0)
+                _runner.StartDialogue("S1");
+        }
+
         public void CheckCutScene()
         {
             if (Managers.Data.Scene == 1 && Managers.Data.SceneDetail == 1)
@@ -81,7 +88,6 @@ namespace Runtime.CH1.Main.Dialogue
         {
             Managers.Data.SceneDetail++;
             _cutScene.Player.IsDirecting = true;
-            
         }
 
         private void SceneEnd()

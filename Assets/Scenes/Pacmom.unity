@@ -1113,6 +1113,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 996060868}
+          m_TargetAssemblyTypeName: Runtime.CH1.Pacmom.PMSprite, Scripts
+          m_MethodName: StartSpriteAnim
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
     - m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 1575259378}
@@ -22583,6 +22595,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 996060867}
+  - component: {fileID: 996060868}
   m_Layer: 5
   m_Name: Ending
   m_TagString: Untagged
@@ -22615,6 +22628,26 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &996060868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 996060866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d4b0d9ee5d87b749918c8ff1576b1f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rapleySprite: {fileID: 1325164805}
+  _pacmomSprite: {fileID: 790340050}
+  _dustBodySprites:
+  - {fileID: 650144428611018179}
+  - {fileID: 3231760239639840162}
+  _dustEyeSprites:
+  - {fileID: 7412423910814691913}
+  - {fileID: 4828556437485611562}
 --- !u!1 &1079831753
 GameObject:
   m_ObjectHideFlags: 0
@@ -23030,7 +23063,7 @@ Camera:
   far clip plane: 1000
   field of view: 156.8
   orthographic: 1
-  orthographic size: 9
+  orthographic size: 6
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

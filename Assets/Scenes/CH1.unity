@@ -44150,7 +44150,7 @@ MonoBehaviour:
   - {fileID: 1653161658143596180}
   - {fileID: 1662598218}
   startNode: S1
-  startAutomatically: 1
+  startAutomatically: 0
   runSelectedOptionAsLine: 0
   lineProvider: {fileID: 0}
   verboseLogging: 1
@@ -44912,7 +44912,7 @@ MonoBehaviour:
   lineText: {fileID: 8739223720555902289}
   showCharacterNameInLineView: 1
   characterNameText: {fileID: 915647123790645336}
-  useTypewriterEffect: 0
+  useTypewriterEffect: 1
   onCharacterTyped:
     m_PersistentCalls:
       m_Calls:

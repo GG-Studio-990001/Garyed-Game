@@ -18,11 +18,6 @@ DustA: 잡아서<br>코인을 뺏어주마!
 <<DustBSpeak>>
 DustB: 잔뜩 뺏어주마!
 <<DustASpeak>>
-DustA: 세 번만 잡으면<br>게임 끝이지
-DustA: 팩맘보다<br>코인이 많아도 좋고
-<<DustBSpeak>>
-DustB: 엄청 배아파 할거야!
-<<DustASpeak>>
 DustA: 하지만 <i>청소 시간</i>에는<br>꼭 도망가야 해!
 <<DustBSpeak>>
 DustB: 으으, 끔찍한 청소기
@@ -44,6 +39,20 @@ DustB: 이번엔 제대로<br>괴롭혀주마!
 DustA: 한 번 더 파이팅이야!
 <<DustBSpeak>>
 DustB: 다시 시작이다!
+<<OpeningDialogueFin>>
+===
+
+title: PMStartAgain
+---
+<<DustASpeak>>
+DustA: 오 또 온거야?
+DustA: 대단해!
+<<DustBSpeak>>
+DustB: 대단해, 대단해!
+<<DustASpeak>>
+DustA: 한 번 더 이겨보자!
+<<DustBSpeak>>
+DustB: 이기는거다!
 <<OpeningDialogueFin>>
 ===
 

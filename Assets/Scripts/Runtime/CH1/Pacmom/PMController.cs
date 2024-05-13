@@ -37,6 +37,10 @@ namespace Runtime.CH1.Pacmom
         #region Awake
         private void Awake()
         {
+            Managers.Data.LoadGame();
+            Debug.Log("IsPacmomPlayed: " + Managers.Data.IsPacmomPlayed);
+            Debug.Log("IsPacmomCleared: " + Managers.Data.IsPacmomCleared);
+
             AssignComponent();
             AssignController();
         }
@@ -68,10 +72,6 @@ namespace Runtime.CH1.Pacmom
         #region Start
         private void Start()
         {
-            Managers.Data.LoadGame();
-            Debug.Log("IsPacmomPlayed: " + Managers.Data.IsPacmomPlayed);
-            Debug.Log("IsPacmomCleared: " + Managers.Data.IsPacmomCleared);
-
             SetCharacterMove(false);
         }
 
