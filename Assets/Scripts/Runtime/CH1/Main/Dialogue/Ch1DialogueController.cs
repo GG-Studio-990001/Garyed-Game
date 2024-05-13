@@ -1,7 +1,7 @@
 using Cinemachine;
 using DG.Tweening;
+using Runtime.ETC;
 using Runtime.InGameSystem;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Rendering;
@@ -25,7 +25,7 @@ namespace Runtime.CH1.Main.Dialogue
         [SerializeField] private Volume _volume;
         private LowRes _lowRes;
         
-        public List<Sprite> Sprites = new List<Sprite>();
+        // public List<Sprite> Sprites = new List<Sprite>();
 
         public UnityEvent OnDialogueStart => _runner.onDialogueStart;
         public UnityEvent OnDialogueEnd => _runner.onDialogueComplete;
@@ -34,6 +34,7 @@ namespace Runtime.CH1.Main.Dialogue
         [SerializeField] private GameObject _illerstrationParent;
         [SerializeField] private GameObject[] _illerstration = new GameObject[3];
         [SerializeField] private GameObject[] _characters = new GameObject[4];
+        [SerializeField] private Npc[] _charAnim = new Npc[4];
         [SerializeField] private Vector3[] _locations = new Vector3[4];
         [SerializeField] private GameObject _lucky;
 
@@ -50,6 +51,7 @@ namespace Runtime.CH1.Main.Dialogue
             _runner.AddCommandHandler<int>("ShowIllustration", ShowIllustration);
             _runner.AddCommandHandler("HideIllustration", HideIllustration);
             _runner.AddCommandHandler("CharactersMove", CharactersMove);
+            _runner.AddCommandHandler("CharactersStop", CharactersStop);
 
             _runner.AddCommandHandler("GetLucky", GetLucky);
 
@@ -114,10 +116,19 @@ namespace Runtime.CH1.Main.Dialogue
 
         private void CharactersMove()
         {
+            Vector2 rightDir = new Vector2(1, 0);
+            _charAnim[1].Anim.SetAnimation(PlayerState.Move.ToString(), rightDir);
+
             for (int i = 0; i < _characters.Length; i++)
             {
                 _characters[i].transform.DOMove(_locations[i], 5f).SetEase(Ease.Linear);
             }
+        }
+
+        private void CharactersStop()
+        {
+            Vector2 rightDir = new Vector2(1, 0);
+            _charAnim[1].Anim.SetAnimation(PlayerState.Idle.ToString(), rightDir);
         }
 
         private void SceneChange(string sceneName)
