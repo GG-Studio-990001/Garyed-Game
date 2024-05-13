@@ -53,6 +53,7 @@ R2-MON: !@!@@!~@~!@!~@@
 
 <<CharactersMove>>
 <<wait 5>>
+<<CharactersStop>>
 
 // 이동 후
 파머: 여기는 우리가 주로 파밍하는 곳인 플로야드 구역이야!
