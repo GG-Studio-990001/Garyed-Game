@@ -34,6 +34,11 @@ namespace Runtime.CH1.Main
                 SetNpcPosition(3);
                 Debug.Log("씬2 후 이동");
             }
+            else if (Managers.Data.Scene == 3)
+            {
+                SetNpcPosition(4);
+                Debug.Log("동굴 출구 앞");
+            }
         }
 
         public void SetNpcPosition(int idx)
@@ -41,6 +46,14 @@ namespace Runtime.CH1.Main
             for (int i=0; i<_npcs.Length; i++)
             {
                 _npcs[i].transform.position = NpcLocations[i].Locations[idx];
+            }
+        }
+
+        public void ActiveNpcs(bool active)
+        {
+            for (int i = 0; i < _npcs.Length; i++)
+            {
+                _npcs[i].SetActive(active);
             }
         }
     }

@@ -26,9 +26,10 @@ namespace Runtime.CH1.Main.Controller
         [Header("Player")]
         [SerializeField] private TopDownPlayer _player;
 
-        [Header("Else")]
+        [Header("Else")] // 맵에서 초기화해줘야 하는 것 / 클래스 따로 빼기
         [SerializeField] private NpcPosition _npcPosition;
         [SerializeField] private LuckyPack _luckyPack;
+        [SerializeField] private BridgeController _bridge;
 
 
         private void Start()
@@ -36,14 +37,20 @@ namespace Runtime.CH1.Main.Controller
             GameKeyBinding();
             GameInit();
             LoadGame();
+            SetMap();
             StartBGM();
         }
 
         private void LoadGame()
         {
             Managers.Data.LoadGame();
+        }
+
+        private void SetMap()
+        {
             _npcPosition.LoadNpcPosition();
             _luckyPack.ActiveLuckyPack();
+            _bridge.CheckBridge();
         }
 
         // 저장된 데이터를 토대로 맵 이동

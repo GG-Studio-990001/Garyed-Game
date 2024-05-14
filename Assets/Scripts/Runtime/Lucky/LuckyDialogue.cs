@@ -1,10 +1,9 @@
 using DG.Tweening;
 using Runtime.ETC;
-using Runtime.Luck;
 using UnityEngine;
 using Yarn.Unity;
 
-namespace Runtime.CH1.Pacmom
+namespace Runtime.Luck
 {
     public class LuckyDialogue : DialogueViewBase
     {

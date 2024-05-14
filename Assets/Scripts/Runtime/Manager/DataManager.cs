@@ -15,10 +15,12 @@ namespace Runtime.Manager
         public int Stage;
         public int Scene;
         public int SceneDetail; // 씬 세부 진행도
-        public bool MeetLucky;
         // Sound
         public float BgmVolume;
         public float SfxVolume;
+        // CH1
+        public bool MeetLucky;
+        public bool Is3MatchEntered; // 3매치 1스테이지 들어왔는지
         // Pacmom
         public bool IsPacmomPlayed;
         public bool IsPacmomCleared;
@@ -36,11 +38,12 @@ namespace Runtime.Manager
             Stage = 1;
             Scene = 0;
             SceneDetail = 0;
-            MeetLucky = false;
             // Sound
             BgmVolume = 0.5f;
             SfxVolume = 0.5f;
-
+            // CH1
+            MeetLucky = false;
+            Is3MatchEntered = false;
             // Pacmom
             IsPacmomPlayed = false;
             IsPacmomCleared = false;
@@ -66,7 +69,6 @@ namespace Runtime.Manager
         public int Stage { get { return _gameData.Stage; } set { _gameData.Stage = value; } }
         public int Scene { get { return _gameData.Scene; } set { _gameData.Scene = value; } }
         public int SceneDetail { get { return _gameData.SceneDetail; } set { _gameData.SceneDetail = value; } }
-        public bool MeetLucky { get { return _gameData.MeetLucky; } set { _gameData.MeetLucky = value; } }
 
         public float BgmVolume
         {
@@ -79,6 +81,10 @@ namespace Runtime.Manager
             set { Math.Clamp(value, 0, 1); _gameData.SfxVolume = value; Managers.Sound.SFX.volume = value; }
         }
 
+        // CH1
+        public bool MeetLucky { get { return _gameData.MeetLucky; } set { _gameData.MeetLucky = value; } }
+        public bool Is3MatchEntered { get { return _gameData.Is3MatchEntered; } set { _gameData.Is3MatchEntered = value; } }
+        
         // Pacmom
         public bool IsPacmomPlayed { get { return _gameData.IsPacmomPlayed; } set { _gameData.IsPacmomPlayed = value; } }
         public bool IsPacmomCleared { get { return _gameData.IsPacmomCleared; } set { _gameData.IsPacmomCleared = value; } }

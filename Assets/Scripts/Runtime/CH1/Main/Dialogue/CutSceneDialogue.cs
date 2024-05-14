@@ -17,19 +17,17 @@ public class CutSceneDialogue : MonoBehaviour
     [SerializeField] private GameObject[] _illerstration = new GameObject[1];
     [SerializeField] private GameObject _lucky;
     [SerializeField] private GameObject _stage2;
-    [SerializeField] private GameObject[] _bridges;
+    [SerializeField] private BridgeController _bridge;
     private Sequence _shakeTween;
 
     public void BreakBridge()
     {
         Managers.Sound.Play(Sound.SFX, "Boom Sfx");
-        _bridges[0].SetActive(false);
-        _bridges[1].SetActive(true);
+        _bridge.ActiveBrokenBridge();
     }
 
     public void ShakeMap(bool shake)
     {
-        
         if (shake)
         {
             _shakeTween = DOTween.Sequence();
