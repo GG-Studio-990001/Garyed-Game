@@ -30,6 +30,11 @@ namespace Runtime.CH1.SubB
 
         public void PuzzleReset()
         {
+            if (Managers.Data.Is3MatchCleared)
+            {
+                return;
+            }
+            
             if (IsClear)
             {
                 return;
