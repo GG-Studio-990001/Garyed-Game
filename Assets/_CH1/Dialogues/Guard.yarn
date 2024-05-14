@@ -1,0 +1,23 @@
+title: Guard
+// 사건분기에 따라 여기서 분류 후 JUMP하는 게 바람직
+---
+<<set $progress to GetProgress()>>
+
+<<if $progress < 30>>>
+    <<jump Guard1>>
+<<else>>
+    <<jump Guard2>>
+<<endif>>
+===
+
+title: Guard1
+---
+비글: 가치를 증명하지 못한 자는 진입할 수 없다!
+진도: ...
+===
+
+title: Guard2
+---
+비글: 신원 확인이 되지 않은 자는 진입할 수 없다!
+진도: ...
+===
