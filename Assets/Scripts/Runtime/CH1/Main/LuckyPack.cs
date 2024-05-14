@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Runtime.CH1.Pacmom
+namespace Runtime.CH1.Main
 {
     public class LuckyPack : MonoBehaviour
     {

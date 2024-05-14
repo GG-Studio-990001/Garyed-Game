@@ -13,6 +13,7 @@ namespace Runtime.CH1.Main
     {
         [SerializeField] private GameObject[] _npcs;
         public LocationArray[] NpcLocations;
+        // 0:초기 1:씬1 이후 2:씬2 시작 3:씬2 이동자리
 
         public void LoadNpcPosition()
         {
@@ -25,7 +26,7 @@ namespace Runtime.CH1.Main
             if (Managers.Data.Scene == 1)
             {
                 SetNpcPosition(1);
-                Debug.Log("1.1씬으로 세팅");
+                Debug.Log("씬1으로 세팅");
             }
         }
 

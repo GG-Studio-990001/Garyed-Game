@@ -29,7 +29,6 @@ namespace Runtime.CH1.Main.Dialogue
         public UnityEvent OnDialogueEnd => _runner.onDialogueComplete;
 
         [SerializeField] private CutSceneDialogue _cutScene;
-        [SerializeField] private NpcPosition _npcPosition;
 
         private void Awake()
         {
@@ -44,8 +43,8 @@ namespace Runtime.CH1.Main.Dialogue
             _runner.AddCommandHandler("SceneEnd", SceneEnd);
             _runner.AddCommandHandler<int>("ShowIllustration", _cutScene.ShowIllustration);
             _runner.AddCommandHandler("HideIllustration", _cutScene.HideIllustration);
-            _runner.AddCommandHandler("CharactersMove", _cutScene.CharactersMove1);
-            _runner.AddCommandHandler("CharactersStop", _cutScene.CharactersStop1);
+            _runner.AddCommandHandler<int>("CharactersMove", _cutScene.CharactersMove);
+            _runner.AddCommandHandler<int>("CharactersStop", _cutScene.CharactersStop);
             _runner.AddCommandHandler<int>("NpcJump", _cutScene.NpcJump);
 
             _runner.AddCommandHandler("GetLucky", _cutScene.GetLucky);
@@ -75,7 +74,7 @@ namespace Runtime.CH1.Main.Dialogue
             else if (Managers.Data.Scene == 1 && Managers.Data.IsPacmomCleared)
             {
                 // 캐릭터 위치 지정
-                _npcPosition.SetNpcPosition(2);
+                _cutScene.NpcPos.SetNpcPosition(2);
                 _cutScene.Player.transform.position = new Vector3(21.95f, -7.51f, 0);
                 _runner.StartDialogue("S2");
             }

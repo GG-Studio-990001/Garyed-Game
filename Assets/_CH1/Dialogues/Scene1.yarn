@@ -59,9 +59,9 @@ R2-MON: !@!@@!~@~!@!~@@
 <<NpcJump 1>>
 파머: 알겠습니다. 라플리, 이쪽으로!
 
-<<CharactersMove>>
+<<CharactersMove 1>>
 <<wait 5>>
-<<CharactersStop>>
+<<CharactersStop 1>>
 
 // 이동 후
 <<NpcJump 1>>

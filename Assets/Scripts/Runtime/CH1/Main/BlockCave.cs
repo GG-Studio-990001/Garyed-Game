@@ -1,22 +1,21 @@
-using Runtime.CH1.Main.Dialogue;
 using Runtime.ETC;
 using UnityEngine;
 using Yarn.Unity;
 
-namespace Runtime.CH1
+namespace Runtime.CH1.Main
 {
-    public class CutSceneTrigger : MonoBehaviour
+    public class BlockCave : MonoBehaviour
     {
         [SerializeField] private DialogueRunner dialogueRunner;
-
+        
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (Managers.Data.Scene != 2)
+            if (Managers.Data.Scene >= 2)
                 return;
 
             if (other.CompareTag(GlobalConst.PlayerStr))
             {
-                dialogueRunner.StartDialogue("S3");
+                dialogueRunner.StartDialogue("BlockCave");
             }
         }
     }
