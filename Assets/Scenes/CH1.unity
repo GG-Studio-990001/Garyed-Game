@@ -5242,7 +5242,7 @@ GameObject:
   - component: {fileID: 299091754}
   - component: {fileID: 299091753}
   m_Layer: 0
-  m_Name: ToField
+  m_Name: Map3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5257,7 +5257,7 @@ Transform:
   m_GameObject: {fileID: 299091751}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.18, y: 0.033, z: 0}
+  m_LocalPosition: {x: -2.18, y: 0.65, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5323,8 +5323,8 @@ MonoBehaviour:
   OnStageMove:
     m_PersistentCalls:
       m_Calls: []
-  moveStageNumber: 2
-  spawnPosition: {x: 93, y: -15}
+  moveStageNumber: 3
+  spawnPosition: {x: 93.47, y: 15.2}
   _npcs: {fileID: 0}
 --- !u!1001 &299372200
 PrefabInstance:
@@ -17679,11 +17679,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1441124673561100856, guid: 636fca1bc1c114943a004cbada5c227f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 86.1
+      value: 93.47
       objectReference: {fileID: 0}
     - target: {fileID: 1441124673561100856, guid: 636fca1bc1c114943a004cbada5c227f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -14.2
+      value: -15.2
       objectReference: {fileID: 0}
     - target: {fileID: 1441124673561100856, guid: 636fca1bc1c114943a004cbada5c227f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -21702,7 +21702,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2511279292592813010, guid: b78bebc3c8e9d50499cb65ad33c2b7ef, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -16.13
+      value: -16.34
       objectReference: {fileID: 0}
     - target: {fileID: 2511279292592813010, guid: b78bebc3c8e9d50499cb65ad33c2b7ef, type: 3}
       propertyPath: m_LocalPosition.z
@@ -21736,6 +21736,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3382217473518206888, guid: b78bebc3c8e9d50499cb65ad33c2b7ef, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 97af1fb608e326d408da3d04d2e909e7, type: 2}
     - target: {fileID: 3574937375222415443, guid: b78bebc3c8e9d50499cb65ad33c2b7ef, type: 3}
       propertyPath: talkToNode
       value: Mamago
@@ -21749,9 +21753,13 @@ PrefabInstance:
       value: Mamago
       objectReference: {fileID: 0}
     - target: {fileID: 8097863875867694516, guid: b78bebc3c8e9d50499cb65ad33c2b7ef, type: 3}
+      propertyPath: m_Size.y
+      value: 0.90625
+      objectReference: {fileID: 0}
+    - target: {fileID: 8097863875867694516, guid: b78bebc3c8e9d50499cb65ad33c2b7ef, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 931211041, guid: ec51c53a322188343b87b87f8d323c4c, type: 3}
+      objectReference: {fileID: -1352797650, guid: ec51c53a322188343b87b87f8d323c4c, type: 3}
     - target: {fileID: 8097863875867694516, guid: b78bebc3c8e9d50499cb65ad33c2b7ef, type: 3}
       propertyPath: m_SortingLayer
       value: 1
@@ -33392,7 +33400,7 @@ Transform:
   m_GameObject: {fileID: 1429684703}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 86.1, y: -14.2, z: -10}
+  m_LocalPosition: {x: 93.47, y: -15.2, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -39815,7 +39823,7 @@ Transform:
   m_GameObject: {fileID: 1674432335}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.901566, y: -14.233729, z: -10}
+  m_LocalPosition: {x: 12.901764, y: -14.36498, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -43670,7 +43678,9 @@ MonoBehaviour:
   - {fileID: 100080073}
   - {fileID: 360165081}
   _mamago: {fileID: 1232625328}
-  _mamagoLocation: {x: 93.38, y: -16.13, z: 0}
+  _mamagoLocation:
+  - {x: 93.35, y: -16.34, z: 0}
+  - {x: 93.35, y: -15.76, z: 0}
   _illerstrationParent: {fileID: 440311592}
   _illerstration:
   - {fileID: 1782403764}

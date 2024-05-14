@@ -3,15 +3,17 @@ title: S5
 // 상황: 마마고 컴퍼니 완공 후
 ---
 <<NewSceneStart>>
-<<wait 1>>
+<<wait 0.5>>
 <<PanpareSFX>>
-
+<<wait 0.5>>
 <<MamagoJump>>
 마마고: 어쩜 이런 근사한 건물이..Nice!
 마마고: 모든 언어를 마스터하고 싶은 자여..Language!
 마마고: 마마고 컴퍼니로 오세요..Come here!
-<<MamagoMove>>
+<<MamagoMove1>>
 <<wait 3>>
+<<MamagoMove2>>
+<<wait 1>>
 <<MamagoEnter>>
 
 <<SceneEnd>>

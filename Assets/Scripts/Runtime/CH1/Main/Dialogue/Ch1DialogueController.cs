@@ -59,7 +59,8 @@ namespace Runtime.CH1.Main.Dialogue
 
             _runner.AddCommandHandler("PanpareSFX", _cutScene.PanpareSFX);
             _runner.AddCommandHandler("MamagoJump", _cutScene.MamagoJump);
-            _runner.AddCommandHandler("MamagoMove", _cutScene.MamagoMove);
+            _runner.AddCommandHandler("MamagoMove1", _cutScene.MamagoMove1);
+            _runner.AddCommandHandler("MamagoMove2", _cutScene.MamagoMove2);
             _runner.AddCommandHandler("MamagoEnter", _cutScene.MamagoEnter);
 
             /*

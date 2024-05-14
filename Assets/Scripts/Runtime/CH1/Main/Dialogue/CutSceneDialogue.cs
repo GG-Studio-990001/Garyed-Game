@@ -14,7 +14,7 @@ public class CutSceneDialogue : MonoBehaviour
     [SerializeField] private Npc[] _npc = new Npc[3];
     [Header("=Mamago=")]
     [SerializeField] private Npc _mamago;
-    [SerializeField] private Vector3 _mamagoLocation;
+    [SerializeField] private Vector3[] _mamagoLocation;
     [Header("=Else=")]
     [SerializeField] private GameObject _illerstrationParent;
     [SerializeField] private GameObject[] _illerstration = new GameObject[1];
@@ -34,12 +34,20 @@ public class CutSceneDialogue : MonoBehaviour
         _mamago.transform.DOJump(nowPos, 0.3f, 1, 0.4f).SetEase(Ease.Linear);
     }
 
-    public void MamagoMove()
+    public void MamagoMove1()
     {
         string state = PlayerState.Move.ToString();
 
         _mamago.Anim.SetAnimation(state, Vector2.right);
-        _mamago.transform.DOMove(_mamagoLocation, 3f).SetEase(Ease.Linear);
+        _mamago.transform.DOMove(_mamagoLocation[0], 3f).SetEase(Ease.Linear);
+    }
+
+    public void MamagoMove2()
+    {
+        string state = PlayerState.Move.ToString();
+
+        _mamago.Anim.SetAnimation(state, Vector2.up);
+        _mamago.transform.DOMove(_mamagoLocation[1], 1f).SetEase(Ease.Linear);
     }
 
     public void MamagoEnter()
