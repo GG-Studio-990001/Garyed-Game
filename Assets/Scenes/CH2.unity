@@ -1236,9 +1236,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueView: {fileID: 715054631}
-  continueActionType: 1
+  continueActionType: 3
   continueActionKeyCode: 32
-  continueActionReference: {fileID: 0}
+  continueActionReference: {fileID: 8709246600754175931, guid: 6e910e6b94272464bb728827f85a5f59, type: 3}
   continueAction:
     m_Name: Skip
     m_Type: 1

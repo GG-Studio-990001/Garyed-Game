@@ -1,7 +1,5 @@
 using Cinemachine;
-using Runtime.CH1.Main.Controller;
 using Runtime.InGameSystem;
-using Runtime.Input;
 using UnityEngine;
 
 namespace Runtime.CH1.Main.Stage
@@ -14,7 +12,9 @@ namespace Runtime.CH1.Main.Stage
         [SerializeField] private Stage[] stages;
         private FadeController _fadeController;
         private Transform _playerTransform;
-        
+
+        [SerializeField] private Vector3[] _stageDefaultPosition;
+
         public Stage CurrentStage => StageChanger.CurrentStage;
         
         public void Init(FadeController fadeController, Transform playerTransform)
@@ -34,6 +34,9 @@ namespace Runtime.CH1.Main.Stage
             }
             
             stages[moveStageNumber].Enable();
+
+            Managers.Data.Stage = moveStageNumber;
+            Managers.Data.SaveGame();
         }
         
         private void StageChangerInit()
@@ -51,20 +54,21 @@ namespace Runtime.CH1.Main.Stage
                 stage.StageSettings(StageChanger);
             }
 
-            // 아래는 개발용
-            // 인스펙터에서 선택한 스테이지에서 시작 가능하게
 
-//#if UNITY_EDITOR
+
+#if UNITY_EDITOR
+            // 아래는 개발용
+            // 유니티 에디터라면 하이어라키에서 활성화된 스테이지의 지정 위치에서 시작
             foreach (var stage in stages)
             {
                 if (stage.IsActivate())
                 {
-                    await StageChanger.SetStage(stage.StageNumber, _playerTransform.position);
+                    await StageChanger.SetStage(stage.StageNumber, _stageDefaultPosition[stage.StageNumber - 1]);
                     return;
                 }
             }
-/*
-           #else // 빌드된다면 데이터로 읽
+#else
+            // 빌드라면 저장된 스테이지의 지정 위치에서 시작
             foreach (var stage in stages)
             {
                 if (stage.IsActivate())
@@ -72,9 +76,8 @@ namespace Runtime.CH1.Main.Stage
                     stage.Disable();
                 }
             }
-            await StageChanger.SetStage(Managers.Data.Stage, _playerTransform.position);
+            await StageChanger.SetStage(Managers.Data.Stage, _stageDefaultPosition[Managers.Data.Stage - 1]);
 #endif
-*/
         }
     }
 }

@@ -33,8 +33,8 @@ namespace Runtime.CH1.Main.Controller
         {
             GameKeyBinding();
             GameInit();
-            SetGame();
             LoadGame();
+            StartBGM();
         }
 
         private void LoadGame()
@@ -44,16 +44,9 @@ namespace Runtime.CH1.Main.Controller
         }
 
         // 저장된 데이터를 토대로 맵 이동
-        private void SetGame()
+        private void StartBGM()
         {
             Managers.Sound.Play(Sound.BGM, "Ch1Main");
-            // _ch1StageController.SetStage(Managers.Data.Stage, new Vector2(0, 0)); // 진행중이던 스테이지에 따른 라플리 포지션 지정 필요
-
-            // 개발자 모드
-#if UNITY_EDITOR
-
-#else // 빌드된다면 데이터로 읽기
-#endif
         }
 
         // 인게임에 사용되는 키 이벤트 바인딩
