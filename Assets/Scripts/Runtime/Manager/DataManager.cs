@@ -118,6 +118,7 @@ namespace Runtime.Manager
             
             Managers.Data.SaveData = data;
             Debug.Log($"Load Game Completed : {_path}");
+            Debug.Log(Managers.Data.Scene+"."+ Managers.Data.SceneDetail);
             return true;
         }
         
