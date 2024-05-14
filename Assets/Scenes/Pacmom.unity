@@ -1947,14 +1947,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sfxSounds:
-  - {fileID: 8300000, guid: 8526a369b4e13fd4c8eb09b9dffed966, type: 3}
-  - {fileID: 8300000, guid: 503bda22883786b4e9fa975646513d12, type: 3}
-  - {fileID: 8300000, guid: 392b834d920f2fe4ca39bc9264de8666, type: 3}
-  - {fileID: 8300000, guid: 904e705b251028c47be633d0d573d64f, type: 3}
-  - {fileID: 8300000, guid: 41170f0974f76ed46acd6335aa84461a, type: 3}
-  - {fileID: 8300000, guid: 72375b8dd54581b40872b0de3070ac7c, type: 3}
-  - {fileID: 8300000, guid: 04f68894ada36fc4abdf04727ac2a99e, type: 3}
-  - {fileID: 8300000, guid: 61c2f3350fa1fc142bc8645ff4e13cb6, type: 3}
+  - {fileID: 8300000, guid: 52a780ae960a19a4ca6ed52f65210b07, type: 3}
+  - {fileID: 8300000, guid: de371fa33b477384294ffcea53a5b418, type: 3}
+  - {fileID: 8300000, guid: 4e7f4872197c07148b54e76bb5dc8036, type: 3}
+  - {fileID: 8300000, guid: 1fe3d752dcde6bb41820b636af514651, type: 3}
+  - {fileID: 8300000, guid: 9dee1992642414a4d97033da3b346c68, type: 3}
+  - {fileID: 8300000, guid: f9cd38990bbe8f04d833b65b9860efad, type: 3}
+  - {fileID: 8300000, guid: 1d46743855b9ec74cb6ff6fe1c338499, type: 3}
+  - {fileID: 8300000, guid: dbd7e53a9e2b768458e2c8dd0e07192d, type: 3}
   - {fileID: 8300000, guid: 82e62aae8c11a2e44a840f570d5cf862, type: 3}
   - {fileID: 8300000, guid: ff6f71e0ac19ef141a05d2c203253253, type: 3}
   - {fileID: 8300000, guid: 615ac8979fcf5724884adfd2e8c38130, type: 3}
