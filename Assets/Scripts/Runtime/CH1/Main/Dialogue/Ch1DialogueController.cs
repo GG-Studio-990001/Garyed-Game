@@ -63,7 +63,9 @@ namespace Runtime.CH1.Main.Dialogue
             _runner.AddCommandHandler("MamagoMove2", _cutScene.MamagoMove2);
             _runner.AddCommandHandler("MamagoEnter", _cutScene.MamagoEnter);
             _runner.AddCommandHandler("GetTranslationPack", _cutScene.GetTranslationPack);
-
+            // CutScene / R2mon
+            _runner.AddCommandHandler("SetR2MonPosition", _cutScene.SetR2MonPosition);
+            _runner.AddCommandHandler("ChangeChapter2", _cutScene.ChangeChapter2);
             /*
             // UI/Sound
             _runner.AddCommandHandler<string>("PlayBackgroundSound", PlayBackgroundSound);

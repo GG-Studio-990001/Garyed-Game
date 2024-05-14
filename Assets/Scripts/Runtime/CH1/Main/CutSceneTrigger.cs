@@ -11,6 +11,7 @@ namespace Runtime.CH1
 
         private void OnTriggerEnter2D(Collider2D other)
         {
+            // TODO: Switch문으로 변경
             if (_idx == 2)
             {
                 if (Managers.Data.Scene != 2)
@@ -39,6 +40,16 @@ namespace Runtime.CH1
                 if (other.CompareTag(GlobalConst.PlayerStr))
                 {
                     dialogueRunner.StartDialogue("S4");
+                }
+            }
+            else if (_idx == 6)
+            {
+                if (Managers.Data.Scene != 5 || Managers.Data.SceneDetail != 1)
+                    return;
+
+                if (other.CompareTag(GlobalConst.PlayerStr))
+                {
+                    dialogueRunner.StartDialogue("S6");
                 }
             }
         }

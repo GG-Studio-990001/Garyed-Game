@@ -3,6 +3,7 @@ using Runtime.CH1.Main;
 using UnityEngine;
 using DG.Tweening;
 using Runtime.ETC;
+using UnityEngine.SceneManagement;
 
 public class CutSceneDialogue : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class CutSceneDialogue : MonoBehaviour
     [SerializeField] private Vector3 _location;
     [Header("=Npc=")]
     [SerializeField] private Npc[] _npc = new Npc[3];
+    [SerializeField] private Vector3 _r2monLocation;
     [Header("=Mamago=")]
     [SerializeField] private Npc _mamago;
     [SerializeField] private Vector3[] _mamagoLocation;
@@ -22,6 +24,16 @@ public class CutSceneDialogue : MonoBehaviour
     [SerializeField] private GameObject _stage2;
     [SerializeField] private BridgeController _bridge;
     private Sequence _shakeTween;
+
+    public void SetR2MonPosition()
+    {
+        _npc[2].transform.position = _r2monLocation;
+    }
+
+    public void ChangeChapter2()
+    {
+        SceneManager.LoadScene("CH2");
+    }
 
     public void GetTranslationPack()
     {
