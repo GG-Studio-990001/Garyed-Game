@@ -39,11 +39,14 @@ namespace Runtime.CH1.Main.Dialogue
             _runner.AddCommandHandler<string>("SceneChange", SceneChange);
             _runner.AddCommandHandler("FadeOut", _fadeController.StartFadeOut);
             _runner.AddCommandHandler("FadeIn", _fadeController.StartFadeIn);
-
-            // CutScene
             _runner.AddCommandHandler("NewSceneStart", NewSceneStart);
             _runner.AddCommandHandler("NextSceneStart", NextSceneStart);
             _runner.AddCommandHandler("SceneEnd", SceneEnd);
+
+            // SLG
+            _runner.AddCommandHandler("InitSLG", SLGAction.OnSLGInit);
+
+            // CutScene
             _runner.AddCommandHandler<int>("ShowIllustration", _cutScene.ShowIllustration);
             _runner.AddCommandHandler("HideIllustration", _cutScene.HideIllustration);
             _runner.AddCommandHandler<int>("CharactersMove", _cutScene.CharactersMove);
@@ -53,15 +56,13 @@ namespace Runtime.CH1.Main.Dialogue
             _runner.AddCommandHandler<bool>("ShakeMap", _cutScene.ShakeMap);
             _runner.AddCommandHandler("BreakBridge", _cutScene.BreakBridge);
             _runner.AddCommandHandler<int>("SetNpcPosition", _cutScene.SetNpcPosition);
-
-            // SLG
-            _runner.AddCommandHandler("InitSLG", SLGAction.OnSLGInit);
-
+            // CutScene / Mamago
             _runner.AddCommandHandler("PanpareSFX", _cutScene.PanpareSFX);
             _runner.AddCommandHandler("MamagoJump", _cutScene.MamagoJump);
             _runner.AddCommandHandler("MamagoMove1", _cutScene.MamagoMove1);
             _runner.AddCommandHandler("MamagoMove2", _cutScene.MamagoMove2);
             _runner.AddCommandHandler("MamagoEnter", _cutScene.MamagoEnter);
+            _runner.AddCommandHandler("GetTranslationPack", _cutScene.GetTranslationPack);
 
             /*
             // UI/Sound
@@ -93,9 +94,13 @@ namespace Runtime.CH1.Main.Dialogue
                 _runner.StartDialogue("S2");
             }
         }
+
         public void MamagoThanks()
         {
-            _runner.StartDialogue("S5");
+            if (Managers.Data.Scene == 4)
+            {
+                _runner.StartDialogue("S5");
+            }
         }
 
         private void NewSceneStart() // 코드로 빼도 될 듯

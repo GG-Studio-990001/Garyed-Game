@@ -19,8 +19,9 @@ namespace Runtime.Manager
         public float BgmVolume;
         public float SfxVolume;
         // CH1
-        public bool MeetLucky;
+        public bool MeetLucky; // have로 변경
         public bool Is3MatchEntered; // 3매치 1스테이지 들어왔는지
+        public bool HaveTranslationPack;
         // Pacmom
         public bool IsPacmomPlayed;
         public bool IsPacmomCleared;
@@ -44,6 +45,7 @@ namespace Runtime.Manager
             // CH1
             MeetLucky = false;
             Is3MatchEntered = false;
+            HaveTranslationPack = false;
             // Pacmom
             IsPacmomPlayed = false;
             IsPacmomCleared = false;
@@ -84,7 +86,8 @@ namespace Runtime.Manager
         // CH1
         public bool MeetLucky { get { return _gameData.MeetLucky; } set { _gameData.MeetLucky = value; } }
         public bool Is3MatchEntered { get { return _gameData.Is3MatchEntered; } set { _gameData.Is3MatchEntered = value; } }
-        
+        public bool HaveTranslationPack { get { return _gameData.HaveTranslationPack; } set { _gameData.HaveTranslationPack = value; } }
+
         // Pacmom
         public bool IsPacmomPlayed { get { return _gameData.IsPacmomPlayed; } set { _gameData.IsPacmomPlayed = value; } }
         public bool IsPacmomCleared { get { return _gameData.IsPacmomCleared; } set { _gameData.IsPacmomCleared = value; } }

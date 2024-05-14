@@ -23,6 +23,11 @@ public class CutSceneDialogue : MonoBehaviour
     [SerializeField] private BridgeController _bridge;
     private Sequence _shakeTween;
 
+    public void GetTranslationPack()
+    {
+        Managers.Data.HaveTranslationPack = true;
+    }
+
     public void PanpareSFX()
     {
         Managers.Sound.Play(Sound.SFX, "PanpareSFX");

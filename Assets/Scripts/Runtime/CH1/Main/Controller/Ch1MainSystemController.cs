@@ -30,6 +30,7 @@ namespace Runtime.CH1.Main.Controller
         [SerializeField] private NpcPosition _npcPosition;
         [SerializeField] private LuckyPack _luckyPack;
         [SerializeField] private BridgeController _bridge;
+        [SerializeField] private MamagoController _mamago;
 
 
         private void Start()
@@ -48,9 +49,11 @@ namespace Runtime.CH1.Main.Controller
 
         private void SetMap()
         {
+            // TODO: Check나 Load로 용어 통일
             _npcPosition.LoadNpcPosition();
             _luckyPack.ActiveLuckyPack();
             _bridge.CheckBridge();
+            _mamago.CheckMamago();
         }
 
         // 저장된 데이터를 토대로 맵 이동
