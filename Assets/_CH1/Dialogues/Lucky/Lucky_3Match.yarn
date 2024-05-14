@@ -9,7 +9,7 @@ title: Lucky_3Match
 
 <<ActiveBubble true>>
 <<Idle>>
-럭키: 럭키님 등장이요~
+럭키: 럭키님 등장~
 럭키: 뭐야, 이 쉬운 건!
 럭키: 딱 봐도 알겠구만.
 럭키: 세 개 연결하면 펑!<br>오케이?
@@ -18,7 +18,6 @@ title: Lucky_3Match
 <<ActiveBubble false>>
 <<WalkOut 0>>
 <<wait 3>>
-<<Idle>>
 <<ExplaneDone>>
 <<LuckyExit>>
 ===

@@ -8,6 +8,7 @@ namespace Runtime.CH1.SubB.SLG
     public class SlguiObject : MonoBehaviour, IInteractive
     {
         public UnityEvent onInteract;
+        [SerializeField] private GameObject _luckyLayer;
         private DialogueRunner _dialogueRunner;
 
         private void Awake()
@@ -27,20 +28,22 @@ namespace Runtime.CH1.SubB.SLG
         {
             onInteract?.Invoke();
 
-            SLGActionComponent SLGAction = FindObjectOfType<SLGActionComponent>();
-            if (SLGAction != null)
+            //SLGActionComponent SLGAction = FindObjectOfType<SLGActionComponent>();
+            //if (SLGAction != null)
+            //{
+            //    
+            //}
+
+            if (Managers.Data.Scene < 4)
             {
-                if (Managers.Data.Scene < 4)
-                {
-                    // 임시로 막아두기
-                    _dialogueRunner.StartDialogue("SLG_Block");
-                }
-                else
-                {
-                    // TODO: 다이얼로그 끝나면 효과음과 함께 UI 띄우기
-                    _dialogueRunner.StartDialogue("SLG_Start");
-                    SLGAction.OnSLGInit();
-                }
+                // 임시로 막아두기
+                _dialogueRunner.StartDialogue("SLG_Block");
+            }
+            else
+            {
+                _dialogueRunner.StartDialogue("SLG_Start");
+                _luckyLayer.SetActive(true); // 옮겨야됨
+                // SLGAction.OnSLGInit();
             }
 
             return true;

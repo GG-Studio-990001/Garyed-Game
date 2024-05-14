@@ -30,6 +30,9 @@ namespace Runtime.CH1.Main.Dialogue
 
         [SerializeField] private CutSceneDialogue _cutScene;
 
+        // SLG
+        [SerializeField] private SLGActionComponent SLGAction;
+
         private void Awake()
         {
             _runner.AddCommandHandler<string>("StartTimeline", (timelineName) => _timelineController.PlayTimeline(timelineName));
@@ -51,6 +54,14 @@ namespace Runtime.CH1.Main.Dialogue
             _runner.AddCommandHandler("BreakBridge", _cutScene.BreakBridge);
             _runner.AddCommandHandler<int>("SetNpcPosition", _cutScene.SetNpcPosition);
 
+            // SLG
+            _runner.AddCommandHandler("InitSLG", SLGAction.OnSLGInit);
+
+            _runner.AddCommandHandler("PanpareSFX", _cutScene.PanpareSFX);
+            _runner.AddCommandHandler("MamagoJump", _cutScene.MamagoJump);
+            _runner.AddCommandHandler("MamagoMove", _cutScene.MamagoMove);
+            _runner.AddCommandHandler("MamagoEnter", _cutScene.MamagoEnter);
+
             /*
             // UI/Sound
             _runner.AddCommandHandler<string>("PlayBackgroundSound", PlayBackgroundSound);
@@ -59,8 +70,8 @@ namespace Runtime.CH1.Main.Dialogue
             _runner.AddCommandHandler("SetCamera", SetCamera);
             _runner.AddCommandHandler("CurrentMinorDialogueStart", CurrentMinorDialogueStart);
             */
-            _runner.AddCommandHandler("SLGSetting", SetSLGUI);
-            
+            // _runner.AddCommandHandler("SLGSetting", SetSLGUI);
+
             if (_volume != null)
             {
                 _volume.profile.TryGet(out _lowRes);
@@ -80,6 +91,10 @@ namespace Runtime.CH1.Main.Dialogue
                 _cutScene.Player.transform.position = new Vector3(21.95f, -7.51f, 0);
                 _runner.StartDialogue("S2");
             }
+        }
+        public void MamagoThanks()
+        {
+            _runner.StartDialogue("S5");
         }
 
         private void NewSceneStart() // 코드로 빼도 될 듯
@@ -142,11 +157,12 @@ namespace Runtime.CH1.Main.Dialogue
             Managers.Sound.Play(Sound.SFX, "[CH1] Text SFX");
         }
 
+        /*
         private void SetSLGUI()
         {
 
         }
-        /*        
+                
         private void PlayBackgroundSound(string soundName)
         {
             //_soundSystem.PlayMusic(soundName); // TODO Manager.Sound로 교체

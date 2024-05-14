@@ -5,8 +5,8 @@ title: Mamago
 
 <<if $progress == 40>>
     <<jump Mamago1>>
-<<elseif $progress == 50>>
-    <<jump Mamago2>>
+//<<elseif $progress == 50>>
+//    <<jump Mamago2>>
 <<endif>>
 ===
 
@@ -22,13 +22,4 @@ title: Mamago1
 마마고: 건축사무소에 의뢰를 넣었거든요..Request!
 마마고: 빨리 지어졌으면 좋겠어요..Can't wait!
 마마고: 사장에게 시간은 금과 같으니까요..Time is Gold!
-===
-
-title: Mamago2
-// 상황: 마마고 컴퍼니 완공 후
----
-마마고: 어쩜 이런 근사한 건물이..Nice!
-마마고: 모든 언어를 마스터하고 싶은 자여..Language!
-마마고: 마마고 컴퍼니로 오세요..Come here!
-//마마고가 건물 안으로 들어간다.
 ===

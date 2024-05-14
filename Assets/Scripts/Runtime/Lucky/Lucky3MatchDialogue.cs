@@ -9,6 +9,7 @@ namespace Runtime.Luck
 {
     public class Lucky3MatchDialogue : DialogueViewBase
     {
+        // 클래스 이름 수정해야함
         private DialogueRunner _runner;
         [SerializeField] private GameObject _luckyLayer;
         [SerializeField] private Lucky _lucky;
@@ -18,6 +19,7 @@ namespace Runtime.Luck
         [SerializeField] private TopDownPlayer _player;
         [SerializeField] private GameObject _fish;
         [SerializeField] private ThreeMatchPuzzleController _3MatchController;
+        [SerializeField] private SLGActionComponent _slgAction;
 
         private void Awake()
         {
@@ -31,8 +33,24 @@ namespace Runtime.Luck
             _runner.AddCommandHandler("ExplaneDone", ExplaneDone);
             _runner.AddCommandHandler("ActiveFish", ActiveFish);
             _runner.AddCommandHandler("ExplodeFish", ExplodeFish);
+            _runner.AddCommandHandler("SLGExplaneDone", SLGExplaneDone);
         }
 
+        public void SLGExplainStart()
+        {
+            if (Managers.Data.SLGProgressData == SLGProgress.ModeOpen) // 현정님이 바꾸면 나도 바꿔야함
+            {
+                _runner.StartDialogue("Lucky_SLG");
+            }
+        }
+
+        private void SLGExplaneDone()
+        {
+            _slgAction.MoveOnNextProgress();
+            Managers.Data.SaveGame();
+        }
+
+        #region 3 매치 & 공용
         public void S1ExplainStart()
         {
             if (Managers.Data.MeetLucky && !Managers.Data.Is3MatchEntered)
@@ -82,6 +100,8 @@ namespace Runtime.Luck
 
             Managers.Sound.StopBGM();
             Managers.Sound.Play(Sound.BGM, "Ch1Main");
+
+            Idle();
         }
 
         private void WalkIn(int i)
@@ -108,5 +128,6 @@ namespace Runtime.Luck
         {
             _bubble.SetActive(active);
         }
+        #endregion
     }
 }

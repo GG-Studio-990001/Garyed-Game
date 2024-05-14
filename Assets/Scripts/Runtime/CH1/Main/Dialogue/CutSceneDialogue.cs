@@ -12,6 +12,9 @@ public class CutSceneDialogue : MonoBehaviour
     [SerializeField] private Vector3 _location;
     [Header("=Npc=")]
     [SerializeField] private Npc[] _npc = new Npc[3];
+    [Header("=Mamago=")]
+    [SerializeField] private Npc _mamago;
+    [SerializeField] private Vector3 _mamagoLocation;
     [Header("=Else=")]
     [SerializeField] private GameObject _illerstrationParent;
     [SerializeField] private GameObject[] _illerstration = new GameObject[1];
@@ -19,6 +22,30 @@ public class CutSceneDialogue : MonoBehaviour
     [SerializeField] private GameObject _stage2;
     [SerializeField] private BridgeController _bridge;
     private Sequence _shakeTween;
+
+    public void PanpareSFX()
+    {
+        Managers.Sound.Play(Sound.SFX, "PanpareSFX");
+    }
+
+    public void MamagoJump()
+    {
+        Vector3 nowPos = _mamago.transform.position;
+        _mamago.transform.DOJump(nowPos, 0.3f, 1, 0.4f).SetEase(Ease.Linear);
+    }
+
+    public void MamagoMove()
+    {
+        string state = PlayerState.Move.ToString();
+
+        _mamago.Anim.SetAnimation(state, Vector2.right);
+        _mamago.transform.DOMove(_mamagoLocation, 3f).SetEase(Ease.Linear);
+    }
+
+    public void MamagoEnter()
+    {
+        _mamago.gameObject.SetActive(false);
+    }
 
     public void SetNpcPosition(int i)
     {

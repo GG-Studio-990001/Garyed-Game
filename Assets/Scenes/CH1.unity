@@ -1014,12 +1014,15 @@ MonoBehaviour:
   _inPosition:
   - {x: 428, y: -450, z: 0}
   - {x: 428, y: 8, z: 0}
+  - {x: 424, y: -348, z: 0}
   _outPosition:
   - {x: 1117, y: -450, z: 0}
   - {x: 1112, y: 8, z: 0}
+  - {x: 1094, y: -348, z: 0}
   _player: {fileID: 669133898}
   _fish: {fileID: 572122668}
   _3MatchController: {fileID: 1738564838}
+  _slgAction: {fileID: 1580210414}
 --- !u!1001 &74761257
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6378,7 +6381,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df6aa72e4b384fd4699ea7ead4ff6a45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sceneMoveCount: 4
+  _sceneMoveCount: 0
 --- !u!1 &332104389
 GameObject:
   m_ObjectHideFlags: 0
@@ -21695,7 +21698,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2511279292592813010, guid: b78bebc3c8e9d50499cb65ad33c2b7ef, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 90.29
+      value: 90.2
       objectReference: {fileID: 0}
     - target: {fileID: 2511279292592813010, guid: b78bebc3c8e9d50499cb65ad33c2b7ef, type: 3}
       propertyPath: m_LocalPosition.y
@@ -29269,6 +29272,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1368314908901170753, guid: de5eada4866075340ab44613feffb2f4, type: 3}
   m_PrefabInstance: {fileID: 1232612953}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1232625328 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4527797774585538573, guid: b78bebc3c8e9d50499cb65ad33c2b7ef, type: 3}
+  m_PrefabInstance: {fileID: 1051889806}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf119042d19c8804a9d51cfe381e9770, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1235389170
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33219,7 +33233,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1112, y: 8}
+  m_AnchoredPosition: {x: 1094, y: -348}
   m_SizeDelta: {x: 281.187, y: 255.758}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &1419596022
@@ -33262,7 +33276,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1546151723
   m_SortingLayer: 4
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: -1351900663, guid: bd54902fbe136b54fa36d573e67d139b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -36988,6 +37002,8 @@ MonoBehaviour:
   SLGMaMagoGate: {fileID: 173297811}
   SLGMaMagoGateColider: {fileID: 566740323}
   bShowWnd: 0
+  _lucky: {fileID: 67458954}
+  _dialogue: {fileID: 1757409998}
 --- !u!4 &1580210415
 Transform:
   m_ObjectHideFlags: 0
@@ -43633,6 +43649,7 @@ MonoBehaviour:
   _backgroundImage: {fileID: 1782403766}
   _volume: {fileID: 674618125}
   _cutScene: {fileID: 1757409999}
+  SLGAction: {fileID: 1580210414}
 --- !u!114 &1757409999
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43652,6 +43669,8 @@ MonoBehaviour:
   - {fileID: 290311369}
   - {fileID: 100080073}
   - {fileID: 360165081}
+  _mamago: {fileID: 1232625328}
+  _mamagoLocation: {x: 93.38, y: -16.13, z: 0}
   _illerstrationParent: {fileID: 440311592}
   _illerstration:
   - {fileID: 1782403764}
@@ -53440,6 +53459,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6076243445032499146, guid: fabd929830e0d48429c6e047af57dd53, type: 3}
+      propertyPath: _luckyLayer
+      value: 
+      objectReference: {fileID: 1611679458}
     - target: {fileID: 6117765169777302861, guid: fabd929830e0d48429c6e047af57dd53, type: 3}
       propertyPath: m_IsActive
       value: 1
