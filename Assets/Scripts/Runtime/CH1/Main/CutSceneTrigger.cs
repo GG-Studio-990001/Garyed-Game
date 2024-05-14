@@ -8,12 +8,12 @@ namespace Runtime.CH1
     {
         [SerializeField] private Ch1DialogueController dialogue;
 
-        private void OnTriggerEnter2D(Collider2D other)
+        /*private void OnTriggerEnter2D(Collider2D other)
         {
             if (other.CompareTag(GlobalConst.PlayerStr))
             {
                 dialogue.CheckCutScene();
             }
-        }
+        }*/
     }
 }

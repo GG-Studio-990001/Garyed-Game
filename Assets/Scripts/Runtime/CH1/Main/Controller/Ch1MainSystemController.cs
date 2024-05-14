@@ -2,6 +2,7 @@ using Cinemachine;
 using Runtime.CH1.Main.Dialogue;
 using Runtime.CH1.Main.Player;
 using Runtime.CH1.Main.Stage;
+using Runtime.CH1.Pacmom;
 using Runtime.Common.View;
 using Runtime.Data.Original;
 using Runtime.Event;
@@ -27,6 +28,7 @@ namespace Runtime.CH1.Main.Controller
 
         [Header("Else")]
         [SerializeField] private NpcPosition _npcPosition;
+        [SerializeField] private LuckyPack _luckyPack;
 
 
         private void Start()
@@ -41,6 +43,7 @@ namespace Runtime.CH1.Main.Controller
         {
             Managers.Data.LoadGame();
             _npcPosition.LoadNpcPosition();
+            _luckyPack.ActiveLuckyPack();
         }
 
         // 저장된 데이터를 토대로 맵 이동

@@ -15,6 +15,7 @@ namespace Runtime.Manager
         public int Stage;
         public int Scene;
         public int SceneDetail; // 씬 세부 진행도
+        public bool MeetLucky;
         // Sound
         public float BgmVolume;
         public float SfxVolume;
@@ -35,9 +36,11 @@ namespace Runtime.Manager
             Stage = 1;
             Scene = 0;
             SceneDetail = 0;
+            MeetLucky = false;
             // Sound
             BgmVolume = 0.5f;
             SfxVolume = 0.5f;
+
             // Pacmom
             IsPacmomPlayed = false;
             IsPacmomCleared = false;
@@ -63,6 +66,7 @@ namespace Runtime.Manager
         public int Stage { get { return _gameData.Stage; } set { _gameData.Stage = value; } }
         public int Scene { get { return _gameData.Scene; } set { _gameData.Scene = value; } }
         public int SceneDetail { get { return _gameData.SceneDetail; } set { _gameData.SceneDetail = value; } }
+        public bool MeetLucky { get { return _gameData.MeetLucky; } set { _gameData.MeetLucky = value; } }
 
         public float BgmVolume
         {

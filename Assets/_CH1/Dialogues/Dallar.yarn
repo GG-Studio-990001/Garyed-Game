@@ -3,7 +3,7 @@
 ---
 <<set $progress to GetProgress()>>
 
-<<if $progress == 11>>
+<<if $progress == 10>>
     <<jump Dallar1>>
 // <<elseif $mainer == 2>>
 //     <<jump Dallar2>>
@@ -16,7 +16,7 @@
 
 
 title: Dallar1
-// 시점: 컷씬 1.1 이후
+// 시점: 컷씬 1.0 이후
 ---
 
 달러: 어디에서 왔는지 기억은 나는가?

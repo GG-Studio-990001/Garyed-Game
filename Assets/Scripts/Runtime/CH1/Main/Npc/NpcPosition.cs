@@ -29,7 +29,7 @@ namespace Runtime.CH1.Main
             }
         }
 
-        private void SetNpcPosition(int idx)
+        public void SetNpcPosition(int idx)
         {
             for (int i=0; i<_npcs.Length; i++)
             {

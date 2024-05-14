@@ -47,26 +47,41 @@ namespace Runtime.CH1.Main.Stage
             StageChanger.OnStageEnd += () => Managers.Data.InGameKeyBinder.PlayerInputEnable();
         }
         
-        private async void StageSettings()
+        private async void StageSettings() // 왜 async?
         {
             foreach (var stage in stages)
             {
                 stage.StageSettings(StageChanger);
             }
 
-
-
 #if UNITY_EDITOR
             // 아래는 개발용
             // 유니티 에디터라면 하이어라키에서 활성화된 스테이지의 지정 위치에서 시작
+
+            int firstStage = 0;
             foreach (var stage in stages)
             {
+                // 가장 처음 활성화된 스테이지 선택
                 if (stage.IsActivate())
                 {
-                    await StageChanger.SetStage(stage.StageNumber, _stageDefaultPosition[stage.StageNumber - 1]);
-                    return;
+                    firstStage = stage.StageNumber;
+                    break;
                 }
             }
+
+            // 나머지 스테이지 끄기
+            foreach (var stage in stages)
+            {
+                if (stage.StageNumber != firstStage)
+                    stage.Disable();
+            }
+
+            // 아무것도 안켜져있다면 스테이지1
+            if (firstStage == 0)
+                firstStage++;
+
+            await StageChanger.SetStage(firstStage, _stageDefaultPosition[firstStage - 1]);
+            return;
 #else
             // 빌드라면 저장된 스테이지의 지정 위치에서 시작
             foreach (var stage in stages)

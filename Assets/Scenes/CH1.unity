@@ -11310,6 +11310,7 @@ GameObject:
   - component: {fileID: 595339715}
   - component: {fileID: 595339714}
   - component: {fileID: 595339713}
+  - component: {fileID: 595339716}
   m_Layer: 15
   m_Name: GameDescriptionPack
   m_TagString: Untagged
@@ -11444,6 +11445,18 @@ MonoBehaviour:
   OnInteract:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &595339716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 595339711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01c3629a37528574ca5a13bc87eaf521, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &601029011
 GameObject:
   m_ObjectHideFlags: 0
@@ -16498,11 +16511,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1441124673561100856, guid: 636fca1bc1c114943a004cbada5c227f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.6
+      value: 21.95
       objectReference: {fileID: 0}
     - target: {fileID: 1441124673561100856, guid: 636fca1bc1c114943a004cbada5c227f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.7
+      value: -7.51
       objectReference: {fileID: 0}
     - target: {fileID: 1441124673561100856, guid: 636fca1bc1c114943a004cbada5c227f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -31388,7 +31401,7 @@ Transform:
   m_GameObject: {fileID: 1429684703}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.6, y: -6.7, z: -10}
+  m_LocalPosition: {x: 21.95, y: -7.51, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -37671,7 +37684,7 @@ Transform:
   m_GameObject: {fileID: 1674432335}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.6, y: -6.7, z: -10}
+  m_LocalPosition: {x: 12.891787, y: -7.5141797, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -41412,6 +41425,7 @@ MonoBehaviour:
   _backgroundImage: {fileID: 1782403766}
   _volume: {fileID: 674618125}
   _cutScene: {fileID: 1757409999}
+  _npcPosition: {fileID: 1908934228}
 --- !u!114 &1757409999
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43412,13 +43426,16 @@ MonoBehaviour:
   NpcLocations:
   - Locations:
     - {x: -3.55, y: -5.9500003, z: 0}
-    - {x: 12.809999, y: -7.0200005, z: 0}
+    - {x: 12.809999, y: -7.02, z: 0}
+    - {x: 19.8, y: -8.81, z: 0}
   - Locations:
     - {x: -1.63, y: -6.91, z: 0}
     - {x: 14.73, y: -7.98, z: 0}
+    - {x: 21.43, y: -9.36, z: 0}
   - Locations:
     - {x: 0.45, y: -6.35, z: 0}
     - {x: 16.810001, y: -7.42, z: 0}
+    - {x: 23.52, y: -9.11, z: 0}
 --- !u!1001 &1911977605
 PrefabInstance:
   m_ObjectHideFlags: 0

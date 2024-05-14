@@ -4,14 +4,14 @@
 ---
 <<set $progress to GetProgress()>>
 
-<<if $progress == 11>>
+<<if $progress == 10>>
     <<jump R2_Mon1>>
 // <<declare $R2LanguageChange = false>>
 <<endif>>
 ===
 
 title: R2_Mon1
-// 시점: 컷씬 1.1 이후
+// 시점: 컷씬 1.0 이후
 ---
 R2-Mon: !@&*$%&*!@
 ===

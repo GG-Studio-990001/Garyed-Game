@@ -29,6 +29,7 @@ namespace Runtime.CH1.Main.Dialogue
         public UnityEvent OnDialogueEnd => _runner.onDialogueComplete;
 
         [SerializeField] private CutSceneDialogue _cutScene;
+        [SerializeField] private NpcPosition _npcPosition;
 
         private void Awake()
         {
@@ -39,7 +40,7 @@ namespace Runtime.CH1.Main.Dialogue
 
             // CutScene
             _runner.AddCommandHandler("NewSceneStart", NewSceneStart);
-            _runner.AddCommandHandler("SceneStart", SceneStart);
+            // _runner.AddCommandHandler("SceneStart", NextSceneStart);
             _runner.AddCommandHandler("SceneEnd", SceneEnd);
             _runner.AddCommandHandler<int>("ShowIllustration", _cutScene.ShowIllustration);
             _runner.AddCommandHandler("HideIllustration", _cutScene.HideIllustration);
@@ -67,27 +68,29 @@ namespace Runtime.CH1.Main.Dialogue
 
         private void Start()
         {
-            if (Managers.Data.Scene == 0 && Managers.Data.SceneDetail == 0)
-                _runner.StartDialogue("S1");
-        }
-
-        public void CheckCutScene()
-        {
-            if (Managers.Data.Scene == 1 && Managers.Data.SceneDetail == 1)
+            if (Managers.Data.Scene == 0)
             {
-                _runner.StartDialogue("S1.2");
-                //_runner.StartDialogue($"Dialogue{Managers.Data.Minor}");
+                _runner.StartDialogue("S1");
+            }
+            else if (Managers.Data.Scene == 1 && Managers.Data.IsPacmomCleared)
+            {
+                // 캐릭터 위치 지정
+                _npcPosition.SetNpcPosition(2);
+                _cutScene.Player.transform.position = new Vector3(21.95f, -7.51f, 0);
+                _runner.StartDialogue("S2");
             }
         }
-        private void NewSceneStart()
+
+        private void NewSceneStart() // 코드로 빼도 될 듯
         {
             Managers.Data.Scene++;
+            Managers.Data.SceneDetail = 0;
+            _cutScene.Player.IsDirecting = true;
         }
 
-        private void SceneStart()
+        private void NextSceneStart() // 필요 없을지도?
         {
             Managers.Data.SceneDetail++;
-            _cutScene.Player.IsDirecting = true;
         }
 
         private void SceneEnd()

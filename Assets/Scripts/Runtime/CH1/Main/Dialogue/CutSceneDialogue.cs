@@ -56,6 +56,8 @@ public class CutSceneDialogue : MonoBehaviour
     {
         Managers.Sound.Play(Sound.SFX, "[Ch1] Lucky_SFX_Dog&Key");
         _lucky.SetActive(false);
+        Managers.Data.MeetLucky = true;
+        Managers.Data.SaveGame();
     }
 
     public void ShowIllustration(int num)
