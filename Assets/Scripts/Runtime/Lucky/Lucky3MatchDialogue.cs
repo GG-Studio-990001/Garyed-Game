@@ -55,7 +55,7 @@ namespace Runtime.Luck
         
         private void ActiveFish()
         {
-            _fish.SetActive(true);
+            // _fish.SetActive(true);
         }
 
         private void ExplodeFish()
