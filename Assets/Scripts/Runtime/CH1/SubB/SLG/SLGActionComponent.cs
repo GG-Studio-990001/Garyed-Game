@@ -245,7 +245,8 @@ public class SLGActionComponent : MonoBehaviour
         RefreshCoinText();
 
         InitMap();
-        MoveOnNextProgress();
+        Debug.Log("럭키 등장");
+        // MoveOnNextProgress();
     }
 
     private void InitMap()

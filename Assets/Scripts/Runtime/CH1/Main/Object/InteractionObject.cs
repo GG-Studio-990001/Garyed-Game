@@ -8,15 +8,15 @@ namespace Runtime.CH1.Main.Object
     public class InteractionObject : MonoBehaviour, IInteractive
     {
         public UnityEvent OnInteract;
-        private DialogueRunner dialogueRunner;
+        private DialogueRunner _dialogueRunner;
     
         private void Awake()
         {
-            if (dialogueRunner == null)
+            if (_dialogueRunner == null)
             {
                 // 다이얼로그러너를 하나 더 추가했으므로 임시 조치
-                dialogueRunner = GameObject.Find("DialogueRunner").GetComponent<DialogueRunner>(); // FindObjectOfType<DialogueRunner>();
-                if (dialogueRunner == null)
+                _dialogueRunner = GameObject.Find("DialogueRunner").GetComponent<DialogueRunner>(); // FindObjectOfType<DialogueRunner>();
+                if (_dialogueRunner == null)
                 {
                     Debug.LogError("DialogueRunner is not found.");
                 }
@@ -26,7 +26,7 @@ namespace Runtime.CH1.Main.Object
         public bool Interact(Vector2 direction = default)
         {
             OnInteract?.Invoke();
-            dialogueRunner.StartDialogue(gameObject.name);
+            _dialogueRunner.StartDialogue(gameObject.name);
             return true;
         }
     }
