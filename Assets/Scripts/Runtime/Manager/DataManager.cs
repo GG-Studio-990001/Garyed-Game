@@ -2,6 +2,7 @@ using Runtime.Input;
 using System;
 using Runtime.ETC;
 using UnityEngine;
+using Runtime.CH1.Main.Stage;
 
 namespace Runtime.Manager
 {
@@ -11,6 +12,7 @@ namespace Runtime.Manager
     {
         // Progress
         public int Chapter;
+        public int Stage;
         public int Scene;
         public int SceneDetail; // 씬 세부 진행도
         // Sound
@@ -30,6 +32,7 @@ namespace Runtime.Manager
         {
             // Progress
             Chapter = 1;
+            Stage = 1;
             Scene = 0;
             SceneDetail = 0;
             // Sound
@@ -57,6 +60,7 @@ namespace Runtime.Manager
 
         #region properties
         public int Chapter { get { return _gameData.Chapter; } set { _gameData.Chapter = value; } }
+        public int Stage { get { return _gameData.Stage; } set { _gameData.Stage = value; } }
         public int Scene { get { return _gameData.Scene; } set { _gameData.Scene = value; } }
         public int SceneDetail { get { return _gameData.SceneDetail; } set { _gameData.SceneDetail = value; } }
 
