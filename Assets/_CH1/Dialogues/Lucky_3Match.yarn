@@ -4,7 +4,7 @@ title: Lucky_3Match
 ---
 // 임시 수정
 <<LuckyEnter>>
-<<WalkIn 0>>
+<<WalkIn>>
 <<wait 3>>
 
 <<ActiveBubble true>>
@@ -16,9 +16,8 @@ title: Lucky_3Match
 럭키: 럭키님 퇴장이요~
 
 <<ActiveBubble false>>
-<<WalkOut 0>>
+<<WalkOut>>
 <<wait 3>>
-<<Idle>>
 <<ExplaneDone>>
 <<LuckyExit>>
 ===
@@ -28,29 +27,20 @@ title: Lucky_3Match_Stage3
 // 상황 : 3매치를 설명하는 럭키
 ---
 <<LuckyEnter>>
-<<WalkIn 1>>
+<<WalkIn>>
 <<wait 3>>
-
-<<ActiveBubble true>>
 <<Idle>>
 // 3라운드 막히는 구간
 럭키: 행운이 필요해?
 럭키: 기다려 봐!
-
-<<wait 1>>
-// 물고기 생성
-<<ActiveFish>>
-<<wait 1>>
-<<ExplodeFish>>
-// 물고기 터짐
+<<WalkOut>>
+<<wait 3>>
 
 // 물고기 물고 가져온다
 // 럭키가 젤리를 가져다 둔다.
 럭키: 이게 바로 럭키 효과!
 럭키: 휴, 이제 밖으로 나가야지~
-
-<<ActiveBubble false>>
-<<WalkOut 1>>
+<<WalkOut>>
 <<wait 3>>
 <<LuckyExit>>
 // 럭키가 출구로 나간다.

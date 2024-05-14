@@ -1,5 +1,6 @@
 using DG.Tweening;
 using Runtime.CH1.Main.Player;
+using Runtime.CH1.SubB;
 using Runtime.ETC;
 using UnityEngine;
 using Yarn.Unity;
@@ -9,33 +10,57 @@ namespace Runtime.Luck
     public class Lucky3MatchDialogue : DialogueViewBase
     {
         private DialogueRunner _runner;
+        [SerializeField] private GameObject _luckyLayer;
         [SerializeField] private Lucky _lucky;
         [SerializeField] private GameObject _bubble;
-        [SerializeField] private Vector3 _outPosition;
-        [SerializeField] private Vector3 _inPosition;
-        // [SerializeField] private GameObject _drawing;
-        [SerializeField] private GameObject[] LuckyObjs;
-        // [SerializeField] private GameObject _timeline;
+        [SerializeField] private Vector3[] _inPosition;
+        [SerializeField] private Vector3[] _outPosition;
         [SerializeField] private TopDownPlayer _player;
+        [SerializeField] private GameObject _fish;
+        [SerializeField] private ThreeMatchPuzzleController _3MatchController;
 
         private void Awake()
         {
-            _lucky.transform.localPosition = _outPosition;
-
             _runner = GetComponent<DialogueRunner>();
             _runner.AddCommandHandler("LuckyEnter", LuckyEnter);
             _runner.AddCommandHandler("LuckyExit", LuckyExit);
-            _runner.AddCommandHandler("WalkIn", WalkIn);
-            _runner.AddCommandHandler("WalkOut", WalkOut);
+            _runner.AddCommandHandler<int>("WalkIn", WalkIn);
+            _runner.AddCommandHandler<int>("WalkOut", WalkOut);
             _runner.AddCommandHandler<bool>("ActiveBubble", ActiveBubble);
             _runner.AddCommandHandler("Idle", Idle);
             _runner.AddCommandHandler("ExplaneDone", ExplaneDone);
+            _runner.AddCommandHandler("ActiveFish", ActiveFish);
+            _runner.AddCommandHandler("ExplodeFish", ExplodeFish);
         }
 
-        private void Start()
+        public void S1ExplainStart()
         {
-            if (Managers.Data.IsPacmomPlayed)
-                LuckyExit();
+            if (Managers.Data.MeetLucky && !Managers.Data.Is3MatchEntered)
+            {
+                _lucky.transform.localPosition = _outPosition[0];
+                _runner.StartDialogue("Lucky_3Match");
+            }
+        }
+
+        public void S3ExplainStart()
+        {
+
+            // 3매치 퍼즐 클리어 저장 변수 없나?
+            if (Managers.Data.MeetLucky && Managers.Data.Scene < 4)
+            {
+                _lucky.transform.localPosition = _outPosition[1];
+                _runner.StartDialogue("Lucky_3Match_Stage3");
+            }
+        }
+        
+        private void ActiveFish()
+        {
+            _fish.SetActive(true);
+        }
+
+        private void ExplodeFish()
+        {
+            _3MatchController.CheckMatching();
         }
 
         private void ExplaneDone()
@@ -54,22 +79,23 @@ namespace Runtime.Luck
         private void LuckyExit()
         {
             Managers.Data.InGameKeyBinder.PlayerInputEnable();
+            _luckyLayer.SetActive(false);
+
             Managers.Sound.StopBGM();
-            for (int i = 0; i < LuckyObjs.Length; i++)
-                LuckyObjs[i].SetActive(false);
+            Managers.Sound.Play(Sound.BGM, "Ch1Main");
         }
 
-        private void WalkIn()
+        private void WalkIn(int i)
         {
             _lucky.Anim.SetAnimation("Walking"); // enum으로 변경
-            _lucky.transform.DOLocalMove(_inPosition, 3f).SetEase(Ease.Linear);
+            _lucky.transform.DOLocalMove(_inPosition[i], 3f).SetEase(Ease.Linear);
         }
 
-        private void WalkOut()
+        private void WalkOut(int i)
         {
             _lucky.Anim.SetAnimation("Walking");
             _lucky.SetFlipX(true);
-            _lucky.transform.DOLocalMove(_outPosition, 3f).SetEase(Ease.Linear);
+            _lucky.transform.DOLocalMove(_outPosition[i], 3f).SetEase(Ease.Linear);
         }
 
         private void Idle()
