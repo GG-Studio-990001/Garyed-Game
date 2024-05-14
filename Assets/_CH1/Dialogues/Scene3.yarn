@@ -1,26 +1,35 @@
 title: S3
-// 시점 : 컷씬 3.1
+// 시점 : 컷씬 3.0
 // 상황 : 하늘에서 떨어진 UI가 다리를 부수어 일행과 찢어짐
 ---
 <<CharactersStop 2>>
 <<NewSceneStart>>
 
+<<wait 1>>
 // 화면이 흔들림
+<<ShakeMap true>>
 
 <<NpcJump 1>>
-파머: 이런, 떨어지기 시작한다!
+// 파머: 이런, 떨어지기 시작한다!
+파머: 이런, 큰 게 떨어질거야!
 파머: 다들 뛰어!!
 
 // 일행만 자리이동 A->B->C
 <<CharactersMove 3>>
 <<wait 5>>
-<<CharactersStop 3>>
+<<CharactersStop 2>>
 
 // 무언가 다리로 떨어짐
 // 쾅 소리와 함께 화면이 페이드인/아웃
+<<FadeOut>>
+<<wait 1>>
 
 // 화면 흔들림 끝
 // 이후에는 부서진 다리만 보인다.
+<<ShakeMap false>>
+
+<<FadeIn>>
+<<wait 1>>
 
 <<NpcJump 0>>
 달러: 오, 맙소사..

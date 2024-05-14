@@ -17,10 +17,20 @@ public class CutSceneDialogue : MonoBehaviour
     [SerializeField] private GameObject[] _illerstration = new GameObject[1];
     [SerializeField] private GameObject _lucky;
     [SerializeField] private GameObject _stage2;
+    private Sequence _shakeTween;
 
-    public void ShakeStage()
+    public void ShakeMap(bool shake)
     {
-        _stage2.transform.DOShakePosition(5f);
+        
+        if (shake)
+        {
+            _shakeTween = DOTween.Sequence();
+            _shakeTween.Append(_stage2.transform.DOShakePosition(5000f, new Vector3(0.1f, 0.1f, 0)));
+        }
+        else
+        {
+            _shakeTween.Kill();
+        }
     }
 
     #region Character Anim
@@ -52,7 +62,13 @@ public class CutSceneDialogue : MonoBehaviour
 
     private void CharactersMove3()
     {
-        // 라플리가 특정 위치에 오면 씬3 시작
+        // 라플리 빼고 다리 건너기
+        for (int i = 0; i < _npc.Length; i++)
+        {
+            string state = PlayerState.Move.ToString();
+            _npc[i].Anim.SetAnimation(state, Vector2.right);
+            _npc[i].transform.DOMove(NpcPos.NpcLocations[i].Locations[4], 5f).SetEase(Ease.Linear);
+        }
     }
 
     private void CharactersMove2()

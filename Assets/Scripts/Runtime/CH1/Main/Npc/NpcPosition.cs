@@ -14,6 +14,7 @@ namespace Runtime.CH1.Main
         [SerializeField] private GameObject[] _npcs;
         public LocationArray[] NpcLocations;
         // 0:초기 1:씬1 이후 2:씬2 시작 3:씬2 이동자리
+        // 4:동굴 출구 앞(다리건넌 후)
 
         public void LoadNpcPosition()
         {
@@ -23,10 +24,15 @@ namespace Runtime.CH1.Main
                 SetNpcPosition(0);
                 Debug.Log("초기 세팅");
             }
-            if (Managers.Data.Scene == 1)
+            else if (Managers.Data.Scene == 1)
             {
                 SetNpcPosition(1);
-                Debug.Log("씬1으로 세팅");
+                Debug.Log("씬1 후");
+            }
+            else if (Managers.Data.Scene == 2)
+            {
+                SetNpcPosition(3);
+                Debug.Log("씬2 후 이동");
             }
         }
 

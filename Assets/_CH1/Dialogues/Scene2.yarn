@@ -4,6 +4,7 @@ title: S2
 ---
 <<NewSceneStart>>
 
+<<wait 1>>
 <<NpcJump 1>>
 파머: 읍읍읍!
 <<NpcJump 0>>

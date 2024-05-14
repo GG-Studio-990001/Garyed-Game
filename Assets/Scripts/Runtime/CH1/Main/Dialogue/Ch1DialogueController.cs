@@ -46,8 +46,8 @@ namespace Runtime.CH1.Main.Dialogue
             _runner.AddCommandHandler<int>("CharactersMove", _cutScene.CharactersMove);
             _runner.AddCommandHandler<int>("CharactersStop", _cutScene.CharactersStop);
             _runner.AddCommandHandler<int>("NpcJump", _cutScene.NpcJump);
-
             _runner.AddCommandHandler("GetLucky", _cutScene.GetLucky);
+            _runner.AddCommandHandler<bool>("ShakeMap", _cutScene.ShakeMap);
 
             /*
             // UI/Sound
