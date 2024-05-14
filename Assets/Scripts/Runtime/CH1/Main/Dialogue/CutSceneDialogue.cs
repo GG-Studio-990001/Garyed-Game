@@ -20,6 +20,18 @@ public class CutSceneDialogue : MonoBehaviour
     [SerializeField] private BridgeController _bridge;
     private Sequence _shakeTween;
 
+    public void SetNpcPosition(int i)
+    {
+        if (i == 0) // 3매치 깬 후 위치
+        {
+            NpcPos.SetNpcPosition(5);
+        }
+        else if (i == 1) // 맵3 위치
+        {
+            NpcPos.SetNpcPosition(7);
+        }
+    }
+
     public void BreakBridge()
     {
         Managers.Sound.Play(Sound.SFX, "Boom Sfx");
@@ -60,9 +72,23 @@ public class CutSceneDialogue : MonoBehaviour
             case 3:
                 CharactersMove3();
                 break;
+            case 4:
+                CharactersMove4();
+                break;
             default:
                 Debug.LogError("Invalid Move Number");
                 break;
+        }
+    }
+
+    private void CharactersMove4()
+    {
+        // 라플리 빼고 맵3으로
+        for (int i = 0; i < _npc.Length; i++)
+        {
+            string state = PlayerState.Move.ToString();
+            _npc[i].Anim.SetAnimation(state, Vector2.right);
+            _npc[i].transform.DOMove(NpcPos.NpcLocations[i].Locations[6], 5f).SetEase(Ease.Linear);
         }
     }
 
@@ -112,27 +138,38 @@ public class CutSceneDialogue : MonoBehaviour
             case 2:
                 CharactersStop2();
                 break;
+            case 3:
+                CharactersStop3();
+                break;
             default:
                 Debug.LogError("Invalid Move Number");
                 break;
         }
     }
 
+    public void CharactersStop3()
+    {
+        string state = PlayerState.Idle.ToString();
+
+        for (int i = 0; i < 3; i++)
+        {
+            _npc[i].Anim.SetAnimation(state, Vector2.down);
+        }
+    }
+
     public void CharactersStop2()
     {
-        string state = PlayerState.Idle.ToString(); // 하나로 옮기기
+        string state = PlayerState.Idle.ToString();
 
-        for (int i=0; i<3; i++)
+        for (int i = 0; i < 3; i++)
         {
-            _npc[0].Anim.SetAnimation(state, Vector2.left);
-            _npc[1].Anim.SetAnimation(state, Vector2.left);
-            _npc[2].Anim.SetAnimation(state, Vector2.left);
+            _npc[i].Anim.SetAnimation(state, Vector2.left);
         }
     }
 
     public void CharactersStop1()
     {
-        string state = PlayerState.Idle.ToString();
+        string state = PlayerState.Idle.ToString(); // 하나로 옮기기
 
         Player.Animation.SetAnimation(state, Vector2.down);
 

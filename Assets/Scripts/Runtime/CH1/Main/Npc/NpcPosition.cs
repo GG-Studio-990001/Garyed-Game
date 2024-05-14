@@ -14,7 +14,8 @@ namespace Runtime.CH1.Main
         [SerializeField] private GameObject[] _npcs;
         public LocationArray[] NpcLocations;
         // 0:초기 1:씬1 이후 2:씬2 시작 3:씬2 이동자리
-        // 4:동굴 출구 앞(다리건넌 후)
+        // 4:동굴 출구 앞(다리건넌 후) 5:동굴에서 나온 후 (알투몬 조정)
+        // 6: 맵3으로 이동하는 1차 위치 7: 맵3의 기본 위치
 
         public void LoadNpcPosition()
         {
@@ -36,8 +37,13 @@ namespace Runtime.CH1.Main
             }
             else if (Managers.Data.Scene == 3)
             {
-                SetNpcPosition(4);
+                SetNpcPosition(5);
                 Debug.Log("동굴 출구 앞");
+            }
+            else if (Managers.Data.Scene == 4)
+            {
+                SetNpcPosition(7);
+                Debug.Log("맵3");
             }
         }
 

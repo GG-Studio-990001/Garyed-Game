@@ -6,6 +6,10 @@
 
 <<if $progress == 10>>
     <<jump R2_Mon1>>
+<<elseif $progress == 40>>
+    <<jump R2_Mon2>>
+<<elseif $progress == 50>>
+    <<jump R2_Mon3>>
 // <<declare $R2LanguageChange = false>>
 <<endif>>
 ===
@@ -13,5 +17,18 @@
 title: R2_Mon1
 // 시점: 컷씬 1.0 이후
 ---
-R2-Mon: !@&*$%&*!@
+R2-Mon: !@&*$&*!@
+===
+
+title: R2_Mon2
+// 시점: 컷씬 4.0 이후
+---
+R2-Mon: !@&*~!!!$*!@
+===
+
+title: R2_Mon3
+// 시점: 컷씬 5.0
+// 설명: 마마고 컴퍼니 완공 후
+---
+R2-Mon: !~~@~$@@*!@
 ===

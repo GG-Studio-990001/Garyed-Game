@@ -44,9 +44,8 @@ namespace Runtime.Luck
 
         public void S3ExplainStart()
         {
-
-            // 3매치 퍼즐 클리어 저장 변수 없나?
-            if (Managers.Data.MeetLucky && Managers.Data.Scene < 4)
+            // 3매치 퍼즐 클리어 저장 변수 없나? => 생기면 조건문 수정
+            if (Managers.Data.MeetLucky && Managers.Data.Scene <= 3 && Managers.Data.SceneDetail <= 0) // 3.0 넘었다면 이미 깬 것
             {
                 _lucky.transform.localPosition = _outPosition[1];
                 _runner.StartDialogue("Lucky_3Match_Stage3");

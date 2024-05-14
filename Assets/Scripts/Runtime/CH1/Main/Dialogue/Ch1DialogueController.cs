@@ -39,7 +39,7 @@ namespace Runtime.CH1.Main.Dialogue
 
             // CutScene
             _runner.AddCommandHandler("NewSceneStart", NewSceneStart);
-            // _runner.AddCommandHandler("SceneStart", NextSceneStart);
+            _runner.AddCommandHandler("NextSceneStart", NextSceneStart);
             _runner.AddCommandHandler("SceneEnd", SceneEnd);
             _runner.AddCommandHandler<int>("ShowIllustration", _cutScene.ShowIllustration);
             _runner.AddCommandHandler("HideIllustration", _cutScene.HideIllustration);
@@ -49,6 +49,7 @@ namespace Runtime.CH1.Main.Dialogue
             _runner.AddCommandHandler("GetLucky", _cutScene.GetLucky);
             _runner.AddCommandHandler<bool>("ShakeMap", _cutScene.ShakeMap);
             _runner.AddCommandHandler("BreakBridge", _cutScene.BreakBridge);
+            _runner.AddCommandHandler<int>("SetNpcPosition", _cutScene.SetNpcPosition);
 
             /*
             // UI/Sound
