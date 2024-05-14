@@ -8,15 +8,42 @@ namespace Runtime.CH1.SubB.SLG
     public class SlguiObject : MonoBehaviour, IInteractive
     {
         public UnityEvent onInteract;
+        [SerializeField] private GameObject _luckyLayer;
+        private DialogueRunner _dialogueRunner;
+
+        private void Awake()
+        {
+            if (_dialogueRunner == null)
+            {
+                // 다이얼로그러너를 하나 더 추가했으므로 임시 조치
+                _dialogueRunner = GameObject.Find("DialogueRunner").GetComponent<DialogueRunner>(); // FindObjectOfType<DialogueRunner>();
+                if (_dialogueRunner == null)
+                {
+                    Debug.LogError("DialogueRunner is not found.");
+                }
+            }
+        }
 
         public bool Interact(Vector2 direction = default)
         {
             onInteract?.Invoke();
 
-            SLGActionComponent SLGAction = FindObjectOfType<SLGActionComponent>();
-            if (SLGAction != null)
+            //SLGActionComponent SLGAction = FindObjectOfType<SLGActionComponent>();
+            //if (SLGAction != null)
+            //{
+            //    
+            //}
+
+            if (Managers.Data.Scene < 4)
             {
-                SLGAction.OnSLGInit();
+                // 임시로 막아두기
+                _dialogueRunner.StartDialogue("SLG_Block");
+            }
+            else
+            {
+                _dialogueRunner.StartDialogue("SLG_Start");
+                _luckyLayer.SetActive(true); // 옮겨야됨
+                // SLGAction.OnSLGInit();
             }
 
             return true;

@@ -1,0 +1,8 @@
+title: S4
+// 시점 : 컷씬 4.0
+---
+<<NewSceneStart>>
+<<SetNpcPosition 1>>
+<<CharactersStop 3>>
+<<SceneEnd>>
+===

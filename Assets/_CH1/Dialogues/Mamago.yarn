@@ -1,0 +1,42 @@
+title: Mamago
+// 사건분기에 따라 여기서 분류 후 JUMP하는 게 바람직
+---
+<<set $progress to GetProgress()>>
+
+<<if $progress == 40>>
+    <<jump Mamago1>>
+<<elseif $progress == 50>>
+    <<jump Mamago2>>
+<<endif>>
+===
+
+title: Mamago1
+// 시점: 자유행동 / 쯔꾸르 조사
+// 상황: 컴퍼니 건설 전
+---
+마마고: 반가워요..Hello!
+마마고: 제 이름은 마마고 입니다..Mamago!
+마마고: 마마고 컴퍼니의 사장이기도 하죠..Company!
+마마고: 회사는 어디있냐고요?..Where?
+마마고: 이제 곧 저의 왼편에 지어질 예정이에요..Coming Soon!
+마마고: 건축사무소에 의뢰를 넣었거든요..Request!
+마마고: 빨리 지어졌으면 좋겠어요..Can't wait!
+마마고: 사장에게 시간은 금과 같으니까요..Time is Gold!
+===
+
+title: Mamago2
+// 시점: 컷씬 5.1
+// 상황: 건물 내부에서 마마고의 감사인사
+---
+<<NextSceneStart>>
+
+마마고: 어서오세요..Welcome!
+마마고: 건물을 지어줘서 고마워요..Thanks!
+마마고: 감사의 의미로 선물을 드리고 싶어요..For you!
+마마고: 제가 개발한 '기계어 번역팩'이에요..Machine!
+: '기계어 번역팩'을 획득했다.
+<<GetTranslationPack>>
+마마고: 이걸로 기계어를 마스터해보세요..Translation!
+마마고: 그럼 안녕히가세요..Good bye!
+<<SceneEnd>>
+===

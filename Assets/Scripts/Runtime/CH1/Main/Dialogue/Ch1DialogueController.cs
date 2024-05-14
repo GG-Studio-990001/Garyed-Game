@@ -30,25 +30,42 @@ namespace Runtime.CH1.Main.Dialogue
 
         [SerializeField] private CutSceneDialogue _cutScene;
 
+        // SLG
+        [SerializeField] private SLGActionComponent SLGAction;
+
         private void Awake()
         {
             _runner.AddCommandHandler<string>("StartTimeline", (timelineName) => _timelineController.PlayTimeline(timelineName));
             _runner.AddCommandHandler<string>("SceneChange", SceneChange);
             _runner.AddCommandHandler("FadeOut", _fadeController.StartFadeOut);
             _runner.AddCommandHandler("FadeIn", _fadeController.StartFadeIn);
+            _runner.AddCommandHandler("NewSceneStart", NewSceneStart);
+            _runner.AddCommandHandler("NextSceneStart", NextSceneStart);
+            _runner.AddCommandHandler("SceneEnd", SceneEnd);
+
+            // SLG
+            _runner.AddCommandHandler("InitSLG", SLGAction.OnSLGInit);
 
             // CutScene
-            _runner.AddCommandHandler("NewSceneStart", NewSceneStart);
-            _runner.AddCommandHandler("SceneStart", SceneStart);
-            _runner.AddCommandHandler("SceneEnd", SceneEnd);
             _runner.AddCommandHandler<int>("ShowIllustration", _cutScene.ShowIllustration);
             _runner.AddCommandHandler("HideIllustration", _cutScene.HideIllustration);
-            _runner.AddCommandHandler("CharactersMove", _cutScene.CharactersMove1);
-            _runner.AddCommandHandler("CharactersStop", _cutScene.CharactersStop1);
+            _runner.AddCommandHandler<int>("CharactersMove", _cutScene.CharactersMove);
+            _runner.AddCommandHandler<int>("CharactersStop", _cutScene.CharactersStop);
             _runner.AddCommandHandler<int>("NpcJump", _cutScene.NpcJump);
-
             _runner.AddCommandHandler("GetLucky", _cutScene.GetLucky);
-
+            _runner.AddCommandHandler<bool>("ShakeMap", _cutScene.ShakeMap);
+            _runner.AddCommandHandler("BreakBridge", _cutScene.BreakBridge);
+            _runner.AddCommandHandler<int>("SetNpcPosition", _cutScene.SetNpcPosition);
+            // CutScene / Mamago
+            _runner.AddCommandHandler("PanpareSFX", _cutScene.PanpareSFX);
+            _runner.AddCommandHandler("MamagoJump", _cutScene.MamagoJump);
+            _runner.AddCommandHandler("MamagoMove1", _cutScene.MamagoMove1);
+            _runner.AddCommandHandler("MamagoMove2", _cutScene.MamagoMove2);
+            _runner.AddCommandHandler("MamagoEnter", _cutScene.MamagoEnter);
+            _runner.AddCommandHandler("GetTranslationPack", _cutScene.GetTranslationPack);
+            // CutScene / R2mon
+            _runner.AddCommandHandler("SetR2MonPosition", _cutScene.SetR2MonPosition);
+            _runner.AddCommandHandler("ChangeChapter2", _cutScene.ChangeChapter2);
             /*
             // UI/Sound
             _runner.AddCommandHandler<string>("PlayBackgroundSound", PlayBackgroundSound);
@@ -57,8 +74,8 @@ namespace Runtime.CH1.Main.Dialogue
             _runner.AddCommandHandler("SetCamera", SetCamera);
             _runner.AddCommandHandler("CurrentMinorDialogueStart", CurrentMinorDialogueStart);
             */
-            _runner.AddCommandHandler("SLGSetting", SetSLGUI);
-            
+            // _runner.AddCommandHandler("SLGSetting", SetSLGUI);
+
             if (_volume != null)
             {
                 _volume.profile.TryGet(out _lowRes);
@@ -67,27 +84,37 @@ namespace Runtime.CH1.Main.Dialogue
 
         private void Start()
         {
-            if (Managers.Data.Scene == 0 && Managers.Data.SceneDetail == 0)
-                _runner.StartDialogue("S1");
-        }
-
-        public void CheckCutScene()
-        {
-            if (Managers.Data.Scene == 1 && Managers.Data.SceneDetail == 1)
+            if (Managers.Data.Scene == 0)
             {
-                _runner.StartDialogue("S1.2");
-                //_runner.StartDialogue($"Dialogue{Managers.Data.Minor}");
+                _runner.StartDialogue("S1");
+            }
+            else if (Managers.Data.Scene == 1 && Managers.Data.IsPacmomCleared)
+            {
+                // 캐릭터 위치 지정
+                _cutScene.NpcPos.SetNpcPosition(2);
+                _cutScene.Player.transform.position = new Vector3(21.95f, -7.51f, 0);
+                _runner.StartDialogue("S2");
             }
         }
-        private void NewSceneStart()
+
+        public void MamagoThanks()
         {
-            Managers.Data.Scene++;
+            if (Managers.Data.Scene == 4)
+            {
+                _runner.StartDialogue("S5");
+            }
         }
 
-        private void SceneStart()
+        private void NewSceneStart() // 코드로 빼도 될 듯
+        {
+            Managers.Data.Scene++;
+            Managers.Data.SceneDetail = 0;
+            _cutScene.Player.IsDirecting = true;
+        }
+
+        private void NextSceneStart() // 필요 없을지도?
         {
             Managers.Data.SceneDetail++;
-            _cutScene.Player.IsDirecting = true;
         }
 
         private void SceneEnd()
@@ -138,11 +165,12 @@ namespace Runtime.CH1.Main.Dialogue
             Managers.Sound.Play(Sound.SFX, "[CH1] Text SFX");
         }
 
+        /*
         private void SetSLGUI()
         {
 
         }
-        /*        
+                
         private void PlayBackgroundSound(string soundName)
         {
             //_soundSystem.PlayMusic(soundName); // TODO Manager.Sound로 교체

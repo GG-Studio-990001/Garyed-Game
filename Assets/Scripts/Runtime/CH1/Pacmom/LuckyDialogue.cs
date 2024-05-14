@@ -1,4 +1,5 @@
 using DG.Tweening;
+using Runtime.ETC;
 using Runtime.Luck;
 using UnityEngine;
 using Yarn.Unity;
@@ -21,6 +22,8 @@ namespace Runtime.CH1.Pacmom
             _lucky.transform.localPosition = _outPosition;
 
             _runner = GetComponent<DialogueRunner>();
+            _runner.AddCommandHandler("LuckyEnter", LuckyEnter);
+            _runner.AddCommandHandler("LuckyExit", LuckyExit);
             _runner.AddCommandHandler("WalkIn", WalkIn);
             _runner.AddCommandHandler("WalkOut", WalkOut);
             _runner.AddCommandHandler<bool>("ActiveBubble", ActiveBubble);
@@ -28,7 +31,6 @@ namespace Runtime.CH1.Pacmom
             _runner.AddCommandHandler("Pointing", Pointing);
             _runner.AddCommandHandler("Showing", Showing);
             _runner.AddCommandHandler<bool>("ShowDrawing", ShowDrawing);
-            _runner.AddCommandHandler("LuckyExit", LuckyExit);
         }
 
         private void Start()
@@ -37,8 +39,14 @@ namespace Runtime.CH1.Pacmom
                 LuckyExit();
         }
 
+        private void LuckyEnter()
+        {
+            Managers.Sound.Play(Sound.BGM, "[Ch1] Lucky_BGM_03");
+        }
+
         private void LuckyExit()
         {
+            Managers.Sound.StopBGM();
             for (int i=0; i< LuckyObjs.Length; i++)
                 LuckyObjs[i].SetActive(false);
             _timeline.SetActive(true);
@@ -97,7 +105,5 @@ namespace Runtime.CH1.Pacmom
         {
             _bubble.SetActive(active);
         }
-
-        // 팩맘 시작
     }
 }

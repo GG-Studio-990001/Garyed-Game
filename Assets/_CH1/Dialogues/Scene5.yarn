@@ -1,0 +1,36 @@
+title: S5
+// 시점: 컷씬 5.0
+// 상황: 마마고 컴퍼니 완공 후
+---
+<<NewSceneStart>>
+<<wait 0.5>>
+<<PanpareSFX>>
+<<wait 0.5>>
+<<MamagoJump>>
+마마고: 어쩜 이런 근사한 건물이..Nice!
+마마고: 모든 언어를 마스터하고 싶은 자여..Language!
+마마고: 마마고 컴퍼니로 오세요..Come here!
+<<MamagoMove1>>
+<<wait 3>>
+<<MamagoMove2>>
+<<wait 1>>
+<<MamagoEnter>>
+
+<<SceneEnd>>
+===
+
+title: S5_1
+// 시점: 컷씬 5.1
+// 상황: 건물 내부에서 마마고의 감사인사
+---
+<<NextSceneStart>>
+
+마마고: 어서오세요..Welcome!
+마마고: 건물을 지어줘서 고마워요..Thanks!
+마마고: 감사의 의미로 선물을 드리고 싶어요..For you!
+마마고: 제가 개발한 '기계어 번역팩'이에요..Machine!
+마마고: 이걸로 기계어를 마스터해보세요..Translation!
+마마고: 그럼 안녕히가세요..Good bye!
+
+<<SceneEnd>>
+===

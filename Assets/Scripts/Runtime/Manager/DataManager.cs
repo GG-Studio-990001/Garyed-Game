@@ -2,6 +2,7 @@ using Runtime.Input;
 using System;
 using Runtime.ETC;
 using UnityEngine;
+using Runtime.CH1.Main.Stage;
 
 namespace Runtime.Manager
 {
@@ -11,11 +12,16 @@ namespace Runtime.Manager
     {
         // Progress
         public int Chapter;
+        public int Stage;
         public int Scene;
         public int SceneDetail; // 씬 세부 진행도
         // Sound
         public float BgmVolume;
         public float SfxVolume;
+        // CH1
+        public bool MeetLucky; // have로 변경
+        public bool Is3MatchEntered; // 3매치 1스테이지 들어왔는지
+        public bool HaveTranslationPack;
         // Pacmom
         public bool IsPacmomPlayed;
         public bool IsPacmomCleared;
@@ -30,11 +36,16 @@ namespace Runtime.Manager
         {
             // Progress
             Chapter = 1;
+            Stage = 1;
             Scene = 0;
             SceneDetail = 0;
             // Sound
             BgmVolume = 0.5f;
             SfxVolume = 0.5f;
+            // CH1
+            MeetLucky = false;
+            Is3MatchEntered = false;
+            HaveTranslationPack = false;
             // Pacmom
             IsPacmomPlayed = false;
             IsPacmomCleared = false;
@@ -57,6 +68,7 @@ namespace Runtime.Manager
 
         #region properties
         public int Chapter { get { return _gameData.Chapter; } set { _gameData.Chapter = value; } }
+        public int Stage { get { return _gameData.Stage; } set { _gameData.Stage = value; } }
         public int Scene { get { return _gameData.Scene; } set { _gameData.Scene = value; } }
         public int SceneDetail { get { return _gameData.SceneDetail; } set { _gameData.SceneDetail = value; } }
 
@@ -70,6 +82,11 @@ namespace Runtime.Manager
             get { return _gameData.SfxVolume; }
             set { Math.Clamp(value, 0, 1); _gameData.SfxVolume = value; Managers.Sound.SFX.volume = value; }
         }
+
+        // CH1
+        public bool MeetLucky { get { return _gameData.MeetLucky; } set { _gameData.MeetLucky = value; } }
+        public bool Is3MatchEntered { get { return _gameData.Is3MatchEntered; } set { _gameData.Is3MatchEntered = value; } }
+        public bool HaveTranslationPack { get { return _gameData.HaveTranslationPack; } set { _gameData.HaveTranslationPack = value; } }
 
         // Pacmom
         public bool IsPacmomPlayed { get { return _gameData.IsPacmomPlayed; } set { _gameData.IsPacmomPlayed = value; } }
@@ -118,6 +135,7 @@ namespace Runtime.Manager
             
             Managers.Data.SaveData = data;
             Debug.Log($"Load Game Completed : {_path}");
+            Debug.Log(Managers.Data.Scene+"."+ Managers.Data.SceneDetail);
             return true;
         }
         

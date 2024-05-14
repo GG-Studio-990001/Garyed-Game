@@ -3,6 +3,7 @@ title: Lucky_Pacmom
 // 상황 : 팩맘 접속 후 첫등장한 럭키의 팩맘 룰 설명
 ---
 // 럭키가 맵 밖에서 안으로 걸어온다.
+<<LuckyEnter>>
 <<WalkIn>>
 <<wait 3>>
 

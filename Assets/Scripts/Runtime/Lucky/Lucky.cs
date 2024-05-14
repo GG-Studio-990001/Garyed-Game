@@ -1,5 +1,3 @@
-using Runtime.CH1.Main;
-using Runtime.Interface;
 using UnityEngine;
 
 namespace Runtime.Luck

@@ -6,6 +6,7 @@ using TMPro;
 using Runtime.CH1.Main.Stage;
 using Runtime.CH1.Main.Controller;
 using Runtime.ETC;
+using Runtime.Luck;
 using Runtime.CH1.Main.Dialogue;
 
 namespace SLGDefines
@@ -66,10 +67,15 @@ public class SLGActionComponent : MonoBehaviour
     const int MAX_SPAWN_COUNT = 3;
     const int NEEDED_ASSET_COUNT = 30;
     const int NEEDED_CONSTRUCTION_TIME_SEC = 60 * 60 * 24;
-    const int SCENE_MOVE_COUNT_SPAWN = 5;
+    const int SCENE_MOVE_COUNT_SPAWN = 1;
     const int NEEDED_COIN_COUNT = 200;
 
     public bool bShowWnd;
+
+    // 럭키 등장용
+    [SerializeField] private Lucky3MatchDialogue _lucky;
+    // 마마고 상호작용용
+    [SerializeField] private Ch1DialogueController _dialogue;
 
     private void Awake()
     {
@@ -245,7 +251,11 @@ public class SLGActionComponent : MonoBehaviour
         RefreshCoinText();
 
         InitMap();
-        MoveOnNextProgress();
+
+        _lucky.SLGExplainStart();
+        Debug.Log("럭키 등장");
+        
+        // MoveOnNextProgress(); // 럭키로 이동
     }
 
     private void InitMap()
@@ -358,6 +368,7 @@ public class SLGActionComponent : MonoBehaviour
         if (CH1Data != null && SLGProgressInfo == SLGProgress.BeforeConstruction)
         {
             CH1Data._sceneMoveCount++;
+            Debug.Log(CH1Data._sceneMoveCount);
             if (CH1Data._sceneMoveCount >= SCENE_MOVE_COUNT_SPAWN)
             {
                 SpawnRandomObject();
@@ -374,7 +385,7 @@ public class SLGActionComponent : MonoBehaviour
         Managers.Data.SLGStoneCount = _stone;
     }
 
-    private void MoveOnNextProgress()
+    public void MoveOnNextProgress()
     {
         SLGProgressInfo++;
 
@@ -408,5 +419,7 @@ public class SLGActionComponent : MonoBehaviour
         SLGConstructionSite.SetActive(false);
         SLGMaMagoGate.SetActive(true);
         SLGMaMagoGateColider.SetActive(true);
+
+        _dialogue.MamagoThanks(); // 마마고 연출 시작
     }
 }

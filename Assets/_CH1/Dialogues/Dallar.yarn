@@ -3,12 +3,12 @@
 ---
 <<set $progress to GetProgress()>>
 
-<<if $progress == 11>>
+<<if $progress == 10>>
     <<jump Dallar1>>
-// <<elseif $mainer == 2>>
-//     <<jump Dallar2>>
-// <<elseif $mainer == 3>>
-//     <<jump Dallar3>>
+<<elseif $progress == 40>>
+    <<jump Dallar2>>
+<<elseif $progress == 50>>
+    <<jump Dallar3>>
 // <<else>>
 //     <<jump DallarDefault>>
 <<endif>>
@@ -16,12 +16,28 @@
 
 
 title: Dallar1
-// 시점: 컷씬 1.1 이후
+// 시점: 컷씬 1.0 이후
 ---
-
 달러: 어디에서 왔는지 기억은 나는가?
 달러: ...몰라도 괜찮다네
 달러: 파머가 말한대로 색깔 있는 것만 만지지 말게나.
+===
+
+title: Dallar2
+// 시점: 컷씬 4.0 자유행동
+---
+달러: 열심히 찾아보게나.
+달러: 가치가 있는 것들을 발견할 수 있으니.
+달러: 마치 자네처럼.
+===
+
+title: Dallar3
+// 시점: 컷씬 5.0
+// 설명: 마마고 컴퍼니 완공 후
+---
+달러: 건물을 꽤나 잘 지은 것 같군.
+달러: 자네의 능력이 그저 신기할 따름이네.
+달러: 어서 내부도 들어가보게나.
 
 // 첫 상호작용에만 출력되고, 2번째 상호작용에는 출력되지 않게하는 변수 선언
 //<<if $DallarStance is true>>
@@ -31,52 +47,4 @@ title: Dallar1
 //    <<set $DallarStance to false>>
 //<<endif>>
 //달러: 당신의 가치에 맞는 물건을 꼭 가져왔으면 좋겠네. #line:09d1fcc 
-===
-
-
-
-
-
-
-
-
-title: Dallar2
-// 사건 분기 : 1.04.0
-// 설명 : 팩맘 이벤트 종료후 자유행동 시점
----
-    // 퍼즐의 성공 유무에 따라 달러의 텍스트가 달라집니다.
-    <<if $ThreeMatchPuzzle is false>>
-        달러: 그러고보니, 당신이 떨어지면서 경계가 좀 허물려졌어. #line:057791d 
-        달러: 치워줄 수 있는가? #line:085f046 
-        <<set $DallarStance to true>>
-    <<else>>
-        달러: 음 그래도 전보다 보기 좋아졌네. #line:0de7210 
-        달러: 무거운 더미들은 파머군이 처리해줄 것이네. #line:08b4e12
-        <<wait 0.1>>
-        // <<offDialog 1>> // 1초간 대화창이 생성안되고 꺼져있음
-        달러: 게임 리소스를 장착했다고? #line:0479b36 
-        달러: 방금도 그렇고... #line:0cbdccb 
-        <<set $DallarStance to false>>
-    <<endif>>
-
-    <<if $DallarStance is false>>
-        달러: 라플리양은 참으로 특별한 사람인 거 같군. #line:0179ede 
-    <<endif>>
-===
-
-title: Dallar3
-// 사건 분기 : 1.07.0
-// 설명 : 마마고 컴퍼니 개설 이후 라플리 자유행동 시점
----
-    달러: 마마고가 다시 돌아온 것도 모자라 정착을 했다니. #line:0b8ac07 
-    달러: 덕분에 판매처가 더 늘어났어. 고맙네 라플리. #line:0c36aa3 
-    달러: 내가 생각하는 당신의 가치가 점점... #line:03470f5 
-    달러: 변하고 있군. #line:01a7e47 
-    달러: 긍정적인 의미란다. #line:0ed397e 
-===
-
-title: DallarDefault
-// 설명 : 달러의 기본 대사
----
-    달러: 쓸만한 게임은 없는가? #line:0d762e5 
 ===
