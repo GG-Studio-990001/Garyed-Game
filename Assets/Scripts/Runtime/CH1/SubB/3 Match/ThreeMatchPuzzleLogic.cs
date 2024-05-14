@@ -77,7 +77,7 @@ namespace Runtime.CH1.SubB
         {
             var jewelry = CheckAndReturnJewelry(position);
             
-            if (jewelry == null)
+            if (jewelry == null || jewelry.JewelryType == JewelryType.Disappear || jewelry.JewelryType == JewelryType.None || jewelry.gameObject.activeSelf == false)
             {
                 return false;
             }
