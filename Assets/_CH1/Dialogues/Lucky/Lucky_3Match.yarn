@@ -36,17 +36,18 @@ title: Lucky_3Match_Stage3
 럭키: 행운이 필요해?
 럭키: 기다려 봐!
 
-<<wait 1>>
+<<wait 0.5>>
 // 물고기 생성
 <<ActiveFish>>
-<<wait 1>>
+<<wait 0.5>>
 <<ExplodeFish>>
+<<wait 1>>
 // 물고기 터짐
 
 // 물고기 물고 가져온다
 // 럭키가 젤리를 가져다 둔다.
 럭키: 이게 바로 럭키 효과!
-럭키: 휴, 이제 밖으로 나가야지~
+럭키: 휴, 이제<br>밖으로 나가야지~
 
 <<ActiveBubble false>>
 <<WalkOut 1>>

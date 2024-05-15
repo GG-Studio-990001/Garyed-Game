@@ -73,7 +73,7 @@ public class SLGActionComponent : MonoBehaviour
     public bool bShowWnd;
 
     // 럭키 등장용
-    [SerializeField] private Lucky3MatchDialogue _lucky;
+    [SerializeField] private LuckyCH1Dialogue _lucky;
     // 마마고 상호작용용
     [SerializeField] private Ch1DialogueController _dialogue;
 
