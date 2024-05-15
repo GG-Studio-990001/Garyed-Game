@@ -11,7 +11,10 @@ namespace Runtime.CH1.Main
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (Managers.Data.Scene >= 2)
+            {
+                this.gameObject.SetActive(false);
                 return;
+            }
 
             if (other.CompareTag(GlobalConst.PlayerStr))
             {

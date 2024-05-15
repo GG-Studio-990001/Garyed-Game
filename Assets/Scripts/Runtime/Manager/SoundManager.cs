@@ -18,7 +18,7 @@ namespace Runtime.InGameSystem
         
         private GameObject _soundRoot = null;
 
-        private AudioClip _currentClip;
+        private AudioClip _currentBGM;
 
         public void Init()
         {
@@ -93,15 +93,18 @@ namespace Runtime.InGameSystem
                 return false;
             }
 
-            // 이미 틀고 있는 노래 또 틀기 방지
-            if (type == Sound.BGM && _currentClip == audioClip)
+            // 이미 틀고 있는 브금 또 틀기 방지
+            if (type == Sound.BGM)
             {
-                Debug.Log("IsPlaying");
-                return false;
-            }
-            else
-            {
-                _currentClip = audioClip;
+                if (_currentBGM == audioClip)
+                {
+                    Debug.Log("IsPlaying");
+                    return false;
+                }
+                else
+                {
+                    _currentBGM = audioClip;
+                }
             }
             
             // audioSource.pitch = pitch;

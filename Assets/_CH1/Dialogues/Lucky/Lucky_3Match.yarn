@@ -19,7 +19,7 @@ title: Lucky_3Match
 <<WalkOut 0>>
 <<wait 3>>
 <<ExplaneDone>>
-<<LuckyExit>>
+<<LuckyExit3Match>>
 ===
 
 title: Lucky_3Match_Stage3
@@ -52,7 +52,7 @@ title: Lucky_3Match_Stage3
 <<ActiveBubble false>>
 <<WalkOut 1>>
 <<wait 3>>
-<<LuckyExit>>
+<<LuckyExit3Match>>
 // 럭키가 출구로 나간다.
 ===
 

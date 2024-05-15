@@ -20,5 +20,5 @@ title: Lucky_SLG
 <<WalkOut 2>>
 <<wait 3>>
 <<SLGExplaneDone>>
-<<LuckyExit>>
+<<LuckyExitSLG>>
 ===
