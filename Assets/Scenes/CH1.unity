@@ -54083,6 +54083,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -392.39844
       objectReference: {fileID: 0}
+    - target: {fileID: 1892143496958034403, guid: 0d61b18444317944a99ee38e37220ff8, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 28.460205
+      objectReference: {fileID: 0}
     - target: {fileID: 2092146728734178740, guid: 0d61b18444317944a99ee38e37220ff8, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -54135,6 +54139,14 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5020461039010526682, guid: 0d61b18444317944a99ee38e37220ff8, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -24.799988
+      objectReference: {fileID: 0}
+    - target: {fileID: 5020461039010526682, guid: 0d61b18444317944a99ee38e37220ff8, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 24.199997
+      objectReference: {fileID: 0}
     - target: {fileID: 5025059340301348446, guid: 0d61b18444317944a99ee38e37220ff8, type: 3}
       propertyPath: m_Name
       value: SettingSystem
@@ -54148,16 +54160,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1674432337}
     - target: {fileID: 6712089802947262558, guid: 0d61b18444317944a99ee38e37220ff8, type: 3}
-      propertyPath: m_UpdateRectTransformForStandalone
+      propertyPath: m_RenderMode
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6881378089898989212, guid: 0d61b18444317944a99ee38e37220ff8, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7535796109508110750, guid: 0d61b18444317944a99ee38e37220ff8, type: 3}
-      propertyPath: m_UiScaleMode
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8333262551354297480, guid: 0d61b18444317944a99ee38e37220ff8, type: 3}
       propertyPath: m_Name
@@ -56635,6 +56643,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 440311593}
   - {fileID: 9116123993488343106}
   - {fileID: 6517050817129588413}
   - {fileID: 440311593}
@@ -57302,10 +57311,10 @@ SceneRoots:
   - {fileID: 1311836792}
   - {fileID: 200716017}
   - {fileID: 1267319288}
-  - {fileID: 1284326281653811846}
   - {fileID: 338986455}
   - {fileID: 1298425575}
   - {fileID: 674618126}
   - {fileID: 399678925}
   - {fileID: 248890230}
   - {fileID: 1757409997}
+  - {fileID: 1284326281653811846}
