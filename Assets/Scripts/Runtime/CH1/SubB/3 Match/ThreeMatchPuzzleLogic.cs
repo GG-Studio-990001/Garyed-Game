@@ -53,7 +53,7 @@ namespace Runtime.CH1.SubB
         {
             foreach (var jewelry in _jewelries)
             {
-                if (jewelry.JewelryType == JewelryType.None || jewelry.JewelryType == JewelryType.Disappear)
+                if (IsNotValidJewelry(jewelry))
                 {
                     continue;
                 }
@@ -77,7 +77,7 @@ namespace Runtime.CH1.SubB
         {
             var jewelry = CheckAndReturnJewelry(position);
             
-            if (jewelry == null || jewelry.JewelryType == JewelryType.Disappear || jewelry.JewelryType == JewelryType.None || jewelry.gameObject.activeSelf == false)
+            if (IsNotValidJewelry(jewelry))
             {
                 return false;
             }
@@ -101,5 +101,6 @@ namespace Runtime.CH1.SubB
         }
 
         private Jewelry CheckAndReturnJewelry(Vector3 position) => _jewelries.FirstOrDefault(jewelry => jewelry.Tilemap.WorldToCell(jewelry.transform.position) == position);
+        private bool IsNotValidJewelry(Jewelry jewelry) => jewelry == null || jewelry.JewelryType == JewelryType.Disappear || jewelry.JewelryType == JewelryType.None || jewelry.gameObject.activeSelf == false;
     }
 }
