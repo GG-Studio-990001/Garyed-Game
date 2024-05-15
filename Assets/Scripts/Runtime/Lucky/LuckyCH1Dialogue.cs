@@ -7,7 +7,7 @@ using Yarn.Unity;
 
 namespace Runtime.Luck
 {
-    public class Lucky3MatchDialogue : DialogueViewBase
+    public class LuckyCH1Dialogue : DialogueViewBase
     {
         // 클래스 이름 수정해야함
         private DialogueRunner _runner;

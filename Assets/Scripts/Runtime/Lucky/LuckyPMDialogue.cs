@@ -5,7 +5,7 @@ using Yarn.Unity;
 
 namespace Runtime.Luck
 {
-    public class LuckyDialogue : DialogueViewBase
+    public class LuckyPMDialogue : DialogueViewBase
     {
         private DialogueRunner _runner;
         [SerializeField] private Lucky _lucky;

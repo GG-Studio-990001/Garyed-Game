@@ -5,7 +5,7 @@ using Yarn.Unity;
 
 public class LuckyTrigger : MonoBehaviour
 {
-    [SerializeField] private Lucky3MatchDialogue _dialogue;
+    [SerializeField] private LuckyCH1Dialogue _dialogue;
     [SerializeField] private GameObject _luckyLayer;
     [SerializeField] private string _stageName;
 
