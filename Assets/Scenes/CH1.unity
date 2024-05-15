@@ -9548,8 +9548,8 @@ MonoBehaviour:
       m_Calls: []
   typewriterEffectSpeed: 10
   continueButton: {fileID: 0}
-  holdTime: 1
-  autoAdvance: 0
+  holdTime: 3
+  autoAdvance: 1
 --- !u!114 &464121392
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54131,6 +54131,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2092146728734178740, guid: 0d61b18444317944a99ee38e37220ff8, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2162176244392371930, guid: 0d61b18444317944a99ee38e37220ff8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -54175,17 +54179,33 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2493171814621385805, guid: 0d61b18444317944a99ee38e37220ff8, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5025059340301348446, guid: 0d61b18444317944a99ee38e37220ff8, type: 3}
       propertyPath: m_Name
       value: SettingSystem
+      objectReference: {fileID: 0}
+    - target: {fileID: 6584498748132185721, guid: 0d61b18444317944a99ee38e37220ff8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6712089802947262558, guid: 0d61b18444317944a99ee38e37220ff8, type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1674432337}
+    - target: {fileID: 6881378089898989212, guid: 0d61b18444317944a99ee38e37220ff8, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8333262551354297480, guid: 0d61b18444317944a99ee38e37220ff8, type: 3}
       propertyPath: m_Name
       value: BGMSlider
+      objectReference: {fileID: 0}
+    - target: {fileID: 9155550367048433418, guid: 0d61b18444317944a99ee38e37220ff8, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -55361,7 +55381,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3610823345873123190, guid: a4fa811cdc3960346896b628a8bbe022, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4246051215351575475, guid: a4fa811cdc3960346896b628a8bbe022, type: 3}
       propertyPath: m_LocalPosition.x
@@ -55921,7 +55941,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6505116825378322279, guid: 6d173b4636e6a974e877862ce6efc4e9, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6930880402753157368, guid: 6d173b4636e6a974e877862ce6efc4e9, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.size
