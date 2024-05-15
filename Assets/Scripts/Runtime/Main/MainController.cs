@@ -1,5 +1,4 @@
 using Runtime.InGameSystem;
-using System;
 using UnityEngine;
 
 namespace Runtime.Main
@@ -16,13 +15,13 @@ namespace Runtime.Main
         public void NewGame()
         {
             Managers.Data.NewGame();
-            sceneSystem.LoadSceneWithFade($"CH{Managers.Data.Chapter}");
+            sceneSystem.LoadSceneWithFade("Title");
         }
         
         public void LoadGame()
         {
             Managers.Data.LoadGame();
-            sceneSystem.LoadSceneWithFade($"CH{Managers.Data.Chapter}");
+            sceneSystem.LoadSceneWithFade("Title");
         }
     }
 }
