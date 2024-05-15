@@ -20340,7 +20340,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5839968016702274743, guid: d0f2a1b23fc54d44db5c3ea0cf44e6bd, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6209680544376218410, guid: d0f2a1b23fc54d44db5c3ea0cf44e6bd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -53921,7 +53921,6 @@ MonoBehaviour:
   - {fileID: 1757409998}
   - {fileID: 3177337089561241846}
   - {fileID: 1653161658143596180}
-  - {fileID: 0}
   startNode: S1
   startAutomatically: 0
   runSelectedOptionAsLine: 0
@@ -55891,7 +55890,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6505116825378322279, guid: 6d173b4636e6a974e877862ce6efc4e9, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6930880402753157368, guid: 6d173b4636e6a974e877862ce6efc4e9, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.size
