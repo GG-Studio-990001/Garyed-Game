@@ -3,7 +3,7 @@ title: Guard
 ---
 <<set $progress to GetProgress()>>
 
-<<if $progress < 30>>>
+<<if $progress < 30>>
     <<jump Guard1>>
 <<else>>
     <<jump Guard2>>
