@@ -41560,57 +41560,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1368314908901170753, guid: b9038dd44bd474443818d91501aaabb9, type: 3}
   m_PrefabInstance: {fileID: 535857151}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1662598217
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1662598219}
-  - component: {fileID: 1662598218}
-  m_Layer: 5
-  m_Name: View Expansion
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &1662598218
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1662598217}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b973eb07e547d34a8825d1f553963ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _runner: {fileID: 472331523037639807}
-  NameTag: {fileID: 3712000284494713604}
-  NameText: {fileID: 915647123790645336}
---- !u!224 &1662598219
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1662598217}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 8591341478332906683}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1662669083
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -53972,7 +53921,7 @@ MonoBehaviour:
   - {fileID: 1757409998}
   - {fileID: 3177337089561241846}
   - {fileID: 1653161658143596180}
-  - {fileID: 1662598218}
+  - {fileID: 0}
   startNode: S1
   startAutomatically: 0
   runSelectedOptionAsLine: 0
@@ -56678,7 +56627,6 @@ RectTransform:
   m_Children:
   - {fileID: 9116123993488343106}
   - {fileID: 6517050817129588413}
-  - {fileID: 1662598219}
   m_Father: {fileID: 9118836664892060318}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
