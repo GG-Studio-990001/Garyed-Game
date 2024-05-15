@@ -18,6 +18,8 @@ namespace Runtime.InGameSystem
         
         private GameObject _soundRoot = null;
 
+        private AudioClip _currentClip;
+
         public void Init()
         {
             if (_soundRoot == null)
@@ -85,9 +87,21 @@ namespace Runtime.InGameSystem
                 audioSource.volume = Managers.Data.SfxVolume;
 
             AudioClip audioClip = GetAudioClip(path);
+            
             if (audioClip == null)
             {
                 return false;
+            }
+
+            // 이미 틀고 있는 노래 또 틀기 방지
+            if (type == Sound.BGM && _currentClip == audioClip)
+            {
+                Debug.Log("IsPlaying");
+                return false;
+            }
+            else
+            {
+                _currentClip = audioClip;
             }
             
             // audioSource.pitch = pitch;

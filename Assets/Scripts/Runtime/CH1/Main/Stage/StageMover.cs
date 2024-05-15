@@ -31,14 +31,25 @@ namespace Runtime.CH1.Main.Stage
             if (other.CompareTag(GlobalConst.PlayerStr))
             {
                 if (moveStageNumber > 3) // 마마고, 3매치 등
-                    _npcs.ActiveNpcs(false);
+                    Invoke("InactiveNpcs", 1f);
                 else
-                    _npcs.ActiveNpcs(true);
+                    Invoke("ActiveNpcs", 1f);
 
                 StageChanger.SwitchStage(moveStageNumber, spawnPosition);
 
                 OnStageMove?.Invoke();
             }
+        }
+
+        // 1초 동안 페이드인거 감안
+        private void InactiveNpcs()
+        {
+            _npcs.ActiveNpcs(false);
+        }
+
+        private void ActiveNpcs()
+        {
+            _npcs.ActiveNpcs(true);
         }
     }
 }

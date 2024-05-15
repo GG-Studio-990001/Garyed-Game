@@ -99,9 +99,6 @@ namespace Runtime.Luck
             Managers.Data.InGameKeyBinder.PlayerInputEnable();
             _luckyLayer.SetActive(false);
 
-            Managers.Sound.StopBGM();
-            Managers.Sound.Play(Sound.BGM, "Ch1Main");
-
             Idle();
         }
 
