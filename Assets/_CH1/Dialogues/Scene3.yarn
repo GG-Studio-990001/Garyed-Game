@@ -75,6 +75,6 @@ R2-MON: !!@~~@!!@~~!@
 파머: 그럽시다. 라플리, 이쪽으로!
 
 <<CharactersMove 4>>
-<<wait 2>>
+<<wait 3>>
 <<SceneEnd>>
 ===

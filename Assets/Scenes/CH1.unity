@@ -6655,7 +6655,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.81, y: 8.82}
+  m_Size: {x: 1.81, y: 10.09}
   m_EdgeRadius: 0
 --- !u!1001 &338328139
 PrefabInstance:
@@ -14893,14 +14893,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 706610595}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 23.17, y: -1.51, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1410042820}
   - {fileID: 173297812}
-  m_Father: {fileID: 9193063558119144382}
+  m_Father: {fileID: 1118555188}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &708039905 stripped
 Transform:
@@ -55361,7 +55361,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3610823345873123190, guid: a4fa811cdc3960346896b628a8bbe022, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4246051215351575475, guid: a4fa811cdc3960346896b628a8bbe022, type: 3}
       propertyPath: m_LocalPosition.x
@@ -55921,7 +55921,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6505116825378322279, guid: 6d173b4636e6a974e877862ce6efc4e9, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6930880402753157368, guid: 6d173b4636e6a974e877862ce6efc4e9, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.size
@@ -57254,9 +57254,6 @@ PrefabInstance:
     - {fileID: 1018682659687249, guid: fabd929830e0d48429c6e047af57dd53, type: 3}
     - {fileID: 4908646703140777971, guid: fabd929830e0d48429c6e047af57dd53, type: 3}
     m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 885117958501877593, guid: fabd929830e0d48429c6e047af57dd53, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 706610596}
     - targetCorrespondingSourceObject: {fileID: 6138575075136299047, guid: fabd929830e0d48429c6e047af57dd53, type: 3}
       insertIndex: 2
       addedObject: {fileID: 1679781155}
@@ -57284,6 +57281,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6138575075136299047, guid: fabd929830e0d48429c6e047af57dd53, type: 3}
       insertIndex: -1
       addedObject: {fileID: 332104390}
+    - targetCorrespondingSourceObject: {fileID: 6138575075136299047, guid: fabd929830e0d48429c6e047af57dd53, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 706610596}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fabd929830e0d48429c6e047af57dd53, type: 3}
 --- !u!4 &9193063558119144382 stripped
