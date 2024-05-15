@@ -39,7 +39,6 @@ namespace Runtime.CH1.Main.Controller
             GameInit();
             LoadGame();
             SetMap();
-            StartBGM();
         }
 
         private void LoadGame()
@@ -54,12 +53,6 @@ namespace Runtime.CH1.Main.Controller
             _luckyPack.ActiveLuckyPack();
             _bridge.CheckBridge();
             _mamago.CheckMamago();
-        }
-
-        // 저장된 데이터를 토대로 맵 이동
-        private void StartBGM()
-        {
-            Managers.Sound.Play(Sound.BGM, "Ch1Main");
         }
 
         // 인게임에 사용되는 키 이벤트 바인딩

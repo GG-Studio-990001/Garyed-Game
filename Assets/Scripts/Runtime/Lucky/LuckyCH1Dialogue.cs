@@ -25,7 +25,6 @@ namespace Runtime.Luck
         {
             _runner = GetComponent<DialogueRunner>();
             _runner.AddCommandHandler("LuckyEnter", LuckyEnter);
-            _runner.AddCommandHandler("LuckyExit", LuckyExit);
             _runner.AddCommandHandler<int>("WalkIn", WalkIn);
             _runner.AddCommandHandler<int>("WalkOut", WalkOut);
             _runner.AddCommandHandler<bool>("ActiveBubble", ActiveBubble);
@@ -34,6 +33,8 @@ namespace Runtime.Luck
             _runner.AddCommandHandler("ActiveFish", ActiveFish);
             _runner.AddCommandHandler("ExplodeFish", ExplodeFish);
             _runner.AddCommandHandler("SLGExplaneDone", SLGExplaneDone);
+            _runner.AddCommandHandler("LuckyExit3Match", LuckyExit3Match);
+            _runner.AddCommandHandler("LuckyExitSLG", LuckyExitSLG);
         }
 
         public void SLGExplainStart()
@@ -98,8 +99,20 @@ namespace Runtime.Luck
         {
             Managers.Data.InGameKeyBinder.PlayerInputEnable();
             _luckyLayer.SetActive(false);
-
             Idle();
+            Managers.Sound.StopBGM();
+        }
+
+        private void LuckyExit3Match()
+        {
+            LuckyExit();
+            Managers.Sound.Play(Sound.BGM, "[Ch1]Main(Cave)_BGM");
+        }
+
+        private void LuckyExitSLG()
+        {
+            LuckyExit();
+            Managers.Sound.Play(Sound.BGM, "Ch1Main");
         }
 
         private void WalkIn(int i)
