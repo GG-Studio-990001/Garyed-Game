@@ -41576,7 +41576,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1662598218
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46322,6 +46322,7 @@ MonoBehaviour:
   _virtualCamera: {fileID: 1429684704}
   _timelineController: {fileID: 248890232}
   _backgroundImage: {fileID: 1782403766}
+  _nameTag: {fileID: 3712000284494713604}
   _volume: {fileID: 674618125}
   _cutScene: {fileID: 1757409999}
   SLGAction: {fileID: 1580210414}
@@ -54938,7 +54939,7 @@ GameObject:
   - component: {fileID: 8809352867598990224}
   - component: {fileID: 3937251537688279500}
   m_Layer: 5
-  m_Name: Image
+  m_Name: NameTag
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

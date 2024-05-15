@@ -1,6 +1,7 @@
 using Cinemachine;
 using DG.Tweening;
 using Runtime.InGameSystem;
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Rendering;
@@ -19,7 +20,8 @@ namespace Runtime.CH1.Main.Dialogue
         [SerializeField] private CinemachineVirtualCamera _virtualCamera;
         [SerializeField] private TimelineController _timelineController;
         [SerializeField] private Image _backgroundImage;
-        
+        [SerializeField] private GameObject _nameTag;
+
         [SerializeField] private Volume _volume;
         private LowRes _lowRes;
         
@@ -80,6 +82,22 @@ namespace Runtime.CH1.Main.Dialogue
             {
                 _volume.profile.TryGet(out _lowRes);
             }
+        }
+
+        public override void RunLine(LocalizedLine dialogueLine, Action onDialogueLineFinished)
+        {
+            string speakerStr = dialogueLine.CharacterName;
+
+            if (speakerStr == "")
+            {
+                _nameTag.SetActive(false);
+            }
+            else
+            {
+                _nameTag.SetActive(true);
+            }
+
+            onDialogueLineFinished();
         }
 
         private void Start()
