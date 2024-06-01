@@ -30,14 +30,17 @@ namespace Runtime.CH1.Main.Dialogue
         public UnityEvent OnDialogueStart => _runner.onDialogueStart;
         public UnityEvent OnDialogueEnd => _runner.onDialogueComplete;
 
-        [SerializeField] private CutSceneDialogue _cutScene;
+        private CutSceneDialogue _cutScene;
+        [SerializeField] private NpcDialogueController _npcDialogue;
 
         // SLG
         [SerializeField] private SLGActionComponent SLGAction;
 
         private void Awake()
         {
-            _runner.AddCommandHandler<string>("StartTimeline", (timelineName) => _timelineController.PlayTimeline(timelineName));
+            _cutScene = GetComponent<CutSceneDialogue>();
+
+            _runner.AddCommandHandler<string>("StartTimeline", (timelineName) => _timelineController.PlayTimeline(timelineName));        
             _runner.AddCommandHandler<string>("SceneChange", SceneChange);
             _runner.AddCommandHandler("FadeOut", _fadeController.StartFadeOut);
             _runner.AddCommandHandler("FadeIn", _fadeController.StartFadeIn);
@@ -47,6 +50,9 @@ namespace Runtime.CH1.Main.Dialogue
 
             // SLG
             _runner.AddCommandHandler("InitSLG", SLGAction.OnSLGInit);
+
+            // NPC Dialogue
+            _runner.AddCommandHandler<int>("NpcDialogueFin", _npcDialogue.NpcDialogueFin);
 
             // CutScene
             _runner.AddCommandHandler<int>("ShowIllustration", _cutScene.ShowIllustration);

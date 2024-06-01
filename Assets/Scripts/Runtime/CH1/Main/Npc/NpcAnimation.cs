@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Runtime.CH1.Main
 {
-    public class NpcAnimation : IAnimation
+    public class NpcAnimation : INpcAnim
     {
         private readonly Animator _animator;
         private static readonly int Moving = Animator.StringToHash(IsMoving);
@@ -39,8 +39,16 @@ namespace Runtime.CH1.Main
                     Debug.LogError("Invalid PlayerState");
                     return false;
             }
+
+            _animator.GetFloat(Horizontal1);
+
             return true;
             // 왜 bool일까?
+        }
+
+        public Vector2 GetDirection()
+        {
+            return new(_animator.GetFloat(Horizontal1), _animator.GetFloat(Vertical1));
         }
     }
 }

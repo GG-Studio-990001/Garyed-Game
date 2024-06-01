@@ -9,6 +9,8 @@
     <<jump Dallar2>>
 <<elseif $progress == 50>>
     <<jump Dallar3>>
+<<else>>
+    <<NpcDialogueFin 0>>
 // <<else>>
 //     <<jump DallarDefault>>
 <<endif>>
@@ -21,6 +23,7 @@ title: Dallar1
 달러: 어디에서 왔는지 기억은 나는가?
 달러: ...몰라도 괜찮다네
 달러: 파머가 말한대로 색깔 있는 것만 만지지 말게나.
+<<NpcDialogueFin 0>>
 ===
 
 title: Dallar2
@@ -29,6 +32,7 @@ title: Dallar2
 달러: 열심히 찾아보게나.
 달러: 가치가 있는 것들을 발견할 수 있으니.
 달러: 마치 자네처럼.
+<<NpcDialogueFin 0>>
 ===
 
 title: Dallar3
@@ -38,6 +42,7 @@ title: Dallar3
 달러: 건물을 꽤나 잘 지은 것 같군.
 달러: 자네의 능력이 그저 신기할 따름이네.
 달러: 어서 내부도 들어가보게나.
+<<NpcDialogueFin 0>>
 
 // 첫 상호작용에만 출력되고, 2번째 상호작용에는 출력되지 않게하는 변수 선언
 //<<if $DallarStance is true>>

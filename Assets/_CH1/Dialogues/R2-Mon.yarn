@@ -14,6 +14,8 @@
     <<jump R2_Mon4>>
 <<elseif $progress == 61>>
     <<jump R2_Mon5>>
+<<else>>
+    <<NpcDialogueFin 2>>
 // <<declare $R2LanguageChange = false>>
 <<endif>>
 ===
@@ -22,12 +24,14 @@ title: R2_Mon1
 // 시점: 컷씬 1.0 이후
 ---
 R2-Mon: !@&*$&*!@
+<<NpcDialogueFin 2>>
 ===
 
 title: R2_Mon2
 // 시점: 컷씬 4.0 이후
 ---
 R2-Mon: !@&*~!!!$*!@
+<<NpcDialogueFin 2>>
 ===
 
 title: R2_Mon3
@@ -35,6 +39,7 @@ title: R2_Mon3
 // 설명: 마마고 컴퍼니 완공 후
 ---
 R2-Mon: !~~@~$@@*!@
+<<NpcDialogueFin 2>>
 ===
 
 title: R2_Mon4
@@ -44,6 +49,7 @@ title: R2_Mon4
 <<NextSceneStart>>
 R2-Mon: 제 말을 알아듣는다면 저에게 다시 말을 걸어주십시오.
 <<SceneEnd>>
+<<NpcDialogueFin 2>>
 ===
 
 title: R2_Mon5
@@ -92,4 +98,5 @@ R2-Mon: 당신은 다른 변화를 느낄 수 있으실 겁니다.
 <<FadeOut>>
 <<wait 1>>
 <<ChangeChapter2>>
+<<NpcDialogueFin 2>>
 ===
