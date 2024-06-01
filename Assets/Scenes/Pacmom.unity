@@ -1125,6 +1125,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 1575259376}
+          m_TargetAssemblyTypeName: Runtime.CH1.Pacmom.PMTimeline, Scripts
+          m_MethodName: PlayTimeline3SFX
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
     - m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 1575259378}
@@ -1154,6 +1166,18 @@ MonoBehaviour:
         - m_Target: {fileID: 1575259376}
           m_TargetAssemblyTypeName: Runtime.CH1.Pacmom.PMTimeline, Scripts
           m_MethodName: PacmomSizeUp
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1575259376}
+          m_TargetAssemblyTypeName: Runtime.CH1.Pacmom.PMTimeline, Scripts
+          m_MethodName: PlayTimeline3SFX
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -1210,8 +1234,6 @@ PlayableDirector:
     value: {fileID: 1325164807}
   - key: {fileID: 5987401244630463102, guid: a69306f78b4c4e241b0883399e20c8d1, type: 2}
     value: {fileID: 2704183146277498523}
-  - key: {fileID: 1191631150629445731, guid: a69306f78b4c4e241b0883399e20c8d1, type: 2}
-    value: {fileID: 0}
   - key: {fileID: 3739352166427252639, guid: a69306f78b4c4e241b0883399e20c8d1, type: 2}
     value: {fileID: 2929860188779462519}
   - key: {fileID: 3728731100151573041, guid: a69306f78b4c4e241b0883399e20c8d1, type: 2}
@@ -10076,8 +10098,6 @@ PlayableDirector:
     value: {fileID: 133942956}
   - key: {fileID: -1825285888583490396, guid: 2afa46a5bc665b146a1860fc08d2778d, type: 2}
     value: {fileID: 1306120549}
-  - key: {fileID: -649901818919000469, guid: 2afa46a5bc665b146a1860fc08d2778d, type: 2}
-    value: {fileID: 0}
   - key: {fileID: -6827823606421272998, guid: 2afa46a5bc665b146a1860fc08d2778d, type: 2}
     value: {fileID: 1994519405}
   - key: {fileID: 8743940849400263565, guid: 2afa46a5bc665b146a1860fc08d2778d, type: 2}
@@ -10133,6 +10153,18 @@ MonoBehaviour:
         - m_Target: {fileID: 1761052962}
           m_TargetAssemblyTypeName: Runtime.CH1.Pacmom.PMSprite, Scripts
           m_MethodName: StartSpriteAnim
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 1575259376}
+          m_TargetAssemblyTypeName: Runtime.CH1.Pacmom.PMTimeline, Scripts
+          m_MethodName: PlayTimeline1SFX
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -24604,6 +24636,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 1575259376}
+          m_TargetAssemblyTypeName: Runtime.CH1.Pacmom.PMTimeline, Scripts
+          m_MethodName: PlayTimeline2SFX
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
     - m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 1575259376}
@@ -24651,8 +24695,6 @@ PlayableDirector:
     value: {fileID: 1994519405}
   - key: {fileID: 627870301524376494, guid: 8b43b0d8b5b9c5c46be269254995f143, type: 2}
     value: {fileID: 1707595100}
-  - key: {fileID: -4369297837280594275, guid: 8b43b0d8b5b9c5c46be269254995f143, type: 2}
-    value: {fileID: 0}
   m_ExposedReferences:
     m_References: []
 --- !u!4 &1493158443

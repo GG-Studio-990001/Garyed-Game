@@ -9,6 +9,8 @@
     <<jump Farmer2>>
 <<elseif $progress == 50>>
     <<jump Farmer3>>
+<<else>>
+    <<NpcDialogueFin 1>>
 <<endif>>
 
 ===
@@ -21,6 +23,7 @@ title: Farmer1
 파머: 색: 색깔 있는 건 절대로 만지지 마. 어때 나의 기
 파머: 깔: 깔난 2행시 실력.
 파머: 파하핫!
+<<NpcDialogueFin 1>>
 ===
 
 title: Farmer2
@@ -28,6 +31,7 @@ title: Farmer2
 // 설명: 구덩이를 파는 파머
 ---
 파머: 헛! 둘! 헛! 둘!
+<<NpcDialogueFin 1>>
 ===
 
 title: Farmer3
@@ -37,4 +41,5 @@ title: Farmer3
 파머: 뭐야!
 파머: 어느새 이런 건물이?!
 파머: 건물 안은 어떨지 기대되는데!!
+<<NpcDialogueFin 1>>
 ===

@@ -1,3 +1,4 @@
+using Runtime.ETC;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -53,6 +54,21 @@ namespace Runtime.CH1.Pacmom
         public void PacmomSizeUp()
         {
             _pacmom.transform.localScale = new Vector3(80f, 80f, 80f);
+        }
+
+        public void PlayTimeline1SFX()
+        {
+            Managers.Sound.Play(Sound.SFX, "Pacmom_SFX_14");
+        }
+
+        public void PlayTimeline2SFX()
+        {
+            Managers.Sound.Play(Sound.SFX, "Pacmom_BGM_03");
+        }
+
+        public void PlayTimeline3SFX()
+        {
+            Managers.Sound.Play(Sound.SFX, "Pacmom_BGM_04");
         }
     }
 }

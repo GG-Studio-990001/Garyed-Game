@@ -7,6 +7,8 @@ title: Mamago
     <<jump Mamago1>>
 <<elseif $progress == 50>>
     <<jump Mamago2>>
+<<else>>
+    <<NpcDialogueFin 3>>
 <<endif>>
 ===
 
@@ -22,6 +24,7 @@ title: Mamago1
 마마고: 건축사무소에 의뢰를 넣었거든요..Request!
 마마고: 빨리 지어졌으면 좋겠어요..Can't wait!
 마마고: 사장에게 시간은 금과 같으니까요..Time is Gold!
+<<NpcDialogueFin 3>>
 ===
 
 title: Mamago2
@@ -39,4 +42,5 @@ title: Mamago2
 마마고: 이걸로 기계어를 마스터해보세요..Translation!
 마마고: 그럼 안녕히가세요..Good bye!
 <<SceneEnd>>
+<<NpcDialogueFin 3>>
 ===
