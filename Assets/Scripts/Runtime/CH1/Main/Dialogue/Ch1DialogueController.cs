@@ -144,6 +144,9 @@ namespace Runtime.CH1.Main.Dialogue
 
         private void SceneChange(string sceneName)
         {
+            Managers.Sound.StopBGM();
+            Managers.Sound.Play(Sound.SFX, "Pacmom_SFX_13_ver2");
+
             // Hard Coding
             if ("Pacmom" == sceneName)
             {

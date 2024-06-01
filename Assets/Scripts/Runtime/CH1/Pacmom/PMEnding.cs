@@ -1,3 +1,4 @@
+using Runtime.ETC;
 using Runtime.InGameSystem;
 using System.Collections;
 using TMPro;
@@ -73,6 +74,7 @@ namespace Runtime.CH1.Pacmom
         IEnumerator PacmomGameOver()
         {
             Time.timeScale = 0;
+            Managers.Sound.Play(Sound.SFX, "Pacmom_SFX_Fail");
             _shader.ChangeBleedAmount();
 
             yield return new WaitForSecondsRealtime(3f);
