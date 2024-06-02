@@ -16649,7 +16649,6 @@ GameObject:
   - component: {fileID: 772667380}
   - component: {fileID: 772667382}
   - component: {fileID: 772667381}
-  - component: {fileID: 772667383}
   m_Layer: 0
   m_Name: Map3
   m_TagString: Untagged
@@ -16735,18 +16734,6 @@ MonoBehaviour:
   moveStageNumber: 3
   spawnPosition: {x: 93.54, y: -15.2}
   _npcs: {fileID: 0}
---- !u!114 &772667383
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 772667379}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 572ae5fa658a0714c9ee15b1e3935f16, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &775864248 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9222804178671123590, guid: b9038dd44bd474443818d91501aaabb9, type: 3}

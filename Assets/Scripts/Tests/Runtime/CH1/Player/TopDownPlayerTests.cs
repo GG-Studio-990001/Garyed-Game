@@ -60,7 +60,7 @@ namespace Tests.Runtime.CH1.Player
         public IEnumerator TestPlayerAnimation()
         {
             Animator animator = _playerObject.GetComponent<Animator>();
-            _animation.SetAnimation(nameof(PlayerState.Move),new Vector2(1f, 0f)); 
+            _animation.SetAnimation(GlobalConst.MoveStr, new Vector2(1f, 0f)); 
             
             bool isMoving = animator.GetBool("IsMoving");
             

@@ -52,17 +52,13 @@ namespace Runtime.CH1.Main.Dialogue
 
         public void MamagoMove1()
         {
-            string state = PlayerState.Move.ToString();
-
-            _mamago.Anim.SetAnimation(state, Vector2.right);
+            _mamago.Anim.SetAnimation(GlobalConst.MoveStr, Vector2.right);
             _mamago.transform.DOMove(_mamagoLocation[0], 3f).SetEase(Ease.Linear);
         }
 
         public void MamagoMove2()
         {
-            string state = PlayerState.Move.ToString();
-
-            _mamago.Anim.SetAnimation(state, Vector2.up);
+            _mamago.Anim.SetAnimation(GlobalConst.MoveStr, Vector2.up);
             _mamago.transform.DOMove(_mamagoLocation[1], 1f).SetEase(Ease.Linear);
         }
 
@@ -137,8 +133,7 @@ namespace Runtime.CH1.Main.Dialogue
             // 라플리 빼고 맵3으로
             for (int i = 0; i < _npc.Length; i++)
             {
-                string state = PlayerState.Move.ToString();
-                _npc[i].Anim.SetAnimation(state, Vector2.right);
+                _npc[i].Anim.SetAnimation(GlobalConst.MoveStr, Vector2.right);
                 _npc[i].transform.DOMove(NpcPos.NpcLocations[i].Locations[6], 5f).SetEase(Ease.Linear);
             }
         }
@@ -148,8 +143,7 @@ namespace Runtime.CH1.Main.Dialogue
             // 라플리 빼고 다리 건너기
             for (int i = 0; i < _npc.Length; i++)
             {
-                string state = PlayerState.Move.ToString();
-                _npc[i].Anim.SetAnimation(state, Vector2.right);
+                _npc[i].Anim.SetAnimation(GlobalConst.MoveStr, Vector2.right);
                 _npc[i].transform.DOMove(NpcPos.NpcLocations[i].Locations[4], 5f).SetEase(Ease.Linear);
             }
         }
@@ -159,22 +153,19 @@ namespace Runtime.CH1.Main.Dialogue
             // 라플리 빼고 동굴 앞으로 이동
             for (int i = 0; i < _npc.Length; i++)
             {
-                string state = PlayerState.Move.ToString();
-                _npc[i].Anim.SetAnimation(state, Vector2.right);
+                _npc[i].Anim.SetAnimation(GlobalConst.MoveStr, Vector2.right);
                 _npc[i].transform.DOMove(NpcPos.NpcLocations[i].Locations[3], 5f).SetEase(Ease.Linear);
             }
         }
 
         private void CharactersMove1()
         {
-            string state = PlayerState.Move.ToString();
-
-            Player.Animation.SetAnimation(state, Vector2.right);
+            Player.Animation.SetAnimation(GlobalConst.MoveStr, Vector2.right);
             Player.transform.DOMove(_location, 5f).SetEase(Ease.Linear);
 
             for (int i = 0; i < _npc.Length; i++)
             {
-                _npc[i].Anim.SetAnimation(state, Vector2.right);
+                _npc[i].Anim.SetAnimation(GlobalConst.MoveStr, Vector2.right);
                 _npc[i].transform.DOMove(NpcPos.NpcLocations[i].Locations[1], 5f).SetEase(Ease.Linear);
             }
         }
@@ -200,33 +191,27 @@ namespace Runtime.CH1.Main.Dialogue
 
         public void CharactersStop3()
         {
-            string state = PlayerState.Idle.ToString();
-
             for (int i = 0; i < 3; i++)
             {
-                _npc[i].Anim.SetAnimation(state, Vector2.down);
+                _npc[i].Anim.SetAnimation(GlobalConst.IdleStr, Vector2.down);
             }
         }
 
         public void CharactersStop2()
         {
-            string state = PlayerState.Idle.ToString();
-
             for (int i = 0; i < 3; i++)
             {
-                _npc[i].Anim.SetAnimation(state, Vector2.left);
+                _npc[i].Anim.SetAnimation(GlobalConst.IdleStr, Vector2.left);
             }
         }
 
         public void CharactersStop1()
         {
-            string state = PlayerState.Idle.ToString(); // 하나로 옮기기
+            Player.Animation.SetAnimation(GlobalConst.IdleStr, Vector2.down);
 
-            Player.Animation.SetAnimation(state, Vector2.down);
-
-            _npc[0].Anim.SetAnimation(state, Vector2.right);
-            _npc[1].Anim.SetAnimation(state, Vector2.up);
-            _npc[2].Anim.SetAnimation(state, Vector2.left);
+            _npc[0].Anim.SetAnimation(GlobalConst.IdleStr, Vector2.right);
+            _npc[1].Anim.SetAnimation(GlobalConst.IdleStr, Vector2.up);
+            _npc[2].Anim.SetAnimation(GlobalConst.IdleStr, Vector2.left);
         }
         #endregion
 

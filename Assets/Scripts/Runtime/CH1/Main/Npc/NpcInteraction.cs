@@ -36,15 +36,13 @@ namespace Runtime.CH1.Main
         {
             _previousDirection = _npc.Anim.GetDirection();
 
-            string state = PlayerState.Idle.ToString();
             Vector2 newDirection = new (direction.x * -1, direction.y * -1);
-            _npc.Anim.SetAnimation(state, newDirection);
+            _npc.Anim.SetAnimation(GlobalConst.IdleStr, newDirection);
         }
 
         public void ResetNpcDirection()
         {
-            string state = PlayerState.Idle.ToString();
-            _npc.Anim.SetAnimation(state, _previousDirection);
+            _npc.Anim.SetAnimation(GlobalConst.IdleStr, _previousDirection);
         }
     }
 }

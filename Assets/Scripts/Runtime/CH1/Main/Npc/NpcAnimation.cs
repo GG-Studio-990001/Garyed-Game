@@ -25,12 +25,12 @@ namespace Runtime.CH1.Main
         {
             switch (stateName)
             {
-                case nameof(PlayerState.Idle):
+                case GlobalConst.IdleStr:
                     _animator.SetBool(Moving, false);
                     _animator.SetFloat(Horizontal1, direction.x);
                     _animator.SetFloat(Vertical1, direction.y);
                     break;
-                case nameof(PlayerState.Move):
+                case GlobalConst.MoveStr:
                     _animator.SetBool(Moving, true);
                     _animator.SetFloat(Horizontal1, direction.x);
                     _animator.SetFloat(Vertical1, direction.y);
