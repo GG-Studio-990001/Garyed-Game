@@ -8,11 +8,11 @@ namespace Runtime.CH1.Main
         {
             if (Managers.Data.Scene <= 4)
             {
-                this.gameObject.SetActive(true);
+                gameObject.SetActive(true);
             }
             else
             {
-                this.gameObject.SetActive(false);
+                gameObject.SetActive(false);
             }
         }
     }

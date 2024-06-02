@@ -12,7 +12,7 @@ namespace Runtime.CH1.Main
         {
             if (Managers.Data.Scene >= 2)
             {
-                this.gameObject.SetActive(false);
+                gameObject.SetActive(false);
                 return;
             }
 

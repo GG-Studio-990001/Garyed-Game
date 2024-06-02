@@ -45,7 +45,7 @@ TagManager:
   - name: Map
     uniqueID: 1394698431
     locked: 0
-  - name: Player
+  - name: Character
     uniqueID: 2712212615
     locked: 0
   - name: MapFront

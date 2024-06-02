@@ -24878,7 +24878,7 @@ MonoBehaviour:
   _outPosition: {x: 773, y: -159, z: 0}
   _inPosition: {x: 353, y: -159, z: 0}
   _drawing: {fileID: 513051065}
-  LuckyObjs:
+  _luckyObjs:
   - {fileID: 1143825153}
   - {fileID: 1574099396}
   - {fileID: 1972450714}

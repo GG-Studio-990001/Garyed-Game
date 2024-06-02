@@ -6,9 +6,9 @@ using TMPro;
 using Runtime.CH1.Main.Stage;
 using Runtime.CH1.Main.Controller;
 using Runtime.ETC;
-using Runtime.Luck;
 using Runtime.CH1.Main.Dialogue;
 using UnityEngine.InputSystem.Controls;
+using Runtime.CH1.Luck;
 
 namespace SLGDefines
 { 

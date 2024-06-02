@@ -6,16 +6,13 @@ namespace Runtime.CH1.Main
 {
     public class GuardBlock : MonoBehaviour
     {
-        [SerializeField] private DialogueRunner dialogueRunner;
+        [SerializeField] private DialogueRunner _dialogueRunner;
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            //if (Managers.Data.Scene > 6)
-            //    return;
-
             if (other.CompareTag(GlobalConst.PlayerStr))
             {
-                dialogueRunner.StartDialogue("Guard");
+                _dialogueRunner.StartDialogue("Guard");
             }
         }
     }
