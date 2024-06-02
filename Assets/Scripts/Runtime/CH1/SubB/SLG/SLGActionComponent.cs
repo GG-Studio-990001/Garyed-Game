@@ -168,7 +168,7 @@ public class SLGActionComponent : MonoBehaviour
                 }
             }
         }
-        if(SLGProgressInfo < SLGProgress.ModeClose)
+        if(SLGProgressInfo > SLGProgress.ModeOpen && SLGProgressInfo < SLGProgress.ModeClose)
         {
             if(Input.GetMouseButtonUp(0))
             {
@@ -408,7 +408,7 @@ public class SLGActionComponent : MonoBehaviour
                 SLGConstructionBeginTime = (long)((DateTime.Now - DateTime.MinValue).TotalSeconds);
             }
         }
-        else
+        else if(SLGProgressInfo == SLGProgress.EndConstruction)
         {
             EndSLGMode();
         }
@@ -427,7 +427,9 @@ public class SLGActionComponent : MonoBehaviour
         SLGConstructionSite.SetActive(false);
         SLGMaMagoGate.SetActive(true);
         SLGMaMagoGateColider.SetActive(true);
+        Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
 
         _dialogue.MamagoThanks(); // 마마고 연출 시작
+        MoveOnNextProgress();
     }
 }
