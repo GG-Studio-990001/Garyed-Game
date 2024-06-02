@@ -11,19 +11,15 @@ namespace Runtime.CH1.Main
         private Npc _npc;
         private Vector2 _previousDirection;
         public Action<Vector2> OnInteract { get; set; }
-        [SerializeField] private DialogueRunner dialogueRunner;
+        [SerializeField] private DialogueRunner _dialogueRunner;
 
         private void Awake()
         {
             _npc = GetComponent<Npc>();
 
-            if (dialogueRunner == null)
+            if (_dialogueRunner == null)
             {
-                dialogueRunner = FindObjectOfType<DialogueRunner>();
-                if (dialogueRunner == null)
-                {
-                    Debug.LogError("DialogueRunner is not found.");
-                }
+                Debug.LogError("DialogueRunner is not found.");
             }
         }
 
@@ -32,7 +28,7 @@ namespace Runtime.CH1.Main
             OnInteract?.Invoke(direction);
             NpcDirection(direction);
 
-            dialogueRunner.StartDialogue(gameObject.name);
+            _dialogueRunner.StartDialogue(gameObject.name);
             return true;
         }
 

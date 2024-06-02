@@ -2,10 +2,11 @@ using DG.Tweening;
 using Runtime.CH1.Main.Player;
 using Runtime.CH1.SubB;
 using Runtime.ETC;
+using Runtime.Luck;
 using UnityEngine;
 using Yarn.Unity;
 
-namespace Runtime.Luck
+namespace Runtime.CH1.Luck
 {
     public class LuckyCH1Dialogue : DialogueViewBase
     {

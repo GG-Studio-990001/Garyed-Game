@@ -5,7 +5,7 @@ title: S1
 <<NewSceneStart>>
 
 // 검정 화면
-<<ShowIllustration 0>>
+<<ShowIllustration true>>
 ???: ...?
 ???: 달러님, 빨리 이쪽으로!
 ???: 방금 떨어진 게임인데 뭔가 이상합니다. 사람인 것 같ㅇ-
@@ -24,7 +24,7 @@ R2-MON: !@!@@!~@~!@!~@@
 
 <<FadeOut>>
 <<wait 1>>
-<<HideIllustration>>
+<<ShowIllustration false>>
 <<FadeIn>>
 <<wait 1>>
 

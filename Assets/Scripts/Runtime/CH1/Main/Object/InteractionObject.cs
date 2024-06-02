@@ -14,9 +14,8 @@ namespace Runtime.CH1.Main.Object
         {
             if (_dialogueRunner == null)
             {
-                // 다이얼로그러너를 하나 더 추가했으므로 임시 조치
-                _dialogueRunner = GameObject.Find("DialogueRunner").GetComponent<DialogueRunner>(); // FindObjectOfType<DialogueRunner>();
-                if (_dialogueRunner == null)
+                // TODO: Find 지양
+                if (!GameObject.Find("DialogueRunner").TryGetComponent<DialogueRunner>(out _dialogueRunner))
                 {
                     Debug.LogError("DialogueRunner is not found.");
                 }

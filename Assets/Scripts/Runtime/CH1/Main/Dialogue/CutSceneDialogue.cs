@@ -8,19 +8,17 @@ namespace Runtime.CH1.Main.Dialogue
 {
     public class CutSceneDialogue : MonoBehaviour
     {
-        public NpcPosition NpcPos;
         [Header("=Player=")]
-        [SerializeField] public TopDownPlayer Player;
+        public TopDownPlayer Player;
         [SerializeField] private Vector3 _location;
         [Header("=Npc=")]
+        public NpcPosition NpcPos;
         [SerializeField] private Npc[] _npc = new Npc[3];
         [SerializeField] private Vector3 _r2monLocation;
-        [Header("=Mamago=")]
         [SerializeField] private Npc _mamago;
         [SerializeField] private Vector3[] _mamagoLocation;
         [Header("=Else=")]
-        [SerializeField] private GameObject _illerstrationParent;
-        [SerializeField] private GameObject[] _illerstration = new GameObject[1];
+        [SerializeField] private GameObject _illerstration;
         [SerializeField] private GameObject _lucky;
         [SerializeField] private GameObject _stage2;
         [SerializeField] private BridgeController _bridge;
@@ -241,22 +239,9 @@ namespace Runtime.CH1.Main.Dialogue
             Managers.Data.SaveGame();
         }
 
-        public void ShowIllustration(int num)
+        public void ShowIllustration(bool show)
         {
-            _illerstrationParent.SetActive(true);
-
-            for (int i = 0; i < _illerstration.Length; i++)
-            {
-                if (i == num)
-                    _illerstration[i].SetActive(true);
-                else
-                    _illerstration[i].SetActive(false);
-            }
-        }
-
-        public void HideIllustration()
-        {
-            _illerstrationParent.SetActive(false);
+            _illerstration.SetActive(show);
         }
         #endregion
 

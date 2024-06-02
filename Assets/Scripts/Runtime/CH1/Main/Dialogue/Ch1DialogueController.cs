@@ -1,4 +1,3 @@
-using Cinemachine;
 using DG.Tweening;
 using Runtime.InGameSystem;
 using System;
@@ -6,7 +5,6 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 using Yarn.Unity;
 using Sound = Runtime.ETC.Sound;
 
@@ -15,48 +13,39 @@ namespace Runtime.CH1.Main.Dialogue
     // CH1 대화 컨트롤러 Yarn Spinner를 사용하여 대화를 관리하는 클래스
     public class Ch1DialogueController : DialogueViewBase
     {
+        private CutSceneDialogue _cutScene;
+        [Header("=Script=")]
         [SerializeField] private DialogueRunner _runner;
+        [SerializeField] private SLGActionComponent SLGAction;
+        [SerializeField] private NpcDialogueController _npcDialogue;
         [SerializeField] private FadeController _fadeController;
-        [SerializeField] private CinemachineVirtualCamera _virtualCamera;
-        [SerializeField] private TimelineController _timelineController;
-        [SerializeField] private Image _backgroundImage;
+        // [SerializeField] private TimelineController _timelineController;
+        // [SerializeField] private Image _backgroundImage;
+        [Header("=Else=")]
         [SerializeField] private GameObject _nameTag;
-
         [SerializeField] private Volume _volume;
         private LowRes _lowRes;
-        
-        // public List<Sprite> Sprites = new List<Sprite>();
 
         public UnityEvent OnDialogueStart => _runner.onDialogueStart;
         public UnityEvent OnDialogueEnd => _runner.onDialogueComplete;
 
-        private CutSceneDialogue _cutScene;
-        [SerializeField] private NpcDialogueController _npcDialogue;
-
-        // SLG
-        [SerializeField] private SLGActionComponent SLGAction;
-
         private void Awake()
         {
             _cutScene = GetComponent<CutSceneDialogue>();
+            _runner.AddCommandHandler("InitSLG", SLGAction.OnSLGInit);
+            _runner.AddCommandHandler<int>("NpcDialogueFin", _npcDialogue.NpcDialogueFin);
 
-            _runner.AddCommandHandler<string>("StartTimeline", (timelineName) => _timelineController.PlayTimeline(timelineName));        
-            _runner.AddCommandHandler<string>("SceneChange", SceneChange);
             _runner.AddCommandHandler("FadeOut", _fadeController.StartFadeOut);
             _runner.AddCommandHandler("FadeIn", _fadeController.StartFadeIn);
+
+            // _runner.AddCommandHandler<string>("StartTimeline", (timelineName) => _timelineController.PlayTimeline(timelineName));        
+            _runner.AddCommandHandler<string>("SceneChange", SceneChange);
             _runner.AddCommandHandler("NewSceneStart", NewSceneStart);
             _runner.AddCommandHandler("NextSceneStart", NextSceneStart);
             _runner.AddCommandHandler("SceneEnd", SceneEnd);
 
-            // SLG
-            _runner.AddCommandHandler("InitSLG", SLGAction.OnSLGInit);
-
-            // NPC Dialogue
-            _runner.AddCommandHandler<int>("NpcDialogueFin", _npcDialogue.NpcDialogueFin);
-
             // CutScene
-            _runner.AddCommandHandler<int>("ShowIllustration", _cutScene.ShowIllustration);
-            _runner.AddCommandHandler("HideIllustration", _cutScene.HideIllustration);
+            _runner.AddCommandHandler<bool>("ShowIllustration", _cutScene.ShowIllustration);
             _runner.AddCommandHandler<int>("CharactersMove", _cutScene.CharactersMove);
             _runner.AddCommandHandler<int>("CharactersStop", _cutScene.CharactersStop);
             _runner.AddCommandHandler<int>("NpcJump", _cutScene.NpcJump);
@@ -74,15 +63,11 @@ namespace Runtime.CH1.Main.Dialogue
             // CutScene / R2mon
             _runner.AddCommandHandler("SetR2MonPosition", _cutScene.SetR2MonPosition);
             _runner.AddCommandHandler("ChangeChapter2", _cutScene.ChangeChapter2);
+
             /*
-            // UI/Sound
-            _runner.AddCommandHandler<string>("PlayBackgroundSound", PlayBackgroundSound);
             _runner.AddCommandHandler<bool>("SetBackgroundColor", SetBackgroundColor);
             _runner.AddCommandHandler<string>("ChangeScene", ChangeScene);
-            _runner.AddCommandHandler("SetCamera", SetCamera);
-            _runner.AddCommandHandler("CurrentMinorDialogueStart", CurrentMinorDialogueStart);
             */
-            // _runner.AddCommandHandler("SLGSetting", SetSLGUI);
 
             if (_volume != null)
             {
@@ -92,18 +77,14 @@ namespace Runtime.CH1.Main.Dialogue
 
         public override void RunLine(LocalizedLine dialogueLine, Action onDialogueLineFinished)
         {
-            string speakerStr = dialogueLine.CharacterName;
-
-            if (speakerStr == "")
-            {
-                _nameTag.SetActive(false);
-            }
-            else
-            {
-                _nameTag.SetActive(true);
-            }
+            SetNameTag(dialogueLine.CharacterName != "");
 
             onDialogueLineFinished();
+        }
+
+        private void SetNameTag(bool hasName)
+        {
+            _nameTag.SetActive(hasName);
         }
 
         private void Start()
@@ -114,7 +95,6 @@ namespace Runtime.CH1.Main.Dialogue
             }
             else if (Managers.Data.Scene == 1 && Managers.Data.IsPacmomCleared)
             {
-                // 캐릭터 위치 지정
                 _cutScene.NpcPos.SetNpcPosition(2);
                 _cutScene.Player.transform.position = new Vector3(21.95f, -7.51f, 0);
                 _runner.StartDialogue("S2");
@@ -129,14 +109,14 @@ namespace Runtime.CH1.Main.Dialogue
             }
         }
 
-        private void NewSceneStart() // 코드로 빼도 될 듯
+        private void NewSceneStart()
         {
             Managers.Data.Scene++;
             Managers.Data.SceneDetail = 0;
             _cutScene.Player.IsDirecting = true;
         }
 
-        private void NextSceneStart() // 필요 없을지도?
+        private void NextSceneStart()
         {
             Managers.Data.SceneDetail++;
         }
@@ -193,32 +173,9 @@ namespace Runtime.CH1.Main.Dialogue
         }
 
         /*
-        private void SetSLGUI()
-        {
-
-        }
-                
-        private void PlayBackgroundSound(string soundName)
-        {
-            //_soundSystem.PlayMusic(soundName); // TODO Manager.Sound로 교체
-        }
-
-        private void SetCamera()
-        {
-            _virtualCamera.m_Lens.FieldOfView = 30; // ?
-        }
-        
         private void SetBackgroundColor(bool isBlack)
         {
             _fadeController.SetBackground(isBlack);
-        }
-        
-        public void CurrentMinorDialogueStart()
-        {
-            //_runner.NodeExists();
-           // _runner.Stop();
-            //_runner.Clear();
-            _runner.StartDialogue($"Dialogue{Managers.Data.Minor}");
         }
         
         private void ChangeScene(string spriteName)

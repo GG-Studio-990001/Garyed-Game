@@ -1,9 +1,10 @@
 using DG.Tweening;
 using Runtime.ETC;
+using Runtime.Luck;
 using UnityEngine;
 using Yarn.Unity;
 
-namespace Runtime.Luck
+namespace Runtime.CH1.Luck
 {
     public class LuckyPMDialogue : DialogueViewBase
     {
@@ -13,7 +14,7 @@ namespace Runtime.Luck
         [SerializeField] private Vector3 _outPosition;
         [SerializeField] private Vector3 _inPosition;
         [SerializeField] private GameObject _drawing;
-        [SerializeField] private GameObject[] LuckyObjs;
+        [SerializeField] private GameObject[] _luckyObjs;
         [SerializeField] private GameObject _timeline;
 
         private void Awake()
@@ -46,8 +47,8 @@ namespace Runtime.Luck
         private void LuckyExit()
         {
             Managers.Sound.StopBGM();
-            for (int i=0; i< LuckyObjs.Length; i++)
-                LuckyObjs[i].SetActive(false);
+            for (int i=0; i< _luckyObjs.Length; i++)
+                _luckyObjs[i].SetActive(false);
             _timeline.SetActive(true);
         }
 
@@ -55,11 +56,11 @@ namespace Runtime.Luck
         {
             if (active)
             {
-                Invoke("ActiveDrawing", 1f);
+                Invoke(nameof(ActiveDrawing), 1f);
             }
             else
             {
-                CancelInvoke("ActiveDrawing");
+                CancelInvoke(nameof(ActiveDrawing));
                 _drawing.SetActive(false);
             }
         }
