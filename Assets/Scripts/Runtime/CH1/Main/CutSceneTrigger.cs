@@ -11,46 +11,30 @@ namespace Runtime.CH1
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            // TODO: Switch문으로 변경
-            if (_idx == 2)
-            {
-                if (Managers.Data.Scene != 2)
-                    return;
+            if (!other.CompareTag(GlobalConst.PlayerStr))
+                return;
 
-                if (other.CompareTag(GlobalConst.PlayerStr))
-                {
-                    dialogueRunner.StartDialogue("S3");
-                }
-            }
-            else if (_idx == 3)
+            switch (_idx)
             {
-                if (Managers.Data.Scene != 3 || Managers.Data.SceneDetail != 0)
-                    return;
-
-                if (other.CompareTag(GlobalConst.PlayerStr))
-                {
-                    dialogueRunner.StartDialogue("S3_1");
-                }
-            }
-            else if (_idx == 4)
-            {
-                if (Managers.Data.Scene != 3 || Managers.Data.SceneDetail != 1)
-                    return;
-
-                if (other.CompareTag(GlobalConst.PlayerStr))
-                {
-                    dialogueRunner.StartDialogue("S4");
-                }
-            }
-            else if (_idx == 6)
-            {
-                if (Managers.Data.Scene != 5 || Managers.Data.SceneDetail != 1)
-                    return;
-
-                if (other.CompareTag(GlobalConst.PlayerStr))
-                {
-                    dialogueRunner.StartDialogue("S6");
-                }
+                case 2:
+                    if (Managers.Data.Scene == 2)
+                        dialogueRunner.StartDialogue("S3");
+                    break;
+                case 3:
+                    if (Managers.Data.Scene == 3 && Managers.Data.SceneDetail == 0)
+                        dialogueRunner.StartDialogue("S3_1");
+                    break;
+                case 4:
+                    if (Managers.Data.Scene == 3 && Managers.Data.SceneDetail == 1)
+                        dialogueRunner.StartDialogue("S4");
+                    break;
+                case 6:
+                    if (Managers.Data.Scene == 5 && Managers.Data.SceneDetail == 1)
+                        dialogueRunner.StartDialogue("S6");
+                    break;
+                default:
+                    Debug.LogError("Invalid CutSceneTrigger Idx");
+                    break;
             }
         }
     }
