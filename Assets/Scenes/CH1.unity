@@ -17988,7 +17988,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26fce1487b7ba0d4bad39b1253307c1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueRunner: {fileID: 472331523037639807}
+  _dialogueRunner: {fileID: 472331523037639807}
 --- !u!61 &819802107
 BoxCollider2D:
   m_ObjectHideFlags: 0
