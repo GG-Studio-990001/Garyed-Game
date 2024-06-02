@@ -168,6 +168,13 @@ public class SLGActionComponent : MonoBehaviour
                 }
             }
         }
+        if(SLGProgressInfo < SLGProgress.ModeClose)
+        {
+            if(Input.GetMouseButtonUp(0))
+            {
+                Managers.Sound.Play(Sound.SFX, "SLG/[Ch1] SLG_SFX_Click");
+            }
+        }
     }
 
     public bool IsInSLGMode()
@@ -224,12 +231,14 @@ public class SLGActionComponent : MonoBehaviour
                     _wood += INCREASE_ASSET_COUNT;
                     UI_WoodText.text = _wood.ToString();
                     _spawnCount--;
+                    Managers.Sound.Play(Sound.SFX, "SLG/[Ch1] SLG_SFX_Wood");
                     break;
                 }
             case SLGObjectType.STONE:
                 {
                     _stone += INCREASE_ASSET_COUNT;
                     UI_StoneText.text = _stone.ToString();
+                    Managers.Sound.Play(Sound.SFX, "SLG/[Ch1] SLG_SFX_Stone");
                     _spawnCount--;
                     break;
                 }
@@ -312,6 +321,9 @@ public class SLGActionComponent : MonoBehaviour
 
                 Wnd_WoodText.text = _wood.ToString() + "/" + NEEDED_ASSET_COUNT.ToString();
                 Wnd_StoneText.text = _stone.ToString() + "/" + NEEDED_ASSET_COUNT.ToString();
+
+                Wnd_WoodText.color = _wood < NEEDED_ASSET_COUNT? Color.red : Color.black;
+                Wnd_StoneText.color = _stone < NEEDED_ASSET_COUNT? Color.red : Color.black;
             }
             else if (SLGProgressInfo == SLGProgress.Constructing)
             {
@@ -319,6 +331,7 @@ public class SLGActionComponent : MonoBehaviour
                 Wnd_CostSection.gameObject.SetActive(false);
 
                 Wnd_CoinCostText.text = Managers.Data.PacmomCoin.ToString() + "/" + NEEDED_COIN_COUNT.ToString();
+                Wnd_CoinCostText.color = Managers.Data.PacmomCoin < NEEDED_COIN_COUNT ? Color.red : Color.black;
             }
 
             bShowWnd = true;
@@ -359,7 +372,6 @@ public class SLGActionComponent : MonoBehaviour
     }
     private void OnClickConstructBtn()
     {
-        //TODO 건설 가능 시 텍스트 색 표시 수정
         if (_wood >= NEEDED_ASSET_COUNT && _stone >= NEEDED_ASSET_COUNT)
         {
             _wood -= NEEDED_ASSET_COUNT;
