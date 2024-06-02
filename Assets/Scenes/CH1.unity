@@ -1092,7 +1092,7 @@ MonoBehaviour:
   _player: {fileID: 669133898}
   _fish: {fileID: 572122668}
   _3MatchController: {fileID: 1738564838}
-  _slgAction: {fileID: 1580210414}
+  _slgAction: {fileID: 326335558}
 --- !u!1001 &74761257
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6513,6 +6513,7 @@ GameObject:
   - component: {fileID: 326335555}
   - component: {fileID: 326335556}
   - component: {fileID: 326335557}
+  - component: {fileID: 326335558}
   m_Layer: 0
   m_Name: CH1GameController
   m_TagString: Untagged
@@ -6570,6 +6571,46 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sceneMoveCount: 0
+--- !u!114 &326335558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 326335554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b11c4aba319dae41acce673d3006143, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SLGPopupSprites:
+  - {fileID: 21300000, guid: e2b7470efd911bc4794514b83833a5b3, type: 3}
+  - {fileID: 21300000, guid: 79b1b9e231255c146bc7f9624cdc9e75, type: 3}
+  - {fileID: 21300000, guid: 550a000469cba434abf26b23268a5985, type: 3}
+  cursorTexture: {fileID: 2800000, guid: eb08b7ccf73eb79439d8ba82f51f0ede, type: 3}
+  _SLGCanvas: {fileID: 200716016}
+  _constructUI: {fileID: 1709039470}
+  UI_WoodText: {fileID: 28350012}
+  UI_StoneText: {fileID: 139243160}
+  UI_CoinText: {fileID: 2027207638}
+  Wnd_CostSection: {fileID: 1553373391}
+  Wnd_AccelerateSection: {fileID: 47234745}
+  Wnd_WoodText: {fileID: 197543584}
+  Wnd_StoneText: {fileID: 1072443029}
+  Wnd_TimeText: {fileID: 601029014}
+  Wnd_CoinCostText: {fileID: 1136499719}
+  Wnd_ConstructionBtn: {fileID: 270454061}
+  Wnd_AccelerateBtn: {fileID: 1698108420}
+  Wnd_CloseBtn: {fileID: 941668306}
+  _sponSpots: {fileID: 532629214}
+  SLGConstructionObject: {fileID: 1160400292}
+  SLGTriggerObject: {fileID: 1319365260}
+  SLGConstructionSite: {fileID: 1410042819}
+  SLGMaMagoGate: {fileID: 173297811}
+  SLGMaMagoGateColider: {fileID: 566740323}
+  bShowWnd: 0
+  _lucky: {fileID: 67458954}
+  _dialogue: {fileID: 1757409998}
 --- !u!1 &332104389
 GameObject:
   m_ObjectHideFlags: 0
@@ -38949,78 +38990,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edee8ee8128311e4b8cc821374502cd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1580210413
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1580210415}
-  - component: {fileID: 1580210414}
-  m_Layer: 0
-  m_Name: SLGAction
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1580210414
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1580210413}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b11c4aba319dae41acce673d3006143, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SLGPopupSprites:
-  - {fileID: 21300000, guid: e2b7470efd911bc4794514b83833a5b3, type: 3}
-  - {fileID: 21300000, guid: 79b1b9e231255c146bc7f9624cdc9e75, type: 3}
-  - {fileID: 21300000, guid: 550a000469cba434abf26b23268a5985, type: 3}
-  cursorTexture: {fileID: 2800000, guid: eb08b7ccf73eb79439d8ba82f51f0ede, type: 3}
-  _SLGCanvas: {fileID: 200716016}
-  _constructUI: {fileID: 1709039470}
-  UI_WoodText: {fileID: 28350012}
-  UI_StoneText: {fileID: 139243160}
-  UI_CoinText: {fileID: 2027207638}
-  Wnd_CostSection: {fileID: 1553373391}
-  Wnd_AccelerateSection: {fileID: 47234745}
-  Wnd_WoodText: {fileID: 197543584}
-  Wnd_StoneText: {fileID: 1072443029}
-  Wnd_TimeText: {fileID: 601029014}
-  Wnd_CoinCostText: {fileID: 1136499719}
-  Wnd_ConstructionBtn: {fileID: 270454061}
-  Wnd_AccelerateBtn: {fileID: 1698108420}
-  Wnd_CloseBtn: {fileID: 941668306}
-  _sponSpots: {fileID: 532629214}
-  SLGConstructionObject: {fileID: 1160400292}
-  SLGTriggerObject: {fileID: 1319365260}
-  SLGConstructionSite: {fileID: 1410042819}
-  SLGMaMagoGate: {fileID: 173297811}
-  SLGMaMagoGateColider: {fileID: 566740323}
-  bShowWnd: 0
-  _lucky: {fileID: 67458954}
-  _dialogue: {fileID: 1757409998}
---- !u!4 &1580210415
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1580210413}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 100.702225, y: 20.32983, z: 78.47432}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1118555188}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1582525831 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9222804178671123590, guid: 36af47818e7c3a6439dd2a45c50194d2, type: 3}
@@ -46253,7 +46222,7 @@ MonoBehaviour:
   _nameTag: {fileID: 3712000284494713604}
   _volume: {fileID: 674618125}
   _npcDialogue: {fileID: 1908934229}
-  SLGAction: {fileID: 1580210414}
+  SLGAction: {fileID: 326335558}
 --- !u!114 &1757409999
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -57427,9 +57396,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6138575075136299047, guid: fabd929830e0d48429c6e047af57dd53, type: 3}
       insertIndex: -1
       addedObject: {fileID: 532629215}
-    - targetCorrespondingSourceObject: {fileID: 6138575075136299047, guid: fabd929830e0d48429c6e047af57dd53, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1580210415}
     - targetCorrespondingSourceObject: {fileID: 6138575075136299047, guid: fabd929830e0d48429c6e047af57dd53, type: 3}
       insertIndex: -1
       addedObject: {fileID: 332104390}
