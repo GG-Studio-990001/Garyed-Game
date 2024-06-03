@@ -3,6 +3,7 @@ using Runtime.CH1.SubB;
 using Runtime.ETC;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.TestTools;
 using UnityEngine.Tilemaps;
@@ -49,12 +50,12 @@ namespace Tests.Runtime.CH1.Sub_B
             _jewelries[0].JewelryType = JewelryType.A;
             _jewelries[1].JewelryType = JewelryType.A;
             _jewelries[2].JewelryType = JewelryType.A;
-            
+
             _controller.CheckMatching();
             
             yield return new WaitForFixedUpdate();
             
-            Assert.IsTrue(_controller.IsClear);
+            Assert.IsTrue(_jewelries.All( j => j.JewelryType == JewelryType.Disappear));
         }
         
         [UnityTest]

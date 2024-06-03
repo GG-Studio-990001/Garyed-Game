@@ -97,7 +97,7 @@ namespace Runtime.CH1.SubB
 
         public void DestroyJewelry()
         {
-            if (JewelryType is not JewelryType.Disappear)
+            if (JewelryType is not JewelryType.Disappear && _animator != null)
             {
                 _animator.Play($"Type{JewelryType}_Effect");
             }
