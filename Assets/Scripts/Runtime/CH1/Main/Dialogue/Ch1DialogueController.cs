@@ -1,4 +1,5 @@
 using DG.Tweening;
+using Runtime.ETC;
 using Runtime.InGameSystem;
 using System;
 using UnityEngine;
@@ -25,6 +26,7 @@ namespace Runtime.CH1.Main.Dialogue
         [SerializeField] private GameObject _nameTag;
         [SerializeField] private Volume _volume;
         private LowRes _lowRes;
+        private string _speaker;
 
         public UnityEvent OnDialogueStart => _runner.onDialogueStart;
         public UnityEvent OnDialogueEnd => _runner.onDialogueComplete;
@@ -77,7 +79,8 @@ namespace Runtime.CH1.Main.Dialogue
 
         public override void RunLine(LocalizedLine dialogueLine, Action onDialogueLineFinished)
         {
-            SetNameTag(dialogueLine.CharacterName != "");
+            _speaker = dialogueLine.CharacterName;
+            SetNameTag(_speaker != "");
 
             onDialogueLineFinished();
         }
@@ -167,9 +170,16 @@ namespace Runtime.CH1.Main.Dialogue
             }
         }
 
-        public void TypingSFX()
+        public void TextSFX()
         {
-            Managers.Sound.Play(Sound.SFX, "[CH1] Text SFX");
+            if (_speaker == "R2-Mon")
+            {
+                Managers.Sound.PlayRandomSpeech("R2MonText");
+            }
+            else
+            {
+                Managers.Sound.Play(Sound.SFX, "[CH1] Text SFX");
+            }
         }
 
         /*

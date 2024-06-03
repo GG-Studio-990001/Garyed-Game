@@ -19,7 +19,7 @@ namespace Runtime.CH1.Main
 
             if (_dialogueRunner == null)
             {
-                Debug.LogError("DialogueRunner is not found.");
+                Debug.Log("DialogueRunner is not found.");
             }
         }
 

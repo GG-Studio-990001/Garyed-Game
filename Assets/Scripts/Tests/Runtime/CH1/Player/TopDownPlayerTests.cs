@@ -39,7 +39,7 @@ namespace Tests.Runtime.CH1.Player
             
             _movement = new TopDownMovement(5.0f, _player.transform);
             _animation = new TopDownAnimation(_player.GetComponent<Animator>(), 0.5f);
-            _interaction = new TopDownInteraction(_player.transform, LayerMask.GetMask("Object"), 1f);
+            _interaction = new TopDownInteraction(_player.transform, LayerMask.GetMask("NPC"), LayerMask.GetMask("Object"), 1f);
             
             yield return new WaitForFixedUpdate();
         }

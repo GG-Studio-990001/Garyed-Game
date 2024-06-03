@@ -31,14 +31,22 @@ namespace Runtime.CH1.Main.Player
         {
             _movement = new TopDownMovement(moveSpeed, transform);
             Animation = new TopDownAnimation(GetComponent<Animator>(), animSpeed);
-            _interaction = new TopDownInteraction(transform, LayerMask.GetMask(GlobalConst.Interaction));
+            _interaction = new TopDownInteraction(transform, LayerMask.GetMask("NPC"), LayerMask.GetMask(GlobalConst.Interaction));
         }
         
         private void Update()
         {
             if (!IsDirecting)
                 Animation.SetAnimation(_state.ToString(), _lastInput);
+            Debug.DrawRay(this.transform.position, _movement.Direction, Color.blue);
         }
+
+        void OnDrawGizmos()
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(this.transform.position, 1);
+        }
+
 
         private void FixedUpdate()
         {
