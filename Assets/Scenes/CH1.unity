@@ -54862,7 +54862,7 @@ MonoBehaviour:
       - m_Target: {fileID: 1757409998}
         m_TargetAssemblyTypeName: Runtime.CH1.Main.Dialogue.Ch1DialogueController,
           Scripts
-        m_MethodName: TypingSFX
+        m_MethodName: TextSFX
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -57234,7 +57234,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4462915879690929843, guid: fabd929830e0d48429c6e047af57dd53, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4608043662008113249, guid: fabd929830e0d48429c6e047af57dd53, type: 3}
       propertyPath: m_LocalPosition.x

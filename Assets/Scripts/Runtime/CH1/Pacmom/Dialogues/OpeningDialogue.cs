@@ -116,5 +116,10 @@ namespace Runtime.CH1.Pacmom
                     break;
             }
         }
+
+        public void DustTextSFX()
+        {
+            Managers.Sound.PlayRandomSpeech("DustText");
+        }
     }
 }

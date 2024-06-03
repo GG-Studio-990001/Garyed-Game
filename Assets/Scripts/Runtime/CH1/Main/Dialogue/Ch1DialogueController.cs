@@ -170,7 +170,7 @@ namespace Runtime.CH1.Main.Dialogue
             }
         }
 
-        public void TypingSFX()
+        public void TextSFX()
         {
             if (_speaker == "R2-Mon")
             {
