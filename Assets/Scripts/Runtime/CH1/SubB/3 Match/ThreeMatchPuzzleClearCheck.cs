@@ -6,7 +6,11 @@ namespace Runtime.CH1.SubB._3_Match
     {
         private void OnTriggerEnter2D(Collider2D other)
         {
-            Managers.Data.Is3MatchCleared = true;
+            if (other.CompareTag("Player"))
+            {
+                Managers.Data.Is3MatchCleared = true;
+                Managers.Data.SaveGame();
+            }
         }
     }
 }

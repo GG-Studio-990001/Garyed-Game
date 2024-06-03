@@ -206,8 +206,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <JewelryType>k__BackingField: 0
-  moveTime: 1
-  pushLimitTime: 1.1
+  moveTime: 0.5
+  pushLimitTime: 0.6
 --- !u!95 &9137255935938833722
 Animator:
   serializedVersion: 5
