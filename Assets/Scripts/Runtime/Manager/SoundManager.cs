@@ -1,3 +1,4 @@
+using PlasticGui.WorkspaceWindow;
 using Runtime.ETC;
 using Runtime.Event;
 using System.Collections.Generic;
@@ -128,6 +129,16 @@ namespace Runtime.InGameSystem
             }
 
             return false;
+        }
+
+        public void PlayRandomSpeech(string folder)
+        {
+            string path = $"Sound/{folder}";
+            AudioClip audioClip = Managers.Resource.LoadRandom<AudioClip>(path);
+
+            path += $"/{audioClip.name}";
+
+            Play(Sound.Speech, path);
         }
 
         private AudioClip GetAudioClip(string path)

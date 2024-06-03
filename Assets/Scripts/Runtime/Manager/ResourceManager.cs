@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Runtime.Manager
@@ -30,6 +30,13 @@ namespace Runtime.Manager
             
             return Resources.Load<T>(path);
         }
+
+        public T LoadRandom<T>(string path) where T : Object
+        {
+            T[] resources = Resources.LoadAll<T>(path);
+            int rand = Random.Range(0, resources.Length);
+
+            return resources[rand];
+        }
     }
-    
 }
