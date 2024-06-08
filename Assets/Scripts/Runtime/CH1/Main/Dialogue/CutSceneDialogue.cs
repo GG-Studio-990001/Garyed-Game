@@ -81,7 +81,7 @@ namespace Runtime.CH1.Main.Dialogue
 
         public void BreakBridge()
         {
-            Managers.Sound.Play(Sound.SFX, "Boom Sfx");
+            Managers.Sound.Play(Sound.SFX, "[Ch1] SFX_Explosion");
             _bridge.ActiveBrokenBridge();
         }
 
@@ -91,6 +91,7 @@ namespace Runtime.CH1.Main.Dialogue
             {
                 _shakeTween = DOTween.Sequence();
                 _shakeTween.Append(_stage2.transform.DOShakePosition(5000f, new Vector3(0.1f, 0.1f, 0)));
+                Managers.Sound.Play(Sound.SFX, "[Ch1] SFX_Before explosion");
             }
             else
             {
