@@ -3,6 +3,7 @@ using UnityEngine;
 using DG.Tweening;
 using Runtime.ETC;
 using UnityEngine.SceneManagement;
+using Runtime.CH1.Main.Npc;
 
 namespace Runtime.CH1.Main.Dialogue
 {
@@ -13,9 +14,9 @@ namespace Runtime.CH1.Main.Dialogue
         [SerializeField] private Vector3 _location;
         [Header("=Npc=")]
         public NpcPosition NpcPos;
-        [SerializeField] private Npc[] _npc = new Npc[3];
+        [SerializeField] private NpcBody[] _npc = new NpcBody[3];
         [SerializeField] private Vector3 _r2monLocation;
-        [SerializeField] private Npc _mamago;
+        [SerializeField] private NpcBody _mamago;
         [SerializeField] private Vector3[] _mamagoLocation;
         [Header("=Else=")]
         [SerializeField] private GameObject _illerstration;

@@ -4,18 +4,18 @@ using System;
 using UnityEngine;
 using Yarn.Unity;
 
-namespace Runtime.CH1.Main
+namespace Runtime.CH1.Main.Npc
 {
     public class NpcInteraction : MonoBehaviour, IInteractive
     {
-        private Npc _npc;
+        private NpcBody _npc;
         private Vector2 _previousDirection;
         public Action<Vector2> OnInteract { get; set; }
         [SerializeField] private DialogueRunner _dialogueRunner;
 
         private void Awake()
         {
-            _npc = GetComponent<Npc>();
+            _npc = GetComponent<NpcBody>();
 
             if (_dialogueRunner == null)
             {

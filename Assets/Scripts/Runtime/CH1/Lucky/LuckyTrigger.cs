@@ -1,7 +1,7 @@
 using Runtime.ETC;
 using UnityEngine;
 
-namespace Runtime.CH1.Luck
+namespace Runtime.CH1.Lucky
 {
     public class LuckyTrigger : MonoBehaviour
     {

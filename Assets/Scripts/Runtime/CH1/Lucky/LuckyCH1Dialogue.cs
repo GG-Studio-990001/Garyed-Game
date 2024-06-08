@@ -2,18 +2,18 @@ using DG.Tweening;
 using Runtime.CH1.Main.Player;
 using Runtime.CH1.SubB;
 using Runtime.ETC;
-using Runtime.Luck;
+using Runtime.Lucky;
 using UnityEngine;
 using Yarn.Unity;
 
-namespace Runtime.CH1.Luck
+namespace Runtime.CH1.Lucky
 {
     public class LuckyCH1Dialogue : DialogueViewBase
     {
         // 클래스 이름 수정해야함
         private DialogueRunner _runner;
         [SerializeField] private GameObject _luckyLayer;
-        [SerializeField] private Lucky _lucky;
+        [SerializeField] private LuckyBody _lucky;
         [SerializeField] private GameObject _bubble;
         [SerializeField] private Vector3[] _inPosition;
         [SerializeField] private Vector3[] _outPosition;

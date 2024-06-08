@@ -1,9 +1,9 @@
 using UnityEngine;
 
-namespace Runtime.Luck
+namespace Runtime.Lucky
 {
     [RequireComponent(typeof(SpriteRenderer))]
-    public class Lucky : MonoBehaviour
+    public class LuckyBody : MonoBehaviour
     {
         private SpriteRenderer _spriteRender;
         public LuckyAnimation Anim { get; private set; }

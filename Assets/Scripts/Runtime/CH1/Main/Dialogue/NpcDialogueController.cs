@@ -1,3 +1,4 @@
+using Runtime.CH1.Main.Npc;
 using UnityEngine;
 
 namespace Runtime.CH1.Main.Dialogue

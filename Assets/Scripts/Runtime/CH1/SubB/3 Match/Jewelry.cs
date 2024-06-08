@@ -1,8 +1,5 @@
 using Runtime.CH1.Main.Player;
-using Runtime.CH1.Main.PlayerFunction;
 using Runtime.ETC;
-using Runtime.Interface;
-using System;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 

@@ -1,3 +1,4 @@
+using Runtime.CH1.Main.Npc;
 using Runtime.ETC;
 using UnityEngine;
 using UnityEngine.Events;

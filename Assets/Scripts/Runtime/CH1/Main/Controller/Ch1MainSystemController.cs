@@ -1,16 +1,10 @@
-using Cinemachine;
 using Runtime.CH1.Main.Dialogue;
+using Runtime.CH1.Main.Npc;
 using Runtime.CH1.Main.Player;
 using Runtime.CH1.Main.Stage;
-using Runtime.CH1.Pacmom;
 using Runtime.Common.View;
-using Runtime.Data.Original;
-using Runtime.Event;
 using Runtime.InGameSystem;
-using Runtime.Input;
-using Runtime.Interface;
 using UnityEngine;
-using Sound = Runtime.ETC.Sound;
 
 namespace Runtime.CH1.Main.Controller
 {
