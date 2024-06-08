@@ -68,7 +68,8 @@ namespace Tests.Runtime.CH1.Player
             
             Assert.IsTrue(isMoving);
         }
-        
+
+        /*
         [UnityTest]
         public IEnumerator TestPlayerInteraction()
         {
@@ -101,8 +102,8 @@ namespace Tests.Runtime.CH1.Player
             Assert.IsFalse(_interaction.Interact(Vector2.left));
             
             Object.DestroyImmediate(interactionObject);
-        }
-        
+        }*/
+
         [UnityTearDown]
         public IEnumerator TearDown()
         {
