@@ -2,7 +2,7 @@ using Runtime.ETC;
 using Runtime.Interface;
 using UnityEngine;
 
-namespace Runtime.CH1.Main
+namespace Runtime.CH1.Main.Npc
 {
     public class NpcAnimation : INpcAnim
     {

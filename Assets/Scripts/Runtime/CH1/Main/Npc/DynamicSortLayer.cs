@@ -1,21 +1,24 @@
 using UnityEngine;
 
-public class DynamicSortLayer : MonoBehaviour
+namespace Runtime.CH1.Main.Npc
 {
-    private SpriteRenderer _spriteRenderer;
-
-    private void Awake()
+    public class DynamicSortLayer : MonoBehaviour
     {
-        _spriteRenderer = GetComponent<SpriteRenderer>();
-    }
+        private SpriteRenderer _spriteRenderer;
 
-    private void Update()
-    {
-        _spriteRenderer.sortingOrder = GetSortingOrder();
-    }
+        private void Awake()
+        {
+            _spriteRenderer = GetComponent<SpriteRenderer>();
+        }
 
-    private int GetSortingOrder()
-    {
-        return (int)(this.transform.position.y * 100) * -1;
+        private void Update()
+        {
+            _spriteRenderer.sortingOrder = GetSortingOrder();
+        }
+
+        private int GetSortingOrder()
+        {
+            return (int)(this.transform.position.y * 100) * -1;
+        }
     }
 }

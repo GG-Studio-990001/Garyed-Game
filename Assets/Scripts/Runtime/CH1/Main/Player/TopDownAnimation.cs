@@ -2,7 +2,7 @@ using Runtime.ETC;
 using Runtime.Interface;
 using UnityEngine;
 
-namespace Runtime.CH1.Main.PlayerFunction
+namespace Runtime.CH1.Main.Player
 {
     public class TopDownAnimation : IAnimation
     {

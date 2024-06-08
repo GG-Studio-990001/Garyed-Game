@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Runtime.Luck
+namespace Runtime.Lucky
 {
     public class LuckyAnimation
     {

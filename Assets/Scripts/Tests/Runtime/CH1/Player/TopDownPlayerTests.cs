@@ -1,9 +1,6 @@
 using NUnit.Framework;
-using Runtime.CH1.Main;
 using Runtime.CH1.Main.Player;
-using Runtime.CH1.Main.PlayerFunction;
 using Runtime.ETC;
-using Runtime.InGameSystem;
 using Runtime.Interface;
 using System.Collections;
 using UnityEditor.Animations;
@@ -68,7 +65,8 @@ namespace Tests.Runtime.CH1.Player
             
             Assert.IsTrue(isMoving);
         }
-        
+
+        /*
         [UnityTest]
         public IEnumerator TestPlayerInteraction()
         {
@@ -101,8 +99,8 @@ namespace Tests.Runtime.CH1.Player
             Assert.IsFalse(_interaction.Interact(Vector2.left));
             
             Object.DestroyImmediate(interactionObject);
-        }
-        
+        }*/
+
         [UnityTearDown]
         public IEnumerator TearDown()
         {

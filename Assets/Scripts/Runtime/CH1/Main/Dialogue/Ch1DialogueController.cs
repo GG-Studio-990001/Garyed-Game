@@ -178,7 +178,7 @@ namespace Runtime.CH1.Main.Dialogue
             }
             else
             {
-                Managers.Sound.Play(Sound.SFX, "[CH1] Text SFX");
+                Managers.Sound.Play(Sound.Speech, "[CH1] Text SFX");
             }
         }
 

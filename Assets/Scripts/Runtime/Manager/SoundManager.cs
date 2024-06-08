@@ -1,4 +1,3 @@
-using PlasticGui.WorkspaceWindow;
 using Runtime.ETC;
 using Runtime.Event;
 using System.Collections.Generic;
@@ -12,14 +11,15 @@ namespace Runtime.InGameSystem
     {
         private AudioSource[] _audioSources = new AudioSource[(int)Sound.Max];
         private Dictionary<string, AudioClip> _audioClips = new();
-        
+
+        private GameObject _soundRoot = null;
+        private AudioClip _currentBGM;
+        private float _bgmPlayTime = 0f;
+
         public AudioSource BGM => _audioSources[(int)Sound.BGM];
         public AudioSource SFX => _audioSources[(int)Sound.SFX];
         public AudioSource Speech => _audioSources[(int)Sound.Speech];
-        
-        private GameObject _soundRoot = null;
-
-        private AudioClip _currentBGM;
+        public AudioSource LuckyBGM => _audioSources[(int)Sound.LuckyBGM];
 
         public void Init()
         {
@@ -34,13 +34,13 @@ namespace Runtime.InGameSystem
                     string[] soundTypeNames = System.Enum.GetNames(typeof(Sound));
                     for (int count = 0; count < soundTypeNames.Length - 1; count++)
                     {
-                        GameObject soundObject = new GameObject(soundTypeNames[count]);
+                        GameObject soundObject = new(soundTypeNames[count]);
                         soundObject.transform.parent = _soundRoot.transform;
                         _audioSources[count] = Utils.GetOrAddComponent<AudioSource>(soundObject);
                     }
 
                     _audioSources[(int)Sound.BGM].loop = true;
-                    
+
                     SettingsEvent.OnSettingsToggled += OnSettingsToggled;
                 }
             }
@@ -64,11 +64,11 @@ namespace Runtime.InGameSystem
             {
                 audioSource.Stop();
             }
-            
+
             _audioClips.Clear();
         }
-        
-        public bool Play(Sound type, string path) // , float volume = 1.0f, float pitch = 1.0f
+
+        public bool Play(Sound type, string path, bool isContinue = false) // , float volume = 1.0f, float pitch = 1.0f
         {
             if (string.IsNullOrEmpty(path))
             {
@@ -81,8 +81,8 @@ namespace Runtime.InGameSystem
                 path = $"Sound/{path}";
             }
 
-            // 임시 처리
-            if (type == Sound.BGM)
+            // 임시 처리인데 볼륨 잘 바뀜..
+            if (type == Sound.BGM || type == Sound.LuckyBGM)
                 audioSource.volume = Managers.Data.BgmVolume;
             else
                 audioSource.volume = Managers.Data.SfxVolume;
@@ -95,7 +95,7 @@ namespace Runtime.InGameSystem
             }
 
             // 이미 틀고 있는 브금 또 틀기 방지
-            if (type == Sound.BGM)
+            if (type == Sound.BGM || type == Sound.LuckyBGM)
             {
                 if (_currentBGM == audioClip)
                 {
@@ -110,25 +110,50 @@ namespace Runtime.InGameSystem
             
             // audioSource.pitch = pitch;
             
-            // BGM
-            if (type == Sound.BGM || type == Sound.Speech)
+            if (type == Sound.SFX)
+            {
+                audioSource.PlayOneShot(audioClip);
+                return true;
+            }
+            else if (type == Sound.Speech)
             {
                 if (audioSource.isPlaying)
                 {
                     audioSource.Stop();
                 }
-                
+
                 audioSource.clip = audioClip;
                 audioSource.Play();
                 return true;
             }
-            else if (type == Sound.SFX)
+            else
             {
-                audioSource.PlayOneShot(audioClip);
+                if (BGM.isPlaying)
+                {
+                    if (audioSource.clip.name.Equals("[Ch1] Main_BGM") || audioSource.clip.name.Equals("[Ch1] Main(Cave)_BGM"))
+                        _bgmPlayTime = BGM.time;
+                }
+                StopBGM();
+                
+                audioSource.clip = audioClip;
+
+                Debug.Log("_bgmPlayTime " + _bgmPlayTime);
+                Debug.Log("isContinue " + isContinue);
+                // 브금 특정 시간부터 이어서 틀기
+                if (isContinue && type == Sound.BGM)
+                {
+                    audioSource.time = _bgmPlayTime;
+                }
+                else
+                {
+                    audioSource.time = 0;
+                }
+
+                audioSource.Play();
                 return true;
             }
 
-            return false;
+            // return false;
         }
 
         public void PlayRandomSpeech(string folder)
@@ -143,8 +168,7 @@ namespace Runtime.InGameSystem
 
         private AudioClip GetAudioClip(string path)
         {
-            AudioClip audioClip = null;
-            if (_audioClips.TryGetValue(path, out audioClip))
+            if (_audioClips.TryGetValue(path, out AudioClip audioClip))
             {
                 return audioClip;
             }
@@ -163,6 +187,7 @@ namespace Runtime.InGameSystem
         public void StopBGM()
         {
             BGM.Stop();
+            LuckyBGM.Stop();
         }
 
         public void StopSFX()

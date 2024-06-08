@@ -2,18 +2,18 @@ using DG.Tweening;
 using Runtime.CH1.Main.Player;
 using Runtime.CH1.SubB;
 using Runtime.ETC;
-using Runtime.Luck;
+using Runtime.Lucky;
 using UnityEngine;
 using Yarn.Unity;
 
-namespace Runtime.CH1.Luck
+namespace Runtime.CH1.Lucky
 {
     public class LuckyCH1Dialogue : DialogueViewBase
     {
         // 클래스 이름 수정해야함
         private DialogueRunner _runner;
         [SerializeField] private GameObject _luckyLayer;
-        [SerializeField] private Lucky _lucky;
+        [SerializeField] private LuckyBody _lucky;
         [SerializeField] private GameObject _bubble;
         [SerializeField] private Vector3[] _inPosition;
         [SerializeField] private Vector3[] _outPosition;
@@ -93,7 +93,7 @@ namespace Runtime.CH1.Luck
         {
             // 플레이어 멈춰
             Managers.Data.InGameKeyBinder.PlayerInputDisable();
-            Managers.Sound.Play(Sound.BGM, "[Ch1] Lucky_BGM_03");
+            Managers.Sound.Play(Sound.LuckyBGM, "[Ch1] Lucky_BGM_03");
         }
 
         private void LuckyExit()
@@ -107,13 +107,13 @@ namespace Runtime.CH1.Luck
         private void LuckyExit3Match()
         {
             LuckyExit();
-            Managers.Sound.Play(Sound.BGM, "[Ch1]Main(Cave)_BGM");
+            Managers.Sound.Play(Sound.BGM, "[Ch1] Main(Cave)_BGM", true);
         }
 
         private void LuckyExitSLG()
         {
             LuckyExit();
-            Managers.Sound.Play(Sound.BGM, "Ch1Main");
+            Managers.Sound.Play(Sound.BGM, "[Ch1] Main_BGM", true);
         }
 
         private void WalkIn(int i)

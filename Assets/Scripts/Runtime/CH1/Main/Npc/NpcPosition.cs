@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Runtime.CH1.Main
+namespace Runtime.CH1.Main.Npc
 {
     [System.Serializable]
     public class LocationArray

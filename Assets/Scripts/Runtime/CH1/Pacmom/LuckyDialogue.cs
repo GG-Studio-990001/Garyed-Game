@@ -1,6 +1,6 @@
 using DG.Tweening;
 using Runtime.ETC;
-using Runtime.Luck;
+using Runtime.Lucky;
 using UnityEngine;
 using Yarn.Unity;
 
@@ -9,7 +9,7 @@ namespace Runtime.CH1.Pacmom
     public class LuckyDialogue : DialogueViewBase
     {
         private DialogueRunner _runner;
-        [SerializeField] private Lucky _lucky;
+        [SerializeField] private LuckyBody _lucky;
         [SerializeField] private GameObject _bubble;
         [SerializeField] private Vector3 _outPosition;
         [SerializeField] private Vector3 _inPosition;
@@ -41,7 +41,7 @@ namespace Runtime.CH1.Pacmom
 
         private void LuckyEnter()
         {
-            Managers.Sound.Play(Sound.BGM, "[Ch1] Lucky_BGM_03");
+            Managers.Sound.Play(Sound.LuckyBGM, "[Ch1] Lucky_BGM_03");
         }
 
         private void LuckyExit()
