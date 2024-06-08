@@ -93,7 +93,7 @@ namespace Runtime.CH1.Luck
         {
             // 플레이어 멈춰
             Managers.Data.InGameKeyBinder.PlayerInputDisable();
-            Managers.Sound.Play(Sound.BGM, "[Ch1] Lucky_BGM_03");
+            Managers.Sound.Play(Sound.LuckyBGM, "[Ch1] Lucky_BGM_03");
         }
 
         private void LuckyExit()
@@ -107,13 +107,13 @@ namespace Runtime.CH1.Luck
         private void LuckyExit3Match()
         {
             LuckyExit();
-            Managers.Sound.Play(Sound.BGM, "[Ch1]Main(Cave)_BGM");
+            Managers.Sound.Play(Sound.BGM, "[Ch1] Main(Cave)_BGM", true);
         }
 
         private void LuckyExitSLG()
         {
             LuckyExit();
-            Managers.Sound.Play(Sound.BGM, "Ch1Main");
+            Managers.Sound.Play(Sound.BGM, "[Ch1] Main_BGM", true);
         }
 
         private void WalkIn(int i)

@@ -30,6 +30,7 @@ namespace Runtime.ETC
         BGM,
         SFX,
         Speech,
+        LuckyBGM,
         Max,
     }
 
