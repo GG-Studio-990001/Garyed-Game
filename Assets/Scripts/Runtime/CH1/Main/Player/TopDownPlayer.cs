@@ -38,15 +38,7 @@ namespace Runtime.CH1.Main.Player
         {
             if (!IsDirecting)
                 Animation.SetAnimation(_state.ToString(), _lastInput);
-            Debug.DrawRay(this.transform.position, _movement.Direction, Color.blue);
         }
-
-        void OnDrawGizmos()
-        {
-            Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(this.transform.position, 1);
-        }
-
 
         private void FixedUpdate()
         {
@@ -66,7 +58,5 @@ namespace Runtime.CH1.Main.Player
             if (context.ReadValue<Vector2>() != Vector2.zero)
                 _lastInput = context.ReadValue<Vector2>();
         }
-
-        // public void OnMove(Vector2 movementInput) => _movementInput = movementInput;
     }
 }
