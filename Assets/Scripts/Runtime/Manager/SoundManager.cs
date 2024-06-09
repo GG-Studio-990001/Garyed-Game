@@ -132,12 +132,7 @@ namespace Runtime.InGameSystem
                 StopBGM();
                 
                 audioSource.clip = audioClip;
-
-                Debug.Log("_bgmPlayTime " + _bgmPlayTime);
-                Debug.Log("isContinue " + isContinue);
-
                 audioSource.time = (isContinue ? _bgmPlayTime : 0);
-
                 audioSource.Play();
                 return true;
             }

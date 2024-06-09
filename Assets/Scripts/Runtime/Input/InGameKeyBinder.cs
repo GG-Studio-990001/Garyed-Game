@@ -52,6 +52,7 @@ namespace Runtime.Input
         {
             _gameOverControls.UI.Enable();
             _gameOverControls.UI.GameSetting.performed += _ => settingsUIView.GameSettingToggle();
+            // _gameOverControls.UI.DialogueInput.performed += _ => UnityEngine.Debug.Log("눌림");
         }
 
         // CH2
