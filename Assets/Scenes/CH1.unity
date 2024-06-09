@@ -54784,7 +54784,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvasGroup: {fileID: 145752534661719755}
-  useFadeEffect: 1
+  useFadeEffect: 0
   fadeInTime: 0
   fadeOutTime: 0
   lineText: {fileID: 8739223720555902289}
