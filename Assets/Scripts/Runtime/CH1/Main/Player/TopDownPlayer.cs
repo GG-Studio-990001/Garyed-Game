@@ -39,6 +39,12 @@ namespace Runtime.CH1.Main.Player
                 Animation.SetAnimation(_state.ToString(), _lastInput);
         }
 
+        //void OnDrawGizmos()
+        //{
+        //    Gizmos.color = Color.red;
+        //    Gizmos.DrawWireSphere(this.transform.position, 0.7f);
+        //}
+
         private void FixedUpdate()
         {
             bool isMove = _movement.Move(_movementInput);

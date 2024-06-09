@@ -77,7 +77,7 @@ namespace Runtime.CH1.Pacmom
             Managers.Sound.Play(Sound.SFX, "Pacmom_SFX_Fail");
             _shader.ChangeBleedAmount();
 
-            yield return new WaitForSecondsRealtime(3f);
+            yield return new WaitForSecondsRealtime(2f);
 
             Time.timeScale = 1f;
 

@@ -35,11 +35,6 @@ namespace Runtime.CH1.Main.Dialogue
             SceneManager.LoadScene("CH2");
         }
 
-        public void GetTranslationPack()
-        {
-            Managers.Data.HaveTranslationPack = true;
-        }
-
         public void PanpareSFX()
         {
             Managers.Sound.Play(Sound.SFX, "PanpareSFX");
