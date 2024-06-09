@@ -128,32 +128,30 @@ namespace Runtime.InGameSystem
             }
             else
             {
-                if (BGM.isPlaying)
-                {
-                    if (audioSource.clip.name.Equals("[Ch1] Main_BGM") || audioSource.clip.name.Equals("[Ch1] Main(Cave)_BGM"))
-                        _bgmPlayTime = BGM.time;
-                }
+                CheckBGMTime();
                 StopBGM();
                 
                 audioSource.clip = audioClip;
 
                 Debug.Log("_bgmPlayTime " + _bgmPlayTime);
                 Debug.Log("isContinue " + isContinue);
-                // 브금 특정 시간부터 이어서 틀기
-                if (isContinue && type == Sound.BGM)
-                {
-                    audioSource.time = _bgmPlayTime;
-                }
-                else
-                {
-                    audioSource.time = 0;
-                }
+
+                audioSource.time = (isContinue ? _bgmPlayTime : 0);
 
                 audioSource.Play();
                 return true;
             }
 
             // return false;
+        }
+
+        private void CheckBGMTime()
+        {
+            if (BGM.isPlaying)
+            {
+                if (BGM.clip.name.Equals("[Ch1] Main_BGM") || BGM.clip.name.Equals("[Ch1] Main(Cave)_BGM"))
+                    _bgmPlayTime = BGM.time;
+            }
         }
 
         public void PlayRandomSpeech(string folder)

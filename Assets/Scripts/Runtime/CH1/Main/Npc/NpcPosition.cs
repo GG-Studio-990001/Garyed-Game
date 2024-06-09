@@ -40,7 +40,7 @@ namespace Runtime.CH1.Main.Npc
                 SetNpcPosition(5);
                 Debug.Log("동굴 출구 앞");
             }
-            else if (Managers.Data.Scene == 4)
+            else // if (Managers.Data.Scene == 4)
             {
                 SetNpcPosition(7);
                 Debug.Log("맵3");
