@@ -7,7 +7,7 @@ namespace Runtime.InGameSystem
     public class FadeController : MonoBehaviour
     {
         [SerializeField] private Image fadeImage;
-        [SerializeField] private Image background;
+        // [SerializeField] private Image background;
         [SerializeField] private float fadeDeltaTime = 0.01f;
 
         private float FadeDuration { get; set; } = 1f;
@@ -27,14 +27,14 @@ namespace Runtime.InGameSystem
             _currentFadeCoroutine = StartCoroutine(FadeOutCoroutine(FadeDuration));
         }
 
-        public void SetBackground(bool isBlack)
-        {
-            StopCurrentFadeCoroutine();
-            if (isBlack)
-                background.color = Color.black;
-            else
-                background.color = Color.clear;
-        }
+        //public void SetBackground(bool isBlack)
+        //{
+        //    StopCurrentFadeCoroutine();
+        //    if (isBlack)
+        //        background.color = Color.black;
+        //    else
+        //        background.color = Color.clear;
+        //}
 
         private void StopCurrentFadeCoroutine()
         {

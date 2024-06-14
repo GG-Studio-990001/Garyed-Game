@@ -37,8 +37,8 @@ namespace Runtime.CH1.Main.Dialogue
             _runner.AddCommandHandler("InitSLG", SLGAction.OnSLGInit);
             _runner.AddCommandHandler<int>("NpcDialogueFin", _npcDialogue.NpcDialogueFin);
 
-            _runner.AddCommandHandler("FadeOut", _fadeController.StartFadeOut);
             _runner.AddCommandHandler("FadeIn", _fadeController.StartFadeIn);
+            _runner.AddCommandHandler("FadeOut", _fadeController.StartFadeOut);
 
             // _runner.AddCommandHandler<string>("StartTimeline", (timelineName) => _timelineController.PlayTimeline(timelineName));        
             _runner.AddCommandHandler<string>("SceneChange", SceneChange);
@@ -64,11 +64,7 @@ namespace Runtime.CH1.Main.Dialogue
             // CutScene / R2mon
             _runner.AddCommandHandler("SetR2MonPosition", _cutScene.SetR2MonPosition);
             _runner.AddCommandHandler("ChangeChapter2", _cutScene.ChangeChapter2);
-
-            /*
-            _runner.AddCommandHandler<bool>("SetBackgroundColor", SetBackgroundColor);
-            _runner.AddCommandHandler<string>("ChangeScene", ChangeScene);
-            */
+            // _runner.AddCommandHandler<string>("ChangeScene", ChangeScene);
 
             if (_volume != null)
             {
@@ -182,11 +178,6 @@ namespace Runtime.CH1.Main.Dialogue
         }
 
         /*
-        private void SetBackgroundColor(bool isBlack)
-        {
-            _fadeController.SetBackground(isBlack);
-        }
-        
         private void ChangeScene(string spriteName)
         {
             if (spriteName == "None")
