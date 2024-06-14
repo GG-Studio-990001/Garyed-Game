@@ -173,7 +173,7 @@ namespace Runtime.CH1.Main.Dialogue
         {
             if (_speaker == "R2-Mon")
             {
-                Managers.Sound.PlayRandomSpeech("R2MonText");
+                Managers.Sound.Play(Sound.Speech, "R2MonText/[CH1] R2-Mon_Text_SFX_04");
             }
             else
             {
