@@ -11,7 +11,7 @@ namespace Runtime.CH1.Main.Dialogue
     {
         [Header("=Player=")]
         public TopDownPlayer Player;
-        [SerializeField] private Vector3 _location;
+        [SerializeField] private Vector3[] _location = new Vector3[2];
         [Header("=Npc=")]
         public NpcPosition NpcPos;
         [SerializeField] private NpcBody[] _npc = new NpcBody[3];
@@ -67,11 +67,11 @@ namespace Runtime.CH1.Main.Dialogue
         {
             if (i == 0) // 3매치 깬 후 위치
             {
-                NpcPos.SetNpcPosition(5);
+                NpcPos.SetNpcPosition(6);
             }
             else if (i == 1) // 맵3 위치
             {
-                NpcPos.SetNpcPosition(7);
+                NpcPos.SetNpcPosition(8);
             }
         }
 
@@ -107,6 +107,9 @@ namespace Runtime.CH1.Main.Dialogue
         {
             switch (num)
             {
+                case 0:
+                    CharactersMove0();
+                    break;
                 case 1:
                     CharactersMove1();
                     break;
@@ -131,7 +134,7 @@ namespace Runtime.CH1.Main.Dialogue
             for (int i = 0; i < _npc.Length; i++)
             {
                 _npc[i].Anim.SetAnimation(GlobalConst.MoveStr, Vector2.right);
-                _npc[i].transform.DOMove(NpcPos.NpcLocations[i].Locations[6], 5f).SetEase(Ease.Linear);
+                _npc[i].transform.DOMove(NpcPos.NpcLocations[i].Locations[7], 5f).SetEase(Ease.Linear);
             }
         }
 
@@ -141,7 +144,7 @@ namespace Runtime.CH1.Main.Dialogue
             for (int i = 0; i < _npc.Length; i++)
             {
                 _npc[i].Anim.SetAnimation(GlobalConst.MoveStr, Vector2.right);
-                _npc[i].transform.DOMove(NpcPos.NpcLocations[i].Locations[4], 5f).SetEase(Ease.Linear);
+                _npc[i].transform.DOMove(NpcPos.NpcLocations[i].Locations[5], 5f).SetEase(Ease.Linear);
             }
         }
 
@@ -151,14 +154,25 @@ namespace Runtime.CH1.Main.Dialogue
             for (int i = 0; i < _npc.Length; i++)
             {
                 _npc[i].Anim.SetAnimation(GlobalConst.MoveStr, Vector2.right);
-                _npc[i].transform.DOMove(NpcPos.NpcLocations[i].Locations[3], 5f).SetEase(Ease.Linear);
+                _npc[i].transform.DOMove(NpcPos.NpcLocations[i].Locations[4], 5f).SetEase(Ease.Linear);
             }
         }
 
         private void CharactersMove1()
         {
             Player.Animation.SetAnimation(GlobalConst.MoveStr, Vector2.right);
-            Player.transform.DOMove(_location, 5f).SetEase(Ease.Linear);
+            Player.transform.DOMove(_location[1], 5f).SetEase(Ease.Linear);
+
+            for (int i = 0; i < _npc.Length; i++)
+            {
+                _npc[i].Anim.SetAnimation(GlobalConst.MoveStr, Vector2.right);
+                _npc[i].transform.DOMove(NpcPos.NpcLocations[i].Locations[2], 5f).SetEase(Ease.Linear);
+            }
+        }
+
+        private void CharactersMove0()
+        {
+            // 라플리 빼고 오른쪽으로 이동
 
             for (int i = 0; i < _npc.Length; i++)
             {
@@ -171,14 +185,17 @@ namespace Runtime.CH1.Main.Dialogue
         {
             switch (num)
             {
+                case 0:
+                    PlayerIdleRight();
+                    break;
                 case 1:
-                    CharactersStop1();
+                    CharIdleCenter();
                     break;
                 case 2:
-                    CharactersStop2();
+                    CharIdleLeft();
                     break;
                 case 3:
-                    CharactersStop3();
+                    CharIdleDown();
                     break;
                 default:
                     Debug.LogError("Invalid Move Number");
@@ -186,7 +203,7 @@ namespace Runtime.CH1.Main.Dialogue
             }
         }
 
-        public void CharactersStop3()
+        private void CharIdleDown()
         {
             for (int i = 0; i < 3; i++)
             {
@@ -194,7 +211,7 @@ namespace Runtime.CH1.Main.Dialogue
             }
         }
 
-        public void CharactersStop2()
+        private void CharIdleLeft()
         {
             for (int i = 0; i < 3; i++)
             {
@@ -202,13 +219,23 @@ namespace Runtime.CH1.Main.Dialogue
             }
         }
 
-        public void CharactersStop1()
+        private void CharIdleCenter()
         {
             Player.Animation.SetAnimation(GlobalConst.IdleStr, Vector2.down);
 
             _npc[0].Anim.SetAnimation(GlobalConst.IdleStr, Vector2.right);
             _npc[1].Anim.SetAnimation(GlobalConst.IdleStr, Vector2.up);
             _npc[2].Anim.SetAnimation(GlobalConst.IdleStr, Vector2.left);
+        }
+
+        public void PlayerIdleRight()
+        {
+            Player.Animation.SetAnimation(GlobalConst.IdleStr, Vector2.right);
+        }
+
+        public void PlayerInitPos()
+        {
+            Player.transform.position = _location[0];
         }
         #endregion
 

@@ -48,6 +48,7 @@ namespace Runtime.CH1.Main.Dialogue
 
             // CutScene
             _runner.AddCommandHandler<bool>("ShowIllustration", _cutScene.ShowIllustration);
+            _runner.AddCommandHandler("PlayerInitPos", _cutScene.PlayerInitPos);
             _runner.AddCommandHandler<int>("CharactersMove", _cutScene.CharactersMove);
             _runner.AddCommandHandler<int>("CharactersStop", _cutScene.CharactersStop);
             _runner.AddCommandHandler<int>("NpcJump", _cutScene.NpcJump);
@@ -117,6 +118,7 @@ namespace Runtime.CH1.Main.Dialogue
         private void NextSceneStart()
         {
             Managers.Data.SceneDetail++;
+            _cutScene.Player.IsDirecting = true;
         }
 
         private void SceneEnd()

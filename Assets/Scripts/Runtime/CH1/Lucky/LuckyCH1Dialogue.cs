@@ -93,7 +93,7 @@ namespace Runtime.CH1.Lucky
         {
             // 플레이어 멈춰
             Managers.Data.InGameKeyBinder.PlayerInputDisable();
-            Managers.Sound.Play(Sound.LuckyBGM, "[Ch1] Lucky_BGM_03");
+            Managers.Sound.Play(Sound.LuckyBGM, "[Ch1] Lucky_BGM_4");
         }
 
         private void LuckyExit()
