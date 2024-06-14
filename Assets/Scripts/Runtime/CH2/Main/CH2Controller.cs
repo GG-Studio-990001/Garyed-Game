@@ -7,7 +7,7 @@ namespace Runtime.CH2
     {
         void Start()
         {
-            Managers.Sound.Play(Sound.BGM, "Mamago_BGM_1");
+            Managers.Sound.Play(Sound.BGM, "[Ch1] Lucky_BGM_3");
         }
     }
 }

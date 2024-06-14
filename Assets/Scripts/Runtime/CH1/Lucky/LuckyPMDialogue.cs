@@ -41,7 +41,7 @@ namespace Runtime.CH1.Lucky
 
         private void LuckyEnter()
         {
-            Managers.Sound.Play(Sound.LuckyBGM, "[Ch1] Lucky_BGM_03");
+            Managers.Sound.Play(Sound.LuckyBGM, "[Ch1] Lucky_BGM_4");
         }
 
         private void LuckyExit()
