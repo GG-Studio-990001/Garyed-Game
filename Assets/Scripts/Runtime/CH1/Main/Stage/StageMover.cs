@@ -36,7 +36,7 @@ namespace Runtime.CH1.Main.Stage
                 else
                     Invoke("ActiveNpcs", 1f);
 
-                StageChanger.SwitchStage(moveStageNumber, spawnPosition);
+                _ = StageChanger.SwitchStage(moveStageNumber, spawnPosition);
 
                 OnStageMove?.Invoke();
             }

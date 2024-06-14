@@ -2,7 +2,6 @@ using Cinemachine;
 using Runtime.InGameSystem;
 using Runtime.Interface;
 using System;
-using System.Collections;
 using System.Threading.Tasks;
 using UnityEngine;
 
@@ -33,7 +32,7 @@ namespace Runtime.CH1.Main.Stage
         {
             OnStageStart?.Invoke();
 
-            if (_fadeController is not null)
+            if (_fadeController != null)
                 _fadeController.StartFadeOut();
 
             await Task.Delay(1000); // temp
@@ -42,7 +41,7 @@ namespace Runtime.CH1.Main.Stage
             
             await Task.Delay(1000);
             
-            if (_fadeController is not null)
+            if (_fadeController != null)
                 _fadeController.StartFadeIn();
 
             OnStageEnd?.Invoke();
@@ -52,20 +51,21 @@ namespace Runtime.CH1.Main.Stage
         public async Task SetStage(int moveStageNumber, Vector2 spawnPosition)
         {
             OnStageStart?.Invoke();
-            
+
+            if (_fadeController != null)
+                _fadeController.StartFadeIn();
+
             StageMoveLogic(moveStageNumber, spawnPosition);
             
             await Task.Delay(1000);
             
-            if (_fadeController is not null)
-                _fadeController.StartFadeIn();
-
             OnStageEnd?.Invoke();
         }
 
         private void StageMoveLogic(int moveStageNumber, Vector2 spawnPosition)
         {
-            _currentStage?.Disable();
+            if (_currentStage != null)
+                _currentStage.Disable();
             
             _currentStage = _stages[moveStageNumber - 1];
             

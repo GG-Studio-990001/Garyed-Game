@@ -285,7 +285,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4944361
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1808,7 +1808,7 @@ Transform:
   m_GameObject: {fileID: 100080068}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.63, y: -6.91, z: 0}
+  m_LocalPosition: {x: -4.7500005, y: -7.22, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3310,6 +3310,98 @@ PolygonCollider2D:
       - {x: -7.0966907, y: -4.418615}
       - {x: -7.0967755, y: -3.6433172}
   m_UseDelaunayMesh: 0
+--- !u!1 &167214942
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 167214943}
+  - component: {fileID: 167214945}
+  - component: {fileID: 167214944}
+  m_Layer: 0
+  m_Name: CutSceneTrigger1_1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &167214943
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 167214942}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -44.72, y: -1.62, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 848284961}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &167214944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 167214942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0265259b9d2be247b8bba3619be9ad3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueRunner: {fileID: 472331523037639807}
+  _idx: 1
+--- !u!61 &167214945
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 167214942}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 1.1127566, y: 0.614064}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.62121177, y: 8.174658}
+  m_EdgeRadius: 0
 --- !u!1 &173297811
 GameObject:
   m_ObjectHideFlags: 0
@@ -4479,7 +4571,7 @@ GameObject:
   - component: {fileID: 235714814}
   - component: {fileID: 235714813}
   m_Layer: 0
-  m_Name: S3_2Trigger
+  m_Name: CutSceneTrigger1_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5330,7 +5422,7 @@ Transform:
   m_GameObject: {fileID: 290311364}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.55, y: -5.9500003, z: 0}
+  m_LocalPosition: {x: -6.67, y: -6.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7103,7 +7195,7 @@ Transform:
   m_GameObject: {fileID: 360165076}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.45, y: -6.35, z: 0}
+  m_LocalPosition: {x: -2.67, y: -6.63, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8433,7 +8525,7 @@ GameObject:
   - component: {fileID: 419171254}
   - component: {fileID: 419171253}
   m_Layer: 0
-  m_Name: S3Trigger
+  m_Name: CutSceneTrigger3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9728,7 +9820,7 @@ GameObject:
   - component: {fileID: 472305680}
   - component: {fileID: 472305681}
   - component: {fileID: 472305682}
-  m_Layer: 15
+  m_Layer: 0
   m_Name: Rock1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18329,18 +18421,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1441124673561100856, guid: 636fca1bc1c114943a004cbada5c227f, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 9.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1441124673561100856, guid: 636fca1bc1c114943a004cbada5c227f, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -2.15
-      objectReference: {fileID: 0}
-    - target: {fileID: 1441124673561100856, guid: 636fca1bc1c114943a004cbada5c227f, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1441124673561100856, guid: 636fca1bc1c114943a004cbada5c227f, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
@@ -31561,7 +31641,7 @@ GameObject:
   - component: {fileID: 1278321454}
   - component: {fileID: 1278321455}
   - component: {fileID: 1278321456}
-  m_Layer: 15
+  m_Layer: 0
   m_Name: Rock2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33144,7 +33224,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeImage: {fileID: 626458133}
-  background: {fileID: 4944362}
   fadeDeltaTime: 0.1
 --- !u!1 &1314311525
 GameObject:
@@ -35164,7 +35243,7 @@ Transform:
   m_GameObject: {fileID: 1429684703}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.8, y: -2.15, z: -10}
+  m_LocalPosition: {x: -4.67, y: -5.31, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -42035,7 +42114,7 @@ Transform:
   m_GameObject: {fileID: 1674432335}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.8, y: -2.15, z: -10}
+  m_LocalPosition: {x: 0.9897785, y: -5.3083797, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -46318,7 +46397,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 669133898}
-  _location: {x: 14.56, y: -6.15, z: 0}
+  _location:
+  - {x: -4.67, y: -5.31, z: 0}
+  - {x: 14.56, y: -6.15, z: 0}
   NpcPos: {fileID: 1908934228}
   _npc:
   - {fileID: 290311369}
@@ -48647,7 +48728,8 @@ MonoBehaviour:
   - {fileID: 360165076}
   NpcLocations:
   - Locations:
-    - {x: -3.55, y: -5.9500003, z: 0}
+    - {x: -6.67, y: -6.5, z: 0}
+    - {x: 3.14, y: -6.5, z: 0}
     - {x: 12.809999, y: -7.02, z: 0}
     - {x: 19.8, y: -8.81, z: 0}
     - {x: 31.13, y: -9.34, z: 0}
@@ -48656,7 +48738,8 @@ MonoBehaviour:
     - {x: 58.97, y: -13.46, z: 0}
     - {x: 62.02, y: -12.79, z: 0}
   - Locations:
-    - {x: -1.63, y: -6.91, z: 0}
+    - {x: -4.7500005, y: -7.22, z: 0}
+    - {x: 5.06, y: -7.22, z: 0}
     - {x: 14.73, y: -7.98, z: 0}
     - {x: 21.43, y: -9.36, z: 0}
     - {x: 32.26, y: -10.42, z: 0}
@@ -48665,7 +48748,8 @@ MonoBehaviour:
     - {x: 60.89, y: -14.42, z: 0}
     - {x: 68.03, y: -13.93, z: 0}
   - Locations:
-    - {x: 0.45, y: -6.35, z: 0}
+    - {x: -2.67, y: -6.63, z: 0}
+    - {x: 7.14, y: -6.63, z: 0}
     - {x: 16.810001, y: -7.42, z: 0}
     - {x: 23.52, y: -9.11, z: 0}
     - {x: 33.65, y: -9.66, z: 0}
@@ -56126,6 +56210,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7604967396822512111, guid: 6d173b4636e6a974e877862ce6efc4e9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1053468770}
+    - targetCorrespondingSourceObject: {fileID: 7604967396822512111, guid: 6d173b4636e6a974e877862ce6efc4e9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 167214943}
     - targetCorrespondingSourceObject: {fileID: 1638062643580819780, guid: 6d173b4636e6a974e877862ce6efc4e9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 161810375}

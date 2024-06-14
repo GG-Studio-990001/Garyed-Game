@@ -17,6 +17,10 @@ namespace Runtime.CH1.Main.Npc
         // 4:동굴 출구 앞(다리건넌 후) 5:동굴에서 나온 후 (알투몬 조정)
         // 6: 맵3으로 이동하는 1차 위치 7: 맵3의 기본 위치
 
+        // 0:초기 1:씬1.1(추가) 2:씬1 이후 3:씬2 시작 4:씬2 이동자리
+        // 5:동굴 출구 앞(다리건넌 후) 6:동굴에서 나온 후 (알투몬 조정)
+        // 7: 맵3으로 이동하는 1차 위치 8: 맵3의 기본 위치
+
         public void LoadNpcPosition()
         {
             Debug.Log("NpcPosition:");
@@ -27,22 +31,22 @@ namespace Runtime.CH1.Main.Npc
             }
             else if (Managers.Data.Scene == 1)
             {
-                SetNpcPosition(1);
+                SetNpcPosition(2);
                 Debug.Log("씬1 후");
             }
             else if (Managers.Data.Scene == 2)
             {
-                SetNpcPosition(3);
+                SetNpcPosition(4);
                 Debug.Log("씬2 후 이동");
             }
             else if (Managers.Data.Scene == 3)
             {
-                SetNpcPosition(5);
+                SetNpcPosition(6);
                 Debug.Log("동굴 출구 앞");
             }
             else // if (Managers.Data.Scene == 4)
             {
-                SetNpcPosition(7);
+                SetNpcPosition(8);
                 Debug.Log("맵3");
             }
         }
