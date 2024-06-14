@@ -15,13 +15,13 @@ namespace Runtime.Main
         public void NewGame()
         {
             Managers.Data.NewGame();
-            sceneSystem.LoadSceneWithFade("Title");
+            sceneSystem.LoadScene("Title");
         }
         
         public void LoadGame()
         {
             Managers.Data.LoadGame();
-            sceneSystem.LoadSceneWithFade("Title");
+            sceneSystem.LoadScene("Title");
         }
     }
 }
