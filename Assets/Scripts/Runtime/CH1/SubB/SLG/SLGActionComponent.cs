@@ -252,6 +252,8 @@ public class SLGActionComponent : MonoBehaviour
 
     public void OnSLGInit()
     {
+        Managers.Sound.Play(Sound.SFX, "[CH1] SFX_SLG_Get");
+
         MoveOnNextProgress();
         _SLGCanvas.SetActive(true);
         _sponSpots.SetActive(true);
