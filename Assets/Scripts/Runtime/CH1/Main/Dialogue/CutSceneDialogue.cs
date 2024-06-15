@@ -77,6 +77,7 @@ namespace Runtime.CH1.Main.Dialogue
 
         public void BreakBridge()
         {
+            Managers.Sound.StopSFX();
             Managers.Sound.Play(Sound.SFX, "[Ch1] SFX_Explosion");
             _bridge.ActiveBrokenBridge();
         }
