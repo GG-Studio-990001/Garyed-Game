@@ -57,7 +57,8 @@ namespace Runtime.CH1.Main.Dialogue
             _runner.AddCommandHandler("BreakBridge", _cutScene.BreakBridge);
             _runner.AddCommandHandler<int>("SetNpcPosition", _cutScene.SetNpcPosition);
             // CutScene / Mamago
-            _runner.AddCommandHandler("PanpareSFX", _cutScene.PanpareSFX);
+            _runner.AddCommandHandler("ConstructionSFX", _cutScene.ConstructionSFX);
+            _runner.AddCommandHandler("CompleteSFX", _cutScene.CompleteSFX);
             _runner.AddCommandHandler("MamagoJump", _cutScene.MamagoJump);
             _runner.AddCommandHandler("MamagoMove1", _cutScene.MamagoMove1);
             _runner.AddCommandHandler("MamagoMove2", _cutScene.MamagoMove2);
@@ -131,7 +132,7 @@ namespace Runtime.CH1.Main.Dialogue
         private void SceneChange(string sceneName)
         {
             Managers.Sound.StopBGM();
-            Managers.Sound.Play(Sound.SFX, "Pacmom_SFX_13_ver2");
+            Managers.Sound.Play(Sound.SFX, "[CH1] Pacmom_SFX_Connection");
 
             // Hard Coding
             if ("Pacmom" == sceneName)
@@ -171,7 +172,8 @@ namespace Runtime.CH1.Main.Dialogue
         {
             if (_speaker == "R2-Mon")
             {
-                Managers.Sound.Play(Sound.Speech, "R2MonText/[CH1] R2-Mon_Text_SFX_04");
+                // Managers.Sound.Play(Sound.Speech, "[CH1] R2-Mon_Text_SFX_04");
+                Managers.Sound.PlayRandomSpeech("R2MonText");
             }
             else
             {
