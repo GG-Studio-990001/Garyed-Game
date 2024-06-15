@@ -3,9 +3,19 @@ title: S5
 // 상황: 마마고 컴퍼니 완공 후
 ---
 <<NewSceneStart>>
+
+<<FadeOut>>
+<<wait 1>>
+<<ConstructionSFX>>
+<<wait 2>>
+
+<<FadeIn>>
+<<wait 1>>
+
+<<CompleteSFX>>
 <<wait 0.5>>
-<<PanpareSFX>>
-<<wait 0.5>>
+
+
 <<MamagoJump>>
 마마고: 어쩜 이런 근사한 건물이..Nice!
 마마고: 모든 언어를 마스터하고 싶은 자여..Language!

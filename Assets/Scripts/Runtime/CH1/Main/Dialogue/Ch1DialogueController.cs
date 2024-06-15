@@ -57,7 +57,8 @@ namespace Runtime.CH1.Main.Dialogue
             _runner.AddCommandHandler("BreakBridge", _cutScene.BreakBridge);
             _runner.AddCommandHandler<int>("SetNpcPosition", _cutScene.SetNpcPosition);
             // CutScene / Mamago
-            _runner.AddCommandHandler("PanpareSFX", _cutScene.PanpareSFX);
+            _runner.AddCommandHandler("ConstructionSFX", _cutScene.ConstructionSFX);
+            _runner.AddCommandHandler("CompleteSFX", _cutScene.CompleteSFX);
             _runner.AddCommandHandler("MamagoJump", _cutScene.MamagoJump);
             _runner.AddCommandHandler("MamagoMove1", _cutScene.MamagoMove1);
             _runner.AddCommandHandler("MamagoMove2", _cutScene.MamagoMove2);

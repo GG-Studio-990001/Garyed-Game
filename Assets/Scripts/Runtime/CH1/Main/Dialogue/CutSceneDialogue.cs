@@ -35,9 +35,14 @@ namespace Runtime.CH1.Main.Dialogue
             SceneManager.LoadScene("CH2");
         }
 
-        public void PanpareSFX()
+        public void ConstructionSFX()
         {
-            Managers.Sound.Play(Sound.SFX, "PanpareSFX");
+            Managers.Sound.Play(Sound.SFX, "[CH1] Mamago_Construction");
+        }
+
+        public void CompleteSFX()
+        {
+            Managers.Sound.Play(Sound.SFX, "[CH1] Mamago_Complete");
         }
 
         public void MamagoJump()
