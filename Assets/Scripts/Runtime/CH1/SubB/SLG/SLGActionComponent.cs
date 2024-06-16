@@ -365,7 +365,9 @@ public class SLGActionComponent : MonoBehaviour
             {
                 Managers.Data.PacmomCoin -= NeededCoinCount;
                 RefreshCoinText();
-                MoveOnNextProgress();
+                _dialogue.MamagoThanks(); // 마마고 연출 시작
+                _SLGCanvas.SetActive(false);
+                bShowWnd = false;
             }
             else
             {
@@ -459,16 +461,12 @@ public class SLGActionComponent : MonoBehaviour
     private void EndSLGMode()
     {
         Debug.Log("건설 끝");
-        _SLGCanvas.SetActive(false);
-        bShowWnd = false;
         SLGConstructionObject.SetActive(false);
         _sponSpots.SetActive(false);
         SLGConstructionSite.SetActive(false);
         SLGMaMagoGate.SetActive(true);
         SLGMaMagoGateColider.SetActive(true);
         Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
-
-        _dialogue.MamagoThanks(); // 마마고 연출 시작
         MoveOnNextProgress();
     }
 }
