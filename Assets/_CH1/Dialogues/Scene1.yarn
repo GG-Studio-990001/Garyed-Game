@@ -24,7 +24,6 @@ R2-MON: !@%!!$^@!~^&
 
 <<FadeOut>>
 <<wait 1>>
-<<PlayerInitPos>>
 <<CharactersStop 1>>
 <<ShowIllustration false>>
 <<FadeIn>>
