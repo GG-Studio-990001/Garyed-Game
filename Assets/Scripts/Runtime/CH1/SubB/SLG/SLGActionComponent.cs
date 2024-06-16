@@ -7,6 +7,8 @@ using Runtime.CH1.Main.Controller;
 using Runtime.ETC;
 using Runtime.CH1.Main.Dialogue;
 using Runtime.CH1.Lucky;
+using DG.DOTweenEditor;
+using DG.Tweening;
 
 namespace SLGDefines
 { 
@@ -31,6 +33,8 @@ public class SLGActionComponent : MonoBehaviour
     [SerializeField] private TextMeshProUGUI UI_WoodText;
     [SerializeField] private TextMeshProUGUI UI_StoneText;
     [SerializeField] private TextMeshProUGUI UI_CoinText;
+    [SerializeField] private GameObject UI_WoodImg;
+    [SerializeField] private GameObject UI_StoneImg;
 
     [SerializeField] private GameObject Wnd_CostSection;
     [SerializeField] private GameObject Wnd_AccelerateSection;
@@ -230,6 +234,7 @@ public class SLGActionComponent : MonoBehaviour
                     UI_WoodText.text = _wood.ToString();
                     _spawnCount--;
                     Managers.Sound.Play(Sound.SFX, "SLG/[Ch1] SLG_SFX_Wood");
+                    PlayGainAnim(InObjectType);
                     break;
                 }
             case SLGObjectType.STONE:
@@ -238,6 +243,7 @@ public class SLGActionComponent : MonoBehaviour
                     UI_StoneText.text = _stone.ToString();
                     Managers.Sound.Play(Sound.SFX, "SLG/[Ch1] SLG_SFX_Stone");
                     _spawnCount--;
+                    PlayGainAnim(InObjectType);
                     break;
                 }
             case SLGObjectType.ConstructWindow:
@@ -382,6 +388,34 @@ public class SLGActionComponent : MonoBehaviour
         else
         {
             Debug.Log("건설불가능");
+        }
+    }
+
+    private void PlayGainAnim(SLGObjectType InType)
+    {
+        //만약 획득 애니메이션 통일해서 쓸거면 이런 애니메이션 관련은 공용함수로 만들어도될듯
+        GameObject animTargetImg;
+        if (InType == SLGObjectType.WOOD)
+        {
+            animTargetImg = UI_WoodImg;
+        }
+        else if(InType ==SLGObjectType.STONE)
+        {
+            animTargetImg = UI_StoneImg;
+        }
+        else
+        {
+            return;
+        }
+
+        if(animTargetImg != null)
+        {
+            RectTransform transform = animTargetImg.GetComponent<RectTransform>();
+            if(transform != null)
+            {
+                transform.localScale = new Vector3(0.7f,0.7f,0.1f);
+                transform.DOScale(1.0f, 1.0f).SetEase(Ease.InOutBack);
+            }
         }
     }
 
