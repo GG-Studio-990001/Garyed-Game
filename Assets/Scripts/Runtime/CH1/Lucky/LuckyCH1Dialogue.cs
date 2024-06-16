@@ -40,7 +40,7 @@ namespace Runtime.CH1.Lucky
 
         public void SLGExplainStart()
         {
-            if (Managers.Data.SLGProgressData == SLGProgress.ModeOpen) // 현정님이 바꾸면 나도 바꿔야함
+            if (Managers.Data.SLGProgressData == SLGProgress.ModeOpen)
             {
                 _lucky.transform.localPosition = _outPosition[2];
                 _runner.StartDialogue("Lucky_SLG");

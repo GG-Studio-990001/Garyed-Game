@@ -4,6 +4,8 @@ using Runtime.Lucky;
 using UnityEngine;
 using Yarn.Unity;
 
+// Enum 0첫만남 1쓰리매치들어감 2쓰리매치스테이지3 3SLG ??
+
 namespace Runtime.CH1.Lucky
 {
     public class CH1Lucky : DialogueViewBase
@@ -29,6 +31,7 @@ namespace Runtime.CH1.Lucky
             _runner.AddCommandHandler<int>("SetBubblePos", SetBubblePos);
 
             _runner.AddCommandHandler("ExitFirstMeet", ExitFirstMeet);
+            _runner.AddCommandHandler("Exit3Match", Exit3Match);
         }
 
         #region Common
@@ -76,6 +79,28 @@ namespace Runtime.CH1.Lucky
         }
         #endregion
 
+        #region 상황 따라 다르게
+        private void SetLuckyPos(int idx)
+        {
+            switch (idx)
+            {
+                case 0:
+                    _lucky.transform.position = _leftPositions[0];
+                    break;
+                case 1:
+                case 2:
+                    _lucky.transform.position = _rightPositions[0];
+                    break;
+            }
+        }
+
+        private void SetBubblePos(int idx)
+        {
+            _bubble.anchoredPosition = _bubblePositions[idx];
+        }
+        #endregion
+
+        #region Exit
         private void ExitFirstMeet()
         {
             // Exit 호출
@@ -85,19 +110,13 @@ namespace Runtime.CH1.Lucky
             Managers.Data.SaveGame();
         }
 
-        private void SetLuckyPos(int idx)
+        private void Exit3Match()
         {
-            switch (idx)
-            {
-                case 0:
-                    _lucky.transform.position = _leftPositions[0];
-                    break;
-            }
-        }
+            // Exit 호출
+            LuckyExit();
 
-        private void SetBubblePos(int idx)
-        {
-            _bubble.anchoredPosition = _bubblePositions[idx];
+            Managers.Sound.Play(Sound.BGM, "[Ch1] Main(Cave)_BGM", true);
         }
+        #endregion
     }
 }

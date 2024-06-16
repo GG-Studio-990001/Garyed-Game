@@ -2148,9 +2148,15 @@ MonoBehaviour:
   _bubble: {fileID: 1307555726}
   _leftPositions:
   - {x: -0.9, y: -12.57, z: 0}
+  - {x: -0.9, y: -12.57, z: 0}
+  - {x: -0.9, y: -12.57, z: 0}
   _rightPositions:
   - {x: 6, y: -12.57, z: 0}
+  - {x: 6, y: -12.57, z: 0}
+  - {x: 6, y: -12.57, z: 0}
   _bubblePositions:
+  - {x: -323, y: -64, z: 0}
+  - {x: -323, y: -64, z: 0}
   - {x: -323, y: -64, z: 0}
 --- !u!4 &102153461 stripped
 Transform:
@@ -10125,7 +10131,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5839968016702274743, guid: d0f2a1b23fc54d44db5c3ea0cf44e6bd, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6209680544376218410, guid: d0f2a1b23fc54d44db5c3ea0cf44e6bd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -22349,9 +22355,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f908b4e85b24d074abb8baa230555eb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dialogue: {fileID: 0}
-  _luckyLayer: {fileID: 0}
-  _stageName: 3Match1
+  _luckyDialogue: {fileID: 101260564}
+  _stageNum: 1
 --- !u!61 &1022352404
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -44313,9 +44318,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f908b4e85b24d074abb8baa230555eb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dialogue: {fileID: 0}
-  _luckyLayer: {fileID: 0}
-  _stageName: 3Match3
+  _luckyDialogue: {fileID: 101260564}
+  _stageNum: 3
 --- !u!61 &1706831648
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -55813,7 +55817,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6505116825378322279, guid: 6d173b4636e6a974e877862ce6efc4e9, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6930880402753157368, guid: 6d173b4636e6a974e877862ce6efc4e9, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.size

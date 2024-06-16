@@ -11,10 +11,12 @@
 <<wait 3>>
 <<ActiveBubble true>>
 <<Idle>>
+
 럭키: 안녕? 내 이름은 럭키!
 럭키: 모르는 게 있어도 걱정은 노우-노우-!
 럭키: 럭키님이 잘 알려줄 거니까 나만 믿으라구~
 럭키: 그럼 도움이 필요할 때 다시 만나자!
+
 <<ActiveBubble false>>
 <<WalkLeft 0>>
 <<wait 3>>

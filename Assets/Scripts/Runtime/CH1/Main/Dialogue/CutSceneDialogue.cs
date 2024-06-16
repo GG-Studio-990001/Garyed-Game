@@ -4,7 +4,6 @@ using DG.Tweening;
 using Runtime.ETC;
 using UnityEngine.SceneManagement;
 using Runtime.CH1.Main.Npc;
-using Runtime.CH1.Lucky;
 using Yarn.Unity;
 
 namespace Runtime.CH1.Main.Dialogue

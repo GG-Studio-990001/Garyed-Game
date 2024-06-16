@@ -1,14 +1,16 @@
 title: Lucky_3Match
-// 시점 : 3매치 퍼즐
-// 상황 : 3매치를 설명하는 럭키
+// 시점 : 첫 3매치 퍼즐 스테이지1
 ---
-// 임시 수정
 <<LuckyEnter>>
-<<WalkIn 0>>
-<<wait 3>>
+<<wait 0>>
+<<SetLuckyPos 1>>
+<<SetBubblePos 1>>
 
+<<WalkLeft 1>>
+<<wait 3>>
 <<ActiveBubble true>>
 <<Idle>>
+
 럭키: 럭키님 등장~
 럭키: 뭐야, 이 쉬운 건!
 럭키: 딱 봐도 알겠구만.
@@ -16,32 +18,34 @@ title: Lucky_3Match
 럭키: 럭키님 퇴장이요~
 
 <<ActiveBubble false>>
-<<WalkOut 0>>
+<<WalkRight 1>>
 <<wait 3>>
-<<ExplaneDone>>
-<<LuckyExit3Match>>
+
+<<Exit3Match>>
 ===
 
-title: Lucky_3Match_Stage3
-// 시점 : 3매치 퍼즐
-// 상황 : 3매치를 설명하는 럭키
+title: Lucky_3Match_2
+// 시점 : 첫 3매치 퍼즐 스테이지3 후반
 ---
 <<LuckyEnter>>
-<<WalkIn 1>>
-<<wait 3>>
+<<wait 0>>
+<<SetLuckyPos 2>>
+<<SetBubblePos 2>>
 
+<<WalkLeft 2>>
+<<wait 3>>
 <<ActiveBubble true>>
 <<Idle>>
-// 3라운드 막히는 구간
+
 럭키: 행운이 필요해?
 럭키: 기다려 봐!
 
-<<wait 0.5>>
-// 물고기 생성
-<<ActiveFish>>
-<<wait 0.5>>
-<<ExplodeFish>>
-<<wait 1>>
+// <<wait 0.5>>
+// // 물고기 생성
+// <<ActiveFish>>
+// <<wait 0.5>>
+// <<ExplodeFish>>
+// <<wait 1>>
 // 물고기 터짐
 
 // 물고기 물고 가져온다
@@ -50,10 +54,10 @@ title: Lucky_3Match_Stage3
 럭키: 휴, 이제<br>밖으로 나가야지~
 
 <<ActiveBubble false>>
-<<WalkOut 1>>
+<<WalkRight 2>>
 <<wait 3>>
-<<LuckyExit3Match>>
-// 럭키가 출구로 나간다.
+
+<<Exit3Match>>
 ===
 
 title: Lucky_3Match_Done
