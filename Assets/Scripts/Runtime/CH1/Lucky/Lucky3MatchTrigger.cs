@@ -28,7 +28,7 @@ namespace Runtime.CH1.Lucky
                 {
                     // TODO: 대화 끝날 때 true 처리
                     _luckyExplained3 = true;
-                    _luckyDialogue.StartDialogue("Lucky3Match2");
+                    _luckyDialogue.StartDialogue("LuckyFish");
                 }
             }
         }

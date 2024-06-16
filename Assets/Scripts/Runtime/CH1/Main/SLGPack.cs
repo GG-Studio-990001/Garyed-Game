@@ -3,7 +3,6 @@ using UnityEngine;
 
 namespace Runtime.CH1.Main
 {
-
     public class SLGPack : MonoBehaviour
     {
         public void ActiveLuckyPack()

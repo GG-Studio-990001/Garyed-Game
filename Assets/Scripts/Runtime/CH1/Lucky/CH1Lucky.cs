@@ -1,6 +1,7 @@
 using DG.Tweening;
 using Runtime.ETC;
 using Runtime.Lucky;
+using System;
 using UnityEngine;
 using Yarn.Unity;
 
@@ -33,6 +34,11 @@ namespace Runtime.CH1.Lucky
 
             _runner.AddCommandHandler("ExitFirstMeet", ExitFirstMeet);
             _runner.AddCommandHandler("Exit3Match", Exit3Match);
+        }
+
+        public override void RunLine(LocalizedLine dialogueLine, Action onDialogueLineFinished)
+        {
+            onDialogueLineFinished();
         }
 
         #region Common
