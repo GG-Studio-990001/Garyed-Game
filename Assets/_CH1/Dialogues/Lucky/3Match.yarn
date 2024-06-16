@@ -1,4 +1,4 @@
-title: Lucky_3Match
+title: Lucky3Match
 // 시점 : 첫 3매치 퍼즐 스테이지1
 ---
 <<LuckyEnter>>
@@ -24,7 +24,7 @@ title: Lucky_3Match
 <<Exit3Match>>
 ===
 
-title: Lucky_3Match_2
+title: Lucky3Match2
 // 시점 : 첫 3매치 퍼즐 스테이지3 후반
 ---
 <<LuckyEnter>>

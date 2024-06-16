@@ -263,7 +263,7 @@ namespace Runtime.CH1.Main.Dialogue
         public void MeetLucky()
         {
             // Find로 변경?
-            _luckyDialogue.StartDialogue("Lucky_FirstMeet");
+            _luckyDialogue.StartDialogue("LuckyFirstMeet");
         }
 
         public void ShowIllustration(bool show)

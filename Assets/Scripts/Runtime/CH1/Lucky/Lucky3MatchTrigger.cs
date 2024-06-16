@@ -22,13 +22,13 @@ namespace Runtime.CH1.Lucky
                 // TODO: 첫 럭키면 미리 했을 때의 분기점 추가
                 if (_stageNum == 1)
                 {
-                    _luckyDialogue.StartDialogue("Lucky_3Match");
+                    _luckyDialogue.StartDialogue("Lucky3Match");
                 }
                 else if (!_luckyExplained3 && _stageNum == 3)
                 {
                     // TODO: 대화 끝날 때 true 처리
                     _luckyExplained3 = true;
-                    _luckyDialogue.StartDialogue("Lucky_3Match_2");
+                    _luckyDialogue.StartDialogue("Lucky3Match2");
                 }
             }
         }

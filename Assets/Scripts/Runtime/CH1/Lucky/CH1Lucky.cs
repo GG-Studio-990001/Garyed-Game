@@ -91,7 +91,7 @@ namespace Runtime.CH1.Lucky
                 case 1:
                 case 2:
                 case 3:
-                    _lucky.transform.position = _rightPositions[0];
+                    _lucky.transform.position = _rightPositions[idx];
                     break;
             }
         }
@@ -171,9 +171,6 @@ namespace Runtime.CH1.Lucky
             Managers.Data.Is3MatchEntered = true;
             Managers.Data.SaveGame();
         }
-         
-         
-         
-         */
+        */
     }
 }

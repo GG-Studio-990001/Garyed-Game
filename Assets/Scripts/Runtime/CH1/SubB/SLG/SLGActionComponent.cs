@@ -279,7 +279,7 @@ public class SLGActionComponent : MonoBehaviour
 
         InitMap();
 
-        _luckyDialogue.StartDialogue("Lucky_SLG");
+        _luckyDialogue.StartDialogue("LuckySlg");
         // MoveOnNextProgress(); // 럭키로 이동
     }
 
