@@ -1,5 +1,4 @@
 using DG.Tweening;
-using Runtime.ETC;
 using Runtime.InGameSystem;
 using System;
 using UnityEngine;
@@ -48,7 +47,6 @@ namespace Runtime.CH1.Main.Dialogue
 
             // CutScene
             _runner.AddCommandHandler<bool>("ShowIllustration", _cutScene.ShowIllustration);
-            _runner.AddCommandHandler("PlayerInitPos", _cutScene.PlayerInitPos);
             _runner.AddCommandHandler<int>("CharactersMove", _cutScene.CharactersMove);
             _runner.AddCommandHandler<int>("CharactersStop", _cutScene.CharactersStop);
             _runner.AddCommandHandler<int>("NpcJump", _cutScene.NpcJump);
@@ -95,8 +93,8 @@ namespace Runtime.CH1.Main.Dialogue
             }
             else if (Managers.Data.Scene == 1 && Managers.Data.IsPacmomCleared)
             {
-                _cutScene.NpcPos.SetNpcPosition(2);
-                _cutScene.Player.transform.position = new Vector3(21.95f, -7.51f, 0);
+                _cutScene.NpcPos.SetNpcPosition(3);
+                _cutScene.SetPlayerPosition(1);
                 _runner.StartDialogue("S2");
             }
         }
@@ -172,8 +170,8 @@ namespace Runtime.CH1.Main.Dialogue
         {
             if (_speaker == "R2-Mon")
             {
-                // Managers.Sound.Play(Sound.Speech, "[CH1] R2-Mon_Text_SFX_04");
-                Managers.Sound.PlayRandomSpeech("R2MonText");
+                Managers.Sound.Play(Sound.Speech, "[CH1] R2-Mon_Text_SFX_04");
+                // Managers.Sound.PlayRandomSpeech("R2MonText");
             }
             else
             {

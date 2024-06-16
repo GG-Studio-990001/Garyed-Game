@@ -15448,7 +15448,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   moveStageNumber: 2
-  spawnPosition: {x: 49.93, y: -10.24}
+  spawnPosition: {x: 49.21, y: -10.24}
   _npcs: {fileID: 0}
 --- !u!1001 &724487835
 PrefabInstance:
@@ -42062,7 +42062,7 @@ Transform:
   m_GameObject: {fileID: 1674432335}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.907834, y: -5.3083696, z: -10}
+  m_LocalPosition: {x: 0.9897785, y: -5.3083797, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -46143,7 +46143,7 @@ MonoBehaviour:
   - {fileID: 736621123}
   - {fileID: 472919505}
   _stageDefaultPosition:
-  - {x: -1.8000004, y: -5.08, z: 0}
+  - {x: -4.67, y: -5.31, z: 0}
   - {x: 28.33, y: -9.13, z: 0}
   - {x: 59.91, y: -14.07, z: 0}
   - {x: 94.03, y: 11.28, z: 0}
@@ -46346,8 +46346,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 669133898}
   _location:
-  - {x: -4.67, y: -5.31, z: 0}
   - {x: 14.56, y: -6.15, z: 0}
+  - {x: 21.79, y: -7.51, z: 0}
   NpcPos: {fileID: 1908934228}
   _npc:
   - {fileID: 290311369}

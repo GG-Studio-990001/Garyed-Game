@@ -54,7 +54,9 @@ title: S3_1
 // 상황 : 동굴길을 지나 일행과 합류함
 ---
 <<NextSceneStart>>
+<<CharactersStop 1>>
 <<SetNpcPosition 0>>
+
 파머: 5.. 4.. 3.. 2.. 1..
 <<NpcJump 1>>
 파머: 라플리, 등장!

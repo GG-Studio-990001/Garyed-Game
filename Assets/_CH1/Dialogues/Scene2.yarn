@@ -3,6 +3,7 @@ title: S2
 // 상황 : 라플리가 팩맘에서 탈출한 뒤 마을사람들의 반응
 ---
 <<NewSceneStart>>
+<<CharactersStop 1>>
 
 <<wait 1>>
 <<NpcJump 1>>

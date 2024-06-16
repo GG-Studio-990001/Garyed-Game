@@ -167,7 +167,7 @@ namespace Runtime.CH1.Main.Dialogue
         private void CharactersMove1()
         {
             Player.Animation.SetAnimation(GlobalConst.MoveStr, Vector2.right);
-            Player.transform.DOMove(_location[1], 5f).SetEase(Ease.Linear);
+            Player.transform.DOMove(_location[0], 5f).SetEase(Ease.Linear);
 
             for (int i = 0; i < _npc.Length; i++)
             {
@@ -189,6 +189,7 @@ namespace Runtime.CH1.Main.Dialogue
 
         public void CharactersStop(int num)
         {
+            // TODO: 리팩터링 필요 너무 막 짬
             switch (num)
             {
                 case 0:
@@ -239,9 +240,9 @@ namespace Runtime.CH1.Main.Dialogue
             Player.Animation.SetAnimation(GlobalConst.IdleStr, Vector2.right);
         }
 
-        public void PlayerInitPos()
+        public void SetPlayerPosition(int idx)
         {
-            Player.transform.position = _location[0];
+            Player.transform.position = _location[idx];
         }
         #endregion
 
