@@ -3,7 +3,7 @@ title: Mamago
 ---
 <<set $progress to GetProgress()>>
 
-<<if $progress == 40>>
+<<if $progress <= 40>>
     <<if not visited("Mamago1")>>
         <<jump Mamago1>>
     <<else>>

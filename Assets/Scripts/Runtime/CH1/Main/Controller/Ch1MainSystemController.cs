@@ -5,6 +5,7 @@ using Runtime.CH1.Main.Stage;
 using Runtime.Common.View;
 using Runtime.InGameSystem;
 using UnityEngine;
+using Yarn.Unity;
 
 namespace Runtime.CH1.Main.Controller
 {
@@ -25,6 +26,7 @@ namespace Runtime.CH1.Main.Controller
         [SerializeField] private LuckyPack _luckyPack;
         [SerializeField] private BridgeController _bridge;
         [SerializeField] private MamagoController _mamago;
+        [SerializeField] private LineView _luckyDialogue;
 
 
         private void Start()
@@ -55,7 +57,7 @@ namespace Runtime.CH1.Main.Controller
             Managers.Data.InGameKeyBinder.GameControlReset();
             
             Managers.Data.InGameKeyBinder.CH1PlayerKeyBinding(_player);
-            Managers.Data.InGameKeyBinder.CH1UIKeyBinding(_settingsUIView);
+            Managers.Data.InGameKeyBinder.CH1UIKeyBinding(_settingsUIView, _luckyDialogue);
 
             _ch1DialogueController.OnDialogueStart.AddListener(() => Managers.Data.InGameKeyBinder.PlayerInputDisable());
             _ch1DialogueController.OnDialogueEnd.AddListener(() => Managers.Data.InGameKeyBinder.PlayerInputEnable());

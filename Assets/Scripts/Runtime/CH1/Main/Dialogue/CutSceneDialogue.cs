@@ -4,6 +4,7 @@ using DG.Tweening;
 using Runtime.ETC;
 using UnityEngine.SceneManagement;
 using Runtime.CH1.Main.Npc;
+using Yarn.Unity;
 
 namespace Runtime.CH1.Main.Dialogue
 {
@@ -23,6 +24,7 @@ namespace Runtime.CH1.Main.Dialogue
         [SerializeField] private GameObject _lucky;
         [SerializeField] private GameObject _stage2;
         [SerializeField] private BridgeController _bridge;
+        [SerializeField] private DialogueRunner _luckyDialogue;
         private Sequence _shakeTween;
 
         public void SetR2MonPosition()
@@ -59,13 +61,13 @@ namespace Runtime.CH1.Main.Dialogue
         public void MamagoMove1()
         {
             _mamago.Anim.SetAnimation(GlobalConst.MoveStr, Vector2.right);
-            _mamago.transform.DOMove(_mamagoLocation[0], 3f).SetEase(Ease.Linear);
+            _mamago.transform.DOMove(_mamagoLocation[0], 2f).SetEase(Ease.Linear);
         }
 
         public void MamagoMove2()
         {
             _mamago.Anim.SetAnimation(GlobalConst.MoveStr, Vector2.up);
-            _mamago.transform.DOMove(_mamagoLocation[1], 1f).SetEase(Ease.Linear);
+            _mamago.transform.DOMove(_mamagoLocation[1], 0.8f).SetEase(Ease.Linear);
         }
 
         public void MamagoEnter()
@@ -251,13 +253,17 @@ namespace Runtime.CH1.Main.Dialogue
         }
         #endregion
 
-        #region else
+        #region Else
         public void GetLucky()
         {
             Managers.Sound.Play(Sound.SFX, "[Ch1] Lucky_SFX_Dog&Key");
             _lucky.SetActive(false);
-            Managers.Data.MeetLucky = true;
-            Managers.Data.SaveGame();
+        }
+
+        public void MeetLucky()
+        {
+            // Find로 변경?
+            _luckyDialogue.StartDialogue("LuckyFirstMeet");
         }
 
         public void ShowIllustration(bool show)

@@ -1,0 +1,25 @@
+﻿title: LuckyFirstMeet
+// 시점 : 컷씬 1.1
+// 상황 : 만능게임번역팩 획득 이후 럭키의 자기소개
+---
+<<LuckyEnter>>
+<<wait 0>>
+<<SetLuckyPos 0>>
+<<SetBubblePos 0>>
+
+<<WalkRight 0>>
+<<wait 3>>
+<<ActiveBubble true>>
+<<Idle>>
+
+럭키: 안녕?<br>내 이름은 럭키!
+럭키: 모르는 게 있어도<br>걱정은 노우-노우-!
+럭키: 럭키님이<br>잘 알려줄 거니까<br>나만 믿으라구~
+럭키: 그럼 도움이<br>필요할 때<br>다시 만나자!
+
+<<ActiveBubble false>>
+<<WalkLeft 0>>
+<<wait 3>>
+
+<<ExitFirstMeet>>
+===

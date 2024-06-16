@@ -1,13 +1,13 @@
 using Runtime.ETC;
 using UnityEngine;
+using Yarn.Unity;
 
 namespace Runtime.CH1.Lucky
 {
-    public class LuckyTrigger : MonoBehaviour
+    public class Lucky3MatchTrigger : MonoBehaviour
     {
-        [SerializeField] private LuckyCH1Dialogue _dialogue;
-        [SerializeField] private GameObject _luckyLayer;
-        [SerializeField] private string _stageName;
+        [SerializeField] private DialogueRunner _luckyDialogue;
+        [SerializeField] private int _stageNum;
         private bool _luckyExplained3;
 
         private void Start()
@@ -20,16 +20,15 @@ namespace Runtime.CH1.Lucky
             if (other.CompareTag(GlobalConst.PlayerStr))
             {
                 // TODO: 첫 럭키면 미리 했을 때의 분기점 추가
-                if (_stageName == "3Match1")
+                if (_stageNum == 1)
                 {
-                    _luckyLayer.SetActive(true);
-                    _dialogue.S1ExplainStart();
+                    _luckyDialogue.StartDialogue("Lucky3Match");
                 }
-                else if (!_luckyExplained3 && _stageName == "3Match3")
+                else if (!_luckyExplained3 && _stageNum == 3)
                 {
+                    // TODO: 대화 끝날 때 true 처리
                     _luckyExplained3 = true;
-                    _luckyLayer.SetActive(true);
-                    _dialogue.S3ExplainStart();
+                    _luckyDialogue.StartDialogue("LuckyFish");
                 }
             }
         }
