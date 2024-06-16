@@ -6,8 +6,8 @@ using TMPro;
 using Runtime.CH1.Main.Controller;
 using Runtime.ETC;
 using Runtime.CH1.Main.Dialogue;
-using Runtime.CH1.Lucky;
 using DG.Tweening;
+using Yarn.Unity;
 
 namespace SLGDefines
 { 
@@ -76,7 +76,7 @@ public class SLGActionComponent : MonoBehaviour
     public bool bShowWnd;
 
     // 럭키 등장용
-    [SerializeField] private LuckyCH1Dialogue _lucky;
+    [SerializeField] private DialogueRunner _luckyDialogue;
     // 마마고 상호작용용
     [SerializeField] private Ch1DialogueController _dialogue;
 
@@ -279,8 +279,7 @@ public class SLGActionComponent : MonoBehaviour
 
         InitMap();
 
-        _lucky.SLGExplainStart();
-        Debug.Log("럭키 등장");
+        _luckyDialogue.StartDialogue("Lucky_SLG");
         // MoveOnNextProgress(); // 럭키로 이동
     }
 
@@ -451,7 +450,10 @@ public class SLGActionComponent : MonoBehaviour
         }
 
         WriteSLGData();
-        Managers.Data.SaveGame();
+
+        if (SLGProgressInfo != SLGProgress.ModeOpen)
+            Managers.Data.SaveGame();
+        // SLG팩 획득 ~ 럭키 설명 다 듣기 안하면 SLG 팩 획득 이전으로 돌아가야함
     }
 
     private void EndSLGMode()

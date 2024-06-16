@@ -8,7 +8,6 @@ namespace Runtime.CH1.SubB.SLG
     public class SlguiObject : MonoBehaviour, IInteractive
     {
         public UnityEvent onInteract;
-        [SerializeField] private GameObject _luckyLayer;
         private DialogueRunner _dialogueRunner;
 
         private void Awake()
@@ -28,12 +27,6 @@ namespace Runtime.CH1.SubB.SLG
         {
             onInteract?.Invoke();
 
-            //SLGActionComponent SLGAction = FindObjectOfType<SLGActionComponent>();
-            //if (SLGAction != null)
-            //{
-            //    
-            //}
-
             if (Managers.Data.Scene < 4)
             {
                 // 임시로 막아두기
@@ -42,8 +35,6 @@ namespace Runtime.CH1.SubB.SLG
             else
             {
                 _dialogueRunner.StartDialogue("SLG_Start");
-                _luckyLayer.SetActive(true); // 옮겨야됨
-                // SLGAction.OnSLGInit();
             }
 
             return true;
