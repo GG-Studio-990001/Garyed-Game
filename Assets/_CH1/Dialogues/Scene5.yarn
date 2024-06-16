@@ -6,7 +6,7 @@ title: S5
 
 <<FadeOut>>
 <<wait 1>>
-<<ConstructionSFX>>
+<<BuildCompany>>
 <<wait 2>>
 
 <<FadeIn>>

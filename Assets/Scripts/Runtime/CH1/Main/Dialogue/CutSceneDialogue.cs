@@ -35,9 +35,10 @@ namespace Runtime.CH1.Main.Dialogue
             SceneManager.LoadScene("CH2");
         }
 
-        public void ConstructionSFX()
+        public void BuildCompany()
         {
             Managers.Sound.Play(Sound.SFX, "[CH1] Mamago_Construction");
+            // TODO: 마마고 컴퍼니 완성된 건물로 바꾸는 코드
         }
 
         public void CompleteSFX()
