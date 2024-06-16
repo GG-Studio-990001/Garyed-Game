@@ -67,12 +67,12 @@ public class SLGActionComponent : MonoBehaviour
     private float _spawnTime = 0.0f;
 
     //CONST Value 
-    const int INCREASE_ASSET_COUNT = 10;
-    const int MAX_SPAWN_COUNT = 3;
-    const int NEEDED_ASSET_COUNT = 30;
-    const int NEEDED_CONSTRUCTION_TIME_SEC = 60 * 60 * 24;
-    const float SPAWN_TIME = 3.0f;
-    const int NEEDED_COIN_COUNT = 200;
+    const int IncreaseAssetCount = 10;
+    const int MaxSpawnCount = 3;
+    const int NeededAssetCount = 30;
+    const int NeededConstrcutionTimeSec = 60 * 60 * 24;
+    const float SpawnTime = 3.0f;
+    const int NeededCoinCount = 200;
 
     public bool bShowWnd;
 
@@ -140,7 +140,7 @@ public class SLGActionComponent : MonoBehaviour
         if (SLGProgressInfo == SLGProgress.Constructing)
         {
             int DurationTimeSec = (int)(((DateTime.Now - DateTime.MinValue).TotalSeconds) - SLGConstructionBeginTime);
-            int RemainedTimeSec = NEEDED_CONSTRUCTION_TIME_SEC - DurationTimeSec;
+            int RemainedTimeSec = NeededConstrcutionTimeSec - DurationTimeSec;
             if (RemainedTimeSec >= 0)
             {
                 if (bShowWnd)
@@ -160,10 +160,10 @@ public class SLGActionComponent : MonoBehaviour
         }
         else if(SLGProgressInfo == SLGProgress.BeforeConstruction)
         {
-            if(_spawnCount < MAX_SPAWN_COUNT)
+            if(_spawnCount < MaxSpawnCount)
             {
                 _spawnTime += Time.deltaTime;
-                if(_spawnTime >= SPAWN_TIME)
+                if(_spawnTime >= SpawnTime)
                 {
                     SpawnRandomObject();
                     _spawnTime = 0.0f;
@@ -230,7 +230,7 @@ public class SLGActionComponent : MonoBehaviour
         {
             case SLGObjectType.WOOD:
                 {
-                    _wood += INCREASE_ASSET_COUNT;
+                    _wood += IncreaseAssetCount;
                     UI_WoodText.text = _wood.ToString();
                     _spawnCount--;
                     Managers.Sound.Play(Sound.SFX, "SLG/[Ch1] SLG_SFX_Wood");
@@ -239,7 +239,7 @@ public class SLGActionComponent : MonoBehaviour
                 }
             case SLGObjectType.STONE:
                 {
-                    _stone += INCREASE_ASSET_COUNT;
+                    _stone += IncreaseAssetCount;
                     UI_StoneText.text = _stone.ToString();
                     Managers.Sound.Play(Sound.SFX, "SLG/[Ch1] SLG_SFX_Stone");
                     _spawnCount--;
@@ -294,7 +294,7 @@ public class SLGActionComponent : MonoBehaviour
         {
             Object.gameObject.SetActive(false);
         }
-        for (int i = 0; i < Mathf.Min(MAX_SPAWN_COUNT, _cachedObjects.Length); i++)
+        for (int i = 0; i < Mathf.Min(MaxSpawnCount, _cachedObjects.Length); i++)
         {
             SpawnRandomObject();
         }
@@ -330,19 +330,19 @@ public class SLGActionComponent : MonoBehaviour
                 Wnd_AccelerateSection.gameObject.SetActive(false);
                 Wnd_CostSection.gameObject.SetActive(true);
 
-                Wnd_WoodText.text = _wood.ToString() + "/" + NEEDED_ASSET_COUNT.ToString();
-                Wnd_StoneText.text = _stone.ToString() + "/" + NEEDED_ASSET_COUNT.ToString();
+                Wnd_WoodText.text = _wood.ToString() + "/" + NeededAssetCount.ToString();
+                Wnd_StoneText.text = _stone.ToString() + "/" + NeededAssetCount.ToString();
 
-                Wnd_WoodText.color = _wood < NEEDED_ASSET_COUNT? Color.red : Color.black;
-                Wnd_StoneText.color = _stone < NEEDED_ASSET_COUNT? Color.red : Color.black;
+                Wnd_WoodText.color = _wood < NeededAssetCount? Color.red : Color.black;
+                Wnd_StoneText.color = _stone < NeededAssetCount? Color.red : Color.black;
             }
             else if (SLGProgressInfo == SLGProgress.Constructing)
             {
                 Wnd_AccelerateSection.gameObject.SetActive(true);
                 Wnd_CostSection.gameObject.SetActive(false);
 
-                Wnd_CoinCostText.text = Managers.Data.PacmomCoin.ToString() + "/" + NEEDED_COIN_COUNT.ToString();
-                Wnd_CoinCostText.color = Managers.Data.PacmomCoin < NEEDED_COIN_COUNT ? Color.red : Color.black;
+                Wnd_CoinCostText.text = Managers.Data.PacmomCoin.ToString() + "/" + NeededCoinCount.ToString();
+                Wnd_CoinCostText.color = Managers.Data.PacmomCoin < NeededCoinCount ? Color.red : Color.black;
             }
 
             bShowWnd = true;
@@ -361,9 +361,9 @@ public class SLGActionComponent : MonoBehaviour
         GameObject mainObject = FindObjectOfType<Ch1MainSystemController>().gameObject;
         if (mainObject != null)
         {
-            if (Managers.Data.PacmomCoin >= NEEDED_COIN_COUNT)
+            if (Managers.Data.PacmomCoin >= NeededCoinCount)
             {
-                Managers.Data.PacmomCoin -= NEEDED_COIN_COUNT;
+                Managers.Data.PacmomCoin -= NeededCoinCount;
                 RefreshCoinText();
                 MoveOnNextProgress();
             }
@@ -383,10 +383,10 @@ public class SLGActionComponent : MonoBehaviour
     }
     private void OnClickConstructBtn()
     {
-        if (_wood >= NEEDED_ASSET_COUNT && _stone >= NEEDED_ASSET_COUNT)
+        if (_wood >= NeededAssetCount && _stone >= NeededAssetCount)
         {
-            _wood -= NEEDED_ASSET_COUNT;
-            _stone -= NEEDED_ASSET_COUNT;
+            _wood -= NeededAssetCount;
+            _stone -= NeededAssetCount;
             RefreshHudInfo();
             MoveOnNextProgress();
         }
