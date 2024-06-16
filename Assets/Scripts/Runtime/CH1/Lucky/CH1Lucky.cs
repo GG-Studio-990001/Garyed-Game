@@ -5,8 +5,6 @@ using System;
 using UnityEngine;
 using Yarn.Unity;
 
-// Enum 0첫만남 1쓰리매치들어감 2쓰리매치스테이지3 3SLG ??
-
 namespace Runtime.CH1.Lucky
 {
     public class CH1Lucky : DialogueViewBase
@@ -18,7 +16,6 @@ namespace Runtime.CH1.Lucky
         [SerializeField] private Vector3[] _leftPositions;
         [SerializeField] private Vector3[] _rightPositions;
         [SerializeField] private Vector3[] _bubblePositions;
-        [SerializeField] private SLGActionComponent _slgAction;
 
         private void Awake()
         {
@@ -34,6 +31,7 @@ namespace Runtime.CH1.Lucky
 
             _runner.AddCommandHandler("ExitFirstMeet", ExitFirstMeet);
             _runner.AddCommandHandler("Exit3Match", Exit3Match);
+            _runner.AddCommandHandler("ExitSLG", ExitSLG);
         }
 
         public override void RunLine(LocalizedLine dialogueLine, Action onDialogueLineFinished)
