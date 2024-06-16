@@ -419,8 +419,8 @@ public class SLGActionComponent : MonoBehaviour
             RectTransform transform = animTargetImg.GetComponent<RectTransform>();
             if(transform != null)
             {
-                transform.localScale = new Vector3(0.7f,0.7f,0.1f);
-                transform.DOScale(1.0f, 1.0f).SetEase(Ease.InOutBack);
+                transform.localScale = new Vector3(1.0f,1.0f,1.0f);
+                transform.DOScale(1.2f, 0.5f).SetEase(Ease.Linear).SetLoops(2, LoopType.Yoyo);
             }
         }
     }
