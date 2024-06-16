@@ -10,7 +10,7 @@ namespace Runtime.InGameSystem
         
         public void LoadScene(string sceneName)
         {
-            Managers.Sound.StopBGM();
+            Managers.Sound.StopAllSound();
             SceneManager.LoadScene(sceneName);
         }
         
