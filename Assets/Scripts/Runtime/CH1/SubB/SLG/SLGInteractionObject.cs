@@ -62,7 +62,7 @@ public class SLGInteractionObject : InteractionObject
         }
     }
 
-    public bool Interact(Vector2 direction = default)
+    public new bool Interact(Vector2 direction = default)
     {
         OnInteract?.Invoke();
         if (_SLGAction != null)
