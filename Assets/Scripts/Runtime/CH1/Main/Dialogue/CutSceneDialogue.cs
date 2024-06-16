@@ -61,13 +61,13 @@ namespace Runtime.CH1.Main.Dialogue
         public void MamagoMove1()
         {
             _mamago.Anim.SetAnimation(GlobalConst.MoveStr, Vector2.right);
-            _mamago.transform.DOMove(_mamagoLocation[0], 3f).SetEase(Ease.Linear);
+            _mamago.transform.DOMove(_mamagoLocation[0], 2f).SetEase(Ease.Linear);
         }
 
         public void MamagoMove2()
         {
             _mamago.Anim.SetAnimation(GlobalConst.MoveStr, Vector2.up);
-            _mamago.transform.DOMove(_mamagoLocation[1], 1f).SetEase(Ease.Linear);
+            _mamago.transform.DOMove(_mamagoLocation[1], 0.8f).SetEase(Ease.Linear);
         }
 
         public void MamagoEnter()

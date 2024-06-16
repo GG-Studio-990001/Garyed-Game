@@ -11,20 +11,15 @@ title: LuckySlg
 <<ActiveBubble true>>
 <<Idle>>
 
-<<wait 0>>
 럭키: 흠, 자원 모아서<br>멋진 건물 뚝딱뚝딱..
-<<wait 0>>
 럭키: 간단한데?
-<<wait 0>>
 럭키: 부족하다 싶으면<br>잠깐 기다려봐
-<<wait 0>>
 럭키: 그럼 됐지?
-<<wait 0>>
 럭키: 럭키님 퇴장이요~
 
 <<ActiveBubble false>>
 <<WalkRight 3>>
 <<wait 3>>
 
-<<Exit3Match>>
+<<ExitSLG>>
 ===

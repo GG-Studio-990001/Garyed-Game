@@ -2160,9 +2160,8 @@ MonoBehaviour:
   _bubblePositions:
   - {x: -323, y: -64, z: 0}
   - {x: 477, y: -66, z: 0}
-  - {x: 424, y: 235, z: 0}
+  - {x: 424, y: 252, z: 0}
   - {x: 447, y: -82, z: 0}
-  _slgAction: {fileID: 0}
 --- !u!4 &102153461 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1368314908901170753, guid: 57796641bda70d147805b66c9dd59d1e, type: 3}
@@ -6817,6 +6816,7 @@ MonoBehaviour:
   _luckyPack: {fileID: 595339716}
   _bridge: {fileID: 614787941}
   _mamago: {fileID: 1749246922}
+  _luckyDialogue: {fileID: 1307555727}
 --- !u!114 &326335557
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9362,7 +9362,7 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 1080, y: 720}
+  m_ReferenceResolution: {x: 1280, y: 720}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -9379,7 +9379,7 @@ Canvas:
   m_GameObject: {fileID: 453375412}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 1674432337}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -9391,7 +9391,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 1546151723
-  m_SortingOrder: 9
+  m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!224 &453375416
 RectTransform:
@@ -32326,7 +32326,7 @@ GameObject:
   - component: {fileID: 1307555729}
   - component: {fileID: 1307555728}
   - component: {fileID: 1307555727}
-  - component: {fileID: 1307555731}
+  - component: {fileID: 1307555732}
   m_Layer: 5
   m_Name: Bubble
   m_TagString: Untagged
@@ -32351,8 +32351,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 486.4679, y: 74}
-  m_SizeDelta: {x: 5506.737, y: 4643.28}
+  m_AnchoredPosition: {x: 687.947, y: -68.202}
+  m_SizeDelta: {x: 6000, y: 4200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1307555727
 MonoBehaviour:
@@ -32373,14 +32373,22 @@ MonoBehaviour:
   lineText: {fileID: 213274875}
   showCharacterNameInLineView: 0
   characterNameText: {fileID: 0}
+  characterNameContainer: {fileID: 0}
   useTypewriterEffect: 1
   onCharacterTyped:
+    m_PersistentCalls:
+      m_Calls: []
+  onPauseStarted:
+    m_PersistentCalls:
+      m_Calls: []
+  onPauseEnded:
     m_PersistentCalls:
       m_Calls: []
   typewriterEffectSpeed: 10
   continueButton: {fileID: 0}
   holdTime: 1
   autoAdvance: 0
+  palette: {fileID: 0}
 --- !u!225 &1307555728
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -32431,7 +32439,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1307555725}
   m_CullTransparentMesh: 1
---- !u!114 &1307555731
+--- !u!114 &1307555732
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -32440,31 +32448,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 1307555725}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 097b95c9f69f04f2d8c08a817e7786af, type: 3}
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueView: {fileID: 1307555727}
-  continueActionType: 3
-  continueActionKeyCode: 32
-  continueActionReference: {fileID: 8709246600754175931, guid: 6e910e6b94272464bb728827f85a5f59, type: 3}
-  continueAction:
-    m_Name: Skip
-    m_Type: 1
-    m_ExpectedControlType: 
-    m_Id: 04521a79-03eb-4b1b-9802-ff1aaf03be7e
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: a6d84dd7-8909-44ff-8dbc-30e2711426fd
-      m_Path: Submit
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Skip
-      m_Flags: 0
-    m_Flags: 0
-  enableActionOnStart: 1
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1307555727}
+          m_TargetAssemblyTypeName: Yarn.Unity.LineView, YarnSpinner.Unity
+          m_MethodName: OnContinueClicked
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1308564506
 GameObject:
   m_ObjectHideFlags: 0
@@ -48287,7 +48290,7 @@ GameObject:
   - component: {fileID: 1843874393}
   - component: {fileID: 1843874392}
   m_Layer: 0
-  m_Name: OnlyTest
+  m_Name: OnlyForTest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -55214,6 +55217,7 @@ MonoBehaviour:
   lineText: {fileID: 8739223720555902289}
   showCharacterNameInLineView: 1
   characterNameText: {fileID: 915647123790645336}
+  characterNameContainer: {fileID: 7390617290281691664}
   useTypewriterEffect: 1
   onCharacterTyped:
     m_PersistentCalls:
@@ -55231,10 +55235,17 @@ MonoBehaviour:
           m_StringArgument: Text
           m_BoolArgument: 0
         m_CallState: 2
+  onPauseStarted:
+    m_PersistentCalls:
+      m_Calls: []
+  onPauseEnded:
+    m_PersistentCalls:
+      m_Calls: []
   typewriterEffectSpeed: 10
   continueButton: {fileID: 0}
   holdTime: 0
   autoAdvance: 0
+  palette: {fileID: 0}
 --- !u!222 &3386377522962879151
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -55416,9 +55427,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 097b95c9f69f04f2d8c08a817e7786af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueView: {fileID: 0}
-  continueActionType: 3
+  dialogueView: {fileID: 3177337089561241846}
+  continueActionType: 4
   continueActionKeyCode: 32
+  continueActionButtonName: Jump
+  continueActionOnButtonRelease: 0
   continueActionReference: {fileID: 8709246600754175931, guid: 6e910e6b94272464bb728827f85a5f59, type: 3}
   continueAction:
     m_Name: Skip

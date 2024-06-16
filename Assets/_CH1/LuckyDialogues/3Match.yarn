@@ -37,9 +37,7 @@ title: LuckyFish
 <<ActiveBubble true>>
 <<Idle>>
 
-<<wait 0>>
 럭키: 행운이 필요해?
-<<wait 0>>
 럭키: 기다려 봐!
 
 // <<wait 0.5>>
@@ -52,9 +50,7 @@ title: LuckyFish
 
 // 물고기 물고 가져온다
 // 럭키가 젤리를 가져다 둔다.
-<<wait 0>>
 럭키: 이게 바로 럭키 효과!
-<<wait 0>>
 럭키: 휴, 이제<br>밖으로 나가야지~
 
 <<ActiveBubble false>>

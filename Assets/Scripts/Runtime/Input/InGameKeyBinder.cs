@@ -3,6 +3,7 @@ using Runtime.CH1.Pacmom;
 using Runtime.CH1.Title;
 using Runtime.CH2;
 using Runtime.Common.View;
+using Yarn.Unity;
 
 namespace Runtime.Input
 {
@@ -48,11 +49,11 @@ namespace Runtime.Input
             _gameOverControls.Player.Interaction.performed += _ => player.OnInteraction();
         }
         
-        public void CH1UIKeyBinding(SettingsUIView settingsUIView)
+        public void CH1UIKeyBinding(SettingsUIView settingsUIView, LineView lucky)
         {
             _gameOverControls.UI.Enable();
             _gameOverControls.UI.GameSetting.performed += _ => settingsUIView.GameSettingToggle();
-            // _gameOverControls.UI.DialogueInput.performed += _ => UnityEngine.Debug.Log("눌림");
+            _gameOverControls.UI.DialogueInput.performed += _ => lucky.OnContinueClicked();
         }
 
         // CH2
