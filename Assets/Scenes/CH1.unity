@@ -2092,9 +2092,10 @@ MonoBehaviour:
   yarnProject: {fileID: 7545569452688597077, guid: e5d1e309050f98443aba26af350ffc5e, type: 3}
   _variableStorage: {fileID: 0}
   dialogueViews:
+  - {fileID: 101260566}
   - {fileID: 1307555727}
   startNode: Lucky_FirstMeet
-  startAutomatically: 1
+  startAutomatically: 0
   runSelectedOptionAsLine: 0
   lineProvider: {fileID: 0}
   verboseLogging: 1
@@ -2144,9 +2145,13 @@ MonoBehaviour:
   - {fileID: 594261031}
   - {fileID: 453375412}
   _lucky: {fileID: 594261033}
-  _bubble: {fileID: 1307555725}
-  _inPosition: {x: 8.94, y: -7.59, z: 0}
-  _outPosition: {x: 15.8, y: -7.59, z: 0}
+  _bubble: {fileID: 1307555726}
+  _leftPositions:
+  - {x: -0.9, y: -12.57, z: 0}
+  _rightPositions:
+  - {x: 6, y: -12.57, z: 0}
+  _bubblePositions:
+  - {x: -323, y: -64, z: 0}
 --- !u!4 &102153461 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1368314908901170753, guid: 57796641bda70d147805b66c9dd59d1e, type: 3}
@@ -9313,7 +9318,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &453375413
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12442,7 +12447,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!95 &594261032
 Animator:
   serializedVersion: 5
@@ -12537,7 +12542,7 @@ Transform:
   m_GameObject: {fileID: 594261031}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.8, y: -7.59, z: 0}
+  m_LocalPosition: {x: 15.3, y: 12.1, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -32318,7 +32323,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1307555726
 RectTransform:
   m_ObjectHideFlags: 0
@@ -46358,6 +46363,7 @@ MonoBehaviour:
   _lucky: {fileID: 595339711}
   _stage2: {fileID: 1422604244}
   _bridge: {fileID: 614787941}
+  _luckyDialogue: {fileID: 101260564}
 --- !u!1 &1759116065
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,6 +5,7 @@
 
 title: SLG_Start
 ---
+     <<GetSLGPack>>
      :SLG UI를 획득했다.
      <<InitSLG>>
 ===

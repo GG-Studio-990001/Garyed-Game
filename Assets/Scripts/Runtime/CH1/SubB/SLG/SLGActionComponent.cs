@@ -255,10 +255,13 @@ public class SLGActionComponent : MonoBehaviour
         }
     }
 
-    public void OnSLGInit()
+    public void GetSLGPack()
     {
         Managers.Sound.Play(Sound.SFX, "[CH1] SFX_SLG_Get");
+    }
 
+    public void OnSLGInit()
+    {
         MoveOnNextProgress();
         _SLGCanvas.SetActive(true);
         _sponSpots.SetActive(true);
@@ -276,14 +279,8 @@ public class SLGActionComponent : MonoBehaviour
 
         InitMap();
 
-        Invoke(nameof(LuckyAppear), 0.5f);
-    }
-
-    private void LuckyAppear()
-    {
         _lucky.SLGExplainStart();
         Debug.Log("럭키 등장");
-
         // MoveOnNextProgress(); // 럭키로 이동
     }
 

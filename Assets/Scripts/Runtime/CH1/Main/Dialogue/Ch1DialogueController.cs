@@ -33,6 +33,7 @@ namespace Runtime.CH1.Main.Dialogue
         private void Awake()
         {
             _cutScene = GetComponent<CutSceneDialogue>();
+            _runner.AddCommandHandler("GetSLGPack", SLGAction.GetSLGPack);
             _runner.AddCommandHandler("InitSLG", SLGAction.OnSLGInit);
             _runner.AddCommandHandler<int>("NpcDialogueFin", _npcDialogue.NpcDialogueFin);
 
@@ -51,6 +52,7 @@ namespace Runtime.CH1.Main.Dialogue
             _runner.AddCommandHandler<int>("CharactersStop", _cutScene.CharactersStop);
             _runner.AddCommandHandler<int>("NpcJump", _cutScene.NpcJump);
             _runner.AddCommandHandler("GetLucky", _cutScene.GetLucky);
+            _runner.AddCommandHandler("MeetLucky", _cutScene.MeetLucky);
             _runner.AddCommandHandler<bool>("ShakeMap", _cutScene.ShakeMap);
             _runner.AddCommandHandler("BreakBridge", _cutScene.BreakBridge);
             _runner.AddCommandHandler<int>("SetNpcPosition", _cutScene.SetNpcPosition);

@@ -4,6 +4,8 @@ using DG.Tweening;
 using Runtime.ETC;
 using UnityEngine.SceneManagement;
 using Runtime.CH1.Main.Npc;
+using Runtime.CH1.Lucky;
+using Yarn.Unity;
 
 namespace Runtime.CH1.Main.Dialogue
 {
@@ -23,6 +25,7 @@ namespace Runtime.CH1.Main.Dialogue
         [SerializeField] private GameObject _lucky;
         [SerializeField] private GameObject _stage2;
         [SerializeField] private BridgeController _bridge;
+        [SerializeField] private DialogueRunner _luckyDialogue;
         private Sequence _shakeTween;
 
         public void SetR2MonPosition()
@@ -251,13 +254,17 @@ namespace Runtime.CH1.Main.Dialogue
         }
         #endregion
 
-        #region else
+        #region Else
         public void GetLucky()
         {
             Managers.Sound.Play(Sound.SFX, "[Ch1] Lucky_SFX_Dog&Key");
             _lucky.SetActive(false);
-            Managers.Data.MeetLucky = true;
-            Managers.Data.SaveGame();
+        }
+
+        public void MeetLucky()
+        {
+            // Find로 변경?
+            _luckyDialogue.StartDialogue("Lucky_FirstMeet");
         }
 
         public void ShowIllustration(bool show)
