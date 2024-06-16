@@ -1,5 +1,4 @@
 using DG.Tweening;
-using Runtime.ETC;
 using Runtime.InGameSystem;
 using System;
 using UnityEngine;
@@ -48,7 +47,6 @@ namespace Runtime.CH1.Main.Dialogue
 
             // CutScene
             _runner.AddCommandHandler<bool>("ShowIllustration", _cutScene.ShowIllustration);
-            _runner.AddCommandHandler("PlayerInitPos", _cutScene.PlayerInitPos);
             _runner.AddCommandHandler<int>("CharactersMove", _cutScene.CharactersMove);
             _runner.AddCommandHandler<int>("CharactersStop", _cutScene.CharactersStop);
             _runner.AddCommandHandler<int>("NpcJump", _cutScene.NpcJump);
@@ -57,7 +55,7 @@ namespace Runtime.CH1.Main.Dialogue
             _runner.AddCommandHandler("BreakBridge", _cutScene.BreakBridge);
             _runner.AddCommandHandler<int>("SetNpcPosition", _cutScene.SetNpcPosition);
             // CutScene / Mamago
-            _runner.AddCommandHandler("ConstructionSFX", _cutScene.ConstructionSFX);
+            _runner.AddCommandHandler("BuildCompany", _cutScene.BuildCompany);
             _runner.AddCommandHandler("CompleteSFX", _cutScene.CompleteSFX);
             _runner.AddCommandHandler("MamagoJump", _cutScene.MamagoJump);
             _runner.AddCommandHandler("MamagoMove1", _cutScene.MamagoMove1);
@@ -95,8 +93,8 @@ namespace Runtime.CH1.Main.Dialogue
             }
             else if (Managers.Data.Scene == 1 && Managers.Data.IsPacmomCleared)
             {
-                _cutScene.NpcPos.SetNpcPosition(2);
-                _cutScene.Player.transform.position = new Vector3(21.95f, -7.51f, 0);
+                _cutScene.NpcPos.SetNpcPosition(3);
+                _cutScene.SetPlayerPosition(1);
                 _runner.StartDialogue("S2");
             }
         }
@@ -172,8 +170,8 @@ namespace Runtime.CH1.Main.Dialogue
         {
             if (_speaker == "R2-Mon")
             {
-                // Managers.Sound.Play(Sound.Speech, "[CH1] R2-Mon_Text_SFX_04");
-                Managers.Sound.PlayRandomSpeech("R2MonText");
+                Managers.Sound.Play(Sound.Speech, "[CH1] R2-Mon_Text_SFX_04");
+                // Managers.Sound.PlayRandomSpeech("R2MonText");
             }
             else
             {

@@ -40,6 +40,7 @@ namespace Runtime.InGameSystem
                     }
 
                     _audioSources[(int)Sound.BGM].loop = true;
+                    _audioSources[(int)Sound.LuckyBGM].loop = true;
 
                     SettingsEvent.OnSettingsToggled += OnSettingsToggled;
                 }

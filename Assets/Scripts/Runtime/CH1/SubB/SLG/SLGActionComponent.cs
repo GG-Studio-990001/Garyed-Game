@@ -277,9 +277,14 @@ public class SLGActionComponent : MonoBehaviour
 
         InitMap();
 
+        Invoke(nameof(LuckyAppear), 0.5f);
+    }
+
+    private void LuckyAppear()
+    {
         _lucky.SLGExplainStart();
         Debug.Log("럭키 등장");
-        
+
         // MoveOnNextProgress(); // 럭키로 이동
     }
 
