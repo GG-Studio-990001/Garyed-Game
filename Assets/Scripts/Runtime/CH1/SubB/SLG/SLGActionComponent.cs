@@ -7,7 +7,6 @@ using Runtime.CH1.Main.Controller;
 using Runtime.ETC;
 using Runtime.CH1.Main.Dialogue;
 using Runtime.CH1.Lucky;
-using DG.DOTweenEditor;
 using DG.Tweening;
 
 namespace SLGDefines
