@@ -1,4 +1,5 @@
 using DG.Tweening;
+using Runtime.CH1.SubB;
 using Runtime.ETC;
 using Runtime.Lucky;
 using System;
@@ -16,22 +17,31 @@ namespace Runtime.CH1.Lucky
         [SerializeField] private Vector3[] _leftPositions;
         [SerializeField] private Vector3[] _rightPositions;
         [SerializeField] private Vector3[] _bubblePositions;
+        [SerializeField] private GameObject _fish;
 
         private void Awake()
         {
             _runner = GetComponent<DialogueRunner>();
             _runner.AddCommandHandler("LuckyEnter", LuckyEnter);
-            // _runner.AddCommandHandler("LuckyExit", LuckyExit);
             _runner.AddCommandHandler<int>("WalkLeft", WalkLeft);
             _runner.AddCommandHandler<int>("WalkRight", WalkRight);
             _runner.AddCommandHandler("Idle", Idle);
             _runner.AddCommandHandler<bool>("ActiveBubble", ActiveBubble);
+
             _runner.AddCommandHandler<int>("SetLuckyPos", SetLuckyPos);
             _runner.AddCommandHandler<int>("SetBubblePos", SetBubblePos);
 
             _runner.AddCommandHandler("ExitFirstMeet", ExitFirstMeet);
             _runner.AddCommandHandler("Exit3Match", Exit3Match);
             _runner.AddCommandHandler("ExitSLG", ExitSLG);
+
+            _runner.AddCommandHandler("ActiveFish", ActiveFish);
+        }
+
+        private void Start()
+        {
+            _fish.SetActive(false);
+            Debug.Log(_fish.activeSelf);
         }
 
         public override void RunLine(LocalizedLine dialogueLine, Action onDialogueLineFinished)
@@ -140,41 +150,10 @@ namespace Runtime.CH1.Lucky
         }
         #endregion
 
-        /*
-        public void S1ExplainStart()
-        {
-            if (Managers.Data.MeetLucky && !Managers.Data.Is3MatchEntered)
-            {
-                _lucky.transform.localPosition = _outPosition[0];
-                _runner.StartDialogue("Lucky_3Match");
-            }
-        }
-
-        public void S3ExplainStart()
-        {
-            // 3매치 퍼즐 클리어 저장 변수 없나? => 생기면 조건문 수정
-            if (Managers.Data.MeetLucky && Managers.Data.Scene <= 3 && Managers.Data.SceneDetail <= 0) // 3.0 넘었다면 이미 깬 것
-            {
-                _lucky.transform.localPosition = _outPosition[1];
-                _runner.StartDialogue("Lucky_3Match_Stage3");
-            }
-        }
-
         private void ActiveFish()
         {
+            Managers.Sound.Play(Sound.SFX, "FishJelly");
             _fish.SetActive(true);
         }
-
-        private void ExplodeFish()
-        {
-            _3MatchController.CheckMatching();
-        }
-
-        private void ExplaneDone()
-        {
-            Managers.Data.Is3MatchEntered = true;
-            Managers.Data.SaveGame();
-        }
-        */
     }
 }

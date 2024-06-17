@@ -40,13 +40,10 @@ title: LuckyFish
 럭키: 행운이 필요해?
 럭키: 기다려 봐!
 
-// <<wait 0.5>>
-// // 물고기 생성
-// <<ActiveFish>>
-// <<wait 0.5>>
-// <<ExplodeFish>>
-// <<wait 1>>
-// 물고기 터짐
+<<wait 0.5>>
+// 물고기 생성
+<<ActiveFish>>
+<<wait 0.5>>
 
 // 물고기 물고 가져온다
 // 럭키가 젤리를 가져다 둔다.
