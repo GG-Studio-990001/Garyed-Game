@@ -1,8 +1,8 @@
 using DG.Tweening;
-using Runtime.CH1.Main.Player;
 using Runtime.CH1.SubB;
 using Runtime.ETC;
 using Runtime.Lucky;
+using System;
 using UnityEngine;
 using Yarn.Unity;
 
@@ -10,136 +10,152 @@ namespace Runtime.CH1.Lucky
 {
     public class LuckyCH1Dialogue : DialogueViewBase
     {
-        // 클래스 이름 수정해야함
         private DialogueRunner _runner;
-        [SerializeField] private GameObject _luckyLayer;
+        [SerializeField] private GameObject[] _luckys;
         [SerializeField] private LuckyBody _lucky;
-        [SerializeField] private GameObject _bubble;
-        [SerializeField] private Vector3[] _inPosition;
-        [SerializeField] private Vector3[] _outPosition;
-        [SerializeField] private TopDownPlayer _player;
+        [SerializeField] private RectTransform _bubble;
+        [SerializeField] private Vector3[] _leftPositions;
+        [SerializeField] private Vector3[] _rightPositions;
+        [SerializeField] private Vector3[] _bubblePositions;
         [SerializeField] private GameObject _fish;
-        [SerializeField] private ThreeMatchPuzzleController _3MatchController;
-        [SerializeField] private SLGActionComponent _slgAction;
 
         private void Awake()
         {
             _runner = GetComponent<DialogueRunner>();
             _runner.AddCommandHandler("LuckyEnter", LuckyEnter);
-            _runner.AddCommandHandler<int>("WalkIn", WalkIn);
-            _runner.AddCommandHandler<int>("WalkOut", WalkOut);
-            _runner.AddCommandHandler<bool>("ActiveBubble", ActiveBubble);
+            _runner.AddCommandHandler<int>("WalkLeft", WalkLeft);
+            _runner.AddCommandHandler<int>("WalkRight", WalkRight);
             _runner.AddCommandHandler("Idle", Idle);
-            _runner.AddCommandHandler("ExplaneDone", ExplaneDone);
+            _runner.AddCommandHandler<bool>("ActiveBubble", ActiveBubble);
+
+            _runner.AddCommandHandler<int>("SetLuckyPos", SetLuckyPos);
+            _runner.AddCommandHandler<int>("SetBubblePos", SetBubblePos);
+
+            _runner.AddCommandHandler("ExitFirstMeet", ExitFirstMeet);
+            _runner.AddCommandHandler("Exit3Match", Exit3Match);
+            _runner.AddCommandHandler("ExitSLG", ExitSLG);
+
             _runner.AddCommandHandler("ActiveFish", ActiveFish);
-            _runner.AddCommandHandler("ExplodeFish", ExplodeFish);
-            _runner.AddCommandHandler("SLGExplaneDone", SLGExplaneDone);
-            _runner.AddCommandHandler("LuckyExit3Match", LuckyExit3Match);
-            _runner.AddCommandHandler("LuckyExitSLG", LuckyExitSLG);
         }
 
-        public void SLGExplainStart()
+        private void Start()
         {
-            if (Managers.Data.SLGProgressData == SLGProgress.ModeOpen)
-            {
-                _lucky.transform.localPosition = _outPosition[2];
-                _runner.StartDialogue("Lucky_SLG");
-            }
+            _fish.SetActive(false);
         }
 
-        private void SLGExplaneDone()
+        public override void RunLine(LocalizedLine dialogueLine, Action onDialogueLineFinished)
         {
-            _slgAction.MoveOnNextProgress();
-            Managers.Data.SaveGame();
+            onDialogueLineFinished();
         }
 
-        #region 3 매치 & 공용
-        public void S1ExplainStart()
-        {
-            if (Managers.Data.MeetLucky && !Managers.Data.Is3MatchEntered)
-            {
-                _lucky.transform.localPosition = _outPosition[0];
-                _runner.StartDialogue("Lucky_3Match");
-            }
-        }
-
-        public void S3ExplainStart()
-        {
-            // 3매치 퍼즐 클리어 저장 변수 없나? => 생기면 조건문 수정
-            if (Managers.Data.MeetLucky && Managers.Data.Scene <= 3 && Managers.Data.SceneDetail <= 0) // 3.0 넘었다면 이미 깬 것
-            {
-                _lucky.transform.localPosition = _outPosition[1];
-                _runner.StartDialogue("Lucky_3Match_Stage3");
-            }
-        }
-        
-        private void ActiveFish()
-        {
-            _fish.SetActive(true);
-        }
-
-        private void ExplodeFish()
-        {
-            _3MatchController.CheckMatching();
-        }
-
-        private void ExplaneDone()
-        {
-            Managers.Data.Is3MatchEntered = true;
-            Managers.Data.SaveGame();
-        }
-
+        #region Common
         private void LuckyEnter()
         {
-            // 플레이어 멈춰
             Managers.Data.InGameKeyBinder.PlayerInputDisable();
+            for (int i = 0; i < _luckys.Length; i++)
+                _luckys[i].SetActive(true);
+
             Managers.Sound.Play(Sound.LuckyBGM, "[Ch1] Lucky_BGM_4");
         }
 
         private void LuckyExit()
         {
             Managers.Data.InGameKeyBinder.PlayerInputEnable();
-            _luckyLayer.SetActive(false);
-            Idle();
-            Managers.Sound.StopBGM();
+            for (int i = 0; i < _luckys.Length; i++)
+                _luckys[i].SetActive(false);
+
+            Managers.Data.SaveGame();
         }
 
-        private void LuckyExit3Match()
+        private void WalkLeft(int idx)
         {
-            LuckyExit();
-            Managers.Sound.Play(Sound.BGM, "[Ch1] Main(Cave)_BGM", true);
-        }
-
-        private void LuckyExitSLG()
-        {
-            LuckyExit();
-            Managers.Sound.Play(Sound.BGM, "[Ch1] Main_BGM", true);
-        }
-
-        private void WalkIn(int i)
-        {
+            _lucky.SetFlipX(false);
             _lucky.Anim.SetAnimation("Walking"); // enum으로 변경
-            _lucky.transform.DOLocalMove(_inPosition[i], 3f).SetEase(Ease.Linear);
+            _lucky.transform.DOLocalMove(_leftPositions[idx], 3f).SetEase(Ease.Linear);
         }
 
-        private void WalkOut(int i)
+        private void WalkRight(int idx)
         {
-            _lucky.Anim.SetAnimation("Walking");
             _lucky.SetFlipX(true);
-            _lucky.transform.DOLocalMove(_outPosition[i], 3f).SetEase(Ease.Linear);
+            _lucky.Anim.SetAnimation("Walking");
+            _lucky.transform.DOLocalMove(_rightPositions[idx], 3f).SetEase(Ease.Linear);
         }
 
         private void Idle()
         {
-            _lucky.SetFlipX(false);
             _lucky.Anim.ResetAnim();
             Debug.Log("Idle");
         }
 
         private void ActiveBubble(bool active)
         {
-            _bubble.SetActive(active);
+            _bubble.gameObject.SetActive(active);
         }
         #endregion
+
+        #region 상황 따라 다르게
+        private void SetLuckyPos(int idx)
+        {
+            switch (idx)
+            {
+                case 0:
+                    _lucky.transform.position = _leftPositions[0];
+                    break;
+                case 1:
+                case 2:
+                case 3:
+                    _lucky.transform.position = _rightPositions[idx];
+                    break;
+            }
+        }
+
+        private void SetBubblePos(int idx)
+        {
+            _bubble.anchoredPosition = _bubblePositions[idx];
+        }
+        #endregion
+
+        #region Exit
+        // LuckyExit() 호출 필수
+
+        private void ExitFirstMeet()
+        {
+            LuckyExit();
+
+            Managers.Data.MeetLucky = true;
+            Managers.Data.SaveGame();
+
+            Managers.Sound.Play(Sound.BGM, "[Ch1] Main_BGM", true);
+        }
+
+        private void Exit3Match()
+        {
+            LuckyExit();
+
+            Managers.Sound.Play(Sound.BGM, "[Ch1] Main(Cave)_BGM", true);
+        }
+
+        private void ExitSLG()
+        {
+            LuckyExit();
+
+            SLGActionComponent slgAction = FindObjectOfType<SLGActionComponent>();
+            if (slgAction != null)
+            {
+                slgAction.MoveOnNextProgress();
+            }
+
+            Managers.Sound.Play(Sound.BGM, "[Ch1] Main_BGM", true);
+        }
+        #endregion
+
+        private void ActiveFish()
+        {
+            Managers.Sound.Play(Sound.SFX, "FishJelly");
+
+            _fish.SetActive(true);
+            _fish.transform.localPosition = new(9.5f, -0.5f, 0);
+            _fish.GetComponent<Jewelry>().JewelryType = JewelryType.B;
+        }
     }
 }
