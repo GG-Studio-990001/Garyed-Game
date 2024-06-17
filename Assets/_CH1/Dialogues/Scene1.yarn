@@ -26,7 +26,7 @@ R2-MON: !@%!!$^@!~^&
 달러: 어서 자리에서 일어나 보게.
 
 <<FadeOut>>
-<<wait 1.5>>
+<<wait 2>>
 <<ShowIllustration 0>>
 <<CharactersStop 1>>
 <<FadeIn>>

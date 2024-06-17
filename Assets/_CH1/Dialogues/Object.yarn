@@ -1,6 +1,41 @@
-﻿title: BlockCave
+﻿title: Knife
 ---
-     :별로 들어가고 싶지 않다...
+     :검이 땅에 단단하게 꽂혀있다.
+===
+
+title: Controller
+---
+     :끈이 끊어진 게임기다.
+===
+
+title: Bread
+---
+     :이 빵은 너무 딱딱해 보여서 먹기는 무리다.
+===
+
+title: Tree2
+---
+     :많이 부서진 나무다.
+===
+
+title: Father
+---
+     :허수아비인 것 같다.
+===
+
+title: Shovel
+---
+     :보기보다 무거운 삽이다.
+===
+
+title: Potions
+---
+     :그저 그런 작은 포션들이다.
+===
+
+title: Rings
+---
+     :쓸모를 다한 링들이 쌓여있다.
 ===
 
 title: PacmomGamePack
@@ -16,48 +51,7 @@ title: LuckyPack
      <<MeetLucky>>
 ===
 
-title: Knife2
+title: BlockCave
 ---
-     :평범한 작은 칼이다.
-===
-
-title: Knife1
----
-     :무척 위협적...이지 않은 초심자용 칼이다.
-===
-
-title: GameBoy
----
-     :작동되지 않는 게임보이이다.
-===
-
-title: BigKnife
----
-     :이미 부식된 칼이다.
-===
-title: Potions
----
-     :그저 그런 작은 포션들이다.
-===
-title: BigPotion
----
-     :금이 간 포션이다.
-===
-title: Rings
----
-     :쓸모를 다한 링들이 쌓여있다.
-===
-
-// 아래는 임시
-title: Object
----
-     :평범한 오브젝트다. #line:05d6b92 
-     <<wait 1>>
-     :평범한!!
-===
-
-title: SLGObject
----
-     :SLG UI 장착!
-     <<SLGSetting>>
+     :별로 들어가고 싶지 않다...
 ===
