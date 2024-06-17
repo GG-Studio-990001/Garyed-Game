@@ -275,7 +275,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeImage: {fileID: 1651796630}
-  background: {fileID: 0}
   fadeDeltaTime: 0.01
 --- !u!224 &86442426
 RectTransform:
@@ -2325,7 +2324,7 @@ RectTransform:
   m_GameObject: {fileID: 429307288}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 150, y: 150, z: 1}
+  m_LocalScale: {x: 100, y: 100, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1972450718}
@@ -2885,14 +2884,14 @@ RectTransform:
   m_GameObject: {fileID: 513051065}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 40, y: 40, z: 1}
+  m_LocalScale: {x: 30, y: 30, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1972450718}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 452, y: -177}
+  m_AnchoredPosition: {x: 419.6, y: -170.9}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &513051067
@@ -10178,7 +10177,6 @@ GameObject:
   - component: {fileID: 680145020}
   - component: {fileID: 680145022}
   - component: {fileID: 680145021}
-  - component: {fileID: 680145023}
   m_Layer: 5
   m_Name: LineView
   m_TagString: Untagged
@@ -10225,6 +10223,7 @@ MonoBehaviour:
   lineText: {fileID: 1087819682}
   showCharacterNameInLineView: 0
   characterNameText: {fileID: 0}
+  characterNameContainer: {fileID: 0}
   useTypewriterEffect: 1
   onCharacterTyped:
     m_PersistentCalls:
@@ -10241,10 +10240,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onPauseStarted:
+    m_PersistentCalls:
+      m_Calls: []
+  onPauseEnded:
+    m_PersistentCalls:
+      m_Calls: []
   typewriterEffectSpeed: 10
   continueButton: {fileID: 0}
   holdTime: 2
-  autoAdvance: 1
+  autoAdvance: 0
+  palette: {fileID: 0}
 --- !u!225 &680145022
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -10257,40 +10263,6 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!114 &680145023
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 680145019}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 097b95c9f69f04f2d8c08a817e7786af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogueView: {fileID: 0}
-  continueActionType: 3
-  continueActionKeyCode: 32
-  continueActionReference: {fileID: 8709246600754175931, guid: 6e910e6b94272464bb728827f85a5f59, type: 3}
-  continueAction:
-    m_Name: Skip
-    m_Type: 1
-    m_ExpectedControlType: 
-    m_Id: 08df8931-91fa-4361-9697-5d2363bcb99d
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: cbd24d49-08ce-478c-935c-20aa92f2f673
-      m_Path: Submit
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Skip
-      m_Flags: 0
-    m_Flags: 0
-  enableActionOnStart: 1
 --- !u!1 &696614760
 GameObject:
   m_ObjectHideFlags: 0
@@ -22269,15 +22241,15 @@ RectTransform:
   m_GameObject: {fileID: 898401471}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 20, y: 20, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2130668679}
+  m_Father: {fileID: 1160680247}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 420.43, y: 92.85}
-  m_SizeDelta: {x: 340.16, y: 159.84}
+  m_AnchoredPosition: {x: 7.600586, y: 555}
+  m_SizeDelta: {x: 301.64, y: 169.47}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &898401473
 MonoBehaviour:
@@ -22299,7 +22271,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uB7ED\uD0A4\uB2D8 \uD1F4\uC7A5\uC774\uC694~"
+  m_text: "\uCCAD\uC18C\uC2DC\uAC04\uC5D0<br>\uD329\uB9D8\uACFC \uBD80\uB52A\uD788\uBA74<br>\uCF54\uC778\uC744
+    \uBE7C\uC557\uAE34\uB300"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 94026959aaa5c994ebf1ee77d30f9fbb, type: 2}
   m_sharedMaterial: {fileID: -373988886366029061, guid: 94026959aaa5c994ebf1ee77d30f9fbb, type: 2}
@@ -22326,8 +22299,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 32
+  m_fontSizeBase: 32
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -23861,13 +23834,14 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.050000004, y: 0.050000004, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 898401472}
   m_Father: {fileID: 2130668679}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 420.43, y: 64}
-  m_SizeDelta: {x: 7244.28, y: 4586.07}
+  m_AnchoredPosition: {x: 440, y: 47}
+  m_SizeDelta: {x: 6281.4, y: 4746.54}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1160680248
 MonoBehaviour:
@@ -24716,7 +24690,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1518688480}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -24735,8 +24709,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0fade8269f8538498ea50f1c3282a82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  settingsUIView: {fileID: 490336367}
-  rapley: {fileID: 133942950}
+  _settingsUIView: {fileID: 490336367}
+  _lineView: {fileID: 680145021}
+  _rapley: {fileID: 133942950}
 --- !u!1 &1568963810
 GameObject:
   m_ObjectHideFlags: 0
@@ -30759,7 +30734,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1160680247}
-  - {fileID: 898401472}
   m_Father: {fileID: 1972450718}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -30780,8 +30754,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueView: {fileID: 2130668681}
-  continueActionType: 3
+  continueActionType: 4
   continueActionKeyCode: 32
+  continueActionButtonName: Jump
+  continueActionOnButtonRelease: 0
   continueActionReference: {fileID: 8709246600754175931, guid: 6e910e6b94272464bb728827f85a5f59, type: 3}
   continueAction:
     m_Name: Skip
@@ -30820,14 +30796,22 @@ MonoBehaviour:
   lineText: {fileID: 898401473}
   showCharacterNameInLineView: 0
   characterNameText: {fileID: 0}
+  characterNameContainer: {fileID: 0}
   useTypewriterEffect: 1
   onCharacterTyped:
+    m_PersistentCalls:
+      m_Calls: []
+  onPauseStarted:
+    m_PersistentCalls:
+      m_Calls: []
+  onPauseEnded:
     m_PersistentCalls:
       m_Calls: []
   typewriterEffectSpeed: 10
   continueButton: {fileID: 0}
   holdTime: 3
-  autoAdvance: 1
+  autoAdvance: 0
+  palette: {fileID: 0}
 --- !u!225 &2130668682
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -31368,12 +31352,12 @@ MonoBehaviour:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 1882183158}
+  - {fileID: 1118124721}
   - {fileID: 217373127}
   - {fileID: 1143825158}
   - {fileID: 1574099397}
   - {fileID: 1972450718}
-  - {fileID: 1882183158}
-  - {fileID: 1118124721}
   - {fileID: 1364982922}
   - {fileID: 1749537224}
   - {fileID: 2119691702}

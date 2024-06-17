@@ -4,6 +4,7 @@ using Runtime.CH1.Title;
 using Runtime.CH2.Main;
 using Runtime.Common.View;
 using Yarn.Unity;
+using static PlasticPipe.PlasticProtocol.Messages.Serialization.ItemHandlerMessagesSerialization;
 
 namespace Runtime.Input
 {
@@ -28,10 +29,11 @@ namespace Runtime.Input
         }
 
         // Pacmom
-        public void PMKeyBinding(PMKeyBinder keyBinder, Rapley rapley)
+        public void PMKeyBinding(PMKeyBinder keyBinder, LineView line, Rapley rapley )
         {
             _gameOverControls.UI.Enable();
             _gameOverControls.UI.GameSetting.performed += _ => keyBinder.SetSettingUI();
+            _gameOverControls.UI.DialogueInput.performed += _ => line.OnContinueClicked();
 
             _gameOverControls.Player.Enable();
             _gameOverControls.Player.Move.performed += rapley.OnMove;

@@ -1302,7 +1302,7 @@ MonoBehaviour:
   onPauseEnded:
     m_PersistentCalls:
       m_Calls: []
-  typewriterEffectSpeed: 15
+  typewriterEffectSpeed: 12
   continueButton: {fileID: 0}
   holdTime: 1
   autoAdvance: 0
