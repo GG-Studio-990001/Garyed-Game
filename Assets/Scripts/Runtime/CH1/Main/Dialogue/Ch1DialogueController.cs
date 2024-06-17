@@ -47,7 +47,7 @@ namespace Runtime.CH1.Main.Dialogue
             _runner.AddCommandHandler("SceneEnd", SceneEnd);
 
             // CutScene
-            _runner.AddCommandHandler<bool>("ShowIllustration", _cutScene.ShowIllustration);
+            _runner.AddCommandHandler<int>("ShowIllustration", _cutScene.ShowIllustration);
             _runner.AddCommandHandler<int>("CharactersMove", _cutScene.CharactersMove);
             _runner.AddCommandHandler<int>("CharactersStop", _cutScene.CharactersStop);
             _runner.AddCommandHandler<int>("NpcJump", _cutScene.NpcJump);

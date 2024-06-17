@@ -5,7 +5,7 @@ title: S1
 <<NewSceneStart>>
 
 // 검정 화면
-<<ShowIllustration true>>
+<<ShowIllustration 1>>
 ???: ...?!
 ???: 달러님, 이것 좀 보세요!
 ???: 방금 떨어졌는데 뭔가 이상합니다. 이건 마치...
@@ -14,7 +14,10 @@ title: S1
 ???: @@$~!@^%^$@
 
 // 일러스트
-// <<ShowIllustration 1>>
+<<ShowIllustration 2>>
+<<FadeIn>>
+<<wait 1>>
+
 파머: 저기!! 이봐!! 어이!!
 플레이어?: ???
 파머: 오, 눈을 뜬 것 같은데요?
@@ -23,9 +26,9 @@ R2-MON: !@%!!$^@!~^&
 달러: 어서 자리에서 일어나보게.
 
 <<FadeOut>>
-<<wait 1>>
+<<wait 1.5>>
+<<ShowIllustration 0>>
 <<CharactersStop 1>>
-<<ShowIllustration false>>
 <<FadeIn>>
 <<wait 1>>
 
