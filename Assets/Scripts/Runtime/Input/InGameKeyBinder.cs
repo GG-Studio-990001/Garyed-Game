@@ -4,7 +4,6 @@ using Runtime.CH1.Title;
 using Runtime.CH2.Main;
 using Runtime.Common.View;
 using Yarn.Unity;
-using static PlasticPipe.PlasticProtocol.Messages.Serialization.ItemHandlerMessagesSerialization;
 
 namespace Runtime.Input
 {
