@@ -1,7 +1,7 @@
 using Runtime.CH1.Main.Player;
 using Runtime.CH1.Pacmom;
 using Runtime.CH1.Title;
-using Runtime.CH2;
+using Runtime.CH2.Main;
 using Runtime.Common.View;
 using Yarn.Unity;
 
@@ -28,10 +28,11 @@ namespace Runtime.Input
         }
 
         // Pacmom
-        public void PMKeyBinding(PMKeyBinder keyBinder, Rapley rapley)
+        public void PMKeyBinding(PMKeyBinder keyBinder, LineView line, Rapley rapley )
         {
             _gameOverControls.UI.Enable();
             _gameOverControls.UI.GameSetting.performed += _ => keyBinder.SetSettingUI();
+            _gameOverControls.UI.DialogueInput.performed += _ => line.OnContinueClicked();
 
             _gameOverControls.Player.Enable();
             _gameOverControls.Player.Move.performed += rapley.OnMove;

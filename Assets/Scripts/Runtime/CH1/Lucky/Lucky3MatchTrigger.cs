@@ -17,14 +17,19 @@ namespace Runtime.CH1.Lucky
 
         private void OnTriggerEnter2D(Collider2D other)
         {
+            if (Managers.Data.Scene > 3 || (Managers.Data.Scene == 3 && Managers.Data.SceneDetail == 1))
+                return;
+
             if (other.CompareTag(GlobalConst.PlayerStr))
             {
-                // TODO: 첫 럭키면 미리 했을 때의 분기점 추가
-                if (_stageNum == 1)
+                // TODO: 럭키 없이 미리 클리어시 분기점 추가
+                // TODO: 동굴 막기 없앨 시 Managers.Data.MeetLucky 조건 추가
+                if (_stageNum == 1 && !Managers.Data.Is3MatchEntered)
                 {
+                    Managers.Data.Is3MatchEntered = true;
                     _luckyDialogue.StartDialogue("Lucky3Match");
                 }
-                else if (!_luckyExplained3 && _stageNum == 3)
+                else if (_stageNum == 3 && !_luckyExplained3 && !Managers.Data.Is3MatchCleared)
                 {
                     // TODO: 대화 끝날 때 true 처리
                     _luckyExplained3 = true;

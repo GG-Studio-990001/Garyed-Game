@@ -20,7 +20,7 @@ namespace Runtime.CH1.Main.Dialogue
         [SerializeField] private NpcBody _mamago;
         [SerializeField] private Vector3[] _mamagoLocation;
         [Header("=Else=")]
-        [SerializeField] private GameObject _illerstration;
+        [SerializeField] private GameObject[] _illerstration = new GameObject[2];
         [SerializeField] private GameObject _lucky;
         [SerializeField] private GameObject _stage2;
         [SerializeField] private BridgeController _bridge;
@@ -266,9 +266,21 @@ namespace Runtime.CH1.Main.Dialogue
             _luckyDialogue.StartDialogue("LuckyFirstMeet");
         }
 
-        public void ShowIllustration(bool show)
+        public void ShowIllustration(int val)
         {
-            _illerstration.SetActive(show);
+            switch(val)
+            {
+                case 1:
+                    _illerstration[0].SetActive(true);
+                    break;
+                case 2:
+                    _illerstration[0].SetActive(false);
+                    _illerstration[1].SetActive(true);
+                    break;
+                case 0:
+                    _illerstration[1].SetActive(false);
+                    break;
+            }
         }
         #endregion
 

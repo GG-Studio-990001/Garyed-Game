@@ -1,15 +1,18 @@
 using Runtime.CH1.Pacmom;
 using Runtime.Common.View;
 using UnityEngine;
+using Yarn.Unity;
 
 namespace Runtime.CH1.Pacmom
 {
     public class PMKeyBinder : MonoBehaviour
     {
         [SerializeField]
-        private SettingsUIView settingsUIView;
+        private SettingsUIView _settingsUIView;
         [SerializeField]
-        private Rapley rapley;
+        private LineView _lineView;
+        [SerializeField]
+        private Rapley _rapley;
 
         private void Start()
         {
@@ -19,13 +22,13 @@ namespace Runtime.CH1.Pacmom
         private void InitKeyBinding()
         {
             Managers.Data.InGameKeyBinder.GameControlReset();
-            Managers.Data.InGameKeyBinder.PMKeyBinding(this, rapley);
+            Managers.Data.InGameKeyBinder.PMKeyBinding(this, _lineView, _rapley);
         }
 
         public void SetSettingUI()
         {
             // Esc에 부착
-            settingsUIView.GameSettingToggle();
+            _settingsUIView.GameSettingToggle();
             TimeScaleToggle();
 
             // X 버튼에는 직접 부착함
