@@ -1,7 +1,7 @@
 using Runtime.CH1.Main.Player;
 using Runtime.CH1.Pacmom;
 using Runtime.CH1.Title;
-using Runtime.CH2;
+using Runtime.CH2.Main;
 using Runtime.Common.View;
 using Yarn.Unity;
 

@@ -1,9 +1,10 @@
+using Runtime.ETC;
 using System;
 using UnityEngine;
 using UnityEngine.UI;
 using Yarn.Unity;
 
-namespace Runtime.CH2
+namespace Runtime.CH2.Main
 {
     public enum Character
     {
@@ -11,13 +12,14 @@ namespace Runtime.CH2
         r2mon = 1,
     }
 
-    public class IntroDialogue : DialogueViewBase
+    public class CH2Dialogue : DialogueViewBase
     {
         private DialogueRunner _runner;
         [SerializeField]
         private Image[] _characters = new Image[2];
         [SerializeField]
         private GameObject next;
+        private string _speaker;
 
         private void Awake()
         {
@@ -27,11 +29,11 @@ namespace Runtime.CH2
 
         public override void RunLine(LocalizedLine dialogueLine, Action onDialogueLineFinished)
         {
-            string speaker = dialogueLine.CharacterName;
+            _speaker = dialogueLine.CharacterName;
 
-            if (speaker.Equals("라플리"))
+            if (_speaker.Equals("라플리"))
                 StandingHighlight((int)Character.rapley);
-            else if (speaker.Equals("R2-MON"))
+            else if (_speaker.Equals("R2-Mon"))
                 StandingHighlight((int)Character.r2mon);
 
             onDialogueLineFinished();
@@ -51,6 +53,18 @@ namespace Runtime.CH2
 
             _characters[num].color = speaker;
             _characters[1 - num].color = nonSpeaker;
+        }
+
+        public void TextSFX()
+        {
+            if (_speaker == "R2-Mon")
+            {
+                Managers.Sound.Play(Sound.Speech, "[CH1] R2-Mon_Text_SFX_04");
+            }
+            else
+            {
+                Managers.Sound.Play(Sound.Speech, "[CH1] Text SFX");
+            }
         }
     }
 }

@@ -1,7 +1,7 @@
 using Runtime.Common.View;
 using UnityEngine;
 
-namespace Runtime.CH2
+namespace Runtime.CH2.Main
 {
     public class CH2KeyBinder : MonoBehaviour
     {

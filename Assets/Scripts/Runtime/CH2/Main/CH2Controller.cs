@@ -1,7 +1,7 @@
 using UnityEngine;
 using Sound = Runtime.ETC.Sound;
 
-namespace Runtime.CH2
+namespace Runtime.CH2.Main
 {
     public class CH2Controller : MonoBehaviour
     {

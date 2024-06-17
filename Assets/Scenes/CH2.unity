@@ -568,7 +568,7 @@ GameObject:
   - component: {fileID: 462151666}
   - component: {fileID: 462151665}
   m_Layer: 5
-  m_Name: WhiteBox
+  m_Name: NameBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -836,7 +836,7 @@ GameObject:
   - component: {fileID: 571468143}
   - component: {fileID: 571468142}
   m_Layer: 5
-  m_Name: BlackBox
+  m_Name: LineBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1195,6 +1195,7 @@ GameObject:
   - component: {fileID: 715054632}
   - component: {fileID: 715054631}
   - component: {fileID: 715054630}
+  - component: {fileID: 715054633}
   m_Layer: 5
   m_Name: DialogueBox
   m_TagString: Untagged
@@ -1236,8 +1237,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueView: {fileID: 715054631}
-  continueActionType: 3
+  continueActionType: 4
   continueActionKeyCode: 32
+  continueActionButtonName: Jump
+  continueActionOnButtonRelease: 0
   continueActionReference: {fileID: 8709246600754175931, guid: 6e910e6b94272464bb728827f85a5f59, type: 3}
   continueAction:
     m_Name: Skip
@@ -1276,14 +1279,34 @@ MonoBehaviour:
   lineText: {fileID: 752168517}
   showCharacterNameInLineView: 1
   characterNameText: {fileID: 189202691}
+  characterNameContainer: {fileID: 189202689}
   useTypewriterEffect: 1
   onCharacterTyped:
     m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 696216671}
+        m_TargetAssemblyTypeName: Runtime.CH2.Main.CH2Dialogue, Scripts
+        m_MethodName: TextSFX
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onPauseStarted:
+    m_PersistentCalls:
       m_Calls: []
-  typewriterEffectSpeed: 20
+  onPauseEnded:
+    m_PersistentCalls:
+      m_Calls: []
+  typewriterEffectSpeed: 15
   continueButton: {fileID: 0}
   holdTime: 1
   autoAdvance: 0
+  palette: {fileID: 0}
 --- !u!225 &715054632
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -1296,6 +1319,35 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &715054633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 715054628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 715054631}
+          m_TargetAssemblyTypeName: Yarn.Unity.LineView, YarnSpinner.Unity
+          m_MethodName: OnContinueClicked
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &752168515
 GameObject:
   m_ObjectHideFlags: 0
@@ -1566,8 +1618,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 2138864457}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1037746161
@@ -2429,7 +2480,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1037746160}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
@@ -2441,6 +2492,7 @@ SceneRoots:
   - {fileID: 1060999297}
   - {fileID: 1941370661}
   - {fileID: 1037746160}
+  - {fileID: 2138864457}
   - {fileID: 696216670}
   - {fileID: 2042471881}
   - {fileID: 1353834678}
