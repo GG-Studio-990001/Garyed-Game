@@ -33,7 +33,7 @@ title: S3
 <<wait 1>>
 
 <<NpcJump 0>>
-달러: 오, 맙소사..
+달러: 오, 맙소사...
 <<NpcJump 2>>
 R2-MON: @$%&**$~!@@^
 <<NpcJump 1>>
