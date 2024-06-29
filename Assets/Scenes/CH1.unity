@@ -1024,7 +1024,7 @@ Transform:
   m_GameObject: {fileID: 66282065}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -29.46, y: -3.79, z: 0}
+  m_LocalPosition: {x: -30.24, y: -3.79, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6736,7 +6736,8 @@ GameObject:
   - component: {fileID: 322405306}
   - component: {fileID: 322405308}
   - component: {fileID: 322405307}
-  m_Layer: 0
+  - component: {fileID: 322405309}
+  m_Layer: 15
   m_Name: Dummy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6755,7 +6756,9 @@ Transform:
   m_LocalPosition: {x: 5.7, y: -9.537, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1049323876}
+  - {fileID: 653420039}
   m_Father: {fileID: 562332661}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!60 &322405307
@@ -6802,7 +6805,7 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 1.0470948, y: 0.12985134}
+    - - {x: 1.6671901, y: 0.47812462}
       - {x: 0.19245148, y: 0.60438156}
       - {x: -0.14301348, y: 0.5964956}
       - {x: -0.3894663, y: 0.5804424}
@@ -6818,8 +6821,8 @@ PolygonCollider2D:
       - {x: 0.34375, y: -1.078125}
       - {x: 0.65625, y: -1.109375}
       - {x: 1.53125, y: -1.109375}
-      - {x: 1.4547687, y: -0.23558617}
-      - {x: 1.214736, y: -0.3197174}
+      - {x: 1.5312185, y: -0.3969803}
+      - {x: 2.183104, y: -0.056388855}
   m_UseDelaunayMesh: 0
 --- !u!212 &322405308
 SpriteRenderer:
@@ -6873,6 +6876,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &322405309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 322405305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6dd3a0605680fc4d99395d8cfaf79da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnInteract:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &323083596
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10886,7 +10904,7 @@ GameObject:
   m_Component:
   - component: {fileID: 483180649}
   - component: {fileID: 483180650}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Obj_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12351,7 +12369,6 @@ Transform:
   - {fileID: 322405306}
   - {fileID: 1121758488}
   - {fileID: 833184461}
-  - {fileID: 1327039388}
   - {fileID: 1919171661}
   m_Father: {fileID: 848284961}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -14322,7 +14339,6 @@ GameObject:
   m_Component:
   - component: {fileID: 653420039}
   - component: {fileID: 653420041}
-  - component: {fileID: 653420040}
   m_Layer: 0
   m_Name: Obj
   m_TagString: Untagged
@@ -14339,47 +14355,12 @@ Transform:
   m_GameObject: {fileID: 653420038}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.16, y: -9.15, z: 0}
+  m_LocalPosition: {x: 1.46, y: 0.38700008, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1327039388}
+  m_Father: {fileID: 322405306}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &653420040
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 653420038}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.1875
 --- !u!212 &653420041
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -15604,7 +15585,7 @@ GameObject:
   m_Component:
   - component: {fileID: 700139426}
   - component: {fileID: 700139427}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Obj_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19386,8 +19367,9 @@ GameObject:
   m_Component:
   - component: {fileID: 833184461}
   - component: {fileID: 833184462}
-  m_Layer: 0
-  m_Name: Dummy_2
+  - component: {fileID: 833184463}
+  m_Layer: 15
+  m_Name: Dummy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19476,6 +19458,21 @@ PolygonCollider2D:
       - {x: 17.47405, y: -4.404092}
       - {x: 18.21867, y: -3.144505}
   m_UseDelaunayMesh: 0
+--- !u!114 &833184463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 833184460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6dd3a0605680fc4d99395d8cfaf79da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnInteract:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &838629589 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1368314908901170753, guid: c0ae61144ca480d4c99f053ad7e3906a, type: 3}
@@ -24122,7 +24119,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1049323876}
   - component: {fileID: 1049323878}
-  - component: {fileID: 1049323877}
   m_Layer: 0
   m_Name: Obj
   m_TagString: Untagged
@@ -24139,47 +24135,12 @@ Transform:
   m_GameObject: {fileID: 1049323875}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.669998, y: -9.57, z: 0}
+  m_LocalPosition: {x: 1.9699984, y: -0.032999992, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1327039388}
+  m_Father: {fileID: 322405306}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &1049323877
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1049323875}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.1875
 --- !u!212 &1049323878
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -26618,8 +26579,9 @@ GameObject:
   - component: {fileID: 1121758488}
   - component: {fileID: 1121758490}
   - component: {fileID: 1121758489}
-  m_Layer: 0
-  m_Name: Dummy_1
+  - component: {fileID: 1121758491}
+  m_Layer: 15
+  m_Name: Dummy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26749,6 +26711,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1121758491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1121758487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6dd3a0605680fc4d99395d8cfaf79da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnInteract:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1122157560
 GameObject:
   m_ObjectHideFlags: 0
@@ -33252,7 +33229,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1268528216}
   - component: {fileID: 1268528217}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Obj
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33815,7 +33792,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1285485445}
   - component: {fileID: 1285485446}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Obj_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35499,39 +35476,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2c874fc710ef794ea22332a4c1f2f6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1327039387
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1327039388}
-  m_Layer: 0
-  m_Name: Else
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1327039388
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1327039387}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1049323876}
-  - {fileID: 653420039}
-  m_Father: {fileID: 562332661}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1327892738
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -47926,6 +47870,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1740714777}
   - component: {fileID: 1740714779}
+  - component: {fileID: 1740714780}
   m_Layer: 15
   m_Name: Dummy
   m_TagString: Untagged
@@ -48000,6 +47945,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1740714780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1740714776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6dd3a0605680fc4d99395d8cfaf79da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnInteract:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &1742866743
 PrefabInstance:
   m_ObjectHideFlags: 0
