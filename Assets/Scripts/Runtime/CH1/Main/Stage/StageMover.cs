@@ -32,9 +32,9 @@ namespace Runtime.CH1.Main.Stage
             if (other.CompareTag(GlobalConst.PlayerStr))
             {
                 if (moveStageNumber > 3) // 마마고, 3매치 등
-                    Invoke("InactiveNpcs", 1f);
+                    Invoke(nameof(InactiveNpcs), 1f);
                 else
-                    Invoke("ActiveNpcs", 1f);
+                    Invoke(nameof(ActiveNpcs), 1f);
 
                 _ = StageChanger.SwitchStage(moveStageNumber, spawnPosition);
 
