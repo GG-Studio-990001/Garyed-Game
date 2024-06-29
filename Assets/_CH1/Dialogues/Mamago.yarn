@@ -12,7 +12,7 @@ title: Mamago
 <<elseif $progress == 50>>
     <<jump Mamago2>>
 <<else>>
-    <<NpcDialogueFin 3>>
+    <<jump Mamago3>>
 <<endif>>
 ===
 
@@ -52,5 +52,14 @@ title: Mamago2
 마마고: 앞으로 모르는 언어를 번역하고 싶다면<br>저희 마마고 컴퍼니를 꼭 찾아주세요~
 마마고: 그럼 그대여, 굿바이!
 <<SceneEnd>>
+<<NpcDialogueFin 3>>
+===
+
+title: Mamago3
+// 상황: 기계어 번역팩 획득 이후
+---
+
+마마고: 다음에 꼭 다시 들러주세요~
+
 <<NpcDialogueFin 3>>
 ===
